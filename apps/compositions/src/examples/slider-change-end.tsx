@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Box, Code, Stack } from '@chakra-ui/react'
+import { Box, Code, Stack } from '@saas-ui/react'
 import { Slider } from '@saas-ui/react'
 
 const initialValue = [50]

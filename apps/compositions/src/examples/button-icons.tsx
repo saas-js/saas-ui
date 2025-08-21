@@ -1,6 +1,6 @@
 'use client'
 
-import { Stack } from '@chakra-ui/react'
+import { Stack } from '@saas-ui/react'
 import { IconButton } from '@saas-ui/react'
 import { RiPhoneLine, RiSearchLine } from 'react-icons/ri'
 

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 
-import { Box, Group } from '@chakra-ui/react'
+import { Box, Group } from '@saas-ui/react'
 import { Button, Popover } from '@saas-ui/react'
 
 export const PopoverWithInitialFocus = () => {

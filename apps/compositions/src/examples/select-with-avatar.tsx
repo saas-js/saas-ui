@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, createListCollection } from '@chakra-ui/react'
+import { HStack, createListCollection } from '@saas-ui/react'
 import { Avatar, Select } from '@saas-ui/react'
 
 const SelectValueItem = () => (

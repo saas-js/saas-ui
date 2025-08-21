@@ -12,8 +12,11 @@ packages:
 onlyBuiltDependencies:
   - '@parcel/watcher'
 overrides:
-  '@zag-js/core': '1.17.4'
-  '@ark-ui/react': '5.15.4'
-  '@chakra-ui/react': '3.21.0'
+  '@ark-ui/react': '5.20.0'
+  '@chakra-ui/react': '3.25.0'
   'react': '19.0.0'
   '@types/react': '19.0.12'
+hoistPattern:
+  - '@chakra-ui/react'
+  - '@ark-ui/react'
+  - 'zod'

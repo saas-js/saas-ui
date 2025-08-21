@@ -1,6 +1,6 @@
 'use client'
 
-import { AspectRatio } from '@chakra-ui/react'
+import { AspectRatio } from '@saas-ui/react'
 import { Button, Dialog } from '@saas-ui/react'
 
 export const DialogWithCloseOutside = () => {

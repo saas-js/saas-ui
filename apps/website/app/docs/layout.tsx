@@ -7,7 +7,7 @@ import {
   HStack,
   SkipNavContent,
   SkipNavLink,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 
 import { MobileSidebarNav, SidebarStart } from './sidebar'
 

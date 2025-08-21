@@ -3,7 +3,7 @@
 import { ReactNode, useState } from 'react'
 
 import { Combobox, createListCollection } from '@ark-ui/react'
-import { Center, HStack, Icon, Input, Text, chakra } from '@chakra-ui/react'
+import { Center, HStack, Icon, Input, Text, chakra } from '@saas-ui/react'
 import { Dialog } from '@saas-ui/react'
 import { useHotkeys } from '@saas-ui/use-hotkeys'
 import { useDocsSearch } from 'fumadocs-core/search/client'

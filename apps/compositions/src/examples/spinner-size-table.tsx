@@ -1,6 +1,6 @@
 'use client'
 
-import { For, useRecipe } from '@chakra-ui/react'
+import { For, useRecipe } from '@saas-ui/react'
 import { Spinner } from '@saas-ui/react'
 
 export const SpinnerSizeTable = () => {

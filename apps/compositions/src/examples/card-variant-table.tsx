@@ -1,6 +1,6 @@
 'use client'
 
-import { For, useSlotRecipe } from '@chakra-ui/react'
+import { For, useSlotRecipe } from '@saas-ui/react'
 import { Button, Card } from '@saas-ui/react'
 
 import { PlaygroundTable } from '../lib/playground-table'

@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, RadioCardRoot } from '@chakra-ui/react'
+import { HStack, RadioCardRoot } from '@saas-ui/react'
 import { RadioCard } from '@saas-ui/react'
 
 export const RadioCardWithAddon = () => {

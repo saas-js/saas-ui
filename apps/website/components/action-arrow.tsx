@@ -1,4 +1,4 @@
-import { Icon } from '@chakra-ui/react'
+import { Icon } from '@saas-ui/react'
 import { TbArrowRight } from 'react-icons/tb'
 
 export function ActionArrow() {

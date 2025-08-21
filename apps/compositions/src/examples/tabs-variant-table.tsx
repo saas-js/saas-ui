@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Span, Text, useSlotRecipe } from '@chakra-ui/react'
+import { For, Span, Text, useSlotRecipe } from '@saas-ui/react'
 import { Tabs } from '@saas-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'

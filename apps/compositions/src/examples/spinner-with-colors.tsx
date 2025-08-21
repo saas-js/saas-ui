@@ -1,6 +1,6 @@
 'use client'
 
-import { Stack } from '@chakra-ui/react'
+import { Stack } from '@saas-ui/react'
 import { Spinner } from '@saas-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'

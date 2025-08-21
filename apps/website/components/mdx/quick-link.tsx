@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, Card, Icon, Text } from '@chakra-ui/react'
+import { Box, Button, Card, Icon, Text } from '@saas-ui/react'
 import Link from 'next/link'
 import { FiArrowRight } from 'react-icons/fi'
 

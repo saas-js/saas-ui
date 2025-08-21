@@ -1,6 +1,6 @@
 import { HeaderSection } from '@/components/pro/header.section'
 import { FooterSection } from '@/components/site/footer.section'
-import { Stack } from '@chakra-ui/react'
+import { Stack } from '@saas-ui/react'
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (

@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
   VisuallyHidden,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Avatar, AvatarGroup } from '@saas-ui/react'
 import { Changelog } from 'content-collections'
 import Image from 'next/image'

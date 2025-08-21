@@ -1,6 +1,6 @@
 import * as TypographyDocs from 'compositions/lib/typography-token-doc'
-import { Kbd, SimpleGrid } from '@chakra-ui/react'
 import { useMDXComponent } from '@content-collections/mdx/react'
+import { Kbd, SimpleGrid } from '@saas-ui/react'
 import { AspectRatioTokenDoc } from 'compositions/lib/aspect-ratio-token-doc'
 import { BorderRadiusTokenDoc } from 'compositions/lib/border-radius-token-doc'
 import { BreakpointDoc } from 'compositions/lib/breakpoint-doc'

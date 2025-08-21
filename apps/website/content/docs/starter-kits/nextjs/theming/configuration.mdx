@@ -5,16 +5,15 @@ description: How to configure and customize your theme.
 
 ## Configure your theme
 
-You can find you base theme in `packages/theme`, this is where you can customize your theme.
+You can find you base theme in `packages/theme`, this is where you can customize
+your theme.
 
-Read more about theme customization on the [Chakra UI website](https://chakra-ui.com/docs/styled-system/customize-theme).
+Read more about theme customization on the
+[Chakra UI website](https://chakra-ui.com/docs/styled-system/customize-theme).
 
 ```tsx
-import { extendTheme } from '@chakra-ui/react'
-import {
-  theme as baseTheme,
-  /* withThemeColors */
-} from '@saas-ui-pro/react'
+import { theme as baseTheme } from /* withThemeColors */ '@saas-ui-pro/react'
+import { extendTheme } from '@saas-ui/react'
 
 // import { theme as glassTheme } from '@saas-ui-pro/theme-glass'
 import { components } from './components'
@@ -33,11 +32,13 @@ export const theme = extendTheme(
    */
   // withThemeColors(colorScheme),
   // glassTheme,
-  baseTheme
+  baseTheme,
 )
 ```
 
-The theme extends the Saas UI Pro default theme and includes a set of [semantic tokens](https://chakra-ui.com/docs/styled-system/semantic-tokens) and custom component styles.
+The theme extends the Saas UI Pro default theme and includes a set of
+[semantic tokens](https://chakra-ui.com/docs/styled-system/semantic-tokens) and
+custom component styles.
 
 ## Glass theme
 
@@ -49,19 +50,21 @@ export const theme = extendTheme(
     semanticTokens,
     components,
   },
-  glassTheme
+  glassTheme,
 )
 ```
 
 ## Color schemes
 
-The project ships with a number of color schemes that you can use out of the box.
-Color schemes are different from themes, they only change the color palette of the theme.
+The project ships with a number of color schemes that you can use out of the
+box. Color schemes are different from themes, they only change the color palette
+of the theme.
 
 To use a color scheme, import it and pass it to the `withThemeColors` function.
 
 ```tsx
-import { withColorScheme, theme as baseTheme } from '@saas-ui-pro/react'
+import { theme as baseTheme, withColorScheme } from '@saas-ui-pro/react'
+
 import colorScheme from './color-schemes/galaxy'
 
 export const theme = extendTheme(
@@ -70,6 +73,6 @@ export const theme = extendTheme(
     components,
   },
   withColorScheme(colorScheme),
-  baseTheme
+  baseTheme,
 )
 ```

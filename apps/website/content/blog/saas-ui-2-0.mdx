@@ -2,14 +2,18 @@
 title: Saas UI 2.0 is out!
 publishedAt: '2023-06-30'
 authors: ['eelco']
-description: After a lot of hard work we are proud to announce the release of Saas UI 2.0!
+description:
+  After a lot of hard work we are proud to announce the release of Saas UI 2.0!
 ---
 
-This release comes with improved type-safety for forms and the modal manager, improved APIs and composition of components, a long with a lot of bug fixes and improvements.
+This release comes with improved type-safety for forms and the modal manager,
+improved APIs and composition of components, a long with a lot of bug fixes and
+improvements.
 
 ## Forms
 
-- `Form` now accepts a render prop that gives you access to the internal form state, as well as typed Form components.
+- `Form` now accepts a render prop that gives you access to the internal form
+  state, as well as typed Form components.
 
 ```tsx
 export default function MyForm = () => {
@@ -23,11 +27,15 @@ export default function MyForm = () => {
 }
 ```
 
-- `AutoForm` has been removed, you can use `Form` instead. `Form` will auto render fields based on the schema you pass to it, when no children are provided.
+- `AutoForm` has been removed, you can use `Form` instead. `Form` will auto
+  render fields based on the schema you pass to it, when no children are
+  provided.
 
-- Importing `Form` from `@saas-ui/forms/yup` or `@saas-ui/forms/zod` gives you a typed `Form` component. No longer needed to use `useForm` or `getResolver`.
+- Importing `Form` from `@saas-ui/forms/yup` or `@saas-ui/forms/zod` gives you a
+  typed `Form` component. No longer needed to use `useForm` or `getResolver`.
 
-- `registerFieldType` has been renamed to `createField` and can be used together with `createForm` to create forms with custom fields.
+- `registerFieldType` has been renamed to `createField` and can be used together
+  with `createForm` to create forms with custom fields.
 
 ```tsx
 // form.tsx
@@ -111,7 +119,8 @@ export default function MyStepForm = () => {
 }
 ```
 
-Zod and Yup forms now expect a `steps` property that contains the schemas for each step.
+Zod and Yup forms now expect a `steps` property that contains the schemas for
+each step.
 
 ```tsx
 export default function MyStepForm = () => {
@@ -166,12 +175,13 @@ export default function MyStepForm = () => {
 
 `FormDialog` now comes with a Yup and Zod variant out of the box.
 
-To use Zod schemas, you can import `FormDialog` from `@saas-ui/forms/zod` (or `@saas-ui/forms/yup` for Yup schemas)
+To use Zod schemas, you can import `FormDialog` from `@saas-ui/forms/zod` (or
+`@saas-ui/forms/yup` for Yup schemas)
 
 ```jsx
 import * as z from 'zod'
-import { Button, useDisclosure } from '@chakra-ui/react'
 import { FormDialog } from '@saas-ui/forms/zod'
+import { Button, useDisclosure } from '@saas-ui/react'
 import { FormLayout, createFormDialog } from '@saas-ui/react'
 import { FiArchive, FiTag, FiUsers } from 'react-icons/fi'
 
@@ -213,7 +223,8 @@ export default function Page() {
 
 ## Modals
 
-The modals manager now has a new API that allows you to create modals or change the default modals in a convenient way.
+The modals manager now has a new API that allows you to create modals or change
+the default modals in a convenient way.
 
 ```tsx
 import { FormDialog } from '@saas-ui/forms/zod'
@@ -254,7 +265,9 @@ function Page() {
 
 ### List
 
-`List` has been renamed to `StructuredList` and has a new improved API that gives you much more flexibility to build all kinds of lists, [see documentation](/docs/components/data-display/structured-list).
+`List` has been renamed to `StructuredList` and has a new improved API that
+gives you much more flexibility to build all kinds of lists,
+[see documentation](/docs/components/data-display/structured-list).
 
 ```tsx
 <StructuredList>
@@ -290,30 +303,45 @@ The `Sidebar` is out of beta.
 
 ## Future of Saas UI
 
-There is a lot of good stuff coming in the next 6 months, here's a little sneak peak of what to expect.
+There is a lot of good stuff coming in the next 6 months, here's a little sneak
+peak of what to expect.
 
 ### New components
 
-We will be releasing more Pro components in the Open Source library in the next few months to give you more building blocks to build your applications.
+We will be releasing more Pro components in the Open Source library in the next
+few months to give you more building blocks to build your applications.
 
 ### Figma design system
 
-After much request we are also working on a new Figma design system that will be released very soon, join our [Discord](https://discord.gg/4PmJGFcAjX) to get early access.
+After much request we are also working on a new Figma design system that will be
+released very soon, join our [Discord](https://discord.gg/4PmJGFcAjX) to get
+early access.
 
 ### Cross framework design system
 
-There has been a big move away from CSS-in-JS in the last 6 months,
-in big part due to the introduction of the Next.js app router and RSC (React Server Components).
-This came with a lot of misconceptions and confusion about client side components (`use server` vs `use client`) being bad and server components are the way forward.
-The fact is you cannot build modern web applications without client side components, we believe there is a big role for SPAs applications.
-Especially for the types of apps Saas UI is designed for, B2B applications, dashboards and internal tools that are not public facing and need to be highly interactive.
-JSX with CSS-in-JS like APIs is still the best way to build these types of applications.
+There has been a big move away from CSS-in-JS in the last 6 months, in big part
+due to the introduction of the Next.js app router and RSC (React Server
+Components). This came with a lot of misconceptions and confusion about client
+side components (`use server` vs `use client`) being bad and server components
+are the way forward. The fact is you cannot build modern web applications
+without client side components, we believe there is a big role for SPAs
+applications. Especially for the types of apps Saas UI is designed for, B2B
+applications, dashboards and internal tools that are not public facing and need
+to be highly interactive. JSX with CSS-in-JS like APIs is still the best way to
+build these types of applications.
 
-Today you can already use Chakra UI and Saas UI with the Next.js app directory to build SPA style applications.
-The app directory gives you a much better router with nested layouts and a much better developer experience for data fetching with server components.
-While the app directory has been released as stable, it still comes with a lot of performance issues in development and we still recommend the pages router for now.
+Today you can already use Chakra UI and Saas UI with the Next.js app directory
+to build SPA style applications. The app directory gives you a much better
+router with nested layouts and a much better developer experience for data
+fetching with server components. While the app directory has been released as
+stable, it still comes with a lot of performance issues in development and we
+still recommend the pages router for now.
 
-We will continue to work on the Chakra UI version of Saas UI, but have also started exploring to bring the Saas UI design system to other platforms.
-With the releases of Mitosis, Zag.js, Ark and PandaCSS opening the door for maintainable cross framework component libraries, we are very excited about the future of Saas UI.
+We will continue to work on the Chakra UI version of Saas UI, but have also
+started exploring to bring the Saas UI design system to other platforms. With
+the releases of Mitosis, Zag.js, Ark and PandaCSS opening the door for
+maintainable cross framework component libraries, we are very excited about the
+future of Saas UI.
 
-If you are interested in helping us build the future of Saas UI, join our [Discord](https://discord.gg/4PmJGFcAjX).
+If you are interested in helping us build the future of Saas UI, join our
+[Discord](https://discord.gg/4PmJGFcAjX).

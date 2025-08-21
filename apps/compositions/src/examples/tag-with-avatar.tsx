@@ -1,6 +1,6 @@
 'use client'
 
-import { For, HStack } from '@chakra-ui/react'
+import { For, HStack } from '@saas-ui/react'
 import { Avatar, Tag } from '@saas-ui/react'
 
 export const TagWithAvatar = () => {

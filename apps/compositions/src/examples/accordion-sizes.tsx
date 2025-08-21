@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Stack, Text } from '@chakra-ui/react'
+import { For, Stack, Text } from '@saas-ui/react'
 import { Accordion } from '@saas-ui/react'
 
 export const AccordionSizes = () => {

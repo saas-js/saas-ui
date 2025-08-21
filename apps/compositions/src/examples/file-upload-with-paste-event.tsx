@@ -6,7 +6,7 @@ import {
   HStack,
   Input,
   type InputProps,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { FileUpload, useFileUploadContext } from '@saas-ui/react'
 import { HiX } from 'react-icons/hi'
 

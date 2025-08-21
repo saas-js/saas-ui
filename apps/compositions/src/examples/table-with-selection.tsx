@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Table } from '@chakra-ui/react'
+import { Table } from '@saas-ui/react'
 import { Checkbox } from '@saas-ui/react'
 
 export const TableWithSelection = () => {

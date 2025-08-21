@@ -1,4 +1,4 @@
-import { Box, type BoxProps, Code as ChakraCode } from '@chakra-ui/react'
+import { Box, type BoxProps, Code as ChakraCode } from '@saas-ui/react'
 
 export const Pre = (props: BoxProps) => {
   return (

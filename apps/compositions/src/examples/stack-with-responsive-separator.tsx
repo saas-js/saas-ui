@@ -1,4 +1,4 @@
-import { Stack, StackSeparator } from '@chakra-ui/react'
+import { Stack, StackSeparator } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

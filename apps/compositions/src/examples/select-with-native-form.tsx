@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Stack, createListCollection } from '@chakra-ui/react'
+import { Button, Stack, createListCollection } from '@saas-ui/react'
 import { Select } from '@saas-ui/react'
 
 export const SelectWithNativeForm = () => {

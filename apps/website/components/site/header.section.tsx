@@ -14,7 +14,7 @@ import {
   Spacer,
   Stack,
   chakra,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
@@ -124,16 +124,14 @@ const MobileNav = () => {
     <Dialog.Root>
       <MobileNavTrigger />
       <Dialog.Backdrop />
-      <Dialog.Positioner>
-        <Dialog.Content m="0" shadow="none" borderRadius="0" bg="bg">
-          <HeaderRoot>
-            <LogoLink />
-            <Spacer />
-            <MobileNavCloseTrigger />
-          </HeaderRoot>
-          <MobileNavContent />
-        </Dialog.Content>
-      </Dialog.Positioner>
+      <Dialog.Content m="0" shadow="none" borderRadius="0" bg="bg">
+        <HeaderRoot>
+          <LogoLink />
+          <Spacer />
+          <MobileNavCloseTrigger />
+        </HeaderRoot>
+        <MobileNavContent />
+      </Dialog.Content>
     </Dialog.Root>
   )
 }

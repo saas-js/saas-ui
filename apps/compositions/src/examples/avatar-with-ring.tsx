@@ -1,4 +1,4 @@
-import { HStack, defineStyle } from '@chakra-ui/react'
+import { HStack, defineStyle } from '@saas-ui/react'
 import { Avatar } from '@saas-ui/react'
 
 const ringCss = defineStyle({

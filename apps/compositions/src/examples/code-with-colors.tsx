@@ -1,6 +1,6 @@
 'use client'
 
-import { Code, Stack, Text } from '@chakra-ui/react'
+import { Code, Stack, Text } from '@saas-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'
 

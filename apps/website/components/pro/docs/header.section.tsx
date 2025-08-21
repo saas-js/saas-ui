@@ -8,6 +8,7 @@ import { MobileSearchButton, SearchButton } from '@/components/search-button'
 import { SocialLinks } from '@/components/social-links'
 import { useRoute } from '@/lib/use-route'
 import { websiteConfig } from '@/website.config'
+import { SaasUIIcon } from '@saas-ui/assets'
 import {
   Box,
   Button,
@@ -20,8 +21,7 @@ import {
   Span,
   VStack,
   chakra,
-} from '@chakra-ui/react'
-import { SaasUIIcon } from '@saas-ui/assets'
+} from '@saas-ui/react'
 import { Drawer, IconButton } from '@saas-ui/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

@@ -1,4 +1,4 @@
-import { For, Input, Stack, Text } from '@chakra-ui/react'
+import { For, Input, Stack, Text } from '@saas-ui/react'
 import { Button, Popover } from '@saas-ui/react'
 
 export const PopoverWithSizes = () => {

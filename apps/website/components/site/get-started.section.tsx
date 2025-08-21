@@ -5,7 +5,7 @@ import {
   Container,
   HStack,
   Text,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import Link from 'next/link'
 
 export function GetStartedSection(props: { children?: React.ReactNode }) {

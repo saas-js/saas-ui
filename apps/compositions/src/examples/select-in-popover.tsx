@@ -1,6 +1,6 @@
 'use client'
 
-import { createListCollection } from '@chakra-ui/react'
+import { createListCollection } from '@saas-ui/react'
 import { Button, Popover, Select } from '@saas-ui/react'
 
 export const SelectInPopover = () => {

@@ -9,7 +9,7 @@ import {
   Stack,
   Tabs,
   Text,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { LuBox, LuPaintBucket, LuType } from 'react-icons/lu'
 
 const items = [

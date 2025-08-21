@@ -1,4 +1,4 @@
-import { GridItem, SimpleGrid } from '@chakra-ui/react'
+import { GridItem, SimpleGrid } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

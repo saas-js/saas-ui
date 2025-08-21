@@ -9,7 +9,7 @@ import {
   Span,
   Stack,
   Text,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Button, Section } from '@saas-ui/react'
 import Link from 'next/link'
 

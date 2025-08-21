@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack } from '@chakra-ui/react'
 import { SubmitButton, useForm } from '@saas-ui/forms'
+import { Stack } from '@saas-ui/react'
 import { Card } from '@saas-ui/react'
 
 export const CardWithForm = () => {

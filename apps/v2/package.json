@@ -72,7 +72,7 @@
     "remark-emoji": "^3.1.2",
     "remark-gfm": "^4.0.0",
     "yup": "^1.4.0",
-    "zod": "^3.23.8"
+    "zod": "3.25.76"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.41.3",

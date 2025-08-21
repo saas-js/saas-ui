@@ -9,7 +9,7 @@ import {
   Heading,
   List,
   Text,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { TbCheck } from 'react-icons/tb'
 
 import { ComponentsSection } from './components/components.section'

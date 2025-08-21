@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Container } from '@saas-ui/react'
 
 import { Testimonials } from './testimonials/testimonials'
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { ColorSwatch, Group } from '@chakra-ui/react'
+import { ColorSwatch, Group } from '@saas-ui/react'
 
 export const ColorSwatchPalette = () => {
   return (

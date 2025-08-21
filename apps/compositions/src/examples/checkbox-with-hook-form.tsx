@@ -1,7 +1,7 @@
 'use client'
 
-import { Button, Code, HStack, Stack } from '@chakra-ui/react'
 import { Controller, useZodForm } from '@saas-ui/forms'
+import { Button, Code, HStack, Stack } from '@saas-ui/react'
 import { Checkbox, Field } from '@saas-ui/react'
 import { z } from 'zod'
 

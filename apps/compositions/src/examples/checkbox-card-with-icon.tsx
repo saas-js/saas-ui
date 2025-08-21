@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckboxGroup, Float, Icon, SimpleGrid } from '@chakra-ui/react'
+import { CheckboxGroup, Float, Icon, SimpleGrid } from '@saas-ui/react'
 import { CheckboxCard } from '@saas-ui/react'
 import { HiGlobeAlt, HiLockClosed, HiShieldCheck, HiUser } from 'react-icons/hi'
 

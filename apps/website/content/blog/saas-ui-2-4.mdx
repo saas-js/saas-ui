@@ -2,7 +2,8 @@
 title: Saas UI v2.4 is here!
 publishedAt: '2023-11-24'
 authors: ['eelco']
-description: We got some nifty new components and improvements for you in this release.
+description:
+  We got some nifty new components and improvements for you in this release.
 ---
 
 ## What's new in v2.4?
@@ -15,20 +16,24 @@ description: We got some nifty new components and improvements for you in this r
 ### Improvements
 
 - Removed all Component.defaultProps definitions
-- Fixed issue where width would not be applied to the SearchInput container element
+- Fixed issue where width would not be applied to the SearchInput container
+  element
 - Fixed SearchInput reset when uncontrolled
 - Fixed theme incompatibility with Chakra UI 2.8
 
 ## Navbar
 
-The Navbar component represents a top navigation bar that typically contains links or buttons for navigating to different sections of a website or application.
+The Navbar component represents a top navigation bar that typically contains
+links or buttons for navigating to different sections of a website or
+application.
 
 - [Navbar Documentation](/docs/components/layout/navbar)
 
 ### Usage
 
-The `Navbar` component can be used together with `AppShell` and supports different placement modes, `static`, `sticky`.
-It can also be easily styled to add a glass effect for example.
+The `Navbar` component can be used together with `AppShell` and supports
+different placement modes, `static`, `sticky`. It can also be easily styled to
+add a glass effect for example.
 
 Here's a full example with a workspace dropdown, search input and user menu.
 
@@ -60,7 +65,7 @@ import {
   MenuItem,
   MenuDivider,
   useDisclosure,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 
 export default function Page() {
   return (

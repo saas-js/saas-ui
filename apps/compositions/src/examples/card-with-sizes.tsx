@@ -1,6 +1,6 @@
 'use client'
 
-import { Heading, Stack } from '@chakra-ui/react'
+import { Heading, Stack } from '@saas-ui/react'
 import { Card } from '@saas-ui/react'
 
 export const CardWithSizes = () => {

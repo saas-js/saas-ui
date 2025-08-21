@@ -1,5 +1,5 @@
 import { BlogCard } from '@/components/blog-card'
-import { Box, Container, Grid, Heading, Stack } from '@chakra-ui/react'
+import { Box, Container, Grid, Heading, Stack } from '@saas-ui/react'
 import { allBlogs } from 'content-collections'
 import { Metadata } from 'next'
 

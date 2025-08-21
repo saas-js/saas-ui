@@ -6,7 +6,7 @@ import {
   Table,
   type TableRootProps,
   useSlotRecipe,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 
 import { PlaygroundTable } from '../lib/playground-table'
 

@@ -1,12 +1,4 @@
-import {
-  Badge,
-  HStack,
-  Heading,
-  Link,
-  Span,
-  Stack,
-  Text,
-} from '@chakra-ui/react'
+import { Badge, HStack, Heading, Link, Span, Stack, Text } from '@saas-ui/react'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { titleCase } from 'scule'
 

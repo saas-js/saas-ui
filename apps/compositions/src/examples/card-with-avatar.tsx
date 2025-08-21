@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, Stack, Strong, Text } from '@chakra-ui/react'
+import { HStack, Stack, Strong, Text } from '@saas-ui/react'
 import { Avatar, Button, Card } from '@saas-ui/react'
 import { LuCheck, LuX } from 'react-icons/lu'
 

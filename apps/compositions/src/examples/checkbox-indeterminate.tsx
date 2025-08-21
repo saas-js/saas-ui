@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Stack } from '@chakra-ui/react'
+import { Stack } from '@saas-ui/react'
 import { Checkbox } from '@saas-ui/react'
 
 const initialValues = [

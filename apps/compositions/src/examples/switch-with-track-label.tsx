@@ -1,6 +1,6 @@
 'use client'
 
-import { Icon } from '@chakra-ui/react'
+import { Icon } from '@saas-ui/react'
 import { Switch } from '@saas-ui/react'
 import { FaMoon, FaSun } from 'react-icons/fa'
 

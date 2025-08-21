@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex } from '@saas-ui/react'
 import { Tooltip } from '@saas-ui/react'
 
 function DemoTooltip() {

@@ -13,7 +13,7 @@ import {
   Separator,
   Stack,
   Text,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Accordion } from '@saas-ui/react'
 import type { Metadata } from 'next'
 import Link from 'next/link'

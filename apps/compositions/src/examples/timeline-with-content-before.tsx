@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Stack } from '@chakra-ui/react'
+import { For, Stack } from '@saas-ui/react'
 import { Timeline } from '@saas-ui/react'
 
 export const TimelineWithContentBefore = () => {

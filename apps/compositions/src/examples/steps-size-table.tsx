@@ -6,7 +6,7 @@ import {
   Span,
   type StepsRootProps,
   useSlotRecipe,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Button, Steps } from '@saas-ui/react'
 
 import { PlaygroundTable } from '../lib/playground-table'

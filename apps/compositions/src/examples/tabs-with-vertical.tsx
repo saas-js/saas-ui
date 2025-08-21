@@ -1,6 +1,6 @@
 'use client'
 
-import { For, SimpleGrid } from '@chakra-ui/react'
+import { For, SimpleGrid } from '@saas-ui/react'
 import { Tabs } from '@saas-ui/react'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 

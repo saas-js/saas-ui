@@ -11,7 +11,7 @@ import {
   Stack,
   Text,
   VStack,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 

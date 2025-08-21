@@ -1,6 +1,6 @@
 'use client'
 
-import { Group, Stack } from '@chakra-ui/react'
+import { Group, Stack } from '@saas-ui/react'
 import { Button, Steps } from '@saas-ui/react'
 
 export const StepsVertical = () => {

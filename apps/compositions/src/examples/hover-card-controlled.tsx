@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Stack, Text } from '@chakra-ui/react'
+import { Stack, Text } from '@saas-ui/react'
 import { Avatar, HoverCard, Link } from '@saas-ui/react'
 
 export const HoverCardControlled = () => {

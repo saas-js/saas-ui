@@ -15,7 +15,7 @@
   "author": "Segun Adebayo <sage@adebayosegun.com>",
   "license": "ISC",
   "dependencies": {
-    "@chakra-ui/react": "^3.20.0",
+    "@chakra-ui/react": "^3.25.0",
     "@saas-ui/assets": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/react": "workspace:*",
@@ -32,7 +32,7 @@
     "react-use": "17.6.0",
     "recharts": "2.15.1",
     "use-mask-input": "3.4.2",
-    "zod": "3.24.2"
+    "zod": "3.25.76"
   },
   "devDependencies": {
     "@types/react": "^19.0.12",

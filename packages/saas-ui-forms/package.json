@@ -81,12 +81,12 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.0.0",
+    "@hookform/resolvers": "^5.2.1",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/react": "workspace:*",
     "@standard-schema/spec": "^1.0.0",
     "react-hook-form": "^7.55.0",
-    "zod": "^3.24.2"
+    "zod": "^3.25.76"
   },
   "peerDependencies": {
     "@chakra-ui/react": "^3.20.0",
@@ -97,7 +97,7 @@
   "devDependencies": {
     "tsd": "^0.31.2",
     "tsup": "^8.4.0",
-    "zod": "^3.24.2",
+    "zod": "^3.25.76",
     "typescript": "^5.8.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

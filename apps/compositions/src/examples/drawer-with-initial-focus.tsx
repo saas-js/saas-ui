@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 
-import { Input, Stack } from '@chakra-ui/react'
+import { Input, Stack } from '@saas-ui/react'
 import { Button, Drawer } from '@saas-ui/react'
 
 export const DrawerWithInitialFocus = () => {

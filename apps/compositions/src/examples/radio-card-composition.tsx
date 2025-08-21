@@ -1,6 +1,6 @@
 'use client'
 
-import { Group } from '@chakra-ui/react'
+import { Group } from '@saas-ui/react'
 import { RadioCard } from '@saas-ui/react'
 
 export const RadioCardComposition = () => {

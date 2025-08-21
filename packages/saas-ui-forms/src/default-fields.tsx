@@ -10,7 +10,7 @@ import {
   createListCollection,
 } from '@chakra-ui/react'
 import { Checkbox, type CheckboxProps } from '@saas-ui/react/checkbox'
-import { InputGroup } from '@saas-ui/react/input'
+import { InputGroup } from '@saas-ui/react/input-group'
 import { NumberInput, type NumberInputProps } from '@saas-ui/react/number-input'
 import {
   PasswordInput,

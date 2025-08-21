@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Span, useRecipe } from '@chakra-ui/react'
+import { For, Span, useRecipe } from '@saas-ui/react'
 import { Button } from '@saas-ui/react'
 import { HiArrowRight } from 'react-icons/hi'
 

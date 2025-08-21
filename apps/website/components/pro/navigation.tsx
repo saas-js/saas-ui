@@ -1,4 +1,4 @@
-import { HStack, Stack, Text } from '@chakra-ui/react'
+import { HStack, Stack, Text } from '@saas-ui/react'
 
 import {
   List,

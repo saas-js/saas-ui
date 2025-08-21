@@ -1,6 +1,6 @@
 import { PageHeader } from '@/components/page-header'
 import { Prose } from '@/components/prose'
-import { Box, Container, Heading, VStack } from '@chakra-ui/react'
+import { Box, Container, Heading, VStack } from '@saas-ui/react'
 import type { Metadata } from 'next'
 import ReactMarkdown from 'react-markdown'
 

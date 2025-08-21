@@ -5,7 +5,7 @@ import { GetStartedSection } from '@/components/site/get-started.section'
 import { HeroSection } from '@/components/site/hero.section'
 import { ProductsSection } from '@/components/site/products.section'
 import { TestimonialsSection } from '@/components/site/testimonials.section'
-import { Button } from '@chakra-ui/react'
+import { Button } from '@saas-ui/react'
 import Link from 'next/link'
 
 export default function Page() {

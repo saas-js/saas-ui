@@ -1,4 +1,4 @@
-import { Badge, HStack } from '@chakra-ui/react'
+import { Badge, HStack } from '@saas-ui/react'
 import Link from 'next/link'
 
 import { Logo } from '../logo'

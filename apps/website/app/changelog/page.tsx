@@ -1,6 +1,6 @@
 import { ChangelogCard } from '@/components/changelog-card'
 import { formatBlogDate } from '@/lib/blog'
-import { Box, Container, HStack, Heading, Stack, Text } from '@chakra-ui/react'
+import { Box, Container, HStack, Heading, Stack, Text } from '@saas-ui/react'
 import { allChangelogs } from 'content-collections'
 import { Metadata } from 'next'
 

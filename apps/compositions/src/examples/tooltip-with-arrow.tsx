@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@chakra-ui/react'
+import { Button } from '@saas-ui/react'
 import { Tooltip } from '@saas-ui/react'
 
 export const TooltipWithArrow = () => {

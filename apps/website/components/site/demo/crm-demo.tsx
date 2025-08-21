@@ -1,4 +1,6 @@
 import { Chart, useChart } from '@chakra-ui/charts'
+import { SaasUIIcon } from '@saas-ui/assets'
+import { PieChart } from '@saas-ui/charts'
 import {
   Badge,
   ButtonGroup,
@@ -14,9 +16,7 @@ import {
   Portal,
   Spacer,
   Text,
-} from '@chakra-ui/react'
-import { SaasUIIcon } from '@saas-ui/assets'
-import { PieChart } from '@saas-ui/charts'
+} from '@saas-ui/react'
 import {
   AppShell,
   Menu,

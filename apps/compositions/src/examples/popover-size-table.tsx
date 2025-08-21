@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Heading, Textarea, chakra, useSlotRecipe } from '@chakra-ui/react'
+import { For, Heading, Textarea, chakra, useSlotRecipe } from '@saas-ui/react'
 import { Button, Popover } from '@saas-ui/react'
 import { HiChat } from 'react-icons/hi'
 

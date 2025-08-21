@@ -1,4 +1,4 @@
-import { Box, Center, SimpleGrid, Stack } from '@chakra-ui/react'
+import { Box, Center, SimpleGrid, Stack } from '@saas-ui/react'
 import { allDocs } from 'content-collections'
 import { createGetUrl } from 'fumadocs-core/source'
 import Link from 'next/link'

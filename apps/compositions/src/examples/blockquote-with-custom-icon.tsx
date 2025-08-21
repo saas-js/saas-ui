@@ -1,6 +1,6 @@
 'use client'
 
-import { Circle, Float } from '@chakra-ui/react'
+import { Circle, Float } from '@saas-ui/react'
 import { Blockquote } from '@saas-ui/react'
 import { LuQuote } from 'react-icons/lu'
 

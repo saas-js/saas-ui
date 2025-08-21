@@ -1,6 +1,6 @@
 'use client'
 
-import { Container, For, Stack } from '@chakra-ui/react'
+import { Container, For, Stack } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

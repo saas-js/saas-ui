@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { HStack, Stack, Text } from '@chakra-ui/react'
+import { HStack, Stack, Text } from '@saas-ui/react'
 import { Pagination } from '@saas-ui/react'
 
 const pageSize = 5

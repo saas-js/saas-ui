@@ -1,6 +1,6 @@
 'use client'
 
-import { For, HStack, Stack } from '@chakra-ui/react'
+import { For, HStack, Stack } from '@saas-ui/react'
 import { Status } from '@saas-ui/react'
 
 export const StatusWithSizes = () => {

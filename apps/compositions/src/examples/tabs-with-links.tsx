@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@chakra-ui/react'
+import { Link } from '@saas-ui/react'
 import { Tabs } from '@saas-ui/react'
 
 export const TabsWithLinks = () => {

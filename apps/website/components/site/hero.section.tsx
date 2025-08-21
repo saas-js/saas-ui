@@ -3,7 +3,7 @@
 import { ActionArrow } from '@/components/action-arrow'
 import { Annoucement } from '@/components/annoucement'
 import { Subheading } from '@/components/site/typography'
-import { Box, Button, Container, Heading, Stack } from '@chakra-ui/react'
+import { Box, Button, Container, Heading, Stack } from '@saas-ui/react'
 import Link from 'next/link'
 
 export const HeroSection = () => {

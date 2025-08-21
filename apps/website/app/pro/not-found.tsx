@@ -1,7 +1,7 @@
 'use client'
 
 import { Header } from '@/components/pro/docs/header.section'
-import { Box } from '@chakra-ui/react'
+import { Box } from '@saas-ui/react'
 import { EmptyState } from '@saas-ui/react'
 import { TbError404 } from 'react-icons/tb'
 

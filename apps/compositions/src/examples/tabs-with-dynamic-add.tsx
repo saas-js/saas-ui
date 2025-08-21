@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Button, Heading, Text } from '@chakra-ui/react'
+import { Button, Heading, Text } from '@saas-ui/react'
 import { CloseButton, Tabs } from '@saas-ui/react'
 import { LuPlus } from 'react-icons/lu'
 

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-import { Circle, type CircleProps } from '@chakra-ui/react/box'
+import { Circle, type CircleProps } from '@chakra-ui/react/circle'
 import type { SkeletonProps as ChakraSkeletonProps } from '@chakra-ui/react/skeleton'
 import { Skeleton as ChakraSkeleton } from '@chakra-ui/react/skeleton'
 import { Stack } from '@chakra-ui/react/stack'

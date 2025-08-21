@@ -1,6 +1,6 @@
 'use client'
 
-import { For, Stack, Text, VStack } from '@chakra-ui/react'
+import { For, Stack, Text, VStack } from '@saas-ui/react'
 import { Slider } from '@saas-ui/react'
 
 export const SliderWithMarks = () => {

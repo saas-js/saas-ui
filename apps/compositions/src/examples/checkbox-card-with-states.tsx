@@ -1,6 +1,6 @@
 'use client'
 
-import { Stack } from '@chakra-ui/react'
+import { Stack } from '@saas-ui/react'
 import { CheckboxCard, type CheckboxCardProps } from '@saas-ui/react'
 
 export const CheckboxCardWithStates = () => {

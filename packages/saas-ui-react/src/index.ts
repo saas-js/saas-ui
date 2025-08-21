@@ -156,15 +156,21 @@ export {
 export { Image, type ImageProps } from './components/image/index.ts'
 export {
   Input,
-  InputAddon,
-  InputElement,
   InputPropsProvider,
-  InputGroup,
-  type InputAddonProps,
-  type InputElementProps,
-  type InputGroupProps,
   type InputProps,
 } from './components/input/index.ts'
+export {
+  InputAddon,
+  type InputAddonProps,
+} from './components/input-addon/index.ts'
+export {
+  InputElement,
+  type InputElementProps,
+} from './components/input-element/index.ts'
+export {
+  InputGroup,
+  type InputGroupProps,
+} from './components/input-group/index.ts'
 export { InfoTip, type InfoTipProps } from './components/info-tip/index.ts'
 export { Kbd, type KbdProps } from './components/kbd/index.ts'
 export { Link, type LinkProps } from './components/link/index.ts'
@@ -266,12 +272,8 @@ export {
 } from './components/aspect-ratio/index.ts'
 
 export { Bleed, type BleedProps } from './components/bleed/index.ts'
-export {
-  Box,
-  type BoxProps,
-  Span,
-  type SpanProps,
-} from './components/box/index.ts'
+export { Box, type BoxProps } from './components/box/index.ts'
+export { Span, type SpanProps } from './components/span/index.ts'
 export {
   Center,
   type CenterProps,
@@ -299,11 +301,13 @@ export {
 export {
   Grid,
   type GridProps,
-  SimpleGrid,
-  type SimpleGridProps,
   GridItem,
   type GridItemProps,
 } from './components/grid/index.ts'
+export {
+  SimpleGrid,
+  type SimpleGridProps,
+} from './components/simple-grid/index.ts'
 export { Group, type GroupProps } from './components/group/index.ts'
 export { Highlight, type HighlightProps } from './components/highlight/index.ts'
 export { Portal, type PortalProps } from './components/portal/index.ts'
@@ -325,14 +329,9 @@ export {
   type StackSeparatorProps,
 } from './components/stack/index.ts'
 export { Toggle } from './components/toggle/index.ts'
-export {
-  Em,
-  type EmProps,
-  Strong,
-  type StrongProps,
-  Text,
-  type TextProps,
-} from './components/typography/index.ts'
+export { Text, type TextProps } from './components/text/index.ts'
+export { Em, type EmProps } from './components/em/index.ts'
+export { Strong, type StrongProps } from './components/strong/index.ts'
 export { VisuallyHidden } from './components/visually-hidden/index.ts'
 export { Wrap, type WrapProps } from './components/wrap/index.ts'
 export { Flex, type FlexProps } from './components/flex/index.ts'

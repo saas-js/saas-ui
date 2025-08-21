@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack } from '@chakra-ui/react'
+import { HStack } from '@saas-ui/react'
 import { Tag } from '@saas-ui/react'
 import { LuCircleUser, LuFileBadge } from 'react-icons/lu'
 

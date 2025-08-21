@@ -14,7 +14,7 @@ import {
   Stack,
   Text,
   chakra,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Breadcrumb, Drawer, Sidebar } from '@saas-ui/react'
 import { searchPath } from 'fumadocs-core/breadcrumb'
 import type { PageTree } from 'fumadocs-core/server'

@@ -1,4 +1,4 @@
-import { SimpleGrid } from '@chakra-ui/react'
+import { SimpleGrid } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

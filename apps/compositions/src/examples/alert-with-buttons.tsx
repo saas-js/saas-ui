@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box } from '@saas-ui/react'
 import { Alert, Button } from '@saas-ui/react'
 
 export const AlertWithButtons = () => {

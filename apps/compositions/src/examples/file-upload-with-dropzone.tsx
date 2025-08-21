@@ -1,6 +1,6 @@
 'use client'
 
-import { Heading, Text } from '@chakra-ui/react'
+import { Heading, Text } from '@saas-ui/react'
 import { FileUpload } from '@saas-ui/react'
 
 export const FileUploadWithDropzone = () => {

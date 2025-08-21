@@ -1,4 +1,4 @@
-import { Stack } from '@chakra-ui/react'
+import { Stack } from '@saas-ui/react'
 import { Badge } from '@saas-ui/react'
 import { HiAtSymbol, HiStar } from 'react-icons/hi'
 

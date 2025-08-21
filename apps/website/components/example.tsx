@@ -1,7 +1,7 @@
 import { readExampleFile } from '@/lib/composition'
 import { highlightCode } from '@/lib/highlight-code'
-import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@chakra-ui/react'
 import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
+import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@saas-ui/react'
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import Link from 'next/link'
 

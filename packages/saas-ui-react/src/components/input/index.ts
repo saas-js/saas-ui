@@ -1,14 +1,3 @@
-export {
-  Input,
-  InputAddon,
-  InputElement,
-  InputPropsProvider,
-  InputGroup,
-} from '@chakra-ui/react/input'
+export { Input, InputPropsProvider } from '@chakra-ui/react/input'
 
-export type {
-  InputProps,
-  InputAddonProps,
-  InputElementProps,
-  InputGroupProps,
-} from '@chakra-ui/react/input'
+export type { InputProps } from '@chakra-ui/react/input'

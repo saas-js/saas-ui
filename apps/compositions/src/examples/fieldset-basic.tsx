@@ -4,7 +4,7 @@ import {
   Input,
   NativeSelectRoot,
   Stack,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Field } from '@saas-ui/react'
 import { NativeSelect } from '@saas-ui/react'
 

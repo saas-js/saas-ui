@@ -1,4 +1,4 @@
-import { Bleed, Box, Stack } from '@chakra-ui/react'
+import { Bleed, Box, Stack } from '@saas-ui/react'
 
 import { DecorativeBox } from '../lib/decorative-box'
 

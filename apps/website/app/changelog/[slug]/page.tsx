@@ -9,7 +9,7 @@ import {
   Span,
   Stack,
   Text,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import { Avatar } from '@saas-ui/react'
 import { allBlogs } from 'content-collections'
 import { Metadata } from 'next'

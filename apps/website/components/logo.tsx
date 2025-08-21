@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { useId } from 'react'
 
-import { type HTMLChakraProps, chakra } from '@chakra-ui/react'
+import { type HTMLChakraProps, chakra } from '@saas-ui/react'
 
 export const Logo = (props: HTMLChakraProps<'svg'> & { accent?: string }) => {
   const { accent = 'currentColor', ...rest } = props

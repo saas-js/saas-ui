@@ -1,4 +1,4 @@
-import { Heading, Stack } from '@chakra-ui/react'
+import { Heading, Stack } from '@saas-ui/react'
 
 export const HeadingWithMultiLine = () => {
   return (

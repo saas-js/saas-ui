@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckboxGroup, Fieldset } from '@chakra-ui/react'
+import { CheckboxGroup, Fieldset } from '@saas-ui/react'
 import { Checkbox } from '@saas-ui/react'
 
 export const CheckboxWithGroup = () => {

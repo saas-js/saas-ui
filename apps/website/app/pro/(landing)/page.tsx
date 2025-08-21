@@ -1,4 +1,4 @@
-import { Stack } from '@chakra-ui/react'
+import { Stack } from '@saas-ui/react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Group } from '@chakra-ui/react'
+import { Box, Group } from '@saas-ui/react'
 import { Button, Menu } from '@saas-ui/react'
 import {
   LuClipboard,

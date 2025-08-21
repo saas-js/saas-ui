@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@chakra-ui/react'
+import { Box } from '@saas-ui/react'
 import Link, { type LinkProps } from 'next/link'
 
 export const Anchor = (props: LinkProps & { children: React.ReactNode }) => {

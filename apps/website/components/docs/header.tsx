@@ -8,6 +8,7 @@ import { SocialLinks } from '@/components/social-links'
 import { useRoute } from '@/lib/use-route'
 import { websiteConfig } from '@/website.config'
 import { HoverCard } from '@ark-ui/react'
+import { SaasUIIcon } from '@saas-ui/assets'
 import {
   Box,
   DrawerTrigger,
@@ -18,8 +19,7 @@ import {
   Span,
   VStack,
   chakra,
-} from '@chakra-ui/react'
-import { SaasUIIcon } from '@saas-ui/assets'
+} from '@saas-ui/react'
 import { Drawer, IconButton, Menu } from '@saas-ui/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

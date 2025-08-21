@@ -2,7 +2,7 @@
 
 import { useId, useState } from 'react'
 
-import { Button, HStack } from '@chakra-ui/react'
+import { Button, HStack } from '@saas-ui/react'
 import { toast } from '@saas-ui/react'
 import { HiPause, HiPlay } from 'react-icons/hi'
 

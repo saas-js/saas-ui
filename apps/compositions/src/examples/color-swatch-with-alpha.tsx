@@ -1,6 +1,6 @@
 'use client'
 
-import { ColorSwatch, HStack } from '@chakra-ui/react'
+import { ColorSwatch, HStack } from '@saas-ui/react'
 
 export const ColorSwatchWithAlpha = () => {
   return (

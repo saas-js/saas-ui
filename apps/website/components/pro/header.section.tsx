@@ -14,7 +14,7 @@ import {
   Spacer,
   Stack,
   chakra,
-} from '@chakra-ui/react'
+} from '@saas-ui/react'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'

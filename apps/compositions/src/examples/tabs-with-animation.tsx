@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex } from '@saas-ui/react'
 import { Tabs } from '@saas-ui/react'
 
 const items = [

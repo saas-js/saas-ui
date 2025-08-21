@@ -3,10 +3,11 @@ title: Better Auth integration
 description: Using Better Auth as your authentication service.
 ---
 
-Better Auth is a new and comprehensive authentication framework for TypeScript, and is the default authentication provider for the TanStack Router starter kit.
+Better Auth is a new and comprehensive authentication framework for TypeScript,
+and is the default authentication provider for the TanStack Router starter kit.
 
-Better Auth is configured with Github oauth and email/password authentication out of the box.
-Other authentication options like Passkeys can easily be added.
+Better Auth is configured with Github oauth and email/password authentication
+out of the box. Other authentication options like Passkeys can easily be added.
 
 ## Configure
 
@@ -18,12 +19,14 @@ into two files:
 - `env.ts` - The environment variables.
 - `server.ts` - The server side auth service.
 
-Please refer to the [Better Auth documentation](https://www.better-auth.com/docs/introduction) for more
-information on how to configure Better Auth.
+Please refer to the
+[Better Auth documentation](https://www.better-auth.com/docs/introduction) for
+more information on how to configure Better Auth.
 
 ## Add a new provider
 
-To add a new authentication provider, here is an example of how to add Google as an authentication provider:
+To add a new authentication provider, here is an example of how to add Google as
+an authentication provider:
 
 Edit the `auth.ts` file to add the new provider:
 
@@ -42,8 +45,9 @@ export const auth = betterAuth({
 })
 ```
 
-Note that we are using the `env` object to get the client ID and secret from the environment variables.
-You can add additional variables to the env schema object.
+Note that we are using the `env` object to get the client ID and secret from the
+environment variables. You can add additional variables to the env schema
+object.
 
 ```ts
 // packages/better-auth/src/env.ts
@@ -59,11 +63,12 @@ export const env = createEnv(
     // Social providers
     GOOGLE_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_SECRET: z.string(),
-  })
+  }),
 )
 ```
 
-After adding the new provider, you can add the new environment variables to the `.env` file.
+After adding the new provider, you can add the new environment variables to the
+`.env` file.
 
 ```
 // .env
@@ -75,9 +80,9 @@ Now you can add the new provider to your authenication screens.
 
 ```tsx
 // apps/web/features/auth/providers.tsx
-import { Button, Stack } from '@chakra-ui/react'
 import { useLocalStorageValue } from '@react-hookz/web'
 import { useAuth } from '@saas-ui/auth-provider'
+import { Button, Stack } from '@saas-ui/react'
 import { FaGoogle } from 'react-icons/fa6'
 
 import { LastUsedProvider } from './last-used'
@@ -115,7 +120,8 @@ export function Providers() {
   can continue with the same provider when they return to the page.
 </Info>
 
-For more information on how to customize the authentication screens, refer to the
+For more information on how to customize the authentication screens, refer to
+the
 [customize auth screens](/docs/tanstack-router-starterkit/authentication/customize-auth-screens)
 documentation for more information.
 

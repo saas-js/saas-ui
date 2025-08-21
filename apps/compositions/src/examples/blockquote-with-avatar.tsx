@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, Span } from '@chakra-ui/react'
+import { HStack, Span } from '@saas-ui/react'
 import { Avatar, Blockquote } from '@saas-ui/react'
 
 export const BlockquoteWithAvatar = () => {

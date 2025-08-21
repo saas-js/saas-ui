@@ -12,7 +12,7 @@ Use the vite template below to get started quickly.
 <ResourceCard
   type="github"
   title="Vite template"
-  url="https://github.com/chakra-ui/chakra-vite-template"
+  url="https://github.com/saas-js/saas-ui/tree/main/examples/vite-tsr-spa"
 />
 
 :::
@@ -26,7 +26,7 @@ Use the vite template below to get started quickly.
 ### Install dependencies
 
 ```bash
-npm i @saas-ui/react@next @chakra-ui/react @emotion/react
+npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
 ```
 
 ### Setup provider
@@ -37,11 +37,13 @@ application.
 This provider composes the following:
 
 - `SuiProvider` from `@saas-ui/react` for the styling system
+- `ThemeProvider` from `next-themes` for color mode
 
 ```tsx title="src/main.tsx" {1,8,10}
 import React from 'react'
 
 import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { ThemeProvider } from 'next-themes'
 import ReactDOM from 'react-dom/client'
 
 import App from './App'
@@ -49,7 +51,9 @@ import App from './App'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <SuiProvider value={defaultSystem}>
-      <App />
+      <ThemeProvider attribute="class" disableTransitionOnChange>
+        <App />
+      </ThemeProvider>
     </SuiProvider>
   </React.StrictMode>,
 )

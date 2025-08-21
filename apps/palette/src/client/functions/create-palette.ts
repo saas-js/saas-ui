@@ -1,4 +1,3 @@
-import * as RadixColors from '@radix-ui/colors'
 import { colors } from '@saas-ui/react/colors'
 import Color from 'colorjs.io'
 
@@ -6,27 +5,25 @@ type ArrayOf11<T> = [T, T, T, T, T, T, T, T, T, T, T]
 const arrayOf11 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const
 
 // prettier-ignore
-const grayScaleNames = ['gray', 'mauve', 'slate', 'sage', 'olive', 'sand'] as const;
+const grayScaleNames : Array<keyof typeof colors> = ['gray', 'zinc', 'stone'] as const;
 
 // prettier-ignore
-const scaleNames = [...grayScaleNames, 'tomato', 'red', 'ruby', 'crimson', 'pink',
-'plum', 'purple', 'violet', 'iris', 'indigo', 'blue', 'cyan', 'teal', 'jade', 'green',
-'grass', 'brown', 'orange', 'sky', 'mint', 'lime', 'yellow', 'amber'] as const;
+const scaleNames: Array<keyof typeof colors> = [...grayScaleNames, 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']
 
 const lightColors = Object.fromEntries(
   scaleNames.map((scaleName) => [
     scaleName,
-    Object.values(RadixColors[`${scaleName}P3`]).map((str) =>
-      new Color(str).to('oklch'),
+    Object.values(colors[scaleName]).map((shade) =>
+      new Color(shade.value).to('oklch'),
     ),
   ]),
 ) as Record<(typeof scaleNames)[number], ArrayOf11<Color>>
-
+console.log('lightColors', lightColors)
 const lightGrayColors = Object.fromEntries(
   grayScaleNames.map((scaleName) => [
     scaleName,
-    Object.values(RadixColors[`${scaleName}P3`]).map((str) =>
-      new Color(str).to('oklch'),
+    Object.values(colors[`${scaleName}`]).map((shade) =>
+      new Color(shade.value).to('oklch'),
     ),
   ]),
 ) as Record<(typeof grayScaleNames)[number], ArrayOf11<Color>>

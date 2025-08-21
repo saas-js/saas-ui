@@ -1,5 +1,6 @@
 packages:
   - apps/website
+  - apps/palette
   - apps/compositions
   - packages/storybook
   - packages/pro/packages/*

@@ -35,7 +35,7 @@
     "changelog:write": "tsx scripts/changelog-write.ts",
     "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
     "changeset:next": "pnpm changeset pre enter next",
-    "changeset:version": "pnpm changelog:gen && changeset version",
+    "changeset:version": "changeset version",
     "publish:next": "pnpm --filter '@saas-ui/*' --filter '!@saas-ui-pro/*' --filter '!@saas-ui/cli' publish --access public --tag next",
     "publish": "pnpm --filter '@saas-ui/*' --filter '!@saas-ui-pro/*' --filter '!@saas-ui/cli' publish && pnpm changeset tag",
     "storybook": "pnpm --filter saas-ui-storybook dev",

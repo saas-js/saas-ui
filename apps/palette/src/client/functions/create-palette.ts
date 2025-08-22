@@ -18,7 +18,7 @@ const lightColors = Object.fromEntries(
     ),
   ]),
 ) as Record<(typeof scaleNames)[number], ArrayOf11<Color>>
-console.log('lightColors', lightColors)
+
 const lightGrayColors = Object.fromEntries(
   grayScaleNames.map((scaleName) => [
     scaleName,

@@ -2,7 +2,6 @@
 '@saas-ui/modals-provider': minor
 '@saas-ui/auth-provider': minor
 '@saas-ui/use-hotkeys': minor
-'@saas-ui/nprogress': minor
 '@saas-ui/supabase': minor
 '@saas-ui/assets': minor
 '@saas-ui/modals': minor

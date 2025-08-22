@@ -21,4 +21,4 @@ jobs:
       - name: Build
         run: pnpm build:packages
 
-      - run: pnpm dlx pkg-pr-new publish './packages/saas-ui-auth'
+      - run: pnpm dlx pkg-pr-new publish './packages/saas-ui-*'

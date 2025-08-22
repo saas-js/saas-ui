@@ -87,6 +87,8 @@ export {
 export { Card } from './components/card/index.ts'
 export { Checkbox, type CheckboxProps } from './components/checkbox/index.ts'
 export { Checkmark, type CheckmarkProps } from './components/checkmark/index.ts'
+export { CodeBlock } from './components/code-block/index.ts'
+export { Circle } from './components/circle/index.ts'
 export {
   CheckboxCard,
   type CheckboxCardProps,
@@ -327,6 +329,15 @@ export {
   StackSeparator,
   type StackSeparatorProps,
 } from './components/stack/index.ts'
+export { Sticky, type StickyProps } from './components/sticky/index.ts'
+export { TreeView } from './components/tree-view/index.ts'
+export { ScrollArea } from './components/scroll-area/index.ts'
+export {
+  DownloadTrigger,
+  type DownloadTriggerProps,
+} from './components/download-trigger/index.ts'
+export { Quote, type QuoteProps } from './components/quote/index.ts'
+export { Square, type SquareProps } from './components/square/index.ts'
 export { Toggle } from './components/toggle/index.ts'
 export { Text, type TextProps } from './components/text/index.ts'
 export { Em, type EmProps } from './components/em/index.ts'

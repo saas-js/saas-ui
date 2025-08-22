@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - v3
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -30,7 +30,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm run publish-packages
+          publish: pnpm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

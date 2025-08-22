@@ -274,12 +274,11 @@ export {
 export { Bleed, type BleedProps } from './components/bleed/index.ts'
 export { Box, type BoxProps } from './components/box/index.ts'
 export { Span, type SpanProps } from './components/span/index.ts'
+export { Center, type CenterProps } from './components/center/index.ts'
 export {
-  Center,
-  type CenterProps,
   AbsoluteCenter,
   type AbsoluteCenterProps,
-} from './components/center/index.ts'
+} from './components/absolute-center/index.ts'
 export { ClientOnly } from './components/client-only/index.ts'
 export { ColorPicker } from './components/color-picker/index.ts'
 export { ColorSwatch } from './components/color-swatch/index.ts'
@@ -289,7 +288,7 @@ export {
   type EnvironmentProviderProps,
   type RootNode,
   useEnvironmentContext,
-} from './components/env/index.ts'
+} from './components/environment/index.ts'
 export { Float } from './components/float/index.ts'
 export { FocusTrap } from './components/focus-trap/index.ts'
 export {

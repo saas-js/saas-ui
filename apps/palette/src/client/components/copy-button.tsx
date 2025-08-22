@@ -1,11 +1,9 @@
 import {
+  type ButtonProps,
   IconButton,
-  ButtonProps,
   Tooltip,
   useClipboard,
-} from '@chakra-ui/react'
-
-import React from 'react'
+} from '@saas-ui/react'
 import { FiCheck, FiCopy } from 'react-icons/fi'
 
 interface CopyButtonProps extends ButtonProps {
@@ -13,12 +11,14 @@ interface CopyButtonProps extends ButtonProps {
 }
 
 function CopyButton({ code, ...props }: CopyButtonProps) {
-  const { hasCopied, onCopy } = useClipboard(code)
+  const { copied, copy } = useClipboard({
+    value: code,
+  })
 
-  const label = hasCopied ? 'Copied' : 'Copy'
+  const label = copied ? 'Copied' : 'Copy'
 
   return (
-    <Tooltip label={label}>
+    <Tooltip content={label}>
       <IconButton
         size="sm"
         position="absolute"
@@ -32,9 +32,9 @@ function CopyButton({ code, ...props }: CopyButtonProps) {
         _hover={{ bg: 'none' }}
         {...props}
         aria-label="copy"
-        onClick={onCopy}
+        onClick={copy}
       >
-        {hasCopied ? <FiCheck /> : <FiCopy />}
+        {copied ? <FiCheck /> : <FiCopy />}
       </IconButton>
     </Tooltip>
   )

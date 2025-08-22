@@ -1,56 +1,62 @@
-import NextLink from 'next/link'
-import Image from 'next/image'
+import { usePalette } from '@/providers/palette'
 import {
   Button,
   ButtonGroup,
-  Code,
-  Heading,
   HStack,
   Icon,
   List,
-  ListIcon,
-  ListItem,
   Stack,
   Text,
-} from '@chakra-ui/react'
-
-import { usePalette } from '@/providers/palette'
+} from '@saas-ui/react'
+import Image from 'next/image'
+import NextLink from 'next/link'
 import { FiArrowRight, FiCheck } from 'react-icons/fi'
 
-const JsonPreview = () => {
+const FigmaPreview = () => {
   const [{ colors }] = usePalette()
-  const json = JSON.stringify(colors, undefined, 2)
+
   return (
     <Stack>
       <HStack
         alignItems="flex-start"
-        spacing="8"
+        gap="8"
         flexDirection={{ base: 'column', lg: 'row' }}
       >
-        <Stack spacing="8">
+        <Stack gap="8">
           <Text fontSize="xl">
             With Supa Palette you can easily create beautiful, harmonious and
             accessible-first palettes for Chakra UI in Figma.
           </Text>
 
-          <List color="muted" spacing="3">
-            <ListItem>
-              <ListIcon as={FiCheck} color="primary.500" />
+          <List.Root
+            color="fg.muted"
+            gap="3"
+            listStyleType="none"
+            css={{
+              '& > li': {
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2,
+              },
+            }}
+          >
+            <List.Item>
+              <Icon as={FiCheck} color="primary.500" />
               Generate &apos;Hues&apos; or &apos;Opacities&apos; palettes
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FiCheck} color="primary.500" />
+            </List.Item>
+            <List.Item>
+              <Icon as={FiCheck} color="primary.500" />
               Automatic contrast calculation/correction
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FiCheck} color="primary.500" />
+            </List.Item>
+            <List.Item>
+              <Icon as={FiCheck} color="primary.500" />
               Powerful color stop editor for unlimited customisation
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FiCheck} color="primary.500" />
+            </List.Item>
+            <List.Item>
+              <Icon as={FiCheck} color="primary.500" />
               Select the amount of colors
-            </ListItem>
-          </List>
+            </List.Item>
+          </List.Root>
 
           <ButtonGroup>
             <NextLink
@@ -58,12 +64,9 @@ const JsonPreview = () => {
               passHref
               legacyBehavior
             >
-              <Button
-                variant="primary"
-                as="a"
-                rightIcon={<Icon as={FiArrowRight} />}
-              >
+              <Button colorPalette="primary" as="a">
                 More information
+                <Icon as={FiArrowRight} />
               </Button>
             </NextLink>
           </ButtonGroup>
@@ -86,4 +89,4 @@ const JsonPreview = () => {
   )
 }
 
-export default JsonPreview
+export default FigmaPreview

@@ -1,5 +1,16 @@
 # @saas-ui/forms
 
+## 3.0.0-next.41
+
+### Minor Changes
+
+- a635505: Updated to Chakra 3.25.0
+
+### Patch Changes
+
+- Updated dependencies [a635505]
+  - @saas-ui/react@3.0.0-next.41
+
 ## 3.0.0-next.40
 
 ### Patch Changes

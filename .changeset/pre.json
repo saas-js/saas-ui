@@ -32,7 +32,11 @@
     "@saas-ui/next-workspaces": "0.3.0",
     "@saas-ui/props-docs": "2.3.3",
     "@saas-ui/storybook-addon": "6.0.1",
-    "@saas-ui/test-utils": "4.2.4"
+    "@saas-ui/test-utils": "4.2.4",
+    "next-app": "2.0.14",
+    "next-pages": "2.0.14",
+    "react-router-ts": "0.0.1",
+    "remix-ts": "1.0.0"
   },
   "changesets": [
     "afraid-avocados-roll",
@@ -67,6 +71,7 @@
     "fair-kings-battle",
     "fair-pants-grab",
     "famous-clocks-relate",
+    "fancy-camels-hope",
     "fast-dolls-jump",
     "fast-hats-prove",
     "fifty-balloons-stare",

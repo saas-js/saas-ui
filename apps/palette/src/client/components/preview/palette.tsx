@@ -1,23 +1,52 @@
-import { Stack, Box, Flex, Text } from '@chakra-ui/react'
+// import { colors } from "@saas-ui/react/colors";
+import { useMemo } from 'react'
+
+import { usePalette } from '@/providers/palette'
+import { Box, Flex, Stack, Text } from '@saas-ui/react'
 
 import {
-  ColorWrapper,
+  ColorName,
   ColorPalette,
   ColorPalettes,
-  ColorName,
+  ColorWrapper,
 } from '../palette'
 
 const PalettePreview = () => {
+  const [{ colors }] = usePalette()
+
+  const mappedColors = useMemo(() => {
+    const allColors = Object.keys(colors)
+
+    const colorsToRemove = [
+      'black',
+      'blackAlpha',
+      'current',
+      'transparent',
+      'white',
+      'whiteAlpha',
+      'primary'
+    ]
+    for (const color of colorsToRemove) {
+      if (allColors.includes(color)) {
+        allColors.splice(allColors.indexOf(color), 1)
+      }
+    }
+
+    return allColors
+  }, [colors])
+
   return (
-    <Stack spacing="4px">
+    <Stack gap="4px">
       <ColorWrapper>
-        {['', 50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((hue) => (
-          <Flex key={hue} justifyContent="center" height="3rem">
-            <Text color="muted" fontSize="sm">
-              {hue}
-            </Text>
-          </Flex>
-        ))}
+        {['', 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(
+          (hue) => (
+            <Flex key={hue} justifyContent="center" height="3rem">
+              <Text color="fg.muted" fontSize="sm">
+                {hue}
+              </Text>
+            </Flex>
+          ),
+        )}
       </ColorWrapper>
 
       <ColorWrapper>
@@ -33,36 +62,11 @@ const PalettePreview = () => {
 
       <Box height="3rem" />
 
-      <ColorWrapper>
-        <ColorPalettes color="gray" name="Gray" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="red" name="Red" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="orange" name="Orange" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="yellow" name="Yellow" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="green" name="Green" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="teal" name="Teal" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="cyan" name="Cyan" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="blue" name="Blue" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="purple" name="Purple" />
-      </ColorWrapper>
-      <ColorWrapper>
-        <ColorPalettes color="pink" name="Pink" />
-      </ColorWrapper>
+      {mappedColors.map((color) => (
+        <ColorWrapper key={color}>
+          <ColorPalettes color={color} name={color} />
+        </ColorWrapper>
+      ))}
 
       <Box height="3rem" />
 
@@ -70,7 +74,7 @@ const PalettePreview = () => {
         <ColorPalettes color="blackAlpha" name="Black Alpha" />
       </ColorWrapper>
       <ColorWrapper>
-        <ColorPalettes color="whiteAlpha" name="White Apha" />
+        <ColorPalettes color="whiteAlpha" name="White Alpha" />
       </ColorWrapper>
     </Stack>
   )

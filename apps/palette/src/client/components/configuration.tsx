@@ -1,48 +1,43 @@
+import { useCallback } from 'react'
+
 import { useEditorContext } from '@/providers/editor'
 import {
   Box,
-  BoxProps,
   Button,
   ButtonGroup,
-  Divider,
-  FormControl,
-  FormHelperText,
-  FormLabel,
+  Field,
   HStack,
   Input,
-  MenuItemOption,
   Slider,
-  SliderFilledTrack,
-  SliderThumb,
-  SliderTrack,
   VStack,
-} from '@chakra-ui/react'
-import {
-  Form,
-  Select,
-  SelectButton,
-  SelectList,
-  SelectOption,
 } from '@saas-ui/react'
-import { useCallback } from 'react'
 import { FaXTwitter } from 'react-icons/fa6'
+
+import ColorPicker from './color-picker'
 import Section from './section'
 
 const PaletteConfiguration = () => {
   const [state, setState] = useEditorContext()
 
-  const { theme, color, gray, blackLuminance } = state
+  const { color, gray, blackLuminance } = state
 
   const handleChange = useCallback(
     (key: string) => {
       return (e: any) => {
-        setState((state) => ({
-          ...state,
-          [key]: e.target?.value,
-        }))
+        if (typeof e === 'string') {
+          setState((state) => ({
+            ...state,
+            [key]: e,
+          }))
+        } else {
+          setState((state) => ({
+            ...state,
+            [key]: e.target?.value,
+          }))
+        }
       }
     },
-    [setState]
+    [setState],
   )
 
   const onReset = useCallback(() => {
@@ -58,108 +53,100 @@ const PaletteConfiguration = () => {
   }, [setState])
 
   return (
-    <Form onSubmit={() => null}>
+    <form onSubmit={() => null}>
       <Section title="Configuration">
-        <VStack spacing={4}>
-          <FormControl>
-            <FormLabel>Theme</FormLabel>
+        <VStack gap={4}>
+          {/* <Field.Root>
+						<Field.Label>Theme</Field.Label>
 
-            <Select
-              name="theme"
-              value={theme}
-              onChange={(theme) =>
-                setState((state) => ({ ...state, theme: theme as string }))
-              }
-            >
-              <SelectButton>{theme}</SelectButton>
-              <SelectList>
-                <SelectOption value="Glass">Glass</SelectOption>
-                <SelectOption value="Chakra UI">Chakra UI</SelectOption>
-                <SelectOption value="Saas UI">Saas UI</SelectOption>
-              </SelectList>
-            </Select>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Primary color</FormLabel>
-            <HStack>
-              <Input
-                type="color"
-                onChange={handleChange('color')}
-                value={color}
-                w="10"
-                p="0"
-              />
+						<Select.Root
+							name="theme"
+							value={theme}
+							onChange={(theme) =>
+								setState((state) => ({ ...state, theme: theme as string }))
+							}
+						>
+							<Select.Trigger>
+								<Select.ValueText>{theme}</Select.ValueText>
+							</Select.Trigger>
+							<Select.Content>
+								<Select.Item item="Glass">Glass</Select.Item>
+								<Select.Item item="Chakra UI">Chakra UI</Select.Item>
+								<Select.Item item="Saas UI">Saas UI</Select.Item>
+							</Select.Content>
+						</Select.Root>
+					</Field.Root> */}
+          <Field.Root>
+            <Field.Label>Primary color</Field.Label>
+            <HStack w={'full'}>
+              <ColorPicker onChange={handleChange('color')} value={color} />
               <Input
                 type="text"
                 onChange={handleChange('color')}
                 value={color}
+                w={'full'}
               />
             </HStack>
-            <FormHelperText>
+            <Field.HelperText>
               Select your primary brand color here, all other colors will be
               generated based of this.
-            </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Gray tint</FormLabel>
-            <HStack>
+            </Field.HelperText>
+          </Field.Root>
+          <Field.Root>
+            <Field.Label>Gray tint</Field.Label>
+            <HStack w={'full'}>
+              <ColorPicker onChange={handleChange('gray')} value={gray} />
               <Input
-                type="color"
+                type="text"
                 onChange={handleChange('gray')}
                 value={gray}
-                w="10"
-                p="0"
+                w={'full'}
               />
-              <Input type="text" onChange={handleChange('gray')} value={gray} />
             </HStack>
-            <FormHelperText>
+            <Field.HelperText>
               Choose a gray tint that compliments your base color to make your
               theme pop.
-            </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Black luminance</FormLabel>
+            </Field.HelperText>
+          </Field.Root>
+          <Field.Root>
+            <Field.Label>Black luminance</Field.Label>
             <Slider
-              onChange={(value) =>
-                setState((state) => ({
-                  ...state,
-                  blackLuminance: value,
-                }))
-              }
-              value={blackLuminance}
+              onValueChange={(value: { value: number[] }) => {
+                const val = value.value[0]
+                if (val !== blackLuminance) {
+                  setState((state) => ({
+                    ...state,
+                    blackLuminance: val,
+                  }))
+                }
+              }}
+              value={[blackLuminance]}
               min={0}
               max={0.01}
               step={0.001}
-            >
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb />
-            </Slider>
+              w={'full'}
+            />
 
-            <FormHelperText>
+            <Field.HelperText>
               Slightly increase the luminance to make your blacks more organic.
-            </FormHelperText>
-          </FormControl>
+            </Field.HelperText>
+          </Field.Root>
 
-          <Divider />
+          <Box h="1px" w="full" bg="border" />
 
           <ButtonGroup>
-            <Button
-              as="a"
-              href="https://twitter.com/intent/tweet?text=I%20created%20my%20%40chakra_ui%20color%20palette%20with%20%40saas_js%20%F0%9F%A4%A9%0A%0A%0Ahttps%3A//palette.saas-ui.dev%20"
-              leftIcon={<FaXTwitter />}
-              variant="solid"
-              colorScheme="primary"
-            >
-              Share on Twitter
+            <Button asChild variant="solid" colorScheme="primary">
+              <a href="https://twitter.com/intent/tweet?text=I%20created%20my%20%40chakra_ui%20color%20palette%20with%20%40saas_js%20%F0%9F%A4%A9%0A%0A%0Ahttps%3A//palette.saas-ui.dev%20">
+                <FaXTwitter />
+                Share on X
+              </a>
             </Button>
 
             <Button onClick={onReset}>Reset</Button>
           </ButtonGroup>
         </VStack>
       </Section>
-    </Form>
+    </form>
   )
 }
 

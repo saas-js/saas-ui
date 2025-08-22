@@ -4,7 +4,7 @@ import {
   Pagination as ChakraPagination,
   usePaginationContext,
 } from '@chakra-ui/react/pagination'
-import { Text, type TextProps } from '@chakra-ui/react/typography'
+import { Text, type TextProps } from '@chakra-ui/react/text'
 import { createContext } from '@saas-ui/core/utils'
 
 import { Button, type ButtonProps } from '../button/index.ts'

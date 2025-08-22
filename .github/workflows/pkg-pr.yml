@@ -16,9 +16,9 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn
+        run: pnpm i
 
       - name: Build
-        run: yarn build:packages
+        run: pnpm build:packages
 
-      - run: yarn dlx pkg-pr-new publish './packages/saas-ui-auth'
+      - run: pnpm dlx pkg-pr-new publish './packages/saas-ui-auth'

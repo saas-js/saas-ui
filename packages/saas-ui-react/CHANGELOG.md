@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.42
+
+### Minor Changes
+
+- 71c049d: Added new Chakra UI components
+
 ## 3.0.0-next.41
 
 ### Minor Changes

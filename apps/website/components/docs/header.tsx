@@ -11,8 +11,10 @@ import { HoverCard } from '@ark-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
 import {
   Box,
-  DrawerTrigger,
+  Drawer,
   HStack,
+  IconButton,
+  Menu,
   Portal,
   Separator,
   Spacer,
@@ -20,7 +22,6 @@ import {
   VStack,
   chakra,
 } from '@saas-ui/react'
-import { Drawer, IconButton, Menu } from '@saas-ui/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { BsGithub } from 'react-icons/bs'
@@ -116,11 +117,11 @@ const HeaderMobileMenuDropdown = () => {
       onEscapeKeyDown={closeMenu}
       onOpenChange={(e) => setIsOpen(e.open)}
     >
-      <DrawerTrigger asChild>
+      <Drawer.Trigger asChild>
         <IconButton variant="ghost" size="sm">
           <LuMenu />
         </IconButton>
-      </DrawerTrigger>
+      </Drawer.Trigger>
       <Portal>
         <Drawer.Backdrop />
         <Drawer.Content borderTopRadius="md" maxH="var(--content-height)">
@@ -278,9 +279,9 @@ const HeaderDesktopNavbar = () => {
             <Menu.Item value="nextjs" asChild>
               <Link href="/docs/starter-kits/nextjs">Next.js</Link>
             </Menu.Item>
-            <Menu.Item value="tanstack-router" asChild>
-              <Link href="/docs/starter-kits/tanstack-router">
-                Tanstack Router
+            <Menu.Item value="tanstack-start" asChild>
+              <Link href="/docs/starter-kits/tanstack-start">
+                Tanstack Start
               </Link>
             </Menu.Item>
           </HoverMenu>

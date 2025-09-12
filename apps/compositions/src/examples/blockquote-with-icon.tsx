@@ -1,7 +1,6 @@
 'use client'
 
-import { BlockquoteIcon, Float } from '@saas-ui/react'
-import { Blockquote } from '@saas-ui/react'
+import { Blockquote, BlockquoteIcon, Float } from '@saas-ui/react'
 
 export const BlockquoteWithIcon = () => {
   return (

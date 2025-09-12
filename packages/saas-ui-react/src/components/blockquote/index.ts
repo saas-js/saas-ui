@@ -1,1 +1,5 @@
-export { Blockquote, type BlockquoteProps } from './blockquote.tsx'
+export {
+  Blockquote,
+  BlockquoteIcon,
+  type BlockquoteProps,
+} from './blockquote.tsx'

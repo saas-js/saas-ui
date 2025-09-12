@@ -117,16 +117,15 @@ const MobileNav = () => {
     <Dialog.Root>
       <MobileNavTrigger />
       <Dialog.Backdrop />
-      <Dialog.Positioner>
-        <Dialog.Content m="0" shadow="none" borderRadius="0" bg="bg">
-          <HeaderRoot>
-            <ProLogoLink />
-            <Spacer />
-            <MobileNavCloseTrigger />
-          </HeaderRoot>
-          <MobileNavContent />
-        </Dialog.Content>
-      </Dialog.Positioner>
+
+      <Dialog.Content m="0" shadow="none" borderRadius="0" bg="bg">
+        <HeaderRoot>
+          <ProLogoLink />
+          <Spacer />
+          <MobileNavCloseTrigger />
+        </HeaderRoot>
+        <MobileNavContent />
+      </Dialog.Content>
     </Dialog.Root>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { Subheading } from '@/components/site/typography'
-import { Box, Button, Container, Heading, Stack } from '@saas-ui/react'
+import { Box, Button, Container, Heading, Span, Stack } from '@saas-ui/react'
 import Link from 'next/link'
 
 export const HeroSection = () => {
@@ -17,14 +17,16 @@ export const HeroSection = () => {
           >
             <Stack gap="5" maxW="4xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
-                SaaS starter kits for building products your customers will
-                actually love
+                Starter kits for building products your customers will actually
+                love
               </Heading>
               <Subheading>
-                Production-ready Next.js and Tanstack Router starter kits with
+                Production-ready Next.js and Tanstack Start starter kits with
                 beautiful UI, seamless UX, and enterprise-grade architecture.
                 <br />
-                Built with Saas UI Pro, tRPC, Postgres, Drizzle, and Stripe.
+                <Span textStyle="sm" color="fg.muted">
+                  Built with Saas UI Pro, tRPC, Postgres, Drizzle, and Stripe.
+                </Span>
               </Subheading>
             </Stack>
 

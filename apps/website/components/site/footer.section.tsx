@@ -26,15 +26,16 @@ const linkTree = [
   {
     title: 'Products',
     items: [
-      { label: 'Next.js starter kit', href: '/nextjs-starter-kit' },
-      { label: 'Next.js boilerplate', href: '/nextjs-starter-kit' },
-      {
-        label: 'Tanstack Router starter kit',
-        href: '/tanstack-router-starter-kit',
-      },
       { label: 'React components', href: '/docs/components' },
-      { label: 'Figma UI kit', href: '/figma' },
-      { label: 'Blocks', href: '/blocks' },
+
+      { label: 'Next.js starter kit', href: '/pro/starter-kits/nextjs' },
+      { label: 'Next.js boilerplate', href: '/pro/starter-kits/nextjs' },
+      {
+        label: 'Tanstack Start starter kit',
+        href: '/pro/starter-kits/tanstack-start',
+      },
+      { label: 'Figma UI kit', href: '/pro/figma' },
+      { label: 'Blocks', href: '/pro/blocks' },
     ],
   },
   {

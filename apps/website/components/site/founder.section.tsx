@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Container, Grid, HStack, Heading, Text } from '@saas-ui/react'
+import { Box, Container, Grid, Heading, Text } from '@saas-ui/react'
 import { Persona } from '@saas-ui/react'
 
 export function FounderSection() {
@@ -48,8 +48,10 @@ export function FounderSection() {
 
             <Persona.Root>
               <Persona.Avatar src="/eelco128.jpg" name="Eelco Wiersma" />
-              <Persona.Label>Eelco Wiersma</Persona.Label>
-              <Persona.SecondaryLabel>Founder Saas UI</Persona.SecondaryLabel>
+              <Persona.Details>
+                <Persona.Label>Eelco Wiersma</Persona.Label>
+                <Persona.SecondaryLabel>Founder Saas UI</Persona.SecondaryLabel>
+              </Persona.Details>
             </Persona.Root>
           </Box>
         </Grid>

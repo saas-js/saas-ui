@@ -76,6 +76,7 @@ export {
 } from './components/back-button/index.ts'
 export {
   Blockquote,
+  BlockquoteIcon,
   type BlockquoteProps,
 } from './components/blockquote/index.ts'
 export { Breadcrumb } from './components/breadcrumb/index.ts'
@@ -85,7 +86,12 @@ export {
   type ButtonGroupProps,
 } from './components/button-group/index.ts'
 export { Card } from './components/card/index.ts'
-export { Checkbox, type CheckboxProps } from './components/checkbox/index.ts'
+export {
+  Checkbox,
+  CheckboxGroup,
+  type CheckboxProps,
+  type CheckboxGroupProps,
+} from './components/checkbox/index.ts'
 export { Checkmark, type CheckmarkProps } from './components/checkmark/index.ts'
 export { CodeBlock } from './components/code-block/index.ts'
 export { Circle } from './components/circle/index.ts'
@@ -347,3 +353,12 @@ export { Wrap, type WrapProps } from './components/wrap/index.ts'
 export { Flex, type FlexProps } from './components/flex/index.ts'
 
 export type { ColorPalette } from './theme/tokens/colors.ts'
+
+export { For } from '@chakra-ui/react/for'
+export {
+  LocaleProvider,
+  useLocaleContext,
+  useFilter,
+} from '@chakra-ui/react/locale'
+
+export { Theme } from '@chakra-ui/react'

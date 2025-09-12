@@ -11,10 +11,9 @@ import { websiteConfig } from '@/website.config'
 import { SaasUIIcon } from '@saas-ui/assets'
 import {
   Box,
-  Button,
-  Container,
-  DrawerTrigger,
+  Drawer,
   HStack,
+  IconButton,
   Portal,
   Separator,
   Spacer,
@@ -22,7 +21,6 @@ import {
   VStack,
   chakra,
 } from '@saas-ui/react'
-import { Drawer, IconButton } from '@saas-ui/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { BsGithub } from 'react-icons/bs'
@@ -150,11 +148,11 @@ const HeaderMobileMenuDropdown = () => {
       onEscapeKeyDown={closeMenu}
       onOpenChange={(e) => setIsOpen(e.open)}
     >
-      <DrawerTrigger asChild>
+      <Drawer.Trigger asChild>
         <IconButton variant="ghost" size="sm">
           <LuMenu />
         </IconButton>
-      </DrawerTrigger>
+      </Drawer.Trigger>
       <Portal>
         <Drawer.Backdrop />
         <Drawer.Content borderTopRadius="md" maxH="var(--content-height)">

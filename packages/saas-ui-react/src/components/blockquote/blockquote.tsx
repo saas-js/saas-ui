@@ -1,6 +1,9 @@
 import * as React from 'react'
 
-import { Blockquote as ChakraBlockquote } from '@chakra-ui/react'
+import {
+  Blockquote as ChakraBlockquote,
+  type HTMLChakraProps,
+} from '@chakra-ui/react'
 
 export interface BlockquoteProps extends ChakraBlockquote.RootProps {
   cite?: React.ReactNode
@@ -28,3 +31,7 @@ export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
     )
   },
 )
+
+export const BlockquoteIcon = (props: HTMLChakraProps<'svg'>) => {
+  return <ChakraBlockquote.Icon {...props} />
+}

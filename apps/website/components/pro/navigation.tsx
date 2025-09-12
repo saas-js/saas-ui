@@ -65,10 +65,10 @@ export const Navigation = () => {
                     Next.js and tRPC
                   </ListItem>
                   <ListItem
-                    title="Tanstack Router"
-                    href="/pro/starterkits/tanstack-router"
+                    title="Tanstack Start"
+                    href="/pro/starterkits/tanstack-start"
                   >
-                    Tanstack Router and tRPC
+                    Tanstack Start and tRPC
                   </ListItem>
                 </Stack>
               </List>

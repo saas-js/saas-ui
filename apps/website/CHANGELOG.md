@@ -1,5 +1,13 @@
 # @saas-ui/web-v3
 
+## 0.1.1-next.80
+
+### Patch Changes
+
+- Updated dependencies [260877c]
+  - @saas-ui/forms@3.0.0-next.44
+  - @saas-ui/modals@3.0.0-next.44
+
 ## 0.1.1-next.79
 
 ### Patch Changes

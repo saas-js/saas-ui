@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react'
 
-import * as Yup from 'yup'
 import * as z from 'zod'
 import {
   Alert,
@@ -15,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { splitProps } from '@saas-ui/core/utils'
 import { Steps } from '@saas-ui/react'
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react-vite'
 import { LuInfo } from 'react-icons/lu'
 
 import {
@@ -35,7 +34,6 @@ import {
 } from '../src'
 import { StepForm, createStepForm } from '../src'
 import { FormStep, FormStepper, NextButton, PrevButton } from '../src/step-form'
-import { StepForm as YupStepForm } from '../yup/src'
 import { StepForm as ZodStepForm, createZodStepForm } from '../zod/src'
 import { onSubmit } from './helpers'
 
@@ -104,19 +102,6 @@ const CustomStepForm = createStepForm({
   },
   getBaseField,
 })
-
-const schemas = {
-  profile: Yup.object().shape({
-    name: Yup.string()
-      .min(2, 'Minimal 2 characters')
-      .max(25, 'Maximum 25 characters')
-      .required(),
-    email: Yup.string().required().email(),
-  }),
-  password: Yup.object().shape({
-    password: Yup.string().min(5, 'Minimal 5 characters').required(),
-  }),
-}
 
 const zodSchemas = {
   project: z.object({
@@ -251,55 +236,6 @@ export const CustomFields: StoryObj<typeof CustomStepForm> = {
     )
   },
 }
-
-export const WithYupSchema = () => (
-  <>
-    <YupStepForm
-      steps={[
-        {
-          name: 'profile',
-          schema: schemas.profile,
-        } as const,
-        {
-          name: 'password',
-          schema: schemas.password,
-        } as const,
-      ]}
-      defaultValues={{
-        name: '',
-        email: '',
-        password: '',
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ Field, FormStep, isCompleted }) => (
-        <FormLayout>
-          <FormStepper orientation="vertical">
-            <FormStep name="profile" title="Profile">
-              <FormLayout>
-                <Field name="name" label="Name" />
-                <Field name="email" label="Email" />
-              </FormLayout>
-            </FormStep>
-            <FormStep name="password" title="Password">
-              <FormLayout>
-                <Field name="password" label="Password" isRequired />
-              </FormLayout>
-            </FormStep>
-          </FormStepper>
-          {isCompleted ? (
-            <Text>Completed</Text>
-          ) : (
-            <ButtonGroup>
-              <PrevButton />
-              <NextButton />
-            </ButtonGroup>
-          )}
-        </FormLayout>
-      )}
-    </YupStepForm>
-  </>
-)
 
 export const WithZodSchema = () => (
   <>

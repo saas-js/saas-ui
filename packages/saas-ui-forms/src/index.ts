@@ -1,7 +1,7 @@
 // Import and export Form and StepForm
 import { createForm } from './create-form'
 
-export { useForm, useZodForm } from './use-form'
+export { useForm } from './use-form'
 export type {
   UseZodFormProps,
   UseFormReturn,

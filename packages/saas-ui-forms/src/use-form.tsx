@@ -69,25 +69,24 @@ export function useForm<
   const stableOnSubmit = useMemo(() => onSubmit, [onSubmit])
   const stableOnInvalid = useMemo(() => onInvalid, [onInvalid])
 
-  const FormComponent = useMemo(
-    () =>
-      forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
-        function FormComponent(props, ref) {
-          return (
-            <Form
-              {...props}
-              form={form}
-              onSubmit={
-                props.onSubmit ??
-                form.handleSubmit(stableOnSubmit, stableOnInvalid)
-              }
-              ref={ref}
-            />
-          )
-        },
-      ),
-    [form, stableOnSubmit, stableOnInvalid],
-  )
+  const FormComponent = useMemo(() => {
+    console.log('recreate')
+    return forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
+      function FormComponent(props, ref) {
+        return (
+          <Form
+            {...props}
+            form={form}
+            onSubmit={
+              props.onSubmit ??
+              form.handleSubmit(stableOnSubmit, stableOnInvalid)
+            }
+            ref={ref}
+          />
+        )
+      },
+    )
+  }, [form, stableOnSubmit, stableOnInvalid])
 
   const submit = useMemo(() => {
     return form.handleSubmit(stableOnSubmit, stableOnInvalid)
@@ -141,9 +140,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
 ) => React.ReactElement
 
 export interface UseZodFormProps<
-  TSchema extends
-    | z.AnyZodObject
-    | z.ZodEffects<z.AnyZodObject> = z.AnyZodObject,
+  TSchema extends z.ZodObject<any>,
   TFieldValues extends InferObjectSchema<TSchema> = InferObjectSchema<TSchema>,
   TContext extends object = object,
 > extends Omit<UseHookFormProps<TFieldValues, TContext>, 'defaultValues'> {
@@ -153,26 +150,7 @@ export interface UseZodFormProps<
   defaultValues?: DefaultValues<TFieldValues> | AsyncDefaultValues<TFieldValues>
 }
 
-/**
- * @deprecated Use useForm instead, which supports standard schema out of the box.
- */
-export function useZodForm<
-  TSchema extends
-    | z.AnyZodObject
-    | z.ZodEffects<z.AnyZodObject> = z.AnyZodObject,
-  TFieldValues extends InferObjectSchema<TSchema> = InferObjectSchema<TSchema>,
-  TContext extends object = object,
->(props: UseZodFormProps<TSchema, TFieldValues, TContext>) {
-  const { schema, ...rest } = props
-
-  return useForm<TFieldValues, TContext>({
-    resolver: zodResolver(schema as any),
-    ...rest,
-  })
-}
-
-type InferObjectSchema<T extends z.ZodTypeAny | z.ZodEffects<z.ZodTypeAny>> =
-  T extends z.ZodEffects<infer TSchema> ? z.infer<TSchema> : z.infer<T>
+type InferObjectSchema<T extends z.ZodTypeAny> = z.infer<T>
 
 type AsyncDefaultValues<TFieldValues> = (
   payload?: unknown,

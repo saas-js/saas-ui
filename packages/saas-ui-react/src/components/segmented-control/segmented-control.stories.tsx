@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Stack } from '@chakra-ui/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { SegmentedControl } from './index.ts'
 

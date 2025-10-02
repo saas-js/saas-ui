@@ -9,7 +9,7 @@ import {
   Button,
   Text,
 } from '@chakra-ui/react'
-import type { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react-vite'
 
 import { AppShell } from '../app-shell/index.ts'
 import { BackButton } from '../back-button/index.ts'

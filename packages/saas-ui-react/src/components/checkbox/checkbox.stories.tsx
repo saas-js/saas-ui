@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Field, Stack } from '@chakra-ui/react'
 import { HStack } from '@chakra-ui/react'
-import { Meta, type StoryObj } from '@storybook/react'
+import { Meta, type StoryObj } from '@storybook/react-vite'
 
 import { Checkbox } from './checkbox.tsx'
 

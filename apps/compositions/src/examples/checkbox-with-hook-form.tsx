@@ -1,6 +1,6 @@
 'use client'
 
-import { Controller, useZodForm } from '@saas-ui/forms'
+import { Controller, useForm } from '@saas-ui/forms'
 import { Button, Code, HStack, Stack } from '@saas-ui/react'
 import { Checkbox, Field } from '@saas-ui/react'
 import { z } from 'zod'
@@ -10,13 +10,14 @@ const formSchema = z.object({
 })
 
 export const CheckboxWithHookForm = () => {
-  const form = useZodForm({
+  const form = useForm({
     schema: formSchema,
     defaultValues: { enabled: false },
+    onSubmit: (data) => console.log(data),
   })
 
   return (
-    <form.Form onSubmit={(data) => console.log(data)}>
+    <form.Form>
       <Stack align="flex-start">
         <Controller
           control={form.control}

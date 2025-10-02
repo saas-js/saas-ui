@@ -11,11 +11,9 @@ export default {
   ],
 
   addons: [
-    '@storybook/addon-a11y',
-    '@storybook/addon-toolbars',
-    '@storybook/addon-storysource',
-    '@storybook/addon-viewport',
-    '@storybook/addon-themes',
+    getAbsolutePath("@storybook/addon-a11y"),
+    getAbsolutePath("@storybook/addon-themes"),
+    getAbsolutePath("@storybook/addon-docs")
   ],
 
   features: {
@@ -57,13 +55,9 @@ export default {
   // },
 
   framework: {
-    name: '@storybook/react-vite',
-  },
-
-  docs: {
-    autodocs: false,
-  },
-}
+    name: getAbsolutePath("@storybook/react-vite"),
+  }
+};
 
 function getAbsolutePath(value) {
   return dirname(require.resolve(join(value, 'package.json')))

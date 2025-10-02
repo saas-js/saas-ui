@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Container, Stack } from '@chakra-ui/react'
-import { StoryObj } from '@storybook/react'
+import { StoryObj } from '@storybook/react-vite'
 import { RiCloseLine, RiSearch2Line } from 'react-icons/ri'
 
 import { SearchInput, SearchInputProps } from './search-input'

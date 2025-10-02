@@ -1,6 +1,6 @@
 'use client'
 
-import { Controller, SubmitButton, useZodForm } from '@saas-ui/forms'
+import { Controller, SubmitButton, useForm } from '@saas-ui/forms'
 import { CheckboxGroup, Code, Fieldset } from '@saas-ui/react'
 import { Checkbox } from '@saas-ui/react'
 import { z } from 'zod'
@@ -19,15 +19,16 @@ const items = [
 ]
 
 export const CheckboxWithGroupHookForm = () => {
-  const form = useZodForm({
+  const form = useForm({
     schema: formSchema,
     defaultValues: {
       framework: [],
     },
+    onSubmit: (data) => console.log(data),
   })
 
   return (
-    <form.Form onSubmit={(data) => console.log(data)}>
+    <form.Form>
       <Controller
         control={form.control}
         name="framework"

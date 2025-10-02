@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { splitProps } from '@saas-ui/core/utils'
 import { Tooltip } from '@saas-ui/react'
-import { StoryObj } from '@storybook/react'
+import { StoryObj } from '@storybook/react-vite'
 import { LuInfo } from 'react-icons/lu'
 import { z } from 'zod'
 
@@ -237,11 +237,11 @@ export const WithStandardSchema: StoryObj<typeof useForm> = {
 
 export const WithZodSchema: StoryObj<typeof useForm> = {
   render() {
-    const form = useZodForm({
+    const form = useForm({
       schema: zodSchema,
       defaultValues: {
         firstName: '',
-        age: '',
+        age: 16,
       },
       onSubmit,
     })
@@ -268,7 +268,7 @@ const signupSchema = z
     if (data.password !== data.confirmPassword) {
       ctx.addIssue({
         path: ['confirmPassword'],
-        code: z.ZodIssueCode.custom,
+        code: 'custom',
         message: 'Passwords do not match',
       })
     }

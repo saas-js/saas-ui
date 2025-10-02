@@ -18,7 +18,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { atom, useAtom } from 'jotai'
 import {
   RiAddLine,

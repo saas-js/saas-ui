@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Icon } from '@chakra-ui/react'
-import type { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react-vite'
 import { LuMail, LuMessageSquare } from 'react-icons/lu'
 
 import { Button } from '../button/index.ts'

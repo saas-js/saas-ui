@@ -16,7 +16,7 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { FaBug, FaGithub, FaSlack } from 'react-icons/fa6'
 import { LuArrowRight, LuEllipsisVertical } from 'react-icons/lu'
 

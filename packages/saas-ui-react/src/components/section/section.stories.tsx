@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Card, Text } from '@chakra-ui/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Section } from './index.ts'
 

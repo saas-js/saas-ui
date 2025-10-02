@@ -1,11 +1,6 @@
 'use client'
 
-import {
-  Controller,
-  FormLayout,
-  SubmitButton,
-  useZodForm,
-} from '@saas-ui/forms'
+import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
 import { Button, Field, FileUpload } from '@saas-ui/react'
 import { HiUpload } from 'react-icons/hi'
 import { z } from 'zod'
@@ -15,15 +10,16 @@ const formSchema = z.object({
 })
 
 export const FileUploadWithHookForm = () => {
-  const form = useZodForm({
+  const form = useForm({
     schema: formSchema,
     defaultValues: {
       images: [],
     },
+    onSubmit: (data) => console.log(data),
   })
 
   return (
-    <form.Form onSubmit={(data) => console.log(data)}>
+    <form.Form>
       <FormLayout>
         <Controller
           control={form.control}

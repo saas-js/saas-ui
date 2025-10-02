@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Box, Card, Container, HStack, Text } from '@chakra-ui/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { FiMail, FiMessageSquare } from 'react-icons/fi'
 
 import { Avatar } from '../avatar/index.ts'

@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Box } from '@chakra-ui/react'
-import type { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react-vite'
 
 import { useAppShellStyles } from './app-shell.tsx'
 import { AppShell } from './index.ts'

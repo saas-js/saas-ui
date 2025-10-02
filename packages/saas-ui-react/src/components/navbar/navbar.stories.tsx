@@ -13,7 +13,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { LuMenu as FiMenu, LuX as FiX, LuX } from 'react-icons/lu'
 
 import { AppShell } from '../app-shell'

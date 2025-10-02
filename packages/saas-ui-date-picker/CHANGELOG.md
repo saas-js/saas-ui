@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.17.0
+
+### Minor Changes
+
+- e318bc0: Update deps
+
 ## 0.16.0
 
 ### Minor Changes

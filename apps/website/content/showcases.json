@@ -6,16 +6,10 @@
     "image": "/showcases/voxtellai.png"
   },
   {
-    "title": "Growtha",
-    "url": "https://growtha.com",
-    "description": "Healthcare SEO platform.",
-    "image": "/showcases/growtha.png"
-  },
-  {
     "title": "Mindlytics",
     "url": "https://www.mindlytics.ai",
     "description": "User behavioral analytics for LLM applications and AI agents.",
-    "image": "/showcases/mindlytics.png"
+    "image": "/showcases/mindlytics.avif"
   },
   {
     "title": "Otteri",
@@ -46,5 +40,11 @@
     "url": "https://www.flashserp.com",
     "description": "All-in-one API indexing tool",
     "image": "/showcases/flashserp.png"
+  },
+  {
+    "title": "Growtha",
+    "url": "https://growtha.com",
+    "description": "Healthcare SEO platform.",
+    "image": "/showcases/growtha.png"
   }
 ]

@@ -1,9 +1,6 @@
 import {
   Badge,
-  CardBody,
-  CardDescription,
-  CardRoot,
-  CardTitle,
+  Card,
   Container,
   Heading,
   Image,
@@ -54,7 +51,7 @@ export default async function Page() {
           }}
         >
           {showcases?.map(({ title, description, url, image }) => (
-            <CardRoot size="sm" key={url} asChild overflow="hidden">
+            <Card.Root size="sm" key={url} asChild overflow="hidden">
               <Link href={url}>
                 <Image
                   src={image}
@@ -63,12 +60,12 @@ export default async function Page() {
                   objectFit="fill"
                 />
 
-                <CardBody>
-                  <CardTitle textStyle="sm">{title}</CardTitle>
-                  <CardDescription>{description}</CardDescription>
-                </CardBody>
+                <Card.Body>
+                  <Card.Title textStyle="sm">{title}</Card.Title>
+                  <Card.Description>{description}</Card.Description>
+                </Card.Body>
               </Link>
-            </CardRoot>
+            </Card.Root>
           ))}
         </SimpleGrid>
       </VStack>

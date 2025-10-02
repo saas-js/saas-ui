@@ -69,7 +69,6 @@ export function useForm<
   const stableOnInvalid = useMemo(() => onInvalid, [onInvalid])
 
   const FormComponent = useMemo(() => {
-    console.log('recreate')
     return forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
       function FormComponent(props, ref) {
         return (

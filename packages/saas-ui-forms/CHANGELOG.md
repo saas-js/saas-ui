@@ -11,7 +11,7 @@
 
 ### Minor Changes
 
-- a635505: Updated to Chakra 3.25.0
+- a635505: Updated to Chakra 3.27.0
 
 ### Patch Changes
 

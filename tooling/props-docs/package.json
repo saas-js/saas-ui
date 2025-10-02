@@ -37,6 +37,6 @@
     "outdent": "^0.8.0"
   },
   "devDependencies": {
-    "@types/glob": "^8.1.0"
+    "@types/glob": "^9.0.0"
   }
 }

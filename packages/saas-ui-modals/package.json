@@ -60,19 +60,19 @@
     "@saas-ui/modals-provider": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.20.0",
+    "@chakra-ui/react": "3.27.0",
     "@emotion/react": ">=11.0.0",
     "@saas-ui/react": "workspace:*",
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
   },
   "devDependencies": {
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "typescript": "5.9.3",
     "yup": "^1.6.1",
-    "zod": "^3.25.76",
-    "typescript": "^5.8.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4"
+    "zod": "^4.1.11"
   }
 }

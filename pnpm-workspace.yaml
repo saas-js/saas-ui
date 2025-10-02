@@ -11,15 +11,3 @@ packages:
   - examples/*
 onlyBuiltDependencies:
   - '@parcel/watcher'
-overrides:
-  '@ark-ui/react': '5.20.0'
-  '@chakra-ui/react': '3.25.0'
-  'react': '19.1.1'
-  'react-dom': '19.1.1'
-  '@types/react': '19.1.10'
-  '@types/react-dom': '19.1.7'
-  'typescript': '5.8.3'
-# hoistPattern:
-#   - '@chakra-ui/react'
-#   - '@ark-ui/react'
-#   - 'zod'

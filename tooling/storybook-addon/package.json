@@ -64,14 +64,14 @@
   },
   "homepage": "https://github.com/saas-ui/saas-ui#readme",
   "devDependencies": {
-    "@chakra-ui/react": "^3.14.0",
+    "@chakra-ui/react": "3.27.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@saas-ui/react": "workspace:*",
     "@storybook/types": "^8.6.9",
-    "framer-motion": "^11.18.2",
-    "react": "^19.0.0",
-    "tsup": "^8.4.0"
+    "framer-motion": "^12.23.22",
+    "react": "19.2.0",
+    "tsup": "^8.5.0"
   },
   "dependencies": {
     "@storybook/components": "^8.6.9",
@@ -79,14 +79,14 @@
     "@storybook/preview-api": "^8.6.9"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.0.0",
+    "@chakra-ui/react": "3.27.0",
     "@saas-ui/react": "^3.0.0-next.42",
     "@storybook/components": ">=8.0.0",
     "@storybook/manager-api": ">=8.0.0",
     "@storybook/preview-api": ">=8.0.0",
     "@storybook/types": ">=8.0.0",
-    "react": ">=18.x",
-    "react-dom": ">=18.x"
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
   },
   "publishConfig": {
     "access": "public"

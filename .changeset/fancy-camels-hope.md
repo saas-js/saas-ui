@@ -4,4 +4,4 @@
 '@saas-ui/react': minor
 ---
 
-Updated to Chakra 3.25.0
+Updated to Chakra 3.27.0

@@ -34,16 +34,16 @@
     "react-test-renderer": "^19.0.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=3",
+    "@chakra-ui/react": "3.27.0",
     "@emotion/react": ">=11",
     "@storybook/addon-a11y": ">=8",
     "@storybook/react": ">=8",
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
   },
   "devDependencies": {
-    "@storybook/react": "^8.6.9",
+    "@storybook/react": "^9.1.10",
     "@storybook/types": "^8.6.9",
-    "react": "^19.0.0"
+    "react": "19.2.0"
   }
 }

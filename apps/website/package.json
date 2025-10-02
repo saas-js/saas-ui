@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.1-next.78",
+  "version": "0.1.1-next.79",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack --port 3020",

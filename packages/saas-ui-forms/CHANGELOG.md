@@ -1,5 +1,18 @@
 # @saas-ui/forms
 
+## 3.0.0-next.43
+
+### Major Changes
+
+- 8edfc2f: Removed useZodForm and useYupForm hooks
+
+### Patch Changes
+
+- 27fbc72: Upgrade to Chakra 3.27
+- Updated dependencies [8edfc2f]
+- Updated dependencies [27fbc72]
+  - @saas-ui/react@3.0.0-next.43
+
 ## 3.0.0-next.42
 
 ### Patch Changes

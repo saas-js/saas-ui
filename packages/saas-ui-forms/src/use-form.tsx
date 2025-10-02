@@ -2,7 +2,6 @@ import { forwardRef, useMemo } from 'react'
 
 import { type HTMLChakraProps, chakra } from '@chakra-ui/react'
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { cx } from '@saas-ui/core/utils'
 import type { StandardSchemaV1 } from '@standard-schema/spec'
 import {

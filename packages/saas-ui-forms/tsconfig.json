@@ -4,8 +4,7 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@saas-ui/forms/zod": ["./zod/src"],
-      "@saas-ui/forms/yup": ["./yup/src"]
+      "@saas-ui/forms/zod": ["./zod/src"]
     }
   },
   "include": ["src"],

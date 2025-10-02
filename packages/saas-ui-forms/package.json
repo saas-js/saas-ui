@@ -9,12 +9,6 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
-    "./yup": {
-      "sui": "./dist/yup/index.ts",
-      "require": "./dist/yup/index.js",
-      "types": "./dist/yup/index.d.ts",
-      "import": "./dist/yup/index.mjs"
-    },
     "./zod": {
       "sui": "./dist/zod/index.ts",
       "require": "./dist/zod/index.js",
@@ -22,24 +16,13 @@
       "import": "./dist/zod/index.mjs"
     }
   },
-  "typesVersions": {
-    "*": {
-      "yup": [
-        "./dist/yup/index.d.ts"
-      ],
-      "zod": [
-        "./dist/zod/index.d.ts"
-      ]
-    }
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
-    "build": "pnpm build:package && pnpm build:yup && pnpm build:zod",
+    "build": "pnpm build:package && pnpm build:zod",
     "build:package": "tsup src/index.ts --config tsup.config.ts",
-    "build:yup": "tsup yup/src/index.ts --config yup/tsup.config.ts",
     "build:zod": "tsup zod/src/index.ts --config zod/tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",

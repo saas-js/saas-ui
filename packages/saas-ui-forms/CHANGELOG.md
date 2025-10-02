@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 3.0.0-next.44
+
+### Patch Changes
+
+- 260877c: Remove debug log
+
 ## 3.0.0-next.43
 
 ### Major Changes

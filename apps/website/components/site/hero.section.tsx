@@ -25,13 +25,13 @@ export const HeroSection = () => {
             </Annoucement>
             <Stack gap="5" maxW="4xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
-                Launch polished SaaS apps in half the time
+                SaaS starter kits for products built to stand out
               </Heading>
               <Subheading>
-                Complete toolkit with 60+ free React components, premium
-                templates and fullstack starter kits. Everything you need to
-                ship beautiful, consistent B2B products without the design
-                guesswork.
+                While everyone else vibe-codes generic Shadcn clones, you'll
+                launch with polished, distinctive design. Production-ready
+                foundations for B2B SaaS that competes on quality—whether you're
+                solo or funded.
               </Subheading>
             </Stack>
 
@@ -43,7 +43,7 @@ export const HeroSection = () => {
                 variant="glass"
                 colorPalette="accent"
               >
-                <Link href="/components">Browse components</Link>
+                <Link href="/starter-kits">View starter kits</Link>
               </Button>
               <Button
                 size="lg"
@@ -52,7 +52,7 @@ export const HeroSection = () => {
                 variant="outline"
                 colorPalette="neutral"
               >
-                <Link href="/pro/starter-kits">View starter kits</Link>
+                <Link href="/docs">Documentation</Link>
               </Button>
             </Stack>
           </Stack>

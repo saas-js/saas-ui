@@ -7,10 +7,6 @@ export function FounderSection() {
   return (
     <Box py="20" borderBottomWidth="1px" borderStyle="dashed">
       <Container maxW="8xl">
-        <Text textStyle="sm" fontWeight="medium" mb="2">
-          Why Saas UI?
-        </Text>
-
         <Heading as="h2" size="4xl" mb="1em">
           Stop reinventing the wheel.
         </Heading>

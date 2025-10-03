@@ -2,6 +2,7 @@ import {
   Badge,
   Box,
   ButtonGroup,
+  Card,
   Container,
   Grid,
   HStack,
@@ -22,28 +23,26 @@ export function ProductsSection() {
   return (
     <Box borderTopWidth="1px" borderStyle="dashed">
       <ProductCard
-        title="Start building faster."
-        subtitle="Component library"
-        badge={
-          <Badge
-            size="xs"
-            variant="outline"
-            borderRadius="4px"
-            boxShadow="none"
-            borderWidth="1.5px"
-            color="indigo.500"
-            borderColor="indigo.500"
-            fontSize="10px"
-            height="4"
-            px="0.5"
-            fontWeight="bold"
-          >
-            OPEN SOURCE
-          </Badge>
-        }
+        title="Open Source components"
+        // badge={
+        //   <Badge
+        //     size="xs"
+        //     variant="outline"
+        //     borderRadius="4px"
+        //     boxShadow="none"
+        //     borderWidth="1.5px"
+        //     color="indigo.500"
+        //     borderColor="indigo.500"
+        //     fontSize="10px"
+        //     height="4"
+        //     px="0.5"
+        //     fontWeight="bold"
+        //   >
+        //     OPEN SOURCE
+        //   </Badge>
+        // }
         description={[
-          'Get started with 60+ production-ready React components built specifically for SaaS applications. Our open source library gives you beautiful, accessible components without the design guesswork—completely free.',
-          'Perfect for developers who want to skip the UI groundwork and focus on what makes their product unique. Join thousands of developers already building with Saas UI.',
+          'Get started with 60+ production-ready React components built specifically for SaaS applications. Our open source library gives you beautiful, accessible components without the design guesswork — completely free.',
         ]}
         primaryAction={{
           label: 'Browse components',
@@ -55,26 +54,69 @@ export function ProductsSection() {
         }}
       ></ProductCard>
       <ProductCard
-        title="Ship premium experiences."
-        subtitle="Premium components"
-        badge={<ProBadge />}
+        title="Premium components"
+        orientation="vertical"
+        // badge={<ProBadge />}
         description={[
           'Advanced components and premium templates. Everything you need to create polished, professional applications that users love.',
+        ]}
+        secondaryDescription={[
           'Built for teams who care about quality. Get enterprise-grade components, detailed documentation, and priority support to ship faster without cutting corners.',
         ]}
         primaryAction={{
-          label: 'Explore blocks',
+          label: 'Blocks & Templates',
           href: '/pro/blocks',
         }}
         secondaryAction={{
           label: 'Pricing',
           href: '/pro/pricing',
         }}
-      ></ProductCard>
+      >
+        <Grid templateColumns="repeat(5, 1fr)" gap="4" height="500px">
+          <Card.Root
+            variant="elevated"
+            bg="gray.300"
+            gridColumn="span 3"
+            overflow="clip"
+            position="relative"
+          >
+            <Image
+              src="/img/pro/blocks.png"
+              alt="Blocks"
+              width={100}
+              height={100}
+            />
+            <Card.Header
+              bg="bg"
+              position="absolute"
+              bottom="0"
+              left="0"
+              right="0"
+              p="4"
+            >
+              <Card.Title textStyle="2xl" color="fg">
+                Email Dashboard
+              </Card.Title>
+              <Card.Description color="fg.muted">
+                A beautiful email dashboard with a modern design and a focus on
+                usability.
+              </Card.Description>
+            </Card.Header>
+          </Card.Root>
+          <Card.Root variant="elevated" bg="bg.accent" gridColumn="span 2">
+            <Image
+              src="/img/pro/blocks.png"
+              alt="Blocks"
+              width={100}
+              height={100}
+            />
+          </Card.Root>
+        </Grid>
+      </ProductCard>
       <ProductCard
         title="Launch products customers love."
         subtitle="Full-stack starter kits"
-        badge={<ProBadge />}
+        // badge={<ProBadge />}
         description={[
           'Skip weeks of foundational work with our production-ready React starter kits. Authentication, payments, database, and beautiful UI —all integrated and ready to customize.',
           'Built with solid and scalable tech stacks including tRPC, Drizzle, and Stripe. Focus on your unique features while we handle the boring (but essential) parts.',
@@ -170,9 +212,10 @@ const starterKitTech = [
 
 function ProductCard(props: {
   title: string
-  subtitle: string
+  subtitle?: string
   badge?: React.ReactNode
   description: string | string[]
+  secondaryDescription?: string | string[]
   primaryAction: {
     label: string
     href: string
@@ -181,26 +224,43 @@ function ProductCard(props: {
     label: string
     href: string
   }
+  orientation?: 'horizontal' | 'vertical'
   children?: React.ReactNode
 }) {
+  const { orientation = 'horizontal' } = props
+
+  const isHorizontal = orientation === 'horizontal'
+
   return (
     <Box as="section" borderBottomWidth="1px" borderStyle="dashed">
       <Container maxW="8xl" overflow="hidden">
-        <HStack gap="0">
+        <Stack direction={isHorizontal ? 'row' : 'column'} gap="0">
           <Stack
-            flex="1 0 50%"
-            width="50%"
-            alignItems="flex-start"
             gap="2"
-            py="24"
-            pe="12"
+            css={
+              isHorizontal
+                ? {
+                    flex: '1 0 50%',
+                    width: '50%',
+                    alignItems: 'flex-start',
+                    pe: '12',
+                    py: 24,
+                  }
+                : {
+                    pt: 24,
+                    pb: 8,
+                    maxW: '480px',
+                  }
+            }
           >
-            <HStack>
-              <Text textStyle="sm" fontWeight="normal">
-                {props.subtitle}
-              </Text>
-              {props.badge}
-            </HStack>
+            {props.subtitle && (
+              <HStack>
+                <Text textStyle="sm" fontWeight="normal">
+                  {props.subtitle}
+                </Text>
+                {props.badge}
+              </HStack>
+            )}
             <Heading as="h3" textStyle="4xl">
               {props.title}
             </Heading>
@@ -222,6 +282,24 @@ function ProductCard(props: {
                 {props.description}
               </Text>
             )}
+            {Array.isArray(props.secondaryDescription) ? (
+              <>
+                {props.secondaryDescription.map((line) => (
+                  <Text
+                    key={line}
+                    textStyle="sm"
+                    fontWeight="medium"
+                    color="fg.muted"
+                  >
+                    {line}
+                  </Text>
+                ))}
+              </>
+            ) : (
+              <Text textStyle="sm" fontWeight="medium" color="fg.muted">
+                {props.secondaryDescription}
+              </Text>
+            )}
             <ButtonGroup>
               <Button
                 variant="plain"
@@ -236,17 +314,21 @@ function ProductCard(props: {
               </Button>
             </ButtonGroup>
           </Stack>
-          <Box
-            alignSelf="stretch"
-            flexShrink="0"
-            minH="540px"
-            width="calc(50vw - env(safe-area-inset-right))"
-            borderLeftWidth="1px"
-            borderStyle="dashed"
-          >
-            {props.children}
-          </Box>
-        </HStack>
+          {isHorizontal ? (
+            <Box
+              alignSelf="stretch"
+              flexShrink="0"
+              minH="400px"
+              width="calc(50vw - env(safe-area-inset-right))"
+              borderLeftWidth="1px"
+              borderStyle="dashed"
+            >
+              {props.children}
+            </Box>
+          ) : (
+            <Box pb="12">{props.children}</Box>
+          )}
+        </Stack>
       </Container>
     </Box>
   )

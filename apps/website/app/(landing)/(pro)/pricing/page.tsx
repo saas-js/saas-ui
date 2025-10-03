@@ -1,36 +1,68 @@
 import { ActionArrow } from '@/components/action-arrow'
 import { LinkButton } from '@/components/link-button'
 import { CustomersSection } from '@/components/site/customers.section'
+import { Octokit } from '@octokit/rest'
 import {
+  Accordion,
   Box,
   ButtonGroup,
   Container,
-  Grid,
   HStack,
   Heading,
-  Icon,
-  List,
-  Separator,
   Stack,
   Text,
 } from '@saas-ui/react'
-import { Accordion } from '@saas-ui/react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { TbArrowRight, TbCheck } from 'react-icons/tb'
+
+import { PricingTable } from './components/pricing-table'
 
 export const metadata: Metadata = {
   title: 'Pricing',
   description: 'Pricing for the Pro plan',
 }
 
-export default function Page() {
+export default async function Page() {
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_PERSONAL_TOKEN,
+  })
+
+  const nextjs = await octokit.repos.get({
+    owner: 'saas-js',
+    repo: 'saas-ui-pro-nextjs-starter-kit',
+  })
+
+  const tanstack = await octokit.repos.get({
+    owner: 'saas-js',
+    repo: 'vite-tanstack-router-starter-kit',
+  })
+
+  const nextjsUpdated = nextjs?.data.updated_at
+    ? new Date(nextjs.data.updated_at)
+    : null
+  const tanstackUpdated = tanstack?.data.updated_at
+    ? new Date(tanstack.data.updated_at)
+    : null
+
+  const dates = [nextjsUpdated, tanstackUpdated].filter(Boolean)
+
+  const latestUpdate =
+    dates.length > 0
+      ? Math.max(...dates.map((date) => date!.getTime()))
+      : new Date().getTime()
+
   return (
     <Stack gap="12">
       <Container maxW="6xl" position="static">
         <Hero />
 
-        <Pricing />
+        <PricingTable
+          lastUpdated={new Date(latestUpdate).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
+        />
 
         <CustomersSection />
       </Container>
@@ -68,187 +100,6 @@ function Hero() {
           Find the right plan for your needs
         </Heading>
       </Stack>
-    </Stack>
-  )
-}
-
-function Pricing() {
-  return (
-    <Stack>
-      <Separator
-        position="absolute"
-        left="0"
-        width="100vw"
-        borderStyle="dashed"
-      />
-      <Separator
-        position="absolute"
-        left="0"
-        transform="translateY(150px)"
-        width="100vw"
-        borderStyle="dashed"
-      />
-      <Grid
-        templateColumns={{
-          base: '1fr',
-          lg: 'repeat(3, 1fr)',
-        }}
-        gap="0"
-        w="full"
-      >
-        <Box
-          textStyle="md"
-          p="10"
-          lg={{
-            borderLeftWidth: '1px',
-            borderStyle: 'dashed',
-          }}
-        >
-          <Text fontSize="sm" color="fg.subtle">
-            Single license
-          </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Individuals
-          </Heading>
-
-          <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $297
-          </Text>
-
-          <Box my="8" pt="8">
-            <Text color="fg.subtle" mb="4" fontSize="lg">
-              Single developer license for unlimited self-hosted SaaS projects.
-            </Text>
-
-            <List.Root gap="2" variant="plain">
-              <List.Item>
-                <List.Indicator asChild color="fg.muted">
-                  <TbCheck />
-                </List.Indicator>
-                Pro blocks and templates
-              </List.Item>
-              <List.Item>
-                <List.Indicator asChild color="fg.muted">
-                  <TbCheck />
-                </List.Indicator>
-                Next.js and Tanstack starter kits
-              </List.Item>
-              <List.Item>
-                <List.Indicator asChild color="fg.muted">
-                  <TbCheck />
-                </List.Indicator>
-                Life-time access
-              </List.Item>
-            </List.Root>
-          </Box>
-
-          <LinkButton variant="glass" colorPalette="accent" href="">
-            Buy now
-          </LinkButton>
-        </Box>
-        <Box
-          textStyle="md"
-          lg={{
-            borderLeftWidth: '1px',
-            borderRightWidth: '1px',
-            borderStyle: 'dashed',
-          }}
-          p="10"
-        >
-          <Text fontSize="sm" color="fg.subtle">
-            Team license
-          </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Teams
-          </Heading>
-
-          <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $897
-          </Text>
-
-          <Box my="8" pt="8">
-            <Text color="fg.subtle" mb="4" fontSize="lg">
-              For teams and agencies up to 20 developers and unlimited projects.
-            </Text>
-
-            <Text fontWeight="medium" mb="2">
-              Everything in Individual plan, plus:
-            </Text>
-
-            <List.Root gap="2" variant="plain">
-              <List.Item>
-                <List.Indicator asChild color="fg.muted">
-                  <TbCheck />
-                </List.Indicator>
-                Priority support and feature requests
-              </List.Item>
-              <List.Item>
-                <List.Indicator asChild color="fg.muted">
-                  <TbCheck />
-                </List.Indicator>
-                Life-time access
-              </List.Item>
-            </List.Root>
-          </Box>
-
-          <LinkButton variant="glass" colorPalette="accent" href="">
-            Buy now
-          </LinkButton>
-        </Box>
-
-        <Box
-          textStyle="md"
-          p="10"
-          lg={{
-            borderRightWidth: '1px',
-            borderStyle: 'dashed',
-          }}
-        >
-          <Text fontSize="sm" color="fg.subtle">
-            Custom
-          </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Enterprise
-          </Heading>
-
-          <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            Starting at $1000/month
-          </Text>
-
-          <Box my="8" pt="8">
-            <Text color="fg.subtle" mb="4" fontSize="lg">
-              Customized plans for organizations who want to move fast.
-            </Text>
-
-            <Text fontWeight="medium" mb="2">
-              Everything in Team plan, plus:
-            </Text>
-
-            <List.Root gap="2" variant="plain">
-              <List.Item>
-                <List.Indicator asChild color="fg.muted">
-                  <TbCheck />
-                </List.Indicator>
-                Unlimited developers
-              </List.Item>
-              <List.Item>
-                <List.Indicator asChild color="fg.muted">
-                  <TbCheck />
-                </List.Indicator>
-                Dedicated support channel
-              </List.Item>
-            </List.Root>
-          </Box>
-
-          <LinkButton href="">Get in touch</LinkButton>
-        </Box>
-      </Grid>
-      <Separator
-        position="absolute"
-        left="0"
-        width="100vw"
-        borderStyle="dashed"
-      />
     </Stack>
   )
 }

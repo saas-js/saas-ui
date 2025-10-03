@@ -50,10 +50,10 @@ export const Navigation = () => {
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Pro
                   </Text>
-                  <ListItem title="Blocks" href="/pro/blocks">
+                  <ListItem title="Blocks" href="/blocks">
                     Pre-built React components.
                   </ListItem>
-                  <ListItem title="Figma" href="/pro/figma">
+                  <ListItem title="Figma" href="/figma">
                     Premium Figma UI kit.
                   </ListItem>
                 </Stack>
@@ -61,18 +61,22 @@ export const Navigation = () => {
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Starter kits
                   </Text>
-                  <ListItem title="Next.js" href="/pro/starter-kits/nextjs">
+                  <ListItem title="Next.js" href="/starter-kits/nextjs">
                     Next.js and tRPC
                   </ListItem>
                   <ListItem
                     title="Tanstack Start"
-                    href="/pro/starter-kits/tanstack-start"
+                    href="/starter-kits/tanstack-start"
                   >
                     Tanstack Start and tRPC
                   </ListItem>
                 </Stack>
               </List>
             </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <NavigationMenuLink href="/pricing">Pricing</NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>

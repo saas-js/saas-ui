@@ -134,6 +134,7 @@ export default function RootLayout({
             `,
           }}
         /> */}
+        <Script src="https://app.lemonsqueezy.com/js/lemon.js" defer />
         <Script
           id="lemon-squeezy-affiliate-config"
           dangerouslySetInnerHTML={{

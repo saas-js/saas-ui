@@ -1,5 +1,11 @@
 # @saas-ui/react
 
+## 3.0.0-next.44
+
+### Patch Changes
+
+- e74037a: Added client directives to all components
+
 ## 3.0.0-next.43
 
 ### Major Changes

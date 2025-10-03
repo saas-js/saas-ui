@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { Portal } from '@chakra-ui/react/portal'

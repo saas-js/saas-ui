@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { NumberInput as ChakraNumberInput } from '@chakra-ui/react/number-input'

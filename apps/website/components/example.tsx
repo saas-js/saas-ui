@@ -2,19 +2,9 @@ import { readExampleFile } from '@/lib/composition'
 import { highlightCode } from '@/lib/highlight-code'
 import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
 import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@saas-ui/react'
-import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import Link from 'next/link'
 
-import { CopyButton } from './copy-button'
-import { ExampleCanvas } from './example-canvas'
 import { ExamplePreview } from './example-preview'
-
-interface Props {
-  name: string
-  padding?: BoxProps['padding']
-  maxHeight?: BoxProps['maxHeight']
-  overflow?: BoxProps['overflow']
-}
 
 interface CodeProps extends Props {
   showCopy?: boolean
@@ -31,13 +21,20 @@ export const ExampleCode = async (props: CodeProps) => {
         className="code-highlight"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      {showCopy && (
+      {/* {showCopy && (
         <Box pos="absolute" top="4" right="6">
           <CopyButton value={content} />
         </Box>
-      )}
+      )} */}
     </>
   )
+}
+
+interface Props {
+  name: string
+  padding?: BoxProps['padding']
+  maxHeight?: BoxProps['maxHeight']
+  overflow?: BoxProps['overflow']
 }
 
 interface CodeWrapperProps {

@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { DialogContext } from '@ark-ui/react/dialog'

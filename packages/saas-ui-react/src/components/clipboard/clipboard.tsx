@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 
 import { Clipboard as ChakraClipboard } from '@chakra-ui/react/clipboard'

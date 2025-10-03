@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { Switch as ChakraSwitch } from '@chakra-ui/react/switch'

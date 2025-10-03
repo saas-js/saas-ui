@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { Checkbox as ChakraCheckbox } from '@chakra-ui/react/checkbox'

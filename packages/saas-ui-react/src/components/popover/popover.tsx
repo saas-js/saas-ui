@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react/popover'

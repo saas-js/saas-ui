@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { Spinner as ChakraSpinner } from '@chakra-ui/react/spinner'

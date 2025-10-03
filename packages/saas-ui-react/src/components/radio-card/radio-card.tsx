@@ -1,3 +1,5 @@
+'use client'
+
 import { Fragment, forwardRef } from 'react'
 
 import { RadioCard } from '@chakra-ui/react/radio-card'

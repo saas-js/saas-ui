@@ -1,3 +1,5 @@
+'use client'
+
 import { Fragment, forwardRef } from 'react'
 
 import { CheckboxCard as ChakraCheckboxCard } from '@chakra-ui/react/checkbox-card'

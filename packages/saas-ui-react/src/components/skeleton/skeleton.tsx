@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { Circle, type CircleProps } from '@chakra-ui/react/circle'

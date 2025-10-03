@@ -1,3 +1,5 @@
+'use client'
+
 import type { HTMLChakraProps } from '@chakra-ui/react/styled-system'
 import { GridList } from '@saas-ui/core/grid-list'
 

@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { ActionBar } from '@chakra-ui/react/action-bar'

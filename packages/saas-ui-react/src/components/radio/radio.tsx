@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react/radio-group'

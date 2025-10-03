@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { Tag as ChakraTag } from '@chakra-ui/react/tag'

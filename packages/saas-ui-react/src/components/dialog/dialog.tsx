@@ -1,3 +1,5 @@
+'use client'
+
 import { type RefObject, forwardRef } from 'react'
 
 import { Dialog as ChakraDialog } from '@chakra-ui/react/dialog'

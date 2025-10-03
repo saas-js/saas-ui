@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 
 import { Badge, type BadgeProps } from '@chakra-ui/react/badge'

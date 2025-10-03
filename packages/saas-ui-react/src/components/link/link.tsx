@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 
 import { Link as ChakraLink, type LinkProps } from '@chakra-ui/react/link'

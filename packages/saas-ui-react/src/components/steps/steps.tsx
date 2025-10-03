@@ -1,3 +1,5 @@
+'use client'
+
 import { Box } from '@chakra-ui/react/box'
 import { Steps as ChakraSteps, useStepsContext } from '@chakra-ui/react/steps'
 

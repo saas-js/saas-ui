@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import { Slider as ChakraSlider } from '@chakra-ui/react/slider'

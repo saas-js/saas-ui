@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from 'react'
 
 import type { HTMLChakraProps, SlotRecipeProps } from '@chakra-ui/react'

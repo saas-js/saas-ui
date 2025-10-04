@@ -1,0 +1,168 @@
+---
+title: Installation
+description: Quick start guide for installing and using Slingshot.
+---
+
+<Steps>
+  <Step>
+
+### Install Slingshot
+
+```bash
+npm install @saas-js/slingshot @saas-js/slingshot-react
+```
+
+  </Step>
+  <Step>
+
+### Configure Slingshot server
+
+Create a Slingshot server handler, this will be used create presigned URLs for a specific upload profile, eg `avatar`.
+
+```ts title="lib/slingshot/avatar.ts"
+export const slingshot = createSlingshotServer({
+  profile: 'avatar',
+  maxSizeBytes: 1024 * 1024 * 5, // 5MB
+  allowedFileTypes: 'image/*',
+  key: ({ file }) => {
+    return `avatars/${file.name}`
+  },
+})
+```
+
+  </Step>
+  <Step>
+
+### Create a file upload component
+
+Add the `FileUpload` component to your page.
+
+<Callout>
+  This example is unstyled, you can style it yourself or use one of our UI
+  library integrations.
+</Callout>
+
+```tsx title="pages/index.tsx"
+import { FileUpload } from '@saas-js/slingshot-react'
+
+export function Page() {
+  return (
+    <FileUpload.Root profile="avatar" accept="image/*" maxFiles={1}>
+      <FileUpload.Context>
+        {(api) => {
+          const files = api.slingshot.getFiles()
+
+          return (
+            <>
+              <FileUpload.Dropzone>
+                <FileUpload.Label>Drag your file(s) here</FileUpload.Label>
+
+                <FileUpload.Trigger>Choose file(s)</FileUpload.Trigger>
+              </FileUpload.Dropzone>
+
+              <FileUpload.ItemGroup>
+                {files.map((file) => {
+                  return (
+                    <FileUpload.Item key={file.name} file={file.data}>
+                      <FileUpload.ItemPreview type="image/*">
+                        <FileUpload.ItemPreviewImage />
+                      </FileUpload.ItemPreview>
+                      <FileUpload.ItemName />
+                      <FileUpload.ItemSizeText />
+
+                      <FileUpload.ItemDeleteTrigger>
+                        ✕
+                      </FileUpload.ItemDeleteTrigger>
+                    </FileUpload.Item>
+                  )
+                })}
+              </FileUpload.ItemGroup>
+
+              <FileUpload.HiddenInput />
+            </>
+          )
+        }}
+      </FileUpload.Context>
+    </FileUpload.Root>
+  )
+}
+```
+
+  </Step>
+  <Step>
+
+### Mount handlers
+
+To handle the upload requests, you need to mount the handlers.
+
+Create a new route in your framework that will handle the upload requests.
+The route path should start with `/api/slingshot/` and include the profile name, eg `/api/slingshot/avatar`.
+
+<Callout>
+  The Slingshot server runs on `Hono` and supports any framework that supports
+  standard Request and Response objects.
+</Callout>
+
+<Tabs items={['Next.js']}>
+  <Tab>
+  
+```tsx title="api/slingshot/avatar/route.ts"
+import { slingshot } from '@/lib/slingshot/avatar'
+import { handle } from '@saas-js/slingshot/next'
+
+export const GET = handle(slingshot)
+export const POST = handle(slingshot)
+```
+  
+  </Tab>
+</Tabs>
+
+  </Step>
+  <Step>
+
+### Adapter
+
+Lastly we need to configure an adapter to connect to your storage provider.
+
+Open the slingshot profile (`lib/slingshot/avatar.ts`) and add an adapter.
+
+<Tabs items={['AWS S3']}>
+  <Tab>
+
+```bash
+npm install @saas-js/slingshot-adapter-s3
+```
+
+```ts title="lib/slingshot/avatar.ts"
+import { s3 } from '@saas-js/slingshot-adapter-s3'
+
+export const slingshot = createSlingshotServer({
+  profile: 'avatar',
+  maxSizeBytes: 1024 * 1024 * 5, // 5MB
+  allowedFileTypes: 'image/*',
+  key: ({ file }) => {
+    return `avatars/${file.name}`
+  },
+  adapter: s3({
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
+    region: process.env.AWS_REGION,
+    bucket: process.env.AWS_BUCKET,
+  }),
+})
+```
+
+  </Tab>
+</Tabs>
+
+  </Step>
+  <Step>
+
+### Done!
+
+Now you're ready to upload files! Continue to the [Basic usage](/docs/file-upload/getting-started/basic-usage) section to learn more.
+
+  </Step>
+</Steps>

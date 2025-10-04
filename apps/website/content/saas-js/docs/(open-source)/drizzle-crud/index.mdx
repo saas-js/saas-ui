@@ -1,0 +1,101 @@
+---
+title: Overview
+description: A powerful TypeScript package that automatically generates CRUD operations for your Drizzle ORM schemas with built-in validation, filtering, pagination, soft deletes, and access control.
+---
+
+# Drizzle CRUD
+
+A powerful TypeScript package that automatically generates CRUD operations for your Drizzle ORM schemas with built-in validation, filtering, pagination, soft deletes, and access control.
+
+<Callout type="warning">
+  This is an early preview version while we are working out details. We love to
+  hear what you think @ https://x.com/saas_js or open a
+  [Discussion](https://github.com/saas-js/saas-js/discussions)
+</Callout>
+
+## Features
+
+- 🚀 **Auto-generated CRUD operations** from Drizzle schemas
+- 🔍 **Advanced filtering** with multiple operators (eq, ne, gt, lt, like, in, etc.)
+- 📄 **Built-in pagination** with configurable limits
+- 🔎 **Full-text search** across specified fields
+- 🗑️ **Soft delete support** with restore functionality
+- 🔐 **Access control** with actor-based permissions and scope filters
+- ✅ **Standard schema validation** with customizable schemas
+- 🪝 **Lifecycle hooks** for custom business logic
+- 📊 **Bulk operations** for efficient data manipulation
+- 🎯 **Type-safe** with full TypeScript support
+
+## Integrations (TBD)
+
+- **tRPC** generate crud procedures
+- **Hono RPC** generate hono RPC procedures
+- **oRPC** generate oRPC procedures
+- **Tanstack Table** Integrate pagination and filtering
+
+## Roadmap
+
+- [ ] Support all Drizzle dialects (currently only PG)
+- [ ] Expose utilities for filters and pagination
+- [ ] Define custom operations
+- [ ] Automatic re-ordering on insert or update (fractional/shift sorting)
+- [x] Standard schema support
+
+## Quick Start
+
+```typescript
+import { drizzleCrud } from 'drizzle-crud'
+import { zod } from 'drizzle-crud/zod'
+import { boolean, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core'
+import { drizzle } from 'drizzle-orm/postgres-js'
+
+// Define your schema
+const users = pgTable('users', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  isActive: boolean('is_active').default(true),
+  deletedAt: timestamp('deleted_at'),
+  createdAt: timestamp('created_at').defaultNow(),
+})
+
+// Initialize database and CRUD factory
+const db = drizzle(/* your database connection */)
+const createCrud = drizzleCrud(db, {
+  validation: zod(),
+})
+
+// Create CRUD operations for each table
+const userCrud = createCrud(users, {
+  searchFields: ['name', 'email'],
+  allowedFilters: ['isActive'],
+  softDelete: { field: 'deletedAt' },
+})
+
+// Use the generated CRUD operations
+const newUser = await userCrud.create({
+  name: 'John Doe',
+  email: 'john@example.com',
+})
+
+const usersList = await userCrud.list({
+  search: 'john',
+  filters: { isActive: true },
+  page: 1,
+  limit: 10,
+})
+```
+
+## Requirements
+
+- Node.js 16+
+- TypeScript 4.7+
+- Drizzle ORM
+- Zod v4
+
+## Next Steps
+
+- [Installation & Setup](/docs/drizzle-crud/getting-started/installation)
+- [Basic Usage](/docs/drizzle-crud/getting-started/basic-usage)
+- [Core Operations](/docs/drizzle-crud/reference/core-operations)
+- [Advanced Features](/docs/drizzle-crud/advanced/filtering)

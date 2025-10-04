@@ -1,6 +1,6 @@
 import { Children, isValidElement } from 'react'
 
-import { Timeline } from '@saas-ui/react'
+import { Box, Timeline } from '@saas-ui/react'
 
 export const Steps = (props: React.PropsWithChildren<{}>) => {
   return (
@@ -26,4 +26,8 @@ export const Steps = (props: React.PropsWithChildren<{}>) => {
       })}
     </Timeline.Root>
   )
+}
+
+export const Step = (props: { children: React.ReactNode }) => {
+  return <Box>{props.children}</Box>
 }

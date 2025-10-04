@@ -1,0 +1,5 @@
+{
+  "title": "@saas-js/iconify",
+  "root": true,
+  "pages": ["index", "getting-started", "reference"]
+}

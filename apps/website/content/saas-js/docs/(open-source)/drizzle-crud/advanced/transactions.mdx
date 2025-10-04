@@ -1,0 +1,430 @@
+---
+title: Transactions
+description: Use database transactions with Drizzle CRUD operations
+---
+
+# Transactions
+
+Drizzle CRUD supports database transactions by allowing you to pass a transaction instance through the operation context. This ensures data consistency across multiple operations.
+
+## Basic Transaction Usage
+
+Pass a transaction instance to any CRUD operation:
+
+```typescript
+import { drizzle } from 'drizzle-orm/postgres-js'
+
+const db = drizzle(/* connection */)
+
+const result = await db.transaction(async (tx) => {
+  // Create user
+  const user = await userCrud.create(
+    {
+      name: 'John Doe',
+      email: 'john@example.com',
+    },
+    {
+      db: tx, // Pass transaction instance
+    }
+  )
+
+  // Create user profile
+  const profile = await profileCrud.create(
+    {
+      userId: user.id,
+      bio: 'Software developer',
+    },
+    {
+      db: tx,
+    }
+  )
+
+  return { user, profile }
+})
+```
+
+## Multiple Operations in Transaction
+
+Perform multiple CRUD operations within a single transaction:
+
+```typescript
+const transferFunds = async (fromUserId: string, toUserId: string, amount: number) => {
+  return await db.transaction(async (tx) => {
+    // Deduct from sender
+    const fromUser = await userCrud.findById(fromUserId, { db: tx })
+    if (!fromUser || fromUser.balance < amount) {
+      throw new Error('Insufficient funds')
+    }
+
+    await userCrud.update(
+      fromUserId,
+      { balance: fromUser.balance - amount },
+      { db: tx }
+    )
+
+    // Add to receiver
+    const toUser = await userCrud.findById(toUserId, { db: tx })
+    if (!toUser) {
+      throw new Error('Recipient not found')
+    }
+
+    await userCrud.update(
+      toUserId,
+      { balance: toUser.balance + amount },
+      { db: tx }
+    )
+
+    // Create transaction record
+    const transaction = await transactionCrud.create(
+      {
+        fromUserId,
+        toUserId,
+        amount,
+        type: 'transfer',
+        status: 'completed',
+      },
+      { db: tx }
+    )
+
+    return transaction
+  })
+}
+```
+
+## Error Handling in Transactions
+
+Transactions automatically roll back on errors:
+
+```typescript
+const createOrderWithItems = async (orderData: any, items: any[]) => {
+  try {
+    return await db.transaction(async (tx) => {
+      // Create order
+      const order = await orderCrud.create(orderData, { db: tx })
+
+      // Create order items
+      const orderItems = []
+      for (const item of items) {
+        const orderItem = await orderItemCrud.create(
+          {
+            orderId: order.id,
+            productId: item.productId,
+            quantity: item.quantity,
+            price: item.price,
+          },
+          { db: tx }
+        )
+        orderItems.push(orderItem)
+      }
+
+      // Update inventory
+      for (const item of items) {
+        const product = await productCrud.findById(item.productId, { db: tx })
+        if (product.stock < item.quantity) {
+          throw new Error(`Insufficient stock for product ${item.productId}`)
+        }
+
+        await productCrud.update(
+          item.productId,
+          { stock: product.stock - item.quantity },
+          { db: tx }
+        )
+      }
+
+      return { order, orderItems }
+    })
+  } catch (error) {
+    console.error('Order creation failed:', error)
+    throw error
+  }
+}
+```
+
+## Nested Transactions
+
+Drizzle supports nested transactions (savepoints):
+
+```typescript
+const complexOperation = async () => {
+  return await db.transaction(async (tx) => {
+    // Main transaction
+    const user = await userCrud.create(
+      { name: 'John', email: 'john@example.com' },
+      { db: tx }
+    )
+
+    try {
+      // Nested transaction (savepoint)
+      await tx.transaction(async (nestedTx) => {
+        await profileCrud.create(
+          { userId: user.id, bio: 'Developer' },
+          { db: nestedTx }
+        )
+
+        // This might fail
+        await riskyCrud.create(
+          { userId: user.id, data: 'risky' },
+          { db: nestedTx }
+        )
+      })
+    } catch (error) {
+      // Nested transaction rolls back, main transaction continues
+      console.log('Profile creation failed, continuing...')
+    }
+
+    // Create settings (always succeeds)
+    await settingsCrud.create(
+      { userId: user.id, theme: 'dark' },
+      { db: tx }
+    )
+
+    return user
+  })
+}
+```
+
+## Transaction with Hooks
+
+Hooks work within transactions:
+
+```typescript
+const userCrud = createCrud(users, {
+  hooks: {
+    afterCreate: async (user, { context }) => {
+      // This runs within the same transaction
+      if (context?.db) {
+        await auditCrud.create(
+          {
+            operation: 'create',
+            tableName: 'users',
+            recordId: user.id,
+            timestamp: new Date(),
+          },
+          { db: context.db }
+        )
+      }
+      
+      return user
+    },
+  },
+})
+
+// Usage
+await db.transaction(async (tx) => {
+  // Both user creation and audit log creation happen in same transaction
+  const user = await userCrud.create(
+    { name: 'John', email: 'john@example.com' },
+    { db: tx }
+  )
+})
+```
+
+## Transaction Isolation Levels
+
+Configure transaction isolation levels:
+
+```typescript
+// PostgreSQL example
+const result = await db.transaction(
+  async (tx) => {
+    const user = await userCrud.create(
+      { name: 'John', email: 'john@example.com' },
+      { db: tx }
+    )
+    
+    return user
+  },
+  {
+    isolationLevel: 'serializable',
+  }
+)
+```
+
+## Long-Running Transactions
+
+For long-running transactions, consider chunking operations:
+
+```typescript
+const bulkImport = async (records: any[]) => {
+  const chunkSize = 1000
+  const chunks = []
+  
+  for (let i = 0; i < records.length; i += chunkSize) {
+    chunks.push(records.slice(i, i + chunkSize))
+  }
+
+  const results = []
+  
+  for (const chunk of chunks) {
+    const chunkResult = await db.transaction(async (tx) => {
+      const created = []
+      
+      for (const record of chunk) {
+        const created_record = await userCrud.create(record, { db: tx })
+        created.push(created_record)
+      }
+      
+      return created
+    })
+    
+    results.push(...chunkResult)
+  }
+  
+  return results
+}
+```
+
+## Transaction Best Practices
+
+### 1. Keep Transactions Short
+
+```typescript
+// Good: Short transaction
+const quickTransaction = async () => {
+  return await db.transaction(async (tx) => {
+    const user = await userCrud.create(userData, { db: tx })
+    await auditCrud.create(auditData, { db: tx })
+    return user
+  })
+}
+
+// Avoid: Long-running transaction
+const longTransaction = async () => {
+  return await db.transaction(async (tx) => {
+    const user = await userCrud.create(userData, { db: tx })
+    
+    // Don't do heavy processing in transactions
+    await sendEmailsToAllUsers() // This takes too long
+    await generateReports() // This takes too long
+    
+    return user
+  })
+}
+```
+
+### 2. Handle Deadlocks
+
+```typescript
+const retryTransaction = async (operation: () => Promise<any>, maxRetries = 3) => {
+  let attempt = 0
+  
+  while (attempt < maxRetries) {
+    try {
+      return await operation()
+    } catch (error) {
+      if (error.code === '40001' && attempt < maxRetries - 1) {
+        // Deadlock detected, retry
+        attempt++
+        await new Promise(resolve => setTimeout(resolve, 100 * attempt))
+        continue
+      }
+      throw error
+    }
+  }
+}
+
+// Usage
+const result = await retryTransaction(async () => {
+  return await db.transaction(async (tx) => {
+    await userCrud.update(userId1, { balance: newBalance1 }, { db: tx })
+    await userCrud.update(userId2, { balance: newBalance2 }, { db: tx })
+  })
+})
+```
+
+### 3. Use Consistent Transaction Context
+
+```typescript
+// Good: Consistent transaction passing
+const createUserWithProfile = async (userData: any, profileData: any) => {
+  return await db.transaction(async (tx) => {
+    const context = { db: tx }
+    
+    const user = await userCrud.create(userData, context)
+    const profile = await profileCrud.create(
+      { ...profileData, userId: user.id },
+      context
+    )
+    
+    return { user, profile }
+  })
+}
+
+// Avoid: Inconsistent transaction usage
+const inconsistentTransaction = async () => {
+  return await db.transaction(async (tx) => {
+    const user = await userCrud.create(userData, { db: tx })
+    
+    // This won't be in the transaction!
+    const profile = await profileCrud.create(profileData)
+    
+    return { user, profile }
+  })
+}
+```
+
+## Advanced Transaction Patterns
+
+### Saga Pattern
+
+Handle complex business transactions across multiple services:
+
+```typescript
+const processOrder = async (orderData: any) => {
+  const saga = {
+    actions: [],
+    compensations: [],
+  }
+
+  try {
+    // Step 1: Create order
+    const order = await db.transaction(async (tx) => {
+      const order = await orderCrud.create(orderData, { db: tx })
+      saga.actions.push({ type: 'order_created', orderId: order.id })
+      saga.compensations.unshift({
+        type: 'cancel_order',
+        orderId: order.id,
+      })
+      return order
+    })
+
+    // Step 2: Reserve inventory
+    await db.transaction(async (tx) => {
+      await inventoryCrud.update(
+        orderData.productId,
+        { reserved: { increment: orderData.quantity } },
+        { db: tx }
+      )
+      saga.actions.push({ type: 'inventory_reserved' })
+      saga.compensations.unshift({ type: 'release_inventory' })
+    })
+
+    // Step 3: Process payment
+    await db.transaction(async (tx) => {
+      await paymentCrud.create(
+        {
+          orderId: order.id,
+          amount: orderData.total,
+          status: 'processed',
+        },
+        { db: tx }
+      )
+      saga.actions.push({ type: 'payment_processed' })
+    })
+
+    return order
+  } catch (error) {
+    // Compensate for completed actions
+    for (const compensation of saga.compensations) {
+      await executeCompensation(compensation)
+    }
+    throw error
+  }
+}
+```
+
+## Next Steps
+
+- [Soft Deletes](/docs/drizzle-crud/advanced/soft-deletes) - Soft delete configuration
+- [Bulk Operations](/docs/drizzle-crud/advanced/bulk-operations) - Efficient bulk operations
+- [Performance](/docs/drizzle-crud/advanced/performance) - Optimization techniques

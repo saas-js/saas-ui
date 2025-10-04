@@ -1,6 +1,7 @@
-import { Box, HStack, Text } from "@chakra-ui/react"
-import type { CodeLang } from "./code-lang-icon"
-import { CodeLangIcon } from "./code-lang-icon"
+import { Box, HStack, Text } from '@saas-ui/react'
+
+import type { CodeLang } from './code-lang-icon'
+import { CodeLangIcon } from './code-lang-icon'
 
 interface CodeBlockProps {
   title?: string
@@ -21,10 +22,10 @@ export const CodeBlock = (props: CodeBlockProps) => {
       rounded="10px"
       borderColor="gray.800"
       css={{
-        "& pre.shiki": {
-          roundedTop: "0!",
-          roundedBottom: "lg!",
-          shadow: "none!",
+        '& pre.shiki': {
+          roundedTop: '0!',
+          roundedBottom: 'lg!',
+          shadow: 'none!',
         },
       }}
     >

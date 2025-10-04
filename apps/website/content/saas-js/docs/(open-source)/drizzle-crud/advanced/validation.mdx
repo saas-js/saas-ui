@@ -1,0 +1,480 @@
+---
+title: Validation
+description: Custom validation schemas and adapters in Drizzle CRUD
+---
+
+# Validation
+
+Drizzle CRUD supports powerful validation through Standard Schema compatible libraries. By default, it integrates with Zod, but you can use any validation library that implements the Standard Schema interface.
+
+## Zod Integration
+
+The easiest way to add validation is using the built-in Zod adapter:
+
+```typescript
+import { drizzleCrud } from 'drizzle-crud'
+import { zod } from 'drizzle-crud/zod'
+
+const createCrud = drizzleCrud(db, {
+  validation: zod(),
+})
+```
+
+## Default Schema Generation
+
+When using the Zod adapter, schemas are automatically generated from your Drizzle table definitions:
+
+```typescript
+const users = pgTable('users', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  age: integer('age'),
+  isActive: boolean('is_active').default(true),
+})
+
+const userCrud = createCrud(users, {
+  // Schemas automatically generated:
+  // - insert: name, email, age?, isActive?
+  // - update: name?, email?, age?, isActive?
+})
+```
+
+## Custom Schemas
+
+Override the default schemas with custom validation:
+
+```typescript
+import { z } from 'zod'
+
+const userCrud = createCrud(users, {
+  validation: zod({
+    insert: () =>
+      z.object({
+        name: z.string().min(2).max(50),
+        email: z.string().email(),
+        age: z.number().min(13).max(120).optional(),
+        isActive: z.boolean().default(true),
+      }),
+    
+    update: () =>
+      z.object({
+        name: z.string().min(2).max(50).optional(),
+        email: z.string().email().optional(),
+        age: z.number().min(13).max(120).optional(),
+        isActive: z.boolean().optional(),
+      }),
+  }),
+})
+```
+
+## Schema Types
+
+### Insert Schema
+
+Validates data for `create` and `bulkCreate` operations:
+
+```typescript
+const validation = zod({
+  insert: () =>
+    z.object({
+      name: z.string().min(1, 'Name is required'),
+      email: z.string().email('Invalid email format'),
+      password: z.string().min(8, 'Password must be at least 8 characters'),
+    }),
+})
+```
+
+### Update Schema
+
+Validates data for `update` operations:
+
+```typescript
+const validation = zod({
+  update: () =>
+    z.object({
+      name: z.string().min(1).optional(),
+      email: z.string().email().optional(),
+      // Password not required for updates
+    }),
+})
+```
+
+### List Schema
+
+Validates query parameters for `list` operations:
+
+```typescript
+const validation = zod({
+  list: () =>
+    z.object({
+      search: z.string().optional(),
+      page: z.number().min(1).optional(),
+      limit: z.number().min(1).max(100).optional(),
+      includeDeleted: z.boolean().optional(),
+    }),
+})
+```
+
+## Global vs Table-Level Validation
+
+### Global Validation
+
+Set default validation for all tables:
+
+```typescript
+const createCrud = drizzleCrud(db, {
+  validation: zod(), // Default for all tables
+})
+```
+
+### Table-Level Validation
+
+Override validation for specific tables:
+
+```typescript
+const userCrud = createCrud(users, {
+  validation: zod({
+    insert: () =>
+      z.object({
+        name: z.string().min(2).max(50),
+        email: z.string().email(),
+      }),
+  }),
+})
+
+const postCrud = createCrud(posts, {
+  validation: zod({
+    insert: () =>
+      z.object({
+        title: z.string().min(5).max(200),
+        content: z.string().min(10),
+      }),
+  }),
+})
+```
+
+## Advanced Validation
+
+### Conditional Validation
+
+Validate based on other field values:
+
+```typescript
+const validation = zod({
+  insert: () =>
+    z.object({
+      type: z.enum(['individual', 'business']),
+      name: z.string().min(1),
+      companyName: z.string().optional(),
+      taxId: z.string().optional(),
+    }).refine(
+      (data) => {
+        // Require companyName and taxId for business accounts
+        if (data.type === 'business') {
+          return data.companyName && data.taxId
+        }
+        return true
+      },
+      {
+        message: 'Business accounts require company name and tax ID',
+        path: ['companyName'],
+      }
+    ),
+})
+```
+
+### Cross-Field Validation
+
+Validate relationships between fields:
+
+```typescript
+const validation = zod({
+  insert: () =>
+    z.object({
+      startDate: z.date(),
+      endDate: z.date(),
+      title: z.string().min(1),
+    }).refine(
+      (data) => data.endDate > data.startDate,
+      {
+        message: 'End date must be after start date',
+        path: ['endDate'],
+      }
+    ),
+})
+```
+
+### Async Validation
+
+Validate against external services or databases:
+
+```typescript
+const validation = zod({
+  insert: () =>
+    z.object({
+      email: z.string().email(),
+      username: z.string().min(3),
+    }).refine(
+      async (data) => {
+        // Check if email already exists
+        const existingUser = await db.query.users.findFirst({
+          where: eq(users.email, data.email),
+        })
+        return !existingUser
+      },
+      {
+        message: 'Email already in use',
+        path: ['email'],
+      }
+    ),
+})
+```
+
+## Custom Validation Adapters
+
+Create adapters for other validation libraries:
+
+```typescript
+import type { ValidationAdapter } from 'drizzle-crud'
+
+// Example adapter for Joi
+function joi(): ValidationAdapter {
+  return {
+    validate: (schema, data) => {
+      const { error, value } = schema.validate(data)
+      if (error) {
+        throw new Error(error.message)
+      }
+      return value
+    },
+    
+    generateInsertSchema: (table) => {
+      // Generate Joi schema from Drizzle table
+      return Joi.object({
+        // ... generate schema
+      })
+    },
+    
+    generateUpdateSchema: (table) => {
+      // Generate Joi schema for updates
+      return Joi.object({
+        // ... generate schema
+      })
+    },
+  }
+}
+
+// Usage
+const createCrud = drizzleCrud(db, {
+  validation: joi(),
+})
+```
+
+### Arktype Example
+
+```typescript
+import { type } from 'arktype'
+
+function arktype(): ValidationAdapter {
+  return {
+    validate: (schema, data) => {
+      const result = schema(data)
+      if (result.problems) {
+        throw new Error(result.problems[0].message)
+      }
+      return result.data
+    },
+    
+    generateInsertSchema: (table) => {
+      return type({
+        name: 'string',
+        email: 'string',
+        age: 'number?',
+      })
+    },
+    
+    generateUpdateSchema: (table) => {
+      return type({
+        name: 'string?',
+        email: 'string?',
+        age: 'number?',
+      })
+    },
+  }
+}
+```
+
+## Skipping Validation
+
+Skip validation for trusted operations:
+
+```typescript
+const user = await userCrud.create(
+  {
+    name: 'John Doe',
+    email: 'john@example.com',
+  },
+  {
+    skipValidation: true, // Skip schema validation
+  }
+)
+```
+
+This is useful when:
+- Data is already validated (e.g., in tRPC procedures)
+- Importing data from trusted sources
+- Internal system operations
+
+## Error Handling
+
+Handle validation errors gracefully:
+
+```typescript
+try {
+  await userCrud.create({
+    name: 'J', // Too short
+    email: 'invalid-email',
+  })
+} catch (error) {
+  if (error instanceof z.ZodError) {
+    // Handle Zod validation errors
+    console.log(error.issues)
+  } else {
+    // Handle other errors
+    console.log(error.message)
+  }
+}
+```
+
+## Validation in Practice
+
+### User Registration
+
+```typescript
+const userCrud = createCrud(users, {
+  validation: zod({
+    insert: () =>
+      z.object({
+        email: z.string().email(),
+        password: z.string()
+          .min(8, 'Password must be at least 8 characters')
+          .regex(/^(?=.*[A-Za-z])(?=.*\d)/, 'Password must contain letters and numbers'),
+        firstName: z.string().min(1, 'First name is required'),
+        lastName: z.string().min(1, 'Last name is required'),
+        age: z.number().min(13, 'Must be at least 13 years old'),
+      }),
+  }),
+})
+```
+
+### Product Catalog
+
+```typescript
+const productCrud = createCrud(products, {
+  validation: zod({
+    insert: () =>
+      z.object({
+        name: z.string().min(1).max(100),
+        price: z.number().positive(),
+        category: z.enum(['electronics', 'clothing', 'books']),
+        sku: z.string().regex(/^[A-Z0-9-]+$/),
+        inStock: z.boolean().default(true),
+      }),
+    
+    update: () =>
+      z.object({
+        name: z.string().min(1).max(100).optional(),
+        price: z.number().positive().optional(),
+        category: z.enum(['electronics', 'clothing', 'books']).optional(),
+        inStock: z.boolean().optional(),
+      }),
+  }),
+})
+```
+
+### Blog Posts
+
+```typescript
+const postCrud = createCrud(posts, {
+  validation: zod({
+    insert: () =>
+      z.object({
+        title: z.string().min(5).max(200),
+        content: z.string().min(100),
+        tags: z.array(z.string()).max(5),
+        isPublished: z.boolean().default(false),
+        publishedAt: z.date().optional(),
+      }).refine(
+        (data) => {
+          // If published, must have publishedAt
+          if (data.isPublished) {
+            return data.publishedAt !== undefined
+          }
+          return true
+        },
+        {
+          message: 'Published posts must have a publish date',
+          path: ['publishedAt'],
+        }
+      ),
+  }),
+})
+```
+
+## Best Practices
+
+### 1. Use Descriptive Error Messages
+
+```typescript
+const validation = zod({
+  insert: () =>
+    z.object({
+      email: z.string().email('Please enter a valid email address'),
+      name: z.string().min(2, 'Name must be at least 2 characters long'),
+    }),
+})
+```
+
+### 2. Validate at the Right Level
+
+```typescript
+// Good: Business logic validation in schema
+const validation = zod({
+  insert: () =>
+    z.object({
+      age: z.number().min(13, 'Must be at least 13 years old'),
+    }),
+})
+
+// Avoid: Database constraint validation in schema
+const validation = zod({
+  insert: () =>
+    z.object({
+      id: z.number().int().positive(), // Let database handle this
+    }),
+})
+```
+
+### 3. Keep Schemas DRY
+
+```typescript
+// Shared validation rules
+const emailSchema = z.string().email()
+const nameSchema = z.string().min(2).max(50)
+
+const userValidation = zod({
+  insert: () =>
+    z.object({
+      email: emailSchema,
+      firstName: nameSchema,
+      lastName: nameSchema,
+    }),
+})
+```
+
+## Next Steps
+
+- [Transactions](/docs/drizzle-crud/advanced/transactions) - Database transactions
+- [Soft Deletes](/docs/drizzle-crud/advanced/soft-deletes) - Soft delete configuration
+- [Bulk Operations](/docs/drizzle-crud/advanced/bulk-operations) - Efficient bulk operations

@@ -1,0 +1,333 @@
+---
+title: Access Control
+description: Implement actor-based access control and scope filters in Drizzle CRUD
+---
+
+# Access Control
+
+Drizzle CRUD provides powerful access control through actors and scope filters, perfect for multi-tenant applications and role-based permissions.
+
+## Actors
+
+Actors represent the entity performing an operation (user, service, etc.) and carry contextual information for access control decisions.
+
+### Defining Actors
+
+```typescript
+interface UserActor extends Actor {
+  type: 'user'
+  properties: {
+    userId: string
+    workspaceId: string
+    role: 'admin' | 'user' | 'viewer'
+  }
+}
+
+interface ServiceActor extends Actor {
+  type: 'service'
+  properties: {
+    serviceId: string
+    permissions: string[]
+  }
+}
+```
+
+## Scope Filters
+
+Scope filters automatically apply WHERE conditions based on the actor's context.
+
+```typescript
+import { eq, and } from 'drizzle-orm'
+
+const postsCrud = createCrud(posts, {
+  scopeFilters: {
+    // Only show posts from user's workspace
+    workspaceId: (value, actor: UserActor) =>
+      eq(posts.workspaceId, actor.properties.workspaceId),
+
+    // Filter by author if not admin
+    authorId: (value, actor: UserActor) =>
+      actor.properties.role === 'admin'
+        ? undefined // No filter for admins
+        : eq(posts.authorId, actor.properties.userId),
+
+    // Multi-tenant isolation
+    tenantId: (value, actor: UserActor) =>
+      eq(posts.tenantId, actor.properties.workspaceId),
+  },
+})
+```
+
+## Using Actors in Operations
+
+Pass actors through the context parameter:
+
+```typescript
+const userActor: UserActor = {
+  type: 'user',
+  properties: {
+    userId: '123',
+    workspaceId: 'ws-456',
+    role: 'user',
+  },
+}
+
+// List posts with access control
+const userPosts = await postsCrud.list(
+  {
+    filters: { isPublished: true },
+  },
+  {
+    actor: userActor,
+    scope: { workspaceId: 'ws-456' },
+  }
+)
+```
+
+## Scope Context
+
+The scope context explicitly defines which scope filters to apply:
+
+```typescript
+await postsCrud.list({}, {
+  actor: userActor,
+  scope: {
+    workspaceId: 'ws-456',  // Apply workspace filter
+    authorId: '123',        // Apply author filter
+  },
+})
+```
+
+## Multi-Tenant Example
+
+Complete example for a multi-tenant SaaS application:
+
+```typescript
+// Schema with tenant isolation
+const documents = pgTable('documents', {
+  id: serial('id').primaryKey(),
+  title: text('title').notNull(),
+  content: text('content'),
+  authorId: text('author_id').notNull(),
+  workspaceId: text('workspace_id').notNull(),
+  isPublic: boolean('is_public').default(false),
+  deletedAt: timestamp('deleted_at'),
+})
+
+// Actor definition
+interface UserActor extends Actor {
+  type: 'user'
+  properties: {
+    userId: string
+    workspaceId: string
+    role: 'owner' | 'admin' | 'member' | 'viewer'
+  }
+}
+
+// CRUD with access control
+const documentsCrud = createCrud(documents, {
+  scopeFilters: {
+    // Workspace isolation - always applied
+    workspaceId: (value, actor: UserActor) =>
+      eq(documents.workspaceId, actor.properties.workspaceId),
+
+    // Author access - only see own documents unless admin+
+    authorId: (value, actor: UserActor) => {
+      const { role } = actor.properties
+      if (role === 'owner' || role === 'admin') {
+        return undefined // Can see all documents
+      }
+      return eq(documents.authorId, actor.properties.userId)
+    },
+
+    // Public documents - viewers can only see public ones
+    isPublic: (value, actor: UserActor) => {
+      if (actor.properties.role === 'viewer') {
+        return eq(documents.isPublic, true)
+      }
+      return undefined // Others can see all
+    },
+  },
+})
+
+// Usage
+const memberActor: UserActor = {
+  type: 'user',
+  properties: {
+    userId: 'user-123',
+    workspaceId: 'workspace-456',
+    role: 'member',
+  },
+}
+
+// This will only return documents from workspace-456
+// that were created by user-123
+const myDocuments = await documentsCrud.list({}, {
+  actor: memberActor,
+  scope: {
+    workspaceId: 'workspace-456',
+    authorId: 'user-123',
+  },
+})
+```
+
+## Role-Based Access
+
+Implement role-based access control with scope filters:
+
+```typescript
+const projectsCrud = createCrud(projects, {
+  scopeFilters: {
+    // Project access based on role
+    access: (value, actor: UserActor) => {
+      switch (actor.properties.role) {
+        case 'admin':
+          return undefined // See all projects
+        case 'manager':
+          return eq(projects.departmentId, actor.properties.departmentId)
+        case 'member':
+          return eq(projects.assigneeId, actor.properties.userId)
+        default:
+          return eq(projects.id, -1) // See nothing
+      }
+    },
+  },
+})
+```
+
+## Conditional Filters
+
+Apply filters conditionally based on actor properties:
+
+```typescript
+const ordersCrud = createCrud(orders, {
+  scopeFilters: {
+    // Customer service can see all orders
+    // Customers can only see their own orders
+    customerId: (value, actor: UserActor) => {
+      if (actor.properties.role === 'customer-service') {
+        return undefined
+      }
+      return eq(orders.customerId, actor.properties.userId)
+    },
+
+    // Hide sensitive orders from junior staff
+    sensitivity: (value, actor: UserActor) => {
+      if (actor.properties.role === 'junior-staff') {
+        return eq(orders.sensitivity, 'normal')
+      }
+      return undefined
+    },
+  },
+})
+```
+
+## Service-to-Service Access
+
+Control access between services:
+
+```typescript
+interface ServiceActor extends Actor {
+  type: 'service'
+  properties: {
+    serviceId: string
+    permissions: string[]
+  }
+}
+
+const apiKeysCrud = createCrud(apiKeys, {
+  scopeFilters: {
+    // Only auth service can access all API keys
+    serviceAccess: (value, actor: ServiceActor) => {
+      if (actor.properties.serviceId === 'auth-service') {
+        return undefined
+      }
+      // Other services can only see their own keys
+      return eq(apiKeys.serviceId, actor.properties.serviceId)
+    },
+  },
+})
+```
+
+## Combining with Regular Filters
+
+Scope filters work alongside regular filters:
+
+```typescript
+// Both scope filters and regular filters are applied
+const results = await documentsCrud.list({
+  filters: {
+    isPublished: true,
+    category: 'blog',
+  },
+}, {
+  actor: userActor,
+  scope: {
+    workspaceId: 'ws-456',
+    authorId: 'user-123',
+  },
+})
+```
+
+## Best Practices
+
+### 1. Always Apply Tenant Isolation
+
+```typescript
+const scopeFilters = {
+  // Always include tenant isolation
+  workspaceId: (value, actor: UserActor) =>
+    eq(table.workspaceId, actor.properties.workspaceId),
+  
+  // Additional filters...
+}
+```
+
+### 2. Use Explicit Scope Context
+
+```typescript
+// Good: Explicit scope
+await crud.list({}, {
+  actor: userActor,
+  scope: { workspaceId: 'ws-456' },
+})
+
+// Avoid: Implicit scope (harder to debug)
+await crud.list({}, { actor: userActor })
+```
+
+### 3. Handle Missing Actors
+
+```typescript
+const scopeFilters = {
+  workspaceId: (value, actor?: UserActor) => {
+    if (!actor) {
+      throw new Error('Actor required for workspace access')
+    }
+    return eq(table.workspaceId, actor.properties.workspaceId)
+  },
+}
+```
+
+### 4. Test Access Control
+
+```typescript
+// Test different roles
+const adminResults = await crud.list({}, {
+  actor: { type: 'user', properties: { role: 'admin' } },
+  scope: { workspaceId: 'ws-1' },
+})
+
+const memberResults = await crud.list({}, {
+  actor: { type: 'user', properties: { role: 'member' } },
+  scope: { workspaceId: 'ws-1' },
+})
+
+expect(adminResults.results.length).toBeGreaterThan(memberResults.results.length)
+```
+
+## Next Steps
+
+- [Lifecycle Hooks](/docs/drizzle-crud/advanced/hooks) - Add custom business logic
+- [Validation](/docs/drizzle-crud/advanced/validation) - Custom validation schemas
+- [Transactions](/docs/drizzle-crud/advanced/transactions) - Database transactions

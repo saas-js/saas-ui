@@ -1,6 +1,6 @@
 import { createSystem, defaultConfig } from '@saas-ui/react'
 
-export const system = createSystem(defaultConfig, {
+export const themeConfig = {
   theme: {
     tokens: {
       fonts: {
@@ -13,6 +13,23 @@ export const system = createSystem(defaultConfig, {
     ':root': {
       '--header-height': { base: '54px' },
       '--content-height': 'calc(100dvh - var(--header-height))',
+    },
+  },
+}
+
+export const system = createSystem(defaultConfig, themeConfig)
+
+export const sjsSystem = createSystem(defaultConfig, {
+  theme: {
+    ...themeConfig.theme,
+    semanticTokens: {
+      ...defaultConfig.theme?.semanticTokens,
+      colors: {
+        ...defaultConfig.theme?.semanticTokens?.colors,
+        accent: {
+          ...defaultConfig.theme?.semanticTokens?.colors?.cyan,
+        },
+      },
     },
   },
 })

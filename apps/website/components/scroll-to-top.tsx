@@ -10,6 +10,8 @@ export const ScrollToTop = () => {
   const show = percent > 0.25
 
   const scrollToTop = () => {
+    if (typeof window === 'undefined') return
+
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 

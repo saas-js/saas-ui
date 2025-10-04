@@ -1,0 +1,153 @@
+---
+title: Basic Usage
+description: Learn how to create and use CRUD operations with Drizzle CRUD
+---
+
+# Basic Usage
+
+## Define Your Schema
+
+First, define your Drizzle schema as usual:
+
+```typescript
+import { boolean, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core'
+
+const users = pgTable('users', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  isActive: boolean('is_active').default(true),
+  deletedAt: timestamp('deleted_at'),
+  createdAt: timestamp('created_at').defaultNow(),
+})
+
+const posts = pgTable('posts', {
+  id: serial('id').primaryKey(),
+  title: text('title').notNull(),
+  content: text('content'),
+  authorId: serial('author_id').references(() => users.id),
+  deletedAt: timestamp('deleted_at'),
+})
+```
+
+## Initialize CRUD Factory
+
+```typescript
+import { drizzleCrud } from 'drizzle-crud'
+import { zod } from 'drizzle-crud/zod'
+import { drizzle } from 'drizzle-orm/postgres-js'
+
+const db = drizzle(/* your database connection */)
+const createCrud = drizzleCrud(db, {
+  validation: zod(),
+})
+```
+
+## Create CRUD Operations
+
+```typescript
+// Create CRUD operations for users table
+const userCrud = createCrud(users, {
+  searchFields: ['name', 'email'],
+  allowedFilters: ['isActive'],
+  softDelete: { field: 'deletedAt' },
+})
+
+// Create CRUD operations for posts table
+const postCrud = createCrud(posts, {
+  searchFields: ['title', 'content'],
+  allowedFilters: ['authorId'],
+  softDelete: { field: 'deletedAt' },
+})
+```
+
+## Basic Operations
+
+### Create a Record
+
+```typescript
+const newUser = await userCrud.create({
+  name: 'John Doe',
+  email: 'john@example.com',
+})
+```
+
+### Find by ID
+
+```typescript
+const user = await userCrud.findById('123')
+```
+
+### List Records
+
+```typescript
+const users = await userCrud.list({
+  search: 'john',
+  filters: { isActive: true },
+  page: 1,
+  limit: 10,
+})
+
+console.log(users.results) // Array of users
+console.log(users.total) // Total count
+console.log(users.page) // Current page
+```
+
+### Update a Record
+
+```typescript
+const updatedUser = await userCrud.update('123', {
+  name: 'John Updated',
+})
+```
+
+### Delete a Record
+
+```typescript
+// Soft delete (if configured)
+await userCrud.deleteOne('123')
+
+// Hard delete
+await userCrud.permanentDelete('123')
+```
+
+## Configuration Options
+
+The `createCrud` function accepts various options:
+
+```typescript
+const userCrud = createCrud(users, {
+  searchFields: ['name', 'email'], // Fields to search in
+  allowedFilters: ['isActive'], // Fields that can be filtered
+  defaultLimit: 20, // Default pagination limit
+  maxLimit: 100, // Maximum pagination limit
+  softDelete: { field: 'deletedAt' }, // Soft delete configuration
+})
+```
+
+## Type Safety
+
+All operations are fully type-safe and infer types from your Drizzle schema:
+
+```typescript
+// TypeScript will infer the correct types
+const user = await userCrud.create({
+  name: 'John', // ✅ string
+  email: 'john@...', // ✅ string
+  invalid: 'field', // ❌ TypeScript error
+})
+
+// Return types are also inferred
+user.id // number (based on your schema)
+user.name // string
+user.email // string
+```
+
+## Next Steps
+
+- [Core Operations](/docs/drizzle-crud/reference/core-operations) - Explore all
+  available operations
+- [Advanced Filtering](/docs/drizzle-crud/advanced/filtering) - Learn about
+  complex filters
+- [Access Control](/docs/drizzle-crud/advanced/access-control) - Implement
+  security

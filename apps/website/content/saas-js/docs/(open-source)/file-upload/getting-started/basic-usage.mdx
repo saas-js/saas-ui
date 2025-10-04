@@ -1,0 +1,86 @@
+---
+title: Basic usage
+description: Learn how to use the FileUpload component to upload files.
+---
+
+## Validating files
+
+### Basic validation
+
+Both server and client side for file size and mime type validation are supported.
+
+#### Client side
+
+The `FileUpload.Root` component can be configured with `accept`, `maxFileSize` and `minFileSize`to validate file size and mime type.
+
+```tsx
+<FileUpload.Root profile="avatar" accept="image/*" maxFiles={1} />
+```
+
+#### Server side
+
+The slingshot server profile can be configured with `maxSizeBytes` and `allowedFileTypes` to validate file size and mime type.
+
+```tsx
+export const slingshot = createSlingshotServer({
+  profile: 'avatar',
+  maxSizeBytes: 1024 * 1024 * 5, // 5MB
+  allowedFileTypes: 'image/*',
+})
+```
+
+### Custom validation
+
+In case you require more complex validation, you can use custom validation handlers to validate files before they are uploaded.
+
+#### Client side
+
+The `FileUpload.Root` component can be configured with a `validate` function to validate files before they are uploaded.
+
+You can also pass metadata that will be available to the server side.
+
+```tsx
+<FileUpload.Root
+  profile="avatar"
+  validate={(file, details) => {
+    if (file.size > 1024 * 1024 * 5) {
+      return ['File size is too large'],
+    }
+  }}
+  meta={{
+    userId: '123',
+  }}
+/>
+```
+
+#### Server side
+
+Meta data passed from the client is available in the `authorize` function.
+
+```ts
+export const slingshot = createSlingshotServer({
+  profile: 'avatar',
+  authorize: ({ req, key, file, meta }) => {
+    checkAccess(req, meta.userId)
+
+    if (file.size > 1024 * 1024 * 5) {
+      throw new Error('File size is too large')
+    }
+  },
+})
+```
+
+## Authenticate requests
+
+Use the `authorize` function to authenticate requests. You can use the `req` object to check the request headers or cookies for a valid session.
+
+```tsx
+export const slingshot = createSlingshotServer({
+  profile: 'avatar',
+  authorize: ({ req, key, file, meta }) => {
+    const headers = req.headers
+
+    // Check `Authorization` header or cookies for valid session.
+  },
+})
+```

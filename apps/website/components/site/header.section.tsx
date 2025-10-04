@@ -4,6 +4,7 @@ import { ColorModeButton } from '@/components/docs/color-mode-button'
 import { Logo } from '@/components/logo'
 import { SocialLinks } from '@/components/social-links'
 import {
+  Alert,
   Box,
   Button,
   Container,
@@ -13,12 +14,14 @@ import {
   Separator,
   Spacer,
   Stack,
+  Text,
   chakra,
 } from '@saas-ui/react'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
 
+import { ActionArrow } from '../action-arrow'
 import { CommandMenu } from '../docs/command-menu'
 import { LinkButton } from '../link-button'
 import { SearchButton } from '../search-button'
@@ -36,7 +39,7 @@ const HeaderRoot = chakra(Container, {
 
 const LogoLink = () => (
   <HStack asChild focusRing="outside">
-    <Link href="/" aria-label="Chakra UI, Back to homepage">
+    <Link href="/" aria-label="Saas UI, Back to homepage">
       <Logo color="fg" />
     </Link>
   </HStack>
@@ -69,12 +72,17 @@ const DesktopNav = () => (
       />
       <Button asChild variant="ghost" size="sm">
         <Link href="https://github.com/saas-js/saas-ui" target="_blank">
-          <BsGithub /> 1.5k
+          <BsGithub /> 1.6k
         </Link>
       </Button>
       <ColorModeButton />
       <Separator orientation="vertical" height="4" mx="2" />
-      <LinkButton href="/pro" colorPalette="accent" variant="glass" size="sm">
+      <LinkButton
+        href="/pricing"
+        colorPalette="accent"
+        variant="glass"
+        size="sm"
+      >
         Get Pro
       </LinkButton>
     </HStack>
@@ -145,9 +153,34 @@ export const HeaderSection = () => {
       w="full"
       zIndex="3"
       backdropFilter="blur(10px)"
-      py="2"
     >
-      <Container>
+      <Stack
+        bg="accent.subtle"
+        borderBottomWidth="1px"
+        borderColor="accent.solid/20"
+        color="accent.solid"
+        justifyContent="center"
+        alignItems="center"
+        py="2"
+        flexDir="row"
+        textStyle="sm"
+      >
+        <Text fontWeight="medium">Looking for our SaaS starter kits?</Text>
+        <Text>
+          They're now available at{' '}
+          <Link href="https://saas-js.com">saas-js.com</Link>
+        </Text>
+
+        <LinkButton
+          variant="outline"
+          colorPalette="accent"
+          href="https://saas-js.com"
+          size="xs"
+        >
+          Learn more <ActionArrow />
+        </LinkButton>
+      </Stack>
+      <Container py="2">
         <DesktopNav />
         <MobileNav />
       </Container>

@@ -1,0 +1,427 @@
+---
+title: Configuration
+description: Configure @saas-js/iconify with icons.json
+---
+
+# Configuration
+
+@saas-js/iconify uses an `icons.json` configuration file to store project settings. This file is created automatically when you run `icons init`.
+
+## Configuration File
+
+The configuration file is located at the root of your project:
+
+```
+your-project/
+├── icons.json
+├── package.json
+└── src/
+```
+
+## Schema
+
+The configuration file uses a JSON schema for validation and IDE support:
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "/src/components/icons",
+  "defaultIconSet": "lucide",
+  "iconSize": "1em",
+  "aliases": {}
+}
+```
+
+## Configuration Options
+
+### `outputDir`
+
+**Type:** `string`  
+**Default:** `"/src/components/icons"`
+
+Directory where icon components will be generated, relative to your project root.
+
+```json
+{
+  "outputDir": "/src/components/icons"
+}
+```
+
+**Examples:**
+
+```json
+{
+  "outputDir": "./components/icons"    // Relative path
+}
+```
+
+```json
+{
+  "outputDir": "/app/components/icons" // Absolute path from project root
+}
+```
+
+```json
+{
+  "outputDir": "./src/assets/icons"    // Alternative location
+}
+```
+
+### `defaultIconSet`
+
+**Type:** `string`  
+**Default:** `"lucide"`
+
+Default icon set to use when not specified in commands.
+
+```json
+{
+  "defaultIconSet": "lucide"
+}
+```
+
+**Popular options:**
+- `"lucide"` - Modern, clean icons
+- `"heroicons"` - Tailwind CSS icons
+- `"tabler"` - Free SVG icons
+- `"feather"` - Simple, beautiful icons
+- `"phosphor"` - Flexible icon family
+- `"mdi"` - Material Design Icons
+- `"fa-solid"` - Font Awesome Solid
+- `"fa-regular"` - Font Awesome Regular
+- `"fa-brands"` - Font Awesome Brands
+
+### `iconSize`
+
+**Type:** `string | number`  
+**Default:** `"1em"`
+
+Default size for generated icons. Can be overridden at runtime.
+
+```json
+{
+  "iconSize": "1em"
+}
+```
+
+**Examples:**
+
+```json
+{
+  "iconSize": "16px"    // Pixels
+}
+```
+
+```json
+{
+  "iconSize": "1.5rem"  // Rem units
+}
+```
+
+```json
+{
+  "iconSize": 24        // Number (pixels)
+}
+```
+
+```json
+{
+  "iconSize": "2em"     // Em units
+}
+```
+
+### `aliases`
+
+**Type:** `object`  
+**Default:** `{}`
+
+Icon name aliases for better naming conventions.
+
+```json
+{
+  "aliases": {
+    "house": "home",
+    "cog": "settings",
+    "user-circle": "profile"
+  }
+}
+```
+
+**How it works:**
+
+When you run `icons add house`, it will:
+1. Fetch the `house` icon from the API
+2. Generate a component named `home-icon.tsx` (using the alias)
+3. Export `HomeIcon` component
+
+## Complete Example
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "./src/components/icons",
+  "defaultIconSet": "lucide",
+  "iconSize": "20px",
+  "aliases": {
+    "house": "home",
+    "cog": "settings",
+    "user-circle": "profile",
+    "envelope": "mail",
+    "magnifying-glass": "search"
+  }
+}
+```
+
+## Environment-Specific Configuration
+
+You can create different configurations for different environments:
+
+### Development
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "./src/components/icons",
+  "defaultIconSet": "lucide",
+  "iconSize": "1em"
+}
+```
+
+### Production
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "./dist/icons",
+  "defaultIconSet": "lucide",
+  "iconSize": "16px"
+}
+```
+
+Use different config files:
+
+```bash
+# Development
+icons add --config icons.dev.json home user
+
+# Production
+icons add --config icons.prod.json home user
+```
+
+## Framework-Specific Examples
+
+### Next.js
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "./components/icons",
+  "defaultIconSet": "lucide",
+  "iconSize": "1em",
+  "aliases": {
+    "house": "home",
+    "cog": "settings"
+  }
+}
+```
+
+### Vite + React
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "./src/components/icons",
+  "defaultIconSet": "heroicons",
+  "iconSize": "24px"
+}
+```
+
+### Create React App
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "./src/components/icons",
+  "defaultIconSet": "feather",
+  "iconSize": "1.2em"
+}
+```
+
+## Advanced Configuration
+
+### Project-Specific Icon Sets
+
+```json
+{
+  "defaultIconSet": "lucide",
+  "aliases": {
+    "brand-github": "github",
+    "brand-twitter": "twitter",
+    "brand-linkedin": "linkedin"
+  }
+}
+```
+
+Then use specific icon sets for different types:
+
+```bash
+# UI icons (using default lucide)
+icons add home user settings
+
+# Brand icons (using fa-brands)
+icons add --set fa-brands github twitter linkedin
+```
+
+### Team Configuration
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "./src/shared/icons",
+  "defaultIconSet": "lucide",
+  "iconSize": "1rem",
+  "aliases": {
+    "house": "home",
+    "cog": "settings",
+    "user-circle": "profile",
+    "envelope": "mail",
+    "magnifying-glass": "search",
+    "trash-2": "delete",
+    "edit-3": "edit",
+    "check-circle": "success",
+    "x-circle": "error",
+    "alert-triangle": "warning",
+    "info": "info"
+  }
+}
+```
+
+## Configuration Validation
+
+The configuration file is validated against a JSON schema. Common validation errors:
+
+### Invalid Output Directory
+
+```json
+{
+  "outputDir": "src/icons"  // ❌ Missing leading slash or dot
+}
+```
+
+```json
+{
+  "outputDir": "./src/icons"  // ✅ Correct relative path
+}
+```
+
+### Invalid Icon Set
+
+```json
+{
+  "defaultIconSet": "invalid-set"  // ❌ Icon set doesn't exist
+}
+```
+
+### Invalid Icon Size
+
+```json
+{
+  "iconSize": "invalid"  // ❌ Invalid size format
+}
+```
+
+```json
+{
+  "iconSize": "16px"  // ✅ Valid size
+}
+```
+
+## IDE Integration
+
+### VS Code
+
+Add to your `.vscode/settings.json`:
+
+```json
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["icons.json"],
+      "url": "https://saas-js.dev/icons/schema.json"
+    }
+  ]
+}
+```
+
+This provides:
+- Auto-completion for configuration options
+- Validation and error highlighting
+- Hover documentation
+
+### WebStorm/IntelliJ
+
+WebStorm automatically detects the schema from the `$schema` field.
+
+## Best Practices
+
+### 1. Use Consistent Paths
+
+```json
+{
+  "outputDir": "./src/components/icons"  // ✅ Consistent with project structure
+}
+```
+
+### 2. Choose One Primary Icon Set
+
+```json
+{
+  "defaultIconSet": "lucide"  // ✅ Stick to one set for consistency
+}
+```
+
+### 3. Use Meaningful Aliases
+
+```json
+{
+  "aliases": {
+    "house": "home",           // ✅ Clear mapping
+    "cog": "settings",         // ✅ Better name
+    "user-circle": "profile"   // ✅ More descriptive
+  }
+}
+```
+
+### 4. Document Team Conventions
+
+```json
+{
+  "_comment": "Team conventions: Use lucide for UI icons, fa-brands for social icons",
+  "defaultIconSet": "lucide",
+  "aliases": {
+    "house": "home",
+    "cog": "settings"
+  }
+}
+```
+
+## Migration
+
+### From v0.0.1 to v0.0.2
+
+If you're upgrading from an older version:
+
+1. Update the schema URL:
+   ```json
+   {
+     "$schema": "https://saas-js.dev/icons/schema.json"
+   }
+   ```
+
+2. Check for new configuration options in the documentation
+
+## Next Steps
+
+- [CLI Reference](/docs/saas-js-iconify/reference/cli) - Complete command reference
+- [Icon Sets](/docs/saas-js-iconify/reference/icon-sets) - Browse available icon sets
+- [TypeScript](/docs/saas-js-iconify/reference/typescript) - TypeScript integration

@@ -30,8 +30,9 @@ import { Li, Ol, Ul } from './mdx/list'
 import { PropTable } from './mdx/prop-table'
 import { QuickLink } from './mdx/quick-link'
 import { ResourceCard } from './mdx/resource-card'
-import { Steps } from './mdx/steps'
+import { Step, Steps } from './mdx/steps'
 import { Table } from './mdx/table'
+import { Tab, Tabs } from './mdx/tabs'
 import { P, Strong } from './mdx/text'
 
 const sharedComponents = {
@@ -52,10 +53,13 @@ const sharedComponents = {
   li: Li,
   table: Table,
   steps: Steps,
+  Steps,
+  Step,
   callout: Callout,
   'code-group': CodeGroup,
   SimpleGrid,
   Info: Callout,
+  Callout,
   Example: Example,
   ExampleTabs: ExampleTabs,
   ExamplePreview: ExamplePreview,
@@ -79,6 +83,11 @@ const sharedComponents = {
   AspectRatioTokenDoc,
   SizesTokenDoc,
   ZIndexTokenDoc,
+  Tabs,
+  Tab,
+  TypeTable: (props: { type: Record<string, any> }) => {
+    return null
+  },
 }
 
 // const useMDXComponent = (code: string) => {

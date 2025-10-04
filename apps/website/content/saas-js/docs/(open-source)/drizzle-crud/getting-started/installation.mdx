@@ -1,0 +1,58 @@
+---
+title: Installation
+description: Install and set up Drizzle CRUD in your project
+---
+
+# Installation
+
+## Install the package
+
+```bash
+npm install drizzle-crud
+```
+
+```bash
+yarn add drizzle-crud
+```
+
+```bash
+pnpm add drizzle-crud
+```
+
+## Requirements
+
+- Node.js 16+
+- TypeScript 4.7+
+- Drizzle ORM
+- Zod v4
+
+## Prerequisites
+
+Before using Drizzle CRUD, you need to have:
+
+1. **Drizzle ORM** set up in your project
+2. **A database connection** configured
+3. **Database schema** defined using Drizzle
+
+## Basic Setup
+
+Once installed, you can start using Drizzle CRUD by importing the main function:
+
+```typescript
+import { drizzleCrud } from 'drizzle-crud'
+import { zod } from 'drizzle-crud/zod'
+import { drizzle } from 'drizzle-orm/postgres-js'
+
+// Initialize your database connection
+const db = drizzle(/* your database connection */)
+
+// Create the CRUD factory
+const createCrud = drizzleCrud(db, {
+  validation: zod(), // Optional: Add validation
+})
+```
+
+## Next Steps
+
+- [Basic Usage](/docs/drizzle-crud/getting-started/basic-usage) - Learn how to create and use CRUD operations
+- [Core Operations](/docs/drizzle-crud/reference/core-operations) - Explore all available operations

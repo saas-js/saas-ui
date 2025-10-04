@@ -260,31 +260,6 @@ const HeaderDesktopNavbar = () => {
               <Link href="/docs/pro/components/kanban">Kanban</Link>
             </Menu.Item>
           </HoverMenu>
-
-          <HoverMenu
-            trigger={
-              <PrimaryNavLink
-                href="/docs/starter-kits"
-                onClick={(e) => {
-                  e.preventDefault()
-                }}
-                aria-current={
-                  path.startsWith('/docs/starter-kits') ? 'page' : undefined
-                }
-              >
-                Starter kits <LuChevronDown />
-              </PrimaryNavLink>
-            }
-          >
-            <Menu.Item value="nextjs" asChild>
-              <Link href="/docs/starter-kits/nextjs">Next.js</Link>
-            </Menu.Item>
-            <Menu.Item value="tanstack-start" asChild>
-              <Link href="/docs/starter-kits/tanstack-start">
-                Tanstack Start
-              </Link>
-            </Menu.Item>
-          </HoverMenu>
         </HStack>
 
         <Spacer />

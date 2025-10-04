@@ -41,7 +41,7 @@ export function GetStartedSection(props: { children?: React.ReactNode }) {
                   </Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/pro/starter-kits">View starter kits</Link>
+                  <Link href="/blocks">View blocks</Link>
                 </Button>
               </>
             )}

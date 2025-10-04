@@ -1,0 +1,273 @@
+---
+title: Basic Usage
+description: Learn how to use @saas-js/iconify to generate React icon components
+---
+
+# Basic Usage
+
+## Initialize Configuration
+
+First, initialize your project with a configuration file:
+
+```bash
+icons init
+```
+
+This creates an `icons.json` file in your project root with default settings:
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "/src/components/icons",
+  "defaultIconSet": "lucide",
+  "iconSize": "1em",
+  "aliases": {}
+}
+```
+
+## Add Icons
+
+Add icons to your project using the `add` command:
+
+```bash
+# With explicit icon set
+icons add --set lucide home user settings
+
+# Using default icon set (if configured)
+icons add home user settings
+
+# Short flag
+icons add -s heroicons home user settings
+```
+
+## Use Generated Components
+
+After adding icons, you can import and use them in your React components:
+
+```tsx
+import { HomeIcon } from './components/icons/home-icon'
+import { UserIcon } from './components/icons/user-icon'
+import { SettingsIcon } from './components/icons/settings-icon'
+
+function Navigation() {
+  return (
+    <nav>
+      <a href="/home">
+        <HomeIcon size="20px" />
+        Home
+      </a>
+      <a href="/profile">
+        <UserIcon className="text-blue-500" size="1.2em" />
+        Profile
+      </a>
+      <a href="/settings">
+        <SettingsIcon size={24} />
+        Settings
+      </a>
+    </nav>
+  )
+}
+```
+
+## Component Props
+
+All generated components accept standard SVG props plus a `size` prop:
+
+```tsx
+<HomeIcon 
+  size="24px"                    // Size (string or number)
+  className="text-gray-500"      // CSS classes
+  onClick={handleClick}          // Event handlers
+  fill="currentColor"            // SVG attributes
+  stroke="none"
+  {...otherProps}               // Any other SVG props
+/>
+```
+
+### Size Prop
+
+The `size` prop accepts various formats:
+
+```tsx
+<HomeIcon size="16px" />    // Pixels
+<HomeIcon size="1.5rem" />  // Rem units
+<HomeIcon size="2em" />     // Em units
+<HomeIcon size={24} />      // Number (pixels)
+<HomeIcon size="100%" />    // Percentage
+```
+
+## Common Examples
+
+### Navigation Menu
+
+```tsx
+import { HomeIcon, UserIcon, SettingsIcon, LogOutIcon } from './components/icons'
+
+function Sidebar() {
+  return (
+    <aside className="w-64 bg-gray-100">
+      <nav className="p-4 space-y-2">
+        <a href="/dashboard" className="flex items-center gap-3 p-2 rounded hover:bg-gray-200">
+          <HomeIcon size="20px" />
+          Dashboard
+        </a>
+        <a href="/profile" className="flex items-center gap-3 p-2 rounded hover:bg-gray-200">
+          <UserIcon size="20px" />
+          Profile
+        </a>
+        <a href="/settings" className="flex items-center gap-3 p-2 rounded hover:bg-gray-200">
+          <SettingsIcon size="20px" />
+          Settings
+        </a>
+        <button className="flex items-center gap-3 p-2 rounded hover:bg-gray-200 w-full text-left">
+          <LogOutIcon size="20px" />
+          Logout
+        </button>
+      </nav>
+    </aside>
+  )
+}
+```
+
+### Icon Buttons
+
+```tsx
+import { PlusIcon, EditIcon, TrashIcon } from './components/icons'
+
+function ActionButtons() {
+  return (
+    <div className="flex gap-2">
+      <button className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <PlusIcon size="16px" />
+      </button>
+      <button className="p-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+        <EditIcon size="16px" />
+      </button>
+      <button className="p-2 bg-red-500 text-white rounded hover:bg-red-600">
+        <TrashIcon size="16px" />
+      </button>
+    </div>
+  )
+}
+```
+
+### Status Indicators
+
+```tsx
+import { CheckCircleIcon, XCircleIcon, AlertCircleIcon } from './components/icons'
+
+function StatusMessage({ type, message }) {
+  const configs = {
+    success: { icon: CheckCircleIcon, color: 'text-green-500' },
+    error: { icon: XCircleIcon, color: 'text-red-500' },
+    warning: { icon: AlertCircleIcon, color: 'text-yellow-500' },
+  }
+
+  const { icon: Icon, color } = configs[type]
+
+  return (
+    <div className="flex items-center gap-2">
+      <Icon size="20px" className={color} />
+      <span>{message}</span>
+    </div>
+  )
+}
+```
+
+## Custom Output Directory
+
+You can specify a custom output directory:
+
+```bash
+# Custom directory for this command
+icons add --set lucide --outdir ./src/assets/icons home user
+
+# Or update your icons.json
+{
+  "outputDir": "./src/assets/icons",
+  "defaultIconSet": "lucide"
+}
+```
+
+## Working with Different Icon Sets
+
+### Lucide Icons
+
+```bash
+icons add --set lucide home user settings mail search
+```
+
+### Heroicons
+
+```bash
+icons add --set heroicons home user cog envelope magnifying-glass
+```
+
+### Tabler Icons
+
+```bash
+icons add --set tabler home user settings mail search
+```
+
+### Font Awesome
+
+```bash
+icons add --set fa-solid home user cog envelope search
+icons add --set fa-regular heart star
+icons add --set fa-brands github twitter
+```
+
+## Best Practices
+
+### 1. Use Consistent Naming
+
+```bash
+# Good: Use consistent icon names across sets
+icons add --set lucide home user settings
+icons add --set heroicons home user cog  # 'cog' instead of 'settings'
+```
+
+### 2. Organize by Feature
+
+```bash
+# Add icons for specific features together
+icons add --set lucide mail mail-open send reply reply-all  # Email feature
+icons add --set lucide user user-plus user-minus user-check  # User management
+```
+
+### 3. Set Default Icon Set
+
+```json
+{
+  "defaultIconSet": "lucide"
+}
+```
+
+Then you can omit the `--set` flag:
+
+```bash
+icons add home user settings
+```
+
+### 4. Use Aliases for Better Names
+
+```json
+{
+  "aliases": {
+    "house": "home",
+    "cog": "settings",
+    "user-circle": "profile"
+  }
+}
+```
+
+```bash
+# This generates home-icon.tsx instead of house-icon.tsx
+icons add house
+```
+
+## Next Steps
+
+- [CLI Reference](/docs/saas-js-iconify/reference/cli) - Complete command reference
+- [Configuration](/docs/saas-js-iconify/reference/configuration) - Detailed configuration options
+- [Icon Sets](/docs/saas-js-iconify/reference/icon-sets) - Browse available icon sets

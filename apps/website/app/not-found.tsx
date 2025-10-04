@@ -1,8 +1,7 @@
 'use client'
 
-import { HeaderSection } from '@/components/site/header.section'
-import { Box } from '@saas-ui/react'
-import { EmptyState } from '@saas-ui/react'
+import { HeaderSection } from '@/components/saas-js/header.section'
+import { Box, EmptyState } from '@saas-ui/react'
 import { TbError404 } from 'react-icons/tb'
 
 export default function NotFound() {

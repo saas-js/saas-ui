@@ -3,8 +3,20 @@
 import { ActionArrow } from '@/components/action-arrow'
 import { Annoucement } from '@/components/annoucement'
 import { Subheading } from '@/components/site/typography'
-import { Box, Button, Container, Heading, Stack } from '@saas-ui/react'
+import {
+  Avatar,
+  AvatarGroup,
+  Box,
+  Button,
+  Container,
+  HStack,
+  Heading,
+  RatingGroup,
+  Stack,
+  Text,
+} from '@saas-ui/react'
 import Link from 'next/link'
+import { TbStarFilled } from 'react-icons/tb'
 
 export const HeroSection = () => {
   return (
@@ -17,21 +29,19 @@ export const HeroSection = () => {
             alignItems="center"
             textAlign="center"
           >
-            <Annoucement justifySelf="center" asChild>
+            {/* <Annoucement justifySelf="center" asChild>
               <Link href="/changelog/3.0">
                 Saas UI 3.0 is here!
                 <ActionArrow />
               </Link>
-            </Annoucement>
+            </Annoucement> */}
             <Stack gap="5" maxW="4xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
                 SaaS starter kits for products built to stand out
               </Heading>
               <Subheading>
-                While everyone else vibe-codes generic Shadcn clones, you'll
-                launch with polished, distinctive design. Production-ready
-                foundations for B2B SaaS that competes on quality—whether you're
-                solo or funded.
+                Production-ready foundations for B2B SaaS that competes on
+                quality—whether you're solo or funded.
               </Subheading>
             </Stack>
 
@@ -43,7 +53,7 @@ export const HeroSection = () => {
                 variant="glass"
                 colorPalette="accent"
               >
-                <Link href="/starter-kits">View starter kits</Link>
+                <Link href="#starter-kits">View starter kits</Link>
               </Button>
               <Button
                 size="lg"
@@ -54,6 +64,24 @@ export const HeroSection = () => {
               >
                 <Link href="/docs">Documentation</Link>
               </Button>
+            </Stack>
+
+            <Stack alignItems="center" gap="2">
+              <AvatarGroup>
+                <Avatar src="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=40" />
+                <Avatar src="https://senjaio.b-cdn.net/public/avatar/48bd839c-bbab-4290-ae39-a3731486d63e_IMG_6039%20%281%29.jpg?width=102&height=102&format=webp" />
+              </AvatarGroup>
+              <HStack color="yellow.500" gap="0.5">
+                <TbStarFilled size={12} />
+                <TbStarFilled size={12} />
+                <TbStarFilled size={12} />
+                <TbStarFilled size={12} />
+                <TbStarFilled size={12} />
+              </HStack>
+
+              <Text textStyle="sm" color="fg.muted">
+                Used by 600+ developers
+              </Text>
             </Stack>
           </Stack>
         </Container>

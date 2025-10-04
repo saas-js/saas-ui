@@ -1,0 +1,68 @@
+---
+title: Installation
+description: Install and set up @saas-js/iconify in your project
+---
+
+# Installation
+
+## Install the package
+
+You can install @saas-js/iconify using your preferred package manager:
+
+```bash
+# Using npm
+npm install @saas-js/iconify
+
+# Using yarn
+yarn add @saas-js/iconify
+
+# Using pnpm
+pnpm add @saas-js/iconify
+
+# Using bun
+bun add @saas-js/iconify
+```
+
+## Run without installation
+
+You can also run @saas-js/iconify directly without installing it:
+
+```bash
+# Initialize configuration
+npx @saas-js/iconify init
+
+# Add icons
+npx @saas-js/iconify add --set lucide home user settings
+```
+
+## Global installation
+
+For frequent use, you can install globally:
+
+```bash
+npm install -g @saas-js/iconify
+```
+
+Then use the `icons` command directly:
+
+```bash
+icons init
+icons add --set lucide home user settings
+```
+
+## Verification
+
+After installation, verify that the CLI is working:
+
+```bash
+# Check version
+icons --version
+
+# Display help
+icons --help
+```
+
+## Next Steps
+
+- [Basic Usage](/docs/saas-js-iconify/getting-started/basic-usage) - Learn how to use the CLI
+- [Configuration](/docs/saas-js-iconify/reference/configuration) - Set up your project configuration

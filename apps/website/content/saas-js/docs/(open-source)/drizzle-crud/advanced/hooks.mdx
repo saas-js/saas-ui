@@ -1,0 +1,164 @@
+---
+title: Lifecycle Hooks
+description: Add custom business logic with lifecycle hooks in Drizzle CRUD
+---
+
+# Lifecycle Hooks
+
+Lifecycle hooks allow you to inject custom business logic at specific points in the CRUD operations lifecycle. This is perfect for adding timestamps, validation, transformations, and other business rules.
+
+## Available Hooks
+
+### Data Transformation Hooks
+
+- `beforeCreate` - Transform data before creating
+- `beforeUpdate` - Transform data before updating
+
+### Validation Hooks
+
+- `validate` - Custom validation logic
+
+### Operation Hooks
+
+- `beforeOperation` - Run before any operation
+- `afterOperation` - Run after any operation
+
+## Basic Usage
+
+```typescript
+const userCrud = createCrud(users, {
+  hooks: {
+    beforeCreate: (data) => ({
+      ...data,
+      email: data.email.toLowerCase(),
+      createdAt: new Date(),
+    }),
+
+    beforeUpdate: (data) => ({
+      ...data,
+      updatedAt: new Date(),
+    }),
+
+    validate: ({ data, context, operation }) => {
+      // Custom validation logic
+      return !context?.skipValidation
+    },
+  },
+})
+```
+
+## Data Transformation Hooks
+
+### Before Create
+
+Transform data before insertion:
+
+```typescript
+const userCrud = createCrud(users, {
+  hooks: {
+    beforeCreate: (data) => ({
+      ...data,
+      // Normalize email
+      email: data.email.toLowerCase().trim(),
+      // Generate slug from name
+      slug: data.name.toLowerCase().replace(/\s+/g, '-'),
+      // Set default values
+      isActive: data.isActive ?? true,
+      createdAt: new Date(),
+    }),
+  },
+})
+```
+
+### Before Update
+
+Transform data before updating:
+
+```typescript
+const postCrud = createCrud(posts, {
+  hooks: {
+    beforeUpdate: (data) => ({
+      ...data,
+      // Update slug if title changed
+      slug: data.title
+        ? data.title.toLowerCase().replace(/\s+/g, '-')
+        : undefined,
+      // Always update timestamp
+      updatedAt: new Date(),
+    }),
+  },
+})
+```
+
+## Validation Hooks
+
+Custom validation beyond schema validation:
+
+```typescript
+const userCrud = createCrud(users, {
+  hooks: {
+    validate: ({ data, context, operation }) => {
+      // Skip validation for trusted sources
+      if (context?.skipValidation) {
+        return true
+      }
+
+      // Custom business rules
+      if (operation === 'create' && data.email) {
+        const isValidDomain = data.email.endsWith('@company.com')
+        if (!isValidDomain) {
+          throw new Error('Only company email addresses are allowed')
+        }
+      }
+
+      // Age validation
+      if (data.age && data.age < 13) {
+        throw new Error('Users must be at least 13 years old')
+      }
+
+      return true
+    },
+  },
+})
+```
+
+## Hook Context
+
+Hooks receive context information:
+
+```typescript
+interface HookContext {
+  operation: 'create' | 'update' | 'delete' | 'list' | 'findById'
+  data?: any // The data being operated on
+  result?: any // The result (for after hooks)
+  originalData?: any // Original data (for update operations)
+  context?: OperationContext // The operation context
+}
+```
+
+### Using Hook Context
+
+```typescript
+const smartCrud = createCrud(articles, {
+  hooks: {
+    beforeCreate: (data, { context }) => {
+      // Set author from actor
+      if (context?.actor?.type === 'user') {
+        data.authorId = context.actor.properties.userId
+      }
+
+      return data
+    },
+
+    validate: ({ data, context, operation }) => {
+      return context?.skipValidation ?? true
+    },
+  },
+})
+```
+
+## Next Steps
+
+- [Validation](/docs/drizzle-crud/advanced/validation) - Custom validation schemas
+- [Transactions](/docs/drizzle-crud/advanced/transactions) - Database transactions
+- [Soft Deletes](/docs/drizzle-crud/advanced/soft-deletes) - Soft delete configuration

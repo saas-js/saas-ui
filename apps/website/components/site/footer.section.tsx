@@ -27,21 +27,19 @@ const linkTree = [
     title: 'Products',
     items: [
       { label: 'React components', href: '/docs/components' },
+      { label: 'Blocks', href: '/pro/blocks' },
+      { label: 'Figma UI kit', href: '/pro/figma' },
 
-      { label: 'Next.js starter kit', href: '/pro/starter-kits/nextjs' },
-      { label: 'Next.js boilerplate', href: '/pro/starter-kits/nextjs' },
+      { label: 'Next.js starter kit', href: 'https://saas-js.com' },
       {
         label: 'Tanstack Start starter kit',
-        href: '/pro/starter-kits/tanstack-start',
+        href: 'https://saas-js.com/tanstack-start',
       },
-      { label: 'Figma UI kit', href: '/pro/figma' },
-      { label: 'Blocks', href: '/pro/blocks' },
     ],
   },
   {
     title: 'Company',
     items: [
-      { label: 'Contact', href: '/contact' },
       { label: 'License', href: '/license' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },

@@ -1,0 +1,259 @@
+---
+title: Advanced Filtering
+description: Learn how to use complex filters and operators in Drizzle CRUD
+---
+
+# Advanced Filtering
+
+The list operation accepts a JSON serializable filters object that gets converted to SQL WHERE conditions. Root-level properties are combined with AND logic, while nested OR/AND arrays allow for complex boolean expressions.
+
+## Basic Filters
+
+Simple property-value filters:
+
+```typescript
+const users = await userCrud.list({
+  filters: {
+    isActive: true,
+    role: 'admin',
+  },
+})
+```
+
+This translates to: `WHERE isActive = true AND role = 'admin'`
+
+## Filter Operators
+
+Use operator objects for more complex conditions:
+
+```typescript
+const users = await userCrud.list({
+  filters: {
+    age: { op: 'gte', value: 18 },               // age >= 18
+    status: { op: 'in', value: ['active', 'pending'] }, // status IN (...)
+    name: { op: 'ilike', value: '%john%' },      // case-insensitive LIKE
+    createdAt: { op: 'lt', value: new Date() },  // created before now
+  },
+})
+```
+
+### Available Operators
+
+| Operator | SQL Equivalent | Description |
+|----------|---------------|-------------|
+| `eq` | `=` | Equal to |
+| `ne` | `!=` | Not equal to |
+| `gt` | `>` | Greater than |
+| `gte` | `>=` | Greater than or equal |
+| `lt` | `<` | Less than |
+| `lte` | `<=` | Less than or equal |
+| `in` | `IN` | In array of values |
+| `like` | `LIKE` | Pattern matching (case-sensitive) |
+| `ilike` | `ILIKE` | Pattern matching (case-insensitive) |
+
+## Boolean Logic
+
+### OR Conditions
+
+Use `OR` arrays for alternative conditions:
+
+```typescript
+const users = await userCrud.list({
+  filters: {
+    OR: [
+      { name: 'John' },
+      { name: 'Jane' },
+    ],
+  },
+})
+```
+
+This translates to: `WHERE (name = 'John' OR name = 'Jane')`
+
+### AND Conditions
+
+Use `AND` arrays for additional required conditions:
+
+```typescript
+const users = await userCrud.list({
+  filters: {
+    AND: [
+      { isActive: true },
+      { role: 'admin' },
+    ],
+  },
+})
+```
+
+This translates to: `WHERE (isActive = true AND role = 'admin')`
+
+## Complex Nested Filters
+
+Combine multiple levels of boolean logic:
+
+```typescript
+const users = await userCrud.list({
+  filters: {
+    isActive: true,
+    OR: [
+      {
+        AND: [
+          { role: 'admin' },
+          { department: 'engineering' },
+        ],
+      },
+      {
+        role: 'owner',
+      },
+    ],
+  },
+})
+```
+
+This translates to:
+```sql
+WHERE isActive = true 
+  AND (
+    (role = 'admin' AND department = 'engineering')
+    OR role = 'owner'
+  )
+```
+
+## Date Range Filters
+
+Filter by date ranges using comparison operators:
+
+```typescript
+const posts = await postCrud.list({
+  filters: {
+    createdAt: {
+      gte: new Date('2024-01-01'),
+      lt: new Date('2024-02-01'),
+    },
+  },
+})
+```
+
+Multiple operators on the same field are combined with AND:
+```sql
+WHERE createdAt >= '2024-01-01' AND createdAt < '2024-02-01'
+```
+
+## Search vs Filters
+
+### Search
+
+Search performs full-text search across specified `searchFields`:
+
+```typescript
+const userCrud = createCrud(users, {
+  searchFields: ['name', 'email'],
+})
+
+const results = await userCrud.list({
+  search: 'john',
+})
+```
+
+This searches across both `name` and `email` fields.
+
+### Filters
+
+Filters apply exact conditions to specific fields:
+
+```typescript
+const results = await userCrud.list({
+  filters: {
+    name: 'john', // Exact match
+  },
+})
+```
+
+## Allowed Filters
+
+Control which fields can be filtered by users:
+
+```typescript
+const userCrud = createCrud(users, {
+  allowedFilters: ['isActive', 'role'],
+})
+
+// This will work
+await userCrud.list({
+  filters: { isActive: true },
+})
+
+// This will be ignored/filtered out
+await userCrud.list({
+  filters: { secretField: 'value' },
+})
+```
+
+## Combining Search and Filters
+
+Search and filters can be used together:
+
+```typescript
+const results = await userCrud.list({
+  search: 'john',           // Search across searchFields
+  filters: {
+    isActive: true,         // Exact filter
+    createdAt: {
+      gte: new Date('2024-01-01'),
+    },
+  },
+})
+```
+
+## Filter Examples
+
+### Active users created this year
+
+```typescript
+const activeUsers = await userCrud.list({
+  filters: {
+    isActive: true,
+    createdAt: {
+      gte: new Date('2024-01-01'),
+    },
+  },
+})
+```
+
+### Users with specific roles in certain departments
+
+```typescript
+const engineeringTeam = await userCrud.list({
+  filters: {
+    department: 'engineering',
+    OR: [
+      { role: 'developer' },
+      { role: 'senior-developer' },
+      { role: 'tech-lead' },
+    ],
+  },
+})
+```
+
+### Posts by multiple authors or public posts
+
+```typescript
+const posts = await postCrud.list({
+  filters: {
+    OR: [
+      {
+        authorId: { op: 'in', value: ['123', '456', '789'] },
+      },
+      {
+        isPublic: true,
+      },
+    ],
+  },
+})
+```
+
+## Next Steps
+
+- [Access Control](/docs/drizzle-crud/advanced/access-control) - Implement security
+- [Lifecycle Hooks](/docs/drizzle-crud/advanced/hooks) - Add custom business logic
+- [Validation](/docs/drizzle-crud/advanced/validation) - Custom validation schemas

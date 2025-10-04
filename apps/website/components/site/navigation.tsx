@@ -19,7 +19,7 @@ export const Navigation = () => {
     <NavigationMenuRoot>
       <NavigationMenuList>
         <HStack display={{ base: 'none', md: 'flex' }} gap="1px">
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger>Products</NavigationMenuTrigger>
             <NavigationMenuContent>
               <List
@@ -73,6 +73,10 @@ export const Navigation = () => {
                 </Stack>
               </List>
             </NavigationMenuContent>
+          </NavigationMenuItem> */}
+
+          <NavigationMenuItem>
+            <NavigationMenuLink href="/blocks">Blocks</NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>

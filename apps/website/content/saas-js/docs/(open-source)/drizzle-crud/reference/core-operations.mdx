@@ -1,0 +1,240 @@
+---
+title: Core Operations
+description: Complete reference for all CRUD operations available in Drizzle CRUD
+---
+
+# Core Operations
+
+## Create
+
+Create a new record in the database.
+
+```typescript
+const user = await userCrud.create({
+  name: 'Jane Smith',
+  email: 'jane@example.com',
+})
+```
+
+### Parameters
+
+- `data` - The data to insert (validated against schema)
+- `context?` - Optional context object with transaction, actor, etc.
+
+### Returns
+
+The created record with all fields populated.
+
+## Find by ID
+
+Find a single record by its primary key.
+
+```typescript
+const user = await userCrud.findById('123', {
+  columns: { name: true, email: true }, // Select specific columns
+  includeDeleted: false,                // Include soft-deleted records
+})
+```
+
+### Parameters
+
+- `id` - The primary key value
+- `options?` - Optional query options
+  - `columns?` - Select specific columns
+  - `includeDeleted?` - Include soft-deleted records (default: false)
+
+### Returns
+
+The found record or `null` if not found.
+
+## List
+
+List records with filtering, pagination, and search.
+
+```typescript
+const result = await userCrud.list({
+  search: 'john',
+  filters: {
+    isActive: true,
+    createdAt: {
+      gte: new Date('2024-01-01'),
+    },
+    OR: [
+      { name: 'john' },
+      { name: 'John' },
+    ],
+  },
+  orderBy: [{ field: 'createdAt', direction: 'desc' }],
+  page: 1,
+  limit: 20,
+})
+```
+
+### Parameters
+
+- `options?` - Query options
+  - `search?` - Search term (searches across `searchFields`)
+  - `filters?` - Filter object with conditions
+  - `orderBy?` - Array of sort conditions
+  - `page?` - Page number (1-based)
+  - `limit?` - Number of records per page
+  - `includeDeleted?` - Include soft-deleted records
+
+### Returns
+
+```typescript
+{
+  results: T[],    // Array of records
+  total: number,   // Total count
+  page: number,    // Current page
+  limit: number,   // Records per page
+  totalPages: number // Total pages
+}
+```
+
+## Update
+
+Update an existing record.
+
+```typescript
+const updatedUser = await userCrud.update('123', {
+  name: 'John Updated',
+  isActive: false,
+})
+```
+
+### Parameters
+
+- `id` - The primary key value
+- `data` - The data to update (validated against schema)
+- `context?` - Optional context object
+
+### Returns
+
+The updated record or `null` if not found.
+
+## Delete (Soft Delete)
+
+Delete a record (soft delete if configured).
+
+```typescript
+await userCrud.deleteOne('123')
+```
+
+### Parameters
+
+- `id` - The primary key value
+- `context?` - Optional context object
+
+### Returns
+
+`true` if deleted, `false` if not found.
+
+## Restore
+
+Restore a soft-deleted record.
+
+```typescript
+await userCrud.restore('123')
+```
+
+<Callout type="warning">
+Only available when soft delete is configured.
+</Callout>
+
+### Parameters
+
+- `id` - The primary key value
+- `context?` - Optional context object
+
+### Returns
+
+`true` if restored, `false` if not found.
+
+## Permanent Delete
+
+Permanently delete a record (hard delete).
+
+```typescript
+await userCrud.permanentDelete('123')
+```
+
+### Parameters
+
+- `id` - The primary key value
+- `context?` - Optional context object
+
+### Returns
+
+`true` if deleted, `false` if not found.
+
+## Bulk Operations
+
+### Bulk Create
+
+Create multiple records at once.
+
+```typescript
+const users = await userCrud.bulkCreate([
+  { name: 'User 1', email: 'user1@example.com' },
+  { name: 'User 2', email: 'user2@example.com' },
+])
+```
+
+### Bulk Delete
+
+Delete multiple records at once.
+
+```typescript
+await userCrud.bulkDelete(['1', '2', '3'])
+```
+
+### Bulk Restore
+
+Restore multiple soft-deleted records.
+
+```typescript
+await userCrud.bulkRestore(['1', '2', '3'])
+```
+
+## Context Options
+
+All operations accept an optional context object:
+
+```typescript
+await userCrud.create(data, {
+  db: tx,              // Use transaction
+  actor: userActor,    // Set actor for access control
+  scope: scopeFilters, // Apply scope filters
+  skipValidation: true // Skip schema validation
+})
+```
+
+### Context Properties
+
+- `db?` - Database instance or transaction
+- `actor?` - Actor object for access control
+- `scope?` - Scope filters to apply
+- `skipValidation?` - Skip schema validation
+
+## Error Handling
+
+```typescript
+try {
+  await userCrud.create({ name: 'John' }) // Missing required email
+} catch (error) {
+  console.log(error.message) // Validation error details
+}
+
+try {
+  await userCrud.restore('123') // Without soft delete config
+} catch (error) {
+  console.log(error.message) // "Restore operation requires soft delete to be configured"
+}
+```
+
+## Next Steps
+
+- [Advanced Filtering](/docs/drizzle-crud/advanced/filtering) - Learn about complex filters
+- [Access Control](/docs/drizzle-crud/advanced/access-control) - Implement security
+- [Lifecycle Hooks](/docs/drizzle-crud/advanced/hooks) - Add custom business logic

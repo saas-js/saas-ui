@@ -1,5 +1,13 @@
 # @chakra-ui/compositions
 
+## 1.0.1-next.45
+
+### Patch Changes
+
+- Updated dependencies [e74037a]
+  - @saas-ui/react@3.0.0-next.44
+  - @saas-ui/forms@3.0.0-next.45
+
 ## 1.0.1-next.44
 
 ### Patch Changes

@@ -57,6 +57,7 @@
     "three": "^0.180.0",
     "unist-util-visit": "5.0.0",
     "use-mask-input": "^3.5.2",
+    "saas-ui-blocks": "workspace:*",
     "zod": "^4.1.11"
   },
   "devDependencies": {

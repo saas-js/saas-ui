@@ -2,10 +2,10 @@
 
 import React, { forwardRef, useCallback, useState } from 'react'
 
+import * as UiComponents from 'saas-ui-blocks'
 import { UiComponent } from '@/blocks'
 import { Box, Card, LoadingOverlay, Stack, defaultSystem } from '@saas-ui/react'
 
-import * as UiComponents from '../../../../packages/pro/packages/blocks'
 import { ChakraFrame } from '../chakra-frame/chakra-frame'
 import { CanvasHeader } from './canvas-header'
 import { CodeTabs } from './code-tabs'

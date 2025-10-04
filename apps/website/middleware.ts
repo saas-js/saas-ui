@@ -6,11 +6,12 @@ export function middleware(request: NextRequest) {
 
   // Detect which site based on subdomain or domain
   const isSaasJs =
-    host.startsWith('saas-js.') ||
+    host.includes('saas-js') ||
     host === 'saas-js.com' ||
     host === 'www.saas-js.com'
+
   const isSaasUi =
-    host.startsWith('saas-ui.') ||
+    host.includes('saas-ui') ||
     host === 'saas-ui.dev' ||
     host === 'www.saas-ui.dev'
 

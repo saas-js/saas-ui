@@ -278,9 +278,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €347,-
+                  $397,-
                 </Text>
-                <Text>€297,-</Text>
+                <Text>$347,-</Text>
               </HStack>
             }
             description="For one developer."
@@ -347,9 +347,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €997,-
+                  $1125,-
                 </Text>
-                <Text>€797,-</Text>
+                <Text>$897,-</Text>
               </HStack>
             }
             description="For growing teams or agencies."
@@ -521,7 +521,7 @@ const MemberShip = () => {
             Starting at
           </Text>
           <HStack>
-            <Text>€4750,-</Text>
+            <Text>$1000,-</Text>
             <Text fontSize="sm" color="muted" fontWeight="medium">
               / month
             </Text>

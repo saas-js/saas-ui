@@ -288,9 +288,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €99,-
+                  $147,-
                 </Text>
-                <Text>€79,-</Text>
+                <Text>$97,-</Text>
               </HStack>
             }
           >
@@ -343,9 +343,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €399,-
+                  $397,-
                 </Text>
-                <Text>€199,-</Text>
+                <Text>$347,-</Text>
               </HStack>
             }
           >
@@ -397,9 +397,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €799,-
+                  $797,-
                 </Text>
-                <Text>€599,-</Text>
+                <Text>$597,-</Text>
               </HStack>
             }
           >

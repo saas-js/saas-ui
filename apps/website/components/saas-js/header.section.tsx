@@ -68,8 +68,8 @@ const DesktopNav = () => (
         trigger={<SearchButton width="160px" size="sm" flexShrink="1" />}
       />
       <Button asChild variant="ghost" size="sm">
-        <Link href="https://github.com/saas-js/saas-ui" target="_blank">
-          <BsGithub /> 1.5k
+        <Link href="https://github.com/saas-js" target="_blank">
+          <BsGithub />
         </Link>
       </Button>
       <ColorModeButton />

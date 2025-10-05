@@ -2,11 +2,13 @@ import { websiteConfig } from '@/website.config'
 import type { Metadata } from 'next'
 import { Figtree, Inter, Outfit, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
+import { headers } from 'next/headers'
 import Script from 'next/script'
 
 import { Provider } from './provider'
 import './scrollbar.css'
 import './shiki.css'
+import { sjsSystem, system } from './theme'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -66,11 +68,19 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const head = await headers()
+
+  const host = head.get('host')
+
+  const site = host?.includes('saas-ui') ? 'sui' : 'sjs'
+
+  console.log(site)
+
   return (
     <html
       lang="en"
@@ -78,7 +88,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <Provider>{children}</Provider>
+        <Provider site={site}>{children}</Provider>
 
         <Script
           id="productlane-script"

@@ -25,10 +25,10 @@ export const Navigation = () => {
               <List
                 css={{
                   '@media only screen and (min-width: 600px)': {
-                    width: '768px',
+                    width: '260px',
                     maxWidth: '80vw',
 
-                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gridTemplateColumns: 'repeat(1, 1fr)',
                   },
                 }}
               >
@@ -36,13 +36,10 @@ export const Navigation = () => {
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Starter kits
                   </Text>
-                  <ListItem title="Next.js" href="/starter-kits/nextjs">
+                  <ListItem title="Next.js" href="/">
                     Next.js and tRPC
                   </ListItem>
-                  <ListItem
-                    title="Tanstack Start"
-                    href="/starter-kits/tanstack-start"
-                  >
+                  <ListItem title="Tanstack Start" href="/tanstack-start">
                     Tanstack Start and tRPC
                   </ListItem>
                 </Stack>

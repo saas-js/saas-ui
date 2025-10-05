@@ -9,7 +9,7 @@
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "@chakra-ui/react": "3.27.0",
+    "@chakra-ui/react": "^3.27.0",
     "@emotion/react": "^11.14.0",
     "@saas-ui/react": "next",
     "@tanstack/react-router": "^1.125.6",

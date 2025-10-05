@@ -72,7 +72,7 @@
     "zod": "^4.1.11"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "3.27.0",
+    "@chakra-ui/react": "^3.27.0",
     "@emotion/react": ">=11.0.0",
     "react": "19.1.1",
     "react-dom": "19.1.1"

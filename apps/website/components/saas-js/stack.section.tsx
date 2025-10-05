@@ -15,7 +15,6 @@ import Image from 'next/image'
 import { TbCheck } from 'react-icons/tb'
 
 import { ActionArrow } from '../action-arrow'
-import { LinkButton } from '../link-button'
 
 export const StackSection = () => {
   return (

@@ -15,7 +15,7 @@
   "author": "Segun Adebayo <sage@adebayosegun.com>",
   "license": "ISC",
   "dependencies": {
-    "@chakra-ui/react": "3.27.0",
+    "@chakra-ui/react": "^3.27.0",
     "@saas-ui/assets": "workspace:*",
     "@saas-ui/forms": "workspace:*",
     "@saas-ui/react": "workspace:*",

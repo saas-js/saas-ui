@@ -12,6 +12,7 @@ import {
   HStack,
   Heading,
   RatingGroup,
+  Span,
   Stack,
   Text,
 } from '@saas-ui/react'
@@ -21,27 +22,28 @@ import { TbStarFilled } from 'react-icons/tb'
 export const HeroSection = () => {
   return (
     <Box px="8">
-      <Box pt="32" overflow="hidden" position="relative">
+      <Box pt="36" overflow="hidden" position="relative">
         <Container maxW="8xl" zIndex="1" height="100%">
           <Stack
             gap={{ base: '5', md: '8' }}
-            mb="20"
             alignItems="center"
             textAlign="center"
           >
-            <Annoucement justifySelf="center" asChild>
+            {/* <Annoucement justifySelf="center" asChild>
               <Link href="/changelog/3.0">
                 Saas UI 3.0 is here!
                 <ActionArrow />
               </Link>
-            </Annoucement>
-            <Stack gap="5" maxW="4xl" alignItems="center">
+            </Annoucement> */}
+            <Stack gap="5" maxW="6xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
-                SaaS starter kits for products built to stand out
+                Everything you need to build products customers love
               </Heading>
-              <Subheading>
-                Production-ready foundations for B2B SaaS that competes on
-                quality—whether you're solo or funded.
+              <Subheading textWrap="pretty">
+                SaaS starter kits for teams who want to move fast without
+                cutting corners. Professional UI, production-ready code, and all
+                the foundations — so you can focus on what makes your product
+                unique.
               </Subheading>
             </Stack>
 

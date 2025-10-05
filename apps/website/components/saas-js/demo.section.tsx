@@ -32,19 +32,14 @@ const EmailDemo = dynamic(
 export const DemoSection = () => {
   return (
     <Box position="relative">
-      <Tabs.Root defaultValue="components" colorPalette="accent" lazyMount>
+      <Tabs.Root defaultValue="crm" colorPalette="accent" lazyMount>
         <Tabs.List mb="4" maxW="8xl" mx="auto">
-          <Tabs.Trigger value="components">Components</Tabs.Trigger>
           <Tabs.Trigger value="crm">CRM</Tabs.Trigger>
           <Tabs.Trigger value="email">Email</Tabs.Trigger>
+          <Tabs.Trigger value="components">Components</Tabs.Trigger>
         </Tabs.List>
 
         <Tabs.ContentGroup>
-          <Tabs.Content value="components" height="768px" maxW="8xl" mx="auto">
-            <ErrorBoundary errorComponent={ErrorFallback}>
-              <ComponentsDemo />
-            </ErrorBoundary>
-          </Tabs.Content>
           <TabContentEnclosed value="crm" maxW="8xl" mx="auto">
             <ErrorBoundary errorComponent={ErrorFallback}>
               <CRMDemo />
@@ -55,6 +50,11 @@ export const DemoSection = () => {
               <EmailDemo />
             </ErrorBoundary>
           </TabContentEnclosed>
+          <Tabs.Content value="components" height="768px" maxW="8xl" mx="auto">
+            <ErrorBoundary errorComponent={ErrorFallback}>
+              <ComponentsDemo />
+            </ErrorBoundary>
+          </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs.Root>
 

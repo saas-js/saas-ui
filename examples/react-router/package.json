@@ -10,7 +10,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@chakra-ui/react": "3.27.0",
+    "@chakra-ui/react": "^3.27.0",
     "@emotion/react": "11",
     "@react-router/node": "^7.6.2",
     "@react-router/serve": "^7.6.2",

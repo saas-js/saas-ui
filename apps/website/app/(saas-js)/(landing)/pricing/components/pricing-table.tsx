@@ -19,7 +19,7 @@ import { TbCheck } from 'react-icons/tb'
 
 export function PricingTable(props: { lastUpdated?: string | null }) {
   return (
-    <Tabs.Root variant="enclosed" defaultValue="all-access">
+    <Tabs.Root variant="enclosed" defaultValue="all-access" position="static">
       <Tabs.List>
         <Tabs.Trigger value="all-access">
           All access <Badge colorPalette="accent">40%+ off</Badge>
@@ -27,42 +27,75 @@ export function PricingTable(props: { lastUpdated?: string | null }) {
         <Tabs.Trigger value="nextjs">Next.js</Tabs.Trigger>
         <Tabs.Trigger value="tanstack-start">Tanstack Start</Tabs.Trigger>
       </Tabs.List>
-      <Tabs.Content value="tanstack-start">
-        <PricingTableTanstackStart lastUpdated={props.lastUpdated} />
-      </Tabs.Content>
-      <Tabs.Content value="nextjs">
-        <PricingTableNextjs lastUpdated={props.lastUpdated} />
-      </Tabs.Content>
-      <Tabs.Content value="all-access">
-        <PricingTableAllAccess lastUpdated={props.lastUpdated} />
-      </Tabs.Content>
+      <Tabs.ContentGroup>
+        <Tabs.Content value="tanstack-start">
+          <PricingTableTanstackStart lastUpdated={props.lastUpdated} />
+        </Tabs.Content>
+        <Tabs.Content value="nextjs">
+          <PricingTableNextjs lastUpdated={props.lastUpdated} />
+        </Tabs.Content>
+        <Tabs.Content value="all-access">
+          <PricingTableAllAccess lastUpdated={props.lastUpdated} />
+        </Tabs.Content>
+      </Tabs.ContentGroup>
     </Tabs.Root>
   )
 }
 
+const products = {
+  allAccess: {
+    single: 'a7e3b6dd-1054-480e-82ce-722b747cce90',
+    team: '01fc3405-c2d0-43e8-995d-e6ec656b7a99',
+  },
+  nextjs: {
+    single: '38a826b4-2ddf-4a6a-8127-ff5947a1960c',
+    team: '9c011d4c-f8e6-439d-b76f-f4340282af1b',
+  },
+  tanstackStart: {
+    single: '0032394c-c572-47b9-9cf0-ecfb8e1b42a3',
+    team: '60764372-7039-4734-a402-b6e608b9bf9d',
+  },
+} as const
+
+function buildUrl(productId: string) {
+  const referralId =
+    typeof window !== 'undefined' ? (window as any).affonso_referral : null
+
+  const query = new URLSearchParams()
+
+  const metadata = referralId
+    ? JSON.stringify({
+        affonso_referral: referralId,
+      })
+    : null
+
+  query.set('products', productId)
+
+  if (metadata) {
+    query.set('metadata', metadata)
+  }
+
+  const url = new URL(
+    '/checkout',
+    process.env.NEXT_PUBLIC_URL ?? process.env.VERCEL_URL,
+  )
+
+  url.search = query.toString()
+
+  return url.toString()
+}
+
+function useCheckoutUrls(productType: keyof typeof products) {
+  const ids = products[productType]
+
+  return {
+    individual: buildUrl(ids.single),
+    team: buildUrl(ids.team),
+  }
+}
+
 export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
-  const { individual, team } = useMemo(() => {
-    const lmsq =
-      typeof window !== 'undefined' ? (window as any).LemonSqueezy : null
-
-    const urls = {
-      individual:
-        'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
-      team: 'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
-    }
-
-    if (!lmsq || !lmsq?.Affiliate) {
-      return {
-        individual: urls.individual,
-        team: urls.team,
-      }
-    }
-
-    return {
-      individual: lmsq.Affiliate.Build(urls.individual),
-      team: lmsq.Affiliate.Build(urls.team),
-    }
-  }, [])
+  const { individual, team } = useCheckoutUrls('allAccess')
 
   return (
     <Stack>
@@ -103,7 +136,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            €457
+            $457
           </Text>
 
           <Box my="8" pt="8">
@@ -160,7 +193,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            €897
+            $897
           </Text>
 
           <Box my="8" pt="8">
@@ -214,7 +247,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            Starting at €1000/month
+            Starting at $1000/month
           </Text>
 
           <Box my="8" pt="8">
@@ -258,28 +291,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
 export function PricingTableTanstackStart(props: {
   lastUpdated?: string | null
 }) {
-  const { individual, team } = useMemo(() => {
-    const lmsq =
-      typeof window !== 'undefined' ? (window as any).LemonSqueezy : null
-
-    const urls = {
-      individual:
-        'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
-      team: 'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
-    }
-
-    if (!lmsq || !lmsq?.Affiliate) {
-      return {
-        individual: urls.individual,
-        team: urls.team,
-      }
-    }
-
-    return {
-      individual: lmsq.Affiliate.Build(urls.individual),
-      team: lmsq.Affiliate.Build(urls.team),
-    }
-  }, [])
+  const { individual, team } = useCheckoutUrls('tanstackStart')
 
   return (
     <Stack>
@@ -320,7 +332,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            €297
+            $297
           </Text>
 
           <Box my="8" pt="8">
@@ -371,7 +383,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            €747
+            $747
           </Text>
 
           <Box my="8" pt="8">
@@ -425,7 +437,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            Starting at €1000/month
+            Starting at $1000/month
           </Text>
 
           <Box my="8" pt="8">
@@ -467,28 +479,7 @@ export function PricingTableTanstackStart(props: {
 }
 
 export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
-  const { individual, team } = useMemo(() => {
-    const lmsq =
-      typeof window !== 'undefined' ? (window as any).LemonSqueezy : null
-
-    const urls = {
-      individual:
-        'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
-      team: 'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
-    }
-
-    if (!lmsq || !lmsq?.Affiliate) {
-      return {
-        individual: urls.individual,
-        team: urls.team,
-      }
-    }
-
-    return {
-      individual: lmsq.Affiliate.Build(urls.individual),
-      team: lmsq.Affiliate.Build(urls.team),
-    }
-  }, [])
+  const { individual, team } = useCheckoutUrls('nextjs')
 
   return (
     <Stack>
@@ -529,7 +520,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            €297
+            $297
           </Text>
 
           <Box my="8" pt="8">
@@ -579,7 +570,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            €747
+            $747
           </Text>
 
           <Box my="8" pt="8">
@@ -633,7 +624,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            Starting at €1000/month
+            Starting at $1000/month
           </Text>
 
           <Box my="8" pt="8">

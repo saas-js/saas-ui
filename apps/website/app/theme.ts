@@ -27,7 +27,7 @@ export const sjsSystem = createSystem(defaultConfig, {
       colors: {
         ...defaultConfig.theme?.semanticTokens?.colors,
         accent: {
-          ...defaultConfig.theme?.semanticTokens?.colors?.cyan,
+          ...defaultConfig.theme?.semanticTokens?.colors?.neutral,
         },
       },
     },

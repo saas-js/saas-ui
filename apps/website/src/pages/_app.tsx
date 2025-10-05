@@ -68,6 +68,12 @@ const MyApp = ({ Component, pageProps }: AppProps<any>) => {
         }}
       />
       <script src="https://lmsqueezy.com/affiliate.js" async></script>
+      <Script
+        src="https://affonso.io/js/pixel.min.js"
+        strategy="afterInteractive"
+        data-affonso="cmgdfoad90006ib7qt4poawok"
+        data-cookie_duration="30"
+      />
     </>
   )
 }

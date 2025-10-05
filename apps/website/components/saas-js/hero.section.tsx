@@ -55,7 +55,7 @@ export const HeroSection = () => {
                 variant="glass"
                 colorPalette="accent"
               >
-                <Link href="/starter-kits">View starter kits</Link>
+                <Link href="#starter-kits">View starter kits</Link>
               </Button>
               <Button
                 size="lg"

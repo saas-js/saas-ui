@@ -79,8 +79,6 @@ export default async function RootLayout({
 
   const site = host?.includes('saas-ui') ? 'sui' : 'sjs'
 
-  console.log(site)
-
   return (
     <html
       lang="en"

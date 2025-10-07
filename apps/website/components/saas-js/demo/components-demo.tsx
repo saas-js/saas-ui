@@ -1,5 +1,6 @@
 import { LogoIcon } from '@/components/logo'
 import { Chart, useChart } from '@chakra-ui/charts'
+import { Dialog } from '@chakra-ui/react/dialog'
 import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
 import {
   Avatar,
@@ -8,7 +9,6 @@ import {
   Button,
   Card,
   DataList,
-  Dialog,
   Field,
   Flex,
   Grid,
@@ -291,7 +291,6 @@ function ConfirmDialog() {
         boxShadow="md"
         transition="none"
         animationDuration="0ms"
-        portalled={false}
       >
         <Dialog.Header>
           <Dialog.Title>Confirm</Dialog.Title>

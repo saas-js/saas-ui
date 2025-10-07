@@ -11,3 +11,5 @@ packages:
   - examples/*
 onlyBuiltDependencies:
   - '@parcel/watcher'
+overrides:
+  '@chakra-ui/react': '^3.27.1'

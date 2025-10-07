@@ -1,7 +1,5 @@
 import { LogoIcon } from '@/components/logo'
 import { Chart, useChart } from '@chakra-ui/charts'
-// import from Chakra UI because we want to render it inline.
-import { Dialog } from '@chakra-ui/react'
 import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
 import {
   Avatar,
@@ -10,6 +8,7 @@ import {
   Button,
   Card,
   DataList,
+  Dialog,
   Field,
   Flex,
   Grid,
@@ -30,6 +29,7 @@ import {
   Switch,
   Text,
 } from '@saas-ui/react'
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import {
   FaFilePdf,
   FaFilePowerpoint,
@@ -45,7 +45,9 @@ export const ComponentsDemo = () => {
       <Grid templateColumns="1fr 1fr 1.5fr" gap="8">
         <Stack gap="8">
           <ConfirmDialog />
-          <MetricsCard />
+          <ErrorBoundary errorComponent={() => <div />}>
+            <MetricsCard />
+          </ErrorBoundary>
           <DetailsCard />
         </Stack>
         <Stack gap="8">
@@ -288,6 +290,7 @@ function ConfirmDialog() {
         boxShadow="md"
         transition="none"
         animationDuration="0ms"
+        portalled={false}
       >
         <Dialog.Header>
           <Dialog.Title>Confirm</Dialog.Title>

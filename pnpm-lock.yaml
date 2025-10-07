@@ -4,13 +4,16 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@chakra-ui/react': ^3.27.1
+
 importers:
 
   .:
     devDependencies:
       '@chakra-ui/cli':
         specifier: ^3.27.0
-        version: 3.27.0(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
+        version: 3.27.0(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@changesets/cli':
         specifier: ^2.29.7
         version: 2.29.7(@types/node@22.18.8)
@@ -102,8 +105,8 @@ importers:
   apps/compositions:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@saas-ui/assets':
         specifier: workspace:*
         version: link:../../packages/saas-ui-assets
@@ -173,10 +176,10 @@ importers:
         version: 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@chakra-ui/charts':
         specifier: ^3.27.0
-        version: 3.27.0(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(recharts@3.2.1(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react-is@19.2.0)(react@19.2.0)(redux@5.0.1))
+        version: 3.27.0(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(recharts@3.2.1(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react-is@19.2.0)(react@19.2.0)(redux@5.0.1))
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/cache':
         specifier: ^11.14.0
         version: 11.14.0
@@ -356,14 +359,14 @@ importers:
   examples/next-app:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: '11'
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
       '@saas-ui/react':
         specifier: 3.0.0-next.39
-        version: 3.0.0-next.39(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 3.0.0-next.39(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/node':
         specifier: ^24.0.4
         version: 24.6.2
@@ -395,14 +398,14 @@ importers:
   examples/next-pages:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: '11'
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
       '@saas-ui/react':
         specifier: 3.0.0-next.39
-        version: 3.0.0-next.39(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 3.0.0-next.39(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/node':
         specifier: ^24.0.4
         version: 24.6.2
@@ -434,8 +437,8 @@ importers:
   examples/react-router:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: '11'
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
@@ -447,7 +450,7 @@ importers:
         version: 7.9.3(react-router@7.9.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3)
       '@saas-ui/react':
         specifier: 3.0.0-next.39
-        version: 3.0.0-next.39(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 3.0.0-next.39(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       isbot:
         specifier: ^5.1.28
         version: 5.1.31
@@ -469,7 +472,7 @@ importers:
     devDependencies:
       '@chakra-ui/cli':
         specifier: ^3.27.0
-        version: 3.27.0(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
+        version: 3.27.0(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@react-router/dev':
         specifier: ^7.6.2
         version: 7.9.3(@react-router/serve@7.9.3(react-router@7.9.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(typescript@5.9.3))(@types/node@24.6.2)(@vitejs/plugin-rsc@0.4.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.8(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.6)(yaml@2.8.1)))(babel-plugin-macros@3.1.0)(jiti@2.6.1)(lightningcss@1.30.1)(react-router@7.9.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.43.1)(tsx@4.20.6)(typescript@5.9.3)(vite@7.1.8(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.6)(yaml@2.8.1))(yaml@2.8.1)
@@ -498,8 +501,8 @@ importers:
   examples/remix-ts:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/cache':
         specifier: '11'
         version: 11.14.0
@@ -520,7 +523,7 @@ importers:
         version: 2.17.1(typescript@5.9.3)
       '@saas-ui/react':
         specifier: 3.0.0-next.39
-        version: 3.0.0-next.39(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 3.0.0-next.39(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       isbot:
         specifier: ^5.1.28
         version: 5.1.31
@@ -589,14 +592,14 @@ importers:
   examples/tanstack:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
       '@saas-ui/react':
         specifier: next
-        version: 3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@tanstack/react-router':
         specifier: ^1.125.6
         version: 1.132.31(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -656,14 +659,14 @@ importers:
   examples/tsrouter:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
       '@saas-ui/react':
         specifier: 3.0.0-next.39
-        version: 3.0.0-next.39(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 3.0.0-next.39(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@tailwindcss/vite':
         specifier: ^4.0.6
         version: 4.1.14(vite@7.1.8(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.6)(yaml@2.8.1))
@@ -745,8 +748,8 @@ importers:
         specifier: 5.25.1
         version: 5.25.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@dnd-kit/core':
         specifier: ^6.3.1
         version: 6.3.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -764,19 +767,19 @@ importers:
         version: 11.14.0(@types/react@19.2.0)(react@19.1.1)
       '@saas-ui-pro/react':
         specifier: ^1.0.0-next.0
-        version: 1.0.0-next.3(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(js-cookie@3.0.5)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 1.0.0-next.3(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(js-cookie@3.0.5)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/assets':
         specifier: ^2.0.0-next.0
         version: 2.0.0-next.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/forms':
         specifier: 3.0.0-next.45
-        version: 3.0.0-next.45(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.45(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/hooks':
         specifier: 3.0.0-next.3
         version: 3.0.0-next.3(react@19.1.1)
       '@saas-ui/react':
         specifier: 3.0.0-next.44
-        version: 3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/registry':
         specifier: workspace:*
         version: link:../registry
@@ -946,8 +949,8 @@ importers:
   packages/pro/packages/kanban:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react':
         specifier: '>=11'
         version: 11.14.0(@types/react@19.2.0)(react@19.1.1)
@@ -956,7 +959,7 @@ importers:
         version: link:../kanban-core
       '@saas-ui/react':
         specifier: 3.0.0-next.42
-        version: 3.0.0-next.42(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.42(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
       react:
         specifier: 19.1.1
@@ -1002,8 +1005,8 @@ importers:
   packages/pro/packages/onboarding:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react':
         specifier: '>=11'
         version: 11.14.0(@types/react@19.2.0)(react@19.1.1)
@@ -1018,7 +1021,7 @@ importers:
         version: 3.0.0-next.3(react@19.1.1)
       '@saas-ui/react':
         specifier: 3.0.0-next.42
-        version: 3.0.0-next.42(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.42(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
       react:
         specifier: 19.1.1
@@ -1049,7 +1052,7 @@ importers:
         version: 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/forms':
         specifier: 3.0.0-next.42
-        version: 3.0.0-next.42(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.42(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/hooks':
         specifier: 3.0.0-next.3
         version: 3.0.0-next.3(react@19.1.1)
@@ -1067,8 +1070,8 @@ importers:
         version: 4.1.0
     devDependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.2.0)(react@19.1.1)
@@ -1077,7 +1080,7 @@ importers:
         version: 7.4.0
       '@saas-ui/react':
         specifier: 3.0.0-next.42
-        version: 3.0.0-next.42(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.42(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react:
         specifier: 19.1.1
         version: 19.1.1
@@ -1116,8 +1119,8 @@ importers:
         specifier: ^7.26.10
         version: 7.28.4
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.2.0)(react@19.1.1)
@@ -1129,7 +1132,7 @@ importers:
         version: link:../react
       '@saas-ui/react':
         specifier: 3.0.0-next.42
-        version: 3.0.0-next.42(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.42(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@storybook/addon-a11y':
         specifier: ^8.6.6
         version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
@@ -1332,8 +1335,8 @@ importers:
   packages/saas-ui-forms:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: '>=11.0.0'
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
@@ -1402,8 +1405,8 @@ importers:
   packages/saas-ui-modals:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: '>=11.0.0'
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
@@ -1472,8 +1475,8 @@ importers:
         specifier: ^5.25.1
         version: 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: ^11
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
@@ -1573,8 +1576,8 @@ importers:
         specifier: ^7.27.0
         version: 7.27.1(@babel/core@7.28.4)
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
@@ -1677,8 +1680,8 @@ importers:
         version: 19.1.1(react@19.2.0)
     devDependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.1.1(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.1.1(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
@@ -1704,8 +1707,8 @@ importers:
   tooling/test-utils:
     dependencies:
       '@chakra-ui/react':
-        specifier: ^3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.1.1(react@19.2.0))(react@19.2.0)
+        specifier: ^3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.1.1(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: '>=11'
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
@@ -2407,7 +2410,7 @@ packages:
   '@chakra-ui/charts@3.27.0':
     resolution: {integrity: sha512-nCn4TbbQZIbnr89ynETD4rrW3Rh+it+w55q3QUc76GbqMTfcs4I148UsP/nb5YURQ9WAHwmMXhzlW9T62JqSvw==}
     peerDependencies:
-      '@chakra-ui/react': '>=3'
+      '@chakra-ui/react': ^3.27.1
       react: '>=18'
       react-dom: '>=18'
       recharts: '>=2'
@@ -2416,10 +2419,10 @@ packages:
     resolution: {integrity: sha512-BZ/mFrlmHKUiPdMTRPXRhsiOdG8oK2IVgklKFaPjigXCmSNu8RhFCF4PrGdHW41UvKNDw1imhvYCEoDh3NWEHA==}
     hasBin: true
     peerDependencies:
-      '@chakra-ui/react': '>=3.0.0-next.0'
+      '@chakra-ui/react': ^3.27.1
 
-  '@chakra-ui/react@3.27.0':
-    resolution: {integrity: sha512-M1WTAErI2cYM/PB4h5Kf5CCAg70g3HCzVvTEhcf5ty8QrG6QybPf3RdWSpBlIy7qpjuEnQYpHLxM0jnFLArBgA==}
+  '@chakra-ui/react@3.27.1':
+    resolution: {integrity: sha512-cjvowtELfber0OKDWt2Udl/I4SVKnA89pFZA+I1EG6uwlUZRpgOdwQZVEQceMmc4iVRFbUJudoAuqWhQIl/Irw==}
     peerDependencies:
       '@emotion/react': '>=11'
       react: '>=18'
@@ -4516,7 +4519,7 @@ packages:
   '@saas-ui-pro/onboarding@1.0.0-next.0':
     resolution: {integrity: sha512-R9M/pcv9s+lK0he2HljjYHUisD7+c+9gF4+szqdpvIPrLVSAhhvxrpoMf6VapovfnWo4waElLV10zvqpfiMPAQ==}
     peerDependencies:
-      '@chakra-ui/react': ^3.2.3
+      '@chakra-ui/react': ^3.27.1
       '@emotion/react': '>=11'
       '@saas-ui/react': ^3.0.0-next.0
       react: '>=18'
@@ -4525,7 +4528,7 @@ packages:
   '@saas-ui-pro/react@1.0.0-next.3':
     resolution: {integrity: sha512-UOBrSVdd9iQ3ugKqdHHPg+7FMeIGF9HwVS05bVQUn/FNC2EfSDOp4YGSHjGGMSbsx5aGZyvceeiB1VhJVtVhTg==}
     peerDependencies:
-      '@chakra-ui/react': ^3.14.2
+      '@chakra-ui/react': ^3.27.1
       '@emotion/react': '>=11'
       '@saas-ui/react': '>=3.0.0-next.37'
       react: '>=18'
@@ -4546,7 +4549,7 @@ packages:
   '@saas-ui/forms@3.0.0-next.42':
     resolution: {integrity: sha512-S7DW4t/8Sg5c0KVf/Qm071LjQMMdv2yIg3oe0Qn0U7nyBMGX3Uqpr0b8Y58Dcqh4BIgpVWb6eE1BNqYgCS5Tkg==}
     peerDependencies:
-      '@chakra-ui/react': ^3.20.0
+      '@chakra-ui/react': ^3.27.1
       '@emotion/react': '>=11.0.0'
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -4554,7 +4557,7 @@ packages:
   '@saas-ui/forms@3.0.0-next.45':
     resolution: {integrity: sha512-pLe2O2uxZsSrZJOdrHrx09UVLckrBAJP3QXNAr84iCZFB67MBEgdDF475LS3RVJlQDD0Oy8Vbj5qHf0XNSO92g==}
     peerDependencies:
-      '@chakra-ui/react': 3.27.0
+      '@chakra-ui/react': ^3.27.1
       '@emotion/react': '>=11.0.0'
       react: 19.1.1
       react-dom: 19.1.1
@@ -4567,7 +4570,7 @@ packages:
   '@saas-ui/react@3.0.0-next.39':
     resolution: {integrity: sha512-E8WHbNJXDYxleQcZGVOsHjlES4xz4ssBuB8CRK5YhghalKts32KwdSBWBvLuUwaAkMDLMmj+M9hxaDesLYbcmg==}
     peerDependencies:
-      '@chakra-ui/react': ^3.20.0
+      '@chakra-ui/react': ^3.27.1
       '@emotion/react': ^11
       react: '>=18'
       react-dom: '>=18'
@@ -4575,7 +4578,7 @@ packages:
   '@saas-ui/react@3.0.0-next.42':
     resolution: {integrity: sha512-1UzZu+QfPGSYQvrb1NGrM2/0etLsDmlMMxUdCO3Wr1c8kWSwQXRTkI/INJ2t3TMghbFWquOH1viOxHKVAqqSMw==}
     peerDependencies:
-      '@chakra-ui/react': ^3.25.0
+      '@chakra-ui/react': ^3.27.1
       '@emotion/react': ^11
       react: '>=18'
       react-dom: '>=18'
@@ -4583,7 +4586,7 @@ packages:
   '@saas-ui/react@3.0.0-next.44':
     resolution: {integrity: sha512-s1JiOuLuB5D3uaVzOLU4c3YlCeuoSeARvIYuzUslyIws2NyqrGmf1p6Wuj5C5rAuXZJRL2mdtwsiLwhLhCBG9Q==}
     peerDependencies:
-      '@chakra-ui/react': ^3.27.0
+      '@chakra-ui/react': ^3.27.1
       '@emotion/react': ^11
       react: ^19.1.1
       react-dom: ^19.1.1
@@ -13706,16 +13709,16 @@ snapshots:
       react-lifecycles-compat: 3.0.4
       warning: 3.0.0
 
-  '@chakra-ui/charts@3.27.0(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(recharts@3.2.1(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react-is@19.2.0)(react@19.2.0)(redux@5.0.1))':
+  '@chakra-ui/charts@3.27.0(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(recharts@3.2.1(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react-is@19.2.0)(react@19.2.0)(redux@5.0.1))':
     dependencies:
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
       recharts: 3.2.1(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react-is@19.2.0)(react@19.2.0)(redux@5.0.1)
 
-  '@chakra-ui/cli@3.27.0(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
+  '@chakra-ui/cli@3.27.0(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
     dependencies:
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@clack/prompts': 0.11.0
       '@pandacss/is-valid-prop': 0.54.0
       '@types/cli-table': 0.3.4
@@ -13739,7 +13742,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.1.1(react@19.2.0))(react@19.2.0)':
+  '@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.1.1(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.1.1(react@19.2.0))(react@19.2.0)
       '@emotion/is-prop-valid': 1.4.0
@@ -13753,21 +13756,7 @@ snapshots:
       react: 19.2.0
       react-dom: 19.1.1(react@19.2.0)
 
-  '@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
-    dependencies:
-      '@ark-ui/react': 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@emotion/is-prop-valid': 1.4.0
-      '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.2.0)
-      '@emotion/serialize': 1.3.3
-      '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.2.0)
-      '@emotion/utils': 1.4.2
-      '@pandacss/is-valid-prop': 0.54.0
-      csstype: 3.1.3
-      fast-safe-stringify: 2.1.1
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
-
-  '@chakra-ui/react@3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@chakra-ui/react@3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/is-prop-valid': 1.4.0
@@ -13780,6 +13769,20 @@ snapshots:
       fast-safe-stringify: 2.1.1
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
+
+  '@chakra-ui/react@3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+    dependencies:
+      '@ark-ui/react': 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@emotion/is-prop-valid': 1.4.0
+      '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.2.0)
+      '@emotion/serialize': 1.3.3
+      '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.2.0)
+      '@emotion/utils': 1.4.2
+      '@pandacss/is-valid-prop': 0.54.0
+      csstype: 3.1.3
+      fast-safe-stringify: 2.1.1
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
 
   '@changesets/apply-release-plan@7.0.13':
     dependencies:
@@ -16065,27 +16068,27 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@saas-ui-pro/onboarding@1.0.0-next.0(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@saas-ui-pro/onboarding@1.0.0-next.0(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.1.1)
       '@floating-ui/react': 0.27.16(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@saas-ui/react': 3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@saas-ui/react': 3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  '@saas-ui-pro/react@1.0.0-next.3(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(js-cookie@3.0.5)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@saas-ui-pro/react@1.0.0-next.3(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(js-cookie@3.0.5)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.1.1)
       '@react-hookz/web': 25.1.1(js-cookie@3.0.5)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@saas-ui-pro/onboarding': 1.0.0-next.0(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@saas-ui-pro/onboarding': 1.0.0-next.0(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@saas-ui/forms': 3.0.0-next.45(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@saas-ui/forms': 3.0.0-next.45(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/hooks': 3.0.0-next.3(react@19.1.1)
-      '@saas-ui/react': 3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@saas-ui/react': 3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@tanstack/react-table': 8.21.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@tanstack/react-virtual': 3.13.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@zag-js/dom-utils': 0.2.4
@@ -16120,26 +16123,26 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  '@saas-ui/forms@3.0.0-next.42(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@saas-ui/forms@3.0.0-next.42(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.1.1)
       '@hookform/resolvers': 5.2.2(react-hook-form@7.63.0(react@19.1.1))
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@saas-ui/react': 3.0.0-next.42(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@saas-ui/react': 3.0.0-next.42(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@standard-schema/spec': 1.0.0
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
       react-hook-form: 7.63.0(react@19.1.1)
       zod: 3.25.76
 
-  '@saas-ui/forms@3.0.0-next.45(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@saas-ui/forms@3.0.0-next.45(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.1.1)
       '@hookform/resolvers': 5.2.2(react-hook-form@7.63.0(react@19.1.1))
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@saas-ui/react': 3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@saas-ui/react': 3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@standard-schema/spec': 1.0.0
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
@@ -16154,10 +16157,10 @@ snapshots:
     dependencies:
       react: 19.2.0
 
-  '@saas-ui/react@3.0.0-next.39(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@saas-ui/react@3.0.0-next.39(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.2.0)
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@saas-ui/hooks': 3.0.0-next.3(react@19.2.0)
@@ -16165,10 +16168,10 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  '@saas-ui/react@3.0.0-next.42(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@saas-ui/react@3.0.0-next.42(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.1.1)
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/hooks': 3.0.0-next.3(react@19.1.1)
@@ -16176,10 +16179,10 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  '@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.1.1)
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@saas-ui/hooks': 3.0.0-next.3(react@19.1.1)
@@ -16187,10 +16190,10 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  '@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@chakra-ui/react': 3.27.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@chakra-ui/react': 3.27.1(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.2.0)
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@saas-ui/hooks': 3.0.0-next.3(react@19.2.0)

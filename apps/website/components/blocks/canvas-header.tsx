@@ -9,7 +9,9 @@ import {
   HStack,
   Heading,
   IconButton,
+  Tabs,
   Tag,
+  Text,
 } from '@saas-ui/react'
 import { useRouter } from 'next/navigation'
 import { FaGithub } from 'react-icons/fa'
@@ -58,29 +60,35 @@ export function CanvasHeader({
           id={slug}
           style={{ visibility: 'hidden', position: 'absolute', top: -75 }}
         />
-        <Heading
-          as="h4"
-          fontSize="lg"
-          minW="200px"
-          fontWeight="medium"
-          role="group"
-        >
-          <a href={`#${slug}`}>
-            {attributes.title}{' '}
-            <Box
-              as="span"
-              display="none"
-              _groupHover={{ display: 'inline' }}
-              color="muted"
-            >
-              #
-            </Box>
-          </a>
-        </Heading>
+
+        <Box>
+          <Heading
+            as="h4"
+            fontSize="lg"
+            minW="200px"
+            fontWeight="medium"
+            role="group"
+          >
+            <a href={`#${slug}`}>
+              {attributes.title}{' '}
+              <Box
+                as="span"
+                display="none"
+                _groupHover={{ display: 'inline' }}
+                color="muted"
+              >
+                #
+              </Box>
+            </a>
+          </Heading>
+          <Text textStyle="sm" color="fg.subtle">
+            {attributes.description}
+          </Text>
+        </Box>
 
         <HStack gap="1">
           {attributes.version && (
-            <Tag variant="solid" rounded="full" px="2">
+            <Tag variant="subtle" size="sm" rounded="full" px="2">
               {attributes.version}
             </Tag>
           )}
@@ -108,31 +116,31 @@ export function CanvasHeader({
         {/* <ThemeControl onChange={onThemeChange} value={theme} /> */}
 
         {isUnlocked ? (
-          <ButtonGroup attached>
-            <Button
-              variant="outline"
-              data-checked={state === 'preview' ? 'true' : undefined}
-              onClick={() => onStateChange('preview')}
-            >
-              <FiEye size="1rem" />
-              Preview
-            </Button>
+          <Tabs.Root value={state} variant="enclosed" size="sm">
+            <Tabs.List>
+              <Tabs.Trigger
+                value="preview"
+                onClick={() => onStateChange('preview')}
+              >
+                <FiEye size="1rem" />
+                Preview
+              </Tabs.Trigger>
 
-            <Button
-              variant="outline"
-              data-checked={state === 'code' ? 'true' : undefined}
-              onClick={() => {
-                onStateChange('code')
+              <Tabs.Trigger
+                value="code"
+                onClick={() => {
+                  onStateChange('code')
 
-                trackEvent('View Block Code', {
-                  block: slug,
-                })
-              }}
-            >
-              <FiCode size="1rem" />
-              Code
-            </Button>
-          </ButtonGroup>
+                  trackEvent('View Block Code', {
+                    block: slug,
+                  })
+                }}
+              >
+                <FiCode size="1rem" />
+                Code
+              </Tabs.Trigger>
+            </Tabs.List>
+          </Tabs.Root>
         ) : (
           <LinkButton
             variant="outline"

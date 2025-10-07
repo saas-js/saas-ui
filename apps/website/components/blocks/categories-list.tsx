@@ -1,5 +1,5 @@
 import { CategoriesGroup } from '@/blocks'
-import { Container, SimpleGrid } from '@saas-ui/react'
+import { SimpleGrid } from '@saas-ui/react'
 
 import { CategoryCard } from './category-card'
 
@@ -21,11 +21,6 @@ export function CategoriesList({
       />
     ))
 
-    const totalComponents = group.categories.reduce(
-      (acc, category) => acc + componentsCountByCategory[category.slug],
-      0,
-    )
-
     return (
       <div key={group.name}>
         <SimpleGrid id="cards-grid" columns={{ base: 1, md: 2, xl: 4 }} gap="8">
@@ -35,9 +30,5 @@ export function CategoriesList({
     )
   })
 
-  return (
-    <Container maxWidth="container.2xl" px="md">
-      {items}
-    </Container>
-  )
+  return <div>{items}</div>
 }

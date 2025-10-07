@@ -4,37 +4,52 @@ import {
   getAllComponents,
 } from '@/blocks/components'
 import { CategoriesList } from '@/components/blocks/categories-list'
-import { Box, Container, HStack, Heading, Text } from '@saas-ui/react'
+import { LinkButton } from '@/components/link-button'
+import {
+  Box,
+  ButtonGroup,
+  Container,
+  HStack,
+  Heading,
+  Text,
+} from '@saas-ui/react'
+import { TbLock } from 'react-icons/tb'
 
 export default async function Page() {
   const componentsCountByCategory = await countComponentsByCategory()
-
-  const allComponents = await getAllComponents()
 
   const allComponentsCount = Object.keys(componentsCountByCategory).reduce(
     (acc, category) => acc + componentsCountByCategory[category],
     0,
   )
 
+  const isAuthenticated = false
+
   return (
-    <Container maxWidth="8xl" px="8" py="20">
+    <Container maxWidth="8xl" px="8" py="16">
       <Box position="relative" zIndex="1">
         <HStack alignItems="start">
           <Box mb="12" flex="1">
-            <Heading as="h2" size="2xl" textStyle="pageTitle">
-              Blocks
+            <Heading as="h2" textStyle="4xl">
+              {allComponentsCount} blocks for Chakra UI v3
             </Heading>
-            <Text fontSize="md" mt="5" color="fg.muted">
-              Build delightful apps and dashboards faster with{' '}
-              {allComponentsCount} pre-built blocks and templates.
+            <Text fontSize="lg" color="fg.muted">
+              Copy-paste our top tier B2B SaaS components and templates.
             </Text>
           </Box>
 
-          {/* {!isAuthenticated && (
-            <LinkButton href="/login" size="sm" variant="outline">
-              Log in
-            </LinkButton>
-          )} */}
+          {!isAuthenticated && (
+            <ButtonGroup>
+              <LinkButton
+                href="/pricing"
+                size="lg"
+                variant="surface"
+                bg="white"
+              >
+                <TbLock size="16" /> Unlock all
+              </LinkButton>
+            </ButtonGroup>
+          )}
         </HStack>
 
         <CategoriesList

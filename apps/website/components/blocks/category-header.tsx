@@ -15,14 +15,15 @@ export function CategoryHeader({ category }: CategoryHeaderProps) {
   const isAuthenticated = true
   return (
     <HStack alignItems="start">
-      <Box mb="20" flex="1">
+      <Box mb="12" flex="1">
         <Link
           as={NextLink}
           href="/blocks"
           role="group"
           display="inline-flex"
           alignItems="center"
-          color="muted"
+          color="fg.muted"
+          textStyle="sm"
         >
           <Icon
             as={FiArrowLeft}
@@ -37,7 +38,7 @@ export function CategoryHeader({ category }: CategoryHeaderProps) {
           </Box>
         </Link>
 
-        <Heading size="xl">{category.name}</Heading>
+        <Heading textStyle="4xl">{category.name}</Heading>
       </Box>
 
       {!isAuthenticated && (

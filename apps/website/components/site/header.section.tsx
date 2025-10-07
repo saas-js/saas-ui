@@ -155,6 +155,7 @@ export const HeaderSection = () => {
       backdropFilter="blur(10px)"
     >
       <Stack
+        data-announcement
         bg="accent.subtle"
         borderBottomWidth="1px"
         borderColor="accent.solid/20"

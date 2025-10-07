@@ -78,7 +78,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
         button: {
           borderRadius: 'control.md',
           px: 2,
-          height: 7,
+          height: 6,
         },
         endElement: {
           pe: '1',
@@ -91,7 +91,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
         button: {
           borderRadius: 'control.md',
           px: 2.5,
-          height: 8,
+          height: 7,
         },
         endElement: {
           pe: '1',
@@ -104,7 +104,7 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
         button: {
           borderRadius: 'control.lg',
           px: 3,
-          height: 10,
+          height: 9,
         },
         endElement: {
           pe: '1',

@@ -19,7 +19,7 @@ export const avatarSlotRecipe = defineSlotRecipe({
       height: 'var(--avatar-size)',
       fontSize: 'var(--avatar-font-size)',
       borderRadius: 'var(--avatar-radius)',
-      '&[data-group-item]': {
+      '&[data-group-item], [data-group-item] > &': {
         borderWidth: '2px',
         borderColor: 'bg',
       },

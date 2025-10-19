@@ -1,5 +1,13 @@
 # @saas-ui/modals
 
+## 3.0.0-next.46
+
+### Patch Changes
+
+- Updated dependencies [74eec10]
+  - @saas-ui/react@3.0.0-next.45
+  - @saas-ui/forms@3.0.0-next.46
+
 ## 3.0.0-next.45
 
 ### Patch Changes

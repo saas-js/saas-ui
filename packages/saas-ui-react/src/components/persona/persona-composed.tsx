@@ -2,8 +2,9 @@
 
 import * as React from 'react'
 
+import type { PersonaVariantProps } from '@saas-ui/chakra-preset/slot-recipes/persona'
+
 import * as PersonaPrimitive from './persona.tsx'
-import type { PersonaVariantProps } from './persona.recipe.ts'
 import type { PersonaPresence } from './presence.ts'
 
 interface PersonaOptions {

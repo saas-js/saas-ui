@@ -1,11 +1,11 @@
 'use client'
 
 import type { HTMLChakraProps } from '@chakra-ui/react/styled-system'
+import type { GridListVariantProps } from '@saas-ui/chakra-preset/slot-recipes/grid-list'
 import { GridList } from '@saas-ui/core/grid-list'
 
 import type { SlotRecipeProps } from '../../types.ts'
 import { withContext, withProvider } from './grid-list.context.ts'
-import type { GridListVariantProps } from './grid-list.recipe.ts'
 
 interface GridListRootProps
   extends HTMLChakraProps<'div'>,

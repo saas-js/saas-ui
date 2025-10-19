@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.25.1",
+    "@saas-ui/chakra-preset": "workspace:*",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/hooks": "workspace:*",
     "next-themes": "^0.4.6"

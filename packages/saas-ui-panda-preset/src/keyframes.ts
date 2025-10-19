@@ -1,4 +1,4 @@
-import { defineKeyframes } from '../../src/def'
+import { defineKeyframes } from './def'
 
 export const keyframes = defineKeyframes({
   spin: {

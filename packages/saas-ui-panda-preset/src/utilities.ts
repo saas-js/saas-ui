@@ -1,9 +1,11 @@
-const createFocusRing = (selector: string) => {
+import type { NestedCssProperties, UtilityConfig } from '@pandacss/types'
+
+export const createFocusRing = (selector: string) => {
   return {
     values: ['outside', 'inside', 'mixed', 'none'],
     transform(value: any, { token }: any) {
       const focusRingColor = token('colors.colorPalette.focusRing')
-      const styles: Record = {
+      const styles: Record<string, NestedCssProperties | undefined> = {
         inside: {
           '--focus-ring-color': focusRingColor,
           [selector]: {
@@ -51,4 +53,4 @@ export const utilities = {
   focusVisibleRing: createFocusRing(
     '&:is(:focus-visible, [data-focus-visible])',
   ),
-}
+} satisfies UtilityConfig

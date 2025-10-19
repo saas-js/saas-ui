@@ -10,6 +10,7 @@ import {
   chakra,
   mergeProps,
 } from '@chakra-ui/react'
+import type { PersonaVariantProps } from '@saas-ui/chakra-preset/slot-recipes/persona'
 import { dataAttr } from '@saas-ui/core/utils'
 import { cx } from '@saas-ui/core/utils'
 
@@ -21,7 +22,6 @@ import {
   useRecipeResult,
   withContext,
 } from './persona.context.ts'
-import type { PersonaVariantProps } from './persona.recipe.ts'
 import type { PersonaPresence } from './presence.ts'
 
 interface PersonaRootProps

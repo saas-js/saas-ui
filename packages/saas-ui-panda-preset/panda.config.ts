@@ -1,5 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
-import saasUiPreset from 'src'
+
+import saasUiPreset from './src/index.ts'
 
 export default defineConfig({
   presets: [saasUiPreset],

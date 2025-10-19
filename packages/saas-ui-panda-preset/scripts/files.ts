@@ -94,7 +94,7 @@ export async function writeIndex() {
 import { breakpoints } from './breakpoints'
 import { definePreset } from './def'
 import { globalCss } from './global-css'
-import { keyframes } from './tokens/keyframes'
+// import { keyframes } from './tokens/keyframes'
 import { layerStyles } from './layer-styles'
 import { recipes } from './recipes'
 import { semanticTokens } from './semantic-tokens'
@@ -109,7 +109,7 @@ export default definePreset({
   theme: {
     extend: {
       breakpoints,
-      keyframes,
+      // keyframes,
       tokens,
       semanticTokens,
       recipes,

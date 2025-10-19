@@ -1,6 +1,6 @@
 import { defineRecipe } from '@chakra-ui/react/styled-system'
 
-import { badgeRecipe } from '../badge/badge.recipe.ts'
+import { badgeRecipe } from './badge.recipe.ts'
 
 const { variants, defaultVariants } = badgeRecipe
 

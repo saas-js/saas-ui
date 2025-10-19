@@ -2,7 +2,7 @@ import { globby } from 'globby'
 import { rm } from 'node:fs/promises'
 import { Options, format as prettierFormat } from 'prettier'
 
-import prettierConfig from '../../../.prettierrc.js'
+import prettierConfig from '../../../.prettierrc.cjs'
 
 export async function cleanFiles() {
   console.log('🧹 Cleaning files...')

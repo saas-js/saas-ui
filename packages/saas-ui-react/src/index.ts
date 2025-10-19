@@ -352,7 +352,7 @@ export { VisuallyHidden } from './components/visually-hidden/index.ts'
 export { Wrap, type WrapProps } from './components/wrap/index.ts'
 export { Flex, type FlexProps } from './components/flex/index.ts'
 
-export type { ColorPalette } from './theme/tokens/colors.ts'
+export type { ColorPalette } from '@saas-ui/chakra-preset/colors'
 
 export { For } from '@chakra-ui/react/for'
 export {

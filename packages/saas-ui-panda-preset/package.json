@@ -1,0 +1,71 @@
+{
+  "name": "@saas-ui/panda-preset",
+  "description": "The styled system for Saas UI panda",
+  "type": "module",
+  "exports": {
+    ".": {
+      "sui": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./css": {
+      "types": "./styled-system/css/index.d.ts",
+      "import": "./styled-system/css/index.js"
+    },
+    "./tokens": {
+      "types": "./styled-system/tokens/index.d.ts",
+      "import": "./styled-system/tokens/index.js"
+    },
+    "./types": {
+      "types": "./styled-system/types/index.d.ts"
+    },
+    "./types/*": {
+      "types": "./styled-system/types/*.d.ts"
+    },
+    "./patterns": {
+      "types": "./styled-system/patterns/index.d.ts",
+      "import": "./styled-system/patterns/index.js"
+    },
+    "./recipes": {
+      "types": "./styled-system/recipes/index.d.ts",
+      "import": "./styled-system/recipes/index.js"
+    },
+    "./jsx": {
+      "types": "./styled-system/jsx/index.d.ts",
+      "import": "./styled-system/jsx/index.js"
+    }
+  },
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"panda codegen --watch\" \"tsup src/index.ts --config tsup.config.ts --watch\"",
+    "clean": "rimraf --no-glob ./dist",
+    "sync": "bun scripts/sync.ts",
+    "build": "panda codegen && tsup src/index.ts --config tsup.config.ts",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "ImExoOdeex <odeex722@gmail.com>",
+  "dependencies": {
+    "@pandacss/dev": "^1.4.3",
+    "globby": "^14.1.0"
+  },
+  "devDependencies": {
+    "@pandacss/types": "^1.4.3",
+    "@chakra-ui/react": "^3.27.1",
+    "@emotion/react": "^11.14.0",
+    "concurrently": "^9.1.2",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

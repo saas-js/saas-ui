@@ -14,6 +14,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "dev": "tsup src/index.ts --config tsup.config.ts --watch",
     "clean": "rimraf --no-glob ./dist",
     "build": "tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",

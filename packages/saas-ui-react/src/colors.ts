@@ -1,1 +1,1 @@
-export { colors } from './theme/tokens/colors.ts'
+export { colors } from '@saas-ui/chakra-preset/colors'

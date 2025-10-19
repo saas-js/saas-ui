@@ -7,10 +7,10 @@ import {
   UnstyledProp,
   createRecipeContext,
 } from '@chakra-ui/react/styled-system'
+import type { CommandVariantProps } from '@saas-ui/chakra-preset/recipes/command'
 
 import type { RecipeProps } from '../../types.ts'
 import { Kbd, type KbdProps } from '../kbd/index.ts'
-import type { CommandVariantProps } from './command.recipe.ts'
 
 const { withContext } = createRecipeContext({
   key: 'suiCommand',

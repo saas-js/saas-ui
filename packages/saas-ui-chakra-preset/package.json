@@ -1,0 +1,71 @@
+{
+  "name": "@saas-ui/chakra-preset",
+  "version": "3.0.0",
+  "description": "Saas UI - The Chakra UI preset",
+  "type": "module",
+  "exports": {
+    ".": {
+      "sui": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./colors": {
+      "sui": "./src/colors.ts",
+      "types": "./dist/colors.d.ts",
+      "import": "./dist/colors.js"
+    },
+    "./recipes/*": {
+      "sui": "./src/theme/recipes/*.recipe.ts",
+      "types": "./dist/theme/recipes/*.recipe.d.ts",
+      "import": "./dist/theme/recipes/*.recipe.js"
+    },
+    "./slot-recipes/*": {
+      "sui": "./src/theme/slot-recipes/*.recipe.ts",
+      "types": "./dist/theme/slot-recipes/*.recipe.d.ts",
+      "import": "./dist/theme/slot-recipes/*.recipe.js"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-chakra-preset"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library"
+  ],
+  "peerDependencies": {
+    "@chakra-ui/react": "^3.27.1"
+  },
+  "devDependencies": {
+    "@chakra-ui/react": "^3.27.1",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.3"
+  }
+}

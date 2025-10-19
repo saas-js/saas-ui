@@ -1,0 +1,88 @@
+{
+  "name": "@saas-ui/react-panda",
+  "version": "2.11.3",
+  "description": "Saas UI - The React component library for startups.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./src": {
+      "default": "./src/index.ts"
+    }
+  },
+  "source": "src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "prepare": "panda codegen",
+    "dev": "tsup src/index.ts --config tsup.config.ts --watch",
+    "clean": "rimraf --no-glob ./dist",
+    "build": "tsup src/index.ts --config tsup.config.ts",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "ImExoOdeex <odeex722@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-react-panda"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "chakra-ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library"
+  ],
+  "storybook": {
+    "title": "Saas UI",
+    "url": "https://storybook.saas-ui.dev"
+  },
+  "dependencies": {
+    "@ark-ui/react": "^4.8.1",
+    "@saas-ui/core": "workspace:*",
+    "@saas-ui/panda-preset": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "3.2.4",
+    "@storybook/addon-a11y": "8.5.1",
+    "@storybook/addon-essentials": "8.5.1",
+    "@storybook/addon-interactions": "8.5.1",
+    "@storybook/addon-onboarding": "8.5.1",
+    "@storybook/addon-themes": "8.5.1",
+    "@storybook/blocks": "8.5.1",
+    "@storybook/manager-api": "^8.5.1",
+    "@storybook/react": "8.5.1",
+    "@storybook/react-vite": "8.5.1",
+    "@storybook/test": "8.5.1",
+    "@storybook/theming": "^8.5.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "storybook": "8.5.1",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

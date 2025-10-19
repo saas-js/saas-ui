@@ -51,6 +51,7 @@
     ]
   },
   "scripts": {
+    "dev": "tsup --config tsup.config.ts --watch",
     "clean": "rimraf --no-glob ./dist",
     "build": "tsc --project tsconfig.build.json",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",

@@ -51,6 +51,7 @@
     "create:block": "pnpm hygen blocks new",
     "build:web": "pnpm --filter website build",
     "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
+    "build:panda": "turbo run build",
     "build:tokens": "chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:tokens-dev": "cross-env LOCAL=1 chakra typegen packages/saas-ui-react/src/preset.ts",
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --continue",

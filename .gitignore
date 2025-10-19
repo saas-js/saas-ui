@@ -64,3 +64,9 @@ yarn-error.log*
 .content-collections
 
 .changelogrc
+
+*storybook.log
+
+## Panda
+styled-system
+styled-system-studio

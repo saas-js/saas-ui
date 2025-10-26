@@ -13,7 +13,7 @@ import {
   useControllableState,
 } from '@chakra-ui/react'
 
-import { EyeIcon, EyeOffIcon } from '../icons/index.ts'
+import { EyeIcon, EyeOffIcon } from '../../icons/index.ts'
 
 export interface PasswordInputProps
   extends InputProps,

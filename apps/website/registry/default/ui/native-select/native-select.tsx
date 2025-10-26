@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { NativeSelect as Select } from '@chakra-ui/react/native-select'
 
-import { ChevronDownIcon } from '../icons/index.ts'
+import { ChevronDownIcon } from '../../icons/index.ts'
 
 export interface NativeSelectProps extends Select.RootProps {
   icon?: React.ReactNode

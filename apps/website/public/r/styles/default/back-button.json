@@ -5,13 +5,12 @@
     "@chakra-ui/react"
   ],
   "registryDependencies": [
-    "icons",
-    "link"
+    "arrow-left-icon"
   ],
   "files": [
     {
       "path": "ui/back-button/back-button.tsx",
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { type ButtonProps, IconButton } from '@chakra-ui/react'\n\nimport { ArrowLeftIcon } from '../icons/index.ts'\nimport { Link } from '../link/index.ts'\n\nexport interface BackButtonProps extends ButtonProps {\n  'aria-label'?: string\n  href?: string\n  children?: React.ReactNode\n}\n\nexport const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(\n  (props, ref) => {\n    const { href, variant = 'ghost', mr = 2, children, ...rest } = props\n\n    let content = children || <ArrowLeftIcon />\n    if (href) {\n      content = <Link href={href}>{content}</Link>\n    }\n\n    return (\n      <IconButton\n        ref={ref}\n        aria-label=\"Go back\"\n        variant={variant}\n        mr={mr}\n        {...rest}\n      >\n        {content}\n      </IconButton>\n    )\n  },\n)\n",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { type ButtonProps, IconButton } from '@chakra-ui/react'\n\nimport { ArrowLeftIcon } from '#registry/default/icons'\n\nexport interface BackButtonProps extends ButtonProps {\n  'aria-label'?: string\n  children?: React.ReactNode\n}\n\nexport const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(\n  (props, ref) => {\n    const { variant = 'ghost', mr = 2, children, ...rest } = props\n\n    let content = children || <ArrowLeftIcon />\n\n    return (\n      <IconButton\n        ref={ref}\n        aria-label=\"Go back\"\n        variant={variant}\n        mr={mr}\n        {...rest}\n      >\n        {content}\n      </IconButton>\n    )\n  },\n)\n",
       "type": "registry:ui"
     },
     {

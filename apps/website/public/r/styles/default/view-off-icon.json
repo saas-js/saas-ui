@@ -1,0 +1,16 @@
+{
+  "name": "view-off-icon",
+  "type": "registry:icon",
+  "files": [
+    {
+      "path": "icons/view-off-icon.tsx",
+      "type": "registry:icon",
+      "content": "import React from 'react';\n\nexport interface ViewOffIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * view-off\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ViewOffIcon: React.FC<ViewOffIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575a1 1 0 0 1 0 .696a10.8 10.8 0 0 1-1.444 2.49m-6.41-.679a3 3 0 0 1-4.242-4.242\"/><path d=\"M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 4.446-5.143M2 2l20 20\"/></g>\n    </svg>\n  );\n};\n"
+    }
+  ],
+  "meta": {
+    "componentName": "ViewOffIcon",
+    "iconSet": "lucide",
+    "iconName": "EyeOff"
+  }
+}

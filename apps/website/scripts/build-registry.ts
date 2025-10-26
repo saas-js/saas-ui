@@ -1,4 +1,5 @@
 import { registry } from '@/registry'
+import { fetchAndWriteIcons } from '@saas-js/iconify'
 import {
   Registry,
   RegistryItem,
@@ -6,7 +7,7 @@ import {
   registryItemTypeSchema,
   registrySchema,
 } from '@saas-ui/registry/schema'
-import template from 'lodash.template'
+import { Eta } from 'eta'
 import { existsSync, promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
@@ -31,6 +32,7 @@ const REGISTRY_INDEX_WHITELIST: z.infer<typeof registryItemTypeSchema>[] = [
   'registry:hook',
   'registry:theme',
   'registry:block',
+  'registry:icon',
 ]
 
 const project = new Project({
@@ -335,24 +337,38 @@ export const Index: Record<string, any> = {
   // ----------------------------------------------------------------------------
   // Build registry/index.json.
   // ----------------------------------------------------------------------------
-  const items = registry.items
-    .filter((item) => ['registry:ui', 'registry:block'].includes(item.type))
-    .map((item) => {
-      return {
-        ...item,
-        files: item.files?.map((_file) => {
-          const file =
-            typeof _file === 'string'
-              ? {
-                  path: _file,
-                  type: item.type,
-                }
-              : _file
+  // Import icon registry to include in index
+  const { icons: iconRegistry } = await import(
+    '../registry/registry-icons-generated'
+  )
 
-          return file
-        }),
-      }
-    })
+  const items = [
+    ...registry.items
+      .filter((item) => ['registry:ui', 'registry:block'].includes(item.type))
+      .map((item) => {
+        return {
+          ...item,
+          files: item.files?.map((_file) => {
+            const file =
+              typeof _file === 'string'
+                ? {
+                    path: _file,
+                    type: item.type,
+                  }
+                : _file
+
+            return file
+          }),
+        }
+      }),
+    ...iconRegistry.map((icon: any) => ({
+      name: icon.name,
+      type: icon.type,
+      files: icon.files,
+      meta: icon.meta,
+    })),
+  ]
+
   const registryJson = JSON.stringify(items, null, 2)
   rimraf.sync(path.join(REGISTRY_PATH, 'index.json'))
   await fs.writeFile(
@@ -483,6 +499,56 @@ async function buildStylesIndex() {
 }
 
 // ----------------------------------------------------------------------------
+// Build registry/styles/[style]/[icon-name].json for icon components
+// ----------------------------------------------------------------------------
+async function buildIconsRegistry() {
+  // Import generated icon registry configuration
+  const { icons: iconRegistry } = await import(
+    '../registry/registry-icons-generated'
+  )
+
+  for (const style of styles) {
+    const targetPath = path.join(REGISTRY_PATH, 'styles', style.name)
+
+    for (const icon of iconRegistry) {
+      const iconPath = path.join(
+        process.cwd(),
+        'registry',
+        style.name,
+        icon.files[0].path,
+      )
+
+      // Check if icon file exists
+      if (!existsSync(iconPath)) {
+        console.warn(`Icon file not found: ${iconPath}`)
+        continue
+      }
+
+      const content = await fs.readFile(iconPath, 'utf8')
+
+      const payload = {
+        name: icon.name,
+        type: icon.type,
+        files: [
+          {
+            path: icon.files[0].path,
+            type: icon.files[0].type,
+            content,
+          },
+        ],
+        meta: icon.meta,
+      }
+
+      await fs.writeFile(
+        path.join(targetPath, `${icon.name}.json`),
+        JSON.stringify(payload, null, 2),
+        'utf8',
+      )
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
 // Build registry/icons/index.json.
 // ----------------------------------------------------------------------------
 async function buildIcons() {
@@ -502,9 +568,90 @@ async function buildIcons() {
 }
 
 // ----------------------------------------------------------------------------
-// Build __registry__/icons.tsx.
+// Build __registry__/icons.tsx and generate icon component files
 // ----------------------------------------------------------------------------
 async function buildRegistryIcons() {
+  // Generate icon component files using @saas-js/iconify
+  const iconRegistryPath = '/registry/default/icons'
+
+  // Ensure icons directory exists
+  const fullIconPath = path.join(process.cwd(), 'registry/default/icons')
+  if (!existsSync(fullIconPath)) {
+    await fs.mkdir(fullIconPath, { recursive: true })
+  }
+
+  // Group icons by library and create aliases mapping
+  const iconsByLibrary: Record<
+    string,
+    {
+      iconNames: string[]
+      aliases: Record<string, string>
+    }
+  > = {}
+
+  for (const [iconName, iconSets] of Object.entries(icons)) {
+    // Use lucide as default for now
+    const library = 'lucide'
+    if (!iconsByLibrary[library]) {
+      iconsByLibrary[library] = {
+        iconNames: [],
+        aliases: {},
+      }
+    }
+
+    // Get the actual icon name from the library
+    const actualIconName = iconSets[library as keyof typeof iconSets]
+    if (!actualIconName) {
+      console.warn(`Icon ${iconName} not found in ${library}`)
+      continue
+    }
+
+    // Convert PascalCase to kebab-case for API and output
+    const apiIconName = actualIconName
+      .replace(/([a-z])([A-Z])/g, '$1-$2')
+      .toLowerCase()
+    const outputName = iconName
+      .replace(/([a-z])([A-Z])/g, '$1-$2')
+      .toLowerCase()
+
+    iconsByLibrary[library].iconNames.push(apiIconName)
+
+    // If the output name differs from API name, add to aliases
+    if (outputName !== apiIconName) {
+      iconsByLibrary[library].aliases[apiIconName] = outputName
+    }
+  }
+
+  // Fetch and write icons for each library
+  const generatedIcons: string[] = []
+  for (const [library, { iconNames, aliases }] of Object.entries(
+    iconsByLibrary,
+  )) {
+    console.log(`Generating ${iconNames.length} icons from ${library}...`)
+
+    const generated = await fetchAndWriteIcons({
+      iconSet: library,
+      iconNames,
+      outputDir: iconRegistryPath,
+      aliases,
+      shouldOverwrite: async () => true,
+    })
+
+    generatedIcons.push(...generated)
+  }
+
+  // Generate index.ts for re-exporting all icons
+  const iconIndexPath = path.join(fullIconPath, 'index.ts')
+  const iconExports = generatedIcons
+    .map((iconName) => {
+      return `export * from './${iconName}-icon'`
+    })
+    .join('\n')
+
+  await fs.writeFile(iconIndexPath, iconExports + '\n', 'utf8')
+  console.log(`Generated index.ts with ${generatedIcons.length} icon exports`)
+
+  // Build the index file for lazy loading
   let index = `// @ts-nocheck
 // This file is autogenerated by scripts/build-registry.ts
 // Do not edit this file directly.
@@ -700,9 +847,10 @@ async function buildThemes() {
       }
     }
 
+    const eta = new Eta()
     // Build css vars.
-    base['inlineColorsTemplate'] = template(BASE_STYLES)({})
-    base['cssVarsTemplate'] = template(BASE_STYLES_WITH_VARIABLES)({
+    base['inlineColorsTemplate'] = eta.render(BASE_STYLES, {})
+    base['cssVarsTemplate'] = eta.render(BASE_STYLES_WITH_VARIABLES, {
       colors: base['cssVars'],
     })
 
@@ -857,6 +1005,7 @@ try {
   // await buildThemes()
 
   await buildRegistryIcons()
+  await buildIconsRegistry()
   await buildIcons()
 
   console.log('✅ Done!')

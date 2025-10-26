@@ -35,7 +35,16 @@ export const rawConfigSchema = z
       ui: z.string().optional(),
       lib: z.string().optional(),
       hooks: z.string().optional(),
+      icons: z.string().optional(),
     }),
+    icons: z
+      .object({
+        outputDir: z.string().optional(),
+        defaultIconSet: z.string().optional(),
+        iconSize: z.string().optional(),
+        aliases: z.record(z.string()).optional(),
+      })
+      .optional(),
   })
   .strict()
 
@@ -49,6 +58,7 @@ export const configSchema = rawConfigSchema.extend({
     lib: z.string(),
     hooks: z.string(),
     ui: z.string(),
+    icons: z.string(),
   }),
 })
 
@@ -111,6 +121,12 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
             await resolveAlias(config.aliases['components']),
             '..',
             'hooks',
+          ),
+      icons: config.aliases['icons']
+        ? await resolveAlias(config.aliases['icons'])
+        : path.resolve(
+            await resolveAlias(config.aliases['components']),
+            'icons',
           ),
     },
   })

@@ -8,7 +8,7 @@ export const Index: Record<string, any> = {
     "accordion": {
       name: "accordion",
       type: "registry:ui",
-      registryDependencies: ["icons"],
+      registryDependencies: ["chevron-right-icon"],
       files: ["../ui/accordion/accordion.tsx","../ui/accordion/index.ts"],
       component: React.lazy(() => import("@/registry/default/ui/accordion/accordion.tsx")),
       source: "",
@@ -58,7 +58,7 @@ export const Index: Record<string, any> = {
     "back-button": {
       name: "back-button",
       type: "registry:ui",
-      registryDependencies: ["icons","link"],
+      registryDependencies: ["arrow-left-icon"],
       files: ["../ui/back-button/back-button.tsx","../ui/back-button/index.ts"],
       component: React.lazy(() => import("@/registry/default/ui/back-button/back-button.tsx")),
       source: "",
@@ -108,7 +108,7 @@ export const Index: Record<string, any> = {
     "clipboard": {
       name: "clipboard",
       type: "registry:ui",
-      registryDependencies: ["button","icon-button","icons","input"],
+      registryDependencies: ["button","icon-button","input","check-icon","copy-icon"],
       files: ["../ui/clipboard/clipboard.tsx","../ui/clipboard/index.ts"],
       component: React.lazy(() => import("@/registry/default/ui/clipboard/clipboard.tsx")),
       source: "",
@@ -118,7 +118,7 @@ export const Index: Record<string, any> = {
     "close-button": {
       name: "close-button",
       type: "registry:ui",
-      registryDependencies: ["icons"],
+      registryDependencies: ["close-icon"],
       files: ["../ui/close-button/close-button.stories.tsx","../ui/close-button/close-button.tsx","../ui/close-button/index.ts"],
       component: React.lazy(() => import("@/registry/default/ui/close-button/close-button.stories.tsx")),
       source: "",
@@ -228,7 +228,7 @@ export const Index: Record<string, any> = {
     "info-tip": {
       name: "info-tip",
       type: "registry:ui",
-      registryDependencies: ["icon-button","icons","toggle-tip"],
+      registryDependencies: ["icon-button","toggle-tip","info-icon"],
       files: ["../ui/info-tip/index.ts","../ui/info-tip/info-tip.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/info-tip/index.ts")),
       source: "",
@@ -248,7 +248,7 @@ export const Index: Record<string, any> = {
     "menu": {
       name: "menu",
       type: "registry:ui",
-      registryDependencies: ["button","icons"],
+      registryDependencies: ["button","check-icon","chevron-right-icon"],
       files: ["../ui/menu/index.ts","../ui/menu/menu.stories.tsx","../ui/menu/menu.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/menu/index.ts")),
       source: "",
@@ -258,7 +258,7 @@ export const Index: Record<string, any> = {
     "native-select": {
       name: "native-select",
       type: "registry:ui",
-      registryDependencies: ["icons"],
+      registryDependencies: ["chevron-down-icon"],
       files: ["../ui/native-select/index.ts","../ui/native-select/native-select.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/native-select/index.ts")),
       source: "",
@@ -298,7 +298,7 @@ export const Index: Record<string, any> = {
     "pagination": {
       name: "pagination",
       type: "registry:ui",
-      registryDependencies: ["icons"],
+      registryDependencies: ["chevron-left-icon","chevron-right-icon","ellipsis-icon"],
       files: ["../ui/pagination/index.ts","../ui/pagination/pagination.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/pagination/index.ts")),
       source: "",
@@ -308,7 +308,7 @@ export const Index: Record<string, any> = {
     "password-input": {
       name: "password-input",
       type: "registry:ui",
-      registryDependencies: ["icons"],
+      registryDependencies: ["eye-icon","eye-off-icon"],
       files: ["../ui/password-input/index.ts","../ui/password-input/password-input.stories.tsx","../ui/password-input/password-input.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/password-input/index.ts")),
       source: "",
@@ -368,7 +368,7 @@ export const Index: Record<string, any> = {
     "search-input": {
       name: "search-input",
       type: "registry:ui",
-      registryDependencies: ["icons"],
+      registryDependencies: ["close-icon","search-icon"],
       files: ["../ui/search-input/index.ts","../ui/search-input/search-input.stories.tsx","../ui/search-input/search-input.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/search-input/index.ts")),
       source: "",
@@ -468,7 +468,7 @@ export const Index: Record<string, any> = {
     "steps": {
       name: "steps",
       type: "registry:ui",
-      registryDependencies: ["icons"],
+      registryDependencies: ["check-icon"],
       files: ["../ui/steps/index.ts","../ui/steps/steps.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/steps/index.ts")),
       source: "",

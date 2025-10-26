@@ -1,0 +1,16 @@
+{
+  "name": "chevron-right-icon",
+  "type": "registry:icon",
+  "files": [
+    {
+      "path": "icons/chevron-right-icon.tsx",
+      "type": "registry:icon",
+      "content": "import React from 'react';\n\nexport interface ChevronRightIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * chevron-right\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronRightIcon: React.FC<ChevronRightIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m9 18l6-6l-6-6\"/>\n    </svg>\n  );\n};\n"
+    }
+  ],
+  "meta": {
+    "componentName": "ChevronRightIcon",
+    "iconSet": "lucide",
+    "iconName": "ChevronRight"
+  }
+}

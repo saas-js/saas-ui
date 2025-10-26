@@ -18,12 +18,15 @@ export const transformImport: Transformer = async ({ sourceFile, config }) => {
 
 function updateImportAliases(moduleSpecifier: string, config: Config) {
   // Not a local import.
-  if (!moduleSpecifier.startsWith('@/')) {
+  if (!moduleSpecifier.startsWith('@/') && !moduleSpecifier.startsWith('#')) {
     return moduleSpecifier
   }
 
   // Not a registry import.
-  if (!moduleSpecifier.startsWith('@/registry/')) {
+  if (
+    !moduleSpecifier.startsWith('@/registry/') &&
+    !moduleSpecifier.startsWith('#registry/')
+  ) {
     const isMonorepoConfig = /^@[^/]+\/[^/]+/.test(config.aliases.components)
     if (isMonorepoConfig) {
       return moduleSpecifier
@@ -33,19 +36,19 @@ function updateImportAliases(moduleSpecifier: string, config: Config) {
     return moduleSpecifier.replace(/^@\//, `${alias}/`)
   }
 
-  if (moduleSpecifier.match(/^@\/registry\/(.+)\/ui/)) {
+  if (moduleSpecifier.match(/^(@\/|#)registry\/(.+)\/ui/)) {
     return moduleSpecifier.replace(
-      /^@\/registry\/(.+)\/ui/,
+      /^(@\/|#)registry\/(.+)\/ui/,
       config.aliases.ui ?? `${config.aliases.components}/ui`,
     )
   }
 
   if (
     config.aliases.components &&
-    moduleSpecifier.match(/^@\/registry\/(.+)\/components/)
+    moduleSpecifier.match(/^(@\/|#)registry\/(.+)\/components/)
   ) {
     return moduleSpecifier.replace(
-      /^@\/registry\/(.+)\/components/,
+      /^(@\/|#)registry\/(.+)\/components/,
       config.aliases.components,
     )
   }
@@ -59,11 +62,21 @@ function updateImportAliases(moduleSpecifier: string, config: Config) {
 
   if (
     config.aliases.hooks &&
-    moduleSpecifier.match(/^@\/registry\/(.+)\/hooks/)
+    moduleSpecifier.match(/^(@\/|#)registry\/(.+)\/hooks/)
   ) {
     return moduleSpecifier.replace(
-      /^@\/registry\/(.+)\/hooks/,
+      /^(@\/|#)registry\/(.+)\/hooks/,
       config.aliases.hooks,
+    )
+  }
+
+  if (
+    config.aliases.icons &&
+    moduleSpecifier.match(/^(@\/|#)registry\/(.+)\/icons/)
+  ) {
+    return moduleSpecifier.replace(
+      /^(@\/|#)registry\/(.+)\/icons/,
+      config.aliases.icons,
     )
   }
 

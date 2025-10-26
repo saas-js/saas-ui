@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 
+import { InfoIcon } from '../../icons/index.ts'
 import { IconButton } from '../icon-button/index.ts'
-import { InfoIcon } from '../icons/index.ts'
 import { ToggleTip, type ToggleTipProps } from '../toggle-tip/index.ts'
 
 export interface InfoTipProps extends Omit<ToggleTipProps, 'content'> {

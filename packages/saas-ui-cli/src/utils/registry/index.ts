@@ -148,6 +148,10 @@ export async function getItemTargetPath(
     return config.resolvedPaths.ui ?? config.resolvedPaths.components
   }
 
+  if (item.type === 'registry:icon') {
+    return config.resolvedPaths.icons
+  }
+
   const [parent, type] = item.type.split(':')
   if (!parent || !(parent in config.resolvedPaths)) {
     return null
@@ -262,6 +266,10 @@ export function getRegistryItemFileTargetPath(
   // We should move this to pages as per framework.
   if (file.type === 'registry:page') {
     return config.resolvedPaths.components
+  }
+
+  if (file.type === 'registry:icon') {
+    return config.resolvedPaths.icons
   }
 
   return config.resolvedPaths.components

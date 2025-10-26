@@ -28,6 +28,7 @@
       "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],
       "saas-ui-blocks": ["../../packages/pro/packages/blocks/index.ts"],
       "#*": ["./*"],
+      "#icons": ["./components/icons"],
       "@/*": ["./*"]
     },
     "target": "ES2017"

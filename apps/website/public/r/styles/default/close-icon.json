@@ -1,0 +1,16 @@
+{
+  "name": "close-icon",
+  "type": "registry:icon",
+  "files": [
+    {
+      "path": "icons/close-icon.tsx",
+      "type": "registry:icon",
+      "content": "import React from 'react';\n\nexport interface CloseIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * close\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const CloseIcon: React.FC<CloseIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M18 6L6 18M6 6l12 12\"/>\n    </svg>\n  );\n};\n"
+    }
+  ],
+  "meta": {
+    "componentName": "CloseIcon",
+    "iconSet": "lucide",
+    "iconName": "X"
+  }
+}

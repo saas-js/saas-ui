@@ -52,7 +52,7 @@ export const icons: Record<
     tabler: 'IconCopy',
   },
   Ellipsis: {
-    lucide: 'MoreHorizontal',
+    lucide: 'Ellipsis',
     tabler: 'IconDots',
   },
   Eye: {

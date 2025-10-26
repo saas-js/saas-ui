@@ -24,8 +24,8 @@ import {
 import '@saas-ui/panda-preset/jsx'
 import { menu } from '@saas-ui/panda-preset/recipes'
 
+import { CheckIcon, ChevronRightIcon } from '../../icons'
 import { HTMLSuiProps, createStyleContext } from '../context'
-import { CheckIcon, ChevronRightIcon } from '../icons'
 
 const { withProvider, withContext } = createStyleContext(menu)
 

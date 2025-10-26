@@ -4,9 +4,9 @@ import * as React from 'react'
 
 import { Clipboard as ChakraClipboard } from '@chakra-ui/react/clipboard'
 
+import { CheckIcon, CopyIcon } from '../../icons/index.ts'
 import { Button, type ButtonProps } from '../button/index.ts'
 import { IconButton, type IconButtonProps } from '../icon-button/index.ts'
-import { CheckIcon, CopyIcon } from '../icons/index.ts'
 import { Input, type InputProps } from '../input/index.ts'
 
 const ClipboardIcon = React.forwardRef<

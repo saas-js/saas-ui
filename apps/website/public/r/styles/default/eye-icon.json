@@ -1,0 +1,16 @@
+{
+  "name": "eye-icon",
+  "type": "registry:icon",
+  "files": [
+    {
+      "path": "icons/eye-icon.tsx",
+      "type": "registry:icon",
+      "content": "import React from 'react';\n\nexport interface EyeIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * eye\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const EyeIcon: React.FC<EyeIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></g>\n    </svg>\n  );\n};\n"
+    }
+  ],
+  "meta": {
+    "componentName": "EyeIcon",
+    "iconSet": "lucide",
+    "iconName": "Eye"
+  }
+}

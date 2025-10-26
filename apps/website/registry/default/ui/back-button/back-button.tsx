@@ -4,23 +4,18 @@ import { forwardRef } from 'react'
 
 import { type ButtonProps, IconButton } from '@chakra-ui/react'
 
-import { ArrowLeftIcon } from '../icons/index.ts'
-import { Link } from '../link/index.ts'
+import { ArrowLeftIcon } from '#registry/default/icons'
 
 export interface BackButtonProps extends ButtonProps {
   'aria-label'?: string
-  href?: string
   children?: React.ReactNode
 }
 
 export const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(
   (props, ref) => {
-    const { href, variant = 'ghost', mr = 2, children, ...rest } = props
+    const { variant = 'ghost', mr = 2, children, ...rest } = props
 
     let content = children || <ArrowLeftIcon />
-    if (href) {
-      content = <Link href={href}>{content}</Link>
-    }
 
     return (
       <IconButton

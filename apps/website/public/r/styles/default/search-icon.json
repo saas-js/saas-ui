@@ -1,0 +1,16 @@
+{
+  "name": "search-icon",
+  "type": "registry:icon",
+  "files": [
+    {
+      "path": "icons/search-icon.tsx",
+      "type": "registry:icon",
+      "content": "import React from 'react';\n\nexport interface SearchIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * search\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const SearchIcon: React.FC<SearchIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"m21 21l-4.34-4.34\"/><circle cx=\"11\" cy=\"11\" r=\"8\"/></g>\n    </svg>\n  );\n};\n"
+    }
+  ],
+  "meta": {
+    "componentName": "SearchIcon",
+    "iconSet": "lucide",
+    "iconName": "Search"
+  }
+}

@@ -69,7 +69,7 @@ export const Icons = {
   }))),
 },  "Ellipsis": {
   lucide: React.lazy(() => import("lucide-react").then(mod => ({
-    default: mod.MoreHorizontal
+    default: mod.Ellipsis
   }))),
   tabler: React.lazy(() => import("@tabler/icons-react").then(mod => ({
     default: mod.IconDots

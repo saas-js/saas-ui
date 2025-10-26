@@ -2,8 +2,8 @@ import { ComponentProps, forwardRef } from 'react'
 
 import { tag } from '@saas-ui/panda-preset/recipes'
 
+import { CloseIcon } from '../../icons'
 import { HTMLSuiProps, createStyleContext } from '../context'
-import { CloseIcon } from '../icons'
 
 const { withProvider, withContext } = createStyleContext(tag)
 

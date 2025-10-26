@@ -35,6 +35,50 @@ function isFileDependency(_import: string) {
   return _import.startsWith('.') || _import.startsWith('compositions/ui')
 }
 
+function isIconDependency(_import: string) {
+  // Check for direct icon imports: '#icons/close-icon' or '../icons/close-icon'
+  if (_import.includes('/icons/') && _import.endsWith('-icon')) {
+    return true
+  }
+  // Check for icon barrel imports: '../../icons/index.ts' or '../../icons'
+  if (_import.includes('/icons') && (_import.endsWith('/index.ts') || _import.endsWith('/icons'))) {
+    return true
+  }
+  return false
+}
+
+function extractIconName(_import: string) {
+  // Direct import: '#icons/close-icon' or '../icons/close-icon'
+  const directMatch = _import.match(/\/icons\/(.+)-icon/)
+  if (directMatch) {
+    return directMatch[1] + '-icon'
+  }
+  // Barrel import - return null, we'll handle this separately
+  return null
+}
+
+function extractIconsFromBarrelImport(content: string, iconImportPath: string): string[] {
+  // Find the import statement for the icon barrel
+  // Example: import { ChevronRightIcon, CloseIcon } from '../../icons/index.ts'
+  const importRegex = new RegExp(
+    `import\\s+{([^}]+)}\\s+from\\s+["']${iconImportPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`
+  )
+  const match = content.match(importRegex)
+
+  if (!match) return []
+
+  // Extract icon names and convert to kebab-case
+  const namedImports = match[1].split(',').map(n => n.trim())
+
+  return namedImports
+    .filter(name => name.endsWith('Icon'))
+    .map(name => {
+      // ChevronRightIcon -> chevron-right-icon
+      const withoutIcon = name.replace(/Icon$/, '')
+      return withoutIcon.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase() + '-icon'
+    })
+}
+
 function resolveDependency(specifier: string, dependencies: string[]) {
   let result = dependencies.find((dependency) => specifier === dependency)
   if (result) return result
@@ -53,12 +97,23 @@ function resolveDependency(specifier: string, dependencies: string[]) {
   return result
 }
 
-function getDependencies(imports: Set<string>, dependencies: string[]) {
+function getDependencies(imports: Set<string>, dependencies: string[], content: string) {
   const fileDependencies = new Set<string>()
   const npmDependencies = new Set<string>()
+  const iconDependencies = new Set<string>()
 
   for (const _import of Array.from(imports)) {
-    if (isNpmDependency(dependencies, _import)) {
+    if (isIconDependency(_import)) {
+      const iconName = extractIconName(_import)
+      if (iconName) {
+        // Direct icon import
+        iconDependencies.add(iconName)
+      } else {
+        // Barrel import - extract named imports from content
+        const icons = extractIconsFromBarrelImport(content, _import)
+        icons.forEach(icon => iconDependencies.add(icon))
+      }
+    } else if (isNpmDependency(dependencies, _import)) {
       const resolved = resolveDependency(_import, dependencies)
       npmDependencies.add(resolved!)
     } else if (isFileDependency(_import)) {
@@ -66,7 +121,7 @@ function getDependencies(imports: Set<string>, dependencies: string[]) {
     }
   }
 
-  return { npmDependencies, fileDependencies }
+  return { npmDependencies, fileDependencies, iconDependencies }
 }
 
 const setFileExtension = (file: string, ext: string) =>
@@ -80,6 +135,43 @@ const getFileName = (file: string) => basename(file, extname(file))
 
 const getComponentName = (file: string) =>
   getFileName(file).split('-').map(camelCase).join('')
+
+const toKebabCase = (str: string) =>
+  str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+
+async function generateIconsRegistry(dir: string) {
+  const { icons, iconLibraries } = await import(
+    join(dir, 'registry-icons.ts')
+  )
+
+  const iconEntries = Object.entries(icons).map(([name, iconSets]) => {
+    const kebabName = toKebabCase(name)
+    const iconName = `${kebabName}-icon`
+    const componentName = `${getComponentName(kebabName)}Icon`
+
+    // Use lucide as default for now
+    const defaultIconSet = 'lucide'
+    const iconSetName = iconSets[defaultIconSet as keyof typeof iconSets]
+
+    return {
+      name: iconName,
+      type: 'registry:icon' as const,
+      files: [
+        {
+          path: `icons/${iconName}.tsx`,
+          type: 'registry:icon' as const,
+        },
+      ],
+      meta: {
+        componentName,
+        iconSet: defaultIconSet,
+        iconName: iconSetName,
+      },
+    }
+  })
+
+  return iconEntries
+}
 
 async function main() {
   const dir = getBaseDirectory()
@@ -103,10 +195,8 @@ async function main() {
     const relativePath = relative(join(dir, 'default'), filePath)
 
     const content = readFileSync(filePath, 'utf-8')
-    const { npmDependencies, fileDependencies } = getDependencies(
-      getImports(content),
-      dependencies,
-    )
+    const { npmDependencies, fileDependencies, iconDependencies } =
+      getDependencies(getImports(content), dependencies, content)
 
     let files: { name: string; path: string }[] = []
 
@@ -136,6 +226,7 @@ async function main() {
         type: 'registry:ui',
         npmDependencies: Array.from(npmDependencies),
         fileDependencies: Array.from(fileDependencies),
+        iconDependencies: Array.from(iconDependencies),
         id: getFileName(file),
         files,
         component: getComponentName(file),
@@ -147,9 +238,12 @@ async function main() {
     name: data.id,
     type: 'registry:ui' as const,
     dependencies: data.npmDependencies,
-    registryDependencies: data.fileDependencies
-      .filter((dep) => !dep.startsWith('./'))
-      .map((dep) => dep.replace('../', '').replace('/index.ts', '')),
+    registryDependencies: [
+      ...data.fileDependencies
+        .filter((dep) => !dep.startsWith('./'))
+        .map((dep) => dep.replace('../', '').replace('/index.ts', '')),
+      ...data.iconDependencies,
+    ],
     files: data.files.map((file) => ({
       path: file.path,
       type: file.name.includes('stories')
@@ -158,24 +252,34 @@ async function main() {
     })),
   }))
 
-  const content = `import { RegistryEntry } from '@saas-ui/registry'\n\nexport const ui = ${JSON.stringify(registryData, null, 2)} satisfies RegistryEntry[]`
-  await writeFile(join(dir, 'registry-ui.ts'), content)
+  // Generate UI registry
+  const uiContent = `import { RegistryEntry } from '@saas-ui/registry'\n\nexport const ui = ${JSON.stringify(registryData, null, 2)} satisfies RegistryEntry[]`
+  await writeFile(join(dir, 'registry-ui.ts'), uiContent)
 
-  // Format registry-ui.ts with Prettier
+  // Generate Icons registry
+  const iconsRegistry = await generateIconsRegistry(dir)
+  const iconsContent = `import { RegistryEntry } from '@saas-ui/registry'\n\nexport const icons = ${JSON.stringify(iconsRegistry, null, 2)} satisfies RegistryEntry[]`
+  await writeFile(join(dir, 'registry-icons-generated.ts'), iconsContent)
+
+  // Format registry files with Prettier
   const { exec } = await import('node:child_process')
   const { promisify } = await import('node:util')
   const execAsync = promisify(exec)
 
   const registryUiPath = join(dir, 'registry-ui.ts')
+  const registryIconsPath = join(dir, 'registry-icons-generated.ts')
   try {
-    await execAsync(`pnpm prettier --write "${registryUiPath}"`, {
-      cwd: join(dir, '..', '..', '..'),
-    })
+    await execAsync(
+      `pnpm prettier --write "${registryUiPath}" "${registryIconsPath}"`,
+      {
+        cwd: join(dir, '..', '..', '..'),
+      },
+    )
   } catch (err) {
-    consola.warn('Failed to format registry-ui.ts with Prettier', err)
+    consola.warn('Failed to format registry files with Prettier', err)
   }
 
-  consola.success('UI registry config generated 🎉. Happy coding!')
+  consola.success('UI and Icons registry configs generated 🎉. Happy coding!')
 }
 
 main().catch((err) => {

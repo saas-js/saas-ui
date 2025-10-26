@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { Accordion } from '@chakra-ui/react/accordion'
 
-import { ChevronRightIcon } from '../icons/index.ts'
+import { ChevronRightIcon } from '../../icons/index.ts'
 
 export interface ItemTriggerProps extends Accordion.ItemTriggerProps {
   indicatorIcon?: React.ReactNode

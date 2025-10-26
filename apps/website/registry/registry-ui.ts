@@ -5,7 +5,7 @@ export const ui = [
     name: 'accordion',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['icons'],
+    registryDependencies: ['chevron-right-icon'],
     files: [
       {
         path: 'ui/accordion/accordion.tsx',
@@ -89,7 +89,7 @@ export const ui = [
     name: 'back-button',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['icons', 'link'],
+    registryDependencies: ['arrow-left-icon'],
     files: [
       {
         path: 'ui/back-button/back-button.tsx',
@@ -177,7 +177,13 @@ export const ui = [
     name: 'clipboard',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['button', 'icon-button', 'icons', 'input'],
+    registryDependencies: [
+      'button',
+      'icon-button',
+      'input',
+      'check-icon',
+      'copy-icon',
+    ],
     files: [
       {
         path: 'ui/clipboard/clipboard.tsx',
@@ -193,7 +199,7 @@ export const ui = [
     name: 'close-button',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['icons'],
+    registryDependencies: ['close-icon'],
     files: [
       {
         path: 'ui/close-button/close-button.stories.tsx',
@@ -413,7 +419,7 @@ export const ui = [
     name: 'info-tip',
     type: 'registry:ui',
     dependencies: [],
-    registryDependencies: ['icon-button', 'icons', 'toggle-tip'],
+    registryDependencies: ['icon-button', 'toggle-tip', 'info-icon'],
     files: [
       {
         path: 'ui/info-tip/index.ts',
@@ -453,7 +459,7 @@ export const ui = [
     name: 'menu',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['button', 'icons'],
+    registryDependencies: ['button', 'check-icon', 'chevron-right-icon'],
     files: [
       {
         path: 'ui/menu/index.ts',
@@ -473,7 +479,7 @@ export const ui = [
     name: 'native-select',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['icons'],
+    registryDependencies: ['chevron-down-icon'],
     files: [
       {
         path: 'ui/native-select/index.ts',
@@ -561,7 +567,11 @@ export const ui = [
     name: 'pagination',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react', '@saas-ui/core'],
-    registryDependencies: ['icons'],
+    registryDependencies: [
+      'chevron-left-icon',
+      'chevron-right-icon',
+      'ellipsis-icon',
+    ],
     files: [
       {
         path: 'ui/pagination/index.ts',
@@ -577,7 +587,7 @@ export const ui = [
     name: 'password-input',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['icons'],
+    registryDependencies: ['eye-icon', 'eye-off-icon'],
     files: [
       {
         path: 'ui/password-input/index.ts',
@@ -705,7 +715,7 @@ export const ui = [
     name: 'search-input',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react', '@saas-ui/core'],
-    registryDependencies: ['icons'],
+    registryDependencies: ['close-icon', 'search-icon'],
     files: [
       {
         path: 'ui/search-input/index.ts',
@@ -905,7 +915,7 @@ export const ui = [
     name: 'steps',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['icons'],
+    registryDependencies: ['check-icon'],
     files: [
       {
         path: 'ui/steps/index.ts',

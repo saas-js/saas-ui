@@ -5,7 +5,7 @@
     "@chakra-ui/react"
   ],
   "registryDependencies": [
-    "icons"
+    "chevron-down-icon"
   ],
   "files": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "path": "ui/native-select/native-select.tsx",
-      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { NativeSelect as Select } from '@chakra-ui/react/native-select'\n\nimport { ChevronDownIcon } from '../icons/index.ts'\n\nexport interface NativeSelectProps extends Select.RootProps {\n  icon?: React.ReactNode\n  placeholder?: string\n}\n\nexport const NativeSelect = React.forwardRef<HTMLDivElement, NativeSelectProps>(\n  function NativeSelect(props, ref) {\n    const { icon = <ChevronDownIcon />, placeholder, children, ...rest } = props\n    return (\n      <Select.Root ref={ref} {...rest}>\n        <Select.Field placeholder={placeholder}>\n          {children}\n          <Select.Indicator>{icon}</Select.Indicator>\n        </Select.Field>\n      </Select.Root>\n    )\n  },\n)\n",
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { NativeSelect as Select } from '@chakra-ui/react/native-select'\n\nimport { ChevronDownIcon } from '../../icons/index.ts'\n\nexport interface NativeSelectProps extends Select.RootProps {\n  icon?: React.ReactNode\n  placeholder?: string\n}\n\nexport const NativeSelect = React.forwardRef<HTMLDivElement, NativeSelectProps>(\n  function NativeSelect(props, ref) {\n    const { icon = <ChevronDownIcon />, placeholder, children, ...rest } = props\n    return (\n      <Select.Root ref={ref} {...rest}>\n        <Select.Field placeholder={placeholder}>\n          {children}\n          <Select.Indicator>{icon}</Select.Indicator>\n        </Select.Field>\n      </Select.Root>\n    )\n  },\n)\n",
       "type": "registry:ui"
     }
   ]

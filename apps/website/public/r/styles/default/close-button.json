@@ -5,7 +5,7 @@
     "@chakra-ui/react"
   ],
   "registryDependencies": [
-    "icons"
+    "close-icon"
   ],
   "files": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "path": "ui/close-button/close-button.tsx",
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { IconButton, type IconButtonProps } from '@chakra-ui/react'\n\nimport { CloseIcon } from '../icons/index.ts'\n\nexport interface CloseButtonProps extends IconButtonProps {}\n\nexport const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(\n  function CloseButton(props, ref) {\n    return (\n      <IconButton variant=\"ghost\" aria-label=\"Close\" ref={ref} {...props}>\n        {props.children ?? <CloseIcon />}\n      </IconButton>\n    )\n  },\n)\n",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { IconButton, type IconButtonProps } from '@chakra-ui/react'\n\nimport { CloseIcon } from '../../icons/index.ts'\n\nexport interface CloseButtonProps extends IconButtonProps {}\n\nexport const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(\n  function CloseButton(props, ref) {\n    return (\n      <IconButton variant=\"ghost\" aria-label=\"Close\" ref={ref} {...props}>\n        {props.children ?? <CloseIcon />}\n      </IconButton>\n    )\n  },\n)\n",
       "type": "registry:ui"
     },
     {

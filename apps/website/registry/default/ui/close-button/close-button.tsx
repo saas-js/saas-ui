@@ -4,7 +4,7 @@ import { forwardRef } from 'react'
 
 import { IconButton, type IconButtonProps } from '@chakra-ui/react'
 
-import { CloseIcon } from '../icons/index.ts'
+import { CloseIcon } from '../../icons/index.ts'
 
 export interface CloseButtonProps extends IconButtonProps {}
 

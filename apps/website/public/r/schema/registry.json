@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "description": "A Saas UI registry of components, hooks, pages, etc.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "homepage": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "https://saas-ui.dev/schema/registry-item.json"
+      }
+    }
+  },
+  "required": ["name", "homepage", "items"],
+  "uniqueItems": true,
+  "minItems": 1
+}

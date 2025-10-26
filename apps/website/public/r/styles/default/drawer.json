@@ -1,0 +1,23 @@
+{
+  "name": "drawer",
+  "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react",
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [
+    "close-button"
+  ],
+  "files": [
+    {
+      "path": "ui/drawer/drawer.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { DialogContext } from '@ark-ui/react/dialog'\nimport { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'\n\nimport { CloseButton as CloseButtonBase } from '../close-button/index.ts'\n\nexport interface ContentProps extends ChakraDrawer.ContentProps {\n  portalled?: boolean\n  portalRef?: React.RefObject<HTMLElement>\n  offset?: ChakraDrawer.ContentProps['padding']\n}\n\nexport const Content = forwardRef<HTMLDivElement, ContentProps>(\n  function DrawerContent(props, ref) {\n    const { children, portalled = true, portalRef, offset, ...rest } = props\n    return (\n      <Portal disabled={!portalled} container={portalRef}>\n        <ChakraDrawer.Positioner padding={offset}>\n          <ChakraDrawer.Content ref={ref} {...rest} asChild={false}>\n            {children}\n          </ChakraDrawer.Content>\n        </ChakraDrawer.Positioner>\n      </Portal>\n    )\n  },\n)\n\nexport const CloseButton = forwardRef<\n  HTMLButtonElement,\n  ChakraDrawer.CloseTriggerProps\n>(function DrawerCloseTrigger(props, ref) {\n  const { children, ...rest } = props\n  return (\n    <ChakraDrawer.CloseTrigger {...rest} asChild>\n      <CloseButtonBase size=\"sm\" ref={ref}>\n        {children}\n      </CloseButtonBase>\n    </ChakraDrawer.CloseTrigger>\n  )\n})\n\nexport const CloseTrigger = ChakraDrawer.CloseTrigger\nexport const Trigger = ChakraDrawer.Trigger\nexport const Root = ChakraDrawer.Root\nexport const Footer = ChakraDrawer.Footer\nexport const Header = ChakraDrawer.Header\nexport const Body = ChakraDrawer.Body\nexport const Backdrop = ChakraDrawer.Backdrop\nexport const Description = ChakraDrawer.Description\nexport const Title = ChakraDrawer.Title\nexport const ActionTrigger = ChakraDrawer.ActionTrigger\nexport const Context = DialogContext\n\nexport type RootProps = ChakraDrawer.RootProps\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/drawer/index.ts",
+      "content": "export * as Drawer from './drawer.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -22,12 +22,13 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
       "content-collections": ["./.content-collections/generated"],
       "compositions/*": ["../compositions/src/*"],
       "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
       "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],
-      "saas-ui-blocks": ["../../packages/pro/packages/blocks/index.ts"]
+      "saas-ui-blocks": ["../../packages/pro/packages/blocks/index.ts"],
+      "#*": ["./*"],
+      "@/*": ["./*"]
     },
     "target": "ES2017"
   },

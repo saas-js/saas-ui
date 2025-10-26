@@ -1,0 +1,22 @@
+{
+  "name": "dialog",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [
+    "close-button"
+  ],
+  "files": [
+    {
+      "path": "ui/dialog/dialog.tsx",
+      "content": "'use client'\n\nimport { type RefObject, forwardRef } from 'react'\n\nimport { Dialog as ChakraDialog } from '@chakra-ui/react/dialog'\nimport { Portal } from '@chakra-ui/react/portal'\n\nimport { CloseButton as CloseButtonBase } from '../close-button/index.ts'\n\nexport interface ContentProps extends ChakraDialog.ContentProps {\n  portalled?: boolean\n  portalRef?: RefObject<HTMLElement>\n  backdrop?: boolean\n}\n\nexport const Content = forwardRef<HTMLDivElement, ContentProps>(\n  function DialogContent(props, ref) {\n    const {\n      children,\n      portalled = true,\n      portalRef,\n      backdrop = true,\n      ...rest\n    } = props\n\n    return (\n      <Portal disabled={!portalled} container={portalRef}>\n        {backdrop && <ChakraDialog.Backdrop />}\n        <ChakraDialog.Positioner>\n          <ChakraDialog.Content ref={ref} {...rest} asChild={false}>\n            {children}\n          </ChakraDialog.Content>\n        </ChakraDialog.Positioner>\n      </Portal>\n    )\n  },\n)\n\nexport const CloseButton = forwardRef<\n  HTMLButtonElement,\n  ChakraDialog.CloseTriggerProps\n>(function DialogCloseTrigger(props, ref) {\n  return (\n    <ChakraDialog.CloseTrigger {...props} asChild>\n      <CloseButtonBase size=\"sm\" ref={ref}>\n        {props.children}\n      </CloseButtonBase>\n    </ChakraDialog.CloseTrigger>\n  )\n})\n\nexport const CloseTrigger = ChakraDialog.CloseTrigger\n\nexport type RootProps = ChakraDialog.RootProps\n\nexport const Root = ChakraDialog.Root\nexport const Context = ChakraDialog.Context\nexport const Footer = ChakraDialog.Footer\nexport const Header = ChakraDialog.Header\nexport const Body = ChakraDialog.Body\nexport const Backdrop = ChakraDialog.Backdrop\nexport const Title = ChakraDialog.Title\nexport const Description = ChakraDialog.Description\nexport const Trigger = ChakraDialog.Trigger\nexport const ActionTrigger = ChakraDialog.ActionTrigger\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/dialog/index.ts",
+      "content": "export * as Dialog from './dialog.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

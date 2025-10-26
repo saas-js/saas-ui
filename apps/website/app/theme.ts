@@ -1,4 +1,5 @@
-import { createSystem, defaultConfig } from '@saas-ui/react'
+import { createSystem } from '@chakra-ui/react'
+import { defaultConfig } from '@saas-ui/chakra-preset'
 
 export const themeConfig = {
   theme: {

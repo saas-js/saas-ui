@@ -1,0 +1,14 @@
+{
+  "$schema": "http://localhost:3020/r/schema/registry.json",
+  "system": "chakra",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "aliases": {
+    "components": "#components",
+    "utils": "#lib/utils",
+    "ui": "#components/ui",
+    "lib": "#lib",
+    "hooks": "#hooks"
+  }
+}

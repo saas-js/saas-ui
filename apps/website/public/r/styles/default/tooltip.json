@@ -1,0 +1,20 @@
+{
+  "name": "tooltip",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/tooltip/tooltip.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Portal } from '@chakra-ui/react/portal'\nimport { Tooltip as ChakraTooltip } from '@chakra-ui/react/tooltip'\n\nexport interface TooltipProps extends ChakraTooltip.RootProps {\n  showArrow?: boolean\n  portalled?: boolean\n  portalRef?: React.RefObject<HTMLElement>\n  content: React.ReactNode\n  contentProps?: ChakraTooltip.ContentProps\n  disabled?: boolean\n}\n\nexport const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(\n  function Tooltip(props, ref) {\n    const {\n      showArrow,\n      children,\n      disabled,\n      portalled,\n      content,\n      contentProps,\n      portalRef,\n      ...rest\n    } = props\n\n    if (disabled) return children\n\n    return (\n      <ChakraTooltip.Root {...rest}>\n        <ChakraTooltip.Trigger asChild>{children}</ChakraTooltip.Trigger>\n        <Portal disabled={!portalled} container={portalRef}>\n          <ChakraTooltip.Positioner>\n            <ChakraTooltip.Content ref={ref} {...contentProps}>\n              {showArrow && (\n                <ChakraTooltip.Arrow>\n                  <ChakraTooltip.ArrowTip />\n                </ChakraTooltip.Arrow>\n              )}\n              {content}\n            </ChakraTooltip.Content>\n          </ChakraTooltip.Positioner>\n        </Portal>\n      </ChakraTooltip.Root>\n    )\n  },\n)\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/tooltip/index.ts",
+      "content": "export * from './tooltip.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

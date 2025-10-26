@@ -1,0 +1,82 @@
+{
+  "name": "@saas-ui/cli",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
+  "description": "Saas UI command line",
+  "type": "module",
+  "version": "0.0.2",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "bin": {
+    "__cli_bash_complete": "lib/bash-complete.js",
+    "sui": "lib/cli.js",
+    "@saas-ui/cli": "lib/cli.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "imports": {
+    "#*": [
+      "./src/*",
+      "./src/*.ts"
+    ]
+  },
+  "scripts": {
+    "prebuild": "tsc -p tsconfig.json",
+    "build": "dotenvx run -f .env.production -- tsup",
+    "build:dev": "dotenvx run -f .env.local -- tsup --watch",
+    "prepublishOnly": "npm run build",
+    "postinstall": "sui install",
+    "dev": "dotenvx run -f .env.local -- tsx --tsconfig tsconfig.json bin/cli.ts"
+  },
+  "dependencies": {
+    "@antfu/ni": "^25.0.0",
+    "@babel/core": "^7.28.5",
+    "@babel/parser": "^7.28.5",
+    "@babel/plugin-transform-typescript": "^7.28.0",
+    "@hono/node-server": "^1.14.0",
+    "@stricli/auto-complete": "^1.1.1",
+    "@stricli/core": "^1.1.1",
+    "@supabase/supabase-js": "^2.49.1",
+    "chalk": "^5.4.1",
+    "cli-table3": "^0.6.3",
+    "cosmiconfig": "^9.0.0",
+    "deepmerge": "^4.3.1",
+    "diff": "^8.0.2",
+    "execa": "^9.5.2",
+    "fast-glob": "^3.3.3",
+    "fs-extra": "^11.3.1",
+    "hono": "^4.7.5",
+    "https-proxy-agent": "^7.0.6",
+    "kleur": "^4.1.5",
+    "lodash.template": "^4.5.0",
+    "node-fetch": "^3.3.2",
+    "open": "^10.1.0",
+    "ora": "^8.2.0",
+    "prompts": "^2.4.2",
+    "recast": "^0.23.11",
+    "rimraf": "^6.0.1",
+    "stringify-object": "^5.0.0",
+    "ts-morph": "^26.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.19.3",
+    "type-fest": "^4.37.0",
+    "zod": "4.1.5"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.20.5",
+    "@dotenvx/dotenvx": "^1.39.0",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash.template": "^4.5.3",
+    "@types/node": "^22.13.11",
+    "@types/prompts": "^2.4.9",
+    "@types/stringify-object": "^4.0.5",
+    "tsup": "^8.5.0",
+    "typescript": "5.9.2"
+  }
+}

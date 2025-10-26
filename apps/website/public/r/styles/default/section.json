@@ -1,0 +1,22 @@
+{
+  "name": "section",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [
+    "./section.context.ts"
+  ],
+  "files": [
+    {
+      "path": "ui/section/section.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport {\n  type HTMLChakraProps,\n  type SlotRecipeProps,\n  chakra,\n} from '@chakra-ui/react'\n\nimport { withContext, withProvider } from './section.context.ts'\n\ninterface SectionRootProps\n  extends HTMLChakraProps<'div'>,\n    SlotRecipeProps<'suiSection'> {}\n\nconst SectionRoot = withProvider<HTMLDivElement, SectionRootProps>(\n  'div',\n  'root',\n)\n\ninterface SectionBodyProps extends HTMLChakraProps<'div'> {}\n\nconst SectionBody = withContext<HTMLDivElement, SectionBodyProps>('div', 'body')\n\ninterface SectionHeaderProps extends Omit<HTMLChakraProps<'div'>, 'title'> {\n  title?: React.ReactNode\n  description?: React.ReactNode\n}\n\nconst SectionHeader = withContext<HTMLDivElement, SectionHeaderProps>(\n  (props) => {\n    const { title, description, children, ...rest } = props\n\n    return (\n      <chakra.div {...rest}>\n        {typeof title === 'string' ? (\n          <SectionTitle>{title}</SectionTitle>\n        ) : (\n          title\n        )}\n        {typeof description === 'string' ? (\n          <SectionDescription>{description}</SectionDescription>\n        ) : (\n          description\n        )}\n        {children}\n      </chakra.div>\n    )\n  },\n  'header',\n)\n\nconst SectionTitle = withContext<HTMLHeadingElement, HTMLChakraProps<'h3'>>(\n  'h3',\n  'title',\n)\n\nconst SectionDescription = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  'div',\n  'description',\n)\n\nexport {\n  SectionRoot as Root,\n  SectionHeader as Header,\n  SectionTitle as Title,\n  SectionDescription as Description,\n  SectionBody as Body,\n}\nexport type {\n  SectionRootProps as RootProps,\n  SectionHeaderProps as HeaderProps,\n  SectionBodyProps as BodyProps,\n}\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/section/index.ts",
+      "content": "export * as Section from './section.tsx'\nexport { useSectionStyles } from './section.context.ts'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

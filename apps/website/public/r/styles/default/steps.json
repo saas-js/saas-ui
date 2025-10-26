@@ -1,0 +1,22 @@
+{
+  "name": "steps",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [
+    "icons"
+  ],
+  "files": [
+    {
+      "path": "ui/steps/steps.tsx",
+      "content": "'use client'\n\nimport { Box } from '@chakra-ui/react/box'\nimport { Steps as ChakraSteps, useStepsContext } from '@chakra-ui/react/steps'\n\nimport { CheckIcon } from '../icons/index.ts'\n\ninterface StepInfoProps {\n  title?: React.ReactNode\n  description?: React.ReactNode\n}\n\ninterface StepsItemProps\n  extends Omit<ChakraSteps.ItemProps, 'title'>,\n    StepInfoProps {\n  completedIcon?: React.ReactNode\n  icon?: React.ReactNode\n}\n\nconst StepsItem = (props: StepsItemProps) => {\n  const { title, description, completedIcon, icon, ...rest } = props\n  return (\n    <ChakraSteps.Item {...rest}>\n      <ChakraSteps.Trigger>\n        <ChakraSteps.Indicator>\n          <ChakraSteps.Status\n            complete={completedIcon || <CheckIcon />}\n            incomplete={icon || <ChakraSteps.Number />}\n          />\n        </ChakraSteps.Indicator>\n        <StepInfo title={title} description={description} />\n      </ChakraSteps.Trigger>\n      <ChakraSteps.Separator />\n    </ChakraSteps.Item>\n  )\n}\n\nconst StepInfo = (props: StepInfoProps) => {\n  const { title, description } = props\n  if (title && description) {\n    return (\n      <Box>\n        <ChakraSteps.Title>{title}</ChakraSteps.Title>\n        <ChakraSteps.Description>{description}</ChakraSteps.Description>\n      </Box>\n    )\n  }\n  return (\n    <>\n      {title && <ChakraSteps.Title>{title}</ChakraSteps.Title>}\n      {description && (\n        <ChakraSteps.Description>{description}</ChakraSteps.Description>\n      )}\n    </>\n  )\n}\n\ninterface StepsIndicatorProps {\n  completedIcon: React.ReactNode\n  icon?: React.ReactNode\n}\n\nconst StepsIndicator = (props: StepsIndicatorProps) => {\n  const { icon = <ChakraSteps.Number />, completedIcon } = props\n  return (\n    <ChakraSteps.Indicator>\n      <ChakraSteps.Status complete={completedIcon} incomplete={icon} />\n    </ChakraSteps.Indicator>\n  )\n}\n\nconst StepsList = ChakraSteps.List\n\ntype StepsRootProps = ChakraSteps.RootProps\nconst StepsRoot = ChakraSteps.Root\nconst StepsContent = ChakraSteps.Content\nconst StepsCompletedContent = ChakraSteps.CompletedContent\n\nconst StepsNextTrigger = (props: ChakraSteps.NextTriggerProps) => {\n  return <ChakraSteps.NextTrigger {...props} />\n}\n\nconst StepsPrevTrigger = (props: ChakraSteps.PrevTriggerProps) => {\n  return <ChakraSteps.PrevTrigger {...props} />\n}\n\nexport {\n  StepsRoot as Root,\n  StepsContent as Content,\n  StepsCompletedContent as CompletedContent,\n  StepsList as List,\n  StepsIndicator as Indicator,\n  StepsItem as Item,\n  StepsNextTrigger as NextTrigger,\n  StepsPrevTrigger as PrevTrigger,\n  useStepsContext as useContext,\n}\n\nexport type {\n  StepsRootProps as RootProps,\n  StepsItemProps as ItemProps,\n  StepsIndicatorProps as IndicatorProps,\n}\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/steps/index.ts",
+      "content": "export * as Steps from './steps.tsx'\n\nexport { useStepsContext } from '@chakra-ui/react/steps'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

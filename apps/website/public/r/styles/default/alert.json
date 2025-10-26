@@ -1,0 +1,22 @@
+{
+  "name": "alert",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [
+    "close-button"
+  ],
+  "files": [
+    {
+      "path": "ui/alert/alert.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Alert as AlertPrimitive } from '@chakra-ui/react/alert'\n\nimport { CloseButton } from '../close-button/index.ts'\n\nexport interface AlertProps extends Omit<AlertPrimitive.RootProps, 'title'> {\n  startElement?: React.ReactNode\n  endElement?: React.ReactNode\n  title?: React.ReactNode\n  icon?: React.ReactElement\n  closable?: boolean\n  onClose?: () => void\n}\n\nexport const Alert = forwardRef<HTMLDivElement, AlertProps>(\n  function Alert(props, ref) {\n    const {\n      title,\n      children,\n      icon,\n      closable,\n      onClose,\n      startElement,\n      endElement,\n      ...rest\n    } = props\n    return (\n      <AlertPrimitive.Root ref={ref} {...rest}>\n        {startElement || (\n          <AlertPrimitive.Indicator>{icon}</AlertPrimitive.Indicator>\n        )}\n        {children ? (\n          <AlertPrimitive.Content>\n            <AlertPrimitive.Title>{title}</AlertPrimitive.Title>\n            <AlertPrimitive.Description>{children}</AlertPrimitive.Description>\n          </AlertPrimitive.Content>\n        ) : (\n          <AlertPrimitive.Title flex=\"1\">{title}</AlertPrimitive.Title>\n        )}\n        {endElement}\n        {closable && (\n          <CloseButton\n            size=\"sm\"\n            pos=\"relative\"\n            top=\"-2\"\n            insetEnd=\"-2\"\n            alignSelf=\"flex-start\"\n            onClick={onClose}\n          />\n        )}\n      </AlertPrimitive.Root>\n    )\n  },\n)\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/alert/index.ts",
+      "content": "export { Alert, type AlertProps } from './alert.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

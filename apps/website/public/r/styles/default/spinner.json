@@ -1,0 +1,20 @@
+{
+  "name": "spinner",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/spinner/spinner.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Spinner as ChakraSpinner } from '@chakra-ui/react/spinner'\nimport type { SpinnerProps as ChakraSpinnerProps } from '@chakra-ui/react/spinner'\n\nexport interface SpinnerProps extends ChakraSpinnerProps {\n  loading?: boolean\n  children?: React.ReactNode\n}\n\nexport const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(\n  function Spinner(props, ref) {\n    const { loading, children, ...rest } = props\n\n    if (loading === false) {\n      return <>{children}</>\n    }\n\n    return <ChakraSpinner ref={ref} {...rest} />\n  },\n)\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/spinner/index.ts",
+      "content": "export { Spinner } from './spinner.tsx'\nexport type { SpinnerProps } from './spinner.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

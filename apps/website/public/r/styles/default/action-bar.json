@@ -1,0 +1,22 @@
+{
+  "name": "action-bar",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [
+    "close-button"
+  ],
+  "files": [
+    {
+      "path": "ui/action-bar/action-bar.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { ActionBar } from '@chakra-ui/react/action-bar'\nimport { Portal } from '@chakra-ui/react/portal'\n\nimport { CloseButton as CloseButtonBase } from '../close-button/index.ts'\n\ninterface ActionBarContentProps extends ActionBar.ContentProps {\n  portalled?: boolean\n  portalRef?: React.RefObject<HTMLElement>\n}\n\nconst ActionBarContent = forwardRef<HTMLDivElement, ActionBarContentProps>(\n  function ActionBarContent(props, ref) {\n    const { children, portalled = true, portalRef, ...rest } = props\n\n    return (\n      <Portal disabled={!portalled} container={portalRef}>\n        <ActionBar.Positioner>\n          <ActionBar.Content ref={ref} {...rest} asChild={false}>\n            {children}\n          </ActionBar.Content>\n        </ActionBar.Positioner>\n      </Portal>\n    )\n  },\n)\n\nconst ActionBarCloseButton = forwardRef<\n  HTMLButtonElement,\n  ActionBar.CloseTriggerProps\n>(function ActionBarCloseTrigger(props, ref) {\n  return (\n    <ActionBar.CloseTrigger {...props} asChild ref={ref}>\n      <CloseButtonBase size=\"sm\" />\n    </ActionBar.CloseTrigger>\n  )\n})\n\nexport const Root = ActionBar.Root\nexport const SelectionTrigger = ActionBar.SelectionTrigger\nexport const Separator = ActionBar.Separator\nexport const Content = ActionBarContent\nexport const CloseButton = ActionBarCloseButton\n\nexport type RootProps = ActionBar.RootProps\nexport type SelectionTriggerProps = ActionBar.SelectionTriggerProps\nexport type SeparatorProps = ActionBar.SeparatorProps\nexport type ContentProps = ActionBarContentProps\nexport type CloseTriggerProps = ActionBar.CloseTriggerProps\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/action-bar/index.ts",
+      "content": "export * as ActionBar from './action-bar.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

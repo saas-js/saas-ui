@@ -1,18 +1,18 @@
 import { consola } from 'consola'
-import { sync } from 'find-up'
+import { findUpSync } from 'find-up'
 import { ensureDirSync } from 'fs-extra'
 import { readFileSync, readdirSync } from 'node:fs'
 import { writeFile } from 'node:fs/promises'
-import { basename, extname, join } from 'node:path'
+import { basename, extname, join, relative } from 'node:path'
 
 function getBaseDirectory() {
-  const dir = sync('compositions', { type: 'directory' })
-  if (!dir) throw new ReferenceError('Could not find compositions directory')
+  const dir = findUpSync('registry', { type: 'directory' })
+  if (!dir) throw new ReferenceError('Could not find registry directory')
   return dir
 }
 
 function getWwwOutput() {
-  const dir = sync('public', { type: 'directory' })
+  const dir = findUpSync('public', { type: 'directory' })
   if (!dir) throw new ReferenceError('Could not find public directory')
   return dir
 }
@@ -23,6 +23,7 @@ function getImports(content: string) {
   for (const match of matches) {
     imports.add(match[1])
   }
+
   return imports
 }
 
@@ -37,7 +38,17 @@ function isFileDependency(_import: string) {
 function resolveDependency(specifier: string, dependencies: string[]) {
   let result = dependencies.find((dependency) => specifier === dependency)
   if (result) return result
+
+  if (specifier.startsWith('@')) {
+    const scopedMatch = specifier.match(/^(@[^/]+\/[^/]+)/)
+    if (scopedMatch) {
+      result = dependencies.find((dep) => dep === scopedMatch[1])
+      if (result) return result
+    }
+  }
+
   const matches = Array.from(specifier.matchAll(/(.+?)\//g))
+  console.log(matches)
   if (matches.length) result = matches[0][1]
   return result
 }
@@ -61,7 +72,7 @@ function getDependencies(imports: Set<string>, dependencies: string[]) {
 const setFileExtension = (file: string, ext: string) =>
   basename(file, extname(file)) + ext
 
-const excludedDependencies = ['@chakra-ui/react', 'react', 'react-dom']
+const excludedDependencies = ['react', 'react-dom']
 
 const camelCase = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
@@ -74,60 +85,88 @@ async function main() {
   const dir = getBaseDirectory()
   const publicDir = getWwwOutput()
 
-  const pkgJson = readFileSync(join(dir, 'package.json'), 'utf-8')
+  const pkgJson = readFileSync(join(dir, '..', 'package.json'), 'utf-8')
 
   const dependencies = Object.keys(JSON.parse(pkgJson).dependencies).filter(
     (dep) => !excludedDependencies.includes(dep),
   )
 
-  const srcDir = join(dir, 'src', 'ui')
-  //   const examplesDir = join(dir, "src", "examples")
+  const srcDir = join(dir, 'chakra', 'ui')
 
   const files = readdirSync(srcDir, { encoding: 'utf-8' })
 
   const result = files.map((file) => {
-    const filePath = join(srcDir, file)
+    const filePath = file.endsWith('.tsx')
+      ? join(srcDir, file)
+      : join(srcDir, `${file}/${file}.tsx`)
+
+    const relativePath = relative(join(dir, 'chakra'), filePath)
+
     const content = readFileSync(filePath, 'utf-8')
     const { npmDependencies, fileDependencies } = getDependencies(
       getImports(content),
       dependencies,
     )
+
+    const files = [
+      {
+        name: file,
+        path: relativePath,
+      },
+    ]
+
+    if (!file.endsWith('.tsx')) {
+      files.push({
+        name: `${file}/index.ts`,
+        path: join('ui', file, 'index.ts'),
+      })
+    }
+
     return {
-      path: join(publicDir, 'compositions', setFileExtension(file, '.json')),
       data: {
-        type: 'composition',
+        type: 'registry:ui',
         npmDependencies: Array.from(npmDependencies),
         fileDependencies: Array.from(fileDependencies),
         id: getFileName(file),
-        file: { name: file, content: content.replace('compositions/ui', '.') },
+        files,
         component: getComponentName(file),
       },
     }
   })
 
-  result.push({
-    path: join(publicDir, 'compositions', 'index.json'),
-    //@ts-expect-error
-    data: result.map(({ data }) => ({
-      type: data.type,
-      id: data.id,
-      file: data.file.name,
-      component: data.component,
-      npmDependencies: data.npmDependencies,
-      fileDependencies: data.fileDependencies,
+  const registryData = result.map(({ data }) => ({
+    name: data.id,
+    type: 'registry:ui' as const,
+    dependencies: data.npmDependencies,
+    registryDependencies: data.fileDependencies.map((dep) =>
+      dep.replace('../', '').replace('/index.ts', ''),
+    ),
+    files: data.files.map((file) => ({
+      path: file.path,
+      type: file.name.includes('stories')
+        ? ('registry:stories' as const)
+        : ('registry:ui' as const),
     })),
-  })
+  }))
 
-  ensureDirSync(join(publicDir, 'compositions'))
+  const content = `import { RegistryEntry } from '@saas-ui/registry'\n\nexport const ui = ${JSON.stringify(registryData, null, 2)} satisfies RegistryEntry[]`
+  await writeFile(join(dir, 'registry-ui.ts'), content)
 
-  const promises = result.map(({ path, data }) => {
-    const content = JSON.stringify(data, null, 2)
-    return writeFile(path, content)
-  })
+  // Format registry-ui.ts with Prettier
+  const { exec } = await import('node:child_process')
+  const { promisify } = await import('node:util')
+  const execAsync = promisify(exec)
 
-  await Promise.all(promises)
+  const registryUiPath = join(dir, 'registry-ui.ts')
+  try {
+    await execAsync(`pnpm prettier --write "${registryUiPath}"`, {
+      cwd: join(dir, '..', '..', '..'),
+    })
+  } catch (err) {
+    consola.warn('Failed to format registry-ui.ts with Prettier', err)
+  }
 
-  consola.success('Composition files generated 🎉. Happy coding!')
+  consola.success('UI registry config generated 🎉. Happy coding!')
 }
 
 main().catch((err) => {

@@ -1,0 +1,20 @@
+{
+  "name": "tag",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/tag/tag.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Tag as ChakraTag } from '@chakra-ui/react/tag'\n\nexport interface TagProps extends ChakraTag.RootProps {\n  startElement?: React.ReactNode\n  endElement?: React.ReactNode\n  onClose?: VoidFunction\n  closable?: boolean\n}\n\nexport const Tag = forwardRef<HTMLSpanElement, TagProps>(\n  function Tag(props, ref) {\n    const {\n      startElement,\n      endElement,\n      onClose,\n      closable = !!onClose,\n      children,\n      ...rest\n    } = props\n\n    return (\n      <ChakraTag.Root ref={ref} {...rest}>\n        {startElement && (\n          <ChakraTag.StartElement>{startElement}</ChakraTag.StartElement>\n        )}\n        <ChakraTag.Label>{children}</ChakraTag.Label>\n        {endElement && (\n          <ChakraTag.EndElement>{endElement}</ChakraTag.EndElement>\n        )}\n        {closable && (\n          <ChakraTag.EndElement>\n            <ChakraTag.CloseTrigger onClick={onClose} />\n          </ChakraTag.EndElement>\n        )}\n      </ChakraTag.Root>\n    )\n  },\n)\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/tag/index.ts",
+      "content": "export { Tag, type TagProps } from './tag.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

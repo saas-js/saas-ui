@@ -1,0 +1,25 @@
+{
+  "name": "clipboard",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [
+    "button",
+    "icon-button",
+    "icons",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "ui/clipboard/clipboard.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Clipboard as ChakraClipboard } from '@chakra-ui/react/clipboard'\n\nimport { Button, type ButtonProps } from '../button/index.ts'\nimport { IconButton, type IconButtonProps } from '../icon-button/index.ts'\nimport { CheckIcon, CopyIcon } from '../icons/index.ts'\nimport { Input, type InputProps } from '../input/index.ts'\n\nconst ClipboardIcon = React.forwardRef<\n  HTMLDivElement,\n  ChakraClipboard.IndicatorProps\n>(function ClipboardIndicator(props, ref) {\n  const { children = <CopyIcon />, copied = <CheckIcon />, ...rest } = props\n  return (\n    <ChakraClipboard.Indicator copied={copied} {...rest} ref={ref}>\n      {children}\n    </ChakraClipboard.Indicator>\n  )\n})\n\nconst ClipboardCopyText = React.forwardRef<\n  HTMLDivElement,\n  ChakraClipboard.IndicatorProps\n>(function ClipboardCopyText(props, ref) {\n  const { children = 'Copy', copied = 'Copied', ...rest } = props\n  return (\n    <ChakraClipboard.Indicator copied={copied} {...rest} ref={ref}>\n      {children}\n    </ChakraClipboard.Indicator>\n  )\n})\n\ninterface ClipboardButtonProps extends ButtonProps {\n  icon?: React.ReactNode\n  copiedIcon?: React.ReactNode\n  copied?: string\n}\n\nconst ClipboardButton = React.forwardRef<\n  HTMLButtonElement,\n  ClipboardButtonProps\n>(function ClipboardButton(props, ref) {\n  const { icon, copiedIcon, copied, children, ...rest } = props\n  return (\n    <ChakraClipboard.Trigger asChild>\n      <Button ref={ref} {...rest}>\n        <ClipboardIcon copied={copiedIcon}>{icon}</ClipboardIcon>\n        <ClipboardCopyText copied={copied}>{children}</ClipboardCopyText>\n      </Button>\n    </ChakraClipboard.Trigger>\n  )\n})\n\ninterface ClipboardIconButtonProps extends IconButtonProps {\n  icon?: React.ReactNode\n  copiedIcon?: React.ReactNode\n}\n\nconst ClipboardIconButton = React.forwardRef<\n  HTMLButtonElement,\n  ClipboardIconButtonProps\n>(function ClipboardIconButton(props, ref) {\n  const { icon, copiedIcon, ...rest } = props\n  return (\n    <ChakraClipboard.Trigger asChild>\n      <IconButton ref={ref} size=\"xs\" {...rest}>\n        <ClipboardIcon copied={copiedIcon}>{icon}</ClipboardIcon>\n      </IconButton>\n    </ChakraClipboard.Trigger>\n  )\n})\n\nconst ClipboardInput = React.forwardRef<HTMLInputElement, InputProps>(\n  function ClipboardInputElement(props, ref) {\n    return (\n      <ChakraClipboard.Input asChild>\n        <Input ref={ref} {...props} />\n      </ChakraClipboard.Input>\n    )\n  },\n)\n\nconst ClipboardRoot = ChakraClipboard.Root\nconst ClipboardLabel = ChakraClipboard.Label\n\nexport {\n  ClipboardButton as Button,\n  ClipboardIconButton as IconButton,\n  ClipboardInput as Input,\n  ClipboardLabel as Label,\n  ClipboardRoot as Root,\n}\n\ntype ClipboardRootProps = ChakraClipboard.RootProps\n\nexport type { ClipboardRootProps as RootProps }\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/clipboard/index.ts",
+      "content": "export * as Clipboard from './clipboard.tsx'\nexport { useClipboard } from '@chakra-ui/react/clipboard'\nexport type { UseClipboardReturn } from '@chakra-ui/react/clipboard'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

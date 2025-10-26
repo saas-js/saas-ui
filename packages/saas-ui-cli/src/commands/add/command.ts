@@ -1,7 +1,5 @@
 import { buildCommand } from '@stricli/core'
 
-import { add } from './impl'
-
 export const addCommand = buildCommand({
   loader: async () => {
     const { add } = await import('./impl')

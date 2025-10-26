@@ -1,11 +1,11 @@
 export const iconLibraries = {
   lucide: {
-    name: 'lucide-react',
+    name: 'lucide',
     package: 'lucide-react',
     import: 'lucide-react',
   },
   tabler: {
-    name: '@tabler/icons-react',
+    name: 'tabler',
     package: '@tabler/icons-react',
     import: '@tabler/icons-react',
   },

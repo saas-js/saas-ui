@@ -15,7 +15,6 @@ import { getRegistryIndex } from '#utils/registry'
 import type { LocalContext } from '../../context'
 
 export const addOptionsFlagsSchema = z.object({
-  // components: z.array(z.string()).optional(),
   yes: z.boolean(),
   overwrite: z.boolean(),
   cwd: z.string().optional(),

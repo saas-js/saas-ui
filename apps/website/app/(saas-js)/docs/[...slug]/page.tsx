@@ -6,7 +6,7 @@ import { ScrollToTop } from '@/components/scroll-to-top'
 import { Toc } from '@/components/toc'
 import { Box, Show, Stack } from '@saas-ui/react'
 import { allSJSDocs as allDocs } from 'content-collections'
-import { getTableOfContents } from 'fumadocs-core/server'
+import { getTableOfContents } from 'fumadocs-core/content/toc'
 import { notFound } from 'next/navigation'
 
 import { docsConfig } from '../docs.config'
@@ -91,8 +91,11 @@ export async function generateMetadata(props: {
   params: Promise<{ slug?: string[] }>
 }) {
   const params = await props.params
+
   const page = source.getPage(params.slug)
+
   if (!page) notFound()
+
   return {
     title: page.data.title,
     description: page.data.description,

@@ -1,8 +1,7 @@
-import {
+import type {
   RecipeProps as ChakraRecipeProps,
   SlotRecipeProps as ChakraSlotRecipeProps,
-  type RecipeDefinition,
-  type SlotRecipeDefinition,
+  RecipeDefinition,
 } from '@chakra-ui/react'
 
 export type RecipeProps<T, DefaultRecipe> =

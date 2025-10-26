@@ -17,13 +17,16 @@ import {
 } from '@saas-ui/react'
 import { Breadcrumb, Drawer, Sidebar } from '@saas-ui/react'
 import { searchPath } from 'fumadocs-core/breadcrumb'
-import type { PageTree } from 'fumadocs-core/server'
+import type { PageTreeBuilder } from 'fumadocs-core/source'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AiOutlineMenu, AiOutlineRight } from 'react-icons/ai'
 import { LuChevronRight } from 'react-icons/lu'
 
-export const SidebarStart = (props: BoxProps & { tree: PageTree.Root }) => {
+type PageTree = Awaited<ReturnType<PageTreeBuilder['build']>>
+type PageTreeNode = PageTree['children'][number]
+
+export const SidebarStart = (props: BoxProps & { tree: PageTree }) => {
   const { tree, ...rest } = props
 
   const pathname = usePathname()
@@ -35,7 +38,7 @@ export const SidebarStart = (props: BoxProps & { tree: PageTree.Root }) => {
   const root =
     (path.findLast(
       (item) => item.type === 'folder' && item.root,
-    ) as PageTree.Root) ?? tree
+    ) as PageTree) ?? tree
 
   return (
     <Sidebar.Provider>
@@ -86,7 +89,7 @@ export const SidebarStart = (props: BoxProps & { tree: PageTree.Root }) => {
   )
 }
 
-function SidebarItem({ item }: { item: PageTree.Node }) {
+function SidebarItem({ item }: { item: PageTreeNode }) {
   const pathname = usePathname()
 
   if (item.type === 'page') {

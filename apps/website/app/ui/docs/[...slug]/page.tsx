@@ -7,7 +7,7 @@ import { Toc } from '@/components/toc'
 import { source } from '@/lib/source'
 import { Box, Show, Stack } from '@saas-ui/react'
 import { allDocs } from 'content-collections'
-import { getTableOfContents } from 'fumadocs-core/server'
+import { getTableOfContents } from 'fumadocs-core/content/toc'
 import { notFound } from 'next/navigation'
 
 import { docsConfig } from '../docs.config'

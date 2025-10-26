@@ -20,7 +20,7 @@ import { DisplayIf, type DisplayIfProps } from './display-if'
 import { Field } from './field.tsx'
 import { FormProvider } from './form-context'
 import { ObjectField, type ObjectFieldProps } from './object-field'
-import type { FieldProps } from './types'
+import type { FieldProps, FocusableElement } from './types'
 import type { UseArrayFieldReturn } from './use-array-field'
 
 export type { StandardSchemaV1 } from '@standard-schema/spec'
@@ -40,8 +40,11 @@ export interface UseFormReturn<
   TContext = any,
   TTransformedValues = TFieldValues,
 > extends UseHookFormReturn<TFieldValues, TContext, TTransformedValues> {
+  submit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>
   Form: React.FC<Omit<FormProps<TFieldValues, TContext>, 'form'>>
-  Field: React.FC<FieldProps<TFieldValues>>
+  Field: React.FC<FieldProps<TFieldValues>> & {
+    ref?: React.Ref<FocusableElement>
+  }
   DisplayIf: React.FC<DisplayIfProps<TFieldValues>>
   ArrayField: React.FC<
     ArrayFieldProps<TFieldValues> & React.RefAttributes<UseArrayFieldReturn>
@@ -68,37 +71,31 @@ export function useForm<
   const stableOnSubmit = useMemo(() => onSubmit, [onSubmit])
   const stableOnInvalid = useMemo(() => onInvalid, [onInvalid])
 
-  const FormComponent = useMemo(() => {
-    return forwardRef<HTMLFormElement, Omit<FormProps, 'form'>>(
-      function FormComponent(props, ref) {
-        return (
-          <Form
-            {...props}
-            form={form}
-            onSubmit={
-              props.onSubmit ??
-              form.handleSubmit(stableOnSubmit, stableOnInvalid)
-            }
-            ref={ref}
-          />
-        )
-      },
-    )
-  }, [form, stableOnSubmit, stableOnInvalid])
+  return useMemo(() => {
+    const extendedForm = form as any
 
-  const submit = useMemo(() => {
-    return form.handleSubmit(stableOnSubmit, stableOnInvalid)
-  }, [form, stableOnSubmit, stableOnInvalid])
+    extendedForm.submit = form.handleSubmit(stableOnSubmit, stableOnInvalid)
+    extendedForm.Form = function FormAPI(props: Omit<FormProps, 'form'>) {
+      return (
+        <Form
+          {...props}
+          form={form}
+          onSubmit={props.onSubmit ?? extendedForm.submit}
+        />
+      )
+    }
 
-  return {
-    ...form,
-    submit,
-    Form: FormComponent,
-    Field,
-    DisplayIf,
-    ArrayField,
-    ObjectField,
-  } as UseFormReturn<TFieldValues, TContext, TTransformedValues>
+    extendedForm.Field = Field
+    extendedForm.DisplayIf = DisplayIf
+    extendedForm.ArrayField = ArrayField
+    extendedForm.ObjectField = ObjectField
+
+    return extendedForm as UseFormReturn<
+      TFieldValues,
+      TContext,
+      TTransformedValues
+    >
+  }, [form, stableOnSubmit, stableOnInvalid])
 }
 
 export interface FormProps<

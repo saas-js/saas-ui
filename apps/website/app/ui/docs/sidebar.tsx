@@ -17,13 +17,17 @@ import {
 } from '@saas-ui/react'
 import { Breadcrumb, Drawer, Sidebar } from '@saas-ui/react'
 import { searchPath } from 'fumadocs-core/breadcrumb'
-import type { PageTree } from 'fumadocs-core/server'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AiOutlineMenu, AiOutlineRight } from 'react-icons/ai'
 import { LuChevronRight } from 'react-icons/lu'
 
-export const SidebarStart = (props: BoxProps & { tree: PageTree.Root }) => {
+import type { PageTreeBuilder } from '#node_modules/fumadocs-core/dist/source'
+
+type PageTree = Awaited<ReturnType<PageTreeBuilder['build']>>
+type PageTreeNode = PageTree['children'][number]
+
+export const SidebarStart = (props: BoxProps & { tree: PageTree }) => {
   const { tree, ...rest } = props
 
   const pathname = usePathname()
@@ -35,7 +39,7 @@ export const SidebarStart = (props: BoxProps & { tree: PageTree.Root }) => {
   const root =
     (path.findLast(
       (item) => item.type === 'folder' && item.root,
-    ) as PageTree.Root) ?? tree
+    ) as PageTree) ?? tree
 
   return (
     <Sidebar.Provider>
@@ -86,7 +90,7 @@ export const SidebarStart = (props: BoxProps & { tree: PageTree.Root }) => {
   )
 }
 
-function SidebarItem({ item }: { item: PageTree.Node }) {
+function SidebarItem({ item }: { item: PageTreeNode }) {
   const pathname = usePathname()
 
   if (item.type === 'page') {
@@ -262,7 +266,9 @@ export const MobileMenuBreadcrumbs = () => {
 
   return (
     <Breadcrumb.Root separator={<AiOutlineRight />}>
-      {crumbs?.map((crumb, index) => <Text key={index}>{crumb}</Text>)}
+      {crumbs?.map((crumb, index) => (
+        <Text key={index}>{crumb}</Text>
+      ))}
     </Breadcrumb.Root>
   )
 }
@@ -302,16 +308,14 @@ export const MobileSidebarNav = () => {
         <Drawer.Content borderTopRadius="md" maxH="var(--content-height)">
           <Drawer.CloseButton />
           <Drawer.Body display="flex" flexDir="column" gap="6" py="5" flex="1">
-            {route
-              .getSidebarNavItems()
-              ?.map((group) => (
-                <SideNav
-                  key={group.title}
-                  currentUrl={route.currentUrl}
-                  title={group.title}
-                  items={group.items}
-                />
-              ))}
+            {route.getSidebarNavItems()?.map((group) => (
+              <SideNav
+                key={group.title}
+                currentUrl={route.currentUrl}
+                title={group.title}
+                items={group.items}
+              />
+            ))}
           </Drawer.Body>
         </Drawer.Content>
       </Portal>

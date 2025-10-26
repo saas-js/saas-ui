@@ -34,7 +34,8 @@
     "next-app": "2.0.14",
     "next-pages": "2.0.14",
     "react-router-ts": "0.0.1",
-    "remix-ts": "1.0.0"
+    "remix-ts": "1.0.0",
+    "@saas-ui/chakra-preset": "3.0.0"
   },
   "changesets": [
     "afraid-avocados-roll",
@@ -137,6 +138,7 @@
     "seven-rooms-hang",
     "shaggy-streets-show",
     "sharp-mirrors-agree",
+    "shiny-oranges-crash",
     "shy-deers-protect",
     "silent-needles-glow",
     "silver-candies-walk",

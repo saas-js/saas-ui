@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-next.45
+
+### Patch Changes
+
+- 74eec10: Moved theme into separate preset packages
+- Updated dependencies [74eec10]
+  - @saas-ui/chakra-preset@3.0.1-next.0
+
 ## 3.0.0-next.44
 
 ### Patch Changes

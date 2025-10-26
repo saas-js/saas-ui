@@ -12,4 +12,4 @@ packages:
 onlyBuiltDependencies:
   - '@parcel/watcher'
 overrides:
-  '@chakra-ui/react': '^3.27.1'
+  '@chakra-ui/react': '^3.28.0'

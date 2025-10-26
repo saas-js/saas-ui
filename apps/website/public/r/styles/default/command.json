@@ -1,0 +1,21 @@
+{
+  "name": "command",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/command/command.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport {\n  type HTMLChakraProps,\n  Kbd,\n  type KbdProps,\n  UnstyledProp,\n  createRecipeContext,\n} from '@chakra-ui/react'\nimport type { RecipeProps } from '@saas-ui/chakra-preset'\nimport type { CommandVariantProps } from '@saas-ui/chakra-preset/recipes/command'\n\nconst { withContext } = createRecipeContext({\n  key: 'suiCommand',\n})\n\nexport interface CommandBaseProps\n  extends RecipeProps<'suiCommand', CommandVariantProps>,\n    UnstyledProp {}\n\nexport interface CommandProps\n  extends HTMLChakraProps<'span'>,\n    CommandBaseProps,\n    CommandVariantProps {\n  /**\n   * The modifiers to use for the command.\n   * @default ['then', 'or', '+']\n   */\n  modifiers?: Array<string>\n}\n\nexport const Command: React.FC<CommandProps> = (props) => {\n  const { children, modifiers, ...rest } = props\n\n  if (typeof children !== 'string') {\n    return <>{children}</>\n  }\n\n  const keys = children.split(/\\s|\\+/)\n\n  return (\n    <StyledCommand {...rest}>\n      {keys.map((key) => (\n        <Key key={key} modifiers={modifiers} size={props.size}>\n          {key}\n        </Key>\n      ))}\n    </StyledCommand>\n  )\n}\n\nconst StyledCommand = withContext<HTMLDivElement, CommandBaseProps>('span')\n\nconst Key: React.FC<KbdProps & { modifiers?: Array<string> }> = (props) => {\n  const { modifiers = ['then', 'or', '+'], children, ...rest } = props\n  if (typeof children !== 'string') {\n    return <>{children}</>\n  }\n\n  if (modifiers.includes(children)) {\n    return <span>{children}</span>\n  }\n\n  return <Kbd {...rest}>{children}</Kbd>\n}\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/index.ts",
+      "content": "export { Command } from './command.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

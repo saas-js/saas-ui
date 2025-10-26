@@ -14,5 +14,3 @@ export type SlotRecipeProps<T, DefaultSlotRecipe> =
   ChakraSlotRecipeProps<T> extends { variant?: any }
     ? ChakraSlotRecipeProps<T>
     : ChakraSlotRecipeProps<T> & DefaultSlotRecipe
-
-type Test = ChakraSlotRecipeProps<'suiGridList'>

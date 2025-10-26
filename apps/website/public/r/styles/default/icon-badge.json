@@ -1,0 +1,21 @@
+{
+  "name": "icon-badge",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/core"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/icon-badge/icon-badge.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\nimport { cloneElement, isValidElement } from 'react'\n\nimport {\n  type HTMLChakraProps,\n  RecipeProps,\n  chakra,\n  useRecipe,\n} from '@chakra-ui/react/styled-system'\nimport { cx } from '@saas-ui/core/utils'\n\n////////////////////////////////////////////////////////////////////////////////////\n\nexport interface IconBadgeProps\n  extends HTMLChakraProps<'div'>,\n    RecipeProps<'suiIconBadge'> {\n  /**\n   * The icon to display\n   */\n  icon?: React.ReactNode\n\n  /**\n   * A11y: A label that describes the icon\n   */\n  'aria-label'?: string\n}\n\nexport const IconBadge = React.forwardRef<HTMLDivElement, IconBadgeProps>(\n  (props, ref) => {\n    const { icon, children, ...rest } = props\n    const recipe = useRecipe({ key: 'suiIconBadge', recipe: props.recipe })\n    const [variantProps, localProps] = recipe.splitVariantProps(rest)\n    const styles = recipe(variantProps)\n\n    /**\n     * Passing the icon as prop or children should work\n     */\n    const element = icon || children\n    const _children = isValidElement(element)\n      ? cloneElement(element as any, {\n          'aria-hidden': true,\n          focusable: false,\n        })\n      : null\n\n    return (\n      <chakra.div\n        ref={ref}\n        {...localProps}\n        css={[styles, props.css]}\n        className={cx(recipe.className, props.className)}\n      >\n        {_children}\n      </chakra.div>\n    )\n  },\n)\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/icon-badge/index.ts",
+      "content": "export { IconBadge } from './icon-badge.tsx'\nexport type { IconBadgeProps } from './icon-badge.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "hover-card",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/hover-card/hover-card.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { HoverCard } from '@chakra-ui/react/hover-card'\nimport { Portal } from '@chakra-ui/react/portal'\n\ninterface ContentProps extends HoverCard.ContentProps {\n  portalled?: boolean\n  portalRef?: React.RefObject<HTMLElement>\n}\n\nexport const Content = React.forwardRef<HTMLDivElement, ContentProps>(\n  function HoverCardContent(props, ref) {\n    const { portalled = true, portalRef, ...rest } = props\n\n    return (\n      <Portal disabled={!portalled} container={portalRef}>\n        <HoverCard.Positioner>\n          <HoverCard.Content ref={ref} {...rest} />\n        </HoverCard.Positioner>\n      </Portal>\n    )\n  },\n)\n\nexport const Arrow = React.forwardRef<HTMLDivElement, HoverCard.ArrowProps>(\n  function HoverCardArrow(props, ref) {\n    return (\n      <HoverCard.Arrow ref={ref} {...props}>\n        <HoverCard.ArrowTip />\n      </HoverCard.Arrow>\n    )\n  },\n)\n\nexport const Root = HoverCard.Root\nexport const Trigger = HoverCard.Trigger\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/hover-card/index.ts",
+      "content": "export * as HoverCard from './hover-card.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

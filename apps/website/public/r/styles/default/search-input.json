@@ -1,0 +1,23 @@
+{
+  "name": "search-input",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/core"
+  ],
+  "registryDependencies": [
+    "icons"
+  ],
+  "files": [
+    {
+      "path": "ui/search-input/search-input.tsx",
+      "content": "'use client'\n\nimport React, { forwardRef } from 'react'\n\nimport {\n  Group,\n  IconButton,\n  type IconButtonProps,\n  Input,\n  InputElement,\n  InputProps,\n  mergeRefs,\n  useControllableState,\n} from '@chakra-ui/react'\nimport { callAll } from '@saas-ui/core/utils'\n\nimport { CloseIcon, SearchIcon } from '../icons/index.ts'\n\nexport interface SearchInputProps extends InputProps {\n  value?: string\n  defaultValue?: string\n  placeholder?: string\n  icon?: React.ReactElement\n  resetIcon?: React.ReactElement\n  endElement?: React.ReactElement\n  onReset?: () => void\n}\n\nexport const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(\n  (props, ref) => {\n    const {\n      placeholder = 'Search',\n      value: valueProp,\n      defaultValue: defaultValueProp,\n      size,\n      variant,\n      width = 'full',\n      icon = <SearchIcon />,\n      resetIcon,\n      endElement: endElementProp,\n      onChange: onChangeProp,\n      onReset: onResetProp,\n      onKeyDown: onKeyDownProp,\n      disabled,\n      ...inputProps\n    } = props\n\n    const inputRef = React.useRef<HTMLInputElement>(null)\n\n    const [value, setValue] = useControllableState({\n      value: valueProp,\n      defaultValue: defaultValueProp,\n    })\n\n    const onChange = React.useCallback(\n      (e: React.ChangeEvent<HTMLInputElement>) => {\n        setValue(e.target.value)\n      },\n      [setValue],\n    )\n\n    const onKeyDown = React.useCallback(\n      (event: React.KeyboardEvent) => {\n        if (event.key === 'Escape') {\n          setValue('')\n          onReset()\n        }\n      },\n      [onResetProp, setValue],\n    )\n\n    const onReset = () => {\n      setValue('')\n      onResetProp?.()\n      inputRef.current?.focus()\n    }\n\n    const showReset = value && !props.disabled\n\n    const endElement = showReset ? (\n      <SearchInputResetButton size={size}>{resetIcon}</SearchInputResetButton>\n    ) : (\n      endElementProp\n    )\n\n    return (\n      <Group width={width}>\n        <InputElement\n          placement=\"start\"\n          px=\"0\"\n          aspectRatio=\"9/10\"\n          fontSize={size}\n        >\n          {icon}\n        </InputElement>\n        <Input\n          type=\"text\"\n          placeholder={placeholder}\n          variant={variant}\n          size={size}\n          value={value}\n          disabled={disabled}\n          ref={mergeRefs(ref, inputRef)}\n          onChange={callAll(onChange, onChangeProp)}\n          onKeyDown={callAll(onKeyDown, onKeyDownProp)}\n          ps=\"calc(var(--input-height) - var(--input-height) / 10)\"\n          pe=\"calc(var(--input-height) - var(--input-height) / 10)\"\n          {...inputProps}\n        />\n        <InputElement placement=\"end\">{endElement}</InputElement>\n      </Group>\n    )\n  },\n)\n\nconst SearchInputResetButton = forwardRef<HTMLButtonElement, IconButtonProps>(\n  (props, ref) => {\n    const { children = <CloseIcon />, ...rest } = props\n\n    return (\n      <IconButton\n        ref={ref}\n        variant=\"ghost\"\n        aria-label=\"Reset search\"\n        me=\"-2\"\n        aspectRatio=\"square\"\n        height=\"calc(100% - {spacing.2})\"\n        {...rest}\n      >\n        {children}\n      </IconButton>\n    )\n  },\n)\n\nSearchInput.displayName = 'SearchInput'\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/search-input/index.ts",
+      "content": "export { SearchInput } from './search-input.tsx'\nexport type { SearchInputProps } from './search-input.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

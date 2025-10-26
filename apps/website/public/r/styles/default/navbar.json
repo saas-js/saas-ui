@@ -1,0 +1,24 @@
+{
+  "name": "navbar",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/core"
+  ],
+  "registryDependencies": [
+    "../provider/use-link.tsx",
+    "./navbar.context.ts"
+  ],
+  "files": [
+    {
+      "path": "ui/navbar/navbar.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport type { HTMLChakraProps, SlotRecipeProps } from '@chakra-ui/react'\nimport { Navbar } from '@saas-ui/core/navbar'\n\nimport { useLink } from '../../provider/use-link.tsx'\nimport { withContext, withProvider } from './navbar.context.ts'\n\ninterface NavbarRootProps\n  extends SlotRecipeProps<'suiNavbar'>,\n    HTMLChakraProps<'div', Navbar.RootProps> {}\n\nconst NavbarRoot = withProvider<HTMLDivElement, NavbarRootProps>(\n  Navbar.Root,\n  'root',\n)\n\nconst NavbarBrand = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  Navbar.Brand,\n  'brand',\n)\n\nconst NavbarContent = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  Navbar.Content,\n  'content',\n)\n\nconst NavbarItemGroup = withContext<HTMLUListElement, HTMLChakraProps<'ul'>>(\n  'ul',\n  'itemGroup',\n)\n\nconst NavbarItem = withContext<\n  HTMLLIElement,\n  HTMLChakraProps<'li', Navbar.ItemProps>\n>(Navbar.Item, 'item')\n\ninterface NavbarLinkProps extends HTMLChakraProps<'a', Navbar.LinkProps> {\n  active?: boolean\n}\n\nconst NavbarLink = withContext<HTMLAnchorElement, NavbarLinkProps>(\n  forwardRef<HTMLAnchorElement, NavbarLinkProps>((props, ref) => {\n    const Link = useLink()\n\n    const { active, ...rest } = props\n\n    return (\n      <Navbar.Link asChild {...rest} ref={ref}>\n        <Link data-active={active ? '' : undefined} {...props} />\n      </Navbar.Link>\n    )\n  }),\n  'link',\n  {\n    forwardAsChild: true,\n  },\n)\n\nexport {\n  NavbarRoot as Root,\n  NavbarContent as Content,\n  NavbarBrand as Brand,\n  NavbarItemGroup as ItemGroup,\n  NavbarItem as Item,\n  NavbarLink as Link,\n}\n\nexport type { NavbarRootProps as RootProps }\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/navbar/index.ts",
+      "content": "export * as Navbar from './navbar.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

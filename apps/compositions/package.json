@@ -1,6 +1,7 @@
 {
-  "name": "@chakra-ui/compositions",
+  "name": "@saas-ui/compositions",
   "version": "1.0.1-next.46",
+  "private": true,
   "description": "Registry for component compositions",
   "scripts": {
     "typecheck": "tsc --noEmit"

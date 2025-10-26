@@ -1,0 +1,20 @@
+{
+  "name": "blockquote",
+  "type": "registry:ui",
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/blockquote/blockquote.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport {\n  Blockquote as ChakraBlockquote,\n  type HTMLChakraProps,\n} from '@chakra-ui/react'\n\nexport interface BlockquoteProps extends ChakraBlockquote.RootProps {\n  cite?: React.ReactNode\n  citeUrl?: string\n  icon?: React.ReactNode\n  showDash?: boolean\n}\n\nexport const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(\n  function Blockquote(props, ref) {\n    const { children, cite, citeUrl, showDash, icon, ...rest } = props\n\n    return (\n      <ChakraBlockquote.Root ref={ref} {...rest}>\n        {icon}\n        <ChakraBlockquote.Content cite={citeUrl}>\n          {children}\n        </ChakraBlockquote.Content>\n        {cite && (\n          <ChakraBlockquote.Caption>\n            {showDash ? <>&mdash;</> : null} <cite>{cite}</cite>\n          </ChakraBlockquote.Caption>\n        )}\n      </ChakraBlockquote.Root>\n    )\n  },\n)\n\nexport const BlockquoteIcon = (props: HTMLChakraProps<'svg'>) => {\n  return <ChakraBlockquote.Icon {...props} />\n}\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/blockquote/index.ts",
+      "content": "export {\n  Blockquote,\n  BlockquoteIcon,\n  type BlockquoteProps,\n} from './blockquote.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

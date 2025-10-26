@@ -1,0 +1,21 @@
+{
+  "name": "toggle-tip",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "popover",
+    "portal"
+  ],
+  "files": [
+    {
+      "path": "ui/toggle-tip/toggle-tip.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Popover } from '../popover/index.ts'\nimport { Portal } from '../portal/index.ts'\n\nexport interface ToggleTipProps extends Popover.RootProps {\n  /**\n   * Whether to show the arrow.\n   * @default true\n   */\n  showArrow?: boolean\n  /**\n   * Whether to portall the content.\n   * @default true\n   */\n  portalled?: boolean\n  /**\n   * The ref to the portal.\n   */\n  portalRef?: React.RefObject<HTMLElement>\n  /**\n   * The content to display in the tooltip.\n   */\n  content?: React.ReactNode\n  /**\n   * The trigger element.\n   */\n  children: React.ReactNode\n}\n\nexport const ToggleTip = React.forwardRef<HTMLDivElement, ToggleTipProps>(\n  function ToggleTip(props, ref) {\n    const {\n      showArrow,\n      children,\n      portalled = true,\n      content,\n      portalRef,\n      ...rest\n    } = props\n\n    return (\n      <Popover.Root {...rest} positioning={{ ...rest.positioning, gutter: 4 }}>\n        <Popover.Trigger asChild>{children}</Popover.Trigger>\n\n        <Portal disabled={!portalled} container={portalRef}>\n          <Popover.Content\n            width=\"auto\"\n            px=\"2\"\n            py=\"1\"\n            textStyle=\"xs\"\n            rounded=\"sm\"\n            ref={ref}\n          >\n            {showArrow && <Popover.Arrow />}\n            {content}\n          </Popover.Content>\n        </Portal>\n      </Popover.Root>\n    )\n  },\n)\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/toggle-tip/index.ts",
+      "content": "export { ToggleTip, type ToggleTipProps } from './toggle-tip.tsx'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

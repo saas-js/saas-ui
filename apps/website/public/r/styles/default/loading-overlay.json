@@ -1,0 +1,24 @@
+{
+  "name": "loading-overlay",
+  "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react",
+    "@chakra-ui/react"
+  ],
+  "registryDependencies": [
+    "spinner",
+    "./loading-overlay.context.ts"
+  ],
+  "files": [
+    {
+      "path": "ui/loading-overlay/loading-overlay.tsx",
+      "content": "'use client'\n\nimport React, { forwardRef } from 'react'\n\nimport {\n  Presence,\n  type PresenceBaseProps,\n  splitPresenceProps,\n} from '@ark-ui/react/presence'\nimport { HTMLChakraProps, SlotRecipeProps, chakra } from '@chakra-ui/react'\n\nimport { Spinner } from '../spinner/index.ts'\nimport { withContext, withProvider } from './loading-overlay.context.ts'\n\ninterface LoadingOverlayProps\n  extends HTMLChakraProps<'div'>,\n    SlotRecipeProps<'suiLoadingOverlay'>,\n    PresenceBaseProps {\n  /**\n   * Show or hide the LoadingOverlay.\n   * @default true\n   */\n  loading?: boolean\n}\n\nconst LoadingOverlay = forwardRef<HTMLDivElement, LoadingOverlayProps>(\n  (props, ref) => {\n    const { children, loading = true, ...rest } = props\n\n    const [presenceProps, rootProps] = splitPresenceProps(rest)\n\n    return (\n      <Presence present={loading} {...presenceProps} asChild>\n        <chakra.div ref={ref} {...rootProps}>\n          {children}\n        </chakra.div>\n      </Presence>\n    )\n  },\n)\n\nconst LoadingOverlayRoot = withProvider<HTMLDivElement, LoadingOverlayProps>(\n  LoadingOverlay,\n  'root',\n)\n\nLoadingOverlayRoot.displayName = 'LoadingOverlay'\n\nconst LoadingOverlaySpinner = Spinner\n\ninterface LoadingTextProps extends HTMLChakraProps<'p'> {}\n\nconst LoadingOverlayText = withContext<HTMLParagraphElement, LoadingTextProps>(\n  'p',\n  'text',\n)\n\nexport {\n  LoadingOverlayRoot as Root,\n  LoadingOverlaySpinner as Spinner,\n  LoadingOverlayText as Text,\n}\nexport type { LoadingOverlayProps as RootProps, LoadingTextProps as TextProps }\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/loading-overlay/index.ts",
+      "content": "export * as LoadingOverlay from './loading-overlay.tsx'\nexport { useLoadingOverlayStyles } from './loading-overlay.context.ts'\n",
+      "type": "registry:ui"
+    }
+  ]
+}

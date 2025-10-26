@@ -35,11 +35,13 @@
     "next-pages": "2.0.14",
     "react-router-ts": "0.0.1",
     "remix-ts": "1.0.0",
-    "@saas-ui/chakra-preset": "3.0.0"
+    "@saas-ui/chakra-preset": "3.0.0",
+    "@saas-ui/compositions": "1.0.1-next.46"
   },
   "changesets": [
     "afraid-avocados-roll",
     "all-toes-kick",
+    "angry-corners-melt",
     "beige-fans-eat",
     "beige-penguins-ring",
     "big-wolves-perform",
@@ -61,6 +63,7 @@
     "cool-candles-fry",
     "cool-jars-rhyme",
     "cool-rockets-throw",
+    "crazy-clouds-stick",
     "curly-hounds-lick",
     "dry-berries-report",
     "dry-shirts-travel",

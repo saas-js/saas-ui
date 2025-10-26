@@ -26,6 +26,7 @@ export async function addComponents(
     silent: options.silent,
   })?.start()
   const tree = await registryResolveItemsTree(components, config)
+
   if (!tree) {
     registrySpinner?.fail()
     return handleError(new Error('Failed to fetch components from registry.'))

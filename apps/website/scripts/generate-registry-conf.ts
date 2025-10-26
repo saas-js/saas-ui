@@ -147,9 +147,9 @@ async function main() {
     name: data.id,
     type: 'registry:ui' as const,
     dependencies: data.npmDependencies,
-    registryDependencies: data.fileDependencies.map((dep) =>
-      dep.replace('../', '').replace('/index.ts', ''),
-    ),
+    registryDependencies: data.fileDependencies
+      .filter((dep) => !dep.startsWith('./'))
+      .map((dep) => dep.replace('../', '').replace('/index.ts', '')),
     files: data.files.map((file) => ({
       path: file.path,
       type: file.name.includes('stories')

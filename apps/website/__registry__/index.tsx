@@ -188,7 +188,7 @@ export const Index: Record<string, any> = {
     "grid-list": {
       name: "grid-list",
       type: "registry:ui",
-      registryDependencies: ["./grid-list.context.ts"],
+      registryDependencies: [],
       files: ["../ui/grid-list/grid-list.context.ts","../ui/grid-list/grid-list.stories.tsx","../ui/grid-list/grid-list.tsx","../ui/grid-list/index.ts"],
       component: React.lazy(() => import("@/registry/default/ui/grid-list/grid-list.context.ts")),
       source: "",
@@ -218,7 +218,7 @@ export const Index: Record<string, any> = {
     "icons": {
       name: "icons",
       type: "registry:ui",
-      registryDependencies: ["./create-icon.tsx"],
+      registryDependencies: [],
       files: ["../ui/icons/create-icon.tsx","../ui/icons/icons.tsx","../ui/icons/index.ts"],
       component: React.lazy(() => import("@/registry/default/ui/icons/create-icon.tsx")),
       source: "",
@@ -238,7 +238,7 @@ export const Index: Record<string, any> = {
     "loading-overlay": {
       name: "loading-overlay",
       type: "registry:ui",
-      registryDependencies: ["spinner","./loading-overlay.context.ts"],
+      registryDependencies: ["spinner"],
       files: ["../ui/loading-overlay/index.ts","../ui/loading-overlay/loading-overlay.context.ts","../ui/loading-overlay/loading-overlay.stories.tsx","../ui/loading-overlay/loading-overlay.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/loading-overlay/index.ts")),
       source: "",
@@ -268,7 +268,7 @@ export const Index: Record<string, any> = {
     "navbar": {
       name: "navbar",
       type: "registry:ui",
-      registryDependencies: ["../provider/use-link.tsx","./navbar.context.ts"],
+      registryDependencies: ["../provider/use-link.tsx"],
       files: ["../ui/navbar/index.ts","../ui/navbar/navbar.context.ts","../ui/navbar/navbar.stories.tsx","../ui/navbar/navbar.test.tsx","../ui/navbar/navbar.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/navbar/index.ts")),
       source: "",
@@ -288,7 +288,7 @@ export const Index: Record<string, any> = {
     "page": {
       name: "page",
       type: "registry:ui",
-      registryDependencies: ["loading-overlay","./page.context.ts"],
+      registryDependencies: ["loading-overlay"],
       files: ["../ui/page/index.ts","../ui/page/page.context.ts","../ui/page/page.stories.tsx","../ui/page/page.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/page/index.ts")),
       source: "",
@@ -318,7 +318,7 @@ export const Index: Record<string, any> = {
     "persona": {
       name: "persona",
       type: "registry:ui",
-      registryDependencies: ["avatar/avatar.tsx","./persona.context.ts","./presence.ts"],
+      registryDependencies: ["avatar/avatar.tsx"],
       files: ["../ui/persona/index.ts","../ui/persona/persona-composed.tsx","../ui/persona/persona.context.ts","../ui/persona/persona.stories.tsx","../ui/persona/persona.tsx","../ui/persona/presence.ts"],
       component: React.lazy(() => import("@/registry/default/ui/persona/index.ts")),
       source: "",
@@ -378,7 +378,7 @@ export const Index: Record<string, any> = {
     "section": {
       name: "section",
       type: "registry:ui",
-      registryDependencies: ["./section.context.ts"],
+      registryDependencies: [],
       files: ["../ui/section/index.ts","../ui/section/section.context.ts","../ui/section/section.stories.tsx","../ui/section/section.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/section/index.ts")),
       source: "",
@@ -408,7 +408,7 @@ export const Index: Record<string, any> = {
     "sidebar": {
       name: "sidebar",
       type: "registry:ui",
-      registryDependencies: ["./sidebar.context.ts"],
+      registryDependencies: [],
       files: ["../ui/sidebar/index.ts","../ui/sidebar/sidebar-nav-item.stories.tsx","../ui/sidebar/sidebar.context.ts","../ui/sidebar/sidebar.stories.tsx","../ui/sidebar/sidebar.tsx"],
       component: React.lazy(() => import("@/registry/default/ui/sidebar/index.ts")),
       source: "",

@@ -6,8 +6,7 @@
     "@saas-ui/core"
   ],
   "registryDependencies": [
-    "../provider/use-link.tsx",
-    "./navbar.context.ts"
+    "../provider/use-link.tsx"
   ],
   "files": [
     {

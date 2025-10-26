@@ -6,9 +6,7 @@
     "@saas-ui/chakra-preset",
     "@saas-ui/core"
   ],
-  "registryDependencies": [
-    "./grid-list.context.ts"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/grid-list/grid-list.context.ts",

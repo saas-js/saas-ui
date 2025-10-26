@@ -27,7 +27,6 @@ import { spinner } from '#utils/spinner'
 
 export const initOptionsFlagsSchema = z.object({
   cwd: z.string(),
-  components: z.array(z.string()).optional(),
   yes: z.boolean(),
   defaults: z.boolean(),
   force: z.boolean(),

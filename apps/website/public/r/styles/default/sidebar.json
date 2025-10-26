@@ -5,9 +5,7 @@
     "@chakra-ui/react",
     "@saas-ui/core"
   ],
-  "registryDependencies": [
-    "./sidebar.context.ts"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/sidebar/index.ts",

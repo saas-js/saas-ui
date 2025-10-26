@@ -393,9 +393,7 @@
       "@saas-ui/chakra-preset",
       "@saas-ui/core"
     ],
-    "registryDependencies": [
-      "./grid-list.context.ts"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/grid-list/grid-list.context.ts",
@@ -460,9 +458,7 @@
     "name": "icons",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "./create-icon.tsx"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/icons/create-icon.tsx",
@@ -506,8 +502,7 @@
       "@chakra-ui/react"
     ],
     "registryDependencies": [
-      "spinner",
-      "./loading-overlay.context.ts"
+      "spinner"
     ],
     "files": [
       {
@@ -581,8 +576,7 @@
       "@saas-ui/core"
     ],
     "registryDependencies": [
-      "../provider/use-link.tsx",
-      "./navbar.context.ts"
+      "../provider/use-link.tsx"
     ],
     "files": [
       {
@@ -638,8 +632,7 @@
       "@chakra-ui/react"
     ],
     "registryDependencies": [
-      "loading-overlay",
-      "./page.context.ts"
+      "loading-overlay"
     ],
     "files": [
       {
@@ -714,9 +707,7 @@
       "@saas-ui/core"
     ],
     "registryDependencies": [
-      "avatar/avatar.tsx",
-      "./persona.context.ts",
-      "./presence.ts"
+      "avatar/avatar.tsx"
     ],
     "files": [
       {
@@ -858,9 +849,7 @@
     "dependencies": [
       "@chakra-ui/react"
     ],
-    "registryDependencies": [
-      "./section.context.ts"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/section/index.ts",
@@ -937,9 +926,7 @@
       "@chakra-ui/react",
       "@saas-ui/core"
     ],
-    "registryDependencies": [
-      "./sidebar.context.ts"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/sidebar/index.ts",

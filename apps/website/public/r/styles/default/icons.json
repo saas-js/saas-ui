@@ -2,9 +2,7 @@
   "name": "icons",
   "type": "registry:ui",
   "dependencies": [],
-  "registryDependencies": [
-    "./create-icon.tsx"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/icons/create-icon.tsx",

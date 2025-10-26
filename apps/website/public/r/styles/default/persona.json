@@ -7,9 +7,7 @@
     "@saas-ui/core"
   ],
   "registryDependencies": [
-    "avatar/avatar.tsx",
-    "./persona.context.ts",
-    "./presence.ts"
+    "avatar/avatar.tsx"
   ],
   "files": [
     {

@@ -4,9 +4,7 @@
   "dependencies": [
     "@chakra-ui/react"
   ],
-  "registryDependencies": [
-    "./section.context.ts"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/section/index.ts",

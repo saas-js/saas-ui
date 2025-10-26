@@ -6,8 +6,7 @@
     "@chakra-ui/react"
   ],
   "registryDependencies": [
-    "spinner",
-    "./loading-overlay.context.ts"
+    "spinner"
   ],
   "files": [
     {

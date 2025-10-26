@@ -5,8 +5,7 @@
     "@chakra-ui/react"
   ],
   "registryDependencies": [
-    "loading-overlay",
-    "./page.context.ts"
+    "loading-overlay"
   ],
   "files": [
     {

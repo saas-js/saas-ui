@@ -18,7 +18,7 @@
   "dependencies": {
     "@ark-ui/react": "5.25.1",
     "@chakra-ui/charts": "^3.27.0",
-    "@chakra-ui/react": "^3.27.0",
+    "@chakra-ui/react": "^3.28.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "11",
     "@emotion/weak-memoize": "^0.4.0",

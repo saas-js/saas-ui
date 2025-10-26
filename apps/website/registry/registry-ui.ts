@@ -333,7 +333,7 @@ export const ui = [
       '@saas-ui/chakra-preset',
       '@saas-ui/core',
     ],
-    registryDependencies: ['./grid-list.context.ts'],
+    registryDependencies: [],
     files: [
       {
         path: 'ui/grid-list/grid-list.context.ts',
@@ -393,7 +393,7 @@ export const ui = [
     name: 'icons',
     type: 'registry:ui',
     dependencies: [],
-    registryDependencies: ['./create-icon.tsx'],
+    registryDependencies: [],
     files: [
       {
         path: 'ui/icons/create-icon.tsx',
@@ -429,7 +429,7 @@ export const ui = [
     name: 'loading-overlay',
     type: 'registry:ui',
     dependencies: ['@ark-ui/react', '@chakra-ui/react'],
-    registryDependencies: ['spinner', './loading-overlay.context.ts'],
+    registryDependencies: ['spinner'],
     files: [
       {
         path: 'ui/loading-overlay/index.ts',
@@ -489,7 +489,7 @@ export const ui = [
     name: 'navbar',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react', '@saas-ui/core'],
-    registryDependencies: ['../provider/use-link.tsx', './navbar.context.ts'],
+    registryDependencies: ['../provider/use-link.tsx'],
     files: [
       {
         path: 'ui/navbar/index.ts',
@@ -537,7 +537,7 @@ export const ui = [
     name: 'page',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['loading-overlay', './page.context.ts'],
+    registryDependencies: ['loading-overlay'],
     files: [
       {
         path: 'ui/page/index.ts',
@@ -601,11 +601,7 @@ export const ui = [
       '@saas-ui/chakra-preset',
       '@saas-ui/core',
     ],
-    registryDependencies: [
-      'avatar/avatar.tsx',
-      './persona.context.ts',
-      './presence.ts',
-    ],
+    registryDependencies: ['avatar/avatar.tsx'],
     files: [
       {
         path: 'ui/persona/index.ts',
@@ -729,7 +725,7 @@ export const ui = [
     name: 'section',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react'],
-    registryDependencies: ['./section.context.ts'],
+    registryDependencies: [],
     files: [
       {
         path: 'ui/section/index.ts',
@@ -797,7 +793,7 @@ export const ui = [
     name: 'sidebar',
     type: 'registry:ui',
     dependencies: ['@chakra-ui/react', '@saas-ui/core'],
-    registryDependencies: ['./sidebar.context.ts'],
+    registryDependencies: [],
     files: [
       {
         path: 'ui/sidebar/index.ts',

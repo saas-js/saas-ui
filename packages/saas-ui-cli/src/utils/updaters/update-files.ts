@@ -62,6 +62,19 @@ export async function updateFiles(
     }
 
     let targetDir = getRegistryItemFileTargetPath(file, config)
+    console.log({
+      targetDir,
+      path: file.path,
+    })
+
+    // support for nested files
+    if (file.path.startsWith(basename(targetDir))) {
+      targetDir = path.join(
+        targetDir,
+        path.dirname(file.path.replace(basename(targetDir), '')),
+      )
+    }
+
     const fileName = basename(file.path)
     let filePath = path.join(targetDir, fileName)
 

@@ -1,0 +1,2 @@
+var c="http://localhost:3020/r",p="http://localhost:3020/r/schema/registry.json",h="http://localhost:3020";import{readFileSync as i,writeFileSync as a}from"fs";import e from"os";import s from"path";var n=".saas-ui";async function R(r){try{let t=e.homedir(),o=s.join(t,n);a(o,JSON.stringify(r))}catch(t){console.error("Error writing to local config file",t)}}async function y(){try{let r=e.homedir(),t=s.join(r,n),o=i(t,"utf8");return JSON.parse(o)}catch{return null}}export{c as a,p as b,h as c,R as d,y as e};
+//# sourceMappingURL=chunk-L36FRG6H.js.map

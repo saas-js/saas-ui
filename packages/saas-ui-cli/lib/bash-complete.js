@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+import{a as o,b as s}from"./chunk-3YHR2SIE.js";import"./chunk-MIQ25T2V.js";import"./chunk-4VWO2RPJ.js";import"./chunk-TXDPC5OL.js";import"./chunk-Y2SSMBR3.js";import"./chunk-L36FRG6H.js";import{proposeCompletions as r}from"@stricli/core";var p=process.argv.slice(3);process.env.COMP_LINE?.endsWith(" ")&&p.push("");await r(o,p,s(process));
+//# sourceMappingURL=bash-complete.js.map

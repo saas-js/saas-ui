@@ -16,7 +16,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm i --ignore-scripts
 
       - name: Build
         run: pnpm build:packages

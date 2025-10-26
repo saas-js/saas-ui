@@ -9,13 +9,18 @@
   ],
   "files": [
     {
-      "path": "ui/number-input/number-input.tsx",
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { NumberInput as ChakraNumberInput } from '@chakra-ui/react/number-input'\n\nimport { InputGroup } from '../input-group/index.ts'\n\nexport interface NumberInputProps\n  extends Omit<ChakraNumberInput.RootProps, 'children'> {\n  rootRef?: React.Ref<HTMLDivElement>\n  hideControls?: boolean\n  startElement?: React.ReactNode\n  endElement?: React.ReactNode\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n}\n\nexport const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(\n  function NumberInput(props, ref) {\n    const {\n      hideControls,\n      startElement,\n      endElement,\n      inputProps,\n      rootRef,\n      ...rest\n    } = props\n    return (\n      <ChakraNumberInput.Root ref={rootRef} {...rest}>\n        <InputGroup\n          startElement={startElement}\n          endElement={endElement}\n          width=\"full\"\n        >\n          <ChakraNumberInput.Input ref={ref} {...inputProps} />\n        </InputGroup>\n\n        {!hideControls && !endElement ? (\n          <ChakraNumberInput.Control>\n            <ChakraNumberInput.IncrementTrigger />\n            <ChakraNumberInput.DecrementTrigger />\n          </ChakraNumberInput.Control>\n        ) : null}\n      </ChakraNumberInput.Root>\n    )\n  },\n)\n",
+      "path": "ui/number-input/index.ts",
+      "content": "export { NumberInput } from './number-input.tsx'\nexport type { NumberInputProps } from './number-input.tsx'\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/number-input/index.ts",
-      "content": "export { NumberInput } from './number-input.tsx'\nexport type { NumberInputProps } from './number-input.tsx'\n",
+      "path": "ui/number-input/number-input.stories.tsx",
+      "content": "import { Group, InputAddon, Stack } from '@chakra-ui/react'\n\nimport { NumberInput } from './index.ts'\n\nexport default {\n  title: 'Components/NumberInput',\n  component: NumberInput,\n}\n\nexport const Basic = () => {\n  return <NumberInput />\n}\n\nexport const Sizes = () => {\n  return (\n    <Stack gap=\"4\">\n      <NumberInput size=\"xs\" />\n      <NumberInput size=\"sm\" />\n      <NumberInput size=\"md\" />\n      <NumberInput size=\"lg\" />\n    </Stack>\n  )\n}\n\nexport const Variants = () => {\n  return (\n    <Stack gap=\"4\">\n      <NumberInput variant=\"outline\" />\n      <NumberInput variant=\"flushed\" />\n      <NumberInput variant=\"subtle\" />\n    </Stack>\n  )\n}\n\nexport const WithAddon = () => {\n  return (\n    <Stack gap=\"4\" maxW=\"md\">\n      <Group attached>\n        <InputAddon>€</InputAddon>\n        <NumberInput />\n      </Group>\n\n      <Group attached>\n        <NumberInput />\n        <InputAddon>per year</InputAddon>\n      </Group>\n    </Stack>\n  )\n}\n",
+      "type": "registry:story"
+    },
+    {
+      "path": "ui/number-input/number-input.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { NumberInput as ChakraNumberInput } from '@chakra-ui/react/number-input'\n\nimport { InputGroup } from '../input-group/index.ts'\n\nexport interface NumberInputProps\n  extends Omit<ChakraNumberInput.RootProps, 'children'> {\n  rootRef?: React.Ref<HTMLDivElement>\n  hideControls?: boolean\n  startElement?: React.ReactNode\n  endElement?: React.ReactNode\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n}\n\nexport const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(\n  function NumberInput(props, ref) {\n    const {\n      hideControls,\n      startElement,\n      endElement,\n      inputProps,\n      rootRef,\n      ...rest\n    } = props\n    return (\n      <ChakraNumberInput.Root ref={rootRef} {...rest}>\n        <InputGroup\n          startElement={startElement}\n          endElement={endElement}\n          width=\"full\"\n        >\n          <ChakraNumberInput.Input ref={ref} {...inputProps} />\n        </InputGroup>\n\n        {!hideControls && !endElement ? (\n          <ChakraNumberInput.Control>\n            <ChakraNumberInput.IncrementTrigger />\n            <ChakraNumberInput.DecrementTrigger />\n          </ChakraNumberInput.Control>\n        ) : null}\n      </ChakraNumberInput.Root>\n    )\n  },\n)\n",
       "type": "registry:ui"
     }
   ]

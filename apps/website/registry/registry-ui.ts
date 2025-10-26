@@ -56,6 +56,10 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
+        path: 'ui/app-shell/app-shell.stories.tsx',
+        type: 'registry:story',
+      },
+      {
         path: 'ui/app-shell/app-shell.tsx',
         type: 'registry:ui',
       },
@@ -120,6 +124,10 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
+        path: 'ui/breadcrumb/breadcrumb.stories.tsx',
+        type: 'registry:story',
+      },
+      {
         path: 'ui/breadcrumb/breadcrumb.tsx',
         type: 'registry:ui',
       },
@@ -135,6 +143,10 @@ export const ui = [
     dependencies: ['@chakra-ui/react'],
     registryDependencies: [],
     files: [
+      {
+        path: 'ui/checkbox/checkbox.stories.tsx',
+        type: 'registry:story',
+      },
       {
         path: 'ui/checkbox/checkbox.tsx',
         type: 'registry:ui',
@@ -184,6 +196,10 @@ export const ui = [
     registryDependencies: ['icons'],
     files: [
       {
+        path: 'ui/close-button/close-button.stories.tsx',
+        type: 'registry:story',
+      },
+      {
         path: 'ui/close-button/close-button.tsx',
         type: 'registry:ui',
       },
@@ -216,6 +232,10 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
+        path: 'ui/command/command.stories.tsx',
+        type: 'registry:story',
+      },
+      {
         path: 'ui/command/command.tsx',
         type: 'registry:ui',
       },
@@ -231,6 +251,10 @@ export const ui = [
     dependencies: ['@chakra-ui/react'],
     registryDependencies: ['close-button'],
     files: [
+      {
+        path: 'ui/dialog/dialog.stories.tsx',
+        type: 'registry:story',
+      },
       {
         path: 'ui/dialog/dialog.tsx',
         type: 'registry:ui',
@@ -248,6 +272,10 @@ export const ui = [
     registryDependencies: ['close-button'],
     files: [
       {
+        path: 'ui/drawer/drawer.stories.tsx',
+        type: 'registry:story',
+      },
+      {
         path: 'ui/drawer/drawer.tsx',
         type: 'registry:ui',
       },
@@ -264,6 +292,10 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
+        path: 'ui/empty-state/empty-state.stories.tsx',
+        type: 'registry:story',
+      },
+      {
         path: 'ui/empty-state/empty-state.tsx',
         type: 'registry:ui',
       },
@@ -279,6 +311,10 @@ export const ui = [
     dependencies: ['@chakra-ui/react'],
     registryDependencies: ['button', 'close-button'],
     files: [
+      {
+        path: 'ui/file-upload/file-upload.stories.tsx',
+        type: 'registry:story',
+      },
       {
         path: 'ui/file-upload/file-upload.tsx',
         type: 'registry:ui',
@@ -299,6 +335,14 @@ export const ui = [
     ],
     registryDependencies: ['./grid-list.context.ts'],
     files: [
+      {
+        path: 'ui/grid-list/grid-list.context.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/grid-list/grid-list.stories.tsx',
+        type: 'registry:story',
+      },
       {
         path: 'ui/grid-list/grid-list.tsx',
         type: 'registry:ui',
@@ -332,6 +376,10 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
+        path: 'ui/icon-badge/icon-badge.stories.tsx',
+        type: 'registry:story',
+      },
+      {
         path: 'ui/icon-badge/icon-badge.tsx',
         type: 'registry:ui',
       },
@@ -347,6 +395,10 @@ export const ui = [
     dependencies: [],
     registryDependencies: ['./create-icon.tsx'],
     files: [
+      {
+        path: 'ui/icons/create-icon.tsx',
+        type: 'registry:ui',
+      },
       {
         path: 'ui/icons/icons.tsx',
         type: 'registry:ui',
@@ -364,11 +416,11 @@ export const ui = [
     registryDependencies: ['icon-button', 'icons', 'toggle-tip'],
     files: [
       {
-        path: 'ui/info-tip/info-tip.tsx',
+        path: 'ui/info-tip/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/info-tip/index.ts',
+        path: 'ui/info-tip/info-tip.tsx',
         type: 'registry:ui',
       },
     ],
@@ -380,11 +432,19 @@ export const ui = [
     registryDependencies: ['spinner', './loading-overlay.context.ts'],
     files: [
       {
-        path: 'ui/loading-overlay/loading-overlay.tsx',
+        path: 'ui/loading-overlay/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/loading-overlay/index.ts',
+        path: 'ui/loading-overlay/loading-overlay.context.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/loading-overlay/loading-overlay.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/loading-overlay/loading-overlay.tsx',
         type: 'registry:ui',
       },
     ],
@@ -396,11 +456,15 @@ export const ui = [
     registryDependencies: ['button', 'icons'],
     files: [
       {
-        path: 'ui/menu/menu.tsx',
+        path: 'ui/menu/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/menu/index.ts',
+        path: 'ui/menu/menu.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/menu/menu.tsx',
         type: 'registry:ui',
       },
     ],
@@ -412,11 +476,11 @@ export const ui = [
     registryDependencies: ['icons'],
     files: [
       {
-        path: 'ui/native-select/native-select.tsx',
+        path: 'ui/native-select/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/native-select/index.ts',
+        path: 'ui/native-select/native-select.tsx',
         type: 'registry:ui',
       },
     ],
@@ -428,11 +492,23 @@ export const ui = [
     registryDependencies: ['../provider/use-link.tsx', './navbar.context.ts'],
     files: [
       {
-        path: 'ui/navbar/navbar.tsx',
+        path: 'ui/navbar/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/navbar/index.ts',
+        path: 'ui/navbar/navbar.context.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/navbar/navbar.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/navbar/navbar.test.tsx',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/navbar/navbar.tsx',
         type: 'registry:ui',
       },
     ],
@@ -444,11 +520,15 @@ export const ui = [
     registryDependencies: ['input-group'],
     files: [
       {
-        path: 'ui/number-input/number-input.tsx',
+        path: 'ui/number-input/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/number-input/index.ts',
+        path: 'ui/number-input/number-input.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/number-input/number-input.tsx',
         type: 'registry:ui',
       },
     ],
@@ -460,11 +540,19 @@ export const ui = [
     registryDependencies: ['loading-overlay', './page.context.ts'],
     files: [
       {
-        path: 'ui/page/page.tsx',
+        path: 'ui/page/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/page/index.ts',
+        path: 'ui/page/page.context.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/page/page.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/page/page.tsx',
         type: 'registry:ui',
       },
     ],
@@ -476,11 +564,11 @@ export const ui = [
     registryDependencies: ['icons'],
     files: [
       {
-        path: 'ui/pagination/pagination.tsx',
+        path: 'ui/pagination/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/pagination/index.ts',
+        path: 'ui/pagination/pagination.tsx',
         type: 'registry:ui',
       },
     ],
@@ -492,11 +580,15 @@ export const ui = [
     registryDependencies: ['icons'],
     files: [
       {
-        path: 'ui/password-input/password-input.tsx',
+        path: 'ui/password-input/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/password-input/index.ts',
+        path: 'ui/password-input/password-input.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/password-input/password-input.tsx',
         type: 'registry:ui',
       },
     ],
@@ -516,11 +608,27 @@ export const ui = [
     ],
     files: [
       {
+        path: 'ui/persona/index.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/persona/persona-composed.tsx',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/persona/persona.context.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/persona/persona.stories.tsx',
+        type: 'registry:story',
+      },
+      {
         path: 'ui/persona/persona.tsx',
         type: 'registry:ui',
       },
       {
-        path: 'ui/persona/index.ts',
+        path: 'ui/persona/presence.ts',
         type: 'registry:ui',
       },
     ],
@@ -532,11 +640,15 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/pin-input/pin-input.tsx',
+        path: 'ui/pin-input/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/pin-input/index.ts',
+        path: 'ui/pin-input/pin-input.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/pin-input/pin-input.tsx',
         type: 'registry:ui',
       },
     ],
@@ -548,11 +660,15 @@ export const ui = [
     registryDependencies: ['close-button'],
     files: [
       {
-        path: 'ui/popover/popover.tsx',
+        path: 'ui/popover/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/popover/index.ts',
+        path: 'ui/popover/popover.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/popover/popover.tsx',
         type: 'registry:ui',
       },
     ],
@@ -564,11 +680,11 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/radio/radio.tsx',
+        path: 'ui/radio/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/radio/index.ts',
+        path: 'ui/radio/radio.tsx',
         type: 'registry:ui',
       },
     ],
@@ -580,11 +696,11 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/radio-card/radio-card.tsx',
+        path: 'ui/radio-card/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/radio-card/index.ts',
+        path: 'ui/radio-card/radio-card.tsx',
         type: 'registry:ui',
       },
     ],
@@ -596,11 +712,15 @@ export const ui = [
     registryDependencies: ['icons'],
     files: [
       {
-        path: 'ui/search-input/search-input.tsx',
+        path: 'ui/search-input/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/search-input/index.ts',
+        path: 'ui/search-input/search-input.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/search-input/search-input.tsx',
         type: 'registry:ui',
       },
     ],
@@ -612,11 +732,19 @@ export const ui = [
     registryDependencies: ['./section.context.ts'],
     files: [
       {
-        path: 'ui/section/section.tsx',
+        path: 'ui/section/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/section/index.ts',
+        path: 'ui/section/section.context.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/section/section.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/section/section.tsx',
         type: 'registry:ui',
       },
     ],
@@ -628,11 +756,15 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/segmented-control/segmented-control.tsx',
+        path: 'ui/segmented-control/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/segmented-control/index.ts',
+        path: 'ui/segmented-control/segmented-control.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/segmented-control/segmented-control.tsx',
         type: 'registry:ui',
       },
     ],
@@ -644,11 +776,19 @@ export const ui = [
     registryDependencies: ['close-button'],
     files: [
       {
-        path: 'ui/select/select.tsx',
+        path: 'ui/select/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/select/index.ts',
+        path: 'ui/select/namespace.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/select/select.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/select/select.tsx',
         type: 'registry:ui',
       },
     ],
@@ -660,11 +800,23 @@ export const ui = [
     registryDependencies: ['./sidebar.context.ts'],
     files: [
       {
-        path: 'ui/sidebar/sidebar.tsx',
+        path: 'ui/sidebar/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/sidebar/index.ts',
+        path: 'ui/sidebar/sidebar-nav-item.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/sidebar/sidebar.context.ts',
+        type: 'registry:ui',
+      },
+      {
+        path: 'ui/sidebar/sidebar.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/sidebar/sidebar.tsx',
         type: 'registry:ui',
       },
     ],
@@ -676,11 +828,11 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/skeleton/skeleton.tsx',
+        path: 'ui/skeleton/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/skeleton/index.ts',
+        path: 'ui/skeleton/skeleton.tsx',
         type: 'registry:ui',
       },
     ],
@@ -692,11 +844,11 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/slider/slider.tsx',
+        path: 'ui/slider/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/slider/index.ts',
+        path: 'ui/slider/slider.tsx',
         type: 'registry:ui',
       },
     ],
@@ -708,11 +860,15 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/spinner/spinner.tsx',
+        path: 'ui/spinner/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/spinner/index.ts',
+        path: 'ui/spinner/spinner.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/spinner/spinner.tsx',
         type: 'registry:ui',
       },
     ],
@@ -724,11 +880,11 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/stat/stat.tsx',
+        path: 'ui/stat/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/stat/index.ts',
+        path: 'ui/stat/stat.tsx',
         type: 'registry:ui',
       },
     ],
@@ -740,11 +896,11 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/status/status.tsx',
+        path: 'ui/status/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/status/index.ts',
+        path: 'ui/status/status.tsx',
         type: 'registry:ui',
       },
     ],
@@ -756,11 +912,11 @@ export const ui = [
     registryDependencies: ['icons'],
     files: [
       {
-        path: 'ui/steps/steps.tsx',
+        path: 'ui/steps/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/steps/index.ts',
+        path: 'ui/steps/steps.tsx',
         type: 'registry:ui',
       },
     ],
@@ -772,11 +928,11 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/switch/switch.tsx',
+        path: 'ui/switch/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/switch/index.ts',
+        path: 'ui/switch/switch.tsx',
         type: 'registry:ui',
       },
     ],
@@ -788,11 +944,15 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/tag/tag.tsx',
+        path: 'ui/tag/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/tag/index.ts',
+        path: 'ui/tag/tag.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/tag/tag.tsx',
         type: 'registry:ui',
       },
     ],
@@ -804,11 +964,15 @@ export const ui = [
     registryDependencies: ['close-button', 'spinner'],
     files: [
       {
-        path: 'ui/toaster/toaster.tsx',
+        path: 'ui/toaster/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/toaster/index.ts',
+        path: 'ui/toaster/toaster.stories.tsx',
+        type: 'registry:story',
+      },
+      {
+        path: 'ui/toaster/toaster.tsx',
         type: 'registry:ui',
       },
     ],
@@ -820,11 +984,11 @@ export const ui = [
     registryDependencies: ['popover', 'portal'],
     files: [
       {
-        path: 'ui/toggle-tip/toggle-tip.tsx',
+        path: 'ui/toggle-tip/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/toggle-tip/index.ts',
+        path: 'ui/toggle-tip/toggle-tip.tsx',
         type: 'registry:ui',
       },
     ],
@@ -836,11 +1000,11 @@ export const ui = [
     registryDependencies: [],
     files: [
       {
-        path: 'ui/tooltip/tooltip.tsx',
+        path: 'ui/tooltip/index.ts',
         type: 'registry:ui',
       },
       {
-        path: 'ui/tooltip/index.ts',
+        path: 'ui/tooltip/tooltip.tsx',
         type: 'registry:ui',
       },
     ],

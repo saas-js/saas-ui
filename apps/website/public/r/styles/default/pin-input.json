@@ -7,13 +7,18 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/pin-input/pin-input.tsx",
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Group } from '@chakra-ui/react/group'\nimport { PinInput as ChakraPinInput } from '@chakra-ui/react/pin-input'\n\nexport interface PinInputProps extends ChakraPinInput.RootProps {\n  rootRef?: React.Ref<HTMLDivElement>\n  pinLength?: number\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n  attached?: boolean\n}\n\nexport const PinInput = forwardRef<HTMLInputElement, PinInputProps>(\n  function PinInput(props, ref) {\n    const {\n      pinLength = 4,\n      inputProps,\n      rootRef,\n      attached,\n      gap = attached ? 0 : 2,\n      ...rest\n    } = props\n\n    return (\n      <ChakraPinInput.Root ref={rootRef} {...rest}>\n        <ChakraPinInput.HiddenInput ref={ref} {...inputProps} />\n        <ChakraPinInput.Control>\n          <Group attached={attached} gap={gap}>\n            {Array.from({ length: pinLength }).map((_, index) => (\n              <ChakraPinInput.Input key={index} index={index} />\n            ))}\n          </Group>\n        </ChakraPinInput.Control>\n      </ChakraPinInput.Root>\n    )\n  },\n)\n",
+      "path": "ui/pin-input/index.ts",
+      "content": "export { PinInput } from './pin-input.tsx'\nexport type { PinInputProps } from './pin-input.tsx'\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/pin-input/index.ts",
-      "content": "export { PinInput } from './pin-input.tsx'\nexport type { PinInputProps } from './pin-input.tsx'\n",
+      "path": "ui/pin-input/pin-input.stories.tsx",
+      "content": "import { PinInput } from './index.ts'\n\nexport default {\n  title: 'Components/PinInput',\n  component: PinInput,\n}\n\nexport const Basic = () => {\n  return <PinInput />\n}\n",
+      "type": "registry:story"
+    },
+    {
+      "path": "ui/pin-input/pin-input.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Group } from '@chakra-ui/react/group'\nimport { PinInput as ChakraPinInput } from '@chakra-ui/react/pin-input'\n\nexport interface PinInputProps extends ChakraPinInput.RootProps {\n  rootRef?: React.Ref<HTMLDivElement>\n  pinLength?: number\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n  attached?: boolean\n}\n\nexport const PinInput = forwardRef<HTMLInputElement, PinInputProps>(\n  function PinInput(props, ref) {\n    const {\n      pinLength = 4,\n      inputProps,\n      rootRef,\n      attached,\n      gap = attached ? 0 : 2,\n      ...rest\n    } = props\n\n    return (\n      <ChakraPinInput.Root ref={rootRef} {...rest}>\n        <ChakraPinInput.HiddenInput ref={ref} {...inputProps} />\n        <ChakraPinInput.Control>\n          <Group attached={attached} gap={gap}>\n            {Array.from({ length: pinLength }).map((_, index) => (\n              <ChakraPinInput.Input key={index} index={index} />\n            ))}\n          </Group>\n        </ChakraPinInput.Control>\n      </ChakraPinInput.Root>\n    )\n  },\n)\n",
       "type": "registry:ui"
     }
   ]

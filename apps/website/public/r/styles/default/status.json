@@ -7,13 +7,13 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/status/status.tsx",
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Status as ChakraStatus } from '@chakra-ui/react/status'\nimport type { Token } from '@chakra-ui/react/styled-system'\n\nexport type StatusTokens = Extract<Token, `colors.status.${string}`>\n\nexport interface StatusProps extends ChakraStatus.RootProps {\n  /**\n   * The status value, used to determine the color of the status\n   * colors can be configured as semantic tokens under the `colors.status` key.\n   */\n  value?: StatusTokens extends never ? string : StatusTokens\n}\n\n/**\n * Status component\n */\nexport const Status = forwardRef<HTMLDivElement, StatusProps>(\n  function Status(props, ref) {\n    const { children, value, ...rest } = props\n\n    const color = value ? `status.${value}` : undefined\n\n    return (\n      <ChakraStatus.Root ref={ref} {...rest}>\n        <ChakraStatus.Indicator bg={color} />\n        {children}\n      </ChakraStatus.Root>\n    )\n  },\n)\n",
+      "path": "ui/status/index.ts",
+      "content": "export { Status, type StatusProps } from './status.tsx'\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/status/index.ts",
-      "content": "export { Status, type StatusProps } from './status.tsx'\n",
+      "path": "ui/status/status.tsx",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Status as ChakraStatus } from '@chakra-ui/react/status'\nimport type { Token } from '@chakra-ui/react/styled-system'\n\nexport type StatusTokens = Extract<Token, `colors.status.${string}`>\n\nexport interface StatusProps extends ChakraStatus.RootProps {\n  /**\n   * The status value, used to determine the color of the status\n   * colors can be configured as semantic tokens under the `colors.status` key.\n   */\n  value?: StatusTokens extends never ? string : StatusTokens\n}\n\n/**\n * Status component\n */\nexport const Status = forwardRef<HTMLDivElement, StatusProps>(\n  function Status(props, ref) {\n    const { children, value, ...rest } = props\n\n    const color = value ? `status.${value}` : undefined\n\n    return (\n      <ChakraStatus.Root ref={ref} {...rest}>\n        <ChakraStatus.Indicator bg={color} />\n        {children}\n      </ChakraStatus.Root>\n    )\n  },\n)\n",
       "type": "registry:ui"
     }
   ]

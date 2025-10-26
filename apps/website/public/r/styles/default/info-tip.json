@@ -9,13 +9,13 @@
   ],
   "files": [
     {
-      "path": "ui/info-tip/info-tip.tsx",
-      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { IconButton } from '../icon-button/index.ts'\nimport { InfoIcon } from '../icons/index.ts'\nimport { ToggleTip, type ToggleTipProps } from '../toggle-tip/index.ts'\n\nexport interface InfoTipProps extends Omit<ToggleTipProps, 'content'> {\n  children: React.ReactNode\n  icon?: React.ReactNode\n  'aria-label'?: string\n}\n\nexport const InfoTip = React.forwardRef<HTMLDivElement, InfoTipProps>(\n  function InfoTip(props, ref) {\n    const { children, icon, 'aria-label': ariaLabel = 'Info', ...rest } = props\n    return (\n      <ToggleTip content={children} {...rest} ref={ref}>\n        <IconButton variant=\"ghost\" aria-label={ariaLabel} size=\"2xs\">\n          {icon ?? <InfoIcon />}\n        </IconButton>\n      </ToggleTip>\n    )\n  },\n)\n",
+      "path": "ui/info-tip/index.ts",
+      "content": "export { InfoTip, type InfoTipProps } from './info-tip.tsx'\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/info-tip/index.ts",
-      "content": "export { InfoTip, type InfoTipProps } from './info-tip.tsx'\n",
+      "path": "ui/info-tip/info-tip.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { IconButton } from '../icon-button/index.ts'\nimport { InfoIcon } from '../icons/index.ts'\nimport { ToggleTip, type ToggleTipProps } from '../toggle-tip/index.ts'\n\nexport interface InfoTipProps extends Omit<ToggleTipProps, 'content'> {\n  children: React.ReactNode\n  icon?: React.ReactNode\n  'aria-label'?: string\n}\n\nexport const InfoTip = React.forwardRef<HTMLDivElement, InfoTipProps>(\n  function InfoTip(props, ref) {\n    const { children, icon, 'aria-label': ariaLabel = 'Info', ...rest } = props\n    return (\n      <ToggleTip content={children} {...rest} ref={ref}>\n        <IconButton variant=\"ghost\" aria-label={ariaLabel} size=\"2xs\">\n          {icon ?? <InfoIcon />}\n        </IconButton>\n      </ToggleTip>\n    )\n  },\n)\n",
       "type": "registry:ui"
     }
   ]

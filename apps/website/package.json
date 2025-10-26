@@ -43,6 +43,7 @@
     "@supabase/ssr": "^0.7.0",
     "@tanstack/react-virtual": "^3.13.9",
     "change-case": "^5.4.4",
+    "consola": "^3.4.2",
     "console": "^0.7.2",
     "find-up": "7.0.0",
     "fs-extra": "^11.3.2",

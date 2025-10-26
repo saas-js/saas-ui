@@ -7,6 +7,11 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/breadcrumb/breadcrumb.stories.tsx",
+      "content": "import React from 'react'\n\nimport { Breadcrumb } from './index.ts'\n\nexport default {\n  title: 'Components/Breadcrumbs',\n  component: Breadcrumb.Root,\n}\n\nexport const Default = {\n  args: {\n    children: [\n      <Breadcrumb.Link href=\"/\">Home</Breadcrumb.Link>,\n      <Breadcrumb.CurrentLink>Contact</Breadcrumb.CurrentLink>,\n    ],\n  },\n}\n",
+      "type": "registry:story"
+    },
+    {
       "path": "ui/breadcrumb/breadcrumb.tsx",
       "content": "'use client'\n\nimport { Children, Fragment, forwardRef, isValidElement } from 'react'\n\nimport { Breadcrumb } from '@chakra-ui/react/breadcrumb'\nimport type { SystemStyleObject } from '@chakra-ui/react/styled-system'\n\nexport interface RootProps extends Breadcrumb.RootProps {\n  separator?: React.ReactNode\n  separatorGap?: SystemStyleObject['gap']\n}\n\nexport const Root = forwardRef<HTMLDivElement, RootProps>(\n  function BreadcrumbRoot(props, ref) {\n    const { separator = '/', separatorGap, children, ...rest } = props\n    const validChildren = Children.toArray(children).filter(isValidElement)\n    return (\n      <Breadcrumb.Root ref={ref} {...rest}>\n        <Breadcrumb.List gap={separatorGap}>\n          {validChildren.map((child, index) => {\n            const last = index === validChildren.length - 1\n            return (\n              <Fragment key={index}>\n                <Breadcrumb.Item>{child}</Breadcrumb.Item>\n                {!last && (\n                  <Breadcrumb.Separator>{separator}</Breadcrumb.Separator>\n                )}\n              </Fragment>\n            )\n          })}\n        </Breadcrumb.List>\n      </Breadcrumb.Root>\n    )\n  },\n)\n\nexport const Link = Breadcrumb.Link\nexport const CurrentLink = Breadcrumb.CurrentLink\nexport const Ellipsis = Breadcrumb.Ellipsis\n",
       "type": "registry:ui"

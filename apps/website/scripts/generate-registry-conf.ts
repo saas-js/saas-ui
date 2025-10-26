@@ -91,16 +91,16 @@ async function main() {
     (dep) => !excludedDependencies.includes(dep),
   )
 
-  const srcDir = join(dir, 'chakra', 'ui')
+  const srcDir = join(dir, 'default', 'ui')
 
   const files = readdirSync(srcDir, { encoding: 'utf-8' })
 
   const result = files.map((file) => {
     const filePath = file.endsWith('.tsx')
       ? join(srcDir, file)
-      : join(srcDir, `${file}/${file}.tsx`)
+      : join(srcDir, file, `${file}.tsx`)
 
-    const relativePath = relative(join(dir, 'chakra'), filePath)
+    const relativePath = relative(join(dir, 'default'), filePath)
 
     const content = readFileSync(filePath, 'utf-8')
     const { npmDependencies, fileDependencies } = getDependencies(
@@ -108,18 +108,27 @@ async function main() {
       dependencies,
     )
 
-    const files = [
-      {
+    let files: { name: string; path: string }[] = []
+
+    if (file.endsWith('.tsx')) {
+      files.push({
         name: file,
         path: relativePath,
-      },
-    ]
-
-    if (!file.endsWith('.tsx')) {
-      files.push({
-        name: `${file}/index.ts`,
-        path: join('ui', file, 'index.ts'),
       })
+    } else {
+      const componentFiles = readdirSync(join(srcDir, file), {
+        encoding: 'utf-8',
+      })
+
+      for (const componentFile of componentFiles) {
+        files.push({
+          name: componentFile,
+          path: relative(
+            join(dir, 'default'),
+            join(srcDir, file, componentFile),
+          ),
+        })
+      }
     }
 
     return {
@@ -144,7 +153,7 @@ async function main() {
     files: data.files.map((file) => ({
       path: file.path,
       type: file.name.includes('stories')
-        ? ('registry:stories' as const)
+        ? ('registry:story' as const)
         : ('registry:ui' as const),
     })),
   }))

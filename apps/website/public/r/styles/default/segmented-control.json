@@ -7,13 +7,18 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/segmented-control/segmented-control.tsx",
-      "content": "'use client'\n\nimport { forwardRef, useMemo } from 'react'\n\nimport { For } from '@chakra-ui/react/for'\nimport { SegmentGroup } from '@chakra-ui/react/segment-group'\n\ninterface Item {\n  value: string\n  label: React.ReactNode\n  disabled?: boolean\n}\n\nexport interface SegmentedControlProps extends SegmentGroup.RootProps {\n  items: Array<string | Item>\n}\n\nfunction normalize(items: Array<string | Item>): Item[] {\n  return items.map((item) => {\n    if (typeof item === 'string') return { value: item, label: item }\n    return item\n  })\n}\n\nexport const SegmentedControl = forwardRef<\n  HTMLDivElement,\n  SegmentedControlProps\n>(function SegmentedControl(props, ref) {\n  const { items, ...rest } = props\n  const data = useMemo(() => normalize(items), [items])\n\n  return (\n    <SegmentGroup.Root ref={ref} {...rest}>\n      <SegmentGroup.Indicator />\n      <For each={data}>\n        {(item) => (\n          <SegmentGroup.Item\n            key={item.value}\n            value={item.value}\n            disabled={item.disabled}\n          >\n            <SegmentGroup.ItemText>{item.label}</SegmentGroup.ItemText>\n            <SegmentGroup.ItemHiddenInput />\n          </SegmentGroup.Item>\n        )}\n      </For>\n    </SegmentGroup.Root>\n  )\n})\n",
+      "path": "ui/segmented-control/index.ts",
+      "content": "export { SegmentedControl } from './segmented-control.tsx'\nexport type { SegmentedControlProps } from './segmented-control.tsx'\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/segmented-control/index.ts",
-      "content": "export { SegmentedControl } from './segmented-control.tsx'\nexport type { SegmentedControlProps } from './segmented-control.tsx'\n",
+      "path": "ui/segmented-control/segmented-control.stories.tsx",
+      "content": "import React from 'react'\n\nimport { Stack } from '@chakra-ui/react'\nimport { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { SegmentedControl } from './index.ts'\n\nexport default {\n  title: 'Components/Segmented Control',\n  component: SegmentedControl,\n} satisfies Meta\n\ntype Story = StoryObj<typeof SegmentedControl>\n\nexport const Default: Story = {\n  args: {\n    defaultValue: 'One',\n    items: ['One', 'Two', 'Three'],\n  },\n}\n\nexport const Sizes = () => {\n  return (\n    <Stack alignItems=\"flex-start\">\n      <SegmentedControl\n        defaultValue=\"One\"\n        items={['One', 'Two', 'Three']}\n        size=\"xs\"\n      />\n      <SegmentedControl\n        defaultValue=\"One\"\n        items={['One', 'Two', 'Three']}\n        size=\"sm\"\n      />\n      <SegmentedControl\n        defaultValue=\"One\"\n        items={['One', 'Two', 'Three']}\n        size=\"md\"\n      />\n      <SegmentedControl\n        defaultValue=\"One\"\n        items={['One', 'Two', 'Three']}\n        size=\"lg\"\n      />\n    </Stack>\n  )\n}\n",
+      "type": "registry:story"
+    },
+    {
+      "path": "ui/segmented-control/segmented-control.tsx",
+      "content": "'use client'\n\nimport { forwardRef, useMemo } from 'react'\n\nimport { For } from '@chakra-ui/react/for'\nimport { SegmentGroup } from '@chakra-ui/react/segment-group'\n\ninterface Item {\n  value: string\n  label: React.ReactNode\n  disabled?: boolean\n}\n\nexport interface SegmentedControlProps extends SegmentGroup.RootProps {\n  items: Array<string | Item>\n}\n\nfunction normalize(items: Array<string | Item>): Item[] {\n  return items.map((item) => {\n    if (typeof item === 'string') return { value: item, label: item }\n    return item\n  })\n}\n\nexport const SegmentedControl = forwardRef<\n  HTMLDivElement,\n  SegmentedControlProps\n>(function SegmentedControl(props, ref) {\n  const { items, ...rest } = props\n  const data = useMemo(() => normalize(items), [items])\n\n  return (\n    <SegmentGroup.Root ref={ref} {...rest}>\n      <SegmentGroup.Indicator />\n      <For each={data}>\n        {(item) => (\n          <SegmentGroup.Item\n            key={item.value}\n            value={item.value}\n            disabled={item.disabled}\n          >\n            <SegmentGroup.ItemText>{item.label}</SegmentGroup.ItemText>\n            <SegmentGroup.ItemHiddenInput />\n          </SegmentGroup.Item>\n        )}\n      </For>\n    </SegmentGroup.Root>\n  )\n})\n",
       "type": "registry:ui"
     }
   ]

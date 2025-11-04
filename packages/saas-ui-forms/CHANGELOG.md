@@ -1,5 +1,12 @@
 # @saas-ui/forms
 
+## 3.0.0-next.48
+
+### Patch Changes
+
+- 8d8d8eb: Improved api extending
+  - @saas-ui/react@3.0.0-next.47
+
 ## 3.0.0-next.47
 
 ### Patch Changes

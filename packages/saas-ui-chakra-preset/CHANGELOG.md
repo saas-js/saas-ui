@@ -1,5 +1,11 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-next.2
+
+### Patch Changes
+
+- 4c60a19: Add TagsInput recipe
+
 ## 3.0.1-next.1
 
 ### Patch Changes

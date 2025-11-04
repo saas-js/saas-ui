@@ -20,5 +20,13 @@ jobs:
 
       - name: Build
         run: pnpm build:packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+          AUTH_ORIGIN: ${{ vars.AUTH_ORIGIN }}
+          REGISTRY_URL: ${{ vars.REGISTRY_URL }}
+          SCHEMA_URL: ${{ vars.SCHEMA_URL }}
 
       - run: pnpm dlx pkg-pr-new publish './packages/saas-ui-*'

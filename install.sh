@@ -9,5 +9,5 @@ if [[ $VERCEL_ENV == "production"  ]] ; then
 
   npx vercel-submodules --all --verbose && yarn
 else
-  pnpm install
+  pnpm install --ignore-scripts
 fi

@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+:root {
+  color-scheme: light dark;
+  --scale-factor: 1;
+  --overlay-effect: blur(12px);
+  --backdrop-effect: none;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-bg-default);
+  color: var(--color-fg-default);
+}
+
+/* Layer style utilities */
+@utility layer-overlay {
+  background-color: var(--colors-bg-overlay);
+  backdrop-filter: var(--overlay-effect);
+  border-radius: var(--radii-panel-lg);
+  box-shadow: var(--shadow-overlay);
+}
+
+@utility layer-backdrop {
+  background-color: var(--colors-bg-backdrop);
+  backdrop-filter: var(--backdrop-effect);
+}
+
+@utility layer-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@utility layer-fill-muted {
+  background-color: var(--colors-accent-muted);
+  color: var(--colors-accent-fg);
+}
+
+@utility layer-fill-subtle {
+  background-color: var(--colors-accent-subtle);
+  color: var(--colors-accent-fg);
+}
+
+@utility layer-fill-surface {
+  background-color: var(--colors-accent-muted);
+  color: var(--colors-accent-fg);
+  box-shadow: inset 0 0 0px 1px var(--colors-accent-subtle);
+}
+
+@utility layer-fill-solid {
+  background-color: var(--colors-accent-solid);
+  color: var(--colors-accent-contrast);
+}
+
+@utility layer-outline-subtle {
+  color: var(--colors-accent-fg);
+  box-shadow: inset 0 0 0px 1px var(--colors-accent-subtle);
+}
+
+@utility layer-outline-solid {
+  border-width: 1px;
+  border-color: var(--colors-accent-solid);
+  color: var(--colors-accent-fg);
+}

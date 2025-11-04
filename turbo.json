@@ -3,7 +3,14 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "*/dist/**"]
+      "outputs": ["dist/**", ".next/**", "*/dist/**"],
+      "env": [
+        "SUPABASE_URL",
+        "SUPABASE_ANON_KEY",
+        "AUTH_ORIGIN",
+        "REGISTRY_URL",
+        "SCHEMA_URL"
+      ]
     },
     "test": {
       "dependsOn": ["^build"],

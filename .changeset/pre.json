@@ -36,7 +36,8 @@
     "react-router-ts": "0.0.1",
     "remix-ts": "1.0.0",
     "@saas-ui/chakra-preset": "3.0.0",
-    "@saas-ui/compositions": "1.0.1-next.46"
+    "@saas-ui/compositions": "1.0.1-next.46",
+    "@saas-ui/tailwind-preset": "0.0.1"
   },
   "changesets": [
     "afraid-avocados-roll",
@@ -68,6 +69,7 @@
     "dry-berries-report",
     "dry-shirts-travel",
     "dull-words-rest",
+    "eager-dogs-punch",
     "eight-bars-stop",
     "eleven-kids-wait",
     "eleven-mugs-add",
@@ -123,6 +125,7 @@
     "ninety-jobs-fall",
     "ninety-pigs-turn",
     "odd-elephants-yell",
+    "old-sheep-dress",
     "olive-cougars-kick",
     "olive-mails-melt",
     "olive-spiders-carry",
@@ -174,6 +177,7 @@
     "tough-pugs-smoke",
     "tricky-spoons-serve",
     "twenty-dodos-float",
+    "twenty-foxes-scream",
     "two-taxis-itch",
     "unlucky-pens-sit",
     "unlucky-seahorses-travel",

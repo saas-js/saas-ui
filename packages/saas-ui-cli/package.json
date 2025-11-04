@@ -3,7 +3,7 @@
   "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "description": "Saas UI command line",
   "type": "module",
-  "version": "0.1.0-next.0",
+  "version": "0.1.0-next.1",
   "files": [
     "lib"
   ],

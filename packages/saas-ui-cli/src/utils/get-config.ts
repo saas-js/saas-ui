@@ -42,7 +42,7 @@ export const rawConfigSchema = z
         outputDir: z.string().optional(),
         defaultIconSet: z.string().optional(),
         iconSize: z.string().optional(),
-        aliases: z.record(z.string()).optional(),
+        aliases: z.record(z.string(), z.string()).optional(),
       })
       .optional(),
   })

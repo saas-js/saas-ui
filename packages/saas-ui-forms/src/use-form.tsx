@@ -1,4 +1,4 @@
-import { forwardRef, useMemo } from 'react'
+import { forwardRef, useEffectEvent, useMemo } from 'react'
 
 import { type HTMLChakraProps, chakra } from '@chakra-ui/react'
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
@@ -6,6 +6,7 @@ import { cx } from '@saas-ui/core/utils'
 import type { StandardSchemaV1 } from '@standard-schema/spec'
 import {
   type DefaultValues,
+  type FieldErrors,
   type FieldValues,
   type SubmitErrorHandler,
   type SubmitHandler,
@@ -68,8 +69,12 @@ export function useForm<
       : resolver,
   })
 
-  const stableOnSubmit = useMemo(() => onSubmit, [onSubmit])
-  const stableOnInvalid = useMemo(() => onInvalid, [onInvalid])
+  const stableOnSubmit = useEffectEvent((data: TTransformedValues) =>
+    onSubmit(data),
+  )
+  const stableOnInvalid = useEffectEvent((errors: FieldErrors<TFieldValues>) =>
+    onInvalid?.(errors),
+  )
 
   return useMemo(() => {
     const extendedForm = form as any
@@ -95,7 +100,7 @@ export function useForm<
       TContext,
       TTransformedValues
     >
-  }, [form, stableOnSubmit, stableOnInvalid])
+  }, [form])
 }
 
 export interface FormProps<

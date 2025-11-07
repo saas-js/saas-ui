@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 3.0.0-next.50
+
+### Patch Changes
+
+- 89d9cfa: Improved onSubmit and onInvalid memoization
+
 ## 3.0.0-next.49
 
 ### Patch Changes

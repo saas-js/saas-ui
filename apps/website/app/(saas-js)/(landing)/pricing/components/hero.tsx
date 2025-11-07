@@ -30,20 +30,6 @@ export function Hero() {
           </Heading>
         </Stack>
       </Stack>
-
-      <Alert
-        title="Looking for SaaS starter kits?"
-        colorPalette="accent"
-        flex="0 0 50%"
-      >
-        <Text>
-          Our starter kits have moved to the{' '}
-          <Link href="https://saas-js.com" fontWeight="medium">
-            saas-js.com
-          </Link>
-          .
-        </Text>
-      </Alert>
     </HStack>
   )
 }

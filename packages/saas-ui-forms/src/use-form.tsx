@@ -1,6 +1,6 @@
 import { forwardRef, useEffectEvent, useMemo } from 'react'
 
-import { type HTMLChakraProps, chakra } from '@chakra-ui/react'
+import { type HTMLChakraProps, chakra, useCallbackRef } from '@chakra-ui/react'
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'
 import { cx } from '@saas-ui/core/utils'
 import type { StandardSchemaV1 } from '@standard-schema/spec'
@@ -69,11 +69,13 @@ export function useForm<
       : resolver,
   })
 
-  const stableOnSubmit = useEffectEvent((data: TTransformedValues) =>
-    onSubmit(data),
+  const stableOnSubmit = useCallbackRef(
+    (data: TTransformedValues) => onSubmit(data),
+    [onSubmit],
   )
-  const stableOnInvalid = useEffectEvent((errors: FieldErrors<TFieldValues>) =>
-    onInvalid?.(errors),
+  const stableOnInvalid = useCallbackRef(
+    (errors: FieldErrors<TFieldValues>) => onInvalid?.(errors),
+    [onInvalid],
   )
 
   return useMemo(() => {

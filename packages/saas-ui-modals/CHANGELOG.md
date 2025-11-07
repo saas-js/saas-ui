@@ -1,5 +1,12 @@
 # @saas-ui/modals
 
+## 3.0.0-next.49
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-next.48
+- @saas-ui/forms@3.0.0-next.49
+
 ## 3.0.0-next.48
 
 ### Patch Changes

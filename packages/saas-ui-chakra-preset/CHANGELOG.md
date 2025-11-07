@@ -1,5 +1,11 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-next.3
+
+### Patch Changes
+
+- c4d11e2: Fixed switch recipe
+
 ## 3.0.0-next.2
 
 ### Patch Changes

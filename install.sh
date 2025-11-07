@@ -1,13 +1,31 @@
 #!/bin/bash
+ 
+# Define variables for new URL components
+token=$GITHUB_TOKEN
 
-if [[ $VERCEL_ENV == "production"  ]] ; then
-  # Configure git to use GITHUB_TOKEN for private submodule access
-  if [ -n "$GITHUB_TOKEN" ]; then
-    git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "git@github.com:"
-    git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
-  fi
+# Construct the new URL with authentication
+new_url="https://${token}@github.com/saas-js/saas-ui-pro.git"
 
-  npx vercel-submodules --all --verbose && yarn
-else
-  pnpm install --ignore-scripts
-fi
+# Temporarily change the internal field separator (IFS) to handle spaces in paths
+IFS=$'\n'
+
+# Read the .gitmodules file line by line
+while IFS= read -r line; do
+    if [[ $line =~ ^[[:space:]]*url[[:space:]]*= ]]; then
+        # Replace the URL line with the new URL
+        echo " url = ${new_url}"
+    else
+        echo "$line"
+    fi
+done < .gitmodules > .gitmodules.tmp  # Write output to a temporary file
+
+# Replace the original .gitmodules file with the updated one
+mv .gitmodules.tmp .gitmodules
+
+cat .gitmodules
+
+# Sync is important since this will let git know to follow the new updated url
+git submodule sync
+git submodule update --init --recursive
+
+pnpm install --frozen-lockfile --ignore-scripts

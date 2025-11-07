@@ -1,4 +1,4 @@
-import { forwardRef, useEffectEvent, useMemo } from 'react'
+import { forwardRef, useMemo } from 'react'
 
 import { type HTMLChakraProps, chakra, useCallbackRef } from '@chakra-ui/react'
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema'

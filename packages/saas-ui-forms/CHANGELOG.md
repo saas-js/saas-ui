@@ -1,5 +1,11 @@
 # @saas-ui/forms
 
+## 3.0.0-next.51
+
+### Patch Changes
+
+- f4e1ac7: Fixed react < 19.2 compat
+
 ## 3.0.0-next.50
 
 ### Patch Changes

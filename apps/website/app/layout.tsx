@@ -8,7 +8,6 @@ import Script from 'next/script'
 import { Provider } from './provider'
 import './scrollbar.css'
 import './shiki.css'
-import { sjsSystem, system } from './theme'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -79,6 +78,11 @@ export default async function RootLayout({
 
   const site = host?.includes('saas-ui') ? 'sui' : 'sjs'
 
+  const pirschCode =
+    site === 'sui'
+      ? '6VI7VAQoe3eG33JAw0giyqequwucCiou'
+      : '0wmOd91WUKqHhN2foO6rJdvW4Ak2Wscq'
+
   return (
     <html
       lang="en"
@@ -125,23 +129,14 @@ export default async function RootLayout({
           id="pirschjs"
           strategy="afterInteractive"
           src="https://api.pirsch.io/pirsch.js"
-          data-code="6VI7VAQoe3eG33JAw0giyqequwucCiou"
+          data-code={pirschCode}
         />
         <Script
           id="pirscheventsjs"
           strategy="afterInteractive"
           src="https://api.pirsch.io/pirsch-events.js"
-          data-code="6VI7VAQoe3eG33JAw0giyqequwucCiou"
+          data-code={pirschCode}
         />
-        {/* <Script
-          id="crisp-js"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.$crisp=[];window.CRISP_WEBSITE_ID="65e4ab93-1a03-40da-ae73-7a327854e2f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
-            `,
-          }}
-        /> */}
         <Script src="https://app.lemonsqueezy.com/js/lemon.js" defer />
         <Script
           id="lemon-squeezy-affiliate-config"

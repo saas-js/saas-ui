@@ -2,7 +2,7 @@
 
 import { FooterSection } from '@/components/saas-js/footer.section'
 import { HeaderSection } from '@/components/saas-js/header.section'
-import { Stack } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,7 +1,7 @@
 'use client'
 
 import { ColorModeButton } from '@/components/docs/color-mode-button'
-import { SocialLinks } from '@/components/social-links'
+import { Alert, Span } from '@chakra-ui/react'
 import {
   Box,
   Button,
@@ -17,6 +17,8 @@ import {
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
+
+import { CopyButton } from '#components/copy-button'
 
 import { CommandMenu } from '../docs/command-menu'
 import { LinkButton } from '../link-button'
@@ -144,18 +146,49 @@ const MobileNav = () => {
 
 export const HeaderSection = () => {
   return (
-    <Box
-      position="fixed"
-      top="0"
-      w="full"
-      zIndex="3"
-      backdropFilter="blur(10px)"
-      py="2"
+    <>
+      <Box
+        position="fixed"
+        top="0"
+        w="full"
+        zIndex="3"
+        backdropFilter="blur(10px)"
+        bg="bg.muted/90"
+      >
+        <Announcement />
+        <Container>
+          <DesktopNav />
+          <MobileNav />
+        </Container>
+      </Box>
+    </>
+  )
+}
+
+function Announcement() {
+  return (
+    <Alert.Root
+      data-announcement
+      colorPalette="cyan"
+      borderRadius="0"
+      borderBottomWidth="1px"
+      borderBottomColor="cyan.solid/20"
+      py="1.5"
     >
-      <Container>
-        <DesktopNav />
-        <MobileNav />
-      </Container>
-    </Box>
+      <Alert.Description display="flex" alignItems="center" gap="1" mx="auto">
+        Use the code <strong>V3BETA</strong> to get{' '}
+        <Span fontWeight="medium">30% off the all access license</Span> while v3
+        is in beta.
+        <CopyButton
+          value="V3BETA"
+          variant="solid"
+          size="xs"
+          colorPalette="cyan"
+          ms="2"
+        >
+          Copy code
+        </CopyButton>
+      </Alert.Description>
+    </Alert.Root>
   )
 }

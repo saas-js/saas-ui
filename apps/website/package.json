@@ -59,6 +59,7 @@
     "react-dom": "19.2.0",
     "react-frame-component": "5.2.7",
     "react-icons": "5.5.0",
+    "react-markdown": "10.1.0",
     "recharts": "^3.2.1",
     "rehype-autolink-headings": "7.1.0",
     "rehype-slug": "6.0.0",

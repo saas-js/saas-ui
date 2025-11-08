@@ -36,7 +36,7 @@ export const Navigation = () => {
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Starter kits
                   </Text>
-                  <ListItem title="Next.js" href="/">
+                  <ListItem title="Next.js" href="/nextjs">
                     Next.js and tRPC
                   </ListItem>
                   <ListItem title="Tanstack Start" href="/tanstack-start">

@@ -27,7 +27,7 @@ export function GetStartedSection(props: { children?: React.ReactNode }) {
           justifyContent="space-between"
         >
           <Text textStyle="4xl" fontWeight="medium">
-            Join hundreds of developers <br /> building better SaaS interfaces.
+            Join hundreds of developers <br /> building better SaaS products.
           </Text>
 
           <ButtonGroup>

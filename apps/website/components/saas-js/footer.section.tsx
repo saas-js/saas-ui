@@ -15,7 +15,7 @@ const linkTree = [
     items: [
       {
         label: 'Affiliate program',
-        href: 'https://saas-ui.lemonsqueezy.com/affiliates?aff_ref=nB1mj6rB',
+        href: 'https://saas-ui.affonso.io',
       },
       { label: 'Documentation', href: '/docs' },
       { label: 'Blog', href: '/blog' },
@@ -26,16 +26,23 @@ const linkTree = [
   {
     title: 'Products',
     items: [
-      { label: 'React components', href: '/docs/components' },
-
-      { label: 'Next.js starter kit', href: '/pro/starter-kits/nextjs' },
-      { label: 'Next.js boilerplate', href: '/pro/starter-kits/nextjs' },
+      { label: 'Next.js starter kit', href: '/' },
       {
         label: 'Tanstack Start starter kit',
-        href: '/pro/starter-kits/tanstack-start',
+        href: '/tanstack-start',
       },
-      { label: 'Figma UI kit', href: '/pro/figma' },
-      { label: 'Blocks', href: '/pro/blocks' },
+      {
+        label: 'Drizzle CRUD',
+        href: '/docs/drizzle-crud',
+      },
+      {
+        label: 'Slingshot',
+        href: '/docs/file-upload',
+      },
+      {
+        label: 'Iconify CLI',
+        href: '/docs/iconify-cli',
+      },
     ],
   },
   {

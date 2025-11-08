@@ -300,6 +300,9 @@ importers:
       react-icons:
         specifier: 5.5.0
         version: 5.5.0(react@19.2.0)
+      react-markdown:
+        specifier: 10.1.0
+        version: 10.1.0(@types/react@19.2.0)(react@19.2.0)
       recharts:
         specifier: ^3.2.1
         version: 3.2.1(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react-is@19.2.0)(react@19.2.0)(redux@5.0.1)
@@ -641,7 +644,7 @@ importers:
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
       '@saas-ui/react':
         specifier: next
-        version: 3.0.0-next.44(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 3.0.0-next.48(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@tanstack/react-router':
         specifier: ^1.125.6
         version: 1.133.28(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -4863,6 +4866,11 @@ packages:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
+  '@saas-ui/chakra-preset@3.0.0-next.3':
+    resolution: {integrity: sha512-EvAwwOfMK7ewXwPYMlwThAzP8TC2isf/IbuC/t5C1E2/rVDjHgYcojSJB9wsVo5Bnx6/UWTm9cQMsmAHLX+5og==}
+    peerDependencies:
+      '@chakra-ui/react': ^3.28.0
+
   '@saas-ui/core@3.0.0-next.11':
     resolution: {integrity: sha512-YvOgvPyrzY7ZnaKg2FOVf1GkOTB+lJFcg/Ql+siXeGh2Y8NTeVgB0P/tO9GbL2L94paetzVFZpju+grlawAxOQ==}
     peerDependencies:
@@ -4908,6 +4916,14 @@ packages:
 
   '@saas-ui/react@3.0.0-next.44':
     resolution: {integrity: sha512-s1JiOuLuB5D3uaVzOLU4c3YlCeuoSeARvIYuzUslyIws2NyqrGmf1p6Wuj5C5rAuXZJRL2mdtwsiLwhLhCBG9Q==}
+    peerDependencies:
+      '@chakra-ui/react': ^3.28.0
+      '@emotion/react': ^11
+      react: ^19.1.1
+      react-dom: ^19.1.1
+
+  '@saas-ui/react@3.0.0-next.48':
+    resolution: {integrity: sha512-LoQiPuOWUwrBTjP6R84gyN5O3KpolXdrzFilvmi9EQB6dCDJTgoUSRcMIflb2Ko9DcawqR4X/jRFzgTbD5H0+w==}
     peerDependencies:
       '@chakra-ui/react': ^3.28.0
       '@emotion/react': ^11
@@ -17786,6 +17802,10 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
+  '@saas-ui/chakra-preset@3.0.0-next.3(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
+    dependencies:
+      '@chakra-ui/react': 3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+
   '@saas-ui/core@3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -17873,11 +17893,12 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  '@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@saas-ui/react@3.0.0-next.48(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@chakra-ui/react': 3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.2.0)
+      '@saas-ui/chakra-preset': 3.0.0-next.3(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@saas-ui/hooks': 3.0.0-next.3(react@19.2.0)
       next-themes: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)

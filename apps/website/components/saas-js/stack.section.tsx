@@ -23,7 +23,7 @@ export const StackSection = () => {
       <Container maxW="6xl">
         <Stack gap="8">
           <Box textAlign="center" mb="8">
-            <Heading as="h3" textStyle="4xl">
+            <Heading as="h3" textStyle="4xl" mb="1">
               Choose your Stack
             </Heading>
             <Text textStyle="lg" color="fg.subtle" fontWeight="medium">
@@ -63,7 +63,12 @@ export const StackSection = () => {
                     application-heavy products and internal tools.
                   </Text>
                 </Box>
-                <List.Root variant="plain" textStyle="md" color="fg.muted">
+                <List.Root
+                  variant="plain"
+                  textStyle="md"
+                  color="fg.muted"
+                  lineHeight="tall"
+                >
                   <List.Item>
                     <List.Indicator color="fg" asChild>
                       <TbCheck />
@@ -83,10 +88,6 @@ export const StackSection = () => {
                     Perfect for B2B dashboards
                   </List.Item>
                 </List.Root>
-
-                <Link fontWeight="medium" href="/starter-kits/tanstack-start">
-                  View details <ActionArrow />
-                </Link>
               </Stack>
             </Card.Root>
             <Card.Root
@@ -112,7 +113,12 @@ export const StackSection = () => {
                     fast public facing pages.
                   </Text>
                 </Box>
-                <List.Root variant="plain" textStyle="md" color="fg.muted">
+                <List.Root
+                  variant="plain"
+                  textStyle="md"
+                  color="fg.muted"
+                  lineHeight="tall"
+                >
                   <List.Item>
                     <List.Indicator color="fg" asChild>
                       <TbCheck />
@@ -132,15 +138,68 @@ export const StackSection = () => {
                     Ideal for public-facing SaaS
                   </List.Item>
                 </List.Root>
-
-                <Link fontWeight="medium" href="/starter-kits/nextjs">
-                  View details <ActionArrow />
-                </Link>
               </Stack>
             </Card.Root>
           </Stack>
         </Stack>
       </Container>
     </Section.Root>
+  )
+}
+
+export function TansStackStartSection() {
+  return (
+    <Box>
+      <Container maxW="6xl">
+        <Stack p="16" alignItems="flex-start" gap="4">
+          <Image
+            src="/img/logos/tanstack.png"
+            alt="TanStack"
+            width={40}
+            height={40}
+          />
+          <Box>
+            <Heading as="h4" textStyle="2xl" mb="1">
+              TanStack Start
+            </Heading>
+            <Text color="fg.subtle" fontWeight="medium">
+              Lightning-fast SPA, dashboard-focused, ideal for application-heavy
+              products and internal tools.
+            </Text>
+          </Box>
+          <List.Root
+            variant="plain"
+            textStyle="md"
+            color="fg.muted"
+            lineHeight="taller"
+          >
+            <List.Item>
+              <List.Indicator color="fg" asChild>
+                <TbCheck />
+              </List.Indicator>
+              Blazing fast type-safe routing
+            </List.Item>
+            <List.Item>
+              <List.Indicator color="fg" asChild>
+                <TbCheck />
+              </List.Indicator>
+              Optimized for complex UIs
+            </List.Item>
+            <List.Item>
+              <List.Indicator color="fg" asChild>
+                <TbCheck />
+              </List.Indicator>
+              Opt-in SSR support
+            </List.Item>
+            <List.Item>
+              <List.Indicator color="fg" asChild>
+                <TbCheck />
+              </List.Indicator>
+              Perfect for B2B dashboards
+            </List.Item>
+          </List.Root>
+        </Stack>
+      </Container>
+    </Box>
   )
 }

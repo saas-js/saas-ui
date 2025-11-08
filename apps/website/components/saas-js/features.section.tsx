@@ -276,7 +276,7 @@ function PrimaryFeatureCard(props: {
       gridColumn="span 2"
       bg="bg.muted"
     >
-      <Card.Header p="0" textAlign="center">
+      <Card.Header p="0">
         <Card.Title textStyle="4xl">{props.title}</Card.Title>
         <Card.Description fontSize="lg" color="fg.subtle" textWrap="pretty">
           {props.description}
@@ -287,8 +287,8 @@ function PrimaryFeatureCard(props: {
         pt="4"
         display="flex"
         flexDirection="column"
+        alignItems="flex-start"
         gap="4"
-        alignItems="center"
       >
         <List.Root
           variant="plain"
@@ -331,7 +331,7 @@ function TertiaryFeatureCard(props: {
       }}
       width="260px"
     >
-      <Box height="300px"></Box>
+      <Box height="200px"></Box>
       <Card.Header>
         <Card.Title textStyle="md" color="fg.muted" fontWeight="medium">
           {props.title}

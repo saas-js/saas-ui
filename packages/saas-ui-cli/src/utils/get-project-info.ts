@@ -13,14 +13,11 @@ import {
 } from '#utils/get-config'
 import { getPackageInfo } from '#utils/get-package-info'
 
-import { SYSTEMS, type System } from './systems'
-
 type ProjectInfo = {
   framework: Framework
-  system: System | null
   isSrcDir: boolean
-  isTsx: boolean
   isRSC: boolean
+  isTsx: boolean
   aliasPrefix: string | null
 }
 
@@ -52,29 +49,10 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
 
   const type: ProjectInfo = {
     framework: FRAMEWORKS['manual'],
-    system: null,
     isSrcDir,
     isRSC: false,
     isTsx,
     aliasPrefix: aliasPrefix ?? null,
-  }
-
-  // Chakra UI
-  if (
-    Object.keys(packageJson?.dependencies ?? {}).find((dep) =>
-      dep.startsWith('@chakra-ui/'),
-    )
-  ) {
-    type.system = SYSTEMS['chakra']
-  }
-
-  // Panda CSS
-  if (
-    Object.keys(packageJson?.devDependencies ?? {}).find((dep) =>
-      dep.startsWith('@pandacss/dev'),
-    )
-  ) {
-    type.system = SYSTEMS['panda']
   }
 
   // Next.js.
@@ -86,13 +64,13 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     return type
   }
 
-  // Tanstack Start.
+  // Remix.
   if (
     Object.keys(packageJson?.dependencies ?? {}).find((dep) =>
-      dep.startsWith('@tanstack/react-start'),
+      dep.startsWith('@remix-run/'),
     )
   ) {
-    type.framework = FRAMEWORKS['tanstack-start']
+    type.framework = FRAMEWORKS['remix']
     return type
   }
 
@@ -139,9 +117,9 @@ export async function isTypeScriptProject(cwd: string) {
   return files.length > 0
 }
 
-export async function getTsConfig(cwd: string = process.cwd()) {
+export async function getTsConfig() {
   try {
-    const tsconfigPath = path.resolve(cwd, 'tsconfig.json')
+    const tsconfigPath = path.join('tsconfig.json')
     const tsconfig = await fs.readJSON(tsconfigPath)
 
     if (!tsconfig) {
@@ -178,14 +156,14 @@ export async function getProjectConfig(
     $schema: SCHEMA_URL,
     rsc: projectInfo.isRSC,
     tsx: projectInfo.isTsx,
-    system: projectInfo.system?.name ?? SYSTEMS.chakra.name,
+    system: 'chakra',
     style: 'default',
     aliases: {
-      components: `${projectInfo.aliasPrefix}components`,
-      ui: `${projectInfo.aliasPrefix}components/ui`,
-      hooks: `${projectInfo.aliasPrefix}hooks`,
-      lib: `${projectInfo.aliasPrefix}lib`,
-      utils: `${projectInfo.aliasPrefix}lib/utils`,
+      components: `${projectInfo.aliasPrefix}/components`,
+      ui: `${projectInfo.aliasPrefix}/components/ui`,
+      hooks: `${projectInfo.aliasPrefix}/hooks`,
+      lib: `${projectInfo.aliasPrefix}/lib`,
+      utils: `${projectInfo.aliasPrefix}/lib/utils`,
     },
   }
 

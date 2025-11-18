@@ -19,9 +19,23 @@ export const listCommand = buildCommand({
         optional: true,
         brief: 'Search components by name or description.',
       },
+      cwd: {
+        kind: 'parsed',
+        parse: String,
+        optional: true,
+        brief: 'The working directory. Defaults to the current directory.',
+      },
+    },
+    positional: {
+      kind: 'array',
+      parameter: {
+        parse: String,
+        brief: 'Registry namespace (e.g., @saas-ui or saas-ui)',
+      },
+      minimum: 0,
     },
   },
   docs: {
-    brief: 'List all available components.',
+    brief: 'List all available components from a registry.',
   },
 })

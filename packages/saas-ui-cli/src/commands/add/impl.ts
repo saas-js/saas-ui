@@ -7,6 +7,7 @@ import * as ERRORS from '#utils/errors'
 import { runInit } from '#commands/init/impl'
 import { preFlightAdd } from '#preflights/preflight-add'
 import { addComponents } from '#utils/add-components'
+import { getConfig } from '#utils/get-config.js'
 import { handleError } from '#utils/handle-error'
 import { highlighter } from '#utils/highlighter'
 import { logger } from '#utils/logger'
@@ -15,6 +16,7 @@ import { getRegistryIndex } from '#utils/registry'
 import type { LocalContext } from '../../context'
 
 export const addOptionsFlagsSchema = z.object({
+  // components: z.array(z.string()).optional(),
   yes: z.boolean(),
   overwrite: z.boolean(),
   cwd: z.string().optional(),
@@ -41,9 +43,17 @@ export async function add(
   ...components: Array<string>
 ): Promise<void> {
   try {
+    // allow namespaced components to be written without the @ prefix
+    const normalizedComponents = components.map((component) => {
+      if (component.includes('/') && !component.startsWith('@')) {
+        return `@${component}`
+      }
+      return component
+    })
+
     const parsedFlags = addOptionsSchema.parse({
       ...flags,
-      components: components ?? [],
+      components: normalizedComponents ?? [],
     })
 
     const options = {
@@ -51,13 +61,12 @@ export async function add(
       cwd: path.resolve(parsedFlags.cwd ?? process.cwd()),
     }
 
-    if (!options.components?.length) {
-      options.components = await promptForRegistryComponents(options)
-    }
-
-    /* @eslint-ignore: dont care about const here */
     const originalCwd = options.cwd
     const result = await preFlightAdd(options)
+
+    if (!options.components?.length) {
+      options.components = await promptForRegistryComponents(options, options)
+    }
 
     if (options.cwd !== originalCwd) {
       logger.info(
@@ -68,7 +77,6 @@ export async function add(
 
     let config = result.config
 
-    // No components.json file. Prompt the user to run init.
     if (result.errors[ERRORS.MISSING_CONFIG]) {
       const { proceed } = await prompts({
         type: 'confirm',
@@ -92,6 +100,7 @@ export async function add(
         skipPreflight: false,
         silent: true,
         isNewProject: false,
+        monorepo: false
       })
     }
 
@@ -110,7 +119,16 @@ export async function add(
 
 async function promptForRegistryComponents(
   options: z.infer<typeof addOptionsSchema>,
+  config: z.infer<typeof addOptionsFlagsSchema> & { cwd: string },
 ) {
+  const fullConfig = await getConfig(config.cwd)
+
+  if (!fullConfig) {
+    logger.break()
+    handleError(new Error('Failed to read config.'))
+    return []
+  }
+
   const registryIndex = await getRegistryIndex()
   if (!registryIndex) {
     logger.break()

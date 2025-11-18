@@ -1,11 +1,10 @@
 import fs from 'fs-extra'
 import path from 'path'
-import prompts from 'prompts'
 import type z from 'zod'
 
 import * as ERRORS from '#utils/errors'
 import type { initOptionsFlagsSchema } from '#commands/init/impl.js'
-import { getProjectInfo, getTsConfig } from '#utils/get-project-info'
+import { getProjectInfo } from '#utils/get-project-info'
 import { highlighter } from '#utils/highlighter'
 import { logger } from '#utils/logger'
 import { spinner } from '#utils/spinner'
@@ -83,89 +82,25 @@ export async function preFlightInit(
     silent: options.silent,
   }).start()
   if (!projectInfo?.aliasPrefix) {
+    errors[ERRORS.IMPORT_ALIAS_MISSING] = true
     tsConfigSpinner?.fail()
-    logger.break()
-    logger.warn(`No import alias found in your tsconfig.json file.`)
-    logger.break()
-
-    // Detect src directory
-    const hasSrcDir = await fs.pathExists(path.resolve(options.cwd, 'src'))
-    const basePath = hasSrcDir ? './src/*' : './*'
-
-    // Prompt user to create an alias
-    const { aliasPrefix } = await prompts({
-      type: 'select',
-      name: 'aliasPrefix',
-      message: `Which import alias would you like to use?`,
-      choices: [
-        {
-          title: highlighter.info('#*'),
-          description: `Maps to ${basePath}`,
-          value: '#*',
-        },
-        {
-          title: highlighter.info('@/*'),
-          description: `Maps to ${basePath}`,
-          value: '@/*',
-        },
-      ],
-      initial: 0,
-    })
-
-    if (!aliasPrefix) {
-      logger.break()
-      logger.error('Import alias is required to continue.')
-      logger.break()
-      process.exit(1)
-    }
-
-    // Update tsconfig.json
-    const tsconfigPath = path.resolve(options.cwd, 'tsconfig.json')
-    const tsconfig = await getTsConfig(options.cwd)
-
-    if (!tsconfig) {
-      logger.break()
-      logger.error('Unable to read tsconfig.json')
-      logger.break()
-      process.exit(1)
-    }
-
-    // Ensure compilerOptions and paths exist
-    if (!tsconfig.compilerOptions) {
-      tsconfig.compilerOptions = {}
-    }
-    if (!tsconfig.compilerOptions.paths) {
-      tsconfig.compilerOptions.paths = {}
-    }
-
-    // Add the alias to paths
-    tsconfig.compilerOptions.paths[aliasPrefix] = [basePath]
-
-    // Write back the tsconfig
-    await fs.writeJSON(tsconfigPath, tsconfig, { spaces: 2 })
-
-    // Run prettier on the tsconfig file
-    const { execa } = await import('execa')
-    try {
-      await execa('npx', ['prettier', '--write', tsconfigPath], {
-        cwd: options.cwd,
-      })
-    } catch (error) {
-      // Silently ignore if prettier fails
-    }
-
-    logger.break()
-    logger.success(
-      `Added ${highlighter.info(aliasPrefix)} to tsconfig.json paths.`,
-    )
-    logger.break()
-
-    tsConfigSpinner?.succeed()
   } else {
     tsConfigSpinner?.succeed()
   }
 
   if (Object.keys(errors).length > 0) {
+    if (errors[ERRORS.IMPORT_ALIAS_MISSING]) {
+      logger.break()
+      logger.error(`No import alias found in your tsconfig.json file.`)
+      if (projectInfo?.framework.links.installation) {
+        logger.error(
+          `Visit ${highlighter.info(
+            projectInfo?.framework.links.installation,
+          )} to learn how to set an import alias.`,
+        )
+      }
+    }
+
     logger.break()
     process.exit(1)
   }

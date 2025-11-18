@@ -7,8 +7,6 @@ import { detectMonorepo, hasMonorepoAliases } from '#utils/detect-monorepo'
 import { highlighter } from '#utils/highlighter'
 import { resolveImport } from '#utils/resolve-import'
 
-import { SYSTEMS } from './systems'
-
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
 export const DEFAULT_UTILS = '@/lib/utils'
@@ -22,10 +20,23 @@ const explorer = cosmiconfig('components', {
 export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
-    system: z.enum(Object.keys(SYSTEMS)).optional().default('chakra'),
+    system: z.string().optional().default('chakra'),
     style: z.string().optional().default('default'),
     rsc: z.coerce.boolean().default(false),
     tsx: z.coerce.boolean().default(true),
+    registries: z
+      .record(
+        z.string(),
+        z.union([
+          z.string(),
+          z.object({
+            url: z.string(),
+            headers: z.record(z.string(), z.string()).optional(),
+            params: z.record(z.string(), z.string()).optional(),
+          }),
+        ]),
+      )
+      .optional(),
     // theme: z.object({
     //   config: z.string(),
     // }),
@@ -35,16 +46,7 @@ export const rawConfigSchema = z
       ui: z.string().optional(),
       lib: z.string().optional(),
       hooks: z.string().optional(),
-      icons: z.string().optional(),
     }),
-    icons: z
-      .object({
-        outputDir: z.string().optional(),
-        defaultIconSet: z.string().optional(),
-        iconSize: z.string().optional(),
-        aliases: z.record(z.string(), z.string()).optional(),
-      })
-      .optional(),
   })
   .strict()
 
@@ -58,7 +60,6 @@ export const configSchema = rawConfigSchema.extend({
     lib: z.string(),
     hooks: z.string(),
     ui: z.string(),
-    icons: z.string(),
   }),
 })
 
@@ -121,12 +122,6 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
             await resolveAlias(config.aliases['components']),
             '..',
             'hooks',
-          ),
-      icons: config.aliases['icons']
-        ? await resolveAlias(config.aliases['icons'])
-        : path.resolve(
-            await resolveAlias(config.aliases['components']),
-            'icons',
           ),
     },
   })

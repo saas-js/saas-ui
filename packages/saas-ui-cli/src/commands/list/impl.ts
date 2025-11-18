@@ -1,8 +1,10 @@
 import Table from 'cli-table3'
 import kleur from 'kleur'
+import path from 'node:path'
 import z from 'zod'
 
 import type { LocalContext } from '#context'
+import { getConfig } from '#utils/get-config.js'
 import { handleError } from '#utils/handle-error'
 import { logger } from '#utils/logger'
 import { getRegistryIndex } from '#utils/registry'
@@ -10,23 +12,51 @@ import { getRegistryIndex } from '#utils/registry'
 const listOptionsSchema = z.object({
   category: z.string().optional(),
   search: z.string().optional(),
+  cwd: z.string().optional(),
 })
 
 type ListCommandFlags = z.infer<typeof listOptionsSchema>
 
-export async function list(this: LocalContext, flags: ListCommandFlags) {
+export async function list(
+  this: LocalContext,
+  flags: ListCommandFlags,
+  ...namespaces: Array<string>
+) {
   try {
+    const options = listOptionsSchema.parse({
+      ...flags,
+      cwd: path.resolve(flags.cwd ?? process.cwd()),
+    })
+
+    const config = await getConfig(options.cwd!)
+
+    if (!config) {
+      logger.error('Failed to fetch config.')
+      return
+    }
+
+    const namespace = namespaces?.[0]
+
+    const normalizedNamespace = namespace
+      ? namespace.startsWith('@')
+        ? namespace
+        : `@${namespace}`
+      : undefined
+
     const parsedFlags = listOptionsSchema.parse(flags)
-    const registryIndex = await getRegistryIndex()
+    const registryIndex = await getRegistryIndex(config, normalizedNamespace)
 
     if (!registryIndex) {
-      logger.error('Failed to fetch registry index.')
+      const namespaceMsg = normalizedNamespace
+        ? ` for namespace ${normalizedNamespace}`
+        : ''
+      logger.error(`Failed to fetch registry index${namespaceMsg}.`)
       return
     }
 
     const table = new Table({
-      head: ['Name', 'Category', 'Description'],
-      colWidths: [35, 15, 60],
+      head: ['Name', 'Category', 'type', 'Description'],
+      colWidths: [35, 15, 20, 50],
       style: {
         head: ['cyan'],
         border: ['gray'],
@@ -34,7 +64,7 @@ export async function list(this: LocalContext, flags: ListCommandFlags) {
     })
 
     let components = registryIndex.filter((component) =>
-      ['registry:ui', 'registry:block'].includes(component.type),
+      ['registry:block', 'registry:ui'].includes(component.type),
     )
 
     if (parsedFlags.category) {
@@ -71,13 +101,19 @@ export async function list(this: LocalContext, flags: ListCommandFlags) {
       table.push([
         name,
         component.subcategory || '-',
+        component.type || '-',
         component.description || '-',
       ])
     }
 
     logger.log('')
 
-    let title = 'Available Components:'
+    let title = 'Available Components'
+    if (normalizedNamespace) {
+      title += ` from ${kleur.cyan(normalizedNamespace)}`
+    }
+    title += ':'
+
     const filters = []
     if (parsedFlags.category) {
       filters.push(`subcategory: ${parsedFlags.category}`)
@@ -87,7 +123,8 @@ export async function list(this: LocalContext, flags: ListCommandFlags) {
     }
 
     if (filters.length > 0) {
-      title += ` (filtered by ${filters.join(', ')})`
+      title = title.slice(0, -1)
+      title += ` (filtered by ${filters.join(', ')}):`
     }
 
     logger.log(kleur.bold(title))

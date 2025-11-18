@@ -14,12 +14,11 @@ export const FRAMEWORKS = {
         'https://saas-ui.dev/docs/core/installation/nextjs-pages-guide',
     },
   },
-  'tanstack-start': {
-    name: 'tanstack-start',
+  remix: {
+    name: 'remix',
     label: 'Remix',
     links: {
-      installation:
-        'https://saas-ui.dev/docs/core/installation/tanstack-start-guide',
+      installation: 'https://saas-ui.dev/docs/core/installation/remix-guide',
     },
   },
   vite: {

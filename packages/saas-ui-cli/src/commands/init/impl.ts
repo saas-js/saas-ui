@@ -27,10 +27,12 @@ import { spinner } from '#utils/spinner'
 
 export const initOptionsFlagsSchema = z.object({
   cwd: z.string(),
+  // components: z.array(z.string()).optional(),
   yes: z.boolean(),
   defaults: z.boolean(),
   force: z.boolean(),
   silent: z.boolean(),
+  monorepo: z.boolean(),
 })
 
 type InitCommandFlags = z.infer<typeof initOptionsFlagsSchema>
@@ -45,7 +47,6 @@ type InitOptions = InitCommandFlagsWithComponents & {
   isNewProject?: boolean
   skipPreflight?: boolean
   name?: string
-  createMonorepo?: boolean
 }
 
 export async function init(
@@ -54,11 +55,19 @@ export async function init(
   ...components: Array<string>
 ): Promise<void> {
   try {
+    // allow namespaced components to be written without the @ prefix
+    const normalizedComponents = components.map((component) => {
+      if (component.includes('/') && !component.startsWith('@')) {
+        return `@${component}`
+      }
+      return component
+    })
+
     const options = initOptionsSchema.parse({
       ...flags,
       cwd: path.resolve(flags.cwd ?? process.cwd()),
       isNewProject: false,
-      components,
+      components: normalizedComponents,
     })
 
     const result = await runInit(options)
@@ -83,7 +92,7 @@ export async function init(
 export async function runInit(options: InitOptions): Promise<Config | null> {
   let projectInfo
 
-  if (options.createMonorepo) {
+  if (options.monorepo) {
     const { packageManager, version } = await getPackageManager(options.cwd)
 
     await createMonorepoProject({
@@ -97,7 +106,7 @@ export async function runInit(options: InitOptions): Promise<Config | null> {
 
     return null
   }
-
+  
   const packageJsonPath = path.resolve(options.cwd, 'package.json')
   const hasPackageJson = await fs
     .access(packageJsonPath)

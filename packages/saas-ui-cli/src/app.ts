@@ -10,6 +10,7 @@ import { diffCommand } from './commands/diff/command'
 import { initCommand } from './commands/init/command'
 import { listCommand } from './commands/list/command'
 import { loginCommand } from './commands/login/command'
+import { registryCommand } from './commands/registry/command'
 
 const routes = buildRouteMap({
   routes: {
@@ -18,6 +19,7 @@ const routes = buildRouteMap({
     add: addCommand,
     diff: diffCommand,
     list: listCommand,
+    registry: registryCommand,
     install: buildInstallCommand('cli', { bash: '__cli_bash_complete' }),
     uninstall: buildUninstallCommand('cli', { bash: true }),
   },

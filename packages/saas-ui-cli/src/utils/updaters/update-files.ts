@@ -1,8 +1,6 @@
-import { ensureFileSync } from 'fs-extra'
 import { existsSync, promises as fs } from 'node:fs'
 import path, { basename } from 'node:path'
 import prompts from 'prompts'
-import { Project } from 'ts-morph'
 
 import type { Config } from '#utils/get-config'
 import { getProjectInfo } from '#utils/get-project-info'
@@ -64,15 +62,6 @@ export async function updateFiles(
     }
 
     let targetDir = getRegistryItemFileTargetPath(file, config)
-
-    // support for nested files
-    if (file.path.startsWith(basename(targetDir))) {
-      targetDir = path.join(
-        targetDir,
-        path.dirname(file.path.replace(basename(targetDir), '')),
-      )
-    }
-
     const fileName = basename(file.path)
     let filePath = path.join(targetDir, fileName)
 
@@ -106,7 +95,6 @@ export async function updateFiles(
       filesCreatedSpinner?.start()
     }
 
-    // Create the target directory if it doesn't exist.
     if (!existsSync(targetDir)) {
       await fs.mkdir(targetDir, { recursive: true })
     }
@@ -143,11 +131,6 @@ export async function updateFiles(
       for (const file of filesCreated) {
         logger.log(`  - ${file}`)
       }
-    }
-
-    const createdIcons = filesCreated.filter((file) => file.includes('icons/'))
-    if (createdIcons.length) {
-      updateIconIndex(createdIcons, config)
     }
   } else {
     filesCreatedSpinner?.stop()
@@ -188,43 +171,4 @@ export async function updateFiles(
   if (!options.silent) {
     logger.break()
   }
-}
-
-async function updateIconIndex(createdIcons: string[], config: Config) {
-  const iconIndexPath = path.join(config.resolvedPaths.icons, 'index.ts')
-
-  if (!existsSync(iconIndexPath)) {
-    ensureFileSync(iconIndexPath)
-  }
-
-  const project = new Project()
-  const sourceFile = project.addSourceFileAtPath(iconIndexPath)
-
-  // Add export declarations for each new icon if not present
-  for (const icon of createdIcons) {
-    const fileName = basename(icon)
-
-    const exportName = fileName
-      .replace(/\.tsx$/, '')
-      .replace(/-([a-z])/g, (g) => g[1]!.toUpperCase())
-      .replace(/^./, (g) => g.toUpperCase())
-
-    const importPath = `./${fileName}`
-
-    // Check if already exported
-    if (
-      !sourceFile
-        .getExportDeclarations()
-        .some((decl) =>
-          decl.getNamedExports().some((ne) => ne.getName() === exportName),
-        )
-    ) {
-      sourceFile.addExportDeclaration({
-        moduleSpecifier: importPath,
-        namedExports: [exportName],
-      })
-    }
-  }
-
-  await sourceFile.save()
 }

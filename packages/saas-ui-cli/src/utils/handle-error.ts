@@ -17,8 +17,13 @@ export function handleError(error: unknown) {
 
   if (error instanceof z.ZodError) {
     logger.error('Validation failed:')
-    for (const [key, value] of Object.entries(error.flatten().fieldErrors)) {
-      logger.error(`- ${highlighter.info(key)}: ${value}`)
+    const obj = Object.entries(error.flatten().fieldErrors)
+    if (obj.length > 0) {
+      for (const [key, value] of obj) {
+        logger.error(`- ${highlighter.info(key)}: ${value}`)
+      }
+    } else {
+      logger.error(error.message)
     }
     logger.break()
     process.exit(1)

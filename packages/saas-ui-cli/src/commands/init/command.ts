@@ -33,6 +33,11 @@ export const initCommand = buildCommand({
         default: false,
         brief: 'Mute output.',
       },
+      monorepo: {
+        kind: 'boolean',
+        default: false,
+        brief: 'Create a monorepo project.',
+      },
     },
     positional: {
       kind: 'array',

@@ -1,6 +1,5 @@
 import { z } from 'zod'
 
-// TODO: Extract this to a shared package.
 export const registryItemTypeSchema = z.enum([
   'registry:style',
   'registry:lib',
@@ -11,7 +10,6 @@ export const registryItemTypeSchema = z.enum([
   'registry:hook',
   'registry:theme',
   'registry:page',
-  'registry:icon',
   'registry:story',
 ])
 

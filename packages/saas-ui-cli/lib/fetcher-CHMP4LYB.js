@@ -1,0 +1,2 @@
+import{k as a,l as b,m as c}from"./chunk-AKZB7BS6.js";import"./chunk-RIVI6ZUL.js";import"./chunk-FW7US4TT.js";export{a as clearRegistryCache,b as fetchRegistry,c as fetchRegistryLocal};
+//# sourceMappingURL=fetcher-CHMP4LYB.js.map

@@ -1,2 +1,0 @@
-import{a,b,c,d,e,f,g,h,i}from"./chunk-FW7US4TT.js";export{h as registryBaseColorSchema,f as registryIndexSchema,d as registryItemCssVarsSchema,b as registryItemFileSchema,e as registryItemSchema,c as registryItemTailwindSchema,a as registryItemTypeSchema,i as registryResolvedItemsTreeSchema,g as stylesSchema};
-//# sourceMappingURL=schema-2XK2VOQF.js.map

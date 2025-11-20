@@ -1,0 +1,1 @@
+import{a,b,c,d,e,f,g,h,i}from"./chunk-RWM7Q2YQ.js";export{h as registryBaseColorSchema,f as registryIndexSchema,d as registryItemCssVarsSchema,b as registryItemFileSchema,e as registryItemSchema,c as registryItemTailwindSchema,a as registryItemTypeSchema,i as registryResolvedItemsTreeSchema,g as stylesSchema};

@@ -392,6 +392,11 @@ export default function Page() {
         style: 'default',
         rsc: true,
         tsx: typescript,
+        registries: {
+          '@saas-ui': {
+            url: 'https://saas-ui.dev/r/styles/{style}/{name}.json',
+          },
+        },
         aliases: {
           components: '@/components',
           ui: '@repo/ui/components',
@@ -516,6 +521,11 @@ next-env.d.ts
         style: 'default',
         rsc: true,
         tsx: typescript,
+        registries: {
+          '@saas-ui': {
+            url: 'https://saas-ui.dev/r/styles/{style}/{name}.json',
+          },
+        },
         aliases: {
           components: '@repo/ui/components',
           ui: '@repo/ui/components/ui',

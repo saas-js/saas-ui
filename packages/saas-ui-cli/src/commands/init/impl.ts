@@ -4,7 +4,7 @@ import prompts from 'prompts'
 import { z } from 'zod'
 
 import * as ERRORS from '#utils/errors'
-import { SCHEMA_URL } from '#constants'
+import { REGISTRY_URL, SCHEMA_URL } from '#constants'
 import type { LocalContext } from '#context'
 import { preFlightInit } from '#preflights/preflight-init'
 import { addComponents } from '#utils/add-components'
@@ -106,7 +106,7 @@ export async function runInit(options: InitOptions): Promise<Config | null> {
 
     return null
   }
-  
+
   const packageJsonPath = path.resolve(options.cwd, 'package.json')
   const hasPackageJson = await fs
     .access(packageJsonPath)
@@ -265,6 +265,11 @@ async function promptForConfig(defaultConfig: Config | null = null) {
       lib: options.components.replace(/\/components$/, 'lib'),
       hooks: options.components.replace(/\/components$/, 'hooks'),
     },
+    registries: {
+      '@saas-ui': {
+        url: `${REGISTRY_URL}/r/styles/{style}/{name}.json`,
+      },
+    },
   })
 }
 
@@ -299,5 +304,10 @@ async function promptForMinimalConfig(
     rsc: defaultConfig?.rsc,
     tsx: defaultConfig?.tsx,
     aliases: defaultConfig?.aliases,
+    registries: {
+      '@saas-ui': {
+        url: `${REGISTRY_URL}/r/styles/{style}/{name}.json`,
+      },
+    },
   })
 }

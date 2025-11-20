@@ -31,6 +31,7 @@ __snapshots__
 .DS_Store
 *.pem
 tsconfig.tsbuildinfo
+apps/my-app
 
 # debug
 npm-debug.log*

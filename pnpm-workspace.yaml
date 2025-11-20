@@ -1,6 +1,7 @@
 packages:
   - apps/website
   - apps/compositions
+  - apps/my-app
   - packages/storybook
   - packages/pro/packages/*
   - packages/saas-ui-*

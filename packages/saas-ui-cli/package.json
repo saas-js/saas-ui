@@ -30,7 +30,6 @@
     "build": "dotenvx run -f .env -- tsup",
     "dev": "dotenvx run -f .env -- tsup --watch",
     "prepublishOnly": "npm run build",
-    "postinstall": "sui install",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

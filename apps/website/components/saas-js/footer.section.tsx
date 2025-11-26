@@ -26,22 +26,22 @@ const linkTree = [
   {
     title: 'Products',
     items: [
-      { label: 'Next.js starter kit', href: '/' },
       {
         label: 'Tanstack Start starter kit',
         href: '/tanstack-start',
       },
+      { label: 'Next.js starter kit', href: '/' },
       {
         label: 'Drizzle CRUD',
         href: '/docs/drizzle-crud',
       },
       {
         label: 'Slingshot',
-        href: '/docs/file-upload',
+        href: '/docs/slingshot',
       },
       {
-        label: 'Iconify CLI',
-        href: '/docs/iconify-cli',
+        label: 'Iconx',
+        href: '/docs/iconx',
       },
     ],
   },

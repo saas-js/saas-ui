@@ -17,7 +17,8 @@ npm install @saas-js/slingshot @saas-js/slingshot-react
 
 ### Configure Slingshot server
 
-Create a Slingshot server handler, this will be used create presigned URLs for a specific upload profile, eg `avatar`.
+Create a Slingshot server handler, this will be used create presigned URLs for a
+specific upload profile, eg `avatar`.
 
 ```ts title="lib/slingshot/avatar.ts"
 export const slingshot = createSlingshotServer({
@@ -95,8 +96,9 @@ export function Page() {
 
 To handle the upload requests, you need to mount the handlers.
 
-Create a new route in your framework that will handle the upload requests.
-The route path should start with `/api/slingshot/` and include the profile name, eg `/api/slingshot/avatar`.
+Create a new route in your framework that will handle the upload requests. The
+route path should start with `/api/slingshot/` and include the profile name, eg
+`/api/slingshot/avatar`.
 
 <Callout>
   The Slingshot server runs on `Hono` and supports any framework that supports
@@ -162,7 +164,9 @@ export const slingshot = createSlingshotServer({
 
 ### Done!
 
-Now you're ready to upload files! Continue to the [Basic usage](/docs/file-upload/getting-started/basic-usage) section to learn more.
+Now you're ready to upload files! Continue to the
+[Basic usage](/docs/slingshot/getting-started/basic-usage) section to learn
+more.
 
   </Step>
 </Steps>

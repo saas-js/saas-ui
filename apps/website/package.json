@@ -29,6 +29,8 @@
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.0",
     "@saas-js/iconify": "^0.0.5",
+    "@saas-js/slingshot": "^0.2.0",
+    "@saas-js/slingshot-react": "^0.1.0",
     "@saas-ui/assets": "workspace:*",
     "@saas-ui/chakra-preset": "workspace:*",
     "@saas-ui/cli": "workspace:*",
@@ -71,7 +73,8 @@
     "three": "^0.180.0",
     "unist-util-visit": "5.0.0",
     "use-mask-input": "^3.5.2",
-    "zod": "^4.1.11"
+    "zod": "^4.1.11",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@content-collections/core": "^0.11.1",

@@ -3,9 +3,12 @@ title: File Upload
 description: Full-stack React file upload components
 ---
 
-Slingshot is a full-stack file upload component with support for drag-and-drop, progress bars, and more. Fully composable and compatible with any styling library.
+Slingshot is a full-stack file upload component with support for drag-and-drop,
+progress bars, and more. Fully composable and compatible with any styling
+library.
 
-Upload files fast and securely to any S3-compatible storage with a simple API that runs on any Javascript server runtime.
+Upload files fast and securely to any S3-compatible storage with a simple API
+that runs on any Javascript server runtime.
 
 ## Example (Next.js)
 
@@ -29,42 +32,42 @@ export default function Page() {
   </Tab>
   <Tab value="components/file-upload.tsx">
 ```tsx
-import { FileUpload } from '@saas-js/slingshot-react'
+import { FileUpload as FileUploadPrimitive } from '@saas-js/slingshot-react'
 
 import { Button } from '@/components/button'
 import { Progress } from '@/components/progress'
 
 export const FileUpload = (props: Omit<FileUpload.RootProps, 'children'>) => {
   return (
-    <FileUpload.Root {...props}>
-      <FileUpload.Context>
+    <FileUploadPrimitive.Root {...props}>
+      <FileUploadPrimitive.Context>
         {(api) => {
           const files = api.slingshot.getFiles()
 
           return (
             <>
-              <FileUpload.Dropzone>
-                <FileUpload.Label>
+              <FileUploadPrimitive.Dropzone>
+                <FileUploadPrimitive.Label>
                   Drag your file(s) here
-                </FileUpload.Label>
+                </FileUploadPrimitive.Label>
 
-                <FileUpload.Trigger asChild>
+                <FileUploadPrimitive.Trigger asChild>
                   <Button>Choose file(s)</Button>
-                </FileUpload.Trigger>
-              </FileUpload.Dropzone>
+                </FileUploadPrimitive.Trigger>
+              </FileUploadPrimitive.Dropzone>
 
-              <FileUpload.ItemGroup>
+              <FileUploadPrimitive.ItemGroup>
                 {files.map((file) => {
                   return (
-                    <FileUpload.Item
+                    <FileUploadPrimitive.Item
                       key={file.name}
                       file={file.data}
                     >
-                      <FileUpload.ItemPreview type="image/*">
-                        <FileUpload.ItemPreviewImage />
-                      </FileUpload.ItemPreview>
-                      <FileUpload.ItemName />
-                      <FileUpload.ItemSizeText />
+                      <FileUploadPrimitive.ItemPreview type="image/*">
+                        <FileUploadPrimitive.ItemPreviewImage />
+                      </FileUploadPrimitive.ItemPreview>
+                      <FileUploadPrimitive.ItemName />
+                      <FileUploadPrimitive.ItemSizeText />
 
                       <div>
                         {file.progress &&
@@ -78,23 +81,22 @@ export const FileUpload = (props: Omit<FileUpload.RootProps, 'children'>) => {
                         {file.status === 'done' ? 'Done' : null}
                       </div>
 
-                      <FileUpload.ItemDeleteTrigger>
+                      <FileUploadPrimitive.ItemDeleteTrigger>
                         ✕
-                      </FileUpload.ItemDeleteTrigger>
-                    </FileUpload.Item>
+                      </FileUploadPrimitive.ItemDeleteTrigger>
+                    </FileUploadPrimitive.Item>
                   )
                 })}
-              </FileUpload.ItemGroup>
+              </FileUploadPrimitive.ItemGroup>
 
-              <FileUpload.HiddenInput />
+              <FileUploadPrimitive.HiddenInput />
             </>
           )
         }}
-      </FileUpload.Context>
-    </FileUpload.Root>
+      </FileUploadPrimitive.Context>
+    </FileUploadPrimitive.Root>
 
-)
-}
+) }
 
 ````
   </Tab>
@@ -140,7 +142,8 @@ npm install @saas-js/slingshot @saas-js/slingshot-react
 
 This library would not be possible without the following libraries:
 
-- [Slingshot for Meteor.js](https://github.com/CulturalMe/meteor-slingshot) the original inspiration for this library.
+- [Slingshot for Meteor.js](https://github.com/CulturalMe/meteor-slingshot) the
+  original inspiration for this library.
 - [Ark UI](https://ark-ui.com/) for the React components.
 - [Shadcn](https://ui.shadcn.com/) for the component registry and CLI.
 

@@ -4,6 +4,9 @@ import { FooterSection } from '@/components/site/footer.section'
 import { HeaderSection } from '@/components/site/header.section'
 import { Stack } from '@saas-ui/react'
 
+import { ThemePanel } from '#components/theme/theme-panel'
+import { ThemeProvider } from '#components/theme/theme-provider'
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Stack
@@ -17,9 +20,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         },
       }}
     >
-      <HeaderSection />
-      {children}
-      <FooterSection />
+      <ThemeProvider>
+        <ThemePanel />
+        <HeaderSection />
+        {children}
+        <FooterSection />
+      </ThemeProvider>
     </Stack>
   )
 }

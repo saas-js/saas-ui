@@ -18,6 +18,11 @@ const nextConfig = {
         destination: '/docs/getting-started/introduction',
         permanent: true,
       },
+      {
+        source: '/docs/iconify-cli',
+        destination: '/docs/iconx',
+        permanent: true,
+      },
     ]
   },
   webpack: (config) => {

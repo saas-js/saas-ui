@@ -1,11 +1,12 @@
 ---
 title: Configuration
-description: Configure @saas-js/iconify with icons.json
+description: Configure Iconx with icons.json
 ---
 
 # Configuration
 
-@saas-js/iconify uses an `icons.json` configuration file to store project settings. This file is created automatically when you run `icons init`.
+Iconx uses an `icons.json` configuration file to store project settings. This
+file is created automatically when you run `icons init`.
 
 ## Configuration File
 
@@ -27,6 +28,7 @@ The configuration file uses a JSON schema for validation and IDE support:
   "$schema": "https://saas-js.dev/icons/schema.json",
   "outputDir": "/src/components/icons",
   "defaultIconSet": "lucide",
+  "generateIndex": true,
   "iconSize": "1em",
   "aliases": {}
 }
@@ -39,7 +41,8 @@ The configuration file uses a JSON schema for validation and IDE support:
 **Type:** `string`  
 **Default:** `"/src/components/icons"`
 
-Directory where icon components will be generated, relative to your project root.
+Directory where icon components will be generated, relative to your project
+root.
 
 ```json
 {
@@ -51,7 +54,7 @@ Directory where icon components will be generated, relative to your project root
 
 ```json
 {
-  "outputDir": "./components/icons"    // Relative path
+  "outputDir": "./components/icons" // Relative path
 }
 ```
 
@@ -63,7 +66,7 @@ Directory where icon components will be generated, relative to your project root
 
 ```json
 {
-  "outputDir": "./src/assets/icons"    // Alternative location
+  "outputDir": "./src/assets/icons" // Alternative location
 }
 ```
 
@@ -81,6 +84,7 @@ Default icon set to use when not specified in commands.
 ```
 
 **Popular options:**
+
 - `"lucide"` - Modern, clean icons
 - `"heroicons"` - Tailwind CSS icons
 - `"tabler"` - Free SVG icons
@@ -108,25 +112,38 @@ Default size for generated icons. Can be overridden at runtime.
 
 ```json
 {
-  "iconSize": "16px"    // Pixels
+  "iconSize": "16px" // Pixels
 }
 ```
 
 ```json
 {
-  "iconSize": "1.5rem"  // Rem units
+  "iconSize": "1.5rem" // Rem units
 }
 ```
 
 ```json
 {
-  "iconSize": 24        // Number (pixels)
+  "iconSize": 24 // Number (pixels)
 }
 ```
 
 ```json
 {
-  "iconSize": "2em"     // Em units
+  "iconSize": "2em" // Em units
+}
+```
+
+### `generateIndex`
+
+**Type:** `boolean`  
+**Default:** `false`
+
+Whether to generate an index file (barrel file) that exports all icons.
+
+```json
+{
+  "generateIndex": true
 }
 ```
 
@@ -150,6 +167,7 @@ Icon name aliases for better naming conventions.
 **How it works:**
 
 When you run `icons add house`, it will:
+
 1. Fetch the `house` icon from the API
 2. Generate a component named `home-icon.tsx` (using the alias)
 3. Export `HomeIcon` component
@@ -162,6 +180,7 @@ When you run `icons add house`, it will:
   "outputDir": "./src/components/icons",
   "defaultIconSet": "lucide",
   "iconSize": "20px",
+  "generateIndex": true,
   "aliases": {
     "house": "home",
     "cog": "settings",
@@ -298,19 +317,20 @@ icons add --set fa-brands github twitter linkedin
 
 ## Configuration Validation
 
-The configuration file is validated against a JSON schema. Common validation errors:
+The configuration file is validated against a JSON schema. Common validation
+errors:
 
 ### Invalid Output Directory
 
 ```json
 {
-  "outputDir": "src/icons"  // ❌ Missing leading slash or dot
+  "outputDir": "src/icons" // ❌ Missing leading slash or dot
 }
 ```
 
 ```json
 {
-  "outputDir": "./src/icons"  // ✅ Correct relative path
+  "outputDir": "./src/icons" // ✅ Correct relative path
 }
 ```
 
@@ -318,7 +338,7 @@ The configuration file is validated against a JSON schema. Common validation err
 
 ```json
 {
-  "defaultIconSet": "invalid-set"  // ❌ Icon set doesn't exist
+  "defaultIconSet": "invalid-set" // ❌ Icon set doesn't exist
 }
 ```
 
@@ -326,13 +346,13 @@ The configuration file is validated against a JSON schema. Common validation err
 
 ```json
 {
-  "iconSize": "invalid"  // ❌ Invalid size format
+  "iconSize": "invalid" // ❌ Invalid size format
 }
 ```
 
 ```json
 {
-  "iconSize": "16px"  // ✅ Valid size
+  "iconSize": "16px" // ✅ Valid size
 }
 ```
 
@@ -354,6 +374,7 @@ Add to your `.vscode/settings.json`:
 ```
 
 This provides:
+
 - Auto-completion for configuration options
 - Validation and error highlighting
 - Hover documentation
@@ -368,7 +389,7 @@ WebStorm automatically detects the schema from the `$schema` field.
 
 ```json
 {
-  "outputDir": "./src/components/icons"  // ✅ Consistent with project structure
+  "outputDir": "./src/components/icons" // ✅ Consistent with project structure
 }
 ```
 
@@ -376,7 +397,7 @@ WebStorm automatically detects the schema from the `$schema` field.
 
 ```json
 {
-  "defaultIconSet": "lucide"  // ✅ Stick to one set for consistency
+  "defaultIconSet": "lucide" // ✅ Stick to one set for consistency
 }
 ```
 
@@ -385,9 +406,9 @@ WebStorm automatically detects the schema from the `$schema` field.
 ```json
 {
   "aliases": {
-    "house": "home",           // ✅ Clear mapping
-    "cog": "settings",         // ✅ Better name
-    "user-circle": "profile"   // ✅ More descriptive
+    "house": "home", // ✅ Clear mapping
+    "cog": "settings", // ✅ Better name
+    "user-circle": "profile" // ✅ More descriptive
   }
 }
 ```
@@ -405,23 +426,7 @@ WebStorm automatically detects the schema from the `$schema` field.
 }
 ```
 
-## Migration
-
-### From v0.0.1 to v0.0.2
-
-If you're upgrading from an older version:
-
-1. Update the schema URL:
-   ```json
-   {
-     "$schema": "https://saas-js.dev/icons/schema.json"
-   }
-   ```
-
-2. Check for new configuration options in the documentation
-
 ## Next Steps
 
-- [CLI Reference](/docs/saas-js-iconify/reference/cli) - Complete command reference
-- [Icon Sets](/docs/saas-js-iconify/reference/icon-sets) - Browse available icon sets
-- [TypeScript](/docs/saas-js-iconify/reference/typescript) - TypeScript integration
+- [CLI Reference](/docs/iconx/reference/cli) - Complete command reference
+- [Icon Sets](/docs/iconx/reference/icon-sets) - Browse available icon sets

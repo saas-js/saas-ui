@@ -1,6 +1,6 @@
 ---
 title: Basic Usage
-description: Learn how to use @saas-js/iconify to generate React icon components
+description: Learn how to use Iconx to generate React icon components
 ---
 
 # Basic Usage
@@ -46,8 +46,8 @@ After adding icons, you can import and use them in your React components:
 
 ```tsx
 import { HomeIcon } from './components/icons/home-icon'
-import { UserIcon } from './components/icons/user-icon'
 import { SettingsIcon } from './components/icons/settings-icon'
+import { UserIcon } from './components/icons/user-icon'
 
 function Navigation() {
   return (
@@ -74,13 +74,13 @@ function Navigation() {
 All generated components accept standard SVG props plus a `size` prop:
 
 ```tsx
-<HomeIcon 
-  size="24px"                    // Size (string or number)
-  className="text-gray-500"      // CSS classes
-  onClick={handleClick}          // Event handlers
-  fill="currentColor"            // SVG attributes
+<HomeIcon
+  size="24px" // Size (string or number)
+  className="text-gray-500" // CSS classes
+  onClick={handleClick} // Event handlers
+  fill="currentColor" // SVG attributes
   stroke="none"
-  {...otherProps}               // Any other SVG props
+  {...otherProps} // Any other SVG props
 />
 ```
 
@@ -101,21 +101,35 @@ The `size` prop accepts various formats:
 ### Navigation Menu
 
 ```tsx
-import { HomeIcon, UserIcon, SettingsIcon, LogOutIcon } from './components/icons'
+import {
+  HomeIcon,
+  LogOutIcon,
+  SettingsIcon,
+  UserIcon,
+} from './components/icons'
 
 function Sidebar() {
   return (
     <aside className="w-64 bg-gray-100">
       <nav className="p-4 space-y-2">
-        <a href="/dashboard" className="flex items-center gap-3 p-2 rounded hover:bg-gray-200">
+        <a
+          href="/dashboard"
+          className="flex items-center gap-3 p-2 rounded hover:bg-gray-200"
+        >
           <HomeIcon size="20px" />
           Dashboard
         </a>
-        <a href="/profile" className="flex items-center gap-3 p-2 rounded hover:bg-gray-200">
+        <a
+          href="/profile"
+          className="flex items-center gap-3 p-2 rounded hover:bg-gray-200"
+        >
           <UserIcon size="20px" />
           Profile
         </a>
-        <a href="/settings" className="flex items-center gap-3 p-2 rounded hover:bg-gray-200">
+        <a
+          href="/settings"
+          className="flex items-center gap-3 p-2 rounded hover:bg-gray-200"
+        >
           <SettingsIcon size="20px" />
           Settings
         </a>
@@ -132,7 +146,7 @@ function Sidebar() {
 ### Icon Buttons
 
 ```tsx
-import { PlusIcon, EditIcon, TrashIcon } from './components/icons'
+import { EditIcon, PlusIcon, TrashIcon } from './components/icons'
 
 function ActionButtons() {
   return (
@@ -154,7 +168,11 @@ function ActionButtons() {
 ### Status Indicators
 
 ```tsx
-import { CheckCircleIcon, XCircleIcon, AlertCircleIcon } from './components/icons'
+import {
+  AlertCircleIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+} from './components/icons'
 
 function StatusMessage({ type, message }) {
   const configs = {
@@ -180,7 +198,7 @@ You can specify a custom output directory:
 
 ```bash
 # Custom directory for this command
-icons add --set lucide --outdir ./src/assets/icons home user
+npx iconx add --set lucide --outdir ./src/assets/icons home user
 
 # Or update your icons.json
 {
@@ -194,27 +212,27 @@ icons add --set lucide --outdir ./src/assets/icons home user
 ### Lucide Icons
 
 ```bash
-icons add --set lucide home user settings mail search
+npx iconx add --set lucide home user settings mail search
 ```
 
 ### Heroicons
 
 ```bash
-icons add --set heroicons home user cog envelope magnifying-glass
+npx iconx add --set heroicons home user cog envelope magnifying-glass
 ```
 
 ### Tabler Icons
 
 ```bash
-icons add --set tabler home user settings mail search
+npx iconx add --set tabler home user settings mail search
 ```
 
 ### Font Awesome
 
 ```bash
-icons add --set fa-solid home user cog envelope search
-icons add --set fa-regular heart star
-icons add --set fa-brands github twitter
+npx iconx add --set fa-solid home user cog envelope search
+npx iconx add --set fa-regular heart star
+npx iconx add --set fa-brands github twitter
 ```
 
 ## Best Practices
@@ -223,16 +241,16 @@ icons add --set fa-brands github twitter
 
 ```bash
 # Good: Use consistent icon names across sets
-icons add --set lucide home user settings
-icons add --set heroicons home user cog  # 'cog' instead of 'settings'
+npx iconx add --set lucide home user settings
+npx iconx add --set heroicons home user cog  # 'cog' instead of 'settings'
 ```
 
 ### 2. Organize by Feature
 
 ```bash
 # Add icons for specific features together
-icons add --set lucide mail mail-open send reply reply-all  # Email feature
-icons add --set lucide user user-plus user-minus user-check  # User management
+npx iconx add --set lucide mail mail-open send reply reply-all  # Email feature
+npx iconx add --set lucide user user-plus user-minus user-check  # User management
 ```
 
 ### 3. Set Default Icon Set
@@ -246,7 +264,7 @@ icons add --set lucide user user-plus user-minus user-check  # User management
 Then you can omit the `--set` flag:
 
 ```bash
-icons add home user settings
+npx iconx add home user settings
 ```
 
 ### 4. Use Aliases for Better Names
@@ -263,11 +281,12 @@ icons add home user settings
 
 ```bash
 # This generates home-icon.tsx instead of house-icon.tsx
-icons add house
+npx iconx add house
 ```
 
 ## Next Steps
 
-- [CLI Reference](/docs/saas-js-iconify/reference/cli) - Complete command reference
-- [Configuration](/docs/saas-js-iconify/reference/configuration) - Detailed configuration options
-- [Icon Sets](/docs/saas-js-iconify/reference/icon-sets) - Browse available icon sets
+- [CLI Reference](/docs/iconx/reference/cli) - Complete command reference
+- [Configuration](/docs/iconx/reference/configuration) - Detailed configuration
+  options
+- [Icon Sets](/docs/iconx/reference/icon-sets) - Browse available icon sets

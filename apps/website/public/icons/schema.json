@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/your-org/iconify-react/main/icons.schema.json",
+  "title": "Iconify React Configuration",
+  "description": "Configuration schema for iconify-react package",
+  "type": "object",
+  "properties": {
+    "outputDir": {
+      "type": "string",
+      "description": "Output directory for generated icon components",
+      "default": "/src/components/icons",
+      "examples": ["/src/components/icons", "./components/icons", "/app/icons"]
+    },
+    "defaultIconSet": {
+      "type": "string",
+      "description": "Default icon set to use when not specified",
+      "default": "lucide",
+      "examples": ["lucide", "heroicons", "tabler", "feather", "phosphor"]
+    },
+    "iconSize": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Default icon size as a string value",
+          "pattern": "^\\d+(\\.\\d+)?(px|em|rem|%|vw|vh)$",
+          "examples": ["1em", "16px", "1.5rem", "24px"]
+        },
+        {
+          "type": "number",
+          "description": "Default icon size as a number (pixels)",
+          "minimum": 1,
+          "examples": [16, 24, 32]
+        }
+      ],
+      "default": "1em"
+    },
+    "aliases": {
+      "type": "object",
+      "description": "Icon name aliases mapping (actual icon name -> alias)",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Alias name for the icon"
+      },
+      "examples": [
+        {
+          "house": "home",
+          "cog": "settings",
+          "user": "profile"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "outputDir": "/src/components/icons",
+      "defaultIconSet": "lucide",
+      "iconSize": "1em",
+      "aliases": {
+        "house": "home",
+        "cog": "settings"
+      }
+    }
+  ]
+}

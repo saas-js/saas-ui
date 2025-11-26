@@ -1,5 +1,12 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-next.4
+
+### Patch Changes
+
+- a14347d: Fixed tooltip border contrast
+- a14347d: Fixed segment control indicator position
+
 ## 3.0.0-next.3
 
 ### Patch Changes

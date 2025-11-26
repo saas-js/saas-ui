@@ -1,5 +1,11 @@
 # @saas-ui/core
 
+## 3.0.0-next.12
+
+### Patch Changes
+
+- a14347d: Mobile sidebar now closes when clicking nav buttons
+
 ## 3.0.0-next.11
 
 ### Patch Changes

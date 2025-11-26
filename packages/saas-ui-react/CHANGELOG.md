@@ -1,5 +1,15 @@
 # @saas-ui/react
 
+## 3.0.0-next.49
+
+### Patch Changes
+
+- Updated dependencies [a14347d]
+- Updated dependencies [a14347d]
+- Updated dependencies [a14347d]
+  - @saas-ui/chakra-preset@3.0.0-next.4
+  - @saas-ui/core@3.0.0-next.12
+
 ## 3.0.0-next.48
 
 ### Patch Changes

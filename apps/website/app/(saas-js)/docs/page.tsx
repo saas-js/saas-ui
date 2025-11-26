@@ -50,7 +50,7 @@ export default function Page() {
                 <Link href="/docs/slingshot">Slingshot</Link>
               </List.Item>
               <List.Item>
-                <Link href="/docs/iconify-cli">Iconify CLI</Link>
+                <Link href="/docs/iconx">Iconx</Link>
               </List.Item>
             </List.Root>
           </Stack>

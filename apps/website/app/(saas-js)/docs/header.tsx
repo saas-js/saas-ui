@@ -241,10 +241,10 @@ const HeaderDesktopNavbar = () => {
               <Link href="/docs/drizzle-crud">Drizzle CRUD</Link>
             </Menu.Item>
             <Menu.Item value="slingshot" asChild>
-              <Link href="/docs/file-upload">File Upload</Link>
+              <Link href="/docs/slingshot">Slingshot</Link>
             </Menu.Item>
-            <Menu.Item value="iconify-cli" asChild>
-              <Link href="/docs/iconify-cli">Iconify CLI</Link>
+            <Menu.Item value="iconx" asChild>
+              <Link href="/docs/iconx">Iconx</Link>
             </Menu.Item>
           </HoverMenu>
         </HStack>

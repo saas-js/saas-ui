@@ -213,8 +213,20 @@ export const SidebarNavButton = forwardRef<
 >((props, ref) => {
   const { children, active, ...rest } = props
 
+  const { setOpenMobile, isMobile } = useSidebar()
+
   return (
-    <sui.div ref={ref} data-active={dataAttr(active)} role="button" {...rest}>
+    <sui.div
+      ref={ref}
+      data-active={dataAttr(active)}
+      role="button"
+      {...rest}
+      onClick={callAll(props.onClick, (e) => {
+        if (!e.defaultPrevented && isMobile) {
+          setOpenMobile(false)
+        }
+      })}
+    >
       {children}
     </sui.div>
   )

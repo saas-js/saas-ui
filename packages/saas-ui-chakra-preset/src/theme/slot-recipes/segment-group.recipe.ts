@@ -71,6 +71,7 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       height: 'var(--height)',
       top: 'var(--top)',
       left: 'var(--left)',
+      transform: 'translate3d(-1px, -1px, 0)',
       zIndex: -1,
       borderRadius: 'var(--segment-radius)',
       boxShadow: '0 0 0 1px {colors.border.emphasized}',

@@ -210,6 +210,12 @@ importers:
       '@saas-js/iconify':
         specifier: ^0.0.5
         version: 0.0.5
+      '@saas-js/slingshot':
+        specifier: ^0.2.0
+        version: 0.2.0
+      '@saas-js/slingshot-react':
+        specifier: ^0.1.0
+        version: 0.1.0(@ark-ui/react@5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@saas-ui/assets':
         specifier: workspace:*
         version: link:../../packages/saas-ui-assets
@@ -272,7 +278,7 @@ importers:
         version: 9.0.1
       hono:
         specifier: ^4.10.3
-        version: 4.10.3
+        version: 4.10.6
       match-sorter:
         specifier: 8.1.0
         version: 8.1.0
@@ -339,6 +345,9 @@ importers:
       zod:
         specifier: ^4.1.11
         version: 4.1.11
+      zustand:
+        specifier: ^5.0.8
+        version: 5.0.8(@types/react@19.2.0)(immer@10.1.3)(react@19.2.0)(use-sync-external-store@1.6.0(react@19.2.0))
     devDependencies:
       '@content-collections/core':
         specifier: ^0.11.1
@@ -914,7 +923,7 @@ importers:
         version: 3.2.2(react@19.1.1)
       '@zag-js/core':
         specifier: ^1.5.0
-        version: 1.26.4
+        version: 1.28.0
     devDependencies:
       react:
         specifier: 19.1.1
@@ -1025,10 +1034,10 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: ^1.19.5
-        version: 1.19.5(hono@4.10.3)
+        version: 1.19.5(hono@4.10.6)
       hono:
         specifier: ^4.10.2
-        version: 4.10.3
+        version: 4.10.6
       lodash.template:
         specifier: ^4.5.0
         version: 4.5.0
@@ -1262,7 +1271,7 @@ importers:
         version: 7.28.5(@babel/core@7.28.5)
       '@hono/node-server':
         specifier: ^1.14.0
-        version: 1.19.5(hono@4.10.3)
+        version: 1.19.5(hono@4.10.6)
       '@saas-js/iconify':
         specifier: ^0.0.3
         version: 0.0.3
@@ -1301,7 +1310,7 @@ importers:
         version: 11.3.2
       hono:
         specifier: ^4.7.5
-        version: 4.10.3
+        version: 4.10.6
       https-proxy-agent:
         specifier: ^7.0.6
         version: 7.0.6
@@ -3451,6 +3460,12 @@ packages:
     peerDependencies:
       hono: ^4
 
+  '@hono/zod-validator@0.4.3':
+    resolution: {integrity: sha512-xIgMYXDyJ4Hj6ekm9T9Y27s080Nl9NXHcJkOvkXPhubOLj8hZkOL8pDnnXfvCf5xEE8Q4oMFenQUZZREUY2gqQ==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      zod: ^3.19.1
+
   '@hookform/resolvers@5.2.2':
     resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
     peerDependencies:
@@ -4841,6 +4856,16 @@ packages:
   '@saas-js/iconify@0.0.5':
     resolution: {integrity: sha512-whnf0bD6fMX3wrFsJxORk/+AfHoZwcmQkYRP/exVS/WAWElOrsWCbNvk6+LI6ZTgcv2s/lP1eTFuhrl1MgfWkQ==}
     hasBin: true
+
+  '@saas-js/slingshot-react@0.1.0':
+    resolution: {integrity: sha512-IRc/sNOmOh5TvTFzSMmRh7J7cxIO0H7RPt8DZOOnO98NxzYH/QX1wJkiZ4HqPbuW6jx9t5YOz5xYheAxvhlugA==}
+    peerDependencies:
+      '@ark-ui/react': '>=5.28.0'
+      react: '>=19.2.0'
+      react-dom: '>=19.2.0'
+
+  '@saas-js/slingshot@0.2.0':
+    resolution: {integrity: sha512-OxAF1VhYkrpq+/GsOBnLIyYuINk8W1401uwuYBpIRZ2Dln4JcXgOcVgG56tKg5RaaQ28BVMDO0i8r318rgmiLQ==}
 
   '@saas-ui-pro/onboarding@1.0.0-next.0':
     resolution: {integrity: sha512-R9M/pcv9s+lK0he2HljjYHUisD7+c+9gF4+szqdpvIPrLVSAhhvxrpoMf6VapovfnWo4waElLV10zvqpfiMPAQ==}
@@ -6396,6 +6421,9 @@ packages:
   '@zag-js/anatomy@1.26.3':
     resolution: {integrity: sha512-2HL+BDX05zRtctKwrSlYEtxeLdiJZIV5SbEpqTNvbNJ9aZNxHKgg0ciEi0bYZe8qJ70TqfNfwWb2xwRamzedhg==}
 
+  '@zag-js/anatomy@1.28.0':
+    resolution: {integrity: sha512-H6CeknEMXbv2AKMuOZ2JA43eaHEBcaVwfWLQ0VfNyHdHfvLhzzA8WhbQ/svItVziNo/qsQNeTt0NnWJ846mhgw==}
+
   '@zag-js/angle-slider@1.21.7':
     resolution: {integrity: sha512-D4mbQVtvNfmHik87VhxPEXC1SHB373EfHDA7aO26/u823sl6LgdbfK8dzf/vF42sfLaFrpFxyULdMEwSXulg1Q==}
 
@@ -6525,8 +6553,8 @@ packages:
   '@zag-js/core@1.26.3':
     resolution: {integrity: sha512-NU/uBGEFE5kUDJfvayZuPom/mcvJjjIytBclIO4/dCt1IBo+C1ETbpQjG/RgpfmSjfAs2G/9pQgdqobakyWU2A==}
 
-  '@zag-js/core@1.26.4':
-    resolution: {integrity: sha512-6pqLD/RlPLV0U+Zvw1JLp1aRMfujt5c4+K5FqDNEsGDlDkP8b/n89TADuhgloFeUlfYgHzXCHTO7UHDrNKY5dQ==}
+  '@zag-js/core@1.28.0':
+    resolution: {integrity: sha512-ERj8KB0Ak8uucUPHO1xVKKQ6ssFMFaeEPa/ZeRXbOqW+8p8UNC5M82WQSc+70SomxP9uY4xlK41JHlgR/6gEIQ==}
 
   '@zag-js/date-picker@1.21.7':
     resolution: {integrity: sha512-STMxblsONzYzvaRFCkeNIQCEDSEFix9D9gLTqCdSrG7fmhjoKz1lIGpRCTj20hlwhPn6J6B0cwxcocdZxxaLUA==}
@@ -6591,8 +6619,8 @@ packages:
   '@zag-js/dom-query@1.26.3':
     resolution: {integrity: sha512-ZI/EzpWRDFjeSuXiHuCHwFUtFXX7ZNiBiOnsqR5AnbQSTEvYv+Oo803RRuQ+zHDpGSFyYluSnT00/zt4vskXDQ==}
 
-  '@zag-js/dom-query@1.26.4':
-    resolution: {integrity: sha512-Yxovh/S/9V/SLZvDwXxLXjsjRjLDHFHSgwsZh7dk7WFqDbnrQPY96rK8+Khd4EI2dMLdhmZM3AEU2IuKWKe2yQ==}
+  '@zag-js/dom-query@1.28.0':
+    resolution: {integrity: sha512-CtFprtg0TYEDfkAJuMG2uAcoWaQ0tU0P565HRduIOoGfNnCnhMuEP5MdNOSmL8MCa5VGY48bpirPGu38BPiPmA==}
 
   '@zag-js/dom-utils@0.2.4':
     resolution: {integrity: sha512-GSGZWZMOyed2rzyZLmnM6/B8L7FH2z2cAU6F2zP4MzaIFkVOSN/M8fHjvKfmfVpn0tZEyD3iZABsUMv6J22RPw==}
@@ -6615,6 +6643,9 @@ packages:
   '@zag-js/file-upload@1.26.3':
     resolution: {integrity: sha512-SAifHG71HmRyAUHlqj50xjMr0Ua0uDp8qOucgr7kP2xQvxp8ETfJ5LXrvf+IWv67bF4GmXgIH5Tn7OVEY6ETWQ==}
 
+  '@zag-js/file-upload@1.28.0':
+    resolution: {integrity: sha512-quuIXdzO6gOo2blqR7ip0GWpzhwKdmO6jX4qoitfzedqOTqd8wWmv2FSBNAU0SBNQo7unt6yQOGo9jLvml7qpA==}
+
   '@zag-js/file-utils@1.21.7':
     resolution: {integrity: sha512-cT4Z+W3iQ7kjOeuC8ASvgrgyrePtkWvy3daMZBrkJALS/pU6TCTsS8qm8u/3bjb/GzKLxxsi4UccMrxCAmXgIQ==}
 
@@ -6623,6 +6654,9 @@ packages:
 
   '@zag-js/file-utils@1.26.3':
     resolution: {integrity: sha512-chXv4dL4SeBdGuNvHlPRZDDsIqRZ1YHAX7kHTZhQbp8iqXSZR/XCnwnQg93b7pb6rG9P8oN+f/pYAuKfrulXbA==}
+
+  '@zag-js/file-utils@1.28.0':
+    resolution: {integrity: sha512-wC5z7Ebp2/nwl2kkFSpOo7RifzS5W1IS2ekca6in2I7zk0c/i8MFZeKQxPYvcY1eP/d08/iNe4NytOdNR2Iz3A==}
 
   '@zag-js/floating-panel@1.21.7':
     resolution: {integrity: sha512-dhK3hrugUVHoDS5Y27RLAn1dNrsOw2CTA0U6RWGx7oedzM20/PqO/DTuU/F+7gtbteLmW98PvXBRbV2uPyJTJA==}
@@ -6677,6 +6711,9 @@ packages:
 
   '@zag-js/i18n-utils@1.26.3':
     resolution: {integrity: sha512-wFCVuUK3/GjOryQYPbsQMKlE7LX2sFgU0JccbzrvvKLe1fBCznESWrYjPd93hA+Dm6myQYQa9maxnJ2HiVB4vA==}
+
+  '@zag-js/i18n-utils@1.28.0':
+    resolution: {integrity: sha512-mZQkMmDGnnGp+byKih/+a2b2qkDHQv2H9nzz/UgIDVigpk3Zmo4uz4Tmf5nNoq5qm0HEp4uV/Q1OIxKmlL+wIg==}
 
   '@zag-js/interact-outside@1.21.7':
     resolution: {integrity: sha512-Kyk1NiezatK8JXrTnErCtj3T2/VD+VgtntXbMQyaxd181KIHaeE9kcV7Y+FhGJ4XOCOeIm4C1Irn1gGo7IJwmQ==}
@@ -6840,6 +6877,12 @@ packages:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
+  '@zag-js/react@1.28.0':
+    resolution: {integrity: sha512-SJj2DosMnp6sH4FYhjuUAmgMFjP/BGHrLsYGXxv3ewRD0sLSlfZ7KnKhpbyl+8Sl1NQ3LiRShLn6BH1/ZOKSiw==}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+
   '@zag-js/rect-utils@1.21.7':
     resolution: {integrity: sha512-KTgUksXH3TlC2sLl5np8bhPQp2P7x+qPj8CHQg2xwA4e9XkjwI29mXOZlz1Ww3uj1yNBabomBsIQpPQJW+Jf+g==}
 
@@ -6929,6 +6972,9 @@ packages:
 
   '@zag-js/store@1.26.3':
     resolution: {integrity: sha512-mDBylMkKKobJTUCJmuLDRzZsDRBkwQFcjlyCFQa9fLAjVhfCkF2Y3lAp3MuyqeJa+c7X3BbkXDD/kL2UoiTFMg==}
+
+  '@zag-js/store@1.28.0':
+    resolution: {integrity: sha512-NdwHRMeiEafWGWb/XYfxCShHErNZXHgUvzEv+Jg1P9pf4H0cl8qzz2SRf0CdeJv2BMZQ58dXlqZi0CKKMgrIuA==}
 
   '@zag-js/switch@1.21.7':
     resolution: {integrity: sha512-DWfiKm7qp6HZZGn3VWEvsB2sWJ539sBPzpETEG/QGgcrSNxlFjM09/p94ROw+WIazxQAJXvi6erkvPXUdgnzpg==}
@@ -7043,8 +7089,8 @@ packages:
   '@zag-js/types@1.26.3':
     resolution: {integrity: sha512-fJf2CgNLQuaFCRZzwGP69vWdFPc1bd1sPngzrYxIfT9SpIRFcBUrBa3p8hXlXg3EScx4O8qC0PrMe9NasUXV1Q==}
 
-  '@zag-js/types@1.26.4':
-    resolution: {integrity: sha512-vmuC9fYJeM8dbwk+dxfdX6cFPnJsPVgQGIUJATbbp+S46JyOuJV4T3ERYX3TxBEdsgoKjWD1i1OQWWc3Nywtjg==}
+  '@zag-js/types@1.28.0':
+    resolution: {integrity: sha512-EsvZsPa/2I+68Q4xmKDxa1ZstaQCODNBN420EOAu50UyS846UTwz6ytN+2AD1iz86AXtMPShkb3O1aSv//itIA==}
 
   '@zag-js/utils@1.21.7':
     resolution: {integrity: sha512-XARSLvc/W/3EGJ+q203ulcvFWCCebLu2wvBNZwSLtL1Zk/9TpmmPXye3/m6GYMeo5vVOrVM/qJ/653PnJFJSYw==}
@@ -7055,8 +7101,8 @@ packages:
   '@zag-js/utils@1.26.3':
     resolution: {integrity: sha512-C5PlGTVfuMYc/GydvyIyxjSoHib9ZNcinLoucZaRjXF4l6ClDPIlujXc11//XZ0EajpxOKNhfjP9m9stj5Vk0A==}
 
-  '@zag-js/utils@1.26.4':
-    resolution: {integrity: sha512-IwfMUrTZA31I2c/Oomqwqo0HoSZUVvwIejCpPvITiqtB+HZ4rmNHhSbRgz5+llsOiuBfnQ5SJvQCD4MKOHMA3w==}
+  '@zag-js/utils@1.28.0':
+    resolution: {integrity: sha512-0p3yVHCq7nhhQIntQEYwE0AJ5Pzbgu9UAZrnTZZsFlRlqXQPnR3HGx/UmanH8w12ZtXlEzrXqWUEggDDHX48lg==}
 
   '@zxing/text-encoding@0.9.0':
     resolution: {integrity: sha512-U/4aVJ2mxI0aDNI8Uq0wEhMgY+u4CNtEb0om3+y3+niDAsoTCOB33UF0sxpzqzdqXLqmvc+vZyAt4O8pPdfkwA==}
@@ -9223,8 +9269,8 @@ packages:
   hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
 
-  hono@4.10.3:
-    resolution: {integrity: sha512-2LOYWUbnhdxdL8MNbNg9XZig6k+cZXm5IjHn2Aviv7honhBMOHb+jxrKIeJRZJRmn+htUCKhaicxwXuUDlchRA==}
+  hono@4.10.6:
+    resolution: {integrity: sha512-BIdolzGpDO9MQ4nu3AUuDwHZZ+KViNm+EZ75Ae55eMXMqLVhDFqEMXxtUe9Qh8hjL+pIna/frs2j6Y2yD5Ua/g==}
     engines: {node: '>=16.9.0'}
 
   hookable@5.5.3:
@@ -15988,9 +16034,14 @@ snapshots:
       '@content-collections/mdx': 0.2.2(@content-collections/core@0.11.1(typescript@5.9.3))(acorn@8.15.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       fumadocs-core: 16.0.3(@tanstack/react-router@1.133.28(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@types/react@19.2.0)(lucide-react@0.544.0(react@19.2.0))(next@15.5.6(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-router@7.9.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
 
-  '@hono/node-server@1.19.5(hono@4.10.3)':
+  '@hono/node-server@1.19.5(hono@4.10.6)':
     dependencies:
-      hono: 4.10.3
+      hono: 4.10.6
+
+  '@hono/zod-validator@0.4.3(hono@4.10.6)(zod@3.25.76)':
+    dependencies:
+      hono: 4.10.6
+      zod: 3.25.76
 
   '@hookform/resolvers@5.2.2(react-hook-form@7.63.0(react@19.1.1))':
     dependencies:
@@ -17766,6 +17817,23 @@ snapshots:
       zod: 3.25.76
     transitivePeerDependencies:
       - supports-color
+
+  '@saas-js/slingshot-react@0.1.0(@ark-ui/react@5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+    dependencies:
+      '@ark-ui/react': 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@saas-js/slingshot': 0.2.0
+      '@zag-js/react': 1.28.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
+
+  '@saas-js/slingshot@0.2.0':
+    dependencies:
+      '@hono/zod-validator': 0.4.3(hono@4.10.6)(zod@3.25.76)
+      '@zag-js/core': 1.28.0
+      '@zag-js/file-upload': 1.28.0
+      '@zag-js/utils': 1.28.0
+      hono: 4.10.6
+      zod: 3.25.76
 
   '@saas-ui-pro/onboarding@1.0.0-next.0(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
@@ -20010,6 +20078,8 @@ snapshots:
 
   '@zag-js/anatomy@1.26.3': {}
 
+  '@zag-js/anatomy@1.28.0': {}
+
   '@zag-js/angle-slider@1.21.7':
     dependencies:
       '@zag-js/anatomy': 1.21.7
@@ -20325,10 +20395,10 @@ snapshots:
       '@zag-js/dom-query': 1.26.3
       '@zag-js/utils': 1.26.3
 
-  '@zag-js/core@1.26.4':
+  '@zag-js/core@1.28.0':
     dependencies:
-      '@zag-js/dom-query': 1.26.4
-      '@zag-js/utils': 1.26.4
+      '@zag-js/dom-query': 1.28.0
+      '@zag-js/utils': 1.28.0
 
   '@zag-js/date-picker@1.21.7(@internationalized/date@3.8.2)':
     dependencies:
@@ -20455,9 +20525,9 @@ snapshots:
     dependencies:
       '@zag-js/types': 1.26.3
 
-  '@zag-js/dom-query@1.26.4':
+  '@zag-js/dom-query@1.28.0':
     dependencies:
-      '@zag-js/types': 1.26.4
+      '@zag-js/types': 1.28.0
 
   '@zag-js/dom-utils@0.2.4':
     dependencies:
@@ -20520,6 +20590,16 @@ snapshots:
       '@zag-js/types': 1.26.3
       '@zag-js/utils': 1.26.3
 
+  '@zag-js/file-upload@1.28.0':
+    dependencies:
+      '@zag-js/anatomy': 1.28.0
+      '@zag-js/core': 1.28.0
+      '@zag-js/dom-query': 1.28.0
+      '@zag-js/file-utils': 1.28.0
+      '@zag-js/i18n-utils': 1.28.0
+      '@zag-js/types': 1.28.0
+      '@zag-js/utils': 1.28.0
+
   '@zag-js/file-utils@1.21.7':
     dependencies:
       '@zag-js/i18n-utils': 1.21.7
@@ -20531,6 +20611,10 @@ snapshots:
   '@zag-js/file-utils@1.26.3':
     dependencies:
       '@zag-js/i18n-utils': 1.26.3
+
+  '@zag-js/file-utils@1.28.0':
+    dependencies:
+      '@zag-js/i18n-utils': 1.28.0
 
   '@zag-js/floating-panel@1.21.7':
     dependencies:
@@ -20637,6 +20721,10 @@ snapshots:
   '@zag-js/i18n-utils@1.26.3':
     dependencies:
       '@zag-js/dom-query': 1.26.3
+
+  '@zag-js/i18n-utils@1.28.0':
+    dependencies:
+      '@zag-js/dom-query': 1.28.0
 
   '@zag-js/interact-outside@1.21.7':
     dependencies:
@@ -21061,6 +21149,15 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
+  '@zag-js/react@1.28.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+    dependencies:
+      '@zag-js/core': 1.28.0
+      '@zag-js/store': 1.28.0
+      '@zag-js/types': 1.28.0
+      '@zag-js/utils': 1.28.0
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
+
   '@zag-js/rect-utils@1.21.7': {}
 
   '@zag-js/rect-utils@1.24.2': {}
@@ -21256,6 +21353,10 @@ snapshots:
       proxy-compare: 3.0.1
 
   '@zag-js/store@1.26.3':
+    dependencies:
+      proxy-compare: 3.0.1
+
+  '@zag-js/store@1.28.0':
     dependencies:
       proxy-compare: 3.0.1
 
@@ -21571,7 +21672,7 @@ snapshots:
     dependencies:
       csstype: 3.1.3
 
-  '@zag-js/types@1.26.4':
+  '@zag-js/types@1.28.0':
     dependencies:
       csstype: 3.1.3
 
@@ -21581,7 +21682,7 @@ snapshots:
 
   '@zag-js/utils@1.26.3': {}
 
-  '@zag-js/utils@1.26.4': {}
+  '@zag-js/utils@1.28.0': {}
 
   '@zxing/text-encoding@0.9.0':
     optional: true
@@ -24242,7 +24343,7 @@ snapshots:
     dependencies:
       react-is: 16.13.1
 
-  hono@4.10.3: {}
+  hono@4.10.6: {}
 
   hookable@5.5.3: {}
 

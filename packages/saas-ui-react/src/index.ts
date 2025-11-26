@@ -56,6 +56,8 @@ export type {
 export { SuiProvider, SuiContext, useLink, useSui } from './provider/index.ts'
 export type { SuiContextValue, SuiProviderProps } from './provider/index.ts'
 
+export { Theme, type ThemeProps } from './components/theme/index.ts'
+
 export { Accordion } from './components/accordion/index.ts'
 export { ActionBar } from './components/action-bar/index.ts'
 export { Alert, type AlertProps } from './components/alert/index.ts'
@@ -360,5 +362,3 @@ export {
   useLocaleContext,
   useFilter,
 } from '@chakra-ui/react/locale'
-
-export { Theme } from '@chakra-ui/react'

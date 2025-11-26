@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/your-org/iconify-react/main/icons.schema.json",
-  "title": "Iconify React Configuration",
-  "description": "Configuration schema for iconify-react package",
+  "title": "Iconx",
+  "description": "Configuration schema for Iconx",
   "type": "object",
   "properties": {
     "outputDir": {

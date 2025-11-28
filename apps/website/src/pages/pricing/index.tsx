@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   Center,
+  Code,
   Container,
   Icon,
   IconButton,
@@ -40,7 +41,15 @@ import { Faq } from '@/components/faq'
 import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { Br, CheckIcon } from '@saas-ui/react'
+import {
+  Banner,
+  BannerContent,
+  BannerDescription,
+  BannerIcon,
+  BannerTitle,
+  Br,
+  CheckIcon,
+} from '@saas-ui/react'
 import CodePanel from '@/components/code-panel/code-panel'
 import { FiCheck, FiCopy } from 'react-icons/fi'
 
@@ -248,6 +257,55 @@ const Pricing = () => {
               to get all components and features with a license for you or your
               team.
             </Text>
+          </Box>
+
+          <Box
+            display="flex"
+            flex="1"
+            p={[0, null, 10]}
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="2xl"
+          >
+            <Banner
+              display="flex"
+              bg={useColorModeValue('white', 'gray.900')}
+              colorScheme="purple"
+              backgroundClip="padding-box"
+              borderRadius="full"
+              borderWidth="2px"
+              borderColor="transparent"
+              position="relative"
+              py="2"
+              px="3"
+              overflow="visible"
+              transitionProperty="common"
+              transitionDuration="normal"
+              boxShadow="lg"
+              _before={{
+                content: `""`,
+                position: 'absolute',
+                zIndex: -1,
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                borderRadius: 'inherit',
+                margin: '-2px',
+                bgGradient: 'linear(to-r, purple.500, cyan.500)',
+              }}
+              _hover={{
+                boxShadow: 'sm',
+              }}
+            >
+              <BannerIcon boxSize="14px" />
+              <BannerContent fontSize="sm">
+                <BannerTitle>30% off while v3 is in beta</BannerTitle>
+                <BannerDescription display={{ base: 'none', md: 'block' }}>
+                  Use code <strong>V3BETA</strong>
+                </BannerDescription>
+              </BannerContent>
+            </Banner>
           </Box>
         </VStack>
 

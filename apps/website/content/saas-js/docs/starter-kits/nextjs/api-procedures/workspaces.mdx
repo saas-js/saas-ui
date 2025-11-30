@@ -15,10 +15,10 @@ Create a new workspace.
 
 ```typescript
 // Client components
-const { data } = api.workspaces.create.useMutation()
+const { data } = useMutation(trpc.workspaces.create.mutationOptions())
 
 // Server components
-const data = await api.workspaces.create()
+const data = await caller.workspaces.create()
 ```
 
 ### Check if slug is available
@@ -29,24 +29,25 @@ Check if a workspace slug is available.
 
 ```typescript
 // Client components
-const { data } = api.workspaces.slugAvailable.useQuery({ slug: 'my-workspace' })
+const { data } = useQuery(trpc.workspaces.slugAvailable.queryOptions({ slug: 'my-workspace' }))
 
 // Server components
-const data = await api.workspaces.slugAvailable({ slug: 'my-workspace' })
+const data = await caller.workspaces.slugAvailable({ slug: 'my-workspace' })
 ```
 
 ### Get workspace by slug
 
-Get a workspace by its slug and returns the workspace details, subscription, members and tags.
+Get a workspace by its slug and returns the workspace details, subscription,
+members and tags.
 
 - Access: `@member`
 
 ```typescript
 // Client components
-const { data } = api.workspaces.get.useQuery({ slug: 'my-workspace' })
+const { data } = useQuery(trpc.workspaces.get.queryOptions({ slug: 'my-workspace' }))
 
 // Server components
-const data = await api.workspaces.get({ slug: 'my-workspace' })
+const data = await caller.workspaces.get({ slug: 'my-workspace' })
 ```
 
 ### Update workspace
@@ -57,8 +58,8 @@ Update a workspace.
 
 ```typescript
 // Client components
-const { data } = api.workspaces.update.useMutation()
+const { mutate } = useMutation(trpc.workspaces.update.mutationOptions())
 
 // Server components
-const data = await api.workspaces.update()
+const data = await caller.workspaces.update()
 ```

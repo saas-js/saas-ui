@@ -15,35 +15,40 @@ Returns the available billing plans that can be subscribed to.
 
 ```typescript
 // Client components
-const { data } = api.billing.plans.useQuery()
+const { data } = useQuery(trpc.billing.plans.queryOptions())
 
 // Server components
-const data = await api.billing.plans()
+const data = await caller.billing.plans()
 ```
 
 ### Get the billing account
 
-Returns the billing account, containing the billing email and current subscription.
+Returns the billing account, containing the billing email and current
+subscription.
 
 - Access: `@admin`
 
 ```typescript
 // Client components
-const { data } = api.billing.account.useQuery()
+const { data } = useQuery(trpc.billing.account.queryOptions())
 
 // Server components
-const data = await api.billing.account()
+const data = await caller.billing.account()
 ```
 
 ### Update the billing account
 
-Updates the billing email of the account and syncs the data with the billing provider (Stripe).
+Updates the billing email of the account and syncs the data with the billing
+provider (Stripe).
 
 - Access: `@admin`
 
 ```typescript
 // Client components
-const { mutate } = api.billing.updateBillingDetails.useMutation()
+const { mutate } = useMutation(
+  trpc.billing.updateBillingDetails.mutationOptions(),
+)
+
 mutate({
   input: {
     email: '',
@@ -51,7 +56,7 @@ mutate({
 })
 
 // Server components
-const data = await api.billing.updateBillingDetails({
+const data = await caller.billing.updateBillingDetails({
   input: {
     email: '',
   },

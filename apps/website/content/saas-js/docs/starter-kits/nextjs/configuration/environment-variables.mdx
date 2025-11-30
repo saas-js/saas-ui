@@ -1,10 +1,12 @@
 ---
 title: Environment variables
-description: How to configure environment variables in the Saas UI Next.js starter kit.
+description:
+  How to configure environment variables in the Saas UI Next.js starter kit.
 ---
 
-The Saas UI Next.js starter kit uses environment variables to configure the application.
-This allows you to separate configuration from your codebase and keep sensitive information secure.
+The Saas UI Next.js starter kit uses environment variables to configure the
+application. This allows you to separate configuration from your codebase and
+keep sensitive information secure.
 
 ## Configuration
 
@@ -15,11 +17,13 @@ This allows you to separate configuration from your codebase and keep sensitive 
   but we believe it is the better/safer approach.
 </Info>
 
-Environment variables should always be configured using your CI/CD provider. For example, GitHub Actions, Vercel, etc. Never store secrets in your repository.
+Environment variables should always be configured using your CI/CD provider. For
+example, GitHub Actions, Vercel, etc. Never store secrets in your repository.
 
-Run `yarn turbo gen env` to generate a new .env file.
+Run `pnpm init:env` to generate a new .env file.
 
-Alternatively, you can copy the `.env.example` file to `.env` and fill in the values.
+Alternatively, you can copy the `.env.example` file to `.env` and fill in the
+values.
 
 <Info status="warning">
   The `gen` command will create a symlink from `.env` to `apps/web/.env`. This
@@ -65,10 +69,12 @@ STRIPE_WEBHOOK_SECRET=
 
 ## Using environment variables
 
-All environment variables are defined using a Zod schema in `packages/env/env.ts`.
-This allows us to validate the environment variables and give us type-safety / auto-completion in our codebase.
+All environment variables are defined using a Zod schema in
+`packages/env/env.ts`. This allows us to validate the environment variables and
+give us type-safety / auto-completion in our codebase.
 
-You can import environment variables from `env`, only `NEXT_PUBLIC_` prefixed variables are exposed to the client.
+You can import environment variables from `env`, only `NEXT_PUBLIC_` prefixed
+variables are exposed to the client.
 
 ```ts
 import { env } from 'env'

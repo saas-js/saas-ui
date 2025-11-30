@@ -15,10 +15,10 @@ Create a new tag in the workspace.
 
 ```typescript
 // Client components
-const { data } = api.tags.create.useMutation()
+const { data } = useMutation(trpc.tags.create.mutationOptions())
 
 // Server components
-const data = await api.tags.create()
+const data = await caller.tags.create()
 ```
 
 ### Update a tag
@@ -29,10 +29,10 @@ Update a tag in the workspace.
 
 ```typescript
 // Client components
-const { data } = api.tags.update.useMutation()
+const { data } = useMutation(trpc.tags.update.mutationOptions())
 
 // Server components
-const data = await api.tags.update()
+const data = await caller.tags.update()
 ```
 
 ### Delete a tag
@@ -43,8 +43,8 @@ Delete a tag in the workspace.
 
 ```typescript
 // Client components
-const { data } = api.tags.delete.useMutation()
+const { data } = useMutation(trpc.tags.delete.mutationOptions())
 
 // Server components
-const data = await api.tags.delete()
+const data = await caller.tags.delete()
 ```

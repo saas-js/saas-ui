@@ -5,28 +5,36 @@ description: Learn how to call queries and mutations in your app.
 
 ## Overview
 
-There are two ways to call procedures. In client components we use the `useQuery` and `useMutation` hooks to call the procedures.
+There are two ways to call procedures. In client components we use the
+`useQuery`, 'useSuspenseQuery' and `useMutation` hooks to call the procedures.
 On the server we use the `trpc` api caller to call the procedures directly.
 
 ## Client
 
-The client uses [Tanstack Query](https://tanstack.com/query/latest) to manage data fetching and caching.
+The client uses [Tanstack Query](https://tanstack.com/query/latest) to manage
+data fetching and caching.
 
 ### useQuery
 
 ```tsx
 'use client'
 
-import { api } from '#lib/trpc/react'
+import { useQuery } from '@tanstack/react-query'
+
+import { useTRPC } from '#lib/trpc/react'
 
 export function ContactPage(props: {
   params: {
     id: string
   }
 }) {
-  const { data, isLoading } = api.contacts.byId.useQuery({
-    id,
-  })
+  const trpc = useTRPC()
+
+  const { data, isLoading } = useQuery(
+    trpc.contacts.byId.queryOptions({
+      id: props.params.id,
+    }),
+  )
 
   // render the page
 }
@@ -34,19 +42,23 @@ export function ContactPage(props: {
 
 ### useSuspenseQuery
 
-`useSuspenseQuery` is very useful as it guarantees data to be defined, so you don't have to check for `isLoading` for conditional rendering.
-It also enables you use Next.js streaming to render the page as soon as the data is available.
+`useSuspenseQuery` is very useful as it guarantees data to be defined, so you
+don't have to check for `isLoading` for conditional rendering. It also enables
+you use Next.js streaming to render the page as soon as the data is available.
 
 ```tsx
 // in a server component, eg page or layout
 import { Suspense } from 'react'
-import { api, HydrateClient } from '#lib/trpc/rsc'
+
 import { ContactPage } from '#components/contact-page'
+import { HydrateClient, prefetch, trpc } from '#lib/trpc/rsc'
 
 export default async function Page(params: { id: string }) {
-  api.contacts.byId.prefetch({
-    id: params.id,
-  })
+  prefetch(
+    trpc.contacts.byId.queryOptions({
+      id: params.id,
+    }),
+  )
 
   return (
     <HydrateClient>
@@ -60,12 +72,16 @@ export default async function Page(params: { id: string }) {
 
 ```tsx
 // in a client component
-import { api } from '#lib/trpc/react'
+import { useTRPC } from '#lib/trpc/react'
 
 export function ContactPage(props: { id: string }) {
-  const [data] = api.contacts.byId.useSuspenseQuery({
-    id,
-  })
+  const trpc = useTRPC()
+
+  const { data } = useSuspenseQuery(
+    trpc.contacts.byId.queryOptions({
+      id,
+    }),
+  )
 
   return <div>{data.name}</div>
 }
@@ -76,19 +92,28 @@ export function ContactPage(props: { id: string }) {
 ```tsx
 'use client'
 
-import { api } from '#lib/trpc/react'
+import { useAuth } from '@saas-ui/auth-provider'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+
+import { useTRPC } from '#lib/trpc/react'
 
 export default function ProfilePage() {
   const { user } = useAuth()
 
-  const utils = api.useUtils()
+  const trpc = useTRPC()
 
-  const mutation = api.users.updateProfile.useMutation({
-    onSettled: () => {
-      // Invalidate the user cache, so the updated user is refetched
-      utils.users.invalidate()
-    },
-  })
+  const queryClient = useQueryClient()
+
+  const mutation = useMutation(
+    trpc.users.updateProfile.mutationOptions({
+      onSettled: () => {
+        // Invalidate the user cache, so the updated user is refetched
+        queryClient.invalidateQueries({
+          queryKey: trpc.users.updateProfile.queryKey(),
+        })
+      },
+    }),
+  )
 
   return (
     <button

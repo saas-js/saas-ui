@@ -3,4 +3,30 @@ title: 'Seed data'
 description: 'Learn how to seed data into your database'
 ---
 
-TBD
+For demo and testing purposes, you can seed the database with some test data
+using the following command:
+
+```bash
+pnpm db:seed
+```
+
+After the script is finished it will print the created users credentials. You
+can use these credentials to log in to the application.
+
+## Reset database
+
+To reset the database and seed it with new data, run the following command:
+
+```bash
+pnpm db:seed --reset
+```
+
+This will drop all tables and re-run all migrations.
+
+## Customize user account
+
+You can customize the user account creation with the following parameters:
+
+```bash
+pnpm db:seed --email=demo@example.com --password=demo12345
+```

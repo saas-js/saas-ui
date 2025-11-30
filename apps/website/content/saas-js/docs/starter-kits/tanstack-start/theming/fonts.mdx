@@ -3,7 +3,8 @@ title: Fonts
 description: How to configure fonts in TanStack Router starter kit.
 ---
 
-Saas UI Pro uses `Inter` as the default font, but you can easily change it to any other font.
+Saas UI Pro uses `Inter` as the default font, but you can easily change it to
+any other font.
 
 ## Installation
 
@@ -17,30 +18,33 @@ To install a different font, you can use Font Source.
 ### Font source
 
 ```bash
-cd apps/web && yarn add @fontsource-variable/montserrat
+cd apps/web && pnpm add @fontsource-variable/montserrat
 ```
 
 Next import it in your root layout.
 
 ```tsx
 // apps/web/app/routes/__root.tsx
-
 import '@fontsource-variable/montserrat'
+
 //....
 ```
 
 And update your theme to use the new font.
 
 ```ts
-// packages/theme/src/theme.ts
+// packages/theme/src/preset.ts
 
-export const theme = extendTheme(
-  {
+export const config = defineConfig({
+  theme: {
     fonts: {
-      heading: 'Montserrat Variable, sans-serif',
-      body: 'Montserrat Variable, sans-serif',
+      heading: {
+        value: 'Montserrat Variable, sans-serif',
+      },
+      body: {
+        value: 'Montserrat Variable, sans-serif',
+      },
     },
   },
-  baseTheme
-)
+})
 ```

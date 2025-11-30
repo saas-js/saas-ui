@@ -13,14 +13,14 @@ Used to check if a workspace invitation token is valid.
 
 ```typescript
 // Client components
-const { data } = api.workspaceMembers.invitation.useQuery({
+const { data } = useQuery(trpc.workspaceMembers.invitation.queryOptions({
   input: {
     token: '',
   },
 })
 
 // Server components
-const data = await api.workspaceMembers.invitation({
+const data = await caller.workspaceMembers.invitation({
   input: {
     token: '',
   },
@@ -33,14 +33,14 @@ List all members of a workspace.
 
 ```typescript
 // Client components
-const { data } = api.workspaceMembers.list.useQuery({
+const { data } = useQuery(trpc.workspaceMembers.list.queryOptions({
   input: {
     workspaceId: '',
   },
-})
+}))
 
 // Server components
-const data = await api.workspaceMembers.list({
+const data = await caller.workspaceMembers.list({
   input: {
     workspaceId: '',
   },
@@ -53,16 +53,16 @@ Invite people to join a workspace.
 
 ```typescript
 // Client components
-const { data } = api.workspaceMembers.invite.useMutation({
+const { data } = useMutation(trpc.workspaceMembers.invite.mutationOptions({
   input: {
     workspaceId: '',
     emails: [],
     role: 'member',
   },
-})
+}))
 
 // Server components
-const data = await api.workspaceMembers.invite({
+const data = await caller.workspaceMembers.invite({
   input: {
     workspaceId: '',
     emails: [],
@@ -77,14 +77,14 @@ Accept a workspace invitation.
 
 ```typescript
 // Client components
-const { data } = api.workspaceMembers.accept.useMutation({
+const { data } = useMutation(trpc.workspaceMembers.accept.mutationOptions({
   input: {
     token: '',
   },
-})
+}))
 
 // Server components
-const data = await api.workspaceMembers.accept({
+const data = await caller.workspaceMembers.accept({
   input: {
     token: '',
   },
@@ -97,15 +97,15 @@ Remove a member from a workspace.
 
 ```typescript
 // Client components
-const { data } = api.workspaceMembers.remove.useMutation({
+const { data } = useMutation(trpc.workspaceMembers.remove.mutationOptions({
   input: {
     workspaceId: '',
     userId: '',
   },
-})
+}))
 
 // Server components
-const data = await api.workspaceMembers.remove({
+const data = await caller.workspaceMembers.remove({
   input: {
     workspaceId: '',
     userId: '',
@@ -119,16 +119,16 @@ Update the roles of a member in a workspace.
 
 ```typescript
 // Client components
-const { data } = api.workspaceMembers.updateRoles.useMutation({
+const { data } = useMutation(trpc.workspaceMembers.updateRoles.mutationOptions({
   input: {
     workspaceId: '',
     userId: '',
     roles: ['admin'],
   },
-})
+}))
 
 // Server components
-const data = await api.workspaceMembers.updateRoles({
+const data = await caller.workspaceMembers.updateRoles({
   input: {
     workspaceId: '',
     userId: '',
@@ -143,14 +143,14 @@ Get the notification settings of a member in a workspace.
 
 ```typescript
 // Client components
-const { data } = api.workspaceMembers.getNotificationSettings.useQuery({
+const { data } = useQuery(trpc.workspaceMembers.getNotificationSettings.queryOptions({
   input: {
     workspaceId: '',
   },
-})
+}))
 
 // Server components
-const data = await api.workspaceMembers.getNotificationSettings({
+const data = await caller.workspaceMembers.getNotificationSettings({
   input: {
     workspaceId: '',
   },
@@ -163,7 +163,11 @@ Update the notification settings of a member in a workspace.
 
 ```typescript
 // Client components
-const { data } = api.workspaceMembers.updateNotificationSettings.useMutation({
+const { mutate } = useMutation(
+  trpc.workspaceMembers.updateNotificationSettings.mutationOptions(),
+)
+
+mutate({
   input: {
     workspaceId: '',
     channels: {

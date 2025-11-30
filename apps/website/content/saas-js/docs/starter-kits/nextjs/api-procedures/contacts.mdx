@@ -15,13 +15,13 @@ Returns a contact by id.
 
 ```typescript
 // Client components
-const { data } = api.contacts.byId.useQuery({
+const { data } = useQuery(trpc.contacts.byId.queryOptions({
   id: '',
   workspaceId: '',
-})
+}))
 
 // Server components
-const data = await api.contacts.byId({
+const data = await caller.contacts.byId({
   id: '',
   workspaceId: '',
 })
@@ -35,13 +35,13 @@ List all contacts by type.
 
 ```typescript
 // Client components
-const { data } = api.contacts.listByType.useQuery({
+const { data } = useQuery(trpc.contacts.listByType.queryOptions({
   type: '',
   workspaceId: '',
-})
+}))
 
 // Server components
-const data = await api.contacts.listByType({
+const data = await caller.contacts.listByType({
   type: '',
   workspaceId: '',
 })
@@ -55,10 +55,10 @@ Create a new contact in the workspace.
 
 ```typescript
 // Client components
-const { data } = api.contacts.create.useMutation()
+const { data } = useMutation(trpc.contacts.create.mutationOptions())
 
 // Server components
-const data = await api.contacts.create()
+const data = await caller.contacts.create()
 ```
 
 ### Update a contact
@@ -69,10 +69,10 @@ Update a contact.
 
 ```typescript
 // Client components
-const { data } = api.contacts.update.useMutation()
+const { data } = useMutation(trpc.contacts.update.mutationOptions())
 
 // Server components
-const data = await api.contacts.update()
+const data = await caller.contacts.update()
 ```
 
 ### List contact activity
@@ -83,13 +83,13 @@ Returns the latest activity of a contact.
 
 ```typescript
 // Client components
-const { data } = api.contacts.activitiesById.useQuery({
+const { data } = useQuery(trpc.contacts.activitiesById.queryOptions({
   id: '',
   workspaceId: '',
-})
+}))
 
 // Server components
-const data = await api.contacts.activitiesById({
+const data = await caller.contacts.activitiesById({
   id: '',
   workspaceId: '',
 })
@@ -103,7 +103,7 @@ Add a comment to a contact.
 
 ```typescript
 // Client components
-const { mutate } = api.contacts.addComment.useMutation()
+const { mutate } = useMutation(trpc.contacts.addComment.mutationOptions())
 
 mutate({
   input: {
@@ -114,7 +114,7 @@ mutate({
 })
 
 // Server components
-const data = await api.contacts.addComment({
+const data = await caller.contacts.addComment({
   input: {
     id: '',
     workspaceId: '',
@@ -131,7 +131,7 @@ Remove a comment from a contact.
 
 ```typescript
 // Client components
-const { mutate } = api.contacts.removeComment.useMutation()
+const { mutate } = useMutation(trpc.contacts.removeComment.mutationOptions())
 
 mutate({
   input: {
@@ -141,7 +141,7 @@ mutate({
 })
 
 // Server components
-const data = await api.contacts.removeComment({
+const data = await caller.contacts.removeComment({
   input: {
     workspaceId: '',
     commentId: '',
@@ -157,7 +157,7 @@ Update the tags of a contact. Removes any tags not included in the list.
 
 ```typescript
 // Client components
-const { mutate } = api.contacts.updateTags.useMutation()
+const { mutate } = useMutation(trpc.contacts.updateTags.mutationOptions())
 
 mutate({
   input: {
@@ -168,7 +168,7 @@ mutate({
 })
 
 // Server components
-const data = await api.contacts.updateTags({
+const data = await caller.contacts.updateTags({
   input: {
     id: '',
     workspaceId: '',

@@ -3,23 +3,25 @@ title: Clone the Git repository
 description: Learn how to clone the Saas UI Git repository.
 ---
 
-In case you have redeemed your license key and accepted the Github invite, you should now have access to the Saas UI Pro Git repository.
+In case you have redeemed your license key and accepted the Github invite, you
+should now have access to the Saas UI Pro Git repository.
 
 ## Clone the repository
 
 To clone the repository on your local machine, use the following command:
 
 ```bash
-git clone --single-branch --branch=main git@github.com:saas-js/vite-tanstack-router-starter-kit.git my-project
+git clone --single-branch --branch=v3 git@github.com:saas-js/tanstack-start-starter-kit-pro.git my-project
 ```
 
-This will clone the repository into the `my-project` folder, without the commit history.
+This will clone the repository into the `my-project` folder, without the commit
+history.
 
 ## Setup Git
 
 Now that you have cloned the repository, you can setup your Git configuration.
 
-Rename the `vite-tanstack-router-starter-kit` repository to `upstream`.
+Rename the `tanstack-start-starter-kit-pro` repository to `upstream`.
 
 ```bash
 git remote rename origin upstream
@@ -31,32 +33,27 @@ To add your own repository as the `origin`, use the following command:
 git remote add origin git@github.com:your-username/your-repository.git
 ```
 
-You can pull the latest changes from the `upstream` repository using the following command:
+You can pull the latest changes from the `upstream` repository using the
+following command:
 
 ```bash
-git pull upstream main --allow-unrelated-histories
+git pull upstream v3 --allow-unrelated-histories
 ```
 
-As your codebase diverges from `vite-tanstack-router-starter-kit` you will run into merge conflicts eventually,
-so at some point it might be easier to manually copy over any changes that you want to implement.
+As your codebase diverges from `tanstack-start-starter-kit-pro` you will run
+into merge conflicts eventually, so at some point it might be easier to manually
+copy over any changes that you want to implement.
 
 ## Install dependencies
 
-This project uses `yarn 4` to manage dependencies, you can install all dependencies using the following command:
+This project uses `pnpm` to manage dependencies, you can install all
+dependencies using the following command:
+
+<Info>
+  If you don't have `pnpm` installed, follow the [pnpm installation
+  guide](https://pnpm.io/installation).
+</Info>
 
 ```bash
-yarn
-```
-
-Yarn is shipped with the repository, so you don't need to install it globally.
-If you run into installation issues, you can try to install the latest version of Yarn using the following command:
-
-```bash
-yarn set version latest
-```
-
-In case this doesn't work, enable corepack and run `yarn` again.
-
-```bash
-corepack enable
+pnpm
 ```

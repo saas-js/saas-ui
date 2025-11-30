@@ -15,8 +15,8 @@ Returns the current logged in user and the workspaces they have access to.
 
 ```typescript
 // Client components
-const { data } = api.auth.me.useQuery()
+const { data } = useQuery(trpc.auth.me.queryOptions())
 
 // Server components
-const data = await api.auth.me()
+const data = await caller.auth.me()
 ```

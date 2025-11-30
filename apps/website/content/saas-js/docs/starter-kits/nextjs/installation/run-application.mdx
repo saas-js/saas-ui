@@ -3,15 +3,18 @@ title: Run the application
 description: How to run the application locally.
 ---
 
-Once you have cloned the repository and installed the dependencies, you can run the application with the following commands:
+Once you have cloned the repository and installed the dependencies, you can run
+the application with the following commands:
 
 ```bash
-yarn init:env
+pnpm init:env
 ```
 
-This will generate a new `.env` file in the root directory and create a symlink to `apps/web/.env`.
+This will generate a new `.env` file in the root directory and create a symlink
+to `apps/web/.env`.
 
-Alternatively, you can copy the `.env.example` file to `.env` and fill in the values.
+Alternatively, you can copy the `.env.example` file to `.env` and fill in the
+values.
 
 ```bash
 cp .env.example .env
@@ -32,29 +35,37 @@ docker-compose up
 Generate the initial migration files:
 
 ```bash
-yarn db:generate
+pnpm db:generate
 ```
 
 Run migrate to apply the changes to the database:
 
 ```bash
-yarn db:migrate
+pnpm db:migrate
+```
+
+**optional** If you want to seed the database with test data, run the following
+command:
+
+```bash
+pnpm db:seed
 ```
 
 To run the Next.js application, run the following command:
 
 ```bash
-yarn dev:web
+pnpm dev:web
 ```
 
 This will start the Next.js application at `http://localhost:3000`.
 
 ## Authentication
 
-The application uses Better Auth by default for authentication.
-Better Auth requires an `AUTH_SECRET` environment variable to be set.
+The application uses Better Auth by default for authentication. Better Auth
+requires an `AUTH_SECRET` environment variable to be set.
 
-When using the CLI to generate the `.env` file, a secret is automatically generated and set.
+When using the CLI to generate the `.env` file, a secret is automatically
+generated and set.
 
 To generate a secret manually, run the following command:
 
@@ -62,11 +73,13 @@ To generate a secret manually, run the following command:
 openssl rand -base64 33
 ```
 
-Now update the `AUTH_SECRET` environment variable in the `.env` file with the generated secret.
+Now update the `AUTH_SECRET` environment variable in the `.env` file with the
+generated secret.
 
-You can now log in with your email address, the confirmation URL will be printed in the console in case you haven't configured any email provider.
+You can now log in with your email address, the confirmation URL will be printed
+in the console in case you haven't configured any email provider.
 
 ## Next steps
 
-- [Configure Environment Variables](/docs/nextjs-starter-kit/configuration/environment-variables)
-- [Configure email provider](/docs/nextjs-starter-kit/configuration/email-provider)
+- [Configure Environment Variables](/docs/starter-kits/nextjs/configuration/environment-variables)
+- [Configure email provider](/docs/starter-kits/nextjs/configuration/email-provider)

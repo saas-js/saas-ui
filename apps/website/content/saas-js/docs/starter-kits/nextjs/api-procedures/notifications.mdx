@@ -13,10 +13,10 @@ Returns all the notifications for the current user.
 
 ```typescript
 // Client components
-const { data } = api.notifications.inbox.useQuery()
+const { data } = useQuery(trpc.notifications.inbox.queryOptions())
 
 // Server components
-const data = await api.notifications.inbox()
+const data = await caller.notifications.inbox()
 ```
 
 ### Mark a notification as read
@@ -27,12 +27,14 @@ Marks a notification as read.
 
 ```typescript
 // Client components
-const { data } = api.notifications.markAsRead.useMutation({
-  notificationId: 'notification-id',
-})
+const { mutate } = useMutation(
+  trpc.notifications.markAsRead.mutationOptions({
+    notificationId: 'notification-id',
+  }),
+)
 
 // Server components
-const data = await api.notifications.markAsRead({
+const data = await caller.notifications.markAsRead({
   notificationId: 'notification-id',
 })
 ```

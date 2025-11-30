@@ -1,4 +1,3 @@
-import { source } from '@/lib/source'
 import { Flex, SkipNavContent, SkipNavLink } from '@saas-ui/react'
 
 import { Header } from './header'
@@ -9,9 +8,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <SkipNavLink>Skip to Content</SkipNavLink>
       <Header />
-      <main>
+      <main
+        style={
+          {
+            '--header-height': '54px',
+            '--content-height': 'calc(100dvh - var(--header-height))',
+          } as any
+        }
+      >
         <MobileSidebarNav />
-        <Flex maxWidth="full">
+        <Flex maxWidth="full" minH="0">
           <SkipNavContent />
 
           {children}

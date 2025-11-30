@@ -3,15 +3,20 @@ title: Adding pages
 description: How to add new pages to your app
 ---
 
-In this guide you'll learn how to add new pages to your application and add some basic data fetching.
+In this guide you'll learn how to add new pages to your application and add some
+basic data fetching.
 
-For the sake of this guide, let's add a new projects features with a list page and a details page with some tabs to illustrate how you can use layouts and data prefetching.
+For the sake of this guide, let's add a new projects features with a list page
+and a details page with some tabs to illustrate how you can use layouts and data
+prefetching.
 
 ## Project list page
 
-Let's start by creating the list page. Create a new file in `apps/web/features/projects/list/list-page.tsx`
+Let's start by creating the list page. Create a new file in
+`apps/web/features/projects/list/list-page.tsx`
 
-We group all project list page related files in a `list` folder to keep things organized.
+We group all project list page related files in a `list` folder to keep things
+organized.
 
 ```tsx
 'use client'
@@ -25,74 +30,74 @@ export function ProjectsListPage(props: {
 }
 ```
 
-Note that `'use client'` directive is added to the file. This is necessary because we're going to use React state and hooks.
-We typically use the convention of using server component for the route file to prefetch data for the interactive parts of the page.
-
-We also already added a `params` type to the props, since this feature is part of a workspace it will accept a `workspace` parameter in the URL.
-
 ### List page route
 
-The route for this page will be `(app)/[workspace]/(dashboard)/projects`, let's go ahead and create the route file in `apps/web/app/(app)/[workspace]/(dashboard)/projects/page.tsx`.
+The route for this page will be `$workspace/projects`, let's go ahead and create
+the route file in
+`apps/web/src/routes/_app/$workspace/_dashboard/projects/index.tsx`.
 
 ```tsx
-import { createPage } from '#lib/create-page'
+import { createFileRoute } from '@tanstack/react-router'
+
 import { ProjectsListPage } from '#features/projects/list/list-page'
 
-const { Page, metadata } = createPage({
-  title: 'Projects',
-  component: ProjectsListPage,
+export const Route = createFileRoute('/_app/$workspace/_dashboard/projects/')({
+  head: () => ({
+    meta: [
+      {
+        title: 'Projects',
+      },
+    ],
+  }),
+  component: RouteComponent,
 })
 
-export { metadata }
-
-export default Page
+function RouteComponent() {
+  const params = Route.useParams()
+  return <ProjectsListPage params={params} />
+}
 ```
-
-The `createPage` function is a helper that allows you to validate route parameters and search params, and also prefetch data for the page.
 
 ### List page navigation
 
-Now that the page and route are created, we can add a navigation link to the sidebar.
+Now that the page and route are created, we can add a navigation link to the
+sidebar.
 
-Open `apps/web/features/common/components/sidebar.tsx` and add a new nav item to the navigation.
+Open `apps/web/features/common/components/app-sidebar.tsx` and add a new nav
+item to the navigation.
 
 ```tsx
 <NavGroup>
   // ... other links
   <AppSidebarLink
-    href={usePath('contacts')}
-    isActive={useActivePath('contacts', { end: false })}
-    label="Contacts"
-    icon={<FiUsers />}
-    hotkey="navigation.contacts"
-  />
-  <AppSidebarLink
-    href={usePath('projects')}
-    isActive={useActivePath('projects', { end: false })}
+    to="/$workspace/projects"
+    params={{
+      workspace,
+    }}
+    activeOptions={{
+      exact: false,
+    }}
     label="Projects"
-    icon={<FiFolder />}
+    icon={<LuFolder />}
     hotkey="navigation.projects"
   />
 </NavGroup>
 ```
 
-The `usePath` hook returns the path including the current workspace slug.
-
-The `useActivePath` hook returns `true` if the current path matches the given path. The `end: false` will make sure that all `/projects/*` paths will be matched.
-
 Now open the application and navigate to the new projects page.
 
 ### List page fetching data
 
-Let's assume we already have a `projects` API endpoint that returns a list of projects.
+Let's assume we already have a `projects` API endpoint that returns a list of
+projects.
 
 Open the `list-page.tsx` file and add a `useQuery` hook to fetch the projects.
 
 ```tsx
 'use client'
 
+import { DataGrid, Page, PageBody, PageHeader } from '@saas-ui-pro/react'
 import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
-import { Page, PageHeader, PageBody, DataGrid } from '@saas-ui-pro/react'
 
 import { ProjectDTO } from '@acme/api/types'
 
@@ -116,7 +121,7 @@ export function ProjectsListPage(props: {
         header: 'Name',
       }),
     ],
-    []
+    [],
   )
 
   return (

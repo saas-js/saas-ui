@@ -3,7 +3,8 @@ title: Fonts
 description: How to configure fonts in Next.js starter kit.
 ---
 
-Saas UI Pro uses `Inter` as the default font, but you can easily change it to any other font.
+Saas UI uses `Inter` as the default font, but you can easily change it to any
+other font.
 
 ## Installation
 
@@ -17,15 +18,15 @@ To install a different font, you can use Font Source or Next.js fonts.
 ### Font source
 
 ```bash
-cd apps/web && yarn add @fontsource-variable/montserrat
+cd apps/web && pnpm install @fontsource-variable/montserrat
 ```
 
 Next import it in your root layout.
 
 ```tsx
 // apps/web/app/layout.tsx
-
 import '@fontsource-variable/montserrat'
+
 //....
 ```
 
@@ -41,7 +42,7 @@ export const theme = extendTheme(
       body: 'Montserrat Variable, sans-serif',
     },
   },
-  baseTheme
+  baseTheme,
 )
 ```
 
@@ -76,6 +77,6 @@ export const theme = extendTheme(
       body: 'var(--font-montserrat)',
     },
   },
-  baseTheme
+  baseTheme,
 )
 ```

@@ -13,8 +13,8 @@ Updates the user's profile. The user can update their name, email, and avatar.
 
 ```typescript
 // Client components
-const { data } = api.users.updateProfile.useMutation()
+const { data } = useMutation(trpc.users.updateProfile.mutationOptions())
 
 // Server components
-const data = await api.users.updateProfile()
+const data = await caller.users.updateProfile()
 ```

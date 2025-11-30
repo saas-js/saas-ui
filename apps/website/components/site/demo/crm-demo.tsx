@@ -38,7 +38,16 @@ import {
   LuWorkflow,
   LuX,
 } from 'react-icons/lu'
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Pie,
+  PieChart,
+  XAxis,
+  YAxis,
+} from 'recharts'
 
 export function CRMDemo() {
   return (
@@ -455,49 +464,34 @@ function RevenueChart() {
       </BarChart>
     </Chart.Root>
   )
-  // return (
-  //   <BarChart
-  //     categories={['Revenue']}
-  //     valueFormatter={(value) =>
-  //       Intl.NumberFormat('en-US', {
-  //         style: 'currency',
-  //         currency: 'USD',
-  //       }).format(value)
-  //     }
-  //     yAxisWidth={100}
-  //     showLegend={false}
-  //     barSize={22}
-  //     data={[
-  //       { date: 'Jan', Revenue: 12500 },
-  //       { date: 'Feb', Revenue: 15800 },
-  //       { date: 'Mar', Revenue: 14200 },
-  //       { date: 'Apr', Revenue: 16900 },
-  //       { date: 'May', Revenue: 13600 },
-  //       { date: 'Jun', Revenue: 11200 },
-  //       { date: 'Jul', Revenue: 17500 },
-  //       { date: 'Aug', Revenue: 19200 },
-  //       { date: 'Sep', Revenue: 18100 },
-  //       { date: 'Oct', Revenue: 21500 },
-  //     ]}
-  //     height={240}
-  //   />
-  // )
 }
 
 function ChurnRateByTierChart() {
-  return null
-  // return (
-  // <PieChart
-  //   category="tier"
-  //   categoryColors={['indigo', 'pink', 'fg']}
-  //   data={[
-  //     { tier: 'Starter', value: 7 },
-  //     { tier: 'Pro', value: 4 },
-  //     { tier: 'Enterprise', value: 2.5 },
-  //   ]}
-  //   valueFormatter={(value) => `${value}%`}
-  //   width={100}
-  //   height={100}
-  // />
-  // )
+  const chart = useChart({
+    data: [
+      { name: 'Starter', value: 70, color: 'indigo.solid' },
+      { name: 'Pro', value: 40, color: 'pink.solid' },
+      { name: 'Enterprise', value: 25, color: 'neutral.solid' },
+    ],
+  })
+
+  return (
+    <Chart.Root chart={chart} boxSize="100px">
+      <PieChart>
+        <Pie
+          dataKey={chart.key('value')}
+          data={chart.data}
+          innerRadius={35}
+          outerRadius={50}
+          stroke="none"
+          paddingAngle={2}
+          isAnimationActive={false}
+        >
+          {chart.data.map((item) => (
+            <Cell key={item.name} fill={chart.color(item.color)} />
+          ))}
+        </Pie>
+      </PieChart>
+    </Chart.Root>
+  )
 }

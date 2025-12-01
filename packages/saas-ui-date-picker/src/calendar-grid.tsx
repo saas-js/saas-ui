@@ -1,10 +1,6 @@
 import * as React from 'react'
 import { useCalendarGrid } from '@react-aria/calendar'
-import {
-  getWeeksInMonth,
-  endOfMonth,
-  DateDuration,
-} from '@internationalized/date'
+import { endOfMonth, DateDuration } from '@internationalized/date'
 
 import { CalendarCell } from './calendar-cell'
 import { chakra } from '@chakra-ui/react'
@@ -16,12 +12,12 @@ export interface CalendarGridProps {
 }
 
 export const CalendarGrid: React.FC<CalendarGridProps> = ({ offset = {} }) => {
-  const { state, locale, firstDayOfWeek } = useCalendarContext()
+  const { state, firstDayOfWeek } = useCalendarContext()
 
   const startDate = state.visibleRange.start.add(offset)
   const endDate = endOfMonth(startDate)
 
-  const { gridProps, headerProps, weekDays } = useCalendarGrid(
+  const { gridProps, headerProps, weekDays, weeksInMonth } = useCalendarGrid(
     {
       startDate,
       endDate,
@@ -35,13 +31,6 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({ offset = {} }) => {
   const gridStyles = {
     ...styles.grid,
   }
-
-  // Get the number of weeks in the month so we can render the proper number of rows.
-  const weeksInMonth = getWeeksInMonth(
-    state.visibleRange.start,
-    locale,
-    firstDayOfWeek
-  )
 
   return (
     <chakra.table {...gridProps} __css={gridStyles}>

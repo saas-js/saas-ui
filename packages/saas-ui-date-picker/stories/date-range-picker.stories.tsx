@@ -41,7 +41,12 @@ const Template: Story = (args) => {
   })
 
   return (
-    <DateRangePicker value={value} {...rest} onChange={setValue}>
+    <DateRangePicker
+      value={value}
+      {...rest}
+      onChange={setValue}
+      firstDayOfWeek="sun"
+    >
       <DatePickerTrigger>
         <Button>
           {value

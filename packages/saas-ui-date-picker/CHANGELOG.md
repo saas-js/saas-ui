@@ -1,5 +1,11 @@
 # @saas-ui/date-picker
 
+## 0.17.1
+
+### Patch Changes
+
+- cb3af64: Fixed issue where amount of weeks was calculated incorrectly in calendar
+
 ## 0.17.0
 
 ### Minor Changes

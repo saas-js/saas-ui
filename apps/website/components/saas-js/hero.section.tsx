@@ -4,6 +4,7 @@ import { Subheading } from '@/components/site/typography'
 import {
   Avatar,
   AvatarGroup,
+  Badge,
   Box,
   Button,
   Container,
@@ -12,10 +13,17 @@ import {
   Stack,
   Text,
 } from '@saas-ui/react'
-import Link from 'next/link'
 import { TbStarFilled } from 'react-icons/tb'
 
-export const HeroSection = () => {
+import { ActionArrow } from '#components/action-arrow'
+import { Annoucement } from '#components/annoucement'
+import { Link } from '#components/ui/link'
+
+export const HeroSection = ({
+  latestChangelog,
+}: {
+  latestChangelog: { title: string; link: string }
+}) => {
   return (
     <Box px="8">
       <Box pt="36" overflow="hidden" position="relative">
@@ -25,12 +33,15 @@ export const HeroSection = () => {
             alignItems="center"
             textAlign="center"
           >
-            {/* <Annoucement justifySelf="center" asChild>
-              <Link href="/changelog/3.0">
-                Saas UI 3.0 is here!
+            <Annoucement justifySelf="center">
+              <Badge variant="solid" colorPalette="accent">
+                New
+              </Badge>
+              <Link href={latestChangelog.link}>
+                {latestChangelog.title}
                 <ActionArrow />
               </Link>
-            </Annoucement> */}
+            </Annoucement>
             <Stack gap="5" maxW="6xl" alignItems="center">
               <Heading as="h1" fontSize="7xl" lineHeight="1" textWrap="balance">
                 Everything you need to build products customers love

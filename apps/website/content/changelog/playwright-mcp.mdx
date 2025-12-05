@@ -1,0 +1,86 @@
+---
+title: Playwright and Playwright MCP
+publishedAt: '2025-12-05'
+authors: ['eelco']
+products: ['tanstack-start', 'nextjs']
+description:
+  End-to-end testing with Playwright and AI-powered visual testing with
+  Playwright MCP.
+---
+
+We're excited to announce Playwright integration for both TanStack Start and
+Next.js starter kits! This release brings comprehensive end-to-end testing
+capabilities and groundbreaking AI-powered visual testing through Playwright
+MCP.
+
+## What's new?
+
+### Playwright E2E Testing Setup
+
+Both TanStack Start and Next.js starter kits now come with a fully configured
+Playwright testing setup out of the box. This includes:
+
+- **Pre-configured test environment** - Ready-to-use Playwright config with
+  sensible defaults
+- **Example test suites** - Sample tests to get you started with best practices
+- **CI/CD integration** - GitHub Actions workflow for running tests on every
+  commit
+- **Multiple browser support** - Test across Chromium, Firefox, and WebKit
+- **Screenshots** - Automatic capture on test failures for debugging
+- **Parallel test execution** - Fast test runs with built-in parallelization
+
+Getting started is as simple as running `npm run test:e2e` to launch your test
+suite. The setup handles authentication flows, page navigation, form
+interactions, and visual regression testing right out of the gate.
+
+### Playwright MCP - Giving AI Eyes
+
+Playwright MCP (Model Context Protocol) is a game-changer for AI-assisted
+development. It literally gives AI assistants like Claude the ability to "see"
+and interact with your web application in real-time.
+
+**How it works:**
+
+Playwright MCP provides AI assistants with the ability to:
+
+- **Launch and control browsers** - Spin up browser instances and navigate your
+  application
+- **Take screenshots** - Capture visual state of any page or component
+- **Interact with elements** - Click buttons, fill forms, and perform user
+  actions
+- **Analyze accessibility** - Check ARIA labels, roles, and semantic HTML
+- **Validate responsive design** - Test across different viewport sizes
+- **Read the DOM** - Understand page structure and content
+
+**Why this matters for UI development:**
+
+Traditional AI assistance is limited to code - it can read your JSX/TSX but
+can't see what actually renders. With Playwright MCP, AI can:
+
+1. **Verify implementations visually** - See if your code produces the intended
+   UI
+2. **Catch visual bugs** - Spot layout issues, styling problems, and responsive
+   breakpoints
+3. **Improve accessibility** - Analyze the rendered output for accessibility
+   issues
+4. **Write better tests** - Generate accurate selectors based on what it
+   actually sees
+5. **Debug faster** - Take screenshots at failure points to understand what went
+   wrong
+6. **Validate cross-browser compatibility** - Test across different browsers and
+   devices
+
+This dramatically improves the quality and accuracy of UI-related tasks. Instead
+of guessing whether a component looks right, AI can now verify it visually, just
+like a human QA engineer would.
+
+### Getting Started
+
+To use Playwright MCP with Claude Code, install the Playwright MCP server:
+
+```bash
+claude mcp add playwright npx @playwright/mcp@latest
+```
+
+Now your AI assistant can visually verify every UI change it makes, ensuring
+pixel-perfect implementations and catching issues before they reach production.

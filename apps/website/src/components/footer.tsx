@@ -24,8 +24,7 @@ const CustomFooter = () => {
             <Logo />
           </Flex>
           <Text fontSize="sm" color="muted">
-            The React toolkit for SaaS products. Crafted by{' '}
-            <Link href="https://appulse.net">Appulse Software</Link>.
+            The React toolkit for SaaS products. Saas UI B.V.
           </Text>
         </Stack>
 
@@ -64,7 +63,7 @@ const CustomFooter = () => {
             Resources
           </Heading>
           <Stack>
-            <FooterLink href="https://saas-ui.lemonsqueezy.com/affiliates">
+            <FooterLink href="https://saas-ui.affonso.io/">
               Affiliate Program
             </FooterLink>
             <FooterLink href="/docs">Documentation</FooterLink>
@@ -77,6 +76,8 @@ const CustomFooter = () => {
             Products
           </Heading>
           <Stack>
+            <FooterLink href="https://saas-js.com">Saas.js</FooterLink>
+
             <FooterLink href="/docs/tanstack-router-starter-kit">
               TanStack Router Starter Kit
             </FooterLink>

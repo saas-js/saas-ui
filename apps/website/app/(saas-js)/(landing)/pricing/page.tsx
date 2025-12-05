@@ -43,7 +43,7 @@ export default async function Page() {
 
   return (
     <Stack gap="12">
-      <Container maxW="6xl" position="static">
+      <Container maxW="8xl" position="static">
         <Hero />
 
         <PricingTable

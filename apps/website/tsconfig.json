@@ -27,8 +27,11 @@
       "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
       "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],
       "saas-ui-blocks": ["../../packages/pro/packages/blocks/index.ts"],
-      "#*": ["./*"],
-      "#icons": ["./components/icons"],
+      "#components/*": ["./components/*"],
+      "#lib/*": ["./lib/*"],
+      "#utils/*": ["./utils/*"],
+      "#hooks/*": ["./hooks/*"],
+      "#theme/*": ["./theme/*"],
       "@/*": ["./*"]
     },
     "target": "ES2017"

@@ -12,9 +12,9 @@ import {
 } from '@saas-ui/react'
 
 import { Aidbase } from './logos/customers/aidbase'
-import { Eqtble } from './logos/customers/eqtble'
 import { Growtha } from './logos/customers/growtha'
 import { Polypane } from './logos/customers/polypane'
+import { Stenoa } from './logos/customers/stenoa'
 import { Voxtell } from './logos/customers/voxtell'
 import { Yext } from './logos/customers/yext'
 
@@ -32,7 +32,7 @@ const logos = [
   },
   { Logo: Aidbase, height: '20px' },
   { Logo: Voxtell, height: '20px' },
-  { Logo: Eqtble, height: '20px' },
+  { Logo: Stenoa, height: '20px' },
   { Logo: Yext, height: '20px' },
   { Logo: Growtha, height: '20px' },
 ]

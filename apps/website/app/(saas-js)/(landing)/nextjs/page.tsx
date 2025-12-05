@@ -9,6 +9,12 @@ import { WhySection } from '@/components/saas-js/why.section'
 import { Button } from '@saas-ui/react'
 import Link from 'next/link'
 
+export const metadata: Metadata = {
+  title: 'Next.js Starter Kit',
+  description:
+    'Top tier Next.js starter kit for teams who want to move fast without cutting corners.',
+}
+
 export default function Page() {
   return (
     <>

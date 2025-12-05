@@ -7,7 +7,14 @@ import { HeroTanStackSection } from '@/components/saas-js/hero.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
 import { WhySection } from '@/components/saas-js/why.section'
 import { Button } from '@saas-ui/react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Tanstack Start Starter Kit',
+  description:
+    'Top tier Tanstack Start starter kit for teams who want to move fast without cutting corners.',
+}
 
 export default function Page() {
   return (

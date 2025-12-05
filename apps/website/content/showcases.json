@@ -6,6 +6,12 @@
     "image": "/showcases/voxtellai.png"
   },
   {
+    "title": "Stenoa",
+    "url": "https://stenoa.com",
+    "description": "Care coordination platform.",
+    "image": "/showcases/stenoa.png"
+  },
+  {
     "title": "Mindlytics",
     "url": "https://www.mindlytics.ai",
     "description": "User behavioral analytics for LLM applications and AI agents.",

@@ -8,8 +8,11 @@ import { ProblemSection } from '@/components/saas-js/problem.section'
 import { StackSection } from '@/components/saas-js/stack.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
 import { WhySection } from '@/components/saas-js/why.section'
-import { Button } from '@saas-ui/react'
+import { Button, ButtonGroup, Stack, Text } from '@chakra-ui/react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {}
 
 export default function Page() {
   return (
@@ -24,12 +27,20 @@ export default function Page() {
       <FounderSection />
       <TestimonialsSection />
       <GetStartedSection>
-        <Button variant="glass" colorPalette="accent" asChild>
-          <Link href="/starter-kits">View starter kits</Link>
-        </Button>
-        <Button variant="outline" asChild>
-          <Link href="/docs">Documentation</Link>
-        </Button>
+        <Stack>
+          <ButtonGroup>
+            <Button variant="glass" colorPalette="accent" asChild>
+              <Link href="/pricing">Buy now</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/docs">Documentation</Link>
+            </Button>
+          </ButtonGroup>
+
+          <Text textStyle="xs" color="fg.muted">
+            <strong>30% off</strong> for a limited time
+          </Text>
+        </Stack>
       </GetStartedSection>
     </>
   )

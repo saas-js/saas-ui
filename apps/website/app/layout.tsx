@@ -58,7 +58,6 @@ const guton = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: websiteConfig.titleTemplate,
     default: websiteConfig.title,
   },
   description: websiteConfig.description,

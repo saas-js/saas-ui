@@ -30,22 +30,18 @@ export function GetStartedSection(props: { children?: React.ReactNode }) {
             Join hundreds of developers <br /> building better SaaS products.
           </Text>
 
-          <ButtonGroup>
-            {props.children ? (
-              props.children
-            ) : (
-              <>
-                <Button variant="glass" colorPalette="accent" asChild>
-                  <Link href="/docs/components/overview">
-                    Browse all components
-                  </Link>
-                </Button>
-                <Button variant="outline" asChild>
-                  <Link href="/pro/starter-kits">View starter kits</Link>
-                </Button>
-              </>
-            )}
-          </ButtonGroup>
+          {props.children ? (
+            props.children
+          ) : (
+            <ButtonGroup>
+              <Button variant="glass" colorPalette="accent" asChild>
+                <Link href="/pricing">Buy now</Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href="/docs">Documentation</Link>
+              </Button>
+            </ButtonGroup>
+          )}
         </HStack>
       </Container>
     </Box>

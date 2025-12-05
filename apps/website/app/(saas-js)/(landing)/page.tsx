@@ -13,7 +13,10 @@ import { allChangelogs } from 'content-collections'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {}
+export const metadata: Metadata = {
+  title: 'Next.js and TanStack Start starterkits',
+  description: 'Building blocks for top tier SaaS products',
+}
 
 export default function Page() {
   const changelogs = allChangelogs.filter((changelog) =>

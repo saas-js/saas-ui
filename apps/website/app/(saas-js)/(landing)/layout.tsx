@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   description: 'Building blocks for top tier SaaS products',
   openGraph: {
-    images: '/og-image.png',
+    images: '/img/og-saasjs.png',
   },
 }
 

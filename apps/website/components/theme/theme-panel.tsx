@@ -22,8 +22,7 @@ import {
   Tooltip,
   useColorMode,
 } from '@saas-ui/react'
-
-import { TbPaintFilled, TbPaletteFilled } from '#node_modules/react-icons/tb'
+import { TbPaintFilled, TbPaletteFilled } from 'react-icons/tb'
 
 import { useTheme } from './theme-provider'
 

@@ -57,12 +57,10 @@ const guton = localFont({
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: websiteConfig.title,
-  },
+  title: websiteConfig.title,
   description: websiteConfig.description,
   openGraph: {
-    images: '/og-image.png',
+    images: '/img/og-saasjs.png',
   },
 }
 

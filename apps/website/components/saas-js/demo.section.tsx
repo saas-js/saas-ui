@@ -31,7 +31,7 @@ const EmailDemo = dynamic(
 
 export const DemoSection = () => {
   return (
-    <Box position="relative">
+    <Box position="relative" aria-hidden="true">
       <Tabs.Root defaultValue="crm" colorPalette="accent" lazyMount>
         <Tabs.List mb="4" maxW="8xl" mx="auto">
           <Tabs.Trigger value="crm">CRM</Tabs.Trigger>

@@ -67,9 +67,16 @@ const DesktopNav = () => (
     </HStack>
     <HStack gap="0" justifyContent="flex-end">
       <CommandMenu
-        trigger={<SearchButton width="160px" size="sm" flexShrink="1" />}
+        trigger={
+          <SearchButton
+            width="160px"
+            size="sm"
+            aria-label="Search"
+            flexShrink="1"
+          />
+        }
       />
-      <Button asChild variant="ghost" size="sm">
+      <Button asChild variant="ghost" aria-label="GitHub" size="sm">
         <Link href="https://github.com/saas-js" target="_blank">
           <BsGithub />
         </Link>

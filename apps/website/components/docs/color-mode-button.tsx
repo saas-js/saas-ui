@@ -16,6 +16,7 @@ export const ColorModeButton = () => {
         variant="ghost"
         size="sm"
         color="inherit"
+        aria-label="Toggle color mode"
       >
         {theme === 'light' ? <LuSun /> : <LuMoon />}
       </IconButton>

@@ -103,11 +103,13 @@ const docs = defineCollection({
   schema: z.object({
     ...createDocSchema(z),
     hideToc: z.boolean().optional(),
+    updatedAt: z.string().optional(),
     links: z
       .object({
         source: z.string().optional(),
         storybook: z.string().optional(),
         recipe: z.string().optional(),
+        chakra: z.string().optional(),
         ark: z.string().optional(),
         pro: z.string().optional(),
       })
@@ -151,12 +153,11 @@ const sjsDocs = defineCollection({
   schema: z.object({
     ...createDocSchema(z),
     hideToc: z.boolean().optional(),
+    updatedAt: z.string().optional(),
     links: z
       .object({
         source: z.string().optional(),
         storybook: z.string().optional(),
-        recipe: z.string().optional(),
-        ark: z.string().optional(),
         pro: z.string().optional(),
       })
       .optional(),
@@ -177,9 +178,6 @@ const sjsDocs = defineCollection({
           : undefined,
         storybook: links.storybook
           ? `${docsConfig.storybookUrl}/?path=/story/${links.storybook}`
-          : undefined,
-        recipe: links.recipe
-          ? `${docsConfig.repoUrl}/tree/${docsConfig.repoBranch}/packages/react/src/theme/recipes/${links.recipe}.ts`
           : undefined,
         pro: links.pro ? `/pro/pricing` : undefined,
       },

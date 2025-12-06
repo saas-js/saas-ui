@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const { default: showcases } = await import('../../content/showcases.json')
+  const { default: showcases } = await import('../../../content/showcases.json')
 
   return (
     <Container maxW="6xl">

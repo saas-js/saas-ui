@@ -62,6 +62,12 @@ export const metadata: Metadata = {
   openGraph: {
     images: '/img/og-saasjs.png',
   },
+  icons: {
+    icon: '/favicons/favicon.svg',
+    apple: '/favicons/apple-touch-icon.png',
+    shortcut: '/favicons/favicon.ico',
+  },
+  manifest: '/favicons/site.webmanifest',
 }
 
 export default async function RootLayout({

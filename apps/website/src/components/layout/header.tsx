@@ -23,9 +23,14 @@ const GlobalBanner = () => {
       justifyContent="center"
       py="1"
     >
-      <BannerContent alignItems="center" justifyContent="center" fontSize="sm">
+      <BannerContent
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="sm"
+      >
         <BannerTitle>Saas UI v3 beta is now available!</BannerTitle>
-        <BannerDescription>
+        <BannerDescription display={{ base: 'none', md: 'block' }}>
           Check out the new docs and give us feedback on Github
         </BannerDescription>
         <BannerActions>

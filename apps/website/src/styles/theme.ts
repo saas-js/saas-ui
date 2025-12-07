@@ -25,6 +25,10 @@ const styles = {
       fontSize: 'lg',
     },
     '.parity-banner': {
+      display: {
+        base: 'none',
+        md: 'flex',
+      },
       position: 'fixed !important',
       bottom: '10px',
       zIndex: 10,

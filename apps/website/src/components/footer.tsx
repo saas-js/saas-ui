@@ -17,7 +17,7 @@ import Logo from './saas-ui'
 
 const CustomFooter = () => {
   return (
-    <Footer columns={{ base: 1, lg: 2 }} pb="">
+    <Footer columns={{ base: 1, lg: 2 }}>
       <Stack spacing="8" mb="20">
         <Stack alignItems="flex-start" maxW="container.sm" gap="4">
           <Flex width="80px">
@@ -57,7 +57,10 @@ const CustomFooter = () => {
           />
         </HStack>
       </Stack>
-      <Grid templateColumns="repeat(3, 1fr)" gap={4}>
+      <Grid
+        templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
+        gap={4}
+      >
         <GridItem>
           <Heading as="h5" size="xs" mb="4">
             Resources

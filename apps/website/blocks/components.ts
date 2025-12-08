@@ -68,11 +68,7 @@ async function getComponentCode(
 }
 
 const getRootFolder = () => {
-  return path.join(
-    process.cwd(), // hack to make this work on vercel
-    process.env.NODE_ENV === 'development' ? '../../' : '',
-    'packages/pro/packages/blocks',
-  )
+  return path.join(process.cwd(), '../../packages/pro/packages/blocks')
 }
 
 export async function getAllComponents(): Promise<ComponentInfo[]> {

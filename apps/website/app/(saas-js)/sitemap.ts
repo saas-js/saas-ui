@@ -2,7 +2,9 @@ import { allChangelogs, allSJSDocs } from 'content-collections'
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.VERCEL_URL || 'https://saas-js.com'
+  const host = 'saas-js.com'
+
+  const baseUrl = `https://${host}`
 
   const docUrls = allSJSDocs.map(
     (doc) =>

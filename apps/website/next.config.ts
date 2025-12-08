@@ -14,6 +14,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/discord',
+        destination: 'https://discord.gg/4PmJGFcAjX',
+        permanent: false,
+      },
+      {
         source: '/docs/getting-started',
         destination: '/docs/getting-started/introduction',
         permanent: true,

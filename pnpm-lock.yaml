@@ -73,7 +73,7 @@ importers:
         version: 16.2.6
       next:
         specifier: ^15.5.4
-        version: 15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 15.5.7(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       prettier:
         specifier: ^3.5.3
         version: 3.6.2
@@ -198,6 +198,9 @@ importers:
       '@polar-sh/nextjs':
         specifier: ^0.4.9
         version: 0.4.11(next@15.5.7(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
+      '@polar-sh/sdk':
+        specifier: ^0.41.5
+        version: 0.41.5
       '@radix-ui/react-navigation-menu':
         specifier: ^1.2.9
         version: 1.2.14(@types/react-dom@19.2.0(@types/react@19.2.0))(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -432,7 +435,7 @@ importers:
         version: 19.2.0(@types/react@19.2.0)
       next:
         specifier: ^15.3.4
-        version: 15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 15.5.7(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -471,7 +474,7 @@ importers:
         version: 19.2.0(@types/react@19.2.0)
       next:
         specifier: ^15.3.4
-        version: 15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 15.5.7(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -653,7 +656,7 @@ importers:
         version: 11.14.0(@types/react@19.2.0)(react@19.2.0)
       '@saas-ui/react':
         specifier: next
-        version: 3.0.0-next.48(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 3.0.0-next.49(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@tanstack/react-router':
         specifier: ^1.125.6
         version: 1.133.28(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -895,7 +898,7 @@ importers:
         version: link:../kanban-core
       '@saas-ui/react':
         specifier: 3.0.0-next.42
-        version: 3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
       react:
         specifier: 19.1.1
@@ -957,7 +960,7 @@ importers:
         version: 3.0.0-next.3(react@19.1.1)
       '@saas-ui/react':
         specifier: 3.0.0-next.42
-        version: 3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
       react:
         specifier: 19.1.1
@@ -1016,7 +1019,7 @@ importers:
         version: 7.4.0
       '@saas-ui/react':
         specifier: 3.0.0-next.42
-        version: 3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        version: 3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react:
         specifier: 19.1.1
         version: 19.1.1
@@ -3807,31 +3810,16 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@next/env@15.5.6':
-    resolution: {integrity: sha512-3qBGRW+sCGzgbpc5TS1a0p7eNxnOarGVQhZxfvTdnV0gFI61lX7QNtQ4V1TSREctXzYn5NetbUsLvyqwLFJM6Q==}
-
   '@next/env@15.5.7':
     resolution: {integrity: sha512-4h6Y2NyEkIEN7Z8YxkA27pq6zTkS09bUSYC0xjd0NpwFxjnIKeZEeH591o5WECSmjpUhLn3H2QLJcDye3Uzcvg==}
 
   '@next/eslint-plugin-next@15.5.4':
     resolution: {integrity: sha512-SR1vhXNNg16T4zffhJ4TS7Xn7eq4NfKfcOsRwea7RIAHrjRpI9ALYbamqIJqkAhowLlERffiwk0FMvTLNdnVtw==}
 
-  '@next/swc-darwin-arm64@15.5.6':
-    resolution: {integrity: sha512-ES3nRz7N+L5Umz4KoGfZ4XX6gwHplwPhioVRc25+QNsDa7RtUF/z8wJcbuQ2Tffm5RZwuN2A063eapoJ1u4nPg==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [darwin]
-
   '@next/swc-darwin-arm64@15.5.7':
     resolution: {integrity: sha512-IZwtxCEpI91HVU/rAUOOobWSZv4P2DeTtNaCdHqLcTJU4wdNXgAySvKa/qJCgR5m6KI8UsKDXtO2B31jcaw1Yw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
-    os: [darwin]
-
-  '@next/swc-darwin-x64@15.5.6':
-    resolution: {integrity: sha512-JIGcytAyk9LQp2/nuVZPAtj8uaJ/zZhsKOASTjxDug0SPU9LAM3wy6nPU735M1OqacR4U20LHVF5v5Wnl9ptTA==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
     os: [darwin]
 
   '@next/swc-darwin-x64@15.5.7':
@@ -3840,20 +3828,8 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@15.5.6':
-    resolution: {integrity: sha512-qvz4SVKQ0P3/Im9zcS2RmfFL/UCQnsJKJwQSkissbngnB/12c6bZTCB0gHTexz1s6d/mD0+egPKXAIRFVS7hQg==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-
   '@next/swc-linux-arm64-gnu@15.5.7':
     resolution: {integrity: sha512-NCslw3GrNIw7OgmRBxHtdWFQYhexoUCq+0oS2ccjyYLtcn1SzGzeM54jpTFonIMUjNbHmpKpziXnpxhSWLcmBA==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-
-  '@next/swc-linux-arm64-musl@15.5.6':
-    resolution: {integrity: sha512-FsbGVw3SJz1hZlvnWD+T6GFgV9/NYDeLTNQB2MXoPN5u9VA9OEDy6fJEfePfsUKAhJufFbZLgp0cPxMuV6SV0w==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -3864,20 +3840,8 @@ packages:
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@15.5.6':
-    resolution: {integrity: sha512-3QnHGFWlnvAgyxFxt2Ny8PTpXtQD7kVEeaFat5oPAHHI192WKYB+VIKZijtHLGdBBvc16tiAkPTDmQNOQ0dyrA==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-
   '@next/swc-linux-x64-gnu@15.5.7':
     resolution: {integrity: sha512-hvXcZvCaaEbCZcVzcY7E1uXN9xWZfFvkNHwbe/n4OkRhFWrs1J1QV+4U1BN06tXLdaS4DazEGXwgqnu/VMcmqw==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-
-  '@next/swc-linux-x64-musl@15.5.6':
-    resolution: {integrity: sha512-OsGX148sL+TqMK9YFaPFPoIaJKbFJJxFzkXZljIgA9hjMjdruKht6xDCEv1HLtlLNfkx3c5w2GLKhj7veBQizQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -3888,22 +3852,10 @@ packages:
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@15.5.6':
-    resolution: {integrity: sha512-ONOMrqWxdzXDJNh2n60H6gGyKed42Ieu6UTVPZteXpuKbLZTH4G4eBMsr5qWgOBA+s7F+uB4OJbZnrkEDnZ5Fg==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [win32]
-
   '@next/swc-win32-arm64-msvc@15.5.7':
     resolution: {integrity: sha512-CpJVTkYI3ZajQkC5vajM7/ApKJUOlm6uP4BknM3XKvJ7VXAvCqSjSLmM0LKdYzn6nBJVSjdclx8nYJSa3xlTgQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
-    os: [win32]
-
-  '@next/swc-win32-x64-msvc@15.5.6':
-    resolution: {integrity: sha512-pxK4VIjFRx1MY92UycLOOw7dTdvccWsNETQ0kDHkBlcFH1GrTLUjSiHU1ohrznnux6TqRHgv5oflhfIWZwVROQ==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
     os: [win32]
 
   '@next/swc-win32-x64-msvc@15.5.7':
@@ -4098,6 +4050,9 @@ packages:
 
   '@polar-sh/sdk@0.38.1':
     resolution: {integrity: sha512-UdTaHqmRrY4aOCsfGaI+OM7NMNNXxaHFr4KomDgwuJ7JT4gZn4geCDvM8qf64GGLOXikiAtq+uOcpVPlGk0C9Q==}
+
+  '@polar-sh/sdk@0.41.5':
+    resolution: {integrity: sha512-E+VoVV+WvebZKmj+KZ/fj1byBZbG7J8hHyzYD9kktvAToigPM19sywo2tFCHeb44aWGCVACMOP8r31e6je7dxA==}
 
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==}
@@ -4942,8 +4897,8 @@ packages:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
-  '@saas-ui/chakra-preset@3.0.0-next.3':
-    resolution: {integrity: sha512-EvAwwOfMK7ewXwPYMlwThAzP8TC2isf/IbuC/t5C1E2/rVDjHgYcojSJB9wsVo5Bnx6/UWTm9cQMsmAHLX+5og==}
+  '@saas-ui/chakra-preset@3.0.0-next.4':
+    resolution: {integrity: sha512-6Vami1/Fd+mQxq3vPoV9MIbpQcIN5PH9ea2BWIXWuIU/y99kMmRM1jzsF8XoB/Yiv512cNu0WBWCNucbD7wvWA==}
     peerDependencies:
       '@chakra-ui/react': ^3.28.0
 
@@ -4952,6 +4907,12 @@ packages:
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
+
+  '@saas-ui/core@3.0.0-next.12':
+    resolution: {integrity: sha512-WFIg/QCm2ALAm9Q3FksSAaRtxHa3s5+A5f5XT3db/jjafZI0CXQ4BwPXZOqNzfq10rUekqTRSjoJC71Pp5V4Gw==}
+    peerDependencies:
+      react: 19.1.1
+      react-dom: 19.1.1
 
   '@saas-ui/forms@3.0.0-next.42':
     resolution: {integrity: sha512-S7DW4t/8Sg5c0KVf/Qm071LjQMMdv2yIg3oe0Qn0U7nyBMGX3Uqpr0b8Y58Dcqh4BIgpVWb6eE1BNqYgCS5Tkg==}
@@ -4998,8 +4959,8 @@ packages:
       react: ^19.1.1
       react-dom: ^19.1.1
 
-  '@saas-ui/react@3.0.0-next.48':
-    resolution: {integrity: sha512-LoQiPuOWUwrBTjP6R84gyN5O3KpolXdrzFilvmi9EQB6dCDJTgoUSRcMIflb2Ko9DcawqR4X/jRFzgTbD5H0+w==}
+  '@saas-ui/react@3.0.0-next.49':
+    resolution: {integrity: sha512-9htC897B2r2M98Cb5elgdjWe3KMAm78RpXe+nHxAHoejRd0yfexBUedWxEpUbVQ7dTGrNg6um7bm/kblOfZoMw==}
     peerDependencies:
       '@chakra-ui/react': ^3.28.0
       '@emotion/react': ^11
@@ -10873,27 +10834,6 @@ packages:
       react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
       react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
 
-  next@15.5.6:
-    resolution: {integrity: sha512-zTxsnI3LQo3c9HSdSf91O1jMNsEzIXDShXd4wVdg9y5shwLqBXi4ZtUUJyB86KGVSJLZx0PFONvO54aheGX8QQ==}
-    engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@opentelemetry/api': ^1.1.0
-      '@playwright/test': ^1.51.1
-      babel-plugin-react-compiler: '*'
-      react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
-      react-dom: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
-      sass: ^1.3.0
-    peerDependenciesMeta:
-      '@opentelemetry/api':
-        optional: true
-      '@playwright/test':
-        optional: true
-      babel-plugin-react-compiler:
-        optional: true
-      sass:
-        optional: true
-
   next@15.5.7:
     resolution: {integrity: sha512-+t2/0jIJ48kUpGKkdlhgkv+zPTEOoXyr60qXe68eB/pl3CMJaLeIGjzp5D6Oqt25hCBiBTt8wEeeAzfJvUKnPQ==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
@@ -15287,20 +15227,6 @@ snapshots:
       react: 19.2.0
       react-dom: 19.1.1(react@19.2.0)
 
-  '@chakra-ui/react@3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
-    dependencies:
-      '@ark-ui/react': 5.26.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@emotion/is-prop-valid': 1.4.0
-      '@emotion/react': 11.14.0(@types/react@19.2.2)(react@19.1.1)
-      '@emotion/serialize': 1.3.3
-      '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.1.1)
-      '@emotion/utils': 1.4.2
-      '@pandacss/is-valid-prop': 1.4.3
-      csstype: 3.1.3
-      fast-safe-stringify: 2.1.1
-      react: 19.1.1
-      react-dom: 19.1.1(react@19.1.1)
-
   '@chakra-ui/react@3.28.0(@emotion/react@11.14.0(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@ark-ui/react': 5.26.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -16601,57 +16527,31 @@ snapshots:
       '@tybys/wasm-util': 0.10.0
     optional: true
 
-  '@next/env@15.5.6': {}
-
   '@next/env@15.5.7': {}
 
   '@next/eslint-plugin-next@15.5.4':
     dependencies:
       fast-glob: 3.3.1
 
-  '@next/swc-darwin-arm64@15.5.6':
-    optional: true
-
   '@next/swc-darwin-arm64@15.5.7':
-    optional: true
-
-  '@next/swc-darwin-x64@15.5.6':
     optional: true
 
   '@next/swc-darwin-x64@15.5.7':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@15.5.6':
-    optional: true
-
   '@next/swc-linux-arm64-gnu@15.5.7':
-    optional: true
-
-  '@next/swc-linux-arm64-musl@15.5.6':
     optional: true
 
   '@next/swc-linux-arm64-musl@15.5.7':
     optional: true
 
-  '@next/swc-linux-x64-gnu@15.5.6':
-    optional: true
-
   '@next/swc-linux-x64-gnu@15.5.7':
-    optional: true
-
-  '@next/swc-linux-x64-musl@15.5.6':
     optional: true
 
   '@next/swc-linux-x64-musl@15.5.7':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@15.5.6':
-    optional: true
-
   '@next/swc-win32-arm64-msvc@15.5.7':
-    optional: true
-
-  '@next/swc-win32-x64-msvc@15.5.6':
     optional: true
 
   '@next/swc-win32-x64-msvc@15.5.7':
@@ -16987,6 +16887,11 @@ snapshots:
     dependencies:
       standardwebhooks: 1.0.0
       zod: 3.25.76
+
+  '@polar-sh/sdk@0.41.5':
+    dependencies:
+      standardwebhooks: 1.0.0
+      zod: 4.1.11
 
   '@radix-ui/number@1.1.1': {}
 
@@ -17982,7 +17887,7 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  '@saas-ui/chakra-preset@3.0.0-next.3(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
+  '@saas-ui/chakra-preset@3.0.0-next.4(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
     dependencies:
       '@chakra-ui/react': 3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
 
@@ -18006,13 +17911,23 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
+  '@saas-ui/core@3.0.0-next.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+    dependencies:
+      '@ark-ui/react': 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@react-aria/utils': 3.31.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@saas-ui/hooks': 3.0.0-next.3(react@19.2.0)
+      '@zag-js/dom-event': 0.80.0
+      '@zag-js/dom-utils': 0.2.4
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
+
   '@saas-ui/forms@3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@chakra-ui/react': 3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@chakra-ui/react': 3.28.0(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@emotion/react': 11.14.0(@types/react@19.2.2)(react@19.1.1)
       '@hookform/resolvers': 5.2.2(react-hook-form@7.63.0(react@19.1.1))
       '@saas-ui/core': 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@saas-ui/react': 3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@saas-ui/react': 3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@standard-schema/spec': 1.0.0
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
@@ -18062,17 +17977,6 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  '@saas-ui/react@3.0.0-next.42(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
-    dependencies:
-      '@ark-ui/react': 5.25.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@chakra-ui/react': 3.28.0(@emotion/react@11.14.0(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@emotion/react': 11.14.0(@types/react@19.2.2)(react@19.1.1)
-      '@saas-ui/core': 3.0.0-next.11(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@saas-ui/hooks': 3.0.0-next.3(react@19.1.1)
-      next-themes: 0.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      react: 19.1.1
-      react-dom: 19.1.1(react@19.1.1)
-
   '@saas-ui/react@3.0.0-next.44(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -18084,13 +17988,13 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  '@saas-ui/react@3.0.0-next.48(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@saas-ui/react@3.0.0-next.49(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@ark-ui/react': 5.25.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@chakra-ui/react': 3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.2.0)
-      '@saas-ui/chakra-preset': 3.0.0-next.3(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
-      '@saas-ui/core': 3.0.0-next.11(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@saas-ui/chakra-preset': 3.0.0-next.4(@chakra-ui/react@3.28.0(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
+      '@saas-ui/core': 3.0.0-next.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@saas-ui/hooks': 3.0.0-next.3(react@19.2.0)
       next-themes: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
@@ -26449,29 +26353,6 @@ snapshots:
     dependencies:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
-
-  next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
-    dependencies:
-      '@next/env': 15.5.6
-      '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001746
-      postcss: 8.4.31
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
-      styled-jsx: 5.1.6(@babel/core@7.28.4)(react@19.2.0)
-    optionalDependencies:
-      '@next/swc-darwin-arm64': 15.5.6
-      '@next/swc-darwin-x64': 15.5.6
-      '@next/swc-linux-arm64-gnu': 15.5.6
-      '@next/swc-linux-arm64-musl': 15.5.6
-      '@next/swc-linux-x64-gnu': 15.5.6
-      '@next/swc-linux-x64-musl': 15.5.6
-      '@next/swc-win32-arm64-msvc': 15.5.6
-      '@next/swc-win32-x64-msvc': 15.5.6
-      sharp: 0.34.3
-    transitivePeerDependencies:
-      - '@babel/core'
-      - babel-plugin-macros
 
   next@15.5.7(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:

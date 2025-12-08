@@ -25,6 +25,7 @@
     "@fumadocs/content-collections": "^1.2.4",
     "@octokit/rest": "^22.0.0",
     "@polar-sh/nextjs": "^0.4.9",
+    "@polar-sh/sdk": "^0.41.5",
     "@radix-ui/react-navigation-menu": "^1.2.9",
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.0",

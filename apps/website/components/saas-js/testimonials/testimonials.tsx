@@ -18,7 +18,7 @@ export const Testimonials = () => {
         <Stack gap="8">
           <Testimonial
             name="Simon Høiberg"
-            avatar="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=200"
+            avatar="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=40"
             description={
               <>
                 Founder -{' '}
@@ -35,6 +35,33 @@ export const Testimonials = () => {
             great developer experience and performing well at the same time.
             SaaS UI has been a massive help in this.”
           </Testimonial>
+
+          <Testimonial
+            name="Muhammad Saad Naeem"
+            avatar="https://cdn.senja.io/public/avatar/b2347c74-be08-4548-b74e-8a9a852b9226_dpmain.jpeg?width=40"
+            description={
+              <>
+                <a href="https://sovanza.com/" target="_blank">
+                  Sovanza
+                </a>
+              </>
+            }
+            fontSize="md"
+          >
+            “What I love most about Saas UI is the fantastic customer support
+            and seamless integration. Their support team is responsive and
+            genuinely helpful, always ready to assist whenever I needed guidance
+            or ran into any issues. This level of support made a huge
+            difference, giving me confidence and peace of mind as I worked
+            through my project. The component library is not only extensive but
+            also incredibly intuitive, which allowed me to focus on creating
+            great features rather than worrying about UI complexities. Saas UI
+            helped me launch my project faster than I expected without
+            sacrificing quality or design. If you're looking to elevate your
+            project’s UI with the backing of an amazing support team, I highly
+            recommend Saas UI!”
+          </Testimonial>
+
           <Testimonial
             name="Ahmed"
             description={
@@ -76,6 +103,37 @@ export const Testimonials = () => {
           </Testimonial>
         </Stack>
         <Stack gap="8">
+          <Testimonial
+            name="Michael Andreuzza"
+            avatar="https://cdn.senja.io/public/avatar/5e93a8cc-0204-422a-a509-546cd0a634a6_actual.png?width=100"
+            description={
+              <>
+                Founder -{' '}
+                <a href="https://lexingtonthemes.com" target="_blank">
+                  Lexington Themes
+                </a>
+              </>
+            }
+            fontSize="md"
+          >
+            “I&apos;ve watched Saas UI grow over time, and you can really see
+            the care that goes into it. Every update feels purposeful. It&apos;s
+            the kind of product you instantly recognize as being built by
+            someone who truly gets SaaS.”
+          </Testimonial>
+
+          <Testimonial
+            name="Ilia Kulikov "
+            description="Founder"
+            avatar="https://cdn.senja.io/public/avatar/26a287f8-03bb-41fd-80bb-e802a75ee1c8_1000023914.jpg?width=40"
+            fontSize="md"
+          >
+            “Working with Saas UI and Eelco is amazing: straightforward process,
+            friendly and professional, at an affordable pricing. Delivery time
+            is excellent. Highly recommend SaaS UI and Eelco as a professional
+            developer and one of the best boilerplates out there. ”
+          </Testimonial>
+
           <Testimonial
             name="Tien Thinh"
             description="Software Engineer"
@@ -124,6 +182,19 @@ export const Testimonials = () => {
         </Stack>
 
         <Stack gap="8">
+          <Testimonial
+            name="JuanPablo B."
+            description="UX Designer & Front-end Developer"
+            avatar="https://cdn.senja.io/public/avatar/660ebe99-0c37-4fc3-8396-fd24dcf7afd1_Avatar%20512x512.jpg?width=40"
+            fontSize="md"
+          >
+            “What SaaS UI exceeds at, is that it is not a project fully based on
+            commercial purposes but real passion for user interfaces. You can
+            tell that from the get go. Nowadays it is really hard to find
+            projects that are pixel-perfect oriented and crafted with so much
+            care and attention to detail. Most projects are run by code
+            developers and not so much from skilled designers.”
+          </Testimonial>
           <Testimonial
             name="João Tosto"
             description="Founder - Startec"

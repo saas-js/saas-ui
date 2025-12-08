@@ -1,15 +1,18 @@
 import {
+  AspectRatio,
   Badge,
   Card,
   Container,
+  Grid,
   Heading,
-  Image,
-  SimpleGrid,
+  LinkBox,
+  LinkOverlay,
   Stack,
   Text,
   VStack,
 } from '@saas-ui/react'
 import { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -41,33 +44,39 @@ export default async function Page() {
           </Text>
         </Stack>
 
-        <SimpleGrid
-          minChildWidth="480px"
+        <Grid
           gap="6"
-          columns={{
-            base: 1,
-            md: 2,
-            lg: 3,
+          templateColumns={{
+            base: 'repeat(1, 1fr)',
+            md: 'repeat(2, 1fr)',
           }}
+          width="full"
         >
           {showcases?.map(({ title, description, url, image }) => (
             <Card.Root size="sm" key={url} asChild overflow="hidden">
-              <Link href={url}>
-                <Image
-                  src={image}
-                  alt={title}
-                  aspectRatio="16/9"
-                  objectFit="fill"
-                />
+              <LinkBox>
+                <AspectRatio ratio={16 / 9}>
+                  <Image
+                    src={image}
+                    alt={title}
+                    style={{ objectFit: 'fill' }}
+                    width={340}
+                    height={340 * (16 / 9)}
+                  />
+                </AspectRatio>
 
                 <Card.Body>
-                  <Card.Title textStyle="sm">{title}</Card.Title>
+                  <Card.Title textStyle="sm" asChild>
+                    <Link href={url}>
+                      <LinkOverlay>{title}</LinkOverlay>
+                    </Link>
+                  </Card.Title>
                   <Card.Description>{description}</Card.Description>
                 </Card.Body>
-              </Link>
+              </LinkBox>
             </Card.Root>
           ))}
-        </SimpleGrid>
+        </Grid>
       </VStack>
     </Container>
   )

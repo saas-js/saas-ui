@@ -60,9 +60,9 @@
     "globby": "^14.1.0"
   },
   "devDependencies": {
-    "@pandacss/types": "^1.4.3",
-    "@chakra-ui/react": "^3.27.1",
+    "@chakra-ui/react": "^3.28.0",
     "@emotion/react": "^11.14.0",
+    "@pandacss/types": "^1.4.3",
     "concurrently": "^9.1.2",
     "tsup": "^8.5.0",
     "tsx": "^4.20.6",

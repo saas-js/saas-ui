@@ -22,7 +22,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.26.2",
+    "@ark-ui/react": "^5.30.0",
     "tailwind-variants": "^0.2.0",
     "tailwindcss": "^4.0.0"
   },

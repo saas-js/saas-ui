@@ -60,7 +60,7 @@
     "@saas-ui/modals-provider": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.27.0",
+    "@chakra-ui/react": "^3.28.0",
     "@emotion/react": ">=11.0.0",
     "@saas-ui/react": "workspace:*",
     "react": "19.1.1",
@@ -72,8 +72,8 @@
     "@types/react-dom": "19.2.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "tsup": "^8.5.0",
     "typescript": "5.9.3",
-    "zod": "^4.1.11",
-    "tsup": "^8.5.0"
+    "zod": "^4.1.11"
   }
 }

@@ -58,15 +58,15 @@
     "library"
   ],
   "peerDependencies": {
-    "@chakra-ui/react": "^3.27.1"
+    "@chakra-ui/react": "^3.28.0"
   },
   "devDependencies": {
-    "@chakra-ui/react": "^3.27.1",
+    "@chakra-ui/react": "^3.28.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "typescript": "^5.9.3",
-    "tsx": "^4.20.6"
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }

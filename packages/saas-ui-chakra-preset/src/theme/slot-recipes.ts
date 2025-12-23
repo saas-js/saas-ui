@@ -40,6 +40,7 @@ import { selectSlotRecipe } from './slot-recipes/select.recipe.ts'
 import { sidebarNavItemSlotRecipe } from './slot-recipes/sidebar-nav-item.recipe.ts'
 import { sidebarSlotRecipe } from './slot-recipes/sidebar.recipe.ts'
 import { sliderSlotRecipe } from './slot-recipes/slider.recipe.ts'
+import { splitterSlotRecipe } from './slot-recipes/splitter.recipe.ts'
 import { statSlotRecipe } from './slot-recipes/stat.recipe.ts'
 import { statusSlotRecipe } from './slot-recipes/status.recipe.ts'
 import { stepsSlotRecipe } from './slot-recipes/steps.recipe.ts'
@@ -87,6 +88,7 @@ export const slotRecipes = {
   segmentGroup: segmentGroupSlotRecipe,
   select: selectSlotRecipe,
   slider: sliderSlotRecipe,
+  splitter: splitterSlotRecipe,
   stat: statSlotRecipe,
   steps: stepsSlotRecipe,
   switch: switchSlotRecipe,

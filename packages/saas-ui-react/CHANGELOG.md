@@ -1,5 +1,13 @@
 # @saas-ui/react
 
+## 3.0.0-next.50
+
+### Patch Changes
+
+- cb73c00: Upgrade to Chakra 3.30.0
+- Updated dependencies [cb73c00]
+  - @saas-ui/chakra-preset@3.0.0-next.5
+
 ## 3.0.0-next.49
 
 ### Patch Changes

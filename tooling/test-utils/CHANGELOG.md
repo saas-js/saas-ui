@@ -1,5 +1,12 @@
 # @saas-ui/test-utils
 
+## 5.0.0-next.50
+
+### Patch Changes
+
+- Updated dependencies [cb73c00]
+  - @saas-ui/react@3.0.0-next.50
+
 ## 5.0.0-next.49
 
 ### Patch Changes

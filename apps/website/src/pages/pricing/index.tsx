@@ -301,9 +301,6 @@ const Pricing = () => {
               <BannerIcon boxSize="14px" />
               <BannerContent fontSize="sm">
                 <BannerTitle>30% off while v3 is in beta</BannerTitle>
-                <BannerDescription display={{ base: 'none', md: 'block' }}>
-                  Use code <strong>V3BETA</strong>
-                </BannerDescription>
               </BannerContent>
             </Banner>
           </Box>
@@ -336,9 +333,9 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  $397,-
+                  $349,-
                 </Text>
-                <Text>$347,-</Text>
+                <Text>$245,-</Text>
               </HStack>
             }
             description="For one developer."
@@ -407,7 +404,7 @@ const Pricing = () => {
                 >
                   $1125,-
                 </Text>
-                <Text>$897,-</Text>
+                <Text>$787,-</Text>
               </HStack>
             }
             description="For growing teams or agencies."

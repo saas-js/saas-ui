@@ -124,6 +124,8 @@ function buildUrl(productId: string) {
     query.set('metadata', metadata)
   }
 
+  query.set('discountId', '33cd49c1-d823-4648-9516-cb8281ab8f87')
+
   const url = new URL(
     '/checkout',
     process.env.NEXT_PUBLIC_URL ?? process.env.VERCEL_URL,
@@ -180,12 +182,15 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           <Text fontSize="sm" color="fg.subtle">
             Single license
           </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
+          <Heading as="h2" fontSize="2xl" fontWeight="medium" mb="2">
             Individuals
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $457
+            $320 {` `}
+            <Span as="sup" textDecoration="line-through" textStyle="sm">
+              $457
+            </Span>
           </Text>
 
           <Box my="8" pt="8">
@@ -242,12 +247,15 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           <Text fontSize="sm" color="fg.subtle">
             Team license
           </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
+          <Heading as="h2" fontSize="2xl" fontWeight="medium" mb="2">
             Teams
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $897
+            $628 {` `}
+            <Span as="sup" textDecoration="line-through" textStyle="sm">
+              $897
+            </Span>
           </Text>
 
           <Box my="8" pt="8">
@@ -388,12 +396,15 @@ export function PricingTableTanstackStart(props: {
           <Text fontSize="sm" color="fg.subtle">
             Single license
           </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
+          <Heading as="h2" fontSize="2xl" fontWeight="medium" mb="2">
             Individuals
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $297
+            $208 {` `}
+            <Span as="sup" textDecoration="line-through" textStyle="sm">
+              $297
+            </Span>
           </Text>
 
           <Box my="8" pt="8">
@@ -447,12 +458,15 @@ export function PricingTableTanstackStart(props: {
           <Text fontSize="sm" color="fg.subtle">
             Team license
           </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
+          <Heading as="h2" fontSize="2xl" fontWeight="medium" mb="2">
             Teams
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $747
+            $523 {` `}
+            <Span as="sup" textDecoration="line-through" textStyle="sm">
+              $747
+            </Span>
           </Text>
 
           <Box my="8" pt="8">
@@ -591,12 +605,15 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           <Text fontSize="sm" color="fg.subtle">
             Single license
           </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
+          <Heading as="h2" fontSize="2xl" fontWeight="medium" mb="2">
             Individuals
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $297
+            $208 {` `}
+            <Span as="sup" textDecoration="line-through" textStyle="sm">
+              $297
+            </Span>
           </Text>
 
           <Box my="8" pt="8">
@@ -649,12 +666,15 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           <Text fontSize="sm" color="fg.subtle">
             Team license
           </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
+          <Heading as="h2" fontSize="2xl" fontWeight="medium" mb="2">
             Teams
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $747
+            $523 {` `}
+            <Span as="sup" textDecoration="line-through" textStyle="sm">
+              $747
+            </Span>
           </Text>
 
           <Box my="8" pt="8">

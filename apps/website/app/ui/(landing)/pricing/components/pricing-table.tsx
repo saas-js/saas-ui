@@ -1,10 +1,7 @@
 'use client'
 
-import { useMemo } from 'react'
-
 import { LinkButton } from '@/components/link-button'
 import {
-  Badge,
   Box,
   Grid,
   Heading,
@@ -12,34 +9,58 @@ import {
   Separator,
   Span,
   Stack,
-  Tabs,
   Text,
 } from '@saas-ui/react'
 import { TbCheck } from 'react-icons/tb'
 
+const products = {
+  pro: {
+    single: '55ee6a38-3908-4263-ada3-3b99fd68b680',
+    team: 'cc80aed7-78f5-4da2-a0d8-e65da2c9e837',
+  },
+} as const
+
+function buildUrl(productId: string) {
+  const referralId =
+    typeof window !== 'undefined' ? (window as any).affonso_referral : null
+
+  const query = new URLSearchParams()
+
+  const metadata = referralId
+    ? JSON.stringify({
+        affonso_referral: referralId,
+      })
+    : null
+
+  query.set('products', productId)
+
+  if (metadata) {
+    query.set('metadata', metadata)
+  }
+
+  query.set('discountId', '33cd49c1-d823-4648-9516-cb8281ab8f87')
+
+  const url = new URL(
+    '/checkout',
+    process.env.NEXT_PUBLIC_URL ?? process.env.VERCEL_URL,
+  )
+
+  url.search = query.toString()
+
+  return url.toString()
+}
+
+function useCheckoutUrls(productType: keyof typeof products) {
+  const ids = products[productType]
+
+  return {
+    individual: buildUrl(ids.single),
+    team: buildUrl(ids.team),
+  }
+}
+
 export function PricingTable(props: { lastUpdated?: string | null }) {
-  const { individual, team } = useMemo(() => {
-    const lmsq =
-      typeof window !== 'undefined' ? (window as any).LemonSqueezy : null
-
-    const urls = {
-      individual:
-        'https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5',
-      team: 'https://saas-ui.lemonsqueezy.com/checkout/buy/bda4c7f4-e012-4956-96eb-e0efca6b91b0',
-    }
-
-    if (!lmsq || !lmsq?.Affiliate) {
-      return {
-        individual: urls.individual,
-        team: urls.team,
-      }
-    }
-
-    return {
-      individual: lmsq.Affiliate.Build(urls.individual),
-      team: lmsq.Affiliate.Build(urls.team),
-    }
-  }, [])
+  const { individual, team } = useCheckoutUrls('pro')
 
   return (
     <Stack>
@@ -75,12 +96,15 @@ export function PricingTable(props: { lastUpdated?: string | null }) {
           <Text fontSize="sm" color="fg.subtle">
             Single license
           </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
+          <Heading as="h2" fontSize="2xl" fontWeight="medium" mb="2">
             Individuals
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            €197
+            $173 {` `}
+            <Span as="sup" textDecoration="line-through" textStyle="sm">
+              $247
+            </Span>
           </Text>
 
           <Box my="8" pt="8">
@@ -133,12 +157,15 @@ export function PricingTable(props: { lastUpdated?: string | null }) {
           <Text fontSize="sm" color="fg.subtle">
             Team license
           </Text>
-          <Heading as="h2" fontSize="2xl" fontWeight="medium">
+          <Heading as="h2" fontSize="2xl" fontWeight="medium" mb="2">
             Teams
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            €597
+            $418 {` `}
+            <Span as="sup" textDecoration="line-through" textStyle="sm">
+              $597
+            </Span>
           </Text>
 
           <Box my="8" pt="8">

@@ -237,6 +237,11 @@ const HeaderDesktopNavbar = () => {
               </PrimaryNavLink>
             }
           >
+            <Menu.Item value="better-auth-react-query" asChild>
+              <Link href="/docs/better-auth-react-query">
+                Better Auth React Query
+              </Link>
+            </Menu.Item>
             <Menu.Item value="drizzle-crud" asChild>
               <Link href="/docs/drizzle-crud">Drizzle CRUD</Link>
             </Menu.Item>

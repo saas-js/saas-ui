@@ -59,6 +59,15 @@ export default function Page() {
             <List.Root textStyle="lg" gap="2" listStyle="none">
               <List.Item>
                 <Link
+                  href="/docs/better-auth-react-query"
+                  colorPalette="cyan"
+                  fontWeight="medium"
+                >
+                  Better Auth React Query
+                </Link>
+              </List.Item>
+              <List.Item>
+                <Link
                   href="/docs/drizzle-crud"
                   colorPalette="cyan"
                   fontWeight="medium"

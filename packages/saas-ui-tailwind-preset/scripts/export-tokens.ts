@@ -8,7 +8,9 @@ interface ChakraToken {
   value: string | { _light: string; _dark: string }
 }
 
-type TokenObject = Record<string, ChakraToken | TokenObject>
+type TokenObject = {
+  [key: string]: ChakraToken | TokenObject
+}
 
 export async function exportTokens() {
   console.log('🎨 Exporting Chakra tokens to Tailwind 4...')
@@ -17,6 +19,7 @@ export async function exportTokens() {
   let semanticContent = ':root {\n'
   let themeSemanticContent = ''
   let darkVariantContent = ''
+  let keyframesContent = ''
 
   // Export base tokens
   const tokenFiles = await fg(
@@ -77,12 +80,19 @@ export async function exportTokens() {
   // Add dark variant section if there's content
   let darkSection = ''
   if (darkVariantContent) {
-    darkSection = '\n@custom-variant dark (&:where(.dark, .dark *));\n\n@variant dark {\n:root {\n'
+    darkSection =
+      '\n@custom-variant dark (&:where(.dark, .dark *));\n\n@variant dark {\n:root {\n'
     darkSection += darkVariantContent
     darkSection += '}\n}\n'
   }
 
-  const cssContent = themeContent + semanticContent + darkSection
+  // Export keyframes
+  keyframesContent = await exportKeyframes()
+
+  console.log(keyframesContent)
+
+  const cssContent =
+    themeContent + semanticContent + darkSection + keyframesContent
 
   // Format and write output
   const formattedCSS = await formatCSS(cssContent)
@@ -225,19 +235,25 @@ function processShadowToken(
 ): { light: string; dark: string } {
   // Convert shadow values directly using oklch inline
   const convertShadowValue = (shadowValue: string): string => {
-    return shadowValue
-      // {colors.gray.900/5} -> oklch(from var(--color-gray-900) l c h / 0.05)
-      .replace(/\{colors\.(\w+)\.(\w+)\/(\d+)\}/g, (_, color, shade, opacity) =>
-        `oklch(from var(--color-${color}-${shade}) l c h / ${parseInt(opacity) / 100})`
-      )
-      // {black/30} -> oklch(0% 0 0 / 0.3)
-      .replace(/\{black\/(\d+)\}/g, (_, opacity) =>
-        `oklch(0% 0 0 / ${parseInt(opacity) / 100})`
-      )
-      // {white/30} -> oklch(100% 0 0 / 0.3)
-      .replace(/\{white\/(\d+)\}/g, (_, opacity) =>
-        `oklch(100% 0 0 / ${parseInt(opacity) / 100})`
-      )
+    return (
+      shadowValue
+        // {colors.gray.900/5} -> oklch(from var(--color-gray-900) l c h / 0.05)
+        .replace(
+          /\{colors\.(\w+)\.(\w+)\/(\d+)\}/g,
+          (_, color, shade, opacity) =>
+            `oklch(from var(--color-${color}-${shade}) l c h / ${parseInt(opacity) / 100})`,
+        )
+        // {black/30} -> oklch(0% 0 0 / 0.3)
+        .replace(
+          /\{black\/(\d+)\}/g,
+          (_, opacity) => `oklch(0% 0 0 / ${parseInt(opacity) / 100})`,
+        )
+        // {white/30} -> oklch(100% 0 0 / 0.3)
+        .replace(
+          /\{white\/(\d+)\}/g,
+          (_, opacity) => `oklch(100% 0 0 / ${parseInt(opacity) / 100})`,
+        )
+    )
   }
 
   const lightShadow = convertShadowValue(lightValue)
@@ -286,4 +302,60 @@ function extractValue(value: string | number | string[]): string {
       .replace(/\{radii\.(\w+)\}/g, 'var(--radius-$1)')
       .replace(/\{blurs\.(\w+)\}/g, 'var(--blurs-$1)')
   )
+}
+
+async function exportKeyframes(): Promise<string> {
+  const modulePath = '../../saas-ui-chakra-preset/src/theme/keyframes.ts'
+  const module = await import(modulePath)
+  const keyframesDefinition = module.keyframes
+
+  if (!keyframesDefinition) {
+    return ''
+  }
+
+  let css = '\n/* Keyframes */\n'
+
+  for (const [name, frames] of Object.entries(keyframesDefinition)) {
+    css += `@keyframes ${name} {\n`
+
+    for (const [step, properties] of Object.entries(
+      frames as Record<string, any>,
+    )) {
+      css += `  ${step} {\n`
+
+      for (const [prop, value] of Object.entries(
+        properties as Record<string, any>,
+      )) {
+        const cssProperty = convertPropertyName(prop)
+        const cssValue = convertPropertyValue(prop, value)
+        css += `    ${cssProperty}: ${cssValue};\n`
+      }
+
+      css += '  }\n'
+    }
+
+    css += '}\n\n'
+  }
+
+  return css
+}
+
+function convertPropertyName(prop: string): string {
+  // Convert camelCase to kebab-case
+  return prop.replace(/([A-Z])/g, '-$1').toLowerCase()
+}
+
+function convertPropertyValue(prop: string, value: any): string {
+  // Handle special property conversions
+  if (prop === 'translate') {
+    return `translate(${value})`
+  }
+  if (prop === 'scale') {
+    return `scale(${value})`
+  }
+  if (prop === 'rotate') {
+    return `rotate(${value})`
+  }
+
+  return String(value)
 }

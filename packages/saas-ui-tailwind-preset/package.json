@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/tailwind-preset",
-  "version": "0.0.1",
+  "version": "0.0.2-next.0",
   "description": "Tailwind CSS preset for Saas UI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,5 +1,21 @@
 # @saas-ui/web-v3
 
+## 0.1.1-next.90
+
+### Patch Changes
+
+- Updated dependencies [918eb59]
+- Updated dependencies [fd7e352]
+- Updated dependencies [fd7e352]
+- Updated dependencies [5e4b520]
+- Updated dependencies [27b8e1a]
+- Updated dependencies [5e4b520]
+- Updated dependencies [fd7e352]
+  - @saas-ui/chakra-preset@3.0.0-next.6
+  - @saas-ui/react@3.0.0-next.51
+  - @saas-ui/forms@3.0.0-next.54
+  - @saas-ui/modals@3.0.0-next.54
+
 ## 0.1.1-next.89
 
 ### Patch Changes

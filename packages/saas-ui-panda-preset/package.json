@@ -2,7 +2,7 @@
   "name": "@saas-ui/panda-preset",
   "description": "The styled system for Saas UI panda",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2-next.0",
   "exports": {
     ".": {
       "sui": "./src/index.ts",

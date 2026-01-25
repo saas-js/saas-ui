@@ -40,8 +40,8 @@
   "scripts": {
     "dev": "concurrently \"panda codegen --watch\" \"tsup src/index.ts --config tsup.config.ts --watch\"",
     "clean": "rimraf --no-glob ./dist",
-    "sync": "bun scripts/sync.ts",
-    "build": "panda codegen && tsup src/index.ts --config tsup.config.ts",
+    "sync": "pnpm tsx scripts/sync.ts",
+    "build": "pnpm sync && panda codegen && tsup src/index.ts --config tsup.config.ts",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"

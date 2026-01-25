@@ -30,16 +30,6 @@ export default definePreset({
   utilities: {
     extend: utilities,
   },
-  staticCss: {
-    css: [
-      {
-        properties: {
-          colorPalette: ['gray'],
-          ps: ['8'],
-        },
-      },
-    ],
-  },
   conditions: {
     extend: {
       icon: '& :where(svg)',

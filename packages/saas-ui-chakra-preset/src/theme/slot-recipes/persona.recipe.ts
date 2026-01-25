@@ -26,24 +26,12 @@ export const personaSlotRecipe = defineSlotRecipe({
   base: {
     root: {
       '--presence-border-color': 'var(--bg-currentcolor)',
+      '--persona-presence': '{colors.presence.offline}',
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
     },
-    presence: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'absolute',
-      bottom: 0,
-      right: 0,
-      boxSize: 'calc(var(--avatar-size) / 3)',
-      transform: 'translate(12%, 12%)',
-      borderWidth: '0.10em',
-      borderRadius: '50%',
-      borderColor: 'var(--presence-border-color)',
-      bg: 'var(--persona-presence)',
-    },
+
     details: {
       display: 'flex',
       flexDirection: 'column',
@@ -105,9 +93,48 @@ export const personaSlotRecipe = defineSlotRecipe({
         tertiaryLabel: { fontSize: 'lg' },
       },
     },
+    variant: {
+      badge: {
+        presence: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          boxSize: 'calc(var(--avatar-size) / 3)',
+          transform: 'translate(12%, 12%)',
+          borderWidth: '0.10em',
+          borderRadius: '50%',
+          borderColor: 'var(--presence-border-color)',
+          bg: 'var(--persona-presence)',
+          '[data-out-of-office] &': {
+            bg: 'var(--presence-border-color)',
+            borderColor: 'var(--persona-presence)',
+            borderWidth: '0.12em',
+            outlineWidth: '0.12em',
+            outlineColor: 'var(--presence-border-color)',
+            outlineOffset: '0',
+            outlineStyle: 'solid',
+          },
+        },
+      },
+      ring: {
+        presence: {
+          outlineWidth: '2px',
+          outlineColor: 'var(--persona-presence)',
+          outlineOffset: '2px',
+          outlineStyle: 'solid',
+          borderRadius: 'full',
+          position: 'absolute',
+          inset: 0,
+        },
+      },
+    },
   },
   defaultVariants: {
     size: 'md',
+    variant: 'badge',
   },
 })
 

@@ -4,8 +4,10 @@ import { Persona } from '@saas-ui/react'
 
 export const PersonaOutOfOffice = () => {
   return (
-    <Persona.Root outOfOffice>
-      <Persona.Avatar name="David Wilson" src="/avatars/1.png" />
+    <Persona.Root outOfOffice presence="away">
+      <Persona.Avatar name="David Wilson" src="/img/avatars/1.png">
+        <Persona.PresenceBadge />
+      </Persona.Avatar>
       <Persona.Details>
         <Persona.Label>David Wilson</Persona.Label>
         <Persona.SecondaryLabel>Software Engineer</Persona.SecondaryLabel>

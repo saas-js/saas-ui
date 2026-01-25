@@ -32,7 +32,7 @@ export const AvatarGroupWithStacking = () => {
 
 const items = [
   {
-    src: '/avatars/1.png',
+    src: '/img/avatars/1.png',
     name: 'David Wilson',
   },
   {

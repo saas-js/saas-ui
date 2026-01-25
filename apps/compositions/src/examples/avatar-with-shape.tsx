@@ -6,7 +6,7 @@ export const AvatarWithShape = () => {
     <HStack gap="4">
       <Avatar
         name="David Wilson"
-        src="/avatars/1.png"
+        src="/img/avatars/1.png"
         shape="square"
         size="lg"
       />

@@ -14,7 +14,7 @@ export const AvatarWithRing = () => {
       <Avatar
         name="David Wilson"
         colorPalette="pink"
-        src="/avatars/1.png"
+        src="/img/avatars/1.png"
         css={ringCss}
       />
       <Avatar

@@ -15,7 +15,7 @@ export const SidebarBasic = () => {
             <Menu.Trigger asChild>
               <IconButton variant="ghost" size="sm" aria-label="User menu">
                 <Persona.Root presence="online">
-                  <Persona.Avatar size="xs" src="/avatars/1.png" />
+                  <Persona.Avatar size="xs" src="/img/avatars/1.png" />
                 </Persona.Root>
               </IconButton>
             </Menu.Trigger>

@@ -60,7 +60,7 @@ const PersonaRoot = forwardRef<HTMLDivElement, PersonaRootProps>(
 
     const className = classNames['root']
 
-    const { outOfOffice, presence, ...rest } = rootProps
+    const { outOfOffice, variant, presence, ...rest } = rootProps
 
     return (
       <StylesProvider value={styles}>
@@ -68,13 +68,14 @@ const PersonaRoot = forwardRef<HTMLDivElement, PersonaRootProps>(
           <AvatarPropsProvider
             value={{
               size: props.size,
+              variant: variant,
             }}
           >
             <chakra.div
               ref={ref}
               {...rest}
               data-out-of-office={dataAttr(outOfOffice)}
-              data-presence={presence}
+              data-presence={dataAttr(presence)}
               css={[
                 presence
                   ? {

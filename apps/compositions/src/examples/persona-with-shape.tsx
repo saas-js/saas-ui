@@ -8,7 +8,7 @@ export const PersonaWithShape = () => {
       <Persona.Root>
         <Persona.Avatar
           name="David Wilson"
-          src="/avatars/1.png"
+          src="/img/avatars/1.png"
           shape="square"
         />
       </Persona.Root>

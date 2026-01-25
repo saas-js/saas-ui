@@ -4,11 +4,11 @@ import { Persona, Stack } from '@saas-ui/react'
 
 const presenceOptions = ['online', 'busy', 'dnd', 'away', 'offline'] as const
 
-export const PersonaWithPresence = () => {
+export const PersonaWithPresenceRing = () => {
   return (
     <Stack>
       {presenceOptions.map((presence) => (
-        <Persona.Root presence={presence}>
+        <Persona.Root presence={presence} variant="ring">
           <Persona.Avatar name="David Wilson" src="/img/avatars/1.png">
             <Persona.PresenceBadge />
           </Persona.Avatar>

@@ -10,12 +10,12 @@ export const TagWithVariants = () => {
       <For each={['subtle', 'solid', 'outline', 'surface']}>
         {(variant) => (
           <HStack key={variant}>
-            <Tag variant={variant}>Gray</Tag>
+            <Tag variant={variant}>{variant}</Tag>
             <Tag variant={variant} closable>
-              Gray
+              {variant}
             </Tag>
             <Tag endElement={<HiCheck />} variant={variant}>
-              Gray
+              {variant}
             </Tag>
           </HStack>
         )}

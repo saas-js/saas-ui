@@ -79,7 +79,7 @@
     "eslint-config-prettier": "^10.1.1",
     "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-storybook": "^9.1.10",
+    "eslint-plugin-storybook": "^10.2.0",
     "framer-motion": "^12.23.22",
     "husky": "^9.1.7",
     "hygen": "^6.2.11",

@@ -25,13 +25,13 @@ export const badgeRecipe = defineRecipe({
       outline: {
         color: 'colorPalette.fg',
         shadow: 'inset 0 0 0px 1px var(--shadow-color)',
-        shadowColor: 'colorPalette.subtle',
+        shadowColor: 'colorPalette.border',
       },
       surface: {
-        bg: 'colorPalette.muted/20',
+        bg: 'colorPalette.muted',
         color: 'colorPalette.fg',
         shadow: 'inset 0 0 0px 1px var(--shadow-color)',
-        shadowColor: 'colorPalette.subtle',
+        shadowColor: 'colorPalette.border',
       },
       plain: {
         color: 'colorPalette.fg',

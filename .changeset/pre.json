@@ -37,7 +37,8 @@
     "remix-ts": "1.0.0",
     "@saas-ui/chakra-preset": "3.0.0",
     "@saas-ui/compositions": "1.0.1-next.46",
-    "@saas-ui/tailwind-preset": "0.0.1"
+    "@saas-ui/tailwind-preset": "0.0.1",
+    "@saas-ui/panda-preset": "0.0.1"
   },
   "changesets": [
     "afraid-avocados-roll",

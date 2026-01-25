@@ -57,7 +57,7 @@ interface PersonaOptions {
 
 export interface PersonaProps
   extends PersonaOptions,
-    Omit<PersonaPrimitive.AvatarProps, 'size'>,
+    Omit<PersonaPrimitive.AvatarProps, 'size' | 'variant'>,
     Omit<PersonaPrimitive.RootProps, 'presence'>,
     PersonaVariantProps {}
 

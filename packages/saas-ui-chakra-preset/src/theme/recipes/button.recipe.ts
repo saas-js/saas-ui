@@ -107,7 +107,7 @@ export const buttonRecipe = defineRecipe({
           _dark:
             ' 0px 1px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow)',
         },
-        textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+        textShadow: '0 1px 2px rgba(0,0,0,0.1)',
         overflow: 'clip',
         _after: {
           content: '""',

@@ -4,8 +4,6 @@ import { FeaturesSection } from '@/components/saas-js/features.section'
 import { FounderSection } from '@/components/saas-js/founder.section'
 import { GetStartedSection } from '@/components/saas-js/get-started.section'
 import { HeroSection } from '@/components/saas-js/hero.section'
-import { ProblemSection } from '@/components/saas-js/problem.section'
-import { StackSection } from '@/components/saas-js/stack.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
 import { WhySection } from '@/components/saas-js/why.section'
 import { Button, ButtonGroup, Stack, Text } from '@chakra-ui/react'
@@ -14,8 +12,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Next.js and TanStack Start starterkits',
-  description: 'Building blocks for top tier SaaS products',
+  title: 'AI-native SaaS starter kit for TanStack Start',
+  description:
+    'TanStack Start starter kit built for AI-assisted development. Auth, billing, dashboards, and strict types that keep your AI agents on track.',
 }
 
 export default function Page() {
@@ -37,10 +36,7 @@ export default function Page() {
       />
       <DemoSection />
       <CustomersSection />
-      <ProblemSection />
-      <StackSection />
       <FeaturesSection />
-      <WhySection />
       <FounderSection />
       <TestimonialsSection />
       <GetStartedSection>
@@ -50,7 +46,9 @@ export default function Page() {
               <Link href="/pricing">Buy now</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="/docs">Documentation</Link>
+              <Link href="/docs/starter-kits/tanstack-start">
+                Read the docs
+              </Link>
             </Button>
           </ButtonGroup>
 

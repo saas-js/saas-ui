@@ -4,9 +4,8 @@ import { useMemo, useState } from 'react'
 
 import { useControllableState, useIsMobile, useOpenState } from '@saas-ui/hooks'
 
-import type { HTMLSystemProps } from '#system'
-import { callAll, createContext } from '#utils'
-
+import type { HTMLSystemProps } from '../../system/index.ts'
+import { callAll, createContext } from '../../utils/index.ts'
 import type { SidebarMode, SidebarOptions } from './sidebar.types.ts'
 
 export interface UseSidebarReturn {

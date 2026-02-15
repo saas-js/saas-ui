@@ -2,9 +2,8 @@
 
 import React, { forwardRef } from 'react'
 
-import { type HTMLSystemProps, sui } from '#system'
-import { createContext } from '#utils'
-
+import { type HTMLSystemProps, sui } from '../../system/index.ts'
+import { createContext } from '../../utils/index.ts'
 import { UseNavbarProps, splitNavbarProps, useNavbar } from './use-navbar.ts'
 import type { UseNavbarReturn } from './use-navbar.ts'
 
@@ -17,8 +16,7 @@ export const [NavbarProvider, useNavbarContext] =
   })
 
 export interface NavbarRootProps
-  extends UseNavbarProps,
-    Omit<HTMLSystemProps<'div'>, 'height'> {
+  extends UseNavbarProps, Omit<HTMLSystemProps<'div'>, 'height'> {
   children?: React.ReactNode | React.ReactNode[]
 }
 

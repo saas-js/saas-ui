@@ -4,9 +4,8 @@ import React, { forwardRef, useState } from 'react'
 
 import { Presence, type PresenceProps } from '@ark-ui/react'
 
-import { type HTMLSystemProps, sui } from '#system'
-import { callAll, dataAttr } from '#utils'
-
+import { type HTMLSystemProps, sui } from '../../system/index.ts'
+import { callAll, dataAttr } from '../../utils/index.ts'
 import {
   type UseSidebarReturn,
   useSidebar,
@@ -74,8 +73,7 @@ export const SidebarFlyoutTrigger = forwardRef<
 })
 
 export interface SidebarBackdropProps
-  extends HTMLSystemProps<'div'>,
-    PresenceProps {}
+  extends HTMLSystemProps<'div'>, PresenceProps {}
 
 export const SidebarBackdrop = forwardRef<HTMLDivElement, SidebarBackdropProps>(
   (props, ref) => {

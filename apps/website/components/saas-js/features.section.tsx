@@ -26,23 +26,19 @@ export function FeaturesSection() {
   return (
     <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
       <Container maxW="8xl">
-        <Stack mb="16">
+        <Stack mb="16" gap="4">
           <Heading as="h3" textStyle="4xl">
-            Complete, integrated systems
+            Built on TanStack Start
           </Heading>
-          <Text
-            textStyle="lg"
-            color="fg.subtle"
-            fontWeight="medium"
-            maxW="340px"
-          >
-            Not just components. Production-ready features that work together
-            seamlessly.
+          <Text textStyle="lg" color="fg.subtle" fontWeight="medium" maxW="xl">
+            The fastest full-stack React framework for building dashboard-heavy
+            SaaS products. Type-safe routing, built-in caching, and SSR when you
+            need it.
           </Text>
         </Stack>
 
         <Grid
-          templateColumns="repeat(2, 1fr)"
+          templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
           borderTopWidth="1px"
           borderStyle="dashed"
           position="relative"
@@ -58,6 +54,7 @@ export function FeaturesSection() {
             left: '50%',
             transform: 'translateX(-50%)',
             zIndex: 1,
+            display: { base: 'none', md: 'block' },
           }}
         >
           <FeatureCard
@@ -75,6 +72,19 @@ export function FeaturesSection() {
               'SSO',
             ]}
           />
+
+          <FeatureCard
+            title="Workspaces"
+            description="Allow users to create, manage, and invite other users to their own workspaces."
+            features={[
+              'RBAC',
+              'Multi-tenancy',
+              'Block workspaces',
+              'Invite users',
+              'Manage roles',
+            ]}
+          />
+
           <FeatureCard
             title="Billing"
             description="Built-in billing with Stripe, or use your own billing provider. Automatically sync your billing configuration with Stripe."
@@ -146,42 +156,17 @@ export function FeaturesSection() {
             ]}
           />
 
-          <PrimaryFeatureCard
-            title="Workspaces"
-            description="Allow users to create, manage, and invite other users to their own workspaces."
-            features={['RBAC', 'Multi-tenancy', 'Block workspaces']}
+          <FeatureCard
+            title="Testing &amp; Linting"
+            description="End-to-end and unit testing setup for agent back pressure, ship with confidence."
+            logos={[
+              '/img/frameworks/playwright.svg',
+              '/img/frameworks/vitest.svg',
+              '/img/frameworks/github.svg',
+            ]}
+            features={['Playwright', 'Vitest', 'Github Actions']}
           />
         </Grid>
-
-        <HStack
-          overflowX="auto"
-          gap="4"
-          alignItems="stretch"
-          py="16"
-          borderBottomWidth="1px"
-          borderStyle="dashed"
-        >
-          <TertiaryFeatureCard
-            title="Feature flags"
-            description="Control access to features and functionality."
-          />
-          <TertiaryFeatureCard
-            title="TypeScript"
-            description="Type-safe from front to backend."
-          />
-          <TertiaryFeatureCard
-            title="Notifications"
-            description="Notification preferences for your users."
-          />
-          <TertiaryFeatureCard
-            title="Marketing"
-            description="Email marketing and newsletter preferences."
-          />
-          <TertiaryFeatureCard
-            title="Analytics"
-            description="Track user behavior and engagement."
-          />
-        </HStack>
       </Container>
     </Section.Root>
   )
@@ -206,10 +191,10 @@ function FeatureCard(props: {
       py="16"
       css={{
         '&:nth-child(even)': {
-          ps: '16',
+          ps: { base: '0', md: '16' },
         },
         '&:nth-child(odd)': {
-          pe: '16',
+          pe: { base: '0', md: '16' },
         },
       }}
     >
@@ -237,7 +222,10 @@ function FeatureCard(props: {
           textStyle="md"
           color="fg.muted"
           display="grid"
-          gridTemplateColumns={`repeat(${props.featureColumns ?? 3}, 1fr)`}
+          gridTemplateColumns={{
+            base: `repeat(${Math.min(props.featureColumns ?? 3, 2)}, 1fr)`,
+            md: `repeat(${props.featureColumns ?? 3}, 1fr)`,
+          }}
           gap="2"
           fontSize="sm"
         >
@@ -273,7 +261,7 @@ function PrimaryFeatureCard(props: {
       borderColor="border"
       rounded="0"
       py="16"
-      gridColumn="span 2"
+      gridColumn={{ base: 'span 1', md: 'span 2' }}
       bg="bg.muted"
     >
       <Card.Header p="0">
@@ -295,7 +283,10 @@ function PrimaryFeatureCard(props: {
           textStyle="md"
           color="fg.muted"
           display="grid"
-          gridTemplateColumns={`repeat(${props.featureColumns ?? 3}, 1fr)`}
+          gridTemplateColumns={{
+            base: `repeat(${Math.min(props.featureColumns ?? 3, 2)}, 1fr)`,
+            md: `repeat(${props.featureColumns ?? 3}, 1fr)`,
+          }}
           gap="2"
           fontSize="sm"
         >

@@ -32,26 +32,16 @@ export const ProblemSection = () => {
           }}
           alignItems="flex-start"
         >
-          <Heading as="h3" textStyle="4xl" minW="480px">
-            Development has never been faster. But speed has a cost.
+          <Heading as="h3" textStyle="4xl" minW={{ base: 'auto', md: '480px' }}>
+            Built for how you actually build — with AI.
           </Heading>
 
           <Stack textStyle="lg" gap="2">
             <Text>
-              Generic interfaces. Fragile architecture. Disposable code. When
-              everything can be built quickly, the products that win are the
-              ones built with intention.
-            </Text>
-            <Text>
-              Your product needs to signal quality from the first interaction.
-              That requires craftsmanship—intentional design decisions,
-              considered architecture, polished details. Not as nostalgia, but
-              as strategy.
-            </Text>
-
-            <Text fontWeight="medium">
-              We've spent 20 years learning what that looks like. You get it
-              from day one.
+              Vibe coding and AI slop give you speed, then ugly UI and fragile
+              code. These starter kits are pre-architected by a pro: clear
+              structure, production-ready patterns, and top-tier components. So
+              you and your AI tools can move fast without the mess.
             </Text>
           </Stack>
         </Stack>

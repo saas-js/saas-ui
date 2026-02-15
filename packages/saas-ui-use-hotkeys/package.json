@@ -1,18 +1,15 @@
 {
   "name": "@saas-ui/use-hotkeys",
   "version": "2.0.0-next.0",
+  "type": "module",
   "description": "Easy to use and scalable keyboard shortcuts for React.",
   "exports": {
     ".": {
       "sui": "./src/index.ts",
-      "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
     "build": "tsup src/index.ts --config tsup.config.ts",

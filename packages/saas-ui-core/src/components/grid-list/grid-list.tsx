@@ -1,8 +1,7 @@
 import * as React from 'react'
 
-import { type HTMLSystemProps, sui } from '#system'
-import { mergeRefs } from '#utils'
-
+import { type HTMLSystemProps, sui } from '../../system/index.ts'
+import { mergeRefs } from '../../utils/index.ts'
 import {
   type GridListItemOptions,
   GridListProvider,
@@ -53,8 +52,7 @@ export const GridListHeader = React.forwardRef<
 })
 
 export interface GridListItemProps
-  extends GridListItemOptions,
-    HTMLSystemProps<'div'> {}
+  extends GridListItemOptions, HTMLSystemProps<'div'> {}
 
 export const GridListItem = React.forwardRef<HTMLDivElement, GridListItemProps>(
   (props, ref) => {

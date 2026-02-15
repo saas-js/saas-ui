@@ -28,7 +28,7 @@ const linkTree = [
     items: [
       {
         label: 'Tanstack Start starter kit',
-        href: '/tanstack-start',
+        href: '/',
       },
       { label: 'Next.js starter kit', href: '/' },
       {
@@ -48,7 +48,6 @@ const linkTree = [
   {
     title: 'Company',
     items: [
-      { label: 'Contact', href: '/contact' },
       { label: 'License', href: '/license' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },

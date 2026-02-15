@@ -45,6 +45,9 @@
     "test": "vitest",
     "test:watch": "vitest --watch --onlyChanged",
     "test:ci": "vitest --color --run",
+    "test:e2e": "pnpx playwright test",
+    "test:e2e:ui": "pnpx playwright test --ui",
+    "test:e2e:headed": "pnpx playwright test --headed",
     "lint": "turbo run lint",
     "lint:staged": "lint-staged --allow-empty --config lint-staged.config.js",
     "create:pkg": "hygen package chakra-component",
@@ -69,6 +72,7 @@
     "@changesets/cli": "^2.29.7",
     "@manypkg/get-packages": "^3.1.0",
     "@octokit/rest": "^22.0.0",
+    "@playwright/test": "^1.58.2",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^22.18.8",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
@@ -96,5 +100,8 @@
     "vercel-submodules": "^1.0.10",
     "vitest": "^3.2.2"
   },
-  "packageManager": "pnpm@10.26.2"
+  "packageManager": "pnpm@10.26.2",
+  "dependencies": {
+    "@playwright/mcp": "^0.0.68"
+  }
 }

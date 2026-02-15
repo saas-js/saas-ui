@@ -1,6 +1,8 @@
 import { Group, Stack } from '@chakra-ui/react'
 
-import { Input, InputAddon } from './index'
+import { Input } from './index'
+
+import { InputAddon } from '../input-addon/index.ts'
 
 export default {
   title: 'Components/Input',

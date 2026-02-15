@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { nextById, prevById, queryAll } from '@zag-js/dom-utils'
 
-import { callAll, createContext, dataAttr } from '#utils'
+import { callAll, createContext, dataAttr } from '../../utils/index.ts'
 
 interface GridListContext {
   id: string

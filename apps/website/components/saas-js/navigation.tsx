@@ -1,4 +1,9 @@
 import { HStack, Stack, Text } from '@saas-ui/react'
+import { usePathname } from 'next/navigation'
+import { LuChevronsUpDown } from 'react-icons/lu'
+
+import { NextjsLogo } from '#components/logos/next'
+import { TanstackLogo } from '#components/logos/tanstack'
 
 import {
   List,
@@ -15,18 +20,25 @@ import {
 } from '../navigation-menu'
 
 export const Navigation = () => {
+  const pathname = usePathname()
+
   return (
     <NavigationMenuRoot>
       <NavigationMenuList display={{ base: 'none', md: 'flex' }} gap="1px">
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuTrigger
+            border="1px solid"
+            borderColor="border"
+            gap="2"
+          >
+            <TanstackLogo /> Tanstack Start <LuChevronsUpDown />
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <List
               css={{
                 '@media only screen and (min-width: 600px)': {
                   width: '260px',
                   maxWidth: '80vw',
-
                   gridTemplateColumns: 'repeat(1, 1fr)',
                 },
               }}
@@ -35,25 +47,30 @@ export const Navigation = () => {
                 <Text textStyle="xs" color="fg.muted" px="3" py="2">
                   Starter kits
                 </Text>
-                <ListItem title="Next.js" href="/nextjs">
-                  Next.js and tRPC
+                <ListItem href="/">
+                  <HStack
+                    as="span"
+                    fontWeight="medium"
+                    textStyle="sm"
+                    color="fg"
+                  >
+                    <TanstackLogo fontSize="lg" /> Tanstack Start
+                  </HStack>
                 </ListItem>
-                <ListItem title="Tanstack Start" href="/tanstack-start">
-                  Tanstack Start and tRPC
+                <ListItem href="/nextjs">
+                  <HStack
+                    as="span"
+                    fontWeight="medium"
+                    textStyle="sm"
+                    color="fg"
+                  >
+                    <NextjsLogo fontSize="lg" /> Next.js
+                  </HStack>
                 </ListItem>
               </Stack>
             </List>
           </NavigationMenuContent>
         </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuLink href="/pricing">Pricing</NavigationMenuLink>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
-        </NavigationMenuItem>
-
         <NavigationMenuItem>
           <NavigationMenuTrigger
             sx={{
@@ -65,6 +82,7 @@ export const Navigation = () => {
           >
             Resources
           </NavigationMenuTrigger>
+
           <NavigationMenuContent>
             <List
               css={{

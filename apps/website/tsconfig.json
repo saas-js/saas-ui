@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -10,11 +14,14 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "jsxImportSource": "react",
     "incremental": true,
     "allowImportingTsExtensions": true,
-    "customConditions": ["sui", "sui-pro"],
+    "customConditions": [
+      "sui",
+      "sui-pro"
+    ],
     "baseUrl": ".",
     "plugins": [
       {
@@ -22,17 +29,33 @@
       }
     ],
     "paths": {
-      "content-collections": ["./.content-collections/generated"],
-      "compositions/*": ["../compositions/src/*"],
-      "@saas-ui/react": ["../../packages/saas-ui-react/src/index.ts"],
-      "@saas-ui/react/*": ["../../packages/saas-ui-react/src/components/*"],
-      "saas-ui-blocks": ["../../packages/pro/packages/blocks/index.ts"],
-      "#components/*": ["./components/*"],
-      "#lib/*": ["./lib/*"],
-      "#utils/*": ["./utils/*"],
-      "#hooks/*": ["./hooks/*"],
-      "#theme/*": ["./theme/*"],
-      "@/*": ["./*"]
+      "content-collections": [
+        "./.content-collections/generated"
+      ],
+      "compositions/*": [
+        "../compositions/src/*"
+      ],
+      "saas-ui-blocks": [
+        "../../packages/pro/packages/blocks/index.ts"
+      ],
+      "#components/*": [
+        "./components/*"
+      ],
+      "#lib/*": [
+        "./lib/*"
+      ],
+      "#utils/*": [
+        "./utils/*"
+      ],
+      "#hooks/*": [
+        "./hooks/*"
+      ],
+      "#theme/*": [
+        "./theme/*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     },
     "target": "ES2017"
   },
@@ -43,7 +66,10 @@
     ".velite",
     ".next/types/**/*.ts",
     "../compositions",
-    "next.config.mjs"
+    "next.config.mjs",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["**/node_modules"]
+  "exclude": [
+    "**/node_modules"
+  ]
 }

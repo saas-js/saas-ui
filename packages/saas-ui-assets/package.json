@@ -1,21 +1,15 @@
 {
   "name": "@saas-ui/assets",
   "version": "2.0.0-next.0",
+  "type": "module",
   "description": "Saas UI assets",
-  "source": "src/index.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
+      "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
-    },
-    "./src": {
-      "default": "./src/index.ts"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
     "build": "tsup src/index.ts --config tsup.config.ts",

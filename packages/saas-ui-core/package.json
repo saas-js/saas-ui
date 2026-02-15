@@ -40,16 +40,6 @@
       "import": "./dist/utils/index.js"
     }
   },
-  "imports": {
-    "#utils": [
-      "./dist/utils/index.js",
-      "./src/utils/index.ts"
-    ],
-    "#system": [
-      "./dist/system/index.js",
-      "./src/system/index.ts"
-    ]
-  },
   "scripts": {
     "dev": "tsup --config tsup.config.ts --watch",
     "clean": "rimraf --no-glob ./dist",

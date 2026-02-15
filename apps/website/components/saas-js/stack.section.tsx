@@ -22,23 +22,29 @@ export const StackSection = () => {
       <a id="starter-kits" />
       <Container maxW="6xl">
         <Stack gap="8">
-          <Box textAlign="center" mb="8">
-            <Heading as="h3" textStyle="4xl" mb="1">
-              Choose your Stack
+          <Stack gap="4" mb="8">
+            <Heading as="h3" textStyle="4xl">
+              Built on TanStack Start
             </Heading>
-            <Text textStyle="lg" color="fg.subtle" fontWeight="medium">
-              Production-ready foundations for your next SaaS product
+            <Text
+              textStyle="lg"
+              color="fg.subtle"
+              fontWeight="medium"
+              maxW="xl"
+            >
+              The fastest full-stack React framework for building
+              dashboard-heavy SaaS products. Type-safe routing, built-in
+              caching, and SSR when you need it.
             </Text>
-          </Box>
+          </Stack>
 
           <Stack
-            gap="16"
+            gap="8"
             flexDirection={{
               base: 'column',
               md: 'row',
             }}
-            alignItems="flex-start"
-            borderStyle="dashed"
+            alignItems="stretch"
           >
             <Card.Root
               variant="outline"
@@ -46,11 +52,16 @@ export const StackSection = () => {
                 _light: 'white/40',
                 _dark: 'white/5',
               }}
+              flex="2"
             >
-              <Stack p="16" alignItems="flex-start" gap="4">
+              <Stack
+                p={{ base: '6', md: '16' }}
+                alignItems="flex-start"
+                gap="4"
+              >
                 <Image
                   src="/img/logos/tanstack.png"
-                  alt="TanStack"
+                  alt="TanStack Start"
                   width={40}
                   height={40}
                 />
@@ -73,7 +84,7 @@ export const StackSection = () => {
                     <List.Indicator color="fg" asChild>
                       <TbCheck />
                     </List.Indicator>
-                    Blazing fast routing
+                    Type-safe routing
                   </List.Item>
                   <List.Item>
                     <List.Indicator color="fg" asChild>
@@ -87,6 +98,12 @@ export const StackSection = () => {
                     </List.Indicator>
                     Perfect for B2B dashboards
                   </List.Item>
+                  <List.Item>
+                    <List.Indicator color="fg" asChild>
+                      <TbCheck />
+                    </List.Indicator>
+                    Opt-in SSR support
+                  </List.Item>
                 </List.Root>
               </Stack>
             </Card.Root>
@@ -96,48 +113,28 @@ export const StackSection = () => {
                 _light: 'white/40',
                 _dark: 'white/5',
               }}
+              flex="1"
             >
-              <Stack p="16" alignItems="flex-start" gap="4">
+              <Stack
+                p={{ base: '6', md: '10' }}
+                alignItems="flex-start"
+                gap="4"
+              >
                 <Image
                   src="/img/logos/nextjs.svg"
                   alt="Next.js"
-                  width={40}
-                  height={40}
+                  width={32}
+                  height={32}
                 />
                 <Box>
-                  <Heading as="h4" textStyle="2xl" mb="1">
-                    Next.js
+                  <Heading as="h4" textStyle="xl" mb="1">
+                    Also available for Next.js
                   </Heading>
-                  <Text color="fg.subtle" fontWeight="medium">
-                    Fullstack RSC, SEO-optimized, perfect for products that need
-                    fast public facing pages.
+                  <Text color="fg.muted" textStyle="sm">
+                    Prefer Next.js? Same architecture, same features. With React
+                    Server Components and built-in SEO optimization.
                   </Text>
                 </Box>
-                <List.Root
-                  variant="plain"
-                  textStyle="md"
-                  color="fg.muted"
-                  lineHeight="tall"
-                >
-                  <List.Item>
-                    <List.Indicator color="fg" asChild>
-                      <TbCheck />
-                    </List.Indicator>
-                    React Server Components
-                  </List.Item>
-                  <List.Item>
-                    <List.Indicator color="fg" asChild>
-                      <TbCheck />
-                    </List.Indicator>
-                    Built-in SEO optimization
-                  </List.Item>
-                  <List.Item>
-                    <List.Indicator color="fg" asChild>
-                      <TbCheck />
-                    </List.Indicator>
-                    Ideal for public-facing SaaS
-                  </List.Item>
-                </List.Root>
               </Stack>
             </Card.Root>
           </Stack>
@@ -151,7 +148,7 @@ export function TansStackStartSection() {
   return (
     <Box>
       <Container maxW="6xl">
-        <Stack p="16" alignItems="flex-start" gap="4">
+        <Stack p={{ base: '6', md: '16' }} alignItems="flex-start" gap="4">
           <Image
             src="/img/logos/tanstack.png"
             alt="TanStack"

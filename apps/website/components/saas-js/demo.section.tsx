@@ -31,56 +31,73 @@ const EmailDemo = dynamic(
 
 export const DemoSection = () => {
   return (
-    <Box position="relative" aria-hidden="true">
-      <Tabs.Root defaultValue="crm" colorPalette="accent" lazyMount>
-        <Tabs.List mb="4" maxW="8xl" mx="auto">
-          <Tabs.Trigger value="crm">CRM</Tabs.Trigger>
-          <Tabs.Trigger value="email">Email</Tabs.Trigger>
-          <Tabs.Trigger value="components">Components</Tabs.Trigger>
-        </Tabs.List>
+    <Box
+      position="relative"
+      aria-hidden="true"
+      display={{ base: 'none', md: 'block' }}
+    >
+      <Container maxW="8xl">
+        <Tabs.Root defaultValue="crm" colorPalette="accent" lazyMount>
+          <Tabs.List mb="4">
+            <Tabs.Trigger value="crm">CRM</Tabs.Trigger>
+            <Tabs.Trigger value="email">Email</Tabs.Trigger>
+            <Tabs.Trigger value="components">Components</Tabs.Trigger>
+          </Tabs.List>
 
-        <Tabs.ContentGroup>
-          <TabContentEnclosed value="crm" maxW="8xl" mx="auto">
-            <ErrorBoundary errorComponent={ErrorFallback}>
-              <CRMDemo />
-            </ErrorBoundary>
-          </TabContentEnclosed>
-          <TabContentEnclosed value="email" maxW="8xl" mx="auto">
-            <ErrorBoundary errorComponent={ErrorFallback}>
-              <EmailDemo />
-            </ErrorBoundary>
-          </TabContentEnclosed>
-          <Tabs.Content value="components" height="768px" maxW="8xl" mx="auto">
-            <ErrorBoundary errorComponent={ErrorFallback}>
-              <ComponentsDemo />
-            </ErrorBoundary>
-          </Tabs.Content>
-        </Tabs.ContentGroup>
-      </Tabs.Root>
+          <Tabs.ContentGroup>
+            <TabContentEnclosed value="crm" height={{ base: '480px' }}>
+              <ErrorBoundary errorComponent={ErrorFallback}>
+                <CRMDemo />
+              </ErrorBoundary>
+            </TabContentEnclosed>
+            <TabContentEnclosed
+              value="email"
+              maxW="8xl"
+              mx="auto"
+              height={{ base: '480px' }}
+            >
+              <ErrorBoundary errorComponent={ErrorFallback}>
+                <EmailDemo />
+              </ErrorBoundary>
+            </TabContentEnclosed>
+            <Tabs.Content
+              value="components"
+              height={{ base: '480px' }}
+              maxW="8xl"
+              mx="auto"
+            >
+              <ErrorBoundary errorComponent={ErrorFallback}>
+                <ComponentsDemo />
+              </ErrorBoundary>
+            </Tabs.Content>
+          </Tabs.ContentGroup>
+        </Tabs.Root>
 
-      <Box
-        position="absolute"
-        top="0"
-        left="0"
-        right="0"
-        bottom="0"
-        pointerEvents="none"
-        bgGradient="to-b"
-        gradientFrom="transparent"
-        gradientVia="transparent"
-        gradientTo="bg.muted"
-      />
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
+          pointerEvents="none"
+          bgGradient="to-b"
+          gradientFrom="transparent"
+          gradientVia="transparent"
+          gradientTo="bg.muted"
+        />
+      </Container>
     </Box>
   )
 }
 
 function TabContentEnclosed(props: Tabs.ContentProps) {
+  const { height, ...rest } = props
   return (
     <Tabs.Content
-      {...props}
+      {...rest}
       borderRadius="md"
       borderWidth="1px"
-      height="768px"
+      height={height ?? '768px'}
       overflow="clip"
       position="relative"
       p="0"

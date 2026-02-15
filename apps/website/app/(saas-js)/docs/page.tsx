@@ -53,7 +53,7 @@ export default function Page() {
 
           <Stack gap="4">
             <Heading as="h3" size="xl">
-              Utilities
+              Open Source
             </Heading>
 
             <List.Root textStyle="lg" gap="2" listStyle="none">

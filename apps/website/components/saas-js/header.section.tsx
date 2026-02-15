@@ -1,28 +1,29 @@
 'use client'
 
 import { ColorModeButton } from '@/components/docs/color-mode-button'
-import { Alert, Span } from '@chakra-ui/react'
+import { Alert, Portal, Span } from '@chakra-ui/react'
 import {
   Box,
   Button,
   Container,
-  Dialog,
+  Drawer,
   HStack,
   IconButton,
   Separator,
   Spacer,
   Stack,
+  VStack,
   chakra,
 } from '@saas-ui/react'
 import Link from 'next/link'
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
 
 import { CopyButton } from '#components/copy-button'
 
 import { CommandMenu } from '../docs/command-menu'
 import { LinkButton } from '../link-button'
-import { SearchButton } from '../search-button'
+import { MobileSearchButton, SearchButton } from '../search-button'
 import { Logo } from './logo'
 import { Navigation } from './navigation'
 
@@ -52,20 +53,19 @@ const NAV_LINKS = [
 ]
 
 const DesktopNav = () => (
-  <HStack gap="6" as="nav" aria-label="primary navigation">
+  <HStack
+    gap="6"
+    as="nav"
+    aria-label="primary navigation"
+    display={{ base: 'none', md: 'flex' }}
+  >
     <HStack>
       <LogoLink />
     </HStack>
-    <HStack
-      className="main-nav"
-      gap="0"
-      minH="48px"
-      display={{ base: 'none', md: 'flex' }}
-      flex="1"
-    >
+    <HStack className="main-nav" gap="0" minH="48px" flex="1">
       <Navigation />
     </HStack>
-    <HStack gap="0" justifyContent="flex-end">
+    <HStack gap="2" justifyContent="flex-end" minW="0" flexShrink="1">
       <CommandMenu
         trigger={
           <SearchButton
@@ -76,18 +76,22 @@ const DesktopNav = () => (
           />
         }
       />
-      <Button asChild variant="ghost" aria-label="GitHub" size="sm">
+      <IconButton asChild variant="ghost" aria-label="GitHub" size="sm">
         <Link href="https://github.com/saas-js" target="_blank">
           <BsGithub />
         </Link>
-      </Button>
+      </IconButton>
       <ColorModeButton />
       <Separator orientation="vertical" height="4" mx="2" />
+      <LinkButton href="/docs" variant="ghost" size="sm" flexShrink="0">
+        Docs
+      </LinkButton>
       <LinkButton
         href="/pricing"
         colorPalette="accent"
         variant="glass"
         size="sm"
+        flexShrink={0}
       >
         Buy now
       </LinkButton>
@@ -95,59 +99,65 @@ const DesktopNav = () => (
   </HStack>
 )
 
-const MobileNavTrigger = () => (
-  <Dialog.Trigger asChild>
-    <IconButton
-      display={{ base: 'flex', md: 'none' }}
-      aria-label="Open menu"
-      fontSize="md"
-      color="fg"
-      variant="ghost"
-    >
-      <AiOutlineMenu />
-    </IconButton>
-  </Dialog.Trigger>
-)
-
-const MobileNavCloseTrigger = () => (
-  <Dialog.CloseTrigger asChild pos="inherit" inset="0">
-    <IconButton
-      aria-label="Close menu"
-      fontSize="md"
-      color="fg"
-      variant="ghost"
-    >
-      <AiOutlineClose />
-    </IconButton>
-  </Dialog.CloseTrigger>
-)
-
-const MobileNavContent = () => (
-  <Container>
-    <Stack py="4" gap="4" color="white">
-      {NAV_LINKS.map((item) => (
-        <Button key={item.title} variant="outline" colorPalette="teal" asChild>
-          <Link href={item.url}>{item.title}</Link>
-        </Button>
-      ))}
-    </Stack>
-  </Container>
-)
-
 const MobileNav = () => {
   return (
-    <Dialog.Root>
-      <MobileNavTrigger />
-      <Dialog.Backdrop />
-      <Dialog.Content m="0" shadow="none" borderRadius="0" bg="bg">
-        <HeaderRoot>
-          <LogoLink />
-          <Spacer />
-          <MobileNavCloseTrigger />
-        </HeaderRoot>
-        <MobileNavContent />
-      </Dialog.Content>
-    </Dialog.Root>
+    <Drawer.Root placement="bottom">
+      <HStack display={{ base: 'flex', md: 'none' }} minH="64px" gap="1">
+        <LogoLink />
+        <Spacer />
+        <CommandMenu
+          trigger={<MobileSearchButton aria-label="Search" />}
+          disableHotkey
+        />
+        <Drawer.Trigger asChild>
+          <IconButton
+            aria-label="Open menu"
+            fontSize="md"
+            color="fg"
+            variant="ghost"
+          >
+            <AiOutlineMenu />
+          </IconButton>
+        </Drawer.Trigger>
+      </HStack>
+      <Portal>
+        <Drawer.Backdrop />
+        <Drawer.Content borderTopRadius="md">
+          <Drawer.CloseTrigger />
+          <Drawer.Body py="5">
+            <VStack align="stretch" gap="1">
+              {NAV_LINKS.map((item) => (
+                <Button
+                  key={item.title}
+                  variant="ghost"
+                  justifyContent="flex-start"
+                  size="lg"
+                  asChild
+                >
+                  <Link href={item.url}>{item.title}</Link>
+                </Button>
+              ))}
+            </VStack>
+          </Drawer.Body>
+          <Drawer.Footer
+            py="3"
+            justifyContent="center"
+            borderTopWidth="1px"
+            borderColor="border"
+          >
+            <LinkButton
+              href="/pricing"
+              colorPalette="accent"
+              variant="glass"
+              size="sm"
+              width="100%"
+            >
+              Buy now
+            </LinkButton>
+          </Drawer.Footer>
+        </Drawer.Content>
+      </Portal>
+    </Drawer.Root>
   )
 }
 
@@ -162,7 +172,6 @@ export const HeaderSection = () => {
         backdropFilter="blur(10px)"
         bg="bg.muted/90"
       >
-        <Announcement />
         <Container>
           <DesktopNav />
           <MobileNav />
@@ -182,10 +191,19 @@ function Announcement() {
       borderBottomColor="cyan.solid/20"
       py="1.5"
     >
-      <Alert.Description display="flex" alignItems="center" gap="1" mx="auto">
-        Use the code <strong>V3BETA</strong> to get{' '}
-        <Span fontWeight="medium">30% off the all access license</Span> while v3
-        is in beta.
+      <Alert.Description
+        display="flex"
+        flexDirection="row"
+        flexWrap="wrap"
+        alignItems="center"
+        justifyContent="center"
+        gap="1"
+        mx="auto"
+        textAlign="center"
+        fontSize={{ base: 'xs', sm: 'sm' }}
+      >
+        Get <Span fontWeight="medium">30% off</Span> with code{' '}
+        <strong>V3BETA</strong>
         <CopyButton
           value="V3BETA"
           variant="solid"
@@ -193,7 +211,7 @@ function Announcement() {
           colorPalette="cyan"
           ms="2"
         >
-          Copy code
+          Copy
         </CopyButton>
       </Alert.Description>
     </Alert.Root>

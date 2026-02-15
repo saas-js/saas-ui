@@ -3,7 +3,7 @@ import {
   Button,
   ButtonGroup,
   Container,
-  HStack,
+  Stack,
   Text,
 } from '@saas-ui/react'
 import Link from 'next/link'
@@ -17,17 +17,22 @@ export function GetStartedSection(props: { children?: React.ReactNode }) {
       borderStyle="dashed"
     >
       <Container maxW="8xl">
-        <HStack
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
           borderLeftWidth="1px"
           borderRightWidth="1px"
           borderStyle="dashed"
-          p="16"
+          p={{ base: '6', md: '16' }}
           gap="4"
-          alignItems="flex-end"
+          alignItems={{ base: 'stretch', md: 'flex-end' }}
           justifyContent="space-between"
         >
-          <Text textStyle="4xl" fontWeight="medium">
-            Join hundreds of developers <br /> building better SaaS products.
+          <Text
+            textStyle="4xl"
+            fontWeight="medium"
+            fontSize={{ base: '2xl', md: '4xl' }}
+          >
+            Start shipping features today.
           </Text>
 
           {props.children ? (
@@ -42,7 +47,7 @@ export function GetStartedSection(props: { children?: React.ReactNode }) {
               </Button>
             </ButtonGroup>
           )}
-        </HStack>
+        </Stack>
       </Container>
     </Box>
   )

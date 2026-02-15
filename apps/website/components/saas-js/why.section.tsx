@@ -24,7 +24,7 @@ export const WhySection = () => {
           }}
           alignItems="flex-start"
         >
-          <Heading as="h3" textStyle="4xl" minW="400px">
+          <Heading as="h3" textStyle="4xl" minW={{ base: 'auto', lg: '400px' }}>
             Why choose Saas UI?
           </Heading>
 

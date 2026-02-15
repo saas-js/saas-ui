@@ -51,7 +51,12 @@ export const CustomersSection = () => (
   <Box py="10" pos="relative">
     <Container>
       <Stack>
-        <Heading as="h3" textAlign="center" fontWeight="medium">
+        <Heading
+          as="h3"
+          textAlign="center"
+          fontWeight="medium"
+          textStyle={{ base: 'lg', md: 'xl' }}
+        >
           Used by indie founders and established startups
         </Heading>
         <CustomersGridRow />

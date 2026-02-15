@@ -30,7 +30,7 @@
     "build": "dotenvx run -f .env.production -- tsup",
     "build:dev": "dotenvx run -f .env.local -- tsup --watch",
     "prepublishOnly": "npm run build",
-    "postinstall": "sui install",
+    "postinstall2": "sui install",
     "dev": "dotenvx run -f .env.local -- tsx --tsconfig tsconfig.json bin/cli.ts"
   },
   "dependencies": {

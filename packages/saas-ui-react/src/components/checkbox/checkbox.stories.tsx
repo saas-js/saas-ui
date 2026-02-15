@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Field, Stack } from '@chakra-ui/react'
+import { CheckboxGroup, Field, Fieldset, For, Stack } from '@chakra-ui/react'
 import { HStack } from '@chakra-ui/react'
 import { Meta, type StoryObj } from '@storybook/react-vite'
 
@@ -75,4 +75,25 @@ export const WithLabel: Story = {
 
 export const WithLabelDisabled: Story = {
   render: () => <Checkbox disabled>Accept terms and conditions</Checkbox>,
+}
+
+export const CheckboxWithGroup = () => {
+  return (
+    <Fieldset.Root>
+      <CheckboxGroup defaultValue={["react"]} name="framework">
+        <Fieldset.Legend fontSize="sm" mb="2">
+          Select framework
+        </Fieldset.Legend>
+        <Fieldset.Content>
+          <Stack>
+          <For each={["React", "Svelte", "Vue", "Angular"]}>
+            {(value) => (
+              <Checkbox key={value} value={value}>{value}</Checkbox>
+            )}
+          </For>
+          </Stack>
+        </Fieldset.Content>
+      </CheckboxGroup>
+    </Fieldset.Root>
+  )
 }

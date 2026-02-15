@@ -21,13 +21,13 @@ import { TbBlocks, TbCheck, TbHeartHandshake } from 'react-icons/tb'
 export function PricingTable(props: { lastUpdated?: string | null }) {
   return (
     <Stack gap="0">
-      <Tabs.Root variant="enclosed" defaultValue="nextjs" position="static">
+      <Tabs.Root variant="enclosed" defaultValue="all-access" position="static">
         <Tabs.List>
-          <Tabs.Trigger value="nextjs">Next.js</Tabs.Trigger>
-          <Tabs.Trigger value="tanstack-start">Tanstack Start</Tabs.Trigger>
           <Tabs.Trigger value="all-access">
             All access <Badge colorPalette="accent">40%+ off</Badge>
           </Tabs.Trigger>
+          <Tabs.Trigger value="tanstack-start">Tanstack Start</Tabs.Trigger>
+          <Tabs.Trigger value="nextjs">Next.js</Tabs.Trigger>
         </Tabs.List>
         <Tabs.ContentGroup>
           <Tabs.Content value="tanstack-start">
@@ -310,7 +310,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
             Custom
           </Text>
           <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Enterprise
+            Startup
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">

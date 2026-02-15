@@ -1,6 +1,6 @@
 import { readExampleFile } from '@/lib/composition'
 import { highlightCode } from '@/lib/highlight-code'
-import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
+// import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
 import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@saas-ui/react'
 import Link from 'next/link'
 
@@ -175,13 +175,13 @@ export const ExampleTabs = (props: Props) => {
           maxHeight={maxHeight}
           overflow={overflow}
         >
-          <FieldsProvider
+          {/*<FieldsProvider
             value={{
               fields: defaultFieldTypes,
             }}
-          >
-            <ExamplePreview name={props.name} />
-          </FieldsProvider>
+          >*/}
+          <ExamplePreview name={props.name} />
+          {/*</FieldsProvider>*/}
         </Tabs.Content>
         <Tabs.Content value="code" mt="0!" pt="0!">
           <ExampleCodeWrapper maxHeight="480px">

@@ -3,10 +3,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx",
-    "paths": {
-      "#system": ["./src/system/index.ts"],
-      "#utils": ["./src/utils/index.ts"]
-    }
   },
   "include": ["src"],
   "exclude": [

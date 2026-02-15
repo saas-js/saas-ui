@@ -44,7 +44,7 @@ examples/            # Example apps (Next.js, Remix, Vite, React Router, etc.)
 pnpm install                    # Install all dependencies
 
 # Development
-pnpm dev:web                    # Start website dev server
+pnpm dev:web                    # Start website dev server on localhost:3020
 pnpm storybook                  # Start Storybook
 
 # Building

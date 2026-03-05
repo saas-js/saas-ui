@@ -28,6 +28,7 @@ export const Basic = {
 export const Sizes = {
   render: () => (
     <VStack>
+      <Command size="xs">shift+X</Command>
       <Command size="sm">shift+X</Command>
       <Command size="md">A then B</Command>
       <Command size="lg">alt or option</Command>

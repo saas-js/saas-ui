@@ -15,23 +15,22 @@ export const commandRecipe = defineRecipe({
       _before: {
         content: '"•"',
         me: 1,
-        fontSize: 'xs',
       },
     },
   },
   variants: {
     size: {
       xs: {
-        fontSize: 'xs',
+        fontSize: '2xs',
       },
       sm: {
-        fontSize: 'sm',
+        fontSize: 'xs',
       },
       md: {
-        fontSize: 'md',
+        fontSize: 'sm',
       },
       lg: {
-        fontSize: 'lg',
+        fontSize: 'md',
       },
     },
   },

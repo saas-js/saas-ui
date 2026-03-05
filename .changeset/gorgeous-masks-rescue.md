@@ -6,8 +6,6 @@
 '@saas-ui/assets': major
 '@saas-ui/modals': major
 '@saas-ui/storybook-addon': major
-'@saas-ui/auth0': major
-'@saas-ui/clerk': major
 '@saas-ui/forms': major
 '@saas-ui/hooks': major
 '@saas-ui/react': major

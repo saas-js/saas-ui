@@ -1,5 +1,25 @@
 # @saas-ui/web-v3
 
+## 0.1.1-next.91
+
+### Patch Changes
+
+- Updated dependencies [8106253]
+- Updated dependencies [550e5a6]
+- Updated dependencies [8106253]
+- Updated dependencies [8106253]
+- Updated dependencies [8106253]
+- Updated dependencies [8106253]
+  - @saas-ui/chakra-preset@3.0.0-next.7
+  - @saas-ui/use-hotkeys@2.0.0-next.1
+  - @saas-ui/assets@2.0.0-next.1
+  - @saas-ui/modals@3.0.0-next.55
+  - @saas-ui/forms@3.0.0-next.55
+  - @saas-ui/hooks@3.0.0-next.4
+  - @saas-ui/react@3.0.0-next.52
+  - @saas-ui/core@3.0.0-next.13
+  - saas-ui-blocks@0.4.9-next.2
+
 ## 0.1.1-next.90
 
 ### Patch Changes

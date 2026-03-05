@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/use-hotkeys",
-  "version": "2.0.0-next.0",
+  "version": "2.0.0-next.1",
   "type": "module",
   "description": "Easy to use and scalable keyboard shortcuts for React.",
   "exports": {

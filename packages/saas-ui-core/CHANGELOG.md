@@ -1,5 +1,16 @@
 # @saas-ui/core
 
+## 3.0.0-next.13
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Patch Changes
+
+- Updated dependencies [550e5a6]
+  - @saas-ui/hooks@3.0.0-next.4
+
 ## 3.0.0-next.12
 
 ### Patch Changes

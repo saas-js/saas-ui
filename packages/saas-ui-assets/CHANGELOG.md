@@ -1,5 +1,11 @@
 # @saas-ui/assets
 
+## 2.0.0-next.1
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
 ## 2.0.0-next.0
 
 ### Major Changes

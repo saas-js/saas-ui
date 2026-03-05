@@ -1,5 +1,18 @@
 # saas-ui-storybook
 
+## 3.0.0-next.52
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Patch Changes
+
+- Updated dependencies [550e5a6]
+  - @saas-ui/storybook-addon@7.0.0-next.9
+  - @saas-ui/react@3.0.0-next.52
+  - @saas-ui/core@3.0.0-next.13
+
 ## 3.0.0-next.51
 
 ### Patch Changes

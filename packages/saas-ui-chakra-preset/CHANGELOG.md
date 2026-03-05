@@ -1,5 +1,17 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-next.7
+
+### Patch Changes
+
+- 8106253: Subtle button variant uses translucent background to blend in better
+  with darker background colors
+- 8106253: Input, Select, and Textarea outline variants now have solid
+  background color
+- 8106253: Button subtle variant now always have solid bg
+- 8106253: Fix hovercard border styles
+- 8106253: Add xs size to Command recipe
+
 ## 3.0.0-next.6
 
 ### Patch Changes

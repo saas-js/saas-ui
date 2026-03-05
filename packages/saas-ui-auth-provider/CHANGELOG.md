@@ -1,5 +1,11 @@
 # @saas-ui/auth-provider
 
+## 2.0.0-next.2
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
 ## 2.0.0-next.1
 
 ### Patch Changes

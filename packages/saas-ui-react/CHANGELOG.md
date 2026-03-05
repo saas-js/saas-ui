@@ -1,5 +1,23 @@
 # @saas-ui/react
 
+## 3.0.0-next.52
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Patch Changes
+
+- Updated dependencies [8106253]
+- Updated dependencies [550e5a6]
+- Updated dependencies [8106253]
+- Updated dependencies [8106253]
+- Updated dependencies [8106253]
+- Updated dependencies [8106253]
+  - @saas-ui/chakra-preset@3.0.0-next.7
+  - @saas-ui/hooks@3.0.0-next.4
+  - @saas-ui/core@3.0.0-next.13
+
 ## 3.0.0-next.51
 
 ### Patch Changes

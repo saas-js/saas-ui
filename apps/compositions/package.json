@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/compositions",
-  "version": "1.0.1-next.54",
+  "version": "1.0.1-next.55",
   "private": true,
   "description": "Registry for component compositions",
   "scripts": {

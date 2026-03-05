@@ -1,5 +1,11 @@
 # @saas-ui/panda-preset
 
+## 0.0.2-next.1
+
+### Patch Changes
+
+- 9dd10ce: Bump version
+
 ## 0.0.2-next.0
 
 ### Patch Changes

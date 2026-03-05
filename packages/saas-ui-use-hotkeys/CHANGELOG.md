@@ -1,5 +1,11 @@
 # @saas-ui/use-hotkeys
 
+## 2.0.0-next.1
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
 ## 2.0.0-next.0
 
 ### Major Changes
@@ -21,7 +27,8 @@
 
 ### Patch Changes
 
-- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent other keys from triggering
+- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent
+  other keys from triggering
 
 ## 1.1.1
 
@@ -33,7 +40,8 @@
 
 ### Minor Changes
 
-- 836305f8: New createHotkeys factory function to define typescript keyboard shortcuts
+- 836305f8: New createHotkeys factory function to define typescript keyboard
+  shortcuts
 - 836305f8: Added Hotkey component to improve how keyboard shortcuts are defined
 
 ## 1.0.9

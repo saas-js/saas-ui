@@ -1,5 +1,11 @@
 # @saas-ui/system
 
+## 3.0.0-next.4
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
 ## 3.0.0-next.3
 
 ### Patch Changes

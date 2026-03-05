@@ -65,7 +65,7 @@
     "build:props-docs": "pnpm typedocs && pnpm --filter @saas-ui/props-docs build",
     "typedocs": "tsx scripts/typedocs.ts",
     "preinstall": "rm -rf node_modules/odiff-bin",
-    "release": "pnpm run changeset:version && pnpm run build:packages && pnpm run publish:next"
+    "release": "pnpm run changeset:version && pnpm run build:tokens && pnpm run build:packages && pnpm run publish:next"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^3.30.0",

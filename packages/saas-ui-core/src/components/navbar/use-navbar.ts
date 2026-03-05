@@ -3,7 +3,7 @@ import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { useResizeObserver } from '@react-aria/utils'
 import { useScrollPosition } from '@saas-ui/hooks'
 
-import { dataAttr, splitProps } from '../../utils'
+import { dataAttr, splitProps } from '../../utils/index.ts'
 
 export const splitNavbarProps = <T extends Record<string, any>>(props: T) =>
   splitProps(props, [

@@ -11,7 +11,6 @@
 '@saas-ui/react': major
 '@saas-ui/core': major
 'saas-ui-storybook': major
-'@saas-ui/props-docs': major
 '@saas-ui/test-utils': major
 ---
 

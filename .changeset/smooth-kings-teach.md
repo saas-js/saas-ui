@@ -11,7 +11,6 @@
 '@saas-ui/react': minor
 '@saas-ui/core': minor
 'saas-ui-storybook': minor
-'@saas-ui/props-docs': minor
 '@saas-ui/test-utils': minor
 ---
 

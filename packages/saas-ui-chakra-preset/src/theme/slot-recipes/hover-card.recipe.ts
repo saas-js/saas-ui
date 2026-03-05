@@ -6,6 +6,7 @@ export const hoverCardSlotRecipe = defineSlotRecipe({
   slots: hoverCardAnatomy.keys(),
   base: {
     content: {
+      layerStyle: 'overlay',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
@@ -16,9 +17,7 @@ export const hoverCardSlotRecipe = defineSlotRecipe({
       '--hover-card-z-index': 'zIndex.layer-2',
       zIndex: 'calc(var(--hover-card-z-index) + var(--layer-index, 0))',
       transformOrigin: 'var(--transform-origin)',
-      borderWidth: '1px',
       outline: '0',
-      layerStyle: 'overlay',
       _open: {
         animationStyle: 'slide-fade-in',
         animationDuration: 'fast',

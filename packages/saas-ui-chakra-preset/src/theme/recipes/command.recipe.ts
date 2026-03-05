@@ -21,19 +21,22 @@ export const commandRecipe = defineRecipe({
   },
   variants: {
     size: {
-      sm: {
+      xs: {
         fontSize: 'xs',
       },
-      md: {
+      sm: {
         fontSize: 'sm',
       },
-      lg: {
+      md: {
         fontSize: 'md',
+      },
+      lg: {
+        fontSize: 'lg',
       },
     },
   },
   defaultVariants: {
-    size: 'md',
+    size: 'sm',
   },
 })
 

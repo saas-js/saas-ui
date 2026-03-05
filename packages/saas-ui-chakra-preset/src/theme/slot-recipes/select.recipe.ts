@@ -129,7 +129,7 @@ export const selectSlotRecipe = defineSlotRecipe({
     variant: {
       outline: {
         trigger: {
-          bg: 'transparent',
+          bg: 'bg',
           borderWidth: '1px',
           borderColor: 'border',
           _expanded: {

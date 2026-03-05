@@ -58,7 +58,7 @@ export const inputRecipe = defineRecipe({
 
     variant: {
       outline: {
-        bg: 'transparent',
+        bg: 'bg',
         borderWidth: '1px',
         borderColor: 'border',
         focusVisibleRing: 'inside',

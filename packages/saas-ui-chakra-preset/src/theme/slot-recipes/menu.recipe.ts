@@ -132,6 +132,6 @@ export const menuSlotRecipe = defineSlotRecipe({
 
   defaultVariants: {
     size: 'md',
-    variant: 'solid',
+    variant: 'subtle',
   },
 })

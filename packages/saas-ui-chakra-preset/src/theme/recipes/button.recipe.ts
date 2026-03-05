@@ -88,13 +88,13 @@ export const buttonRecipe = defineRecipe({
       },
 
       subtle: {
-        bg: 'colorPalette.muted',
+        bg: 'colorPalette.solid/10',
         color: 'colorPalette.fg',
         _hover: {
-          bg: 'colorPalette.subtle',
+          bg: 'colorPalette.solid/20',
         },
         _popupExpanded: {
-          bg: 'colorPalette.subtle',
+          bg: 'colorPalette.solid/20',
         },
       },
 
@@ -139,11 +139,10 @@ export const buttonRecipe = defineRecipe({
       },
 
       surface: {
-        bg: 'colorPalette.muted/20',
+        bg: 'bg',
         borderWidth: '1px',
         borderColor: 'colorPalette.emphasized/90',
         color: 'colorPalette.fg',
-        shadow: 'xs',
         _hover: {
           bg: 'colorPalette.muted',
           borderColor: 'colorPalette.emphasized',
@@ -187,6 +186,34 @@ export const buttonRecipe = defineRecipe({
       variant: 'plain',
       css: {
         px: 0,
+      },
+    },
+    {
+      variant: 'surface',
+      size: 'sm',
+      css: {
+        shadow: 'xs',
+      },
+    },
+    {
+      variant: 'surface',
+      size: 'md',
+      css: {
+        shadow: 'sm',
+      },
+    },
+    {
+      variant: 'surface',
+      size: 'lg',
+      css: {
+        shadow: 'sm',
+      },
+    },
+    {
+      variant: 'surface',
+      size: 'xl',
+      css: {
+        shadow: 'md',
       },
     },
   ],

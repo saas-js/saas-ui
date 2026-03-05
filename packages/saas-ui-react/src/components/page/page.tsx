@@ -25,9 +25,7 @@ interface PageOptions {
 }
 
 interface PageRootProps
-  extends PageOptions,
-    HTMLChakraProps<'main'>,
-    SlotRecipeProps<'suiPage'> {}
+  extends PageOptions, HTMLChakraProps<'main'>, SlotRecipeProps<'suiPage'> {}
 
 const PageRoot = withProvider<HTMLDivElement, PageRootProps>(
   forwardRef<HTMLDivElement, PageRootProps>(function PageRoot(props, ref) {
@@ -49,8 +47,10 @@ const PageRoot = withProvider<HTMLDivElement, PageRootProps>(
   'root',
 )
 
-interface PageHeaderProps
-  extends Omit<HTMLChakraProps<'header'>, 'title' | 'children'> {
+interface PageHeaderProps extends Omit<
+  HTMLChakraProps<'header'>,
+  'title' | 'children'
+> {
   /**
    * Page header navigation
    * Typically breadcrumbs or backbutton.
@@ -124,11 +124,6 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
   'header',
 )
 
-const PageHeaderSection = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  'div',
-  'section',
-)
-
 const PageTitle = withContext<HTMLDivElement, HTMLChakraProps<'h2'>>(
   'h2',
   'title',
@@ -171,7 +166,6 @@ export {
   PageRoot as Root,
   PageBody as Body,
   PageHeader as Header,
-  PageHeaderSection as HeaderSection,
   PageTitle as Title,
   PageDescription as Description,
 }

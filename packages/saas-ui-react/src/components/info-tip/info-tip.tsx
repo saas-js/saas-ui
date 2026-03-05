@@ -17,7 +17,7 @@ export const InfoTip = React.forwardRef<HTMLDivElement, InfoTipProps>(
     const { children, icon, 'aria-label': ariaLabel = 'Info', ...rest } = props
     return (
       <ToggleTip content={children} {...rest} ref={ref}>
-        <IconButton variant="ghost" aria-label={ariaLabel} size="2xs">
+        <IconButton variant="ghost" aria-label={ariaLabel} size="xs">
           {icon ?? <InfoIcon />}
         </IconButton>
       </ToggleTip>

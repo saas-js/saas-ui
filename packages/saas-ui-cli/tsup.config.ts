@@ -13,9 +13,11 @@ export default defineConfig(({ watch }) => {
     env: {
       SUPABASE_URL: process.env.SUPABASE_URL ?? '',
       SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY ?? '',
-      AUTH_ORIGIN: process.env.AUTH_ORIGIN!,
-      REGISTRY_URL: process.env.REGISTRY_URL!,
-      SCHEMA_URL: process.env.SCHEMA_URL!,
+      AUTH_ORIGIN: process.env.AUTH_ORIGIN ?? 'https://beta.saas-ui.dev',
+      REGISTRY_URL: process.env.REGISTRY_URL ?? 'https://beta.saas-ui.dev/r',
+      SCHEMA_URL:
+        process.env.SCHEMA_URL ??
+        'https://beta.saas-ui.dev/r/schema/registry.json',
     },
     clean: true,
     splitting: true,

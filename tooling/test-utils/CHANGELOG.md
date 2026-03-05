@@ -1,5 +1,11 @@
 # @saas-ui/test-utils
 
+## 5.0.0-next.53
+
+### Patch Changes
+
+- @saas-ui/react@3.0.0-next.53
+
 ## 5.0.0-next.52
 
 ### Major Changes

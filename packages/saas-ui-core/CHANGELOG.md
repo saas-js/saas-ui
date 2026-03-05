@@ -1,5 +1,11 @@
 # @saas-ui/core
 
+## 3.0.0-next.14
+
+### Patch Changes
+
+- 1da18bc: Fix import
+
 ## 3.0.0-next.13
 
 ### Major Changes

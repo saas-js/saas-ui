@@ -1,5 +1,11 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-next.8
+
+### Patch Changes
+
+- acf0596: Improved sidebar flyout behavior on for inset variant
+
 ## 3.0.0-next.7
 
 ### Patch Changes

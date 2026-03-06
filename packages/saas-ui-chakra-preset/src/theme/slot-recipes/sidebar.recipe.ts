@@ -272,6 +272,16 @@ export const sidebarSlotRecipe = defineSlotRecipe({
         },
       },
     },
+    {
+      variant: 'inset',
+      mode: 'flyout',
+      css: {
+        flyoutTrigger: {
+          height: '100vh',
+          position: 'static',
+        },
+      },
+    },
   ],
   defaultVariants: {
     variant: 'sidebar',

@@ -12,10 +12,17 @@ type TokenObject = {
   [key: string]: ChakraToken | TokenObject
 }
 
+type CSSPrimitive = string | number
+
+type CSSObject = {
+  [key: string]: CSSPrimitive | CSSObject
+}
+
 export async function exportTokens() {
   console.log('🎨 Exporting Chakra tokens to Tailwind 4...')
 
   let themeContent = '@theme {\n'
+  let inlineThemeContent = '@theme inline {\n'
   let semanticContent = ':root {\n'
   let themeSemanticContent = ''
   let darkVariantContent = ''
@@ -37,8 +44,18 @@ export async function exportTokens() {
 
     if (tokens && typeof tokens === 'object') {
       themeContent += `  /* ${tokenName} */\n`
-      // Use singular form for Tailwind @theme
-      themeContent += convertTokensToCSS(tokens, tokenName, '', true)
+
+      if (tokenName === 'colors' && tokens.base) {
+        const { base, ...staticTokens } = tokens
+
+        themeContent += convertTokensToCSS(staticTokens, tokenName, '', true)
+        inlineThemeContent += '  /* appearance base colors */\n'
+        inlineThemeContent += convertTokensToCSS({ base }, tokenName, '', true)
+      } else {
+        // Use singular form for Tailwind @theme
+        themeContent += convertTokensToCSS(tokens, tokenName, '', true)
+      }
+
       themeContent += '\n'
     }
   }
@@ -73,9 +90,12 @@ export async function exportTokens() {
     }
   }
 
-  themeContent += themeSemanticContent
   themeContent += '}\n\n'
+  inlineThemeContent += themeSemanticContent
+  inlineThemeContent += '}\n\n'
   semanticContent += '}\n'
+
+  const appearanceContent = await exportAppearanceGlobalCss()
 
   // Add dark variant section if there's content
   let darkSection = ''
@@ -92,7 +112,12 @@ export async function exportTokens() {
   console.log(keyframesContent)
 
   const cssContent =
-    themeContent + semanticContent + darkSection + keyframesContent
+    themeContent +
+    inlineThemeContent +
+    appearanceContent +
+    semanticContent +
+    darkSection +
+    keyframesContent
 
   // Format and write output
   const formattedCSS = await formatCSS(cssContent)
@@ -101,6 +126,58 @@ export async function exportTokens() {
   await writeFile('src/theme.css', formattedCSS)
 
   console.log('✅ Tailwind theme exported to src/theme.css')
+}
+
+async function exportAppearanceGlobalCss(): Promise<string> {
+  const modulePath = '../../saas-ui-chakra-preset/src/theme/appearance.ts'
+  const module = await import(modulePath)
+  const globalCss = module.appearanceGlobalCss as CSSObject | undefined
+
+  if (!globalCss) {
+    return ''
+  }
+
+  let css = '/* Appearance */\n'
+
+  for (const [selector, styles] of Object.entries(globalCss)) {
+    if (typeof styles === 'object') {
+      css += serializeCSSRule(selector, styles)
+    }
+  }
+
+  return `${css}\n`
+}
+
+function serializeCSSRule(selector: string, styles: CSSObject): string {
+  let declarations = ''
+  let nestedRules = ''
+
+  for (const [property, value] of Object.entries(styles)) {
+    if (typeof value === 'object') {
+      if (property.startsWith('@')) {
+        nestedRules += `${property} {\n${serializeCSSRule(selector, value)}}\n`
+      } else {
+        const nestedSelector = property.includes('&')
+          ? property.split('&').join(selector)
+          : `${selector} ${property}`
+        nestedRules += serializeCSSRule(nestedSelector, value)
+      }
+    } else {
+      declarations += `  ${formatCSSProperty(property)}: ${value};\n`
+    }
+  }
+
+  const rule = declarations ? `${selector} {\n${declarations}}\n` : ''
+
+  return rule + nestedRules
+}
+
+function formatCSSProperty(property: string): string {
+  if (property.startsWith('--')) {
+    return property
+  }
+
+  return property.replace(/([A-Z])/g, '-$1').toLowerCase()
 }
 
 function convertTokensToCSS(
@@ -171,7 +248,7 @@ function convertSemanticTokensToCSS(
           rootVars += `  ${cssVar}: light-dark(${lightVal}, ${darkVal});\n`
 
           if (generateThemeVars) {
-            themeVars += `  ${themeVar}: var(${cssVar});\n`
+            themeVars += `  ${themeVar}: light-dark(${lightVal}, ${darkVal});\n`
           }
         }
       } else {
@@ -183,7 +260,7 @@ function convertSemanticTokensToCSS(
           rootVars += `  ${cssVar}: ${extractValue(value.value as string)};\n`
 
           if (generateThemeVars) {
-            themeVars += `  ${themeVar}: var(${cssVar});\n`
+            themeVars += `  ${themeVar}: ${extractValue(value.value as string)};\n`
           }
         }
       }
@@ -224,7 +301,9 @@ function formatCSSVariable(
     else if (category === 'shadows') finalCategory = 'shadow'
   }
 
-  const fullName = `${finalCategory}-${prefix}${key}`
+  const tokenName =
+    key === 'DEFAULT' ? prefix.replace(/-$/, '') : `${prefix}${key}`
+  const fullName = tokenName ? `${finalCategory}-${tokenName}` : finalCategory
   return `--${kebabCase(fullName).replace(/\./g, '_')}`
 }
 

@@ -79,3 +79,6 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Impeccable local critique reports
+.impeccable/

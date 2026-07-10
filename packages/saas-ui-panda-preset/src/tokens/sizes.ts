@@ -1,5 +1,5 @@
-import { defineTokens } from '../../src/def'
-import { spacing } from './spacing'
+import { defineTokens } from '../def'
+import { spacing } from './spacing.ts'
 
 const largeSizes = defineTokens.sizes({
   '3xs': { value: '14rem' },

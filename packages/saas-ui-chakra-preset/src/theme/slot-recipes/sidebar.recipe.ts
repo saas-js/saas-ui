@@ -24,6 +24,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
+      color: 'sidebar.fg',
     },
     backdrop: {
       layerStyle: 'backdrop',
@@ -158,7 +159,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       sidebar: {
         root: {
           borderRightWidth: '1px',
-          borderLeftColor: 'sidebar.border',
+          borderColor: 'sidebar.border',
         },
         inset: {},
       },

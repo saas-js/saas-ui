@@ -1,6 +1,9 @@
 import { defineTokens } from '@chakra-ui/react'
 
+import { appearanceColors } from '../appearance.ts'
+
 export type ColorPalette =
+  | 'base'
   | 'gray'
   | 'zinc'
   | 'neutral'
@@ -28,6 +31,7 @@ export const colors = defineTokens.colors({
   current: { value: 'currentColor' },
   black: { value: 'oklch(0.05 0.030 261.692)' },
   white: { value: 'oklch(1 0 0)' },
+  base: appearanceColors.base,
   whiteAlpha: {
     50: { value: 'oklch(1 0 0 / 0.04)' },
     100: { value: 'oklch(1 0 0 / 0.06)' },

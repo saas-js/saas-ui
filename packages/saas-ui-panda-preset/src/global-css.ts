@@ -1,8 +1,10 @@
-import { defineGlobalStyles } from '../src/def'
+import { appearanceGlobalCss } from './appearance.ts'
+import { defineGlobalStyles } from './def'
 
 const empty = 'var(--chakra-empty,/*!*/ /*!*/)'
 
 export const globalCss = defineGlobalStyles({
+  ...appearanceGlobalCss,
   '*': {
     '--ring-inset': empty,
     '--ring-offset-width': '0px',
@@ -39,15 +41,13 @@ export const globalCss = defineGlobalStyles({
     '--global-font-body': 'fonts.body',
     '--global-color-border': 'colors.border',
     '--cursor-button': 'default',
-    // '--radius-factor': '1',
-    // '--radius-control': '1',
-    // '--radius-panel': '1',
-    // '--radius-indicator': '1',
     '--radius-full': '9999px',
     '--scale-factor': '1',
-    '--overlay-translucency': '95%',
     '--overlay-effect': 'blur({blurs.lg})',
     '--backdrop-effect': 'none',
+    '--scrollbar-color': 'colors.border.emphasized',
+    scrollbarWidth: 'thin',
+    scrollbarColor: 'var(--scrollbar-color) transparent',
   },
   body: {
     color: 'fg',
@@ -55,8 +55,8 @@ export const globalCss = defineGlobalStyles({
     lineHeight: '1.5',
     colorPalette: 'accent',
   },
-  '*::placeholder': {
-    color: 'fg.subtle',
+  '*::placeholder, *[data-placeholder]': {
+    color: 'fg.muted/90',
   },
   '*::selection': {
     bg: 'colorPalette.solid/20',

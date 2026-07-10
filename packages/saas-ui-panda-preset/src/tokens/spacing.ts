@@ -1,5 +1,5 @@
-import { defineTokens } from '../../src/def'
-import { scaleToken } from '../utils'
+import { defineTokens } from '../def'
+import { scaleToken } from '../utils.ts'
 
 export const spacing = defineTokens.spacing({
   0.5: { value: scaleToken('0.125rem') },

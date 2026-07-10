@@ -1,30 +1,26 @@
 import * as React from 'react'
 
-import * as Yup from 'yup'
 import { Box, Button, Container } from '@chakra-ui/react'
+import { z } from 'zod'
 
 import {
   ArrayField,
-  ArrayFieldAddButton,
   ArrayFieldContainer,
-  ArrayFieldProps,
-  ArrayFieldRow,
   ArrayFieldRowContainer,
   ArrayFieldRowFields,
   ArrayFieldRows,
+  AutoFields,
   Field,
-  Form,
   FormLayout,
   SubmitButton,
   UseArrayFieldReturn,
-  useArrayFieldAddButton,
   useArrayFieldContext,
   useArrayFieldRemoveButton,
-  useArrayFieldRowContext,
+  useForm,
   useFormContext,
   useWatch,
 } from '../src'
-import { Form as YupForm } from '../yup'
+import { zodFieldResolver, zodMeta } from '../zod/src'
 import { onSubmit } from './helpers'
 
 export default {
@@ -38,163 +34,167 @@ export default {
   ],
 }
 
-const subSchema = Yup.object().shape({
-  title: Yup.string().required().meta({ placeholder: 'Title' }).label('Title'),
-  description: Yup.string().meta({ type: 'textarea' }).label('Description'),
+const postItemSchema = z.object({
+  title: z.string().min(1).describe('Title'),
+  description: z
+    .string()
+    .describe(zodMeta({ label: 'Description', type: 'textarea' })),
 })
 
-const arraySchema = Yup.object().shape({
-  arrayField: Yup.array().min(2).max(4).of(subSchema).label('Array field'),
+const postsSchema = z.object({
+  arrayField: z.array(postItemSchema).describe('Posts'),
+})
+
+const arraySchema = z.object({
+  arrayField: z
+    .array(postItemSchema)
+    .min(2)
+    .max(4)
+    .describe('Array field'),
+})
+
+const customArraySchema = z.object({
+  arrayField: z.array(
+    z.object({
+      id: z.string().min(1),
+      name: z.string().min(1),
+      lastName: z.string().min(1),
+    }),
+  ),
+})
+
+const watchArraySchema = z.object({
+  arrayField: z.array(
+    z.object({
+      id: z.number(),
+      title: z.string().min(1),
+      description: z.string().optional(),
+    }),
+  ),
 })
 
 export const AutoArrayField = {
   render() {
-    return (
-      <Form
-        defaultValues={{
-          arrayField: [
-            {
-              title: 'Test',
-            },
-          ],
-        }}
-        schema={{
-          arrayField: {
-            type: 'array',
-            label: 'Posts',
-            items: {
-              type: 'object',
-              properties: {
-                title: {
-                  label: 'Title',
-                  rules: { required: true },
-                },
-                description: {
-                  label: 'Description',
-                  type: 'textarea',
-                },
-              },
-            },
+    const form = useForm({
+      schema: postsSchema,
+      defaultValues: {
+        arrayField: [
+          {
+            title: 'Test',
           },
-        }}
-        onSubmit={onSubmit}
-      />
+        ],
+      },
+      onSubmit,
+    })
+
+    return (
+      <form.Form>
+        <FormLayout>
+          <AutoFields fieldResolver={zodFieldResolver(postsSchema)} />
+          <SubmitButton />
+        </FormLayout>
+      </form.Form>
     )
   },
 }
 
 export const BasicArrayField = () => {
+  const form = useForm({
+    schema: postsSchema,
+    defaultValues: {
+      arrayField: [
+        {
+          title: 'Test',
+          description: '',
+        },
+        {
+          title: 'Test',
+          description: '',
+        },
+      ],
+    },
+    onSubmit,
+  })
+
   return (
-    <>
-      <Form
-        defaultValues={{
-          arrayField: [
-            {
-              title: 'Test',
-              description: '',
-            },
-            {
-              title: 'Test',
-              description: '',
-            },
-          ],
-        }}
-        schema={{
-          arrayField: {
-            type: 'array',
-            label: 'Posts',
-            items: {
-              type: 'object',
-              properties: {
-                title: {
-                  label: 'Title',
-                  rules: { required: true },
-                },
-                description: {
-                  label: 'Description',
-                  type: 'textarea',
-                },
-              },
-            },
-          },
-        }}
-        onSubmit={onSubmit}
-      >
-        {({ Field, ArrayField }) => (
-          <FormLayout>
-            <ArrayField
-              name="arrayField"
-              label="Comments"
-              defaultValue={{
-                title: '',
-                description: '',
-              }}
-            >
-              <Field name="arrayField.$.title" label="Title" />
-              <Field
-                name="arrayField.$.description"
-                label="Description"
-                type="textarea"
-              />
-            </ArrayField>
-
-            <SubmitButton>Submit</SubmitButton>
-          </FormLayout>
-        )}
-      </Form>
-    </>
-  )
-}
-
-export const AutoYupArrayField = () => {
-  return (
-    <>
-      <YupForm
-        schema={arraySchema}
-        defaultValues={{
-          arrayField: [
-            {
-              title: 'Test',
-            },
-          ],
-        }}
-        onSubmit={onSubmit}
-      />
-    </>
-  )
-}
-
-export const YupArrayField = () => (
-  <>
-    <YupForm
-      schema={arraySchema}
-      defaultValues={{
-        arrayField: [
-          {
-            title: 'Test',
+    <form.Form>
+      <FormLayout>
+        <form.ArrayField
+          name="arrayField"
+          label="Comments"
+          defaultValue={{
+            title: '',
             description: '',
-          },
-        ],
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ Field, ArrayField }) => (
-        <FormLayout>
-          <ArrayField name="arrayField" label="Comments" defaultValue={{}}>
-            <Field name="arrayField.$.title" label="Title" />
-            <Field
-              name="arrayField.$.description"
-              label="Description"
-              type="textarea"
-            />
-          </ArrayField>
+          }}
+        >
+          <form.Field name="arrayField.$.title" label="Title" />
+          <form.Field
+            name="arrayField.$.description"
+            label="Description"
+            type="textarea"
+          />
+        </form.ArrayField>
 
-          <SubmitButton>Submit</SubmitButton>
-        </FormLayout>
-      )}
-    </YupForm>
-  </>
-)
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </form.Form>
+  )
+}
+
+export const AutoZodArrayField = () => {
+  const form = useForm({
+    schema: arraySchema,
+    defaultValues: {
+      arrayField: [
+        {
+          title: 'Test',
+        },
+      ],
+    },
+    onSubmit,
+  })
+
+  return (
+    <form.Form>
+      <FormLayout>
+        <AutoFields fieldResolver={zodFieldResolver(arraySchema)} />
+        <SubmitButton />
+      </FormLayout>
+    </form.Form>
+  )
+}
+
+export const ZodArrayField = () => {
+  const form = useForm({
+    schema: arraySchema,
+    defaultValues: {
+      arrayField: [
+        {
+          title: 'Test',
+          description: '',
+        },
+      ],
+    },
+    onSubmit,
+  })
+
+  return (
+    <form.Form>
+      <FormLayout>
+        <form.ArrayField name="arrayField" label="Comments" defaultValue={{}}>
+          <form.Field name="arrayField.$.title" label="Title" />
+          <form.Field
+            name="arrayField.$.description"
+            label="Description"
+            type="textarea"
+          />
+        </form.ArrayField>
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </form.Form>
+  )
+}
 
 const AddButton = () => {
   const { append, defaultValue, max, fields } = useArrayFieldContext()
@@ -224,114 +224,109 @@ const RemoveButton = () => {
   )
 }
 
-export const CustomArrayField = () => (
-  <>
-    <YupForm
-      schema={Yup.object({
-        arrayField: Yup.array().of(
-          Yup.object({
-            id: Yup.string().required(),
-            name: Yup.string().required(),
-            lastName: Yup.string().required(),
-          }),
-        ),
-      })}
-      defaultValues={{
-        arrayField: [
-          {
-            id: '123',
-            name: 'Eelco',
-            lastName: 'Wiersma',
-          },
-        ],
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ Field, ArrayField }) => (
-        <FormLayout>
-          <ArrayFieldContainer
-            name="arrayField"
-            label="Array field composed"
-            defaultValue={{}}
-            keyName="key"
-            min={2}
-            max={4}
-          >
-            <ArrayFieldRows>
-              {(fields) => (
-                <>
-                  {fields.map((field, i) => {
-                    return (
-                      <ArrayFieldRowContainer
-                        key={field.key as string}
-                        index={i}
-                      >
-                        <ArrayFieldRowFields columns={3} gap={1}>
-                          <Field name="arrayField.$.id" placeholder="Id" />
-                          <Field name="arrayField.$.name" placeholder="Name" />
-                          <Box>
-                            <Field
-                              name={`arrayField.${i}.lastName`}
-                              placeholder="Last name"
-                            />
-                          </Box>
-                        </ArrayFieldRowFields>
-                        <RemoveButton />
-                      </ArrayFieldRowContainer>
-                    )
-                  })}
-                </>
-              )}
-            </ArrayFieldRows>
-            <AddButton />
-          </ArrayFieldContainer>
+export const CustomArrayField = () => {
+  const form = useForm({
+    schema: customArraySchema,
+    defaultValues: {
+      arrayField: [
+        {
+          id: '123',
+          name: 'Eelco',
+          lastName: 'Wiersma',
+        },
+      ],
+    },
+    onSubmit,
+  })
 
-          <SubmitButton>Submit</SubmitButton>
-        </FormLayout>
-      )}
-    </YupForm>
-  </>
-)
+  return (
+    <form.Form>
+      <FormLayout>
+        <ArrayFieldContainer
+          name="arrayField"
+          label="Array field composed"
+          defaultValue={{}}
+          keyName="key"
+          min={2}
+          max={4}
+        >
+          <ArrayFieldRows>
+            {(fields) => (
+              <>
+                {fields.map((field, i) => {
+                  return (
+                    <ArrayFieldRowContainer
+                      key={field.key as string}
+                      index={i}
+                    >
+                      <ArrayFieldRowFields columns={3} gap={1}>
+                        <form.Field name="arrayField.$.id" placeholder="Id" />
+                        <form.Field
+                          name="arrayField.$.name"
+                          placeholder="Name"
+                        />
+                        <Box>
+                          <form.Field
+                            name={`arrayField.${i}.lastName`}
+                            placeholder="Last name"
+                          />
+                        </Box>
+                      </ArrayFieldRowFields>
+                      <RemoveButton />
+                    </ArrayFieldRowContainer>
+                  )
+                })}
+              </>
+            )}
+          </ArrayFieldRows>
+          <AddButton />
+        </ArrayFieldContainer>
+
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </form.Form>
+  )
+}
 
 export const MinMaxNoSchema = {
   render() {
-    return (
-      <Form
-        defaultValues={{
-          arrayField: [
-            {
-              title: 'Test',
-              description: '',
-            },
-          ],
-        }}
-        onSubmit={onSubmit}
-      >
-        {({ Field, ArrayField }) => (
-          <FormLayout>
-            <ArrayField
-              name="arrayField"
-              label="Array field"
-              defaultValue={{}}
-              min={1}
-              max={3}
-            >
-              <Field
-                name="arrayField.$.title"
-                label="Title"
-                rules={{ required: true }}
-              />
-              <Field
-                name="arrayField.$.description"
-                label="Description"
-                type="textarea"
-              />
-            </ArrayField>
+    const form = useForm({
+      defaultValues: {
+        arrayField: [
+          {
+            title: 'Test',
+            description: '',
+          },
+        ],
+      },
+      onSubmit,
+    })
 
-            <SubmitButton>Submit</SubmitButton>
-          </FormLayout>
-        )}
-      </Form>
+    return (
+      <form.Form>
+        <FormLayout>
+          <form.ArrayField
+            name="arrayField"
+            label="Array field"
+            defaultValue={{}}
+            min={1}
+            max={3}
+          >
+            <form.Field
+              name="arrayField.$.title"
+              label="Title"
+              rules={{ required: true }}
+            />
+            <form.Field
+              name="arrayField.$.description"
+              label="Description"
+              type="textarea"
+            />
+          </form.ArrayField>
+
+          <SubmitButton>Submit</SubmitButton>
+        </FormLayout>
+      </form.Form>
     )
   },
 }
@@ -368,39 +363,45 @@ const MyArrayField = React.forwardRef<UseArrayFieldReturn>((props, ref) => {
 })
 
 export const WatchArrayField = () => {
+  const form = useForm({
+    schema: watchArraySchema,
+    defaultValues: {
+      arrayField: [
+        {
+          id: 1,
+          title: 'Test',
+          description: '',
+        },
+      ],
+    },
+    onSubmit,
+  })
+
   return (
-    <YupForm
-      schema={Yup.object({
-        arrayField: Yup.array().of(
-          Yup.object({
-            id: Yup.number().required(),
-            title: Yup.string().required(),
-            description: Yup.string(),
-          }),
-        ),
-      })}
-      defaultValues={{
-        arrayField: [
-          {
-            id: 1,
-            title: 'Test',
-            description: '',
-          },
-        ],
-      }}
-      onSubmit={onSubmit}
-    >
+    <form.Form>
       <FormLayout>
         <MyArrayField />
 
         <SubmitButton>Submit</SubmitButton>
       </FormLayout>
-    </YupForm>
+    </form.Form>
   )
 }
 
 export const ArrayFieldRef = () => {
   const ref = React.useRef<UseArrayFieldReturn>(null)
+
+  const form = useForm({
+    schema: arraySchema,
+    defaultValues: {
+      arrayField: [
+        {
+          title: 'Test',
+        },
+      ],
+    },
+    onSubmit,
+  })
 
   React.useLayoutEffect(() => {
     console.log(ref.current)
@@ -408,24 +409,12 @@ export const ArrayFieldRef = () => {
   }, [ref])
 
   return (
-    <YupForm
-      schema={arraySchema}
-      defaultValues={{
-        arrayField: [
-          {
-            title: 'Test',
-          },
-        ],
-      }}
-      onSubmit={onSubmit}
-    >
-      {() => (
-        <FormLayout>
-          <MyArrayField ref={ref} />
+    <form.Form>
+      <FormLayout>
+        <MyArrayField ref={ref} />
 
-          <SubmitButton>Submit</SubmitButton>
-        </FormLayout>
-      )}
-    </YupForm>
+        <SubmitButton>Submit</SubmitButton>
+      </FormLayout>
+    </form.Form>
   )
 }

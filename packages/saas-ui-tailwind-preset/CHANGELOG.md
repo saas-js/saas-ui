@@ -1,5 +1,11 @@
 # @saas-ui/tailwind-preset
 
+## 0.0.2-next.2
+
+### Patch Changes
+
+- acf0596: Improved sidebar flyout behavior on for inset variant
+
 ## 0.0.2-next.1
 
 ### Patch Changes

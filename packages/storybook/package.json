@@ -1,7 +1,7 @@
 {
   "name": "saas-ui-storybook",
   "type": "module",
-  "version": "3.0.0-next.53",
+  "version": "3.0.0-next.54",
   "scripts": {
     "dev": "storybook dev -p 6006 --debug",
     "build": "storybook build --debug --loglevel verbose"
@@ -16,6 +16,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource-variable/inter": "^5.2.5",
+    "@saas-ui/chakra-preset": "workspace:*",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/react": "workspace:*",
     "@saas-ui/storybook-addon": "workspace:*",

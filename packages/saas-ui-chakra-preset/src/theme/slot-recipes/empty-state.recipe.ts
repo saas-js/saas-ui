@@ -31,7 +31,7 @@ export const emptyStateSlotRecipe = defineSlotRecipe({
       },
     },
     title: {
-      fontWeight: 'semibold',
+      fontWeight: 'medium',
     },
     description: {
       textStyle: 'sm',

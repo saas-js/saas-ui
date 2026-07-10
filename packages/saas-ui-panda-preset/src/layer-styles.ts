@@ -1,4 +1,4 @@
-import { defineLayerStyles } from '../src/def'
+import { defineLayerStyles } from './def'
 
 export const layerStyles: any = defineLayerStyles({
   // fill: some background color + color combination
@@ -55,7 +55,9 @@ export const layerStyles: any = defineLayerStyles({
         position: 'absolute',
         bottom: 'var(--indicator-offset-y, 0)',
         insetInline: 'var(--indicator-offset-x, 0)',
-        height: 'var(--indicator-thickness, 2px)',
+        height: 'var(--indicator-thickness, 3px)',
+        borderTopLeftRadius: 'var(--indicator-thickness, 3px)',
+        borderTopRightRadius: 'var(--indicator-thickness, 3px)',
         background: 'var(--indicator-color, var(--indicator-color-fallback))',
       },
     },
@@ -69,7 +71,9 @@ export const layerStyles: any = defineLayerStyles({
         position: 'absolute',
         top: 'var(--indicator-offset-y, 0)',
         insetInline: 'var(--indicator-offset-x, 0)',
-        height: 'var(--indicator-thickness, 2px)',
+        height: 'var(--indicator-thickness, 3px)',
+        borderBottomLeftRadius: 'var(--indicator-thickness, 3px)',
+        borderBottomRightRadius: 'var(--indicator-thickness, 3px)',
         background: 'var(--indicator-color, var(--indicator-color-fallback))',
       },
     },
@@ -83,7 +87,9 @@ export const layerStyles: any = defineLayerStyles({
         position: 'absolute',
         insetInlineStart: 'var(--indicator-offset-x, 0)',
         insetBlock: 'var(--indicator-offset-y, 0)',
-        width: 'var(--indicator-thickness, 2px)',
+        width: 'var(--indicator-thickness, 3px)',
+        borderTopLeftRadius: 'var(--indicator-thickness, 3px)',
+        borderBottomLeftRadius: 'var(--indicator-thickness, 3px)',
         background: 'var(--indicator-color, var(--indicator-color-fallback))',
       },
     },
@@ -97,7 +103,9 @@ export const layerStyles: any = defineLayerStyles({
         position: 'absolute',
         insetInlineEnd: 'var(--indicator-offset-x, 0)',
         insetBlock: 'var(--indicator-offset-y, 0)',
-        width: 'var(--indicator-thickness, 2px)',
+        width: 'var(--indicator-thickness, 3px)',
+        borderTopRightRadius: 'var(--indicator-thickness, 3px)',
+        borderBottomRightRadius: 'var(--indicator-thickness, 3px)',
         background: 'var(--indicator-color, var(--indicator-color-fallback))',
       },
     },
@@ -119,7 +127,7 @@ export const layerStyles: any = defineLayerStyles({
       bg: 'bg.overlay',
       backdropFilter: 'var(--overlay-effect)',
       borderRadius: 'panel.lg',
-      boxShadow: 'lg',
+      boxShadow: 'overlay',
     },
   },
 

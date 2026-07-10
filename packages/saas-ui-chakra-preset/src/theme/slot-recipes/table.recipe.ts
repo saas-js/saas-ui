@@ -1,6 +1,18 @@
 import { tableAnatomy } from '@chakra-ui/react/anatomy'
 import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
+const lineVariant = {
+  columnHeader: {
+    borderBottomWidth: '1px',
+  },
+  cell: {
+    borderBottomWidth: '1px',
+  },
+  row: {
+    bg: 'transparent',
+  },
+}
+
 export const tableSlotRecipe = defineSlotRecipe({
   className: 'chakra-table',
   slots: tableAnatomy.keys(),
@@ -41,7 +53,7 @@ export const tableSlotRecipe = defineSlotRecipe({
         body: {
           '& tr': {
             _hover: {
-              bg: 'colorPalette.subtle',
+              bg: 'interaction.hover',
             },
           },
         },
@@ -86,15 +98,14 @@ export const tableSlotRecipe = defineSlotRecipe({
     },
 
     variant: {
-      line: {
-        columnHeader: {
-          borderBottomWidth: '1px',
-        },
-        cell: {
-          borderBottomWidth: '1px',
-        },
-        row: {
-          bg: 'bg',
+      line: lineVariant,
+
+      inset: {
+        ...lineVariant,
+        root: {
+          marginInline: 'calc(0px - var(--table-cell-padding-x))',
+          width:
+            'calc(100% + var(--table-cell-padding-x) + var(--table-cell-padding-x))',
         },
       },
 
@@ -123,42 +134,45 @@ export const tableSlotRecipe = defineSlotRecipe({
     size: {
       sm: {
         root: {
+          '--table-cell-padding-x': 'spacing.2',
           textStyle: 'sm',
         },
         columnHeader: {
-          px: '2',
+          px: 'var(--table-cell-padding-x)',
           py: '2',
         },
         cell: {
-          px: '2',
+          px: 'var(--table-cell-padding-x)',
           py: '2',
         },
       },
 
       md: {
         root: {
+          '--table-cell-padding-x': 'spacing.3',
           textStyle: 'sm',
         },
         columnHeader: {
-          px: '3',
+          px: 'var(--table-cell-padding-x)',
           py: '3',
         },
         cell: {
-          px: '3',
+          px: 'var(--table-cell-padding-x)',
           py: '3',
         },
       },
 
       lg: {
         root: {
+          '--table-cell-padding-x': 'spacing.4',
           textStyle: 'md',
         },
         columnHeader: {
-          px: '4',
+          px: 'var(--table-cell-padding-x)',
           py: '3',
         },
         cell: {
-          px: '4',
+          px: 'var(--table-cell-padding-x)',
           py: '3',
         },
       },

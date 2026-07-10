@@ -21,6 +21,25 @@ export const pageSlotRecipe = defineSlotRecipe({
       flex: 1,
       minH: 0,
     },
+    header: {
+      display: 'flex',
+      flexDirection: 'column',
+      flexShrink: 0,
+    },
+    headerContent: {
+      display: 'flex',
+      flex: 1,
+      alignItems: 'center',
+      gap: 2,
+      minW: 0,
+    },
+    heading: {
+      flex: 1,
+      minW: 0,
+    },
+    headerFooter: {
+      width: 'full',
+    },
     title: {
       fontWeight: 'medium',
     },
@@ -37,22 +56,17 @@ export const pageSlotRecipe = defineSlotRecipe({
     variant: {
       panel: {
         root: {
+          '--page-bg-color': 'colors.bg',
           bg: 'var(--page-bg-color)',
           zIndex: 1,
         },
         header: {
           '--page-header-row-height': '40px',
-          display: 'grid',
-          gridTemplateAreas: `"nav heading actions"
-               "footer footer footer"`,
-          gridTemplateColumns: 'auto max-content 1fr',
-          gridTemplateRows: 'minmax(var(--page-header-row-height), auto)',
-          columnGap: 2,
-          alignItems: 'center',
-          justifyContent: 'stretch',
-          flexShrink: 0,
-          px: 3,
           borderBottomWidth: '1px',
+          px: 4,
+        },
+        headerContent: {
+          minH: 'var(--page-header-row-height)',
         },
         title: {
           me: 4,
@@ -68,12 +82,12 @@ export const pageSlotRecipe = defineSlotRecipe({
           px: 4,
         },
         header: {
-          flexDirection: 'row',
-          alignItems: 'center',
           mb: {
             base: 4,
             lg: 8,
           },
+        },
+        headerContent: {
           minH: 24,
         },
         heading: {

@@ -14,6 +14,11 @@
       "types": "./dist/colors.d.ts",
       "import": "./dist/colors.js"
     },
+    "./appearance": {
+      "sui": "./src/appearance.ts",
+      "types": "./dist/appearance.d.ts",
+      "import": "./dist/appearance.js"
+    },
     "./recipes/*": {
       "sui": "./src/theme/recipes/*.recipe.ts",
       "types": "./dist/theme/recipes/*.recipe.d.ts",
@@ -62,6 +67,7 @@
   },
   "devDependencies": {
     "@chakra-ui/react": "^3.28.0",
+    "@chakra-ui/cli": "^3.30.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "react": "^19.2.0",

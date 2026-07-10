@@ -3,6 +3,24 @@ import { createSystem, defaultBaseConfig, mergeConfigs } from '@chakra-ui/react'
 import { defaultThemeConfig } from './theme/index.ts'
 import { utilities } from './theme/utilities.ts'
 
+export { createAppearance } from './appearance.ts'
+export type {
+  AccentSeed,
+  AppearanceOptions,
+  AppearanceOverrides,
+  AppearanceSemanticTokens,
+  ColorPaletteValues,
+  ColorValue,
+  ContrastLevel,
+  ForegroundTone,
+  NeutralSeed,
+  OklchColor,
+  OklchSeed,
+  SidebarSeed,
+  SolidSidebarSeed,
+  TonalSidebarSeed,
+} from './appearance.ts'
+
 const defaultConfig = mergeConfigs(defaultBaseConfig, defaultThemeConfig)
 
 /**

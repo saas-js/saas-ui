@@ -43,6 +43,7 @@ export const Command: React.FC<CommandProps> = (props) => {
   return (
     <StyledCommand {...rest}>
       {keys.map((key) => (
+        /* @ts-ignore */
         <Key key={key} modifiers={modifiers} size={props.size}>
           {key}
         </Key>

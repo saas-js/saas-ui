@@ -1,0 +1,90 @@
+---
+title: Drizzle ORM v1, Next.js 16.2 and Vite 8
+publishedAt: '2026-07-10'
+authors: ['eelco']
+products: ['tanstack', 'nextjs']
+description:
+  The TanStack Start and Next.js starter kits are updated to Drizzle ORM v1 with
+  the new relations API and migration engine, Next.js 16.2, and Vite 8 with
+  Rolldown and Nitro v3.
+---
+
+Big week for both starter kits. The TanStack Start and Next.js starter kits have
+been upgraded to Drizzle ORM v1 (1.0 RC) with the brand new relations API and
+migration engine. On top of that, the Next.js starter kit now runs on Next.js
+16.2, and the TanStack Start starter kit moved to Vite 8 with the Rolldown
+bundler and Nitro v3.
+
+## What's new?
+
+### Drizzle ORM v1 — no more migration merge conflicts
+
+Both starter kits now ship with Drizzle ORM `1.0.0-rc` and the matching Drizzle
+Kit release. Two things stand out in this upgrade:
+
+**A completely redesigned migration engine.** The old setup tracked all
+migrations in a single `journal.json` file, which was a constant source of merge
+conflicts — every branch that touched the database schema modified the same
+file. This got especially painful with AI-generated PRs, where multiple branches
+routinely add migrations in parallel. The new engine drops the journal file
+entirely: each migration lives in its own folder, and Drizzle Kit now detects
+conflicting (non-commutative) migrations across branches instead of blowing up
+your git history. Parallel schema work finally merges cleanly.
+
+**The new relations API (v2).** Defining and querying relations is now more
+intuitive and more powerful. All schemas and queries in the starter kits have
+been migrated to the new API, so you get idiomatic v1 code out of the box.
+
+If you're upgrading an existing project based on one of the starter kits,
+Drizzle makes the transition straightforward:
+
+```bash
+pnpm add drizzle-orm@rc && pnpm add -D drizzle-kit@rc
+pnpm drizzle-kit up
+```
+
+The `drizzle-kit up` command converts your existing migrations folder to the new
+structure. If you use Drizzle's relational queries, you'll also need to update
+your relation definitions to the v2 API — check the official
+[v1 upgrade guide](https://orm.drizzle.team/docs/upgrade-v1) for the details.
+
+### Next.js 16.2
+
+The Next.js starter kit is now running on
+[Next.js 16.2](https://nextjs.org/blog/next-16-2), which is mostly about speed
+and developer experience:
+
+- **Much faster dev startup** — `next dev` gets to a ready `localhost:3000`
+  significantly faster than 16.1
+- **25–60% faster server rendering** thanks to a React change that speeds up
+  Server Components payload deserialization
+- **Better debugging** — Server Function logging in the dev terminal, a clear
+  hydration diff indicator in the error overlay, and error cause chains
+- **Redesigned default error page** and over 200 Turbopack fixes
+
+The upgrade required no code changes in the starter kit. For your own projects,
+the automated upgrade CLI does the heavy lifting:
+
+```bash
+pnpm dlx @next/codemod@canary upgrade latest
+```
+
+### Vite 8 with Rolldown and Nitro v3
+
+The TanStack Start starter kit now builds with
+[Vite 8](https://vite.dev/blog/announcing-vite8), the biggest architectural
+change to Vite since v2. Vite now uses Rolldown, a Rust-based bundler that
+replaces both esbuild and Rollup, delivering 10–30x faster production builds.
+Combined with Nitro v3 powering the server layer, dev server startup, HMR and
+production builds are all noticeably snappier.
+
+The migration is mostly seamless: Vite 8 ships a compatibility layer that
+automatically converts existing `esbuild` and `rollupOptions` configuration, so
+most projects upgrade without config changes. Make sure you're on Node.js 20.19+
+or 22.12+.
+
+### Getting started
+
+All updates are available now on the `main` branch of both starter kits. Pull
+the latest changes, run your package manager's install, and regenerate your
+database migrations with `drizzle-kit` to get going.

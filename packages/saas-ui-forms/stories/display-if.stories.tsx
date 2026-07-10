@@ -1,10 +1,8 @@
 import * as React from 'react'
 
-import * as Yup from 'yup'
 import { Container } from '@chakra-ui/react'
 
 import { DisplayIf, Field, Form, FormLayout, SubmitButton } from '../src'
-import { yupResolver } from '../yup/src'
 import { onSubmit } from './helpers'
 
 export default {
@@ -18,11 +16,6 @@ export default {
   ],
 }
 
-const postSchema = Yup.object().shape({
-  title: Yup.string().required().meta({ placeholder: 'Title' }).label('Title'),
-  description: Yup.string().meta({ type: 'textarea' }).label('Description'),
-})
-
 export const Basic = {
   args: {
     onSubmit,
@@ -35,7 +28,6 @@ export const Basic = {
             title: '',
             description: '',
           }}
-          resolver={yupResolver(postSchema)}
           onSubmit={onSubmit}
         >
           <FormLayout>

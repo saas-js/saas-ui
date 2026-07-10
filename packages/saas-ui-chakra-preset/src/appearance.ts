@@ -16,7 +16,7 @@ export type ColorValue = OklchColor | string
 export type ContrastLevel = 'soft' | 'normal' | 'strong'
 export type ForegroundTone = 'light' | 'dark'
 
-export interface NeutralSeed {
+export interface BaseSeed {
   /** @default 260 */
   h?: number
   /** @default 0.012 */
@@ -32,9 +32,9 @@ export interface AccentSeed extends OklchSeed {
 }
 
 export interface TonalSidebarSeed {
-  /** Inherits the neutral hue when omitted. */
+  /** Inherits the base hue when omitted. */
   h?: number
-  /** Inherits the neutral chroma when omitted. */
+  /** Inherits the base chroma when omitted. */
   c?: number
   /** @default 'normal' */
   contrast?: ContrastLevel
@@ -52,7 +52,7 @@ export interface SolidSidebarSeed {
   contrast?: never
 }
 
-export type SidebarSeed = 'neutral' | TonalSidebarSeed | SolidSidebarSeed
+export type SidebarSeed = 'base' | TonalSidebarSeed | SolidSidebarSeed
 
 export interface ColorPaletteValues {
   contrast: ColorValue
@@ -104,7 +104,7 @@ export interface AppearanceOverrides {
     pressed: ColorValue
     selected: ColorValue
   }>
-  neutral?: Partial<ColorPaletteValues>
+  base?: Partial<ColorPaletteValues>
   accent?: Partial<ColorPaletteValues>
   sidebar?: Partial<{
     bg: ColorValue
@@ -118,7 +118,7 @@ export interface AppearanceOverrides {
 }
 
 export interface AppearanceOptions {
-  neutral?: NeutralSeed
+  base?: BaseSeed
   accent?: AccentSeed
   sidebar?: SidebarSeed
   /** Values applied after light mode generation. */
@@ -172,7 +172,7 @@ interface AppearanceModeColors {
     pressed: string
     selected: string
   }
-  neutral: ResolvedPaletteValues
+  base: ResolvedPaletteValues
   accent: ResolvedPaletteValues
   sidebar: {
     bg: string
@@ -204,7 +204,7 @@ export type AppearanceSemanticTokens = SemanticGroup<AppearanceModeColors>
 
 type Mode = 'light' | 'dark'
 
-interface NeutralProfile {
+interface BaseProfile {
   bg: number
   surface: number
   elevated: number
@@ -219,7 +219,7 @@ interface NeutralProfile {
   emphasizedBorderAlpha: number
 }
 
-const neutralProfiles: Record<ContrastLevel, Record<Mode, NeutralProfile>> = {
+const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
   soft: {
     light: {
       bg: 0.99,
@@ -327,7 +327,7 @@ const sidebarProfiles = {
   },
 } as const
 
-const defaultNeutral: Required<NeutralSeed> = {
+const defaultBase: Required<BaseSeed> = {
   h: 260,
   c: 0.012,
   contrast: 'normal',
@@ -424,12 +424,12 @@ function createForeground(
       }
 }
 
-function createNeutral(
-  seed: Required<NeutralSeed>,
+function createBase(
+  seed: Required<BaseSeed>,
   accent: AccentSeed,
   mode: Mode,
 ): Omit<AppearanceModeColors, 'accent' | 'sidebar'> {
-  const profile = neutralProfiles[seed.contrast][mode]
+  const profile = baseProfiles[seed.contrast][mode]
   const dark = mode === 'dark'
   const fgSeed: OklchColor = {
     l: profile.fg,
@@ -484,7 +484,7 @@ function createNeutral(
       pressed,
       selected: withAlpha(accent, dark ? 0.16 : 0.11),
     },
-    neutral: {
+    base: {
       contrast: dark ? tone(seed, 0.16, 0.4) : tone(seed, 0.985, 0.08),
       fg: tone(seed, dark ? 0.84 : 0.28, dark ? 0.5 : 0.65),
       muted: withAlpha(fgSeed, dark ? 0.08 : 0.05),
@@ -498,7 +498,7 @@ function createNeutral(
 }
 
 function createSidebar(
-  seed: Required<NeutralSeed> | SolidSidebarSeed,
+  seed: Required<BaseSeed> | SolidSidebarSeed,
   mode: Mode,
 ): AppearanceModeColors['sidebar'] {
   if ('solid' in seed) {
@@ -559,9 +559,9 @@ function applyOverrides(
       ...colors.interaction,
       ...resolveOverrideGroup(overrides?.interaction),
     },
-    neutral: {
-      ...colors.neutral,
-      ...resolveOverrideGroup(overrides?.neutral),
+    base: {
+      ...colors.base,
+      ...resolveOverrideGroup(overrides?.base),
     },
     accent: {
       ...colors.accent,
@@ -604,25 +604,25 @@ function isSolidSidebar(
 }
 
 function resolveOptions(options: AppearanceOptions) {
-  const neutral: Required<NeutralSeed> = {
-    h: options.neutral?.h ?? defaultNeutral.h,
-    c: options.neutral?.c ?? defaultNeutral.c,
-    contrast: options.neutral?.contrast ?? defaultNeutral.contrast,
+  const base: Required<BaseSeed> = {
+    h: options.base?.h ?? defaultBase.h,
+    c: options.base?.c ?? defaultBase.c,
+    contrast: options.base?.contrast ?? defaultBase.contrast,
   }
   const accent = options.accent ?? defaultAccent
-  const sidebarOptions = options.sidebar ?? 'neutral'
-  const sidebar: Required<NeutralSeed> | SolidSidebarSeed =
-    sidebarOptions === 'neutral'
-      ? neutral
+  const sidebarOptions = options.sidebar ?? 'base'
+  const sidebar: Required<BaseSeed> | SolidSidebarSeed =
+    sidebarOptions === 'base'
+      ? base
       : isSolidSidebar(sidebarOptions)
         ? sidebarOptions
         : {
-            h: sidebarOptions.h ?? neutral.h,
-            c: sidebarOptions.c ?? neutral.c,
-            contrast: sidebarOptions.contrast ?? neutral.contrast,
+            h: sidebarOptions.h ?? base.h,
+            c: sidebarOptions.c ?? base.c,
+            contrast: sidebarOptions.contrast ?? base.contrast,
           }
 
-  return { neutral, accent, sidebar }
+  return { base, accent, sidebar }
 }
 
 /**
@@ -637,9 +637,9 @@ export function createAppearance(
 ): AppearanceSemanticTokens {
   const resolved = resolveOptions(options)
   const createMode = (mode: Mode) => {
-    const neutral = createNeutral(resolved.neutral, resolved.accent, mode)
+    const base = createBase(resolved.base, resolved.accent, mode)
     const colors: AppearanceModeColors = {
-      ...neutral,
+      ...base,
       accent: createAccent(resolved.accent, mode),
       sidebar: createSidebar(resolved.sidebar, mode),
     }
@@ -654,7 +654,7 @@ export function createAppearance(
     fg: toSemanticGroup(light.fg, dark.fg),
     border: toSemanticGroup(light.border, dark.border),
     interaction: toSemanticGroup(light.interaction, dark.interaction),
-    neutral: toSemanticGroup(light.neutral, dark.neutral),
+    base: toSemanticGroup(light.base, dark.base),
     accent: toSemanticGroup(light.accent, dark.accent),
     sidebar: {
       bg: {

@@ -1,10 +1,8 @@
 import * as React from 'react'
 
-import * as Yup from 'yup'
 import { Container } from '@chakra-ui/react'
 
 import { Form, FormLayout, SubmitButton } from '../src'
-import { Form as YupForm } from '../yup/src'
 import { onSubmit } from './helpers'
 
 export default {
@@ -17,20 +15,6 @@ export default {
     ),
   ],
 }
-
-const postSchema = Yup.object()
-  .shape({
-    title: Yup.string()
-      .required()
-      .meta({ placeholder: 'Title' })
-      .label('Title'),
-    description: Yup.string().meta({ type: 'textarea' }).label('Description'),
-  })
-  .label('Post')
-
-const objectSchema = Yup.object().shape({
-  post: postSchema,
-})
 
 export const Basic = () => {
   return (
@@ -78,8 +62,18 @@ export const Basic = () => {
 export const AutoObjectField = () => {
   return (
     <>
-      <YupForm
-        schema={objectSchema}
+      <Form
+        schema={{
+          properties: {
+            post: {
+              type: 'object',
+              properties: {
+                title: { type: 'string', label: 'Title' },
+                description: { type: 'string', label: 'Description' },
+              },
+            },
+          },
+        }}
         defaultValues={{
           post: {},
         }}
@@ -98,7 +92,17 @@ export const HideLabel = () => {
   return (
     <>
       <Form
-        schema={objectSchema}
+        schema={{
+          properties: {
+            post: {
+              type: 'object',
+              properties: {
+                title: { type: 'string', label: 'Title' },
+                description: { type: 'string', label: 'Description' },
+              },
+            },
+          },
+        }}
         defaultValues={{
           post: {
             title: '',
@@ -118,44 +122,6 @@ export const HideLabel = () => {
           </FormLayout>
         )}
       </Form>
-    </>
-  )
-}
-
-const metaSchema = Yup.object().shape({
-  author: Yup.object().shape({
-    name: Yup.string(),
-    email: Yup.string().email(),
-  }),
-})
-
-const nestedSchema = Yup.object().shape({
-  post: postSchema.shape({
-    meta: metaSchema,
-  }),
-})
-
-export const NestedObjectField = () => {
-  return (
-    <>
-      <YupForm schema={nestedSchema} onSubmit={onSubmit}>
-        {({ Field, ObjectField }) => (
-          <FormLayout>
-            <ObjectField name="post" label="Post">
-              <Field name="post.title" label="Title" />
-              <Field name="post.description" label="Description" />
-              <ObjectField name="post.meta">
-                <ObjectField name="post.meta.author" label="Author">
-                  <Field name="post.meta.author.name" label="Name" />
-                  <Field name="post.meta.author.email" label="Email" />
-                </ObjectField>
-              </ObjectField>
-            </ObjectField>
-
-            <SubmitButton>Save post</SubmitButton>
-          </FormLayout>
-        )}
-      </YupForm>
     </>
   )
 }

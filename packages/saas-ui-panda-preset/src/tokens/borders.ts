@@ -1,4 +1,4 @@
-import { defineTokens } from '../../src/def'
+import { defineTokens } from '../def'
 
 export const borders = defineTokens.borders({
   xs: { value: '0.5px solid' },

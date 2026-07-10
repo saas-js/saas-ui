@@ -1,8 +1,6 @@
 import { defineSemanticTokens } from '@chakra-ui/react'
 
-import { createAppearance } from '../../appearance.ts'
-
-const appearanceColors = createAppearance()
+import { appearanceColors } from '../appearance.ts'
 
 export const semanticColors = defineSemanticTokens.colors({
   presence: {
@@ -90,7 +88,33 @@ export const semanticColors = defineSemanticTokens.colors({
 
   interaction: appearanceColors.interaction,
   accent: appearanceColors.accent,
-  neutral: appearanceColors.neutral,
+
+  neutral: {
+    contrast: {
+      value: { _light: '{colors.white}', _dark: '{colors.black}' },
+    },
+    fg: {
+      value: { _light: '{colors.neutral.800}', _dark: '{colors.neutral.200}' },
+    },
+    muted: {
+      value: { _light: '{colors.neutral.100}', _dark: '{colors.neutral.900}' },
+    },
+    subtle: {
+      value: { _light: '{colors.neutral.200}', _dark: '{colors.neutral.800}' },
+    },
+    emphasized: {
+      value: { _light: '{colors.neutral.300}', _dark: '{colors.neutral.700}' },
+    },
+    solid: {
+      value: { _light: '{colors.neutral.900}', _dark: '{colors.white}' },
+    },
+    focusRing: {
+      value: { _light: '{colors.neutral.600}', _dark: '{colors.neutral.600}' },
+    },
+    border: {
+      value: { _light: '{colors.neutral.300}', _dark: '{colors.neutral.700}' },
+    },
+  },
 
   slate: {
     contrast: {
@@ -142,7 +166,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.gray.600}', _dark: '{colors.gray.600}' },
     },
     border: {
-      value: { _light: '{colors.gray.200}', _dark: '{colors.gray.800}' },
+      value: { _light: '{colors.gray.300}', _dark: '{colors.gray.700}' },
     },
   },
 
@@ -169,7 +193,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.zinc.600}', _dark: '{colors.zinc.600}' },
     },
     border: {
-      value: { _light: '{colors.zinc.200}', _dark: '{colors.zinc.800}' },
+      value: { _light: '{colors.zinc.300}', _dark: '{colors.zinc.700}' },
     },
   },
 
@@ -196,7 +220,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: { _light: '{colors.stone.600}', _dark: '{colors.stone.600}' },
     },
     border: {
-      value: { _light: '{colors.stone.200}', _dark: '{colors.stone.800}' },
+      value: { _light: '{colors.stone.300}', _dark: '{colors.stone.700}' },
     },
   },
 

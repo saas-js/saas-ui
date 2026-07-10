@@ -134,6 +134,21 @@ export const tableSlotRecipe = defineSlotRecipe({
     size: {
       sm: {
         root: {
+          '--table-cell-padding-x': 'spacing.1',
+          textStyle: 'sm',
+        },
+        columnHeader: {
+          px: 'var(--table-cell-padding-x)',
+          py: '1',
+        },
+        cell: {
+          px: 'var(--table-cell-padding-x)',
+          py: '1',
+        },
+      },
+
+      md: {
+        root: {
           '--table-cell-padding-x': 'spacing.2',
           textStyle: 'sm',
         },
@@ -144,21 +159,6 @@ export const tableSlotRecipe = defineSlotRecipe({
         cell: {
           px: 'var(--table-cell-padding-x)',
           py: '2',
-        },
-      },
-
-      md: {
-        root: {
-          '--table-cell-padding-x': 'spacing.3',
-          textStyle: 'sm',
-        },
-        columnHeader: {
-          px: 'var(--table-cell-padding-x)',
-          py: '3',
-        },
-        cell: {
-          px: 'var(--table-cell-padding-x)',
-          py: '3',
         },
       },
 

@@ -1,4 +1,5 @@
 import { createAppearance } from './appearance.ts'
+import { semanticColors } from './theme/semantic-tokens/colors.ts'
 
 describe('createAppearance', () => {
   it('creates Chakra-ready semantic tokens from the default seeds', () => {
@@ -18,9 +19,9 @@ describe('createAppearance', () => {
     })
   })
 
-  it('derives independent neutral, accent, and sidebar colors', () => {
+  it('derives independent base, accent, and sidebar colors', () => {
     const appearance = createAppearance({
-      neutral: { h: 225, c: 0.01 },
+      base: { h: 225, c: 0.01 },
       accent: { l: 0.6, c: 0.18, h: 235, foreground: 'light' },
       sidebar: { h: 215, c: 0.02, contrast: 'strong' },
     })
@@ -31,6 +32,27 @@ describe('createAppearance', () => {
       _light: 'oklch(0.95 0.007 215)',
       _dark: 'oklch(0.1 0.01 215)',
     })
+  })
+
+  it('keeps the absolute neutral palette separate from appearance base', () => {
+    const appearance = createAppearance()
+
+    expect(appearance.base.solid.value).toEqual({
+      _light: 'oklch(0.2 0.006 260)',
+      _dark: 'oklch(0.92 0.003 260)',
+    })
+    expect(semanticColors.neutral.solid.value).toEqual({
+      _light: '{colors.neutral.900}',
+      _dark: '{colors.white}',
+    })
+  })
+
+  it('keeps neutral palette borders distinct from subtle fills', () => {
+    for (const palette of ['neutral', 'gray', 'zinc', 'stone'] as const) {
+      expect(semanticColors[palette].border.value).not.toEqual(
+        semanticColors[palette].subtle.value,
+      )
+    }
   })
 
   it('creates a solid sidebar with contrast-derived roles', () => {

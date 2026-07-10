@@ -1,4 +1,4 @@
-import { defineSemanticTokens } from '../../src/def'
+import { defineSemanticTokens } from '../def'
 
 export const semanticRadii = defineSemanticTokens.radii({
   l1: { value: '{radii.xs}' },

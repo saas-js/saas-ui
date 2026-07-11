@@ -1,5 +1,12 @@
 # @saas-ui/test-utils
 
+## 5.0.0-next.55
+
+### Patch Changes
+
+- Updated dependencies [eafbcf4]
+  - @saas-ui/react@3.0.0-next.55
+
 ## 5.0.0-next.54
 
 ### Patch Changes

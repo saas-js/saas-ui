@@ -88,3 +88,6 @@ node_modules/
 /apps/website/__registry__/
 /packages/pro/packages/registry/public/r/
 /packages/pro/packages/registry/__registry__/
+
+# Impeccable local critique reports
+.impeccable/

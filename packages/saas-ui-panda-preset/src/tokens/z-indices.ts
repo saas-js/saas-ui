@@ -1,4 +1,4 @@
-import { defineTokens } from '../../src/def'
+import { defineTokens } from '../def'
 
 export const zIndices = defineTokens.zIndex({
   // Local elements, eg a badge of an avatar.

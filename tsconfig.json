@@ -1,8 +1,3 @@
 {
-  "include": [],
-  "references": [
-    {
-      "path": "./packages/saas-ui-modals/tsconfig.json"
-    }
-  ]
+  "include": []
 }

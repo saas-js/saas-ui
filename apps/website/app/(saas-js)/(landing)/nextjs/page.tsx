@@ -12,9 +12,9 @@ import Link from 'next/link'
 import { Button } from '#components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Next.js Starter Kit',
+  title: 'AI-native SaaS starter kit for Next.js',
   description:
-    'Top tier Next.js starter kit for teams who want to move fast without cutting corners.',
+    'Next.js starter kit built for AI-assisted development. Auth, billing, dashboards, and strict types that keep your AI agents on track.',
 }
 
 export default function Page() {
@@ -32,7 +32,7 @@ export default function Page() {
           <Link href="/pricing">Buy now</Link>
         </Button>
         <Button variant="outline" asChild>
-          <Link href="/docs/starter-kits/tanstack-start">Documentation</Link>
+          <Link href="/docs/starter-kits/nextjs">Documentation</Link>
         </Button>
       </GetStartedSection>
     </>

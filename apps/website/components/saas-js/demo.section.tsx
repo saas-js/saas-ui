@@ -1,29 +1,11 @@
 'use client'
 
-import { Box, Container, Tabs } from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import dynamic from 'next/dynamic'
 
-const ComponentsDemo = dynamic(
-  () =>
-    import('@/components/site/demo/components-demo').then(
-      (mod) => mod.ComponentsDemo,
-    ),
-  {
-    ssr: false,
-  },
-)
-
 const CRMDemo = dynamic(
   () => import('@/components/site/demo/crm-demo').then((mod) => mod.CRMDemo),
-  {
-    ssr: false,
-  },
-)
-
-const EmailDemo = dynamic(
-  () =>
-    import('@/components/site/demo/email-demo').then((mod) => mod.EmailDemo),
   {
     ssr: false,
   },
@@ -37,41 +19,17 @@ export const DemoSection = () => {
       display={{ base: 'none', md: 'block' }}
     >
       <Container maxW="8xl">
-        <Tabs.Root defaultValue="crm" colorPalette="accent" lazyMount>
-          <Tabs.List mb="4">
-            <Tabs.Trigger value="crm">CRM</Tabs.Trigger>
-            <Tabs.Trigger value="email">Email</Tabs.Trigger>
-            <Tabs.Trigger value="components">Components</Tabs.Trigger>
-          </Tabs.List>
-
-          <Tabs.ContentGroup>
-            <TabContentEnclosed value="crm" height={{ base: '480px' }}>
-              <ErrorBoundary errorComponent={ErrorFallback}>
-                <CRMDemo />
-              </ErrorBoundary>
-            </TabContentEnclosed>
-            <TabContentEnclosed
-              value="email"
-              maxW="8xl"
-              mx="auto"
-              height={{ base: '480px' }}
-            >
-              <ErrorBoundary errorComponent={ErrorFallback}>
-                <EmailDemo />
-              </ErrorBoundary>
-            </TabContentEnclosed>
-            <Tabs.Content
-              value="components"
-              height={{ base: '480px' }}
-              maxW="8xl"
-              mx="auto"
-            >
-              <ErrorBoundary errorComponent={ErrorFallback}>
-                <ComponentsDemo />
-              </ErrorBoundary>
-            </Tabs.Content>
-          </Tabs.ContentGroup>
-        </Tabs.Root>
+        <Box
+          borderRadius="md"
+          borderWidth="1px"
+          height={{ base: '480px' }}
+          overflow="clip"
+          position="relative"
+        >
+          <ErrorBoundary errorComponent={ErrorFallback}>
+            <CRMDemo />
+          </ErrorBoundary>
+        </Box>
 
         <Box
           position="absolute"
@@ -87,25 +45,6 @@ export const DemoSection = () => {
         />
       </Container>
     </Box>
-  )
-}
-
-function TabContentEnclosed(props: Tabs.ContentProps) {
-  const { height, ...rest } = props
-  return (
-    <Tabs.Content
-      {...rest}
-      borderRadius="md"
-      borderWidth="1px"
-      height={height ?? '768px'}
-      overflow="clip"
-      position="relative"
-      p="0"
-    >
-      <ErrorBoundary errorComponent={ErrorFallback}>
-        {props.children}
-      </ErrorBoundary>
-    </Tabs.Content>
   )
 }
 

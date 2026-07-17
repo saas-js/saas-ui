@@ -21,6 +21,8 @@ export const badgeRecipe = defineRecipe({
       subtle: {
         bg: 'colorPalette.subtle',
         color: 'colorPalette.fg',
+        shadow: 'inset 0 0 0px 1px var(--shadow-color)',
+        shadowColor: 'colorPalette.border',
       },
       outline: {
         color: 'colorPalette.fg',

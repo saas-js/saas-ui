@@ -1,5 +1,5 @@
-import { defineTokens } from '../../src/def'
-import { scaleToken } from '../utils'
+import { defineTokens } from '../def'
+import { scaleToken } from '../utils.ts'
 
 export const fontSizes = defineTokens.fontSizes({
   '2xs': { value: scaleToken('0.675rem') },

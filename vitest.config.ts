@@ -33,6 +33,7 @@ export default defineConfig({
     include: [
       'packages/saas-ui-*/**/*.test.{ts,tsx}',
       'apps/website/app/r/**/*.test.ts',
+      'apps/website/components/ui/**/*.test.{ts,tsx}',
       'apps/website/lib/**/*.test.ts',
       'apps/website/registry/**/*.test.{ts,tsx}',
     ],

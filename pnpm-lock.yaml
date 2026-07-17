@@ -1131,6 +1131,9 @@ importers:
 
   packages/saas-ui-chakra-preset:
     devDependencies:
+      '@chakra-ui/cli':
+        specifier: ^3.30.0
+        version: 3.30.0(@chakra-ui/react@3.30.0(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@chakra-ui/react':
         specifier: ^3.30.0
         version: 3.30.0(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)

@@ -1,4 +1,4 @@
-import { defineTokens } from '../../src/def'
+import { defineTokens } from '../def'
 
 export const animations = defineTokens.animations({
   spin: { value: 'spin 1s linear infinite' },

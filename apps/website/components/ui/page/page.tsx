@@ -85,11 +85,7 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
     let heading
     if (title || description) {
       heading = (
-        <chakra.div
-          gridArea="heading"
-          className={classNames.heading}
-          css={styles.heading}
-        >
+        <chakra.div className={classNames.heading} css={styles.heading}>
           {typeof title === 'string' ? <PageTitle>{title}</PageTitle> : title}
           {typeof description === 'string' ? (
             <PageDescription>{description}</PageDescription>
@@ -102,23 +98,25 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
 
     return (
       <chakra.header ref={ref} css={css} {...rest} className={props.className}>
-        {React.isValidElement(nav)
-          ? React.cloneElement(nav, {
-              gridArea: 'nav',
-            } as any)
-          : null}
-        {heading}
-        {React.isValidElement(actions)
-          ? React.cloneElement(actions, {
-              gridArea: 'actions',
-            } as any)
-          : null}
+        {nav != null || heading != null || actions != null ? (
+          <chakra.div
+            css={styles.headerContent}
+            className={classNames.headerContent}
+          >
+            {nav}
+            {heading}
+            {actions}
+          </chakra.div>
+        ) : null}
 
-        {React.isValidElement(footer)
-          ? React.cloneElement(footer, {
-              gridArea: 'footer',
-            } as any)
-          : null}
+        {footer != null ? (
+          <chakra.div
+            css={styles.headerFooter}
+            className={classNames.headerFooter}
+          >
+            {footer}
+          </chakra.div>
+        ) : null}
       </chakra.header>
     )
   }),

@@ -64,7 +64,7 @@ export const Theme = React.forwardRef<HTMLDivElement, ThemeProps>(
         bg={hasBackground ? 'bg' : undefined}
         colorPalette="gray"
         {...rest}
-        className={cx('chakra-theme', appearance, className)}
+        className={cx('chakra-theme', 'sui-theme', appearance, className)}
         style={{ ...style, colorScheme: appearance, ...variables }}
         ref={ref}
       />

@@ -16,7 +16,7 @@ export const sectionSlotRecipe = defineSlotRecipe({
     },
     title: {
       textStyle: 'heading',
-      fontWeight: 'semibold',
+      fontWeight: 'medium',
       lineHeight: '110%',
       letterSpacing: '-1%',
       mb: 1,

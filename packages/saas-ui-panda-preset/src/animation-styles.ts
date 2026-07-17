@@ -1,4 +1,4 @@
-import { defineAnimationStyles } from '../src/def'
+import { defineAnimationStyles } from './def'
 
 export const animationStyles: any = defineAnimationStyles({
   'slide-fade-in': {

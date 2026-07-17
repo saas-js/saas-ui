@@ -1,6 +1,6 @@
-'use client'
-
-import { Field, Fieldset, Input, NativeSelect, Textarea } from '@saas-ui/react'
+'use client';
+import { Field, Fieldset, Input, Textarea } from '@chakra-ui/react'
+import { NativeSelect } from 'compositions/ui/native-select'
 
 export const FieldsetWithInvalid = () => {
   return (

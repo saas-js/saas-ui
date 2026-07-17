@@ -1,4 +1,4 @@
-import { Alert } from '@saas-ui/react'
+import { Alert } from 'compositions/ui/alert'
 
 export const AlertWithCloseButton = () => {
   return (

@@ -4,9 +4,10 @@ import React, { forwardRef } from 'react'
 
 import {
   type HTMLChakraProps,
-  type SlotRecipeProps,
   chakra,
 } from '@chakra-ui/react'
+import type { SlotRecipeProps } from '@saas-ui/chakra-preset'
+import type { PageVariantProps } from '@saas-ui/chakra-preset/slot-recipes/page'
 
 import { LoadingOverlay } from '../loading-overlay/index.ts'
 import {
@@ -27,7 +28,7 @@ interface PageOptions {
 interface PageRootProps
   extends PageOptions,
     HTMLChakraProps<'main'>,
-    SlotRecipeProps<'suiPage'> {}
+    SlotRecipeProps<'suiPage', PageVariantProps> {}
 
 const PageRoot = withProvider<HTMLDivElement, PageRootProps>(
   forwardRef<HTMLDivElement, PageRootProps>(function PageRoot(props, ref) {

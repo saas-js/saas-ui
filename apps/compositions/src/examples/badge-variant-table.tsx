@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Span, useRecipe } from '@saas-ui/react'
-import { Badge } from '@saas-ui/react'
+import { For, Span, Badge } from '@chakra-ui/react'
+import { useRecipe } from '@chakra-ui/react/styled-system'
 
 import { colorPalettes } from '../lib/color-palettes'
 import { PlaygroundTable } from '../lib/playground-table'

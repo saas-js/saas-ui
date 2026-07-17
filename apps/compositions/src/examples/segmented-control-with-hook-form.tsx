@@ -1,8 +1,8 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Stack } from '@saas-ui/react'
-import { Field, SegmentedControl } from '@saas-ui/react'
+import { Button, Stack, Field } from '@chakra-ui/react'
+import { SegmentedControl } from 'compositions/ui/segmented-control'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 

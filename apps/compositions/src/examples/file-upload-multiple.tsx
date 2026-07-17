@@ -1,6 +1,6 @@
-'use client'
-
-import { Button, FileUpload } from '@saas-ui/react'
+'use client';
+import { Button } from '@chakra-ui/react'
+import { FileUpload } from 'compositions/ui/file-upload'
 import { HiUpload } from 'react-icons/hi'
 
 export const FileUploadMultiple = () => {

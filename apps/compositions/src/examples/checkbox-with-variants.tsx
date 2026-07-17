@@ -1,7 +1,7 @@
 'use client'
 
-import { For, HStack, Stack, Text } from '@saas-ui/react'
-import { Checkbox } from '@saas-ui/react'
+import { For, HStack, Stack, Text } from '@chakra-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 export const CheckboxWithVariants = () => {
   return (

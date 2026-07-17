@@ -1,7 +1,7 @@
 'use client'
 
-import { Button, HStack } from '@saas-ui/react'
-import { toast } from '@saas-ui/react'
+import { Button, HStack } from '@chakra-ui/react'
+import { toast } from 'compositions/ui/toaster'
 
 export const ToasterWithUpdate = () => {
   const id = 'login-error-toast'

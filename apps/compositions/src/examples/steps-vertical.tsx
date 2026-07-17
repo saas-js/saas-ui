@@ -1,7 +1,7 @@
 'use client'
 
-import { Group, Stack } from '@saas-ui/react'
-import { Button, Steps } from '@saas-ui/react'
+import { Group, Stack, Button } from '@chakra-ui/react'
+import { Steps } from 'compositions/ui/steps'
 
 export const StepsVertical = () => {
   return (

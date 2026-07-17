@@ -1,4 +1,4 @@
-import { defineTokens } from '@saas-ui/react'
+import { defineTokens } from '@chakra-ui/react/styled-system'
 
 export const tokens = defineTokens({
   colors: {

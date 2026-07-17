@@ -1,7 +1,7 @@
 'use client'
 
-import { Box, Group } from '@saas-ui/react'
-import { Button, Menu } from '@saas-ui/react'
+import { Box, Group, Button } from '@chakra-ui/react'
+import { Menu } from 'compositions/ui/menu'
 import {
   LuClipboard,
   LuCopy,

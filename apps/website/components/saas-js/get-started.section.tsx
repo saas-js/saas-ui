@@ -1,12 +1,7 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Container,
-  Stack,
-  Text,
-} from '@saas-ui/react'
+import { Box, ButtonGroup, Container, Stack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
+
+import { Button } from '#components/ui/button'
 
 export function GetStartedSection(props: { children?: React.ReactNode }) {
   return (

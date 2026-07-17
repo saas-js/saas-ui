@@ -1,6 +1,6 @@
 'use client'
 
-import { SegmentedControl } from '@saas-ui/react'
+import { SegmentedControl } from 'compositions/ui/segmented-control'
 
 export const SegmentedControlWithDisabledItem = () => {
   return (

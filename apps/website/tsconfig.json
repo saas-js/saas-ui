@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,10 +14,7 @@
     "jsxImportSource": "react",
     "incremental": true,
     "allowImportingTsExtensions": true,
-    "customConditions": [
-      "sui",
-      "sui-pro"
-    ],
+    "customConditions": ["sui", "sui-pro"],
     "baseUrl": ".",
     "plugins": [
       {
@@ -29,33 +22,16 @@
       }
     ],
     "paths": {
-      "content-collections": [
-        "./.content-collections/generated"
-      ],
-      "compositions/*": [
-        "../compositions/src/*"
-      ],
-      "saas-ui-blocks": [
-        "../../packages/pro/packages/blocks/index.ts"
-      ],
-      "#components/*": [
-        "./components/*"
-      ],
-      "#lib/*": [
-        "./lib/*"
-      ],
-      "#utils/*": [
-        "./utils/*"
-      ],
-      "#hooks/*": [
-        "./hooks/*"
-      ],
-      "#theme/*": [
-        "./theme/*"
-      ],
-      "@/*": [
-        "./*"
-      ]
+      "content-collections": ["./.content-collections/generated"],
+      "compositions/*": ["../compositions/src/*"],
+      "saas-ui-blocks": ["../../packages/pro/packages/blocks/index.ts"],
+      "#components/*": ["./components/*"],
+      "#lib/*": ["./lib/*"],
+      "#utils/*": ["./utils/*"],
+      "#hooks/*": ["./hooks/*", "../../packages/pro/packages/blocks/hooks/*"],
+      "#theme/*": ["./theme/*"],
+      "#registry/*": ["./registry/*"],
+      "@/*": ["./*"]
     },
     "target": "ES2017"
   },
@@ -70,6 +46,14 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "**/node_modules"
+    "**/node_modules",
+    "registry/panda/**",
+    "registry/**/*.stories.ts",
+    "registry/**/*.stories.tsx",
+    "registry/**/*.spec.ts",
+    "registry/**/*.spec.tsx",
+    "registry/**/*.test.ts",
+    "registry/**/*.test.tsx",
+    "registry/**/*.test-d.ts"
   ]
 }

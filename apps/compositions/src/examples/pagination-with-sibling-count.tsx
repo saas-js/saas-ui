@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { Pagination } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { Pagination } from 'compositions/ui/pagination'
 
 export const PaginationWithSiblingCount = () => {
   return (

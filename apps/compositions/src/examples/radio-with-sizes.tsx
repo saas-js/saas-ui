@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { Radio, RadioGroup } from '@saas-ui/react'
+import { HStack, RadioGroup } from '@chakra-ui/react'
+import { Radio } from 'compositions/ui/radio'
 
 export const RadioWithSizes = () => {
   return (

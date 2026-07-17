@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, ProgressCircle } from '@saas-ui/react'
+import { HStack, ProgressCircle } from '@chakra-ui/react'
 
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const
 

@@ -1,8 +1,8 @@
-'use client'
-
+'use client';
 import { useState } from 'react'
 
-import { Button, Drawer } from '@saas-ui/react'
+import { Button } from 'compositions/ui/button'
+import { Drawer } from 'compositions/ui/drawer'
 
 export const DrawerAttached = () => {
   const [open, setOpen] = useState(false)

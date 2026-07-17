@@ -1,7 +1,43 @@
-import { getNextTabbable, getPreviousTabbable } from '@chakra-ui/utils'
 import { fireEvent } from '@testing-library/react'
+
 import { focus } from './focus'
 import { queue, sleep } from './utils'
+
+const tabbableSelector = [
+  'a[href]',
+  'area[href]',
+  'button:not([disabled])',
+  'input:not([disabled]):not([type="hidden"])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[contenteditable="true"]',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',')
+
+const getTabbableElements = (container: ParentNode) => {
+  return Array.from(container.querySelectorAll<HTMLElement>(tabbableSelector))
+    .filter((element) => !element.hidden && element.tabIndex >= 0)
+    .sort((a, b) => {
+      const aIndex = a.tabIndex || Number.MAX_SAFE_INTEGER
+      const bIndex = b.tabIndex || Number.MAX_SAFE_INTEGER
+      return aIndex - bIndex
+    })
+}
+
+const getRelativeTabbable = (container: ParentNode, offset: 1 | -1) => {
+  const elements = getTabbableElements(container)
+  if (!elements.length) return
+
+  const currentIndex = elements.indexOf(document.activeElement as HTMLElement)
+  const nextIndex =
+    currentIndex === -1
+      ? offset === 1
+        ? 0
+        : elements.length - 1
+      : (currentIndex + offset + elements.length) % elements.length
+
+  return elements[nextIndex]
+}
 
 const keydownMap: Record<
   string,
@@ -10,9 +46,7 @@ const keydownMap: Record<
   Tab: (_, { shiftKey }) => {
     const body = document.body
 
-    const nextElement = shiftKey
-      ? getPreviousTabbable(body)
-      : getNextTabbable(body)
+    const nextElement = getRelativeTabbable(body, shiftKey ? -1 : 1)
 
     if (nextElement) {
       focus(nextElement)
@@ -28,7 +62,7 @@ const keyupMap: Record<
 export async function press(
   key: string,
   element?: Element | null,
-  options: KeyboardEventInit = {}
+  options: KeyboardEventInit = {},
 ) {
   if (element == null) {
     element = document.activeElement || document.body

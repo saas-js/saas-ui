@@ -1,6 +1,6 @@
 'use client'
 
-import { Clipboard } from '@saas-ui/react'
+import { Clipboard } from 'compositions/ui/clipboard'
 
 export const ClipboardWithCustomLabels = () => {
   return (

@@ -1,16 +1,6 @@
-'use client'
-
-import {
-  Box,
-  Container,
-  Grid,
-  HStack,
-  Heading,
-  Section,
-  Span,
-  Stack,
-  Text,
-} from '@saas-ui/react'
+'use client';
+import { Box, Container, Grid, HStack, Heading, Span, Stack, Text } from '@chakra-ui/react'
+import { Section } from '#components/ui/section'
 
 export const WhySection = () => {
   return (

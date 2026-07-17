@@ -1,6 +1,6 @@
 'use client'
 
-import { Input } from '@saas-ui/react'
+import { Input } from '@chakra-ui/react'
 import { withMask } from 'use-mask-input'
 
 export const InputWithMask = () => {

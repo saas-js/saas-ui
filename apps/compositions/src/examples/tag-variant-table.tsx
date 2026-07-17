@@ -1,7 +1,8 @@
-'use client'
-
-import { For, Span, Stack, useSlotRecipe } from '@saas-ui/react'
-import { Avatar, Tag } from '@saas-ui/react'
+'use client';
+import { For, Span, Stack } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
+import { Avatar } from 'compositions/ui/avatar'
+import { Tag } from 'compositions/ui/tag'
 import { HiCheck, HiOutlineBriefcase } from 'react-icons/hi'
 
 import { colorPalettes } from '../lib/color-palettes'

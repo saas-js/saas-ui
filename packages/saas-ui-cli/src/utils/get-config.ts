@@ -1,17 +1,27 @@
+import {
+  type ComponentsRegistryConfig,
+  componentsConfigSchema,
+} from '@saas-ui/registry/schema'
 import { cosmiconfig } from 'cosmiconfig'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
-import { loadConfig } from 'tsconfig-paths'
 import { z } from 'zod'
 
 import { detectMonorepo, hasMonorepoAliases } from '#utils/detect-monorepo'
 import { highlighter } from '#utils/highlighter'
-import { resolveImport } from '#utils/resolve-import'
+import { loadProjectEnv } from '#utils/load-project-env'
 
-import { SYSTEMS } from './systems'
+import {
+  type EffectiveTsConfig,
+  loadEffectiveTsConfig,
+  resolveEffectiveAlias,
+} from './effective-tsconfig'
 
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
 export const DEFAULT_UTILS = '@/lib/utils'
+
+export type RegistryConfig = ComponentsRegistryConfig
 
 // TODO: Figure out if we want to support all cosmiconfig formats.
 // A simple components.json file would be nice.
@@ -19,34 +29,7 @@ const explorer = cosmiconfig('components', {
   searchPlaces: ['components.json'],
 })
 
-export const rawConfigSchema = z
-  .object({
-    $schema: z.string().optional(),
-    system: z.enum(Object.keys(SYSTEMS)).optional().default('chakra'),
-    style: z.string().optional().default('default'),
-    rsc: z.coerce.boolean().default(false),
-    tsx: z.coerce.boolean().default(true),
-    // theme: z.object({
-    //   config: z.string(),
-    // }),
-    aliases: z.object({
-      components: z.string(),
-      utils: z.string(),
-      ui: z.string().optional(),
-      lib: z.string().optional(),
-      hooks: z.string().optional(),
-      icons: z.string().optional(),
-    }),
-    icons: z
-      .object({
-        outputDir: z.string().optional(),
-        defaultIconSet: z.string().optional(),
-        iconSize: z.string().optional(),
-        aliases: z.record(z.string(), z.string()).optional(),
-      })
-      .optional(),
-  })
-  .strict()
+export const rawConfigSchema = componentsConfigSchema
 
 export type RawConfig = z.infer<typeof rawConfigSchema>
 
@@ -65,6 +48,7 @@ export const configSchema = rawConfigSchema.extend({
 export type Config = z.infer<typeof configSchema>
 
 export async function getConfig(cwd: string) {
+  loadProjectEnv(cwd)
   const config = await getRawConfig(cwd)
 
   if (!config) {
@@ -74,20 +58,21 @@ export async function getConfig(cwd: string) {
   return await resolveConfigPaths(cwd, config)
 }
 
-export async function resolveConfigPaths(cwd: string, config: RawConfig) {
+export async function resolveConfigPaths(
+  cwd: string,
+  config: RawConfig,
+  effectiveConfig?: EffectiveTsConfig,
+) {
   const monorepoInfo = await detectMonorepo(cwd)
   const isMonorepo =
     monorepoInfo.isMonorepo || hasMonorepoAliases(config.aliases)
 
-  const tsConfig = loadConfig(cwd)
-
-  if (tsConfig.resultType === 'failed') {
-    throw new Error(
-      `Failed to load ${config.tsx ? 'tsconfig' : 'jsconfig'}.json. ${
-        tsConfig.message ?? ''
-      }`.trim(),
-    )
-  }
+  const tsConfig =
+    effectiveConfig ??
+    (await loadEffectiveTsConfig(
+      cwd,
+      config.tsx ? 'tsconfig.json' : 'jsconfig.json',
+    ))
 
   const resolveAlias = async (alias: string): Promise<string> => {
     if (isMonorepo && /^@[^/]+\/[^/]+/.test(alias)) {
@@ -99,8 +84,21 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
       return path.resolve(cwd, 'src')
     }
 
-    const resolved = await resolveImport(alias, tsConfig)
-    return resolved ?? path.resolve(cwd, 'src')
+    const resolved = resolveEffectiveAlias(alias, tsConfig)
+    if (resolved) {
+      return resolved
+    }
+
+    // A missing path alias should not prevent init from constructing a plan.
+    // Init persists the alias after the install plan has been validated. This
+    // fallback also makes the target deterministic for fresh React projects.
+    const hasSrcDir = existsSync(path.resolve(cwd, 'src'))
+    const aliasPath = alias
+      .replace(/^@\//, '')
+      .replace(/^#/, '')
+      .replace(/^~\//, '')
+
+    return path.resolve(cwd, hasSrcDir ? 'src' : '', aliasPath)
   }
 
   return configSchema.parse({
@@ -134,6 +132,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
 
 export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   try {
+    explorer.clearCaches()
     const configResult = await explorer.search(cwd)
 
     if (!configResult) {

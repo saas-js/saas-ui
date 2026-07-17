@@ -1,27 +1,38 @@
 {
-  "name": "close-button",
-  "type": "registry:ui",
-  "dependencies": [
-    "@chakra-ui/react"
-  ],
-  "registryDependencies": [
-    "close-icon"
-  ],
   "files": [
     {
-      "path": "ui/close-button/close-button.stories.tsx",
-      "content": "import React from 'react'\n\nimport { CloseButton } from './close-button.tsx'\n\nexport default {\n  title: 'Components/CloseButton',\n  component: CloseButton,\n}\n\nexport const Default = {\n  args: {},\n}\n",
-      "type": "registry:story"
-    },
-    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { CloseIcon } from '../../icons/close-icon'\nimport { IconButton, type IconButtonProps } from '../icon-button/index.ts'\n\nexport interface CloseButtonProps extends IconButtonProps {}\n\nexport const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(\n  function CloseButton(props, ref) {\n    return (\n      <IconButton variant=\"ghost\" aria-label=\"Close\" ref={ref} {...props}>\n        {props.children ?? <CloseIcon />}\n      </IconButton>\n    )\n  },\n)\n",
       "path": "ui/close-button/close-button.tsx",
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { IconButton, type IconButtonProps } from '@chakra-ui/react'\n\nimport { CloseIcon } from '../../icons/index.ts'\n\nexport interface CloseButtonProps extends IconButtonProps {}\n\nexport const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(\n  function CloseButton(props, ref) {\n    return (\n      <IconButton variant=\"ghost\" aria-label=\"Close\" ref={ref} {...props}>\n        {props.children ?? <CloseIcon />}\n      </IconButton>\n    )\n  },\n)\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/close-button/index.ts",
       "content": "export { CloseButton } from './close-button.tsx'\nexport type { CloseButtonProps } from './close-button.tsx'\n",
+      "path": "ui/close-button/index.ts",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/close-button/close-button.tsx": "2f7632684c03269c4ec7a93c04e53de4bdd51ebd861e095cacf5a6a35f05b2ee",
+        "ui/close-button/index.ts": "e452baf885eada9a593a293e6efd6eac52e8abef2f6f9d43d249110399ccbcc2"
+      },
+      "iconDependencies": [
+        "close-icon"
+      ],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "0b20641450c6270a2c2066f63676ce966d282ab6a3c6df3fda02e58a9b1e2ca3"
+  },
+  "name": "close-button",
+  "registryDependencies": [
+    "close-icon",
+    "icon-button"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

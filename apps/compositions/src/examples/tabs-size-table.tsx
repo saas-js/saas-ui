@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Span, Text, useSlotRecipe } from '@saas-ui/react'
-import { Tabs } from '@saas-ui/react'
+import { For, Span, Text, Tabs } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
 
 import { PlaygroundTable } from '../lib/playground-table'
 

@@ -1,5 +1,5 @@
-import { HStack } from '@saas-ui/react'
-import { Avatar } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
 
 export const AvatarWithShape = () => {
   return (

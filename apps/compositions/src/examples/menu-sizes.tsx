@@ -1,6 +1,6 @@
-'use client'
-
-import { HStack, Menu } from '@saas-ui/react'
+'use client';
+import { HStack } from '@chakra-ui/react'
+import { Menu } from 'compositions/ui/menu'
 
 export const MenuSizes = () => {
   return (

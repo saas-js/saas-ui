@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack, Heading, Stack } from '@saas-ui/react'
-import { Pagination, Table } from '@saas-ui/react'
+import { HStack, Heading, Stack, Table } from '@chakra-ui/react'
+import { Pagination } from 'compositions/ui/pagination'
 
 export const TableWithPagination = () => {
   return (

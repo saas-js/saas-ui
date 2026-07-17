@@ -1,8 +1,6 @@
-'use client'
-
+'use client';
 import { useForm } from '@saas-ui/forms'
-import { Stack } from '@saas-ui/react'
-import { Button } from '@saas-ui/react'
+import { Stack, Button } from '@chakra-ui/react'
 
 export const CheckboxWithForm = () => {
   const form = useForm({
@@ -11,15 +9,11 @@ export const CheckboxWithForm = () => {
       password: '',
       remember: false,
     },
+    onSubmit: (values) => console.log(values),
   })
 
   return (
-    <form.Form
-      onSubmit={(e) => {
-        e.preventDefault()
-        console.log(e.currentTarget.elements)
-      }}
-    >
+    <form.Form>
       <Stack maxW="sm" gap="4" align="flex-start">
         <form.Field name="username" label="User name" />
         <form.Field name="password" label="Password" />

@@ -1,5 +1,5 @@
 import { Clipboard } from '@ark-ui/react/clipboard'
-import { Button, type ButtonProps } from '@saas-ui/react'
+import { Button, type ButtonProps } from '@chakra-ui/react'
 import { LuCheck, LuClipboard } from 'react-icons/lu'
 
 interface CopyButtonProps extends ButtonProps {

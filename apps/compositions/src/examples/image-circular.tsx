@@ -1,6 +1,6 @@
 'use client'
 
-import { Image } from '@saas-ui/react'
+import { Image } from '@chakra-ui/react'
 
 export const ImageCircular = () => (
   <Image

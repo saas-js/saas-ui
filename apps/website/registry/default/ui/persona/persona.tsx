@@ -11,8 +11,6 @@ import {
   mergeProps,
 } from '@chakra-ui/react'
 import type { PersonaVariantProps } from '@saas-ui/chakra-preset/slot-recipes/persona'
-import { dataAttr } from '@saas-ui/core/utils'
-import { cx } from '@saas-ui/core/utils'
 
 import { Avatar, type AvatarProps } from '../avatar/avatar.tsx'
 import {
@@ -24,8 +22,15 @@ import {
 } from './persona.context.ts'
 import type { PersonaPresence } from './presence.ts'
 
+const cx = (...classNames: Array<string | undefined>) =>
+  classNames.filter(Boolean).join(' ')
+
+const dataAttr = (condition: boolean | undefined) =>
+  condition ? '' : undefined
+
 interface PersonaRootProps
-  extends HTMLChakraProps<'div'>,
+  extends
+    HTMLChakraProps<'div'>,
     SlotRecipeProps<'suiPersona'>,
     PersonaVariantProps {
   /**

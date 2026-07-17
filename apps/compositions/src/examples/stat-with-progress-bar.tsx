@@ -1,6 +1,6 @@
-'use client'
-
-import { Progress, Stat } from '@saas-ui/react'
+'use client';
+import { Progress } from '@chakra-ui/react'
+import { Stat } from 'compositions/ui/stat'
 
 export const StatWithProgressBar = () => {
   return (

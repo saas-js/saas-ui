@@ -1,6 +1,6 @@
-'use client'
-
-import { Field, NativeSelect } from '@saas-ui/react'
+'use client';
+import { Field } from '@chakra-ui/react'
+import { NativeSelect } from 'compositions/ui/native-select'
 
 export const FieldWithNativeSelect = () => {
   return (

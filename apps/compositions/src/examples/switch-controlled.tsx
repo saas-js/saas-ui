@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Switch } from '@saas-ui/react'
+import { Switch } from 'compositions/ui/switch'
 
 export const SwitchControlled = () => {
   const [checked, setChecked] = useState(false)

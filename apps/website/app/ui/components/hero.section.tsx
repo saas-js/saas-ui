@@ -2,8 +2,10 @@
 
 import { CopyButton } from '@/components/copy-button'
 import { Subheading } from '@/components/site/typography'
-import { Box, Button, Container, Heading, Stack } from '@saas-ui/react'
+import { Box, Container, Heading, Stack } from '@chakra-ui/react'
 import Link from 'next/link'
+
+import { Button } from '#components/ui/button'
 
 export const HeroSection = () => {
   return (
@@ -42,9 +44,9 @@ export const HeroSection = () => {
               <CopyButton
                 variant="outline"
                 size="lg"
-                value="npm i @saas-ui/react"
+                value="npx @saas-ui/cli init"
               >
-                &gt; npm i @saas-ui/react
+                &gt; npx @saas-ui/cli init
               </CopyButton>
             </Stack>
           </Stack>

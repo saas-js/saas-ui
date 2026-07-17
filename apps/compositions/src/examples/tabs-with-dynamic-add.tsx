@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Button, Heading, Text } from '@saas-ui/react'
-import { CloseButton, Tabs } from '@saas-ui/react'
+import { Button, Heading, Text, Tabs } from '@chakra-ui/react'
+import { CloseButton } from 'compositions/ui/close-button'
 import { LuPlus } from 'react-icons/lu'
 
 interface Item {
@@ -63,7 +63,7 @@ export const TabsWithDynamicAdd = () => {
             <CloseButton
               as="span"
               role="button"
-              size="2xs"
+              size="xs"
               me="-2"
               onClick={(e) => {
                 e.stopPropagation()

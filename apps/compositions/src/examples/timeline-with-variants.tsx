@@ -1,7 +1,7 @@
 'use client'
 
-import { Badge, For, Span, Stack } from '@saas-ui/react'
-import { Avatar, Timeline } from '@saas-ui/react'
+import { Badge, For, Span, Stack, Timeline } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
 import { LuCheck } from 'react-icons/lu'
 
 export const TimelineWithVariants = () => {

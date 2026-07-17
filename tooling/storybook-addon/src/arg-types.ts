@@ -1,5 +1,4 @@
 import type { ArgTypes } from '@storybook/react'
-import type { ThemingProps } from '@chakra-ui/react'
 
 /**
  * `keyof` alternative which omits non-string keys
@@ -7,8 +6,8 @@ import type { ThemingProps } from '@chakra-ui/react'
 type KeyOf<T> = [T] extends [never]
   ? never
   : T extends object
-  ? Extract<keyof T, string>
-  : never
+    ? Extract<keyof T, string>
+    : never
 
 export type ThemingArgTypeKey = 'variant' | 'size' | 'colorScheme'
 
@@ -68,16 +67,14 @@ export function getThemingArgTypes<
     colors: Record<string, any>
     components: Record<string, any>
   },
-  ComponentName extends KeyOf<Theme['components']>
+  ComponentName extends KeyOf<Theme['components']>,
 >(theme: Theme, componentName: ComponentName) {
   const component = theme.components[componentName]
   if (!component) {
     return undefined
   }
 
-  const argTypes: ArgTypes<
-    Partial<Pick<ThemingProps<ComponentName>, ThemingArgTypeKey>>
-  > = {}
+  const argTypes: ArgTypes<Partial<Record<ThemingArgTypeKey, string>>> = {}
 
   const variantOptions = Object.keys(component.variants || {})
   if (variantOptions.length) {

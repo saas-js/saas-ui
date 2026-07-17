@@ -1,17 +1,19 @@
 import { LinkButton } from '@/components/link-button'
+
 import {
   Box,
   Card,
   Container,
   Grid,
   Heading,
-  Link,
   List,
   Separator,
   SkipNavContent,
   Stack,
   Text,
-} from '@saas-ui/react'
+} from '@chakra-ui/react'
+
+import { Link } from '#components/ui/link'
 import { FaDiscord } from 'react-icons/fa'
 import { TbBrandGithub, TbExternalLink, TbLifebuoy } from 'react-icons/tb'
 

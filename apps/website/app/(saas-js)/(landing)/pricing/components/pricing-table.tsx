@@ -14,7 +14,7 @@ import {
   Stack,
   Tabs,
   Text,
-} from '@saas-ui/react'
+} from '@chakra-ui/react'
 import { BsDiscord } from 'react-icons/bs'
 import { TbBlocks, TbCheck, TbHeartHandshake } from 'react-icons/tb'
 

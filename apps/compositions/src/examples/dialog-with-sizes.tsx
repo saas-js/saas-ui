@@ -1,7 +1,8 @@
 'use client'
 
-import { For, HStack } from '@saas-ui/react'
-import { Button, Dialog } from '@saas-ui/react'
+import { For, HStack } from '@chakra-ui/react'
+import { Button } from 'compositions/ui/button'
+import { Dialog } from 'compositions/ui/dialog'
 
 export const DialogWithSizes = () => {
   return (

@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Card, Collapsible } from '@saas-ui/react'
+import { Button, Card, Collapsible } from '@chakra-ui/react'
 
 export const CollapsibleBasic = () => (
   <Collapsible.Root>

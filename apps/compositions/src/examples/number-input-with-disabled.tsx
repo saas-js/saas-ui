@@ -1,4 +1,4 @@
-import { NumberInput } from '@saas-ui/react'
+import { NumberInput } from 'compositions/ui/number-input'
 
 export const NumberInputWithDisabled = () => {
   return <NumberInput defaultValue="10" width="200px" disabled />

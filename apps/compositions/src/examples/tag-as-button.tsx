@@ -1,6 +1,6 @@
 'use client'
 
-import { Tag } from '@saas-ui/react'
+import { Tag } from 'compositions/ui/tag'
 import { LuCheck } from 'react-icons/lu'
 
 export const TagAsButton = () => {

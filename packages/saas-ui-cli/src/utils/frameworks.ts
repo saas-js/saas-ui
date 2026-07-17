@@ -29,6 +29,13 @@ export const FRAMEWORKS = {
       installation: 'https://saas-ui.dev/docs/core/installation/vite-guide',
     },
   },
+  react: {
+    name: 'react',
+    label: 'React',
+    links: {
+      installation: 'https://saas-ui.dev/docs/core/installation',
+    },
+  },
   manual: {
     name: 'manual',
     label: 'Manual',

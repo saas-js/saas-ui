@@ -38,92 +38,76 @@ add a glass effect for example.
 Here's a full example with a workspace dropdown, search input and user menu.
 
 ```jsx height=280px overflow=auto padding=0
-import {
-  AppShell,
-  Navbar,
-  NavbarContent,
-  NavbarItem,
-  NavbarLink,
-  PersonaAvatar,
-  SearchInput,
-} from '@saas-ui/react'
-
-import {
-  Button,
-  Box,
-  Breadcrumb
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Container,
-  Stack,
-  Skeleton,
-  SkeletonText,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuGroup,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-} from '@saas-ui/react'
+import { AppShell } from '#components/ui/app-shell'
+import { Breadcrumb } from '#components/ui/breadcrumb'
+import { Menu } from '#components/ui/menu'
+import { Navbar } from '#components/ui/navbar'
+import { Persona } from '#components/ui/persona/persona-composed'
+import { SearchInput } from '#components/ui/search-input'
+import { Box, Button, Container, Stack } from '@chakra-ui/react'
+import { Skeleton, SkeletonText } from '#components/ui/skeleton'
+import { SaasUIIcon } from '@saas-ui/assets'
+import { FiChevronDown } from 'react-icons/fi'
 
 export default function Page() {
   return (
     <AppShell
-      navbar={
-        <Navbar
-          position="sticky"
-          borderBottomWidth="1px"
-          background="transparent"
-          backdropFilter="blur(10px)"
-        >
-          <NavbarContent>
-          <Breadcrumb separator={<Box as="span" opacity="0.4">/</Box>}>
-            <BreadcrumbItem>
-              <Menu>
-                <MenuButton as={Button} variant="ghost" leftIcon={<SaasUIGlyph height='24px' />} rightIcon={<FiChevronDown />}>
-                   Saas UI
-                </MenuButton>
-                <MenuList>
-                  <MenuGroup title="Workspaces">
-                    <MenuItem>Saas UI</MenuItem>
-                    <MenuItem>Acme</MenuItem>
-                  </MenuGroup>
-                  <MenuDivider />
-                  <MenuItem>Create workspace</MenuItem>
-                </MenuList>
-              </Menu>
-            </BreadcrumbItem>
-            <BreadcrumbItem isCurrentPage>
-              <BreadcrumbLink href='#'>Overview</BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-          </NavbarContent>
-          <NavbarContent as="div" justifyContent="end" spacing="4">
-            <Box width="180px">
-              <SearchInput size="sm" />
-            </Box>
-            <Menu>
-              <MenuButton>
-                <PersonaAvatar
-                  src="/showcase-avatar.jpg"
-                  name="Beatriz"
-                  size="xs"
-                  presence="online"
-                />
-              </MenuButton>
-              <MenuList>
-                <MenuGroup title="beatriz@saas-ui.dev">
-                  <MenuItem>Profile</MenuItem>
-                  <MenuItem>Settings</MenuItem>
-                  <MenuItem>Help &amp; feedback</MenuItem>
-                </MenuGroup>
-                <MenuDivider />
-                <MenuItem>Log out</MenuItem>
-              </MenuList>
-            </Menu>
-          </NavbarContent>
-        </Navbar>
+      header={
+        <Navbar.Root position="sticky" borderBottomWidth="1px">
+          <Navbar.Content>
+            <Navbar.ItemGroup>
+              <Breadcrumb.Root>
+                <Breadcrumb.Item>
+                  <Menu.Root>
+                    <Menu.Trigger asChild>
+                      <Button variant="ghost">
+                        <SaasUIIcon height="24px" />
+                        Saas UI
+                        <FiChevronDown />
+                      </Button>
+                    </Menu.Trigger>
+                    <Menu.Content>
+                      <Menu.ItemGroup title="Workspaces">
+                        <Menu.Item value="saas-ui">Saas UI</Menu.Item>
+                        <Menu.Item value="acme">Acme</Menu.Item>
+                      </Menu.ItemGroup>
+                      <Menu.Separator />
+                      <Menu.Item value="create">Create workspace</Menu.Item>
+                    </Menu.Content>
+                  </Menu.Root>
+                </Breadcrumb.Item>
+                <Breadcrumb.CurrentLink>Overview</Breadcrumb.CurrentLink>
+              </Breadcrumb.Root>
+            </Navbar.ItemGroup>
+            <Navbar.ItemGroup justifyContent="end" gap="4">
+              <Box width="180px">
+                <SearchInput size="sm" />
+              </Box>
+              <Menu.Root>
+                <Menu.Trigger asChild>
+                  <Button variant="ghost" p="0">
+                    <Persona.Root presence="online">
+                      <Persona.Avatar
+                        src="/showcase-avatar.jpg"
+                        name="Beatriz"
+                        size="xs"
+                      />
+                    </Persona.Root>
+                  </Button>
+                </Menu.Trigger>
+                <Menu.Content>
+                  <Menu.ItemGroup title="beatriz@saas-ui.dev">
+                    <Menu.Item value="profile">Profile</Menu.Item>
+                    <Menu.Item value="settings">Settings</Menu.Item>
+                    <Menu.Item value="help">Help &amp; feedback</Menu.Item>
+                  </Menu.ItemGroup>
+                  <Menu.Separator />
+                  <Menu.Item value="logout">Log out</Menu.Item>
+                </Menu.Content>
+              </Menu.Root>
+            </Navbar.ItemGroup>
+          </Navbar.Content>
+        </Navbar.Root>
       }
     >
       <Box as="main" flex="1" py="2" px="4">
@@ -135,28 +119,28 @@ export default function Page() {
           flexDirection="column"
           margin="0 auto"
         >
-          <Stack spacing="4" mb="14">
-            <Skeleton width="100px" height="24px" speed={0} />
-            <SkeletonText speed={0} />
+          <Stack gap="4" mb="14">
+            <Skeleton width="100px" height="24px" />
+            <SkeletonText />
           </Stack>
-          <Stack direction="row" spacing="8" mb="14">
-            <Stack spacing="4" flex="1">
-              <Skeleton width="100px" height="20px" speed={0} />
-              <SkeletonText speed={0} />
+          <Stack direction="row" gap="8" mb="14">
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
             </Stack>
-            <Stack spacing="4" flex="1">
-              <Skeleton width="100px" height="20px" speed={0} />
-              <SkeletonText speed={0} />
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
             </Stack>
           </Stack>
-          <Stack direction="row" spacing="8" mb="14">
-            <Stack spacing="4" flex="1">
-              <Skeleton width="100px" height="20px" speed={0} />
-              <SkeletonText speed={0} />
+          <Stack direction="row" gap="8" mb="14">
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
             </Stack>
-            <Stack spacing="4" flex="1">
-              <Skeleton width="100px" height="20px" speed={0} />
-              <SkeletonText speed={0} />
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
             </Stack>
           </Stack>
         </Container>
@@ -177,7 +161,7 @@ The IconBadge component represents a badge with an icon.
 The `IconBadge` component can be used to display a badge with an icon.
 
 ```jsx
-import { IconBadge } from '@saas-ui/react'
+import { IconBadge } from '#components/ui/icon-badge'
 import { FiUser } from 'react-icons/fi'
 
 export default function Page() {

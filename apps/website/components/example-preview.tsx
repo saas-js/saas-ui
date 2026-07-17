@@ -8,7 +8,7 @@ function formatComponentName(name: string) {
   return name
     .split(/[-\/]/)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('')
+    .join('');
 }
 
 export const ExamplePreview = (props: Props) => {

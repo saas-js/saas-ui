@@ -6,8 +6,10 @@ import { GetStartedSection } from '@/components/saas-js/get-started.section'
 import { NextjsSection } from '@/components/saas-js/hero.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
 import { WhySection } from '@/components/saas-js/why.section'
-import { Button } from '@saas-ui/react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+import { Button } from '#components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Next.js Starter Kit',

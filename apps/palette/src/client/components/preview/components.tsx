@@ -1,19 +1,16 @@
 import {
-  VStack,
-  HStack,
-  Button,
   Badge,
-  Spinner,
-  SpinnerProps,
-  Switch,
-  Radio,
+  Button,
   Checkbox,
-  useColorModeValue,
+  HStack,
+  RadioGroup,
+  Spinner,
+  Switch,
+  VStack,
 } from '@chakra-ui/react'
 
-const StyledSpinner = ({ colorScheme }: SpinnerProps) => {
-  const color = useColorModeValue(`${colorScheme}.500`, `${colorScheme}.500`)
-  return <Spinner color={color} />
+const StyledSpinner = ({ colorPalette }: { colorPalette: string }) => {
+  return <Spinner color={`${colorPalette}.500`} />
 }
 
 const ComponentPreview = () => {
@@ -31,10 +28,14 @@ const ComponentPreview = () => {
   ]
   return (
     <>
-      <VStack spacing="8" alignItems="stretch">
+      <VStack gap="8" alignItems="stretch">
         <HStack>
           {colors.map((colorScheme) => (
-            <Button key={colorScheme} colorScheme={colorScheme} variant="solid">
+            <Button
+              key={colorScheme}
+              colorPalette={colorScheme}
+              variant="solid"
+            >
               {colorScheme}
             </Button>
           ))}
@@ -43,7 +44,7 @@ const ComponentPreview = () => {
           {colors.map((colorScheme) => (
             <Button
               key={colorScheme}
-              colorScheme={colorScheme}
+              colorPalette={colorScheme}
               variant="outline"
             >
               {colorScheme}
@@ -52,7 +53,11 @@ const ComponentPreview = () => {
         </HStack>
         <HStack>
           {colors.map((colorScheme) => (
-            <Button key={colorScheme} colorScheme={colorScheme} variant="ghost">
+            <Button
+              key={colorScheme}
+              colorPalette={colorScheme}
+              variant="ghost"
+            >
               {colorScheme}
             </Button>
           ))}
@@ -61,7 +66,7 @@ const ComponentPreview = () => {
           {colors.map((colorScheme) => (
             <Button
               key={colorScheme}
-              colorScheme={colorScheme}
+              colorPalette={colorScheme}
               variant="subtle"
             >
               {colorScheme}
@@ -70,14 +75,14 @@ const ComponentPreview = () => {
         </HStack>
         <HStack>
           {colors.map((colorScheme) => (
-            <Badge key={colorScheme} colorScheme={colorScheme} variant="solid">
+            <Badge key={colorScheme} colorPalette={colorScheme} variant="solid">
               {colorScheme}
             </Badge>
           ))}
         </HStack>
         <HStack>
           {colors.map((colorScheme) => (
-            <Badge key={colorScheme} colorScheme={colorScheme} mr={2}>
+            <Badge key={colorScheme} colorPalette={colorScheme} mr={2}>
               {colorScheme}
             </Badge>
           ))}
@@ -86,7 +91,7 @@ const ComponentPreview = () => {
           {colors.map((colorScheme) => (
             <Badge
               key={colorScheme}
-              colorScheme={colorScheme}
+              colorPalette={colorScheme}
               variant="outline"
             >
               {colorScheme}
@@ -95,15 +100,28 @@ const ComponentPreview = () => {
         </HStack>
         <HStack>
           {colors.map((colorScheme) => (
-            <StyledSpinner key={colorScheme} colorScheme={colorScheme} />
+            <StyledSpinner key={colorScheme} colorPalette={colorScheme} />
           ))}
         </HStack>
         <HStack>
-          <Switch isChecked />
+          <Switch.Root defaultChecked>
+            <Switch.HiddenInput />
+            <Switch.Control />
+          </Switch.Root>
 
-          <Radio isChecked />
+          <RadioGroup.Root defaultValue="checked">
+            <RadioGroup.Item value="checked">
+              <RadioGroup.ItemHiddenInput />
+              <RadioGroup.ItemControl />
+            </RadioGroup.Item>
+          </RadioGroup.Root>
 
-          <Checkbox isChecked />
+          <Checkbox.Root defaultChecked>
+            <Checkbox.HiddenInput />
+            <Checkbox.Control>
+              <Checkbox.Indicator />
+            </Checkbox.Control>
+          </Checkbox.Root>
         </HStack>
       </VStack>
     </>

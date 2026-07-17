@@ -4,7 +4,9 @@ import React, { forwardRef, useCallback, useState } from 'react'
 
 import * as UiComponents from 'saas-ui-blocks'
 import { UiComponent } from '@/blocks'
-import { Box, Card, LoadingOverlay, Stack, defaultSystem } from '@saas-ui/react'
+import { Box, Card, Stack } from '@chakra-ui/react'
+
+import { LoadingOverlay } from '#components/ui/loading-overlay'
 
 import { ChakraFrame } from '../chakra-frame/chakra-frame'
 import { CanvasHeader } from './canvas-header'
@@ -136,7 +138,6 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
                     frameRef.current = el
                   }}
                   onHeightChange={(height) => setFrameHeight(String(height))}
-                  value={defaultSystem}
                   linkComponent={LinkStub}
                 >
                   <ComponentPreview canvas={props.attributes.canvas}>
@@ -155,7 +156,11 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
               {code?.length ? (
                 <CodeTabs code={code} />
               ) : (
-                <LoadingOverlay.Root variant="overlay">
+                <LoadingOverlay.Root
+                  position="absolute"
+                  inset="0"
+                  bg="currentBg/50"
+                >
                   <LoadingOverlay.Spinner />
                 </LoadingOverlay.Root>
               )}

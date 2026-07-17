@@ -1,6 +1,6 @@
 'use client'
 
-import { Breadcrumb } from '@saas-ui/react'
+import { Breadcrumb } from 'compositions/ui/breadcrumb'
 import { LuHouse, LuShirt } from 'react-icons/lu'
 
 export const BreadcrumbWithIcon = () => {

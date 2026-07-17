@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { createListCollection } from '@saas-ui/react'
-import { Select } from '@saas-ui/react'
+import { createListCollection } from '@chakra-ui/react'
+import { Select } from 'compositions/ui/select'
 
 export const SelectControlled = () => {
   const [value, setValue] = useState<string[]>([])

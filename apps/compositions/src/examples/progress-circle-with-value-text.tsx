@@ -1,6 +1,6 @@
 'use client'
 
-import { AbsoluteCenter, HStack, ProgressCircle } from '@saas-ui/react'
+import { AbsoluteCenter, HStack, ProgressCircle } from '@chakra-ui/react'
 
 const sizes = ['md', 'lg', 'xl'] as const
 

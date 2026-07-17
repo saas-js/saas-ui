@@ -1,7 +1,7 @@
 'use client'
 
-import { Heading, LocaleProvider, Stack, Text } from '@saas-ui/react'
-import { Slider } from '@saas-ui/react'
+import { Heading, LocaleProvider, Stack, Text } from '@chakra-ui/react'
+import { Slider } from 'compositions/ui/slider'
 
 export const LocaleProviderBasic = () => {
   return (

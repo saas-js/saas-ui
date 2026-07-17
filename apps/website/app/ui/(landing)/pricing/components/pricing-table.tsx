@@ -1,16 +1,7 @@
 'use client'
 
 import { LinkButton } from '@/components/link-button'
-import {
-  Box,
-  Grid,
-  Heading,
-  List,
-  Separator,
-  Span,
-  Stack,
-  Text,
-} from '@saas-ui/react'
+import { Box, Grid, Heading, List, Separator, Span, Stack, Text } from '@chakra-ui/react'
 import { TbCheck } from 'react-icons/tb'
 
 const products = {

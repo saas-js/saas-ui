@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 import { Portal, mergeRefs } from '@chakra-ui/react'
-import { SuiProviderProps } from '@saas-ui/react'
+import { ProviderProps as SuiProviderProps } from '#components/setup/provider/provider'
 import Frame from 'react-frame-component'
 
 import { FrameProvider } from './frame-provider'

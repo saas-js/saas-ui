@@ -1,6 +1,6 @@
 'use client'
 
-import { Tag } from '@saas-ui/react'
+import { Tag } from 'compositions/ui/tag'
 
 export const TagWithOverflow = () => {
   return (

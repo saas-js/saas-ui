@@ -1,16 +1,9 @@
-'use client'
-
+'use client';
 import { SaasUILogo } from '@saas-ui/assets'
-import {
-  AppShell,
-  Box,
-  Button,
-  Container,
-  Navbar,
-  Skeleton,
-  SkeletonText,
-  Stack,
-} from '@saas-ui/react'
+import { AppShell } from 'compositions/ui/app-shell'
+import { Box, Container, Stack } from '@chakra-ui/react'
+import { Navbar } from 'compositions/ui/navbar'
+import { Skeleton, SkeletonText } from 'compositions/ui/skeleton'
 
 export const NavbarVariantSolid = () => {
   return (

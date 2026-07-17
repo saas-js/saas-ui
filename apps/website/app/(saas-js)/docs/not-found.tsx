@@ -1,6 +1,6 @@
 'use client'
 
-import { EmptyState } from '@saas-ui/react'
+import { EmptyState } from '#components/ui/empty-state'
 import { TbError404 } from 'react-icons/tb'
 
 export default function NotFound() {

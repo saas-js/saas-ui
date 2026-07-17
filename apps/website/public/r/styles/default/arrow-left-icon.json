@@ -1,16 +1,29 @@
 {
-  "name": "arrow-left-icon",
-  "type": "registry:icon",
   "files": [
     {
+      "content": "import React from 'react';\n\nexport interface ArrowLeftIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * arrow-left\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ArrowLeftIcon: React.FC<ArrowLeftIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m12 19l-7-7l7-7m7 7H5\"/>\n    </svg>\n  );\n};\n",
       "path": "icons/arrow-left-icon.tsx",
-      "type": "registry:icon",
-      "content": "import React from 'react';\n\nexport interface ArrowLeftIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * arrow-left\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ArrowLeftIcon: React.FC<ArrowLeftIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m12 19l-7-7l7-7m7 7H5\"/>\n    </svg>\n  );\n};\n"
+      "type": "registry:icon"
     }
   ],
   "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/arrow-left-icon.tsx": "34f7e7ec828033fb833eda79cdd393e6ba3101ecaf9cefc9405bc2ac7fd37a3a"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
     "componentName": "ArrowLeftIcon",
-    "iconSet": "lucide",
-    "iconName": "ArrowLeft"
-  }
+    "contentHash": "aa92039b673db2c2635ae15ecbc342f194a2fb883b1596eb9c3928b19f6a0cd1",
+    "iconName": "ArrowLeft",
+    "iconSet": "lucide"
+  },
+  "name": "arrow-left-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-next.9"
 }

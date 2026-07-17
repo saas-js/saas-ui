@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Span, useRecipe } from '@saas-ui/react'
-import { Button } from '@saas-ui/react'
+import { For, Span, Button } from '@chakra-ui/react'
+import { useRecipe } from '@chakra-ui/react/styled-system'
 import { HiArrowRight } from 'react-icons/hi'
 
 import { colorPalettes } from '../lib/color-palettes'

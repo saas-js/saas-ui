@@ -1,8 +1,8 @@
-'use client'
-
+'use client';
 import { useId } from 'react'
 
-import { Avatar, Tooltip } from '@saas-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 export const TooltipWithAvatar = () => {
   const id = useId()

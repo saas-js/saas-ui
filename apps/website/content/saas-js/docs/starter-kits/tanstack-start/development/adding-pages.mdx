@@ -97,7 +97,7 @@ Open the `list-page.tsx` file and add a `useQuery` hook to fetch the projects.
 'use client'
 
 import { DataGrid, Page, PageBody, PageHeader } from '@saas-ui-pro/react'
-import { LoadingOverlay, LoadingSpinner } from '@saas-ui/react'
+import { LoadingOverlay } from '#components/ui/loading-overlay'
 import { ProjectDTO } from '@workspace/api/types'
 
 import { useCurrentWorkspace } from '#features/common/hooks/use-current-workspace'
@@ -128,9 +128,9 @@ export function ProjectsListPage(props: {
       <PageHeader title="Projects" />
       <PageBody contentWidth="full">
         {isLoading ? (
-          <LoadingOverlay>
-            <LoadingSpinner />
-          </LoadingOverlay>
+          <LoadingOverlay.Root>
+            <LoadingOverlay.Spinner />
+          </LoadingOverlay.Root>
         ) : (
           <DataGrid data={data ?? []} columns={columns} />
         )}

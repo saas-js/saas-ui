@@ -1,7 +1,5 @@
-'use client'
-
-import { Stack } from '@saas-ui/react'
-import { Input } from '@saas-ui/react'
+'use client';
+import { Stack, Input } from '@chakra-ui/react'
 
 export const InputWithSizes = () => {
   return (

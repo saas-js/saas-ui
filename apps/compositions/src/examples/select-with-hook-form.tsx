@@ -1,8 +1,8 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Stack, createListCollection } from '@saas-ui/react'
-import { Field, Select } from '@saas-ui/react'
+import { Button, Stack, createListCollection, Field } from '@chakra-ui/react'
+import { Select } from 'compositions/ui/select'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 

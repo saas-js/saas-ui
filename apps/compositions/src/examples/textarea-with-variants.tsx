@@ -1,5 +1,4 @@
-import { Stack } from '@saas-ui/react'
-import { Textarea } from '@saas-ui/react'
+import { Stack, Textarea } from '@chakra-ui/react'
 
 export const TextareaWithVariants = () => {
   return (

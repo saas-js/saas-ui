@@ -53,7 +53,7 @@ interface ItemProps extends VisibilityProps {
   icon?: React.ReactNode
 }
 
-const Item = React.forwardRef<HTMLLIElement, ItemProps>(
+const FileItem = React.forwardRef<HTMLLIElement, ItemProps>(
   function FileUploadItem(props, ref) {
     const { file, showSize, icon, clearable } = props
     return (
@@ -95,7 +95,7 @@ export const List = React.forwardRef<HTMLUListElement, ListProps>(
     return (
       <ChakraFileUpload.ItemGroup ref={ref} {...rest}>
         {acceptedFiles.map((file: File) => (
-          <Item
+          <FileItem
             key={file.name}
             file={file}
             showSize={showSize}
@@ -148,3 +148,10 @@ export const Label = ChakraFileUpload.Label
 export const ClearTrigger = ChakraFileUpload.ClearTrigger
 export const Trigger = ChakraFileUpload.Trigger
 export const Context = ChakraFileUpload.Context
+export const Item = ChakraFileUpload.Item
+export const ItemDeleteTrigger = ChakraFileUpload.ItemDeleteTrigger
+export const ItemGroup = ChakraFileUpload.ItemGroup
+export const ItemName = ChakraFileUpload.ItemName
+export const ItemPreview = ChakraFileUpload.ItemPreview
+export const ItemPreviewImage = ChakraFileUpload.ItemPreviewImage
+export const ItemSizeText = ChakraFileUpload.ItemSizeText

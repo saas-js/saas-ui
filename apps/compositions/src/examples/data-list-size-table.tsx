@@ -1,7 +1,7 @@
 'use client'
 
-import { Badge, For, useSlotRecipe } from '@saas-ui/react'
-import { DataList } from '@saas-ui/react'
+import { Badge, For, DataList } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
 
 import { PlaygroundTable } from '../lib/playground-table'
 

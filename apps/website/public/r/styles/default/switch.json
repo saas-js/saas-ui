@@ -1,20 +1,35 @@
 {
-  "name": "switch",
-  "type": "registry:ui",
   "dependencies": [
     "@chakra-ui/react"
   ],
-  "registryDependencies": [],
   "files": [
     {
-      "path": "ui/switch/index.ts",
       "content": "export { Switch } from './switch.tsx'\n\nexport type { SwitchProps } from './switch.tsx'\n",
+      "path": "ui/switch/index.ts",
       "type": "registry:ui"
     },
     {
-      "path": "ui/switch/switch.tsx",
       "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Switch as ChakraSwitch } from '@chakra-ui/react/switch'\n\nexport interface SwitchProps extends ChakraSwitch.RootProps {\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n  rootRef?: React.Ref<HTMLLabelElement>\n  trackLabel?: { on: React.ReactNode; off: React.ReactNode }\n  thumbLabel?: { on: React.ReactNode; off: React.ReactNode }\n}\n\nexport const Switch = forwardRef<HTMLInputElement, SwitchProps>(\n  function Switch(props, ref) {\n    const { inputProps, children, rootRef, trackLabel, thumbLabel, ...rest } =\n      props\n\n    return (\n      <ChakraSwitch.Root ref={rootRef} {...rest}>\n        <ChakraSwitch.HiddenInput ref={ref} {...inputProps} />\n        <ChakraSwitch.Control>\n          <ChakraSwitch.Thumb>\n            {thumbLabel && (\n              <ChakraSwitch.ThumbIndicator fallback={thumbLabel?.off}>\n                {thumbLabel?.on}\n              </ChakraSwitch.ThumbIndicator>\n            )}\n          </ChakraSwitch.Thumb>\n          {trackLabel && (\n            <ChakraSwitch.Indicator fallback={trackLabel.off}>\n              {trackLabel.on}\n            </ChakraSwitch.Indicator>\n          )}\n        </ChakraSwitch.Control>\n        {children != null && (\n          <ChakraSwitch.Label>{children}</ChakraSwitch.Label>\n        )}\n      </ChakraSwitch.Root>\n    )\n  },\n)\n",
+      "path": "ui/switch/switch.tsx",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/switch/index.ts": "f7bc2415ff2af8e51dddb8c2faf2e678a662f6de9d34ebc0d02710051985ff18",
+        "ui/switch/switch.tsx": "f61070be38ea44964a32265b81e50740573a97d7324f793b18977eb6f01b78c4"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "7f8855799f5f64c77dfb5da89e1312f9f06e09cca67948f784b94b25dfb7fb56"
+  },
+  "name": "switch",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

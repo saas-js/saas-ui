@@ -1,6 +1,6 @@
 ---
-title: Using Saas UI with TanStack
-description: A guide for installing Saas UI with TanStack projects
+title: Using Saas UI with TanStack Start
+description: A guide for installing Saas UI in TanStack Start projects
 ---
 
 ## Templates
@@ -12,7 +12,7 @@ configured correctly to use Saas UI.
 
 <ResourceCard
   type="github"
-  title="TanStack template"
+  title="TanStack Start template"
   url="https://github.com/saas-js/saas-ui/tree/main/examples/tanstack"
 />
 
@@ -27,38 +27,41 @@ configured correctly to use Saas UI.
 ### Install dependencies
 
 ```bash
-npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
+npx @saas-ui/cli init
 ```
 
 ### Setup provider
 
-Wrap your application with the `SuiProvider` component at the root of your
-application.
+Wrap your application with the CLI-installed `Provider` in the root route's
+document shell.
 
-This provider composes the following:
+The generated provider configures:
 
-- `SuiProvider` from `@saas-ui/react` for the styling system
-- `ThemeProvider` from `next-themes` for color mode
+- Chakra UI with `@saas-ui/chakra-preset`
+- color mode with `next-themes`
+- links used by installed Saas UI components
 
-```tsx title="src/routes/__root.tsx" {1,8,10}
-import React from 'react'
+```tsx title="src/routes/__root.tsx"
+import * as React from 'react'
 
-import { SuiProvider, defaultSystem } from '@saas-ui/react'
-import { ThemeProvider } from 'next-themes'
-import ReactDOM from 'react-dom/client'
-...
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+
+import { Provider } from '#components/setup/provider/provider'
+
+export const Route = createRootRoute({
+  shellComponent: RootDocument,
+})
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <SuiProvider value={defaultSystem}>
-        <ThemeProvider attribute="class" disableTransitionOnChange>
-          ...
-        </ThemeProvider>
-      </SuiProvider>
+      <body>
+        <Provider>{children}</Provider>
+        <Scripts />
+      </body>
     </html>
   )
 }
@@ -66,12 +69,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 
 ### Enjoy!
 
-With the power of the snippets and the primitive components from Saas UI, you
-can build your UI faster.
+Combine Chakra UI primitives with editable Saas UI components installed by the
+CLI to build your interface.
 
 ```tsx
-import { HStack } from '@saas-ui/react'
-import { Button } from '@saas-ui/react'
+import { Button, HStack } from '@chakra-ui/react'
 
 const Demo = () => {
   return (

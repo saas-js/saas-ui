@@ -1,7 +1,7 @@
-'use client'
-
+'use client';
 import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
-import { Button, Field, FileUpload } from '@saas-ui/react'
+import { Button, Field } from '@chakra-ui/react'
+import { FileUpload } from 'compositions/ui/file-upload'
 import { HiUpload } from 'react-icons/hi'
 import { z } from 'zod'
 

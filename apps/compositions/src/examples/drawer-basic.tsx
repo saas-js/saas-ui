@@ -1,6 +1,6 @@
-'use client'
-
-import { Button, Drawer } from '@saas-ui/react'
+'use client';
+import { Button } from 'compositions/ui/button'
+import { Drawer } from 'compositions/ui/drawer'
 
 export const DrawerBasic = () => {
   return (

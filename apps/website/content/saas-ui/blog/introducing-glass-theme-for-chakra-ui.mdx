@@ -26,22 +26,24 @@ directly from Github.
 npm i @saas-ui/theme-glass
 ```
 
-Adding it to your theme:
+The original package targeted Chakra UI v2. With Chakra UI v3, add glass
+tokens and recipes as a system config layered on top of the Saas UI preset:
 
 ```ts
-import { extendTheme } from '@saas-ui/react'
-import { theme as baseTheme } from '@saas-ui/theme-glass'
+import { createSystem, defineConfig, mergeConfigs } from '@chakra-ui/react'
+import { defaultConfig } from '@saas-ui/chakra-preset'
 
-export const theme = extendTheme(
-  {
-    // your overrides
+const glassConfig = defineConfig({
+  theme: {
+    // Add your glass tokens and recipes here.
   },
-  baseTheme,
-)
+})
+
+export const system = createSystem(mergeConfigs(defaultConfig, glassConfig))
 ```
 
 See it live in action on the new [Themes page](/themes) or in the
-[Storybooks](https://storybook.saas-ui.pro/?path=/story/@saas-ui/react_themes-glass--glass).
+[Storybook](https://storybook.saas-ui.pro/).
 
 A big shout out to the Linear team, as they are a huge inspiration and they
 really raised the bar for how we build modern web applications.

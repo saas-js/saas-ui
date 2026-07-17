@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack, Text } from '@saas-ui/react'
-import { Accordion } from '@saas-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
+import { Accordion } from 'compositions/ui/accordion'
 import { LoremIpsum } from 'react-lorem-ipsum'
 
 const items = [

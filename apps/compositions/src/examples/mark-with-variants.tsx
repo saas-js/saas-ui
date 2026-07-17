@@ -1,6 +1,6 @@
 'use client'
 
-import { Mark, Stack, Text } from '@saas-ui/react'
+import { Mark, Stack, Text } from '@chakra-ui/react'
 
 const variants = ['subtle', 'solid', 'text', 'plain'] as const
 

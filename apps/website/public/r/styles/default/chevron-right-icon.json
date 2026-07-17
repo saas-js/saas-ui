@@ -1,16 +1,29 @@
 {
-  "name": "chevron-right-icon",
-  "type": "registry:icon",
   "files": [
     {
+      "content": "import React from 'react';\n\nexport interface ChevronRightIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * chevron-right\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronRightIcon: React.FC<ChevronRightIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m9 18l6-6l-6-6\"/>\n    </svg>\n  );\n};\n",
       "path": "icons/chevron-right-icon.tsx",
-      "type": "registry:icon",
-      "content": "import React from 'react';\n\nexport interface ChevronRightIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * chevron-right\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronRightIcon: React.FC<ChevronRightIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m9 18l6-6l-6-6\"/>\n    </svg>\n  );\n};\n"
+      "type": "registry:icon"
     }
   ],
   "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/chevron-right-icon.tsx": "017bf136a7988a70efc2252bed0397da697f8ca3ccf80d472676abdfae5896bc"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
     "componentName": "ChevronRightIcon",
-    "iconSet": "lucide",
-    "iconName": "ChevronRight"
-  }
+    "contentHash": "a960e78409e2219be6daa58d179f95532a2d161bd078e425f2bf4ff486abf845",
+    "iconName": "ChevronRight",
+    "iconSet": "lucide"
+  },
+  "name": "chevron-right-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-next.9"
 }

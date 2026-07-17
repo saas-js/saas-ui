@@ -24,7 +24,7 @@ Use the React Router template below to get started quickly.
 ### Install dependencies
 
 ```bash
-npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
+npx @saas-ui/cli init
 ```
 
 ### Setup root
@@ -41,7 +41,8 @@ This provider composes the following:
 import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App"
-import { SuiProvider, defaultSystem } from "@saas-ui/react"
+import { Provider as SuiProvider } from '#components/setup/provider/provider'
+import { defaultSystem } from '@saas-ui/chakra-preset'
 import { ThemeProvider } from "next-themes"
 
 export default function App() {
@@ -76,8 +77,8 @@ When the power of the snippets and the primitive components from Saas UI, you
 can build your UI faster.
 
 ```tsx
-import { HStack } from '@saas-ui/react'
-import { Button } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 
 const Demo = () => {
   return (

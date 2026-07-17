@@ -1,17 +1,9 @@
-'use client'
-
+'use client';
 import { ActionArrow } from '@/components/action-arrow'
 import { LinkButton } from '@/components/link-button'
-import {
-  Accordion,
-  ButtonGroup,
-  Container,
-  HStack,
-  Heading,
-  Link,
-  Stack,
-  Text,
-} from '@saas-ui/react'
+import { Accordion } from '#components/ui/accordion'
+import { ButtonGroup, Container, HStack, Heading, Stack, Text } from '@chakra-ui/react'
+import { Link } from '#components/ui/link'
 
 export function FAQ() {
   return (

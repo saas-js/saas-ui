@@ -2,8 +2,8 @@
 
 import { useRef } from 'react'
 
-import { Box, Stack } from '@saas-ui/react'
-import { Button, Dialog } from '@saas-ui/react'
+import { Box, Stack, Button } from '@chakra-ui/react'
+import { Dialog } from 'compositions/ui/dialog'
 import Lorem from 'react-lorem-ipsum'
 
 export const DialogWithFinalFocus = () => {

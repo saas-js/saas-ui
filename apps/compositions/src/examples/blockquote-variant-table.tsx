@@ -1,7 +1,7 @@
-'use client'
-
-import { For, Span, useSlotRecipe } from '@saas-ui/react'
-import { Blockquote, type BlockquoteProps } from '@saas-ui/react'
+'use client';
+import { For, Span } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
+import { Blockquote, type BlockquoteProps } from 'compositions/ui/blockquote'
 
 import { colorPalettes } from '../lib/color-palettes'
 import { PlaygroundTable } from '../lib/playground-table'

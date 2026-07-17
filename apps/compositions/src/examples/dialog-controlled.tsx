@@ -1,8 +1,8 @@
-'use client'
-
+'use client';
 import { useState } from 'react'
 
-import { Button, Dialog } from '@saas-ui/react'
+import { Button } from 'compositions/ui/button'
+import { Dialog } from 'compositions/ui/dialog'
 import Lorem from 'react-lorem-ipsum'
 
 export const DialogControlled = () => {

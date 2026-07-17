@@ -1,6 +1,6 @@
 'use client'
 
-import { EmptyState } from '@saas-ui/react'
+import { EmptyState } from 'compositions/ui/empty-state'
 import { LuShoppingCart } from 'react-icons/lu'
 
 export const EmptyStateBasic = () => {

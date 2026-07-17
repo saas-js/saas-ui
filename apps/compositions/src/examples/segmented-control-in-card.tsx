@@ -1,7 +1,7 @@
 'use client'
 
-import { Button, Card, Heading } from '@saas-ui/react'
-import { Field, SegmentedControl } from '@saas-ui/react'
+import { Button, Card, Heading, Field } from '@chakra-ui/react'
+import { SegmentedControl } from 'compositions/ui/segmented-control'
 import { LuSearch } from 'react-icons/lu'
 
 export const SegmentedControlInCard = () => {

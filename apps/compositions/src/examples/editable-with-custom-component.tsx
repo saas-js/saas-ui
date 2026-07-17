@@ -1,6 +1,6 @@
 'use client'
 
-import { Editable, Input } from '@saas-ui/react'
+import { Editable, Input } from '@chakra-ui/react'
 
 export const EditableWithCustomComponent = () => {
   return (

@@ -1,14 +1,15 @@
 'use client'
 
-import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
+import { defaultSystem } from '@saas-ui/chakra-preset'
 import { ThemeProvider } from 'next-themes'
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <SuiProvider value={defaultSystem}>
+    <ChakraProvider value={defaultSystem}>
       <ThemeProvider attribute="class" disableTransitionOnChange>
         {props.children}
       </ThemeProvider>
-    </SuiProvider>
+    </ChakraProvider>
   )
 }

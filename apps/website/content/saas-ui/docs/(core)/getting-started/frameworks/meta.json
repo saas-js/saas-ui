@@ -1,0 +1,17 @@
+{
+  "title": "Frameworks",
+  "pages": [
+    "[Next.js (App)](/docs/getting-started/frameworks/next-app)",
+    "[Next.js (Pages)](/docs/getting-started/frameworks/next-pages)",
+    "[React Router](/docs/getting-started/frameworks/react-router)",
+    "[Storybook](/docs/getting-started/frameworks/storybook)",
+    "[TanStack Start](/docs/getting-started/frameworks/tanstack)",
+    "[Vite](/docs/getting-started/frameworks/vite)",
+    "!next-app",
+    "!next-pages",
+    "!react-router",
+    "!storybook",
+    "!tanstack",
+    "!vite"
+  ]
+}

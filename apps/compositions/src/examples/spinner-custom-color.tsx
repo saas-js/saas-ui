@@ -1,6 +1,6 @@
 'use client'
 
-import { Spinner } from '@saas-ui/react'
+import { Spinner } from 'compositions/ui/spinner'
 
 export const SpinnerCustomColor = () => {
   return <Spinner color="teal.500" size="lg" />

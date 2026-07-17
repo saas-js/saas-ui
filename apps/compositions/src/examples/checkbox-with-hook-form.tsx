@@ -1,8 +1,8 @@
 'use client'
 
 import { Controller, useForm } from '@saas-ui/forms'
-import { Button, Code, HStack, Stack } from '@saas-ui/react'
-import { Checkbox, Field } from '@saas-ui/react'
+import { Button, Code, HStack, Stack, Field } from '@chakra-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 import { z } from 'zod'
 
 const formSchema = z.object({

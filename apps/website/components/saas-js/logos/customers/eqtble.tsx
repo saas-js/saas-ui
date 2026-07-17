@@ -1,4 +1,4 @@
-import { chakra } from '@saas-ui/react'
+import { chakra } from '@chakra-ui/react/styled-system'
 
 export const Eqtble = (props: any) => {
   return (

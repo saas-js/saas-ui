@@ -1,5 +1,5 @@
-import { Span } from '@saas-ui/react'
-import { Button, LinkProps, Menu } from '@saas-ui/react'
+import { Span, Button, LinkProps } from '@chakra-ui/react'
+import { Menu } from '#components/ui/menu'
 import Link from 'next/link'
 import { LuChevronDown } from 'react-icons/lu'
 

@@ -1,8 +1,9 @@
 {
-  "name": "default",
-  "type": "registry:style",
-  "dependencies": [],
-  "registryDependencies": [],
   "cssVars": {},
-  "files": []
+  "dependencies": [],
+  "files": [],
+  "name": "default",
+  "registryDependencies": [],
+  "schemaVersion": 1,
+  "type": "registry:style"
 }

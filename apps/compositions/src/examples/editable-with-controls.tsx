@@ -1,6 +1,6 @@
-'use client'
-
-import { Editable, IconButton } from '@saas-ui/react'
+'use client';
+import { Editable } from '@chakra-ui/react'
+import { IconButton } from 'compositions/ui/icon-button'
 import { LuCheck, LuPencilLine, LuX } from 'react-icons/lu'
 
 export const EditableWithControls = () => {

@@ -1,15 +1,15 @@
-import { Stack, Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Stack, Text } from '@chakra-ui/react'
 
 import {
-  ColorWrapper,
+  ColorName,
   ColorPalette,
   ColorPalettes,
-  ColorName,
+  ColorWrapper,
 } from '../palette'
 
 const PalettePreview = () => {
   return (
-    <Stack spacing="4px">
+    <Stack gap="4px">
       <ColorWrapper>
         {['', 50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((hue) => (
           <Flex key={hue} justifyContent="center" height="3rem">

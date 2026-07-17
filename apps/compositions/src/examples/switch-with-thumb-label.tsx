@@ -1,6 +1,6 @@
 'use client'
 
-import { Switch } from '@saas-ui/react'
+import { Switch } from 'compositions/ui/switch'
 import { HiCheck, HiX } from 'react-icons/hi'
 
 export const SwitchWithThumbLabel = () => {

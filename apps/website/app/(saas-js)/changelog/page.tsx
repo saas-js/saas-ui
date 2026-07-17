@@ -1,17 +1,7 @@
 import { MDXContent } from '@/components/mdx-content'
 import { formatBlogDate, getBlogAuthor } from '@/lib/blog'
-import {
-  Badge,
-  Box,
-  Button,
-  Container,
-  HStack,
-  Heading,
-  Span,
-  Stack,
-  Text,
-} from '@saas-ui/react'
-import { Avatar } from '@saas-ui/react'
+import { Badge, Box, Button, Container, HStack, Heading, Span, Stack, Text } from '@chakra-ui/react'
+import { Avatar } from '#components/ui/avatar'
 import { allChangelogs } from 'content-collections'
 import { Metadata } from 'next'
 import Link from 'next/link'

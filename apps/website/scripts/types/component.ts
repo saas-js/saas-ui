@@ -4,7 +4,7 @@ import { unlink, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { camelCase, kebabCase, titleCase } from 'scule'
 
-import { defaultSystem } from '../../../../packages/saas-ui-react/src/preset'
+import { defaultSystem } from '../../../../packages/saas-ui-chakra-preset/src'
 import { extractTypes } from '../extract-types'
 import {
   getComponentDir,

@@ -1,5 +1,5 @@
-import { HStack, Kbd } from '@saas-ui/react'
-import { Input, InputGroup, NativeSelect } from '@saas-ui/react'
+import { HStack, Kbd, Input, InputGroup } from '@chakra-ui/react'
+import { NativeSelect } from 'compositions/ui/native-select'
 import { LuSearch } from 'react-icons/lu'
 
 const DomainSelect = () => (

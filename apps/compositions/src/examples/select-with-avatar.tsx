@@ -1,7 +1,7 @@
-'use client'
-
-import { HStack, createListCollection } from '@saas-ui/react'
-import { Avatar, Select } from '@saas-ui/react'
+'use client';
+import { HStack, createListCollection } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
+import { Select } from 'compositions/ui/select'
 
 const SelectValueItem = () => (
   <Select.ValueText placeholder="Select movie">

@@ -1,16 +1,29 @@
 {
-  "name": "ellipsis-icon",
-  "type": "registry:icon",
   "files": [
     {
+      "content": "import React from 'react';\n\nexport interface EllipsisIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * ellipsis\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const EllipsisIcon: React.FC<EllipsisIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"1\"/><circle cx=\"19\" cy=\"12\" r=\"1\"/><circle cx=\"5\" cy=\"12\" r=\"1\"/></g>\n    </svg>\n  );\n};\n",
       "path": "icons/ellipsis-icon.tsx",
-      "type": "registry:icon",
-      "content": "import React from 'react';\n\nexport interface EllipsisIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * ellipsis\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const EllipsisIcon: React.FC<EllipsisIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"1\"/><circle cx=\"19\" cy=\"12\" r=\"1\"/><circle cx=\"5\" cy=\"12\" r=\"1\"/></g>\n    </svg>\n  );\n};\n"
+      "type": "registry:icon"
     }
   ],
   "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/ellipsis-icon.tsx": "1aac0051e7769f812decd685833fdbd1ce239be7956100c7e106306d14de8959"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
     "componentName": "EllipsisIcon",
-    "iconSet": "lucide",
-    "iconName": "Ellipsis"
-  }
+    "contentHash": "03dc887c2d2952cd257fe4c78accd854b77dfc29a1f5dbdafa8a0fb0d473fde1",
+    "iconName": "Ellipsis",
+    "iconSet": "lucide"
+  },
+  "name": "ellipsis-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-next.9"
 }

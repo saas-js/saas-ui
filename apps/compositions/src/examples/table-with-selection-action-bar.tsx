@@ -1,9 +1,9 @@
-'use client'
-
+'use client';
 import { useState } from 'react'
 
-import { Kbd, Table } from '@saas-ui/react'
-import { ActionBar, Button, Checkbox } from '@saas-ui/react'
+import { Kbd, Table, Button } from '@chakra-ui/react'
+import { ActionBar } from 'compositions/ui/action-bar'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 export const TableWithSelectionActionBar = () => {
   const [selection, setSelection] = useState<string[]>([])

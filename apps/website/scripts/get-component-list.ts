@@ -1,11 +1,11 @@
-import { sync } from 'find-up'
+import { findUpSync } from 'find-up'
 import { readdir } from 'fs/promises'
 import { dirname, extname, resolve } from 'path/posix'
 
 const isFileType = (file: string) => extname(file).startsWith('.ts')
 
 export const getComponentDir = () => {
-  const rootPath = sync('pnpm-workspace.yaml')
+  const rootPath = findUpSync('pnpm-workspace.yaml')
   if (!rootPath) throw new Error('Not found')
   return resolve(
     dirname(rootPath),

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/examples/app-shell-sidebar.tsx",
+    "src/examples/sidebar-basic.tsx",
+    "src/icons/**/*.tsx",
+    "src/ui/**/*.ts",
+    "src/ui/**/*.tsx"
+  ]
+}

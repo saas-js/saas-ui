@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Group } from '@saas-ui/react'
-import { Button, Steps } from '@saas-ui/react'
+import { Group, Button } from '@chakra-ui/react'
+import { Steps } from 'compositions/ui/steps'
 
 export const StepsControlled = () => {
   const [step, setStep] = useState(1)

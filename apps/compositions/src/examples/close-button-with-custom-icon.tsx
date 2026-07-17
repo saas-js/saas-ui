@@ -1,6 +1,6 @@
 'use client'
 
-import { CloseButton } from '@saas-ui/react'
+import { CloseButton } from 'compositions/ui/close-button'
 import { RiCloseLine } from 'react-icons/ri'
 
 export const CloseButtonWithCustomIcon = () => {

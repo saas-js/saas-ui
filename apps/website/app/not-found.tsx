@@ -1,7 +1,7 @@
-'use client'
-
+'use client';
 import { HeaderSection } from '@/components/saas-js/header.section'
-import { Box, EmptyState } from '@saas-ui/react'
+import { Box } from '@chakra-ui/react'
+import { EmptyState } from '#components/ui/empty-state'
 import { TbError404 } from 'react-icons/tb'
 
 export default function NotFound() {

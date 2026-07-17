@@ -5,12 +5,12 @@ import {
   ClientOnly,
   HStack,
   Heading,
+  Image,
   Progress,
   RadioGroup,
   Skeleton,
   VStack,
 } from '@chakra-ui/react'
-import { Image } from '@saas-ui/react'
 
 import { ColorModeToggle } from '../components/color-mode-toggle'
 

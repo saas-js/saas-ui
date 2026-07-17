@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { Splitter } from '@ark-ui/react'
 import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
-import { Box } from '@saas-ui/react'
+import { Box } from '@chakra-ui/react'
 
 import { ExamplePreview } from './example-preview'
 

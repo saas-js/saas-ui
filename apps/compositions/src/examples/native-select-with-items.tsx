@@ -1,4 +1,4 @@
-import { NativeSelect } from '@saas-ui/react'
+import { NativeSelect } from 'compositions/ui/native-select'
 
 export const NativeSelectWithItems = () => {
   return (

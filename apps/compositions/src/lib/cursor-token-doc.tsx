@@ -1,7 +1,8 @@
-'use client'
-
-import { Button, HStack } from '@saas-ui/react'
-import { Checkbox, Slider, Switch } from '@saas-ui/react'
+'use client';
+import { Button, HStack } from '@chakra-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
+import { Slider } from 'compositions/ui/slider'
+import { Switch } from 'compositions/ui/switch'
 
 import { TokenDoc } from './token-doc'
 

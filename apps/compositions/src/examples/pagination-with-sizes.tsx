@@ -1,7 +1,7 @@
 'use client'
 
-import { For, HStack, Stack } from '@saas-ui/react'
-import { Pagination } from '@saas-ui/react'
+import { For, HStack, Stack } from '@chakra-ui/react'
+import { Pagination } from 'compositions/ui/pagination'
 
 export const PaginationWithSizes = () => {
   return (

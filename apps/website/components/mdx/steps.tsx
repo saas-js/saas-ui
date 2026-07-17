@@ -1,6 +1,6 @@
 import { Children, isValidElement } from 'react'
 
-import { Box, Timeline } from '@saas-ui/react'
+import { Box, Timeline } from '@chakra-ui/react'
 
 export const Steps = (props: React.PropsWithChildren<{}>) => {
   return (
@@ -19,7 +19,9 @@ export const Steps = (props: React.PropsWithChildren<{}>) => {
                 '& > :is(h3, h4, h5)': { marginTop: '0' },
               }}
             >
-              {isValidElement(child) ? child.props.children : child}
+              {isValidElement<{ children?: React.ReactNode }>(child)
+                ? child.props.children
+                : child}
             </Timeline.Content>
           </Timeline.Item>
         )

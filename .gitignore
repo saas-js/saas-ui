@@ -79,3 +79,12 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Generated release handoff artifacts
+/.artifacts/
+
+# Generated registry artifacts (authored icon sources remain tracked)
+/apps/website/public/r/
+/apps/website/__registry__/
+/packages/pro/packages/registry/public/r/
+/packages/pro/packages/registry/__registry__/

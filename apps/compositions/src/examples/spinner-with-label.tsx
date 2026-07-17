@@ -1,7 +1,7 @@
 'use client'
 
-import { Text, VStack } from '@saas-ui/react'
-import { Spinner } from '@saas-ui/react'
+import { Text, VStack } from '@chakra-ui/react'
+import { Spinner } from 'compositions/ui/spinner'
 
 export const SpinnerWithLabel = () => {
   return (

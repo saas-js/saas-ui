@@ -1,13 +1,5 @@
-import {
-  Container,
-  Grid,
-  Heading,
-  Link,
-  List,
-  SkipNavContent,
-  Stack,
-  Text,
-} from '@saas-ui/react'
+import { Container, Grid, Heading, List, SkipNavContent, Stack, Text } from '@chakra-ui/react'
+import { Link } from '#components/ui/link'
 import { TbExternalLink } from 'react-icons/tb'
 
 export default function Page() {

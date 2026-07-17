@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack, Stack } from '@saas-ui/react'
-import { Skeleton, SkeletonCircle, SkeletonText } from '@saas-ui/react'
+import { HStack, Stack } from '@chakra-ui/react'
+import { Skeleton, SkeletonCircle, SkeletonText } from 'compositions/ui/skeleton'
 
 export const SkeletonForFeed = () => {
   return (

@@ -2,13 +2,13 @@
 
 import { forwardRef, useMemo } from 'react'
 
+import { createContext } from '@chakra-ui/react'
 import { Button, type ButtonProps, IconButton } from '@chakra-ui/react/button'
 import {
   Pagination as ChakraPagination,
   usePaginationContext,
 } from '@chakra-ui/react/pagination'
 import { Text, type TextProps } from '@chakra-ui/react/text'
-import { createContext } from '@saas-ui/core/utils'
 
 import {
   ChevronLeftIcon,

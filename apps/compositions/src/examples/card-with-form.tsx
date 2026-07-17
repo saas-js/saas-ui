@@ -1,8 +1,6 @@
-'use client'
-
+'use client';
 import { SubmitButton, useForm } from '@saas-ui/forms'
-import { Stack } from '@saas-ui/react'
-import { Card } from '@saas-ui/react'
+import { Stack, Card } from '@chakra-ui/react'
 
 export const CardWithForm = () => {
   const form = useForm({
@@ -10,10 +8,11 @@ export const CardWithForm = () => {
       firstName: '',
       lastName: '',
     },
+    onSubmit: (values) => console.log(values),
   })
 
   return (
-    <form.Form onSubmit={(values) => console.log(values)}>
+    <form.Form>
       <Card.Root maxW="sm">
         <Card.Header>
           <Card.Title>Sign up</Card.Title>

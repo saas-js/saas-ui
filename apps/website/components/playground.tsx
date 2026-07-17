@@ -1,7 +1,9 @@
 'use client'
 
-import { Flex, Link, Stack, StackProps, Text, chakra } from '@saas-ui/react'
-import NextLink from 'next/link'
+import { Flex, Stack, StackProps, Text } from '@chakra-ui/react'
+import { chakra } from '@chakra-ui/react/styled-system'
+
+import { Link } from '#components/ui/link'
 
 const Section = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -29,14 +31,14 @@ const SectionTitle = ({ children, id }: SectionTitleProps) => {
       rounded="md"
       colorPalette="accent"
       textStyle="sm"
-      fluidFontSize="min-max(sm, xl)"
+      fontSize="clamp(0.875rem, 2vw, 1.25rem)"
     >
       <Text fontWeight="medium" id={id}>
         <Link href={`#${id}`}>{children}</Link>
       </Text>
-      <NextLink passHref legacyBehavior href={`/docs/components/${id}`}>
-        <Link fontSize="sm">View in docs</Link>
-      </NextLink>
+      <Link href={`/docs/components/${id}`} fontSize="sm">
+        View in docs
+      </Link>
     </Flex>
   )
 }
@@ -67,7 +69,7 @@ const SectionContent = (props: StackProps) => {
 interface DemoListProps {
   items: Array<{
     label: string
-    component: JSX.Element
+    component: React.ReactElement
     align?: StackProps['align']
   }>
 }

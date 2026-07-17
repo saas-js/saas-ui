@@ -1,5 +1,4 @@
-import { HStack } from '@saas-ui/react'
-import { Input, InputGroup } from '@saas-ui/react'
+import { HStack, Input, InputGroup } from '@chakra-ui/react'
 import { LuUser } from 'react-icons/lu'
 
 export const InputWithLeftElement = () => {

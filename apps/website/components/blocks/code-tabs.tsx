@@ -1,4 +1,4 @@
-import { Tabs } from '@saas-ui/react'
+import { Tabs } from '@chakra-ui/react'
 
 import { CodeBlock } from '../mdx/code-block'
 

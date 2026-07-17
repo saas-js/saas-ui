@@ -1,4 +1,6 @@
-import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
+import { defaultSystem } from '@saas-ui/chakra-preset'
+import { ThemeProvider } from 'next-themes'
 import {
   Links,
   Meta,
@@ -33,7 +35,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <SuiProvider value={defaultSystem}>{children}</SuiProvider>
+        <ChakraProvider value={defaultSystem}>
+          <ThemeProvider attribute="class" disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+        </ChakraProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

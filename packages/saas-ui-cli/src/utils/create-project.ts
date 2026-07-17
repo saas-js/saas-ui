@@ -4,7 +4,14 @@ import path from 'node:path'
 
 import { highlighter } from '#utils/highlighter'
 import { logger } from '#utils/logger'
+import { SUPPORTED_PACKAGE_POLICIES } from '#utils/package-compatibility'
 import { spinner } from '#utils/spinner'
+
+const chakraVersion = SUPPORTED_PACKAGE_POLICIES['@chakra-ui/react'].specifier
+const emotionVersion = SUPPORTED_PACKAGE_POLICIES['@emotion/react'].specifier
+const presetVersion =
+  SUPPORTED_PACKAGE_POLICIES['@saas-ui/chakra-preset'].specifier
+const colorModeVersion = SUPPORTED_PACKAGE_POLICIES['next-themes'].specifier
 
 export interface CreateProjectOptions {
   cwd: string
@@ -173,11 +180,8 @@ async function createMonorepoStructure(
           react: '^19.2.0',
           'react-dom': '^19.2.0',
           next: '^15.5.4',
-          '@saas-ui/react': '^2.11.4',
-          '@chakra-ui/react': '^2.10.9',
-          '@emotion/react': '^11.14.0',
-          '@emotion/styled': '^11.14.1',
-          'framer-motion': '^10.18.0',
+          '@chakra-ui/react': chakraVersion,
+          '@emotion/react': emotionVersion,
         },
         devDependencies: {
           '@types/node': typescript ? '^24.7.0' : undefined,
@@ -287,7 +291,7 @@ module.exports = config
   const layoutExt = typescript ? 'tsx' : 'jsx'
   const layoutContent = typescript
     ? `import type { Metadata } from 'next'
-import { SaasProvider } from '@saas-ui/react'
+import { Provider } from '@repo/ui/components/provider'
 
 export const metadata: Metadata = {
   title: 'My App',
@@ -300,15 +304,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <SaasProvider>{children}</SaasProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   )
 }
 `
-    : `import { SaasProvider } from '@saas-ui/react'
+    : `import { Provider } from '@repo/ui/components/provider'
 
 export const metadata = {
   title: 'My App',
@@ -317,9 +321,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <SaasProvider>{children}</SaasProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   )
@@ -368,8 +372,8 @@ export default function Page() {
         </Heading>
 
         <HStack>
-          <Button colorScheme="purple">Let's go!</Button>
-          <Button variant="outline">bun install @saas-ui/react</Button>
+          <Button colorPalette="purple">Let's go!</Button>
+          <Button variant="outline">sui add sidebar</Button>
         </HStack>
       </VStack>
     </Box>
@@ -387,11 +391,12 @@ export default function Page() {
     path.join(projectPath, 'apps', 'web', 'components.json'),
     JSON.stringify(
       {
-        $schema: 'https://saas-ui.dev/r/schema.json',
+        $schema: 'https://saas-ui.dev/r/schema/components.json',
         system: 'chakra',
         style: 'default',
         rsc: true,
         tsx: typescript,
+        installed: [],
         aliases: {
           components: '@/components',
           ui: '@repo/ui/components',
@@ -450,22 +455,21 @@ next-env.d.ts
         name: '@repo/ui',
         version: '0.1.0',
         private: true,
-        main: './src/index.ts',
-        types: './src/index.ts',
+        main: `./src/index.${typescript ? 'ts' : 'js'}`,
+        types: typescript ? './src/index.ts' : undefined,
         exports: {
-          './components/*': './src/components/*.tsx',
-          './lib/*': './src/lib/*.ts',
-          './hooks/*': './src/hooks/*.ts',
+          './components/*': `./src/components/*.${typescript ? 'tsx' : 'jsx'}`,
+          './lib/*': `./src/lib/*.${typescript ? 'ts' : 'js'}`,
+          './hooks/*': `./src/hooks/*.${typescript ? 'ts' : 'js'}`,
         },
         scripts: {
           lint: 'eslint .',
         },
         dependencies: {
-          '@saas-ui/react': '^2.11.4',
-          '@chakra-ui/react': '^2.10.9',
-          '@emotion/react': '^11.14.0',
-          '@emotion/styled': '^11.14.1',
-          'framer-motion': '^10.18.0',
+          '@chakra-ui/react': chakraVersion,
+          '@emotion/react': emotionVersion,
+          '@saas-ui/chakra-preset': presetVersion,
+          'next-themes': colorModeVersion,
         },
         devDependencies: {
           '@types/react': typescript ? '^19.2.2' : undefined,
@@ -506,16 +510,91 @@ next-env.d.ts
     }),
   ])
 
+  const providerExtension = typescript ? 'tsx' : 'jsx'
+  const providerContent = typescript
+    ? `'use client'
+
+import type { ThemeProviderProps } from 'next-themes'
+import type { ReactNode } from 'react'
+
+import { ChakraProvider } from '@chakra-ui/react'
+import { defaultSystem } from '@saas-ui/chakra-preset'
+import { ThemeProvider } from 'next-themes'
+
+export interface ProviderProps extends Omit<ThemeProviderProps, 'children'> {
+  children: ReactNode
+}
+
+export function Provider({ children, ...themeProps }: ProviderProps) {
+  return (
+    <ChakraProvider value={defaultSystem}>
+      <ThemeProvider
+        attribute="class"
+        disableTransitionOnChange
+        {...themeProps}
+      >
+        {children}
+      </ThemeProvider>
+    </ChakraProvider>
+  )
+}
+`
+    : `'use client'
+
+import { ChakraProvider } from '@chakra-ui/react'
+import { defaultSystem } from '@saas-ui/chakra-preset'
+import { ThemeProvider } from 'next-themes'
+
+export function Provider({ children, ...themeProps }) {
+  return (
+    <ChakraProvider value={defaultSystem}>
+      <ThemeProvider
+        attribute="class"
+        disableTransitionOnChange
+        {...themeProps}
+      >
+        {children}
+      </ThemeProvider>
+    </ChakraProvider>
+  )
+}
+`
+
+  await Promise.all([
+    fs.writeFile(
+      path.join(
+        projectPath,
+        'packages',
+        'ui',
+        'src',
+        'components',
+        `provider.${providerExtension}`,
+      ),
+      providerContent,
+    ),
+    fs.writeFile(
+      path.join(
+        projectPath,
+        'packages',
+        'ui',
+        'src',
+        `index.${typescript ? 'ts' : 'js'}`,
+      ),
+      `export { Provider } from './components/provider'\n`,
+    ),
+  ])
+
   // Create packages/ui/components.json
   await fs.writeFile(
     path.join(projectPath, 'packages', 'ui', 'components.json'),
     JSON.stringify(
       {
-        $schema: 'https://saas-ui.dev/r/schema.json',
+        $schema: 'https://saas-ui.dev/r/schema/components.json',
         system: 'chakra',
         style: 'default',
         rsc: true,
         tsx: typescript,
+        installed: [],
         aliases: {
           components: '@repo/ui/components',
           ui: '@repo/ui/components/ui',

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { PasswordInput } from '@saas-ui/react'
+import { PasswordInput } from 'compositions/ui/password-input'
 
 export const PasswordInputControlled = () => {
   const [value, setValue] = useState('')

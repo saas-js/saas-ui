@@ -1,3 +1,5 @@
+import type { ComponentProps, ComponentType } from 'react'
+
 import { ExampleCode, ExampleCodeWrapper } from '@/components/example'
 import { Subheading } from '@/components/site/typography'
 import {
@@ -9,7 +11,7 @@ import {
   Stack,
   Tabs,
   Text,
-} from '@saas-ui/react'
+} from '@chakra-ui/react'
 import { LuBox, LuPaintBucket, LuType } from 'react-icons/lu'
 
 const items = [
@@ -28,6 +30,13 @@ const items = [
       'Pre-built component variants and compositions that let developers quickly assemble complex UI patterns without wrestling with CSS or design decisions.',
   },
 ]
+
+type TabsRootProps = ComponentProps<typeof Tabs.Root>
+const TabsRoot = Tabs.Root as ComponentType<
+  Omit<TabsRootProps, 'variant'> & {
+    variant?: TabsRootProps['variant'] | 'pills'
+  }
+>
 
 export const DesignSystemSection = () => {
   return (
@@ -60,7 +69,7 @@ export const DesignSystemSection = () => {
           </Stack>
 
           <Box flex="1" flexShrink="0">
-            <Tabs.Root
+            <TabsRoot
               variant="pills"
               rounded="panel.lg"
               borderWidth="1px"
@@ -96,7 +105,7 @@ export const DesignSystemSection = () => {
                   </Tabs.Content>
                 ))}
               </Tabs.ContentGroup>
-            </Tabs.Root>
+            </TabsRoot>
           </Box>
         </Stack>
       </Container>

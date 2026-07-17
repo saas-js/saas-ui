@@ -1,6 +1,6 @@
 'use client'
 
-import { Persona } from '@saas-ui/react'
+import { Persona } from 'compositions/ui/persona'
 
 export const PersonaOutOfOffice = () => {
   return (

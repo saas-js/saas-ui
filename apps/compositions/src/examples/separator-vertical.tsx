@@ -1,7 +1,5 @@
-'use client'
-
-import { HStack, Text } from '@saas-ui/react'
-import { Separator } from '@saas-ui/react'
+'use client';
+import { HStack, Text, Separator } from '@chakra-ui/react'
 
 export const SeparatorVertical = () => {
   return (

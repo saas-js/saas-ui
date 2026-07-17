@@ -1,6 +1,6 @@
-'use client'
-
-import { Breadcrumb, Menu } from '@saas-ui/react'
+'use client';
+import { Breadcrumb } from 'compositions/ui/breadcrumb'
+import { Menu } from 'compositions/ui/menu'
 import { LuChevronDown } from 'react-icons/lu'
 
 export const BreadcrumbWithMenu = () => {

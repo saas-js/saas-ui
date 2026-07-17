@@ -14,7 +14,7 @@ const schema = z.object({
 
 export const GET = async function handler(
   req: NextRequest,
-  ctx: RouteContext<'/api/blocks/[category]/[component]'>,
+  ctx: RouteContext<'/ui/api/blocks/[category]/[component]'>,
 ) {
   const { category, component } = await ctx.params
 

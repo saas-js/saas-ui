@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Slider } from '@saas-ui/react'
+import { Slider } from 'compositions/ui/slider'
 
 export const SliderControlled = () => {
   const [value, setValue] = useState([40])

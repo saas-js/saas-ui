@@ -1,6 +1,6 @@
-'use client'
-
-import { Button, ToggleTip } from '@saas-ui/react'
+'use client';
+import { Button } from '@chakra-ui/react'
+import { ToggleTip } from 'compositions/ui/toggle-tip'
 import { LuInfo } from 'react-icons/lu'
 
 export const ToggleTipBasic = () => {

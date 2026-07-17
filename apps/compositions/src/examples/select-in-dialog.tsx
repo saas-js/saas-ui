@@ -1,9 +1,9 @@
-'use client'
-
+'use client';
 import { useRef } from 'react'
 
-import { createListCollection } from '@saas-ui/react'
-import { Button, Dialog, Select } from '@saas-ui/react'
+import { createListCollection, Button } from '@chakra-ui/react'
+import { Dialog } from 'compositions/ui/dialog'
+import { Select } from 'compositions/ui/select'
 
 export const SelectInDialog = () => {
   const contentRef = useRef<HTMLDivElement>(null)

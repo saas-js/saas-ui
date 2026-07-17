@@ -1,6 +1,6 @@
 'use client'
 
-import { Stat } from '@saas-ui/react'
+import { Stat } from 'compositions/ui/stat'
 
 export const StatWithIndicator = () => {
   return (

@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Stack } from '@saas-ui/react'
-import { Checkbox } from '@saas-ui/react'
+import { For, Stack } from '@chakra-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 export const CheckboxWithSizes = () => {
   return (

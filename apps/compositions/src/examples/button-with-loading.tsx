@@ -1,7 +1,5 @@
-'use client'
-
-import { Stack } from '@saas-ui/react'
-import { Button } from '@saas-ui/react'
+'use client';
+import { Stack, Button } from '@chakra-ui/react'
 
 export const ButtonWithLoading = () => {
   return (

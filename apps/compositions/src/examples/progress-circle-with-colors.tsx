@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, ProgressCircle, Stack, Text } from '@saas-ui/react'
+import { HStack, ProgressCircle, Stack, Text } from '@chakra-ui/react'
 import { colorPalettes } from 'compositions/lib/color-palettes'
 
 export const ProgressCircleWithColors = () => {

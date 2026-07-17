@@ -1,15 +1,6 @@
 import { formatBlogDate, getBlogAuthor } from '@/lib/blog'
-import {
-  AspectRatio,
-  Card,
-  Flex,
-  LinkBox,
-  LinkOverlay,
-  Stack,
-  Text,
-  VisuallyHidden,
-} from '@saas-ui/react'
-import { Avatar, AvatarGroup } from '@saas-ui/react'
+import { AspectRatio, Card, Flex, LinkBox, LinkOverlay, Stack, Text, VisuallyHidden } from '@chakra-ui/react'
+import { Avatar, AvatarGroup } from '#components/ui/avatar'
 import { Changelog } from 'content-collections'
 import Image from 'next/image'
 import Link from 'next/link'

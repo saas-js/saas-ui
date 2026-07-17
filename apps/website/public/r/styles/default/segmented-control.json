@@ -1,25 +1,35 @@
 {
-  "name": "segmented-control",
-  "type": "registry:ui",
   "dependencies": [
     "@chakra-ui/react"
   ],
-  "registryDependencies": [],
   "files": [
     {
-      "path": "ui/segmented-control/index.ts",
       "content": "export { SegmentedControl } from './segmented-control.tsx'\nexport type { SegmentedControlProps } from './segmented-control.tsx'\n",
+      "path": "ui/segmented-control/index.ts",
       "type": "registry:ui"
     },
     {
-      "path": "ui/segmented-control/segmented-control.stories.tsx",
-      "content": "import React from 'react'\n\nimport { Stack } from '@chakra-ui/react'\nimport { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { SegmentedControl } from './index.ts'\n\nexport default {\n  title: 'Components/Segmented Control',\n  component: SegmentedControl,\n} satisfies Meta\n\ntype Story = StoryObj<typeof SegmentedControl>\n\nexport const Default: Story = {\n  args: {\n    defaultValue: 'One',\n    items: ['One', 'Two', 'Three'],\n  },\n}\n\nexport const Sizes = () => {\n  return (\n    <Stack alignItems=\"flex-start\">\n      <SegmentedControl\n        defaultValue=\"One\"\n        items={['One', 'Two', 'Three']}\n        size=\"xs\"\n      />\n      <SegmentedControl\n        defaultValue=\"One\"\n        items={['One', 'Two', 'Three']}\n        size=\"sm\"\n      />\n      <SegmentedControl\n        defaultValue=\"One\"\n        items={['One', 'Two', 'Three']}\n        size=\"md\"\n      />\n      <SegmentedControl\n        defaultValue=\"One\"\n        items={['One', 'Two', 'Three']}\n        size=\"lg\"\n      />\n    </Stack>\n  )\n}\n",
-      "type": "registry:story"
-    },
-    {
-      "path": "ui/segmented-control/segmented-control.tsx",
       "content": "'use client'\n\nimport { forwardRef, useMemo } from 'react'\n\nimport { For } from '@chakra-ui/react/for'\nimport { SegmentGroup } from '@chakra-ui/react/segment-group'\n\ninterface Item {\n  value: string\n  label: React.ReactNode\n  disabled?: boolean\n}\n\nexport interface SegmentedControlProps extends SegmentGroup.RootProps {\n  items: Array<string | Item>\n}\n\nfunction normalize(items: Array<string | Item>): Item[] {\n  return items.map((item) => {\n    if (typeof item === 'string') return { value: item, label: item }\n    return item\n  })\n}\n\nexport const SegmentedControl = forwardRef<\n  HTMLDivElement,\n  SegmentedControlProps\n>(function SegmentedControl(props, ref) {\n  const { items, ...rest } = props\n  const data = useMemo(() => normalize(items), [items])\n\n  return (\n    <SegmentGroup.Root ref={ref} {...rest}>\n      <SegmentGroup.Indicator />\n      <For each={data}>\n        {(item) => (\n          <SegmentGroup.Item\n            key={item.value}\n            value={item.value}\n            disabled={item.disabled}\n          >\n            <SegmentGroup.ItemText>{item.label}</SegmentGroup.ItemText>\n            <SegmentGroup.ItemHiddenInput />\n          </SegmentGroup.Item>\n        )}\n      </For>\n    </SegmentGroup.Root>\n  )\n})\n",
+      "path": "ui/segmented-control/segmented-control.tsx",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/segmented-control/index.ts": "fcbf94b6d3f3c959c582ac1265d7c205d03c3daa91a67523d9b36370c1510d8a",
+        "ui/segmented-control/segmented-control.tsx": "3c59453697ddc5cc27f6b685538fee430d3394538122f18a1dde4585d5d7ce32"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "cfb0e2563ac1ef662ecba323f4a9a57c254c1bddee7ebde3016c5a6547dee273"
+  },
+  "name": "segmented-control",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

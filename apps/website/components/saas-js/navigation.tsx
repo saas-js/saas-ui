@@ -1,4 +1,4 @@
-import { HStack, Stack, Text } from '@saas-ui/react'
+import { HStack, Stack, Text } from '@chakra-ui/react'
 import { usePathname } from 'next/navigation'
 import { LuChevronsUpDown } from 'react-icons/lu'
 
@@ -47,26 +47,32 @@ export const Navigation = () => {
                 <Text textStyle="xs" color="fg.muted" px="3" py="2">
                   Starter kits
                 </Text>
-                <ListItem href="/">
-                  <HStack
-                    as="span"
-                    fontWeight="medium"
-                    textStyle="sm"
-                    color="fg"
-                  >
-                    <TanstackLogo fontSize="lg" /> Tanstack Start
-                  </HStack>
-                </ListItem>
-                <ListItem href="/nextjs">
-                  <HStack
-                    as="span"
-                    fontWeight="medium"
-                    textStyle="sm"
-                    color="fg"
-                  >
-                    <NextjsLogo fontSize="lg" /> Next.js
-                  </HStack>
-                </ListItem>
+                <ListItem
+                  href="/"
+                  title={
+                    <HStack
+                      as="span"
+                      fontWeight="medium"
+                      textStyle="sm"
+                      color="fg"
+                    >
+                      <TanstackLogo fontSize="lg" /> Tanstack Start
+                    </HStack>
+                  }
+                />
+                <ListItem
+                  href="/nextjs"
+                  title={
+                    <HStack
+                      as="span"
+                      fontWeight="medium"
+                      textStyle="sm"
+                      color="fg"
+                    >
+                      <NextjsLogo fontSize="lg" /> Next.js
+                    </HStack>
+                  }
+                />
               </Stack>
             </List>
           </NavigationMenuContent>

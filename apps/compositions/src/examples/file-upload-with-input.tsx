@@ -1,6 +1,6 @@
 'use client'
 
-import { FileUpload } from '@saas-ui/react'
+import { FileUpload } from 'compositions/ui/file-upload'
 
 export const FileUploadWithInput = () => {
   return (

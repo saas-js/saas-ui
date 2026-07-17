@@ -1,7 +1,7 @@
-'use client'
-
-import { For, Span, useSlotRecipe } from '@saas-ui/react'
-import { Accordion } from '@saas-ui/react'
+'use client';
+import { For, Span } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
+import { Accordion } from 'compositions/ui/accordion'
 
 import { colorPalettes } from '../lib/color-palettes'
 import { PlaygroundTable } from '../lib/playground-table'

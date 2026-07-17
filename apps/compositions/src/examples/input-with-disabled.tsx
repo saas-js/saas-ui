@@ -1,6 +1,6 @@
 'use client'
 
-import { Input } from '@saas-ui/react'
+import { Input } from '@chakra-ui/react'
 
 export const InputWithDisabled = () => {
   return <Input disabled placeholder="disabled" />

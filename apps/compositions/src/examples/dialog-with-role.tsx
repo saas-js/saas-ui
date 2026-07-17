@@ -1,6 +1,6 @@
-'use client'
-
-import { Button, Dialog } from '@saas-ui/react'
+'use client';
+import { Button } from 'compositions/ui/button'
+import { Dialog } from 'compositions/ui/dialog'
 
 export const DialogWithRole = () => {
   return (

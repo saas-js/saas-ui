@@ -1,7 +1,7 @@
 'use client'
 
-import { SuiProvider } from '@saas-ui/react'
-import { Toaster } from '@saas-ui/react/toaster'
+import { Toaster } from '#components/ui/toaster'
+import { ChakraProvider } from '@chakra-ui/react'
 import { ThemeProvider } from 'next-themes'
 
 import { sjsSystem, system } from './theme'
@@ -13,11 +13,11 @@ export const Provider = (props: {
   const { site } = props
 
   return (
-    <SuiProvider value={site === 'sui' ? system : sjsSystem}>
+    <ChakraProvider value={site === 'sui' ? system : sjsSystem}>
       <ThemeProvider attribute="class" disableTransitionOnChange>
         {props.children}
         <Toaster />
       </ThemeProvider>
-    </SuiProvider>
+    </ChakraProvider>
   )
 }

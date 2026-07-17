@@ -1,22 +1,40 @@
 {
-  "name": "back-button",
-  "type": "registry:ui",
   "dependencies": [
     "@chakra-ui/react"
   ],
-  "registryDependencies": [
-    "arrow-left-icon"
-  ],
   "files": [
     {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { type ButtonProps, IconButton } from '@chakra-ui/react'\n\nimport { ArrowLeftIcon } from '#registry/default/icons/arrow-left-icon'\n\nexport interface BackButtonProps extends ButtonProps {\n  'aria-label'?: string\n  children?: React.ReactNode\n}\n\nexport const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(\n  (props, ref) => {\n    const { variant = 'ghost', mr = 2, children, ...rest } = props\n\n    let content = children || <ArrowLeftIcon />\n\n    return (\n      <IconButton\n        ref={ref}\n        aria-label=\"Go back\"\n        variant={variant}\n        mr={mr}\n        {...rest}\n      >\n        {content}\n      </IconButton>\n    )\n  },\n)\n",
       "path": "ui/back-button/back-button.tsx",
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { type ButtonProps, IconButton } from '@chakra-ui/react'\n\nimport { ArrowLeftIcon } from '#registry/default/icons'\n\nexport interface BackButtonProps extends ButtonProps {\n  'aria-label'?: string\n  children?: React.ReactNode\n}\n\nexport const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(\n  (props, ref) => {\n    const { variant = 'ghost', mr = 2, children, ...rest } = props\n\n    let content = children || <ArrowLeftIcon />\n\n    return (\n      <IconButton\n        ref={ref}\n        aria-label=\"Go back\"\n        variant={variant}\n        mr={mr}\n        {...rest}\n      >\n        {content}\n      </IconButton>\n    )\n  },\n)\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/back-button/index.ts",
       "content": "export { BackButton } from './back-button.tsx'\nexport type { BackButtonProps } from './back-button.tsx'\n",
+      "path": "ui/back-button/index.ts",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/back-button/back-button.tsx": "b34817cb70a6733fccdfc5cd1745cf39334a46af192621468b9b5bff05e7e2d1",
+        "ui/back-button/index.ts": "4df866418ac411d2a4ec841d70a99896450efd345832dcca3e3e940f5793694d"
+      },
+      "iconDependencies": [
+        "arrow-left-icon"
+      ],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "a7d8f6b578953777c9d5b938cb16b4da53dc741a303717d65aea225c533e8cfd"
+  },
+  "name": "back-button",
+  "registryDependencies": [
+    "arrow-left-icon"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

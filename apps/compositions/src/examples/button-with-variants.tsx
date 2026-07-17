@@ -1,7 +1,6 @@
-'use client'
-
-import { HStack } from '@saas-ui/react'
-import { Button } from '@saas-ui/react'
+'use client';
+import { HStack } from '@chakra-ui/react'
+import { Button } from 'compositions/ui/button'
 
 export const ButtonWithVariants = () => {
   return (

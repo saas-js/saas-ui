@@ -1,8 +1,10 @@
-'use client'
-
+'use client';
 import { useState } from 'react'
 
-import { ActionBar, Button, Checkbox, Dialog } from '@saas-ui/react'
+import { ActionBar } from 'compositions/ui/action-bar'
+import { Button } from '@chakra-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
+import { Dialog } from 'compositions/ui/dialog'
 import { LuSquarePlus, LuTrash2 } from 'react-icons/lu'
 
 export const ActionBarWithDialog = () => {

@@ -1,12 +1,5 @@
 import { Logo } from '@/components/logo'
-import {
-  Box,
-  Container,
-  Heading,
-  SimpleGrid,
-  Stack,
-  Text,
-} from '@saas-ui/react'
+import { Box, Container, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
 const linkTree = [

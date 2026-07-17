@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Checkbox } from '@saas-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 export const CheckboxControlled = () => {
   const [checked, setChecked] = useState(false)

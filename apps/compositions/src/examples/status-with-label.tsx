@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { Status } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { Status } from 'compositions/ui/status'
 
 export const StatusWithLabel = () => {
   return (

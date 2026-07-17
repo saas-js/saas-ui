@@ -1,6 +1,7 @@
-'use client'
-
-import { For, Link, Span, useRecipe } from '@saas-ui/react'
+'use client';
+import { For, Span } from '@chakra-ui/react'
+import { Link } from 'compositions/ui/link'
+import { useRecipe } from '@chakra-ui/react/styled-system'
 
 import { colorPalettes } from '../lib/color-palettes'
 import { PlaygroundTable } from '../lib/playground-table'

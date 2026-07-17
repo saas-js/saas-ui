@@ -1,4 +1,7 @@
-import { defineRecipe } from '@chakra-ui/react/styled-system'
+import {
+  type RecipeVariantProps,
+  defineRecipe,
+} from '@chakra-ui/react/styled-system'
 
 export const iconBadgeRecipe = defineRecipe({
   className: 'sui-icon-badge',
@@ -56,3 +59,5 @@ export const iconBadgeRecipe = defineRecipe({
     size: 'md',
   },
 })
+
+export type IconBadgeVariantProps = RecipeVariantProps<typeof iconBadgeRecipe>

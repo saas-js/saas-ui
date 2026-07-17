@@ -1,4 +1,7 @@
-import { defineRecipe } from '@chakra-ui/react/styled-system'
+import {
+  defineRecipe,
+  type RecipeVariantProps,
+} from '@chakra-ui/react/styled-system'
 
 export const kbdRecipe = defineRecipe({
   className: 'chakra-kbd',
@@ -62,3 +65,5 @@ export const kbdRecipe = defineRecipe({
     variant: 'subtle',
   },
 })
+
+export type KbdVariantProps = RecipeVariantProps<typeof kbdRecipe>

@@ -2,6 +2,7 @@ import { badgeRecipe } from './recipes/badge.recipe.ts'
 import { buttonRecipe } from './recipes/button.recipe.ts'
 import { checkmarkRecipe } from './recipes/checkmark.recipe.ts'
 import { codeRecipe } from './recipes/code.recipe.ts'
+import { colorSwatchRecipe } from './recipes/color-swatch.recipe.ts'
 import { commandRecipe } from './recipes/command.recipe.ts'
 import { containerRecipe } from './recipes/container.recipe.ts'
 import { headingRecipe } from './recipes/heading.recipe.ts'
@@ -24,6 +25,7 @@ export const recipes = {
   badge: badgeRecipe,
   button: buttonRecipe,
   code: codeRecipe,
+  colorSwatch: colorSwatchRecipe,
   container: containerRecipe,
   heading: headingRecipe,
   input: inputRecipe,

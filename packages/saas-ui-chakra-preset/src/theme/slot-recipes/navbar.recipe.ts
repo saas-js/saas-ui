@@ -1,4 +1,4 @@
-import { defineSlotRecipe } from '@chakra-ui/react'
+import { type RecipeVariantProps, defineSlotRecipe } from '@chakra-ui/react'
 
 export const navbarSlotRecipe = defineSlotRecipe({
   className: 'sui-navbar',
@@ -123,3 +123,5 @@ export const navbarSlotRecipe = defineSlotRecipe({
     size: 'md',
   },
 })
+
+export type NavbarVariantProps = RecipeVariantProps<typeof navbarSlotRecipe>

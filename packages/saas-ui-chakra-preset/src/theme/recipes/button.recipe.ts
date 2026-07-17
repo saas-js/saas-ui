@@ -1,4 +1,7 @@
-import { defineRecipe } from '@chakra-ui/react/styled-system'
+import {
+  type RecipeVariantProps,
+  defineRecipe,
+} from '@chakra-ui/react/styled-system'
 
 export const buttonRecipe = defineRecipe({
   className: 'chakra-button',
@@ -32,6 +35,14 @@ export const buttonRecipe = defineRecipe({
 
   variants: {
     size: {
+      '2xs': {
+        gap: '1',
+        h: '6',
+        minW: '6',
+        textStyle: 'xs',
+        borderRadius: 'control.sm',
+        px: '2',
+      },
       xs: {
         gap: '1',
         h: '6',
@@ -224,3 +235,5 @@ export const buttonRecipe = defineRecipe({
     colorPalette: 'gray',
   },
 })
+
+export type ButtonVariantProps = RecipeVariantProps<typeof buttonRecipe>

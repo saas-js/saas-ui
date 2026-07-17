@@ -1,4 +1,4 @@
-import { defineSlotRecipe } from '@chakra-ui/react'
+import { type RecipeVariantProps, defineSlotRecipe } from '@chakra-ui/react'
 
 export const loadingOverlaySlotRecipe = defineSlotRecipe({
   className: 'sui-loading-overlay',
@@ -50,3 +50,7 @@ export const loadingOverlaySlotRecipe = defineSlotRecipe({
     variant: 'fill',
   },
 })
+
+export type LoadingOverlayVariantProps = RecipeVariantProps<
+  typeof loadingOverlaySlotRecipe
+>

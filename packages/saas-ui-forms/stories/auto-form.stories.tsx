@@ -1,11 +1,9 @@
 import * as React from 'react'
 
-import * as Yup from 'yup'
 import * as z from 'zod'
 import { Container } from '@chakra-ui/react'
 
 import { Form, ObjectSchema, SubmitButton } from '../src'
-import { createYupForm } from '../yup/src'
 import { createZodForm, zodMeta } from '../zod/src'
 import { onSubmit } from './helpers'
 
@@ -53,28 +51,6 @@ const basicSchema = {
     },
   },
 } as const satisfies ObjectSchema
-
-const schema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, 'Too short')
-    .max(25, 'Too long')
-    .required()
-    .label('First name'),
-  lastName: Yup.string()
-    .min(2, 'Too short')
-    .max(25, 'Too long')
-    .required()
-    .label('Last name'),
-  emails: Yup.array()
-    .of(
-      Yup.object().shape({
-        address: Yup.string().label('Email address'),
-      }),
-    )
-    .label('Email addresses'),
-})
-
-const YupForm = createYupForm()
 
 const zodSchema = z.object({
   firstName: z
@@ -138,22 +114,6 @@ export const CustomSubmit = () => (
         variant: 'subtle',
       },
     }}
-  />
-)
-
-export const YupSchema = () => (
-  <YupForm
-    schema={schema}
-    defaultValues={{
-      firstName: '',
-      lastName: '',
-      emails: [
-        {
-          address: '',
-        },
-      ],
-    }}
-    onSubmit={onSubmit}
   />
 )
 

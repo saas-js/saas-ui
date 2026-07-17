@@ -1,45 +1,53 @@
-import { readFile, writeFile } from 'fs/promises'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import { globby } from 'globby'
 import { basename, dirname, join, relative } from 'path'
 
 import { capitalizeFirstLetter, format, kebabCaseToCamelCase } from './shared'
 
+const sourceThemeRoot = '../saas-ui-chakra-preset/src/theme'
+
+function getDestination(file: string) {
+  return join('src', relative(sourceThemeRoot, file))
+}
+
+function getDefinitionImport(destination: string) {
+  const path = relative(dirname(destination), join('src', 'def.ts'))
+    .replace('.ts', '')
+    .replaceAll('\\', '/')
+
+  return path.startsWith('.') ? path : `./${path}`
+}
+
 export async function writeFiles() {
   console.log('🔄 Writing files...')
 
-  const files = await globby('../saas-ui-react/src/theme/**/*.{ts,tsx}', {
+  const files = await globby(`${sourceThemeRoot}/**/*.{ts,tsx}`, {
     ignore: [
-      '../saas-ui-react/src/theme/index.ts',
-      '../saas-ui-react/src/theme/recipes.ts',
-      '../saas-ui-react/src/theme/slot-recipes.ts',
-      '../saas-ui-react/src/theme/recipes/**/*.ts',
-      '../saas-ui-react/src/theme/stories/**/*',
+      `${sourceThemeRoot}/index.ts`,
+      `${sourceThemeRoot}/recipes.ts`,
+      `${sourceThemeRoot}/slot-recipes.ts`,
+      `${sourceThemeRoot}/recipes/**/*.ts`,
+      `${sourceThemeRoot}/slot-recipes/**/*.ts`,
+      `${sourceThemeRoot}/stories/**/*`,
+      `${sourceThemeRoot}/**/*.test.{ts,tsx}`,
+      `${sourceThemeRoot}/**/*.spec.{ts,tsx}`,
     ],
   })
 
-  const defFile = join('src', 'def.ts')
-
   const promises = files.map(async (file) => {
     const content = await readFile(file, 'utf8')
-
-    const relativePath = relative(
-      dirname(file).replace('../saas-ui-react/src/', ''),
-      defFile,
-    )
+    const destination = getDestination(file)
+    const definitionImport = getDefinitionImport(destination)
 
     let updatedContent = content
-      .replaceAll(
-        '@chakra-ui/react',
-        relativePath.replace('.ts', '').replaceAll('\\', '/'),
-      )
+      .replaceAll('@chakra-ui/react', definitionImport)
       .replaceAll('saas-ui-', '')
       .replaceAll('switch:', 'swittch:')
 
     updatedContent = await format(updatedContent)
 
-    const fewFileLocation = file.replace('./saas-ui-react/src/theme', '/src')
-
-    return writeFile(fewFileLocation, updatedContent)
+    await mkdir(dirname(destination), { recursive: true })
+    return writeFile(destination, updatedContent)
   })
   await Promise.all(promises)
 
@@ -144,7 +152,7 @@ interface Recipe {
 async function writeTokensIndexes() {
   async function writeTokenIndex() {
     const allFilenamesInTokens = await globby(
-      '../saas-ui-react/src/theme/tokens/**/*.ts',
+      `${sourceThemeRoot}/tokens/**/*.ts`,
     )
     let tokensIndexContent = `
 ${allFilenamesInTokens
@@ -168,7 +176,7 @@ ${allFilenamesInTokens
 
   async function writeSemanticTokenIndex() {
     const allFilenamesInSemanticTokens = await globby(
-      '../saas-ui-react/src/theme/semantic-tokens/**/*.ts',
+      `${sourceThemeRoot}/semantic-tokens/**/*.ts`,
     )
     let semanticTokensIndexContent = `
 ${allFilenamesInSemanticTokens

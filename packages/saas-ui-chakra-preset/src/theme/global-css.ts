@@ -1,8 +1,11 @@
 import { defineGlobalStyles } from '@chakra-ui/react'
 
+import { appearanceGlobalCss } from './appearance.ts'
+
 const empty = 'var(--chakra-empty,/*!*/ /*!*/)'
 
 export const globalCss = defineGlobalStyles({
+  ...appearanceGlobalCss,
   '*': {
     '--ring-inset': empty,
     '--ring-offset-width': '0px',

@@ -7,7 +7,6 @@ import { HeroSection } from '@/components/saas-js/hero.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
 import { WhySection } from '@/components/saas-js/why.section'
 import { Button, ButtonGroup, Stack, Text } from '@chakra-ui/react'
-import { allChangelogs } from 'content-collections'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -18,22 +17,9 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  const changelogs = allChangelogs.filter((changelog) =>
-    changelog.products?.some(
-      (product) => product === 'tanstack' || product === 'nextjs',
-    ),
-  )
-
-  const latest = changelogs[0]
-
   return (
     <>
-      <HeroSection
-        latestChangelog={{
-          title: latest.title,
-          link: `/changelog/${latest.slug}`,
-        }}
-      />
+      <HeroSection />
       <DemoSection />
       <CustomersSection />
       <FeaturesSection />

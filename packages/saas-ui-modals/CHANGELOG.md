@@ -1,5 +1,13 @@
 # @saas-ui/modals
 
+## 3.0.0-next.58
+
+### Patch Changes
+
+- Updated dependencies [eafbcf4]
+  - @saas-ui/react@3.0.0-next.55
+  - @saas-ui/forms@3.0.0-next.58
+
 ## 3.0.0-next.57
 
 ### Patch Changes

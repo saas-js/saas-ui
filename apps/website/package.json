@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.1-next.93",
+  "version": "0.1.1-next.94",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test:content": "node scripts/validate-content.mjs",
     "types:ark": "pnpm tsx scripts/types/ark.ts",
     "types:recipe": "pnpm tsx scripts/types/recipe.ts",
     "types:component": "pnpm tsx scripts/types/component.ts",

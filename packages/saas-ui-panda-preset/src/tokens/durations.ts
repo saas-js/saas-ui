@@ -1,4 +1,4 @@
-import { defineTokens } from '../../src/def'
+import { defineTokens } from '../def'
 
 export const durations = defineTokens.durations({
   fastest: { value: '50ms' },

@@ -2,6 +2,7 @@ import path, { dirname, join } from 'path'
 
 export default {
   stories: [
+    '../stories/*.stories.tsx',
     '../../saas-ui-react/src/**/*.stories.tsx',
     '../../saas-ui-core/src/**/*.stories.tsx',
     '../../saas-ui-modals/stories/*.stories.tsx',

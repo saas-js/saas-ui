@@ -1,4 +1,4 @@
-import { defineTokens } from '../../src/def'
+import { defineTokens } from '../def'
 
 export const easings = defineTokens.easings({
   'ease-in': { value: 'cubic-bezier(0.42, 0, 1, 1)' },

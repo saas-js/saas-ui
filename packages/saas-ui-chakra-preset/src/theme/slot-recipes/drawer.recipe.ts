@@ -80,7 +80,7 @@ export const drawerSlotRecipe = defineSlotRecipe({
     },
     title: {
       textStyle: 'lg',
-      fontWeight: 'semibold',
+      fontWeight: 'medium',
     },
     description: {
       color: 'fg.muted',

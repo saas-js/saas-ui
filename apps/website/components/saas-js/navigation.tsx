@@ -1,3 +1,5 @@
+'use client'
+
 import { HStack, Stack, Text } from '@saas-ui/react'
 import { usePathname } from 'next/navigation'
 import { LuChevronsUpDown } from 'react-icons/lu'
@@ -19,8 +21,35 @@ import {
   ViewportPosition,
 } from '../navigation-menu'
 
+const starterKits = [
+  {
+    id: 'tanstack',
+    label: 'Tanstack Start',
+    href: '/',
+    Logo: TanstackLogo,
+    isActive: (pathname: string) =>
+      pathname === '/' ||
+      pathname === '/tanstack-start' ||
+      pathname.startsWith('/tanstack-start/'),
+  },
+  {
+    id: 'nextjs',
+    label: 'Next.js',
+    href: '/nextjs',
+    Logo: NextjsLogo,
+    isActive: (pathname: string) =>
+      pathname === '/nextjs' || pathname.startsWith('/nextjs/'),
+  },
+] as const
+
+function getActiveStarterKit(pathname: string) {
+  return starterKits.find((kit) => kit.isActive(pathname)) ?? starterKits[0]
+}
+
 export const Navigation = () => {
   const pathname = usePathname()
+  const activeStarter = getActiveStarterKit(pathname)
+  const ActiveLogo = activeStarter.Logo
 
   return (
     <NavigationMenuRoot>
@@ -31,7 +60,7 @@ export const Navigation = () => {
             borderColor="border"
             gap="2"
           >
-            <TanstackLogo /> Tanstack Start <LuChevronsUpDown />
+            <ActiveLogo /> {activeStarter.label} <LuChevronsUpDown />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <List
@@ -47,26 +76,23 @@ export const Navigation = () => {
                 <Text textStyle="xs" color="fg.muted" px="3" py="2">
                   Starter kits
                 </Text>
-                <ListItem href="/">
-                  <HStack
-                    as="span"
-                    fontWeight="medium"
-                    textStyle="sm"
-                    color="fg"
-                  >
-                    <TanstackLogo fontSize="lg" /> Tanstack Start
-                  </HStack>
-                </ListItem>
-                <ListItem href="/nextjs">
-                  <HStack
-                    as="span"
-                    fontWeight="medium"
-                    textStyle="sm"
-                    color="fg"
-                  >
-                    <NextjsLogo fontSize="lg" /> Next.js
-                  </HStack>
-                </ListItem>
+                {starterKits.map((kit) => {
+                  const Logo = kit.Logo
+                  const isActive = kit.id === activeStarter.id
+
+                  return (
+                    <ListItem key={kit.id} href={kit.href}>
+                      <HStack
+                        as="span"
+                        fontWeight={isActive ? 'semibold' : 'medium'}
+                        textStyle="sm"
+                        color={isActive ? 'fg' : 'fg'}
+                      >
+                        <Logo fontSize="lg" /> {kit.label}
+                      </HStack>
+                    </ListItem>
+                  )
+                })}
               </Stack>
             </List>
           </NavigationMenuContent>

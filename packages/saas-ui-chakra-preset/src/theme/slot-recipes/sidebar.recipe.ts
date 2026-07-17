@@ -24,6 +24,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
+      color: 'sidebar.fg',
     },
     backdrop: {
       layerStyle: 'backdrop',
@@ -81,6 +82,11 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       fontSize: 'xs',
       transitionProperty: 'common',
       transitionDuration: 'fast',
+      // @ts-ignore -- `_groupCollapsible` is a custom Chakra condition whose
+      // SystemStyleObject augmentation is produced by `chakra typegen` (root
+      // `build:tokens`), which itself depends on building this preset — a
+      // circular ordering, so the type is unavailable during the preset's own
+      // `tsc` build.
       _groupCollapsible: {
         cursor: 'button',
         userSelect: 'none',
@@ -153,7 +159,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       sidebar: {
         root: {
           borderRightWidth: '1px',
-          borderLeftColor: 'sidebar.border',
+          borderColor: 'sidebar.border',
         },
         inset: {},
       },

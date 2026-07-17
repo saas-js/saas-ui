@@ -1,4 +1,4 @@
-import { defineTokens } from '../../src/def'
+import { defineTokens } from '../def'
 
 export const aspectRatios = defineTokens.aspectRatios({
   square: { value: '1 / 1' },

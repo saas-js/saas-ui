@@ -71,10 +71,26 @@ export const dataListSlotRecipe = defineSlotRecipe({
         },
       },
     },
+    variant: {
+      subtle: {
+        itemLabel: {
+          color: 'fg.muted',
+        },
+      },
+      bold: {
+        itemLabel: {
+          fontWeight: 'medium',
+        },
+        itemValue: {
+          color: 'fg.muted',
+        },
+      },
+    },
   },
 
   defaultVariants: {
     size: 'md',
     orientation: 'horizontal',
+    variant: 'subtle',
   },
 })

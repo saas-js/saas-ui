@@ -190,6 +190,17 @@ export const tabsSlotRecipe = defineSlotRecipe({
         },
       },
 
+      subtle: {
+        trigger: {
+          borderRadius: 'var(--tabs-trigger-radius)',
+          color: 'fg.muted',
+          _selected: {
+            bg: 'colorPalette.subtle',
+            color: 'colorPalette.fg',
+          },
+        },
+      },
+
       pills: {
         list: {
           gap: 2,

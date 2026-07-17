@@ -1,4 +1,7 @@
-import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
+import {
+  type RecipeVariantProps,
+  defineSlotRecipe,
+} from '@chakra-ui/react/styled-system'
 
 export const appShellSlotRecipe = defineSlotRecipe({
   className: 'sui-app-shell',
@@ -40,3 +43,5 @@ export const appShellSlotRecipe = defineSlotRecipe({
     variant: 'plain',
   },
 })
+
+export type AppShellVariantProps = RecipeVariantProps<typeof appShellSlotRecipe>

@@ -1,4 +1,7 @@
-import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
+import {
+  type RecipeVariantProps,
+  defineSlotRecipe,
+} from '@chakra-ui/react/styled-system'
 
 export const sidebarSlotRecipe = defineSlotRecipe({
   className: 'sui-sidebar',
@@ -295,3 +298,5 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     size: 'md',
   },
 })
+
+export type SidebarVariantProps = RecipeVariantProps<typeof sidebarSlotRecipe>

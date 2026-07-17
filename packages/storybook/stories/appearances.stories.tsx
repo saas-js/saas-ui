@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import {
+  ChakraProvider,
   Flex,
   Grid,
   HStack,
@@ -8,7 +9,14 @@ import {
   Separator,
   Stack,
   Text,
+  createSystem,
+  defineConfig,
 } from '@chakra-ui/react'
+import { defaultConfig } from '@saas-ui/chakra-preset'
+import {
+  type AppearanceOptions,
+  createAppearance,
+} from '@saas-ui/chakra-preset/appearance'
 import {
   AppShell,
   Avatar,
@@ -44,8 +52,6 @@ import {
   LuUsers,
 } from 'react-icons/lu'
 
-import './appearances.css'
-
 const meta = {
   title: 'Foundations/Appearances',
   parameters: {
@@ -56,6 +62,83 @@ const meta = {
 export default meta
 
 type Story = StoryObj
+
+const appearanceOptions = {
+  graphite: {
+    base: { h: 260, c: 0.012 },
+    accent: {
+      l: 0.511,
+      c: 0.262,
+      h: 276.966,
+      foreground: 'light',
+    },
+    sidebar: 'base',
+  },
+  ocean: {
+    base: { h: 225, c: 0.01, contrast: 'soft' },
+    accent: {
+      l: 0.53,
+      c: 0.18,
+      h: 235,
+      foreground: 'light',
+    },
+    sidebar: { h: 215, c: 0.018 },
+  },
+  ember: {
+    base: { h: 35, c: 0.008 },
+    accent: {
+      l: 0.64,
+      c: 0.18,
+      h: 35,
+      foreground: 'dark',
+    },
+    sidebar: { h: 20, c: 0.016, contrast: 'strong' },
+  },
+  emerald: {
+    base: { h: 55, c: 0.009, contrast: 'soft' },
+    accent: {
+      l: 0.55,
+      c: 0.15,
+      h: 160,
+      foreground: 'light',
+    },
+    sidebar: { h: 55, c: 0.012 },
+  },
+  violet: {
+    base: { h: 260, c: 0.012 },
+    accent: {
+      l: 0.511,
+      c: 0.262,
+      h: 276.966,
+      foreground: 'light',
+    },
+    sidebar: {
+      solid: { l: 0.511, c: 0.262, h: 276.966 },
+      foreground: 'light',
+    },
+  },
+} as const satisfies Record<string, AppearanceOptions>
+
+function createAppearanceSystem(options: AppearanceOptions) {
+  return createSystem(
+    defaultConfig,
+    defineConfig({
+      theme: {
+        semanticTokens: {
+          colors: createAppearance(options),
+        },
+      },
+    }),
+  )
+}
+
+const systems = {
+  graphite: createAppearanceSystem(appearanceOptions.graphite),
+  ocean: createAppearanceSystem(appearanceOptions.ocean),
+  ember: createAppearanceSystem(appearanceOptions.ember),
+  emerald: createAppearanceSystem(appearanceOptions.emerald),
+  violet: createAppearanceSystem(appearanceOptions.violet),
+}
 
 const navItems = [
   { label: 'Overview', icon: LuLayoutDashboard, active: true },
@@ -336,32 +419,14 @@ function TokenCards() {
 
 interface AppearancePreviewProps {
   name: string
-  className?: string
-  baseContrast?: 'soft' | 'strong'
-  accentForeground?: 'dark'
-  sidebarContrast?: 'soft' | 'strong'
-  sidebarMode?: 'solid'
-  sidebarForeground?: 'dark'
-  isThemeScope?: boolean
   action?: React.ReactNode
   details?: React.ReactNode
 }
 
 function AppearancePreview(props: AppearancePreviewProps) {
-  const className =
-    props.isThemeScope === false
-      ? props.className
-      : ['chakra-theme', 'sui-theme', props.className].filter(Boolean).join(' ')
-
   return (
     <Sidebar.Provider>
       <AppShell
-        className={className}
-        data-base-contrast={props.baseContrast}
-        data-accent-foreground={props.accentForeground}
-        data-sidebar-contrast={props.sidebarContrast}
-        data-sidebar={props.sidebarMode}
-        data-sidebar-foreground={props.sidebarForeground}
         sidebar={
           <>
             <SidebarNav />
@@ -461,9 +526,19 @@ function AppearancePreview(props: AppearancePreviewProps) {
   )
 }
 
-function appearanceStory(props: AppearancePreviewProps): Story {
+function appearanceStory(
+  system: (typeof systems)[keyof typeof systems],
+  name: string,
+): Story {
   return {
-    render: () => <AppearancePreview {...props} />,
+    decorators: [
+      (Story) => (
+        <ChakraProvider value={system}>
+          <Story />
+        </ChakraProvider>
+      ),
+    ],
+    render: () => <AppearancePreview name={name} />,
   }
 }
 
@@ -480,10 +555,10 @@ interface RandomThemeConfig {
   panelRadius: number
   indicatorRadius: number
   overlayEffect: string
-  base: string
-  accent: string
-  sidebar: string
-  sidebarSolid: string
+  base: { h: number; c: number }
+  accent: { l: number; c: number; h: number }
+  sidebar: { h: number; c: number }
+  sidebarSolid: { l: number; c: number; h: number }
   baseContrast: ThemeContrast
   accentForeground: 'dark' | undefined
   sidebarContrast: ThemeContrast
@@ -534,10 +609,10 @@ const initialRandomTheme: RandomThemeConfig = {
   panelRadius: 1,
   indicatorRadius: 1,
   overlayEffect: 'blur(10px)',
-  base: 'oklch(0.5 0.012 260)',
-  accent: 'oklch(0.511 0.262 276.966)',
-  sidebar: 'oklch(0.5 0.016 260)',
-  sidebarSolid: 'oklch(0.511 0.262 276.966)',
+  base: { h: 260, c: 0.012 },
+  accent: { l: 0.511, c: 0.262, h: 276.966 },
+  sidebar: { h: 260, c: 0.016 },
+  sidebarSolid: { l: 0.511, c: 0.262, h: 276.966 },
   baseContrast: undefined,
   accentForeground: undefined,
   sidebarContrast: undefined,
@@ -553,8 +628,8 @@ function randomBetween(min: number, max: number) {
   return min + Math.random() * (max - min)
 }
 
-function oklch(lightness: number, chroma: number, hue: number) {
-  return `oklch(${lightness.toFixed(3)} ${chroma.toFixed(3)} ${Math.round(hue)})`
+function oklch(seed: { l: number; c: number; h: number }) {
+  return `oklch(${seed.l.toFixed(3)} ${seed.c.toFixed(3)} ${Math.round(seed.h)})`
 }
 
 function wrapHue(hue: number) {
@@ -584,23 +659,49 @@ function createRandomTheme(iteration: number): RandomThemeConfig {
     panelRadius: randomValue(panelRadii),
     indicatorRadius: randomValue(indicatorRadii),
     overlayEffect: randomValue(overlayEffects),
-    base: oklch(0.5, randomBetween(0.004, 0.024), baseHue),
-    accent: oklch(accentLightness, randomBetween(0.14, 0.27), accentHue),
-    sidebar: oklch(
-      0.5,
-      randomBetween(0.008, 0.034),
-      wrapHue(baseHue + randomBetween(-35, 35)),
-    ),
-    sidebarSolid: oklch(
-      sidebarLightness,
-      randomBetween(0.14, 0.27),
-      wrapHue(accentHue + randomBetween(-30, 30)),
-    ),
+    base: { h: baseHue, c: randomBetween(0.004, 0.024) },
+    accent: {
+      l: accentLightness,
+      c: randomBetween(0.14, 0.27),
+      h: accentHue,
+    },
+    sidebar: {
+      h: wrapHue(baseHue + randomBetween(-35, 35)),
+      c: randomBetween(0.008, 0.034),
+    },
+    sidebarSolid: {
+      l: sidebarLightness,
+      c: randomBetween(0.14, 0.27),
+      h: wrapHue(accentHue + randomBetween(-30, 30)),
+    },
     baseContrast: randomValue(contrasts),
     accentForeground,
     sidebarContrast: randomValue(contrasts),
     sidebarMode: Math.random() > 0.55 ? 'solid' : undefined,
     sidebarForeground,
+  }
+}
+
+function getAppearanceOptions(theme: RandomThemeConfig): AppearanceOptions {
+  return {
+    base: {
+      ...theme.base,
+      contrast: theme.baseContrast,
+    },
+    accent: {
+      ...theme.accent,
+      foreground: theme.accentForeground ?? 'light',
+    },
+    sidebar:
+      theme.sidebarMode === 'solid'
+        ? {
+            solid: theme.sidebarSolid,
+            foreground: theme.sidebarForeground ?? 'light',
+          }
+        : {
+            ...theme.sidebar,
+            contrast: theme.sidebarContrast,
+          },
   }
 }
 
@@ -628,16 +729,24 @@ function ThemeDetails({ theme }: { theme: RandomThemeConfig }) {
       <Card.Header>
         <HStack justify="space-between" align="flex-start" flexWrap="wrap">
           <Stack gap="0.5">
-            <Card.Title>Current Theme props</Card.Title>
+            <Card.Title>Current theme configuration</Card.Title>
             <Card.Description>
-              Control / panel / indicator radii are shown in that order.
+              Appearance colors are generated with createAppearance. Control /
+              panel / indicator radii are shown in that order.
             </Card.Description>
           </Stack>
           <HStack gap="2">
             {[
-              { label: 'Base', color: theme.base },
-              { label: 'Accent', color: theme.accent },
-              { label: 'Sidebar', color: theme.sidebarSolid },
+              { label: 'Base', color: oklch({ l: 0.5, ...theme.base }) },
+              { label: 'Accent', color: oklch(theme.accent) },
+              {
+                label: 'Sidebar',
+                color: oklch(
+                  theme.sidebarMode === 'solid'
+                    ? theme.sidebarSolid
+                    : { l: 0.5, ...theme.sidebar },
+                ),
+              },
             ].map((swatch) => (
               <Flex
                 key={swatch.label}
@@ -672,83 +781,55 @@ function ThemeDetails({ theme }: { theme: RandomThemeConfig }) {
 
 function ThemeRandomizerPreview() {
   const [theme, setTheme] = React.useState(initialRandomTheme)
-
-  const themeStyle = {
-    '--sui-base': theme.base,
-    '--sui-accent': theme.accent,
-    '--sui-sidebar': theme.sidebar,
-    '--sui-sidebar-solid': theme.sidebarSolid,
-  } as React.CSSProperties
+  const system = React.useMemo(
+    () => createAppearanceSystem(getAppearanceOptions(theme)),
+    [theme],
+  )
 
   return (
-    <Theme
-      appearance={theme.appearance}
-      hasBackground={theme.hasBackground}
-      colorPalette={theme.colorPalette}
-      scaleFactor={theme.scaleFactor}
-      controlRadius={theme.controlRadius}
-      panelRadius={theme.panelRadius}
-      indicatorRadius={theme.indicatorRadius}
-      overlayEffect={theme.overlayEffect}
-      data-base-contrast={theme.baseContrast}
-      data-accent-foreground={theme.accentForeground}
-      data-sidebar-contrast={theme.sidebarContrast}
-      data-sidebar={theme.sidebarMode}
-      data-sidebar-foreground={theme.sidebarForeground}
-      minH="100dvh"
-      style={themeStyle}
-    >
-      <AppearancePreview
-        name={`Random ${theme.iteration + 1}`}
-        isThemeScope={false}
-        action={
-          <Button
-            size="sm"
-            colorPalette="accent"
-            variant="solid"
-            onClick={() =>
-              setTheme((current) => createRandomTheme(current.iteration + 1))
-            }
-          >
-            <LuShuffle />
-            Randomize theme
-          </Button>
-        }
-        details={<ThemeDetails theme={theme} />}
-      />
-    </Theme>
+    <ChakraProvider value={system}>
+      <Theme
+        appearance={theme.appearance}
+        hasBackground={theme.hasBackground}
+        colorPalette={theme.colorPalette}
+        scaleFactor={theme.scaleFactor}
+        controlRadius={theme.controlRadius}
+        panelRadius={theme.panelRadius}
+        indicatorRadius={theme.indicatorRadius}
+        overlayEffect={theme.overlayEffect}
+        minH="100dvh"
+      >
+        <AppearancePreview
+          name={`Random ${theme.iteration + 1}`}
+          action={
+            <Button
+              size="sm"
+              colorPalette="accent"
+              variant="solid"
+              onClick={() =>
+                setTheme((current) => createRandomTheme(current.iteration + 1))
+              }
+            >
+              <LuShuffle />
+              Randomize theme
+            </Button>
+          }
+          details={<ThemeDetails theme={theme} />}
+        />
+      </Theme>
+    </ChakraProvider>
   )
 }
 
-export const Graphite = appearanceStory({
-  name: 'Graphite',
-  className: 'appearance-graphite',
-})
+export const Graphite = appearanceStory(systems.graphite, 'Graphite')
 
-export const Ocean = appearanceStory({
-  name: 'Ocean',
-  className: 'appearance-ocean',
-  baseContrast: 'soft',
-})
+export const Ocean = appearanceStory(systems.ocean, 'Ocean')
 
-export const Ember = appearanceStory({
-  name: 'Ember',
-  className: 'appearance-ember',
-  accentForeground: 'dark',
-  sidebarContrast: 'strong',
-})
+export const Ember = appearanceStory(systems.ember, 'Ember')
 
-export const Emerald = appearanceStory({
-  name: 'Emerald',
-  className: 'appearance-emerald',
-  baseContrast: 'soft',
-})
+export const Emerald = appearanceStory(systems.emerald, 'Emerald')
 
-export const SolidSidebar = appearanceStory({
-  name: 'Solid sidebar',
-  className: 'appearance-violet-sidebar',
-  sidebarMode: 'solid',
-})
+export const SolidSidebar = appearanceStory(systems.violet, 'Solid sidebar')
 
 export const ThemeRandomizer: Story = {
   render: () => <ThemeRandomizerPreview />,

@@ -1,0 +1,40 @@
+{
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset"
+  ],
+  "files": [
+    {
+      "content": "import type { ForwardRefExoticComponent, RefAttributes } from 'react'\n\nimport {\n  Button as ChakraButton,\n  type ButtonProps as ChakraButtonProps,\n} from '@chakra-ui/react/button'\nimport type { ButtonVariantProps } from '@saas-ui/chakra-preset/recipes/button'\n\ntype ChakraButtonPropsWithoutPresetVariants = Omit<\n  ChakraButtonProps,\n  keyof ButtonVariantProps\n>\n\nexport interface ButtonProps\n  extends ChakraButtonPropsWithoutPresetVariants, ButtonVariantProps {}\n\n/**\n * Chakra's Button with the variants supplied by the Saas UI preset.\n *\n * The cast only replaces Chakra's generated recipe variant props. The runtime\n * component remains Chakra's ref-forwarding Button.\n */\nexport const Button = ChakraButton as ForwardRefExoticComponent<\n  ButtonProps & RefAttributes<HTMLButtonElement>\n>\n",
+      "path": "ui/button/button.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { Button, type ButtonProps } from './button.ts'\n",
+      "path": "ui/button/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "ui/button/button.ts": "23f8d71e2a769b77ff3670e8c20b5a0387dfb7c43cf43369070efd8a0db89742",
+        "ui/button/index.ts": "2955ca04e0f38f2785b8fb9f28535ca7cf986d8f8b3993a8af8dedccc4d39328"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset/recipes/button"
+      ],
+      "presetRecipeBindings": [
+        "button"
+      ],
+      "recipeReferences": []
+    },
+    "contentHash": "c063e5534ee4d1a7b4b67b8e6ca211f034d3033e4aade995c01016f67aa1e17d"
+  },
+  "name": "button",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
+}

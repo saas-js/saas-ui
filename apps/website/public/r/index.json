@@ -390,8 +390,120 @@
     "type": "registry:ui",
     "dependencies": [
       "@chakra-ui/react",
+<<<<<<< Updated upstream
       "@saas-ui/chakra-preset",
       "@saas-ui/core"
+=======
+      "@tanstack/react-form@^1.33.2"
+    ],
+    "description": "Typed TanStack Form components built with Chakra UI and Saas UI controls",
+    "files": [
+      {
+        "path": "forms/app-form.ts",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/create-form.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/field-root.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/select-field.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/switch-field.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/text-field.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/textarea-field.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/types.ts",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/footer.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/form-context.ts",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/form.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/index.ts",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/layout.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/submit-button.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/utils.ts",
+        "type": "registry:component"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "forms/app-form.ts": "38fc85925598caa3077407202d00d9730d2f13d9b05d9d9f9820381841f05576",
+          "forms/create-form.tsx": "4541a86b3df28cb8258c55da992d03014db18447d7e0c5523bf5c69a8204f680",
+          "forms/fields/field-root.tsx": "304de0730ce66c484cc0478670eae1a820c8f57d708dafb9c4943d63ef45cfd9",
+          "forms/fields/select-field.tsx": "1927b5104c1c2d5866cb5575e6ca91ad515a4163e4373a0baffa7efa742f9b9b",
+          "forms/fields/switch-field.tsx": "3626ee2a8fcc17c0bc629837342ac2a2fbc6e5ef5bae5afa3a7a183d9e17d848",
+          "forms/fields/text-field.tsx": "9b3f41d93cebfd57b4d065b13f393ff021a2deddd2e2dafaf4f55d9a0a48b471",
+          "forms/fields/textarea-field.tsx": "183fcf9e9433483b548cf3953b12424475e3466f2a20e8decdaa190684d4cd88",
+          "forms/fields/types.ts": "aaf7cb7fdc65b24d9e14b9502a683795454d9fd1bddc8c8926a544d0361bb591",
+          "forms/footer.tsx": "9075fc41bf7aac7e4fb2a5e74707d50e966b5383a7861ba21769bc4704c79b9e",
+          "forms/form-context.ts": "bfce5b567ba09018df2fe599c3abc54611871e2baeda54b17e6cbfc7946e499b",
+          "forms/form.tsx": "d88ce181a220968890ebc62d80ec1153f3de133f6207b3d122e771a56f0d09a4",
+          "forms/index.ts": "30836d49662aadef3c7eef2b5140b23d891dba01fc7cfc7f035c4c370dda6542",
+          "forms/layout.tsx": "aa7efb027ce7581bc9e1dc5c94d7ba901e5394693c14a8eff7c9cd801cbcc4dc",
+          "forms/submit-button.tsx": "96e91d9d0660fb7eea990502bff3cf54717dcd83abaa971b50ed63c0bff95e33",
+          "forms/utils.ts": "adbda241b4e5bba447b66fb4e684cdb34ad6be45258cda8782001d1991fc0e84"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "6831fd7481a24a9ae6e8adf9c28907471b9771347509e91b0992190204cfb114"
+    },
+    "name": "forms",
+    "registryDependencies": [
+      "button",
+      "input",
+      "input-group",
+      "password-input",
+      "select",
+      "switch"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:component",
+    "version": "3.0.0-next.9"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+>>>>>>> Stashed changes
     ],
     "registryDependencies": [],
     "files": [

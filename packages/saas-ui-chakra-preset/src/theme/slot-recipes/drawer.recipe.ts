@@ -1,5 +1,8 @@
 import { drawerAnatomy } from '@chakra-ui/react/anatomy'
-import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
+import {
+  type RecipeVariantProps,
+  defineSlotRecipe,
+} from '@chakra-ui/react/styled-system'
 
 export const drawerSlotRecipe = defineSlotRecipe({
   slots: drawerAnatomy.keys(),
@@ -208,3 +211,5 @@ export const drawerSlotRecipe = defineSlotRecipe({
     placement: 'end',
   },
 })
+
+export type DrawerVariantProps = RecipeVariantProps<typeof drawerSlotRecipe>

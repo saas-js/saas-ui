@@ -1,15 +1,21 @@
 # @saas-ui/tailwind-preset
 
-A Tailwind CSS 4 preset automatically generated from the Saas UI Chakra preset, providing a comprehensive design system with OKLCH colors, semantic tokens, and theme-aware CSS variables.
+A Tailwind CSS 4 preset automatically generated from the Saas UI Chakra preset,
+providing a comprehensive design system with OKLCH colors, semantic tokens, and
+theme-aware CSS variables.
 
 ## Features
 
-- 🎨 **24 Color Palettes** - All using OKLCH color space for perceptually uniform colors
-- 🌗 **Light/Dark Mode** - Built-in theme switching with `light-dark()` CSS function
+- 🎨 **24 Color Palettes** - All using OKLCH color space for perceptually
+  uniform colors
+- 🌗 **Light/Dark Mode** - Built-in theme switching with `light-dark()` CSS
+  function
 - 📐 **Complete Design Tokens** - Spacing, typography, radii, shadows, and more
-- 🔄 **Semantic Tokens** - Theme-aware tokens for consistent UI (bg, fg, border, etc.)
+- 🔄 **Semantic Tokens** - Theme-aware tokens for consistent UI (bg, fg, border,
+  etc.)
 - 🚀 **CSS-First** - Native CSS variables, no runtime JavaScript needed
-- ⚡ **Performance** - Smaller bundle size, better performance than runtime theming
+- ⚡ **Performance** - Smaller bundle size, better performance than runtime
+  theming
 
 ## Installation
 
@@ -29,8 +35,8 @@ Import the theme in your main CSS file:
 
 ```css
 /* app.css or globals.css */
-@import "tailwindcss";
-@import "@saas-ui/tailwind-preset/theme.css";
+@import 'tailwindcss';
+@import '@saas-ui/tailwind-preset/theme.css';
 ```
 
 ### Using in Components
@@ -77,8 +83,12 @@ For reusable components, use Tailwind's `@layer` directive:
 ### Colors
 
 #### Base Colors (OKLCH)
-- All standard colors: `gray`, `zinc`, `neutral`, `stone`, `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`
-- Each with 11 shades: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`
+
+- All standard colors: `gray`, `zinc`, `neutral`, `stone`, `red`, `orange`,
+  `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`,
+  `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`
+- Each with 11 shades: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`,
+  `800`, `900`, `950`
 - Special colors: `black`, `white`, `transparent`, `current`
 - Alpha variants: `whiteAlpha`, `blackAlpha` (50-950)
 
@@ -91,6 +101,7 @@ var(--colors-white-alpha-500)
 #### Semantic Colors (Theme-Aware with light-dark())
 
 **Background Colors:**
+
 ```css
 var(--colors-bg)              /* Default background */
 var(--colors-bg-muted)        /* Muted background */
@@ -102,6 +113,7 @@ var(--colors-bg-inverted)     /* Inverted background */
 ```
 
 **Foreground Colors:**
+
 ```css
 var(--colors-fg)              /* Default text */
 var(--colors-fg-muted)        /* Muted text */
@@ -111,6 +123,7 @@ var(--colors-fg-inverted)     /* Inverted text */
 ```
 
 **Border Colors:**
+
 ```css
 var(--colors-border)          /* Default border */
 var(--colors-border-muted)    /* Muted border */
@@ -119,6 +132,7 @@ var(--colors-border-emphasized) /* Emphasized border */
 ```
 
 **Status Colors:**
+
 ```css
 var(--colors-status-success)
 var(--colors-status-error)
@@ -127,6 +141,7 @@ var(--colors-status-info)
 ```
 
 **Accent Colors:**
+
 ```css
 var(--colors-accent-fg)
 var(--colors-accent-solid)
@@ -135,6 +150,7 @@ var(--colors-accent-subtle)
 ```
 
 **Sidebar Colors:**
+
 ```css
 var(--colors-sidebar-bg)
 var(--colors-sidebar-fg)
@@ -170,6 +186,7 @@ var(--radii-full)    /* 9999px */
 ### Typography
 
 **Font Sizes:**
+
 ```css
 var(--font-sizes-2xs)
 var(--font-sizes-xs)
@@ -180,6 +197,7 @@ var(--font-sizes-lg)
 ```
 
 **Font Weights:**
+
 ```css
 var(--font-weights-thin)       /* 100 */
 var(--font-weights-light)      /* 300 */
@@ -190,6 +208,7 @@ var(--font-weights-bold)       /* 700 */
 ```
 
 **Line Heights:**
+
 ```css
 var(--line-heights-none)
 var(--line-heights-tight)
@@ -199,7 +218,9 @@ var(--line-heights-relaxed)
 
 ## Component Examples
 
-We provide example components in the [examples](./examples) directory using [tailwind-variants](https://www.tailwind-variants.org/) for cleaner, more maintainable code.
+We provide example components in the [examples](./examples) directory using
+[tailwind-variants](https://www.tailwind-variants.org/) for cleaner, more
+maintainable code.
 
 ### Why tailwind-variants?
 
@@ -216,7 +237,7 @@ See [examples/README.md](./examples/README.md) for detailed patterns and usage.
 ### Button Component
 
 ```tsx
-import { tv, type VariantProps } from 'tailwind-variants'
+import { type VariantProps, tv } from 'tailwind-variants'
 
 const button = tv({
   base: 'inline-flex items-center justify-center font-medium transition-all',
@@ -229,12 +250,12 @@ const button = tv({
     size: {
       sm: 'px-[var(--spacing-3)] py-[var(--spacing-1_5)] text-sm rounded-[var(--radii-sm)]',
       md: 'px-[var(--spacing-4)] py-[var(--spacing-2)] rounded-[var(--radii-md)]',
-    }
+    },
   },
   defaultVariants: {
     variant: 'solid',
     size: 'md',
-  }
+  },
 })
 
 interface ButtonProps extends VariantProps<typeof button> {
@@ -251,13 +272,15 @@ export function Button({ variant, size, children }: ButtonProps) {
 ```tsx
 export function ProfileCard() {
   return (
-    <div className="
+    <div
+      className="
       bg-[var(--colors-bg-panel)]
       border border-[var(--colors-border)]
       rounded-[var(--radii-xl)]
       p-[var(--spacing-6)]
       shadow-lg
-    ">
+    "
+    >
       <h3 className="text-[var(--colors-fg-emphasized)] font-semibold text-lg mb-[var(--spacing-2)]">
         John Doe
       </h3>
@@ -265,14 +288,16 @@ export function ProfileCard() {
         Software Developer
       </p>
       <div className="flex gap-[var(--spacing-2)]">
-        <span className="
+        <span
+          className="
           bg-[var(--colors-accent-subtle)]
           text-[var(--colors-accent-fg)]
           px-[var(--spacing-2)]
           py-[var(--spacing-1)]
           rounded-[var(--radii-sm)]
           text-sm
-        ">
+        "
+        >
           React
         </span>
       </div>
@@ -283,13 +308,15 @@ export function ProfileCard() {
 
 ## Building from Source
 
-This preset is automatically generated from the `@saas-ui/chakra-preset` package:
+This preset is automatically generated from the `@saas-ui/chakra-preset`
+package:
 
 ```bash
 pnpm build
 ```
 
 This will:
+
 1. Read all tokens from the Chakra preset
 2. Convert them to CSS variables
 3. Transform semantic tokens to use `light-dark()`
@@ -297,18 +324,19 @@ This will:
 
 ## Differences from Chakra Preset
 
-| Feature | Chakra Preset | Tailwind Preset |
-|---------|---------------|-----------------|
-| Runtime | JavaScript | CSS-only |
-| Theme Switching | Conditions API | `light-dark()` |
-| Type Safety | TypeScript | None |
-| Bundle Size | Larger | Smaller |
-| Performance | Good | Better |
-| Browser Support | Modern | Modern (light-dark requires recent browsers) |
+| Feature         | Chakra Preset  | Tailwind Preset                              |
+| --------------- | -------------- | -------------------------------------------- |
+| Runtime         | JavaScript     | CSS-only                                     |
+| Theme Switching | Conditions API | `light-dark()`                               |
+| Type Safety     | TypeScript     | None                                         |
+| Bundle Size     | Larger         | Smaller                                      |
+| Performance     | Good           | Better                                       |
+| Browser Support | Modern         | Modern (light-dark requires recent browsers) |
 
 ## Browser Support
 
 The `light-dark()` CSS function is supported in:
+
 - Chrome 123+
 - Safari 17.5+
 - Firefox 120+
@@ -323,4 +351,5 @@ MIT
 
 - [@saas-ui/chakra-preset](../saas-ui-chakra-preset) - Original Chakra UI preset
 - [@saas-ui/panda-preset](../saas-ui-panda-preset) - Panda CSS preset
-- [@saas-ui/react](../saas-ui-react) - React component library
+- [@saas-ui/cli](../saas-ui-cli) - Installs editable component templates
+- [Migration from `@saas-ui/react`](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md)

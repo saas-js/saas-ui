@@ -1,4 +1,7 @@
-import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
+import {
+  type RecipeVariantProps,
+  defineSlotRecipe,
+} from '@chakra-ui/react/styled-system'
 
 const slots = ['root', 'header', 'title', 'description', 'body']
 
@@ -63,3 +66,5 @@ export const sectionSlotRecipe = defineSlotRecipe({
   },
   defaultVariants: {},
 })
+
+export type SectionVariantProps = RecipeVariantProps<typeof sectionSlotRecipe>

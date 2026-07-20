@@ -1,5 +1,16 @@
 # @saas-ui/web-v3
 
+## 0.1.1-next.95
+
+### Patch Changes
+
+- Updated dependencies [dfc8727]
+- Updated dependencies [aac593e]
+- Updated dependencies [5116c7c]
+  - @saas-ui/registry@0.2.0-next.0
+  - @saas-ui/chakra-preset@3.0.0-next.10
+  - @saas-ui/cli@0.1.0-next.2
+
 ## 0.1.1-next.94
 
 ### Patch Changes

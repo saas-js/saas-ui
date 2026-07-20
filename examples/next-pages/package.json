@@ -1,6 +1,6 @@
 {
   "name": "next-pages",
-  "version": "2.0.14",
+  "version": "2.0.15-next.0",
   "private": true,
   "scripts": {
     "dev": "next",

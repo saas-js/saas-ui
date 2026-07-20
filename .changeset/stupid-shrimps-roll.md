@@ -1,5 +1,5 @@
 ---
-'@saas-ui/react': patch
+'@saas-ui/chakra-preset': patch
 ---
 
 Added /preset export that exports the Chakra UI preset

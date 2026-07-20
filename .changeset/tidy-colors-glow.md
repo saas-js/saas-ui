@@ -1,7 +1,6 @@
 ---
 '@saas-ui/chakra-preset': minor
 '@saas-ui/panda-preset': patch
-'@saas-ui/react': patch
 '@saas-ui/tailwind-preset': patch
 ---
 

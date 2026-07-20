@@ -1,5 +1,5 @@
 ---
-'@saas-ui/react': patch
+'@saas-ui/chakra-preset': patch
 ---
 
 Improved text style tokens and heading line heights

@@ -1,9 +1,5 @@
 import { LogoIcon } from '@/components/logo'
 import { Chart, useChart } from '@chakra-ui/charts'
-import { Dialog } from '@chakra-ui/react/dialog'
-import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
-import { Avatar, AvatarGroup } from '#components/ui/avatar'
-
 import {
   Box,
   Button,
@@ -21,15 +17,8 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-
-import { GridList } from '#components/ui/grid-list'
-import { IconButton } from '#components/ui/icon-button'
-import { Link } from '#components/ui/link'
-import { Menu } from '#components/ui/menu'
-import { PinInput } from '#components/ui/pin-input'
-import { RadioCard } from '#components/ui/radio-card'
-import { Stat } from '#components/ui/stat'
-import { Switch } from '#components/ui/switch'
+import { Dialog } from '@chakra-ui/react/dialog'
+import { Form, useAppForm } from 'compositions/components/forms'
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import {
   FaFilePdf,
@@ -39,6 +28,16 @@ import {
 } from 'react-icons/fa'
 import { LuDownload } from 'react-icons/lu'
 import { Area, AreaChart, Tooltip } from 'recharts'
+
+import { Avatar, AvatarGroup } from '#components/ui/avatar'
+import { GridList } from '#components/ui/grid-list'
+import { IconButton } from '#components/ui/icon-button'
+import { Link } from '#components/ui/link'
+import { Menu } from '#components/ui/menu'
+import { PinInput } from '#components/ui/pin-input'
+import { RadioCard } from '#components/ui/radio-card'
+import { Stat } from '#components/ui/stat'
+import { Switch } from '#components/ui/switch'
 
 export const ComponentsDemo = () => {
   return (
@@ -110,13 +109,13 @@ function AuthCard(props: {
 }
 
 function LoginForm() {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
       email: '',
       password: '',
     },
-    onSubmit: (data) => {
-      console.log(data)
+    onSubmit: ({ value }) => {
+      console.log(value)
     },
   })
 
@@ -143,29 +142,32 @@ function LoginForm() {
         <Separator />
       </HStack>
 
-      <form.Form>
-        <FormLayout>
-          <form.Field
-            name="email"
-            label="Email"
-            type="email"
-            autoComplete="email"
-          />
+      <Form form={form}>
+        <form.Layout>
+          <form.AppField name="email">
+            {(field) => (
+              <field.TextField
+                label="Email"
+                type="email"
+                autoComplete="email"
+              />
+            )}
+          </form.AppField>
 
-          <SubmitButton>Log in</SubmitButton>
-        </FormLayout>
-      </form.Form>
+          <form.SubmitButton>Log in</form.SubmitButton>
+        </form.Layout>
+      </Form>
     </AuthCard>
   )
 }
 
 function PinForm() {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
       pin: '',
     },
-    onSubmit: (data) => {
-      console.log(data)
+    onSubmit: ({ value }) => {
+      console.log(value)
     },
   })
 
@@ -178,28 +180,29 @@ function PinForm() {
         </Text>
       }
     >
-      <form.Form>
-        <FormLayout>
+      <Form form={form}>
+        <form.Layout>
           <Stack alignItems="center" width="full">
-            <Controller
-              control={form.control}
-              name="pin"
-              render={({ field }) => (
+            <form.AppField name="pin">
+              {(field) => (
                 <PinInput
-                  {...field}
+                  name={field.name}
                   size="lg"
-                  value={field.value.split('')}
+                  value={field.state.value.split('')}
                   placeholder="0"
                   pinLength={6}
-                  onValueChange={({ value }) => field.onChange(value.join(''))}
+                  onValueChange={({ value }) =>
+                    field.handleChange(value.join(''))
+                  }
+                  inputProps={{ onBlur: field.handleBlur }}
                 />
               )}
-            />
+            </form.AppField>
           </Stack>
 
-          <SubmitButton width="full">Confirm</SubmitButton>
-        </FormLayout>
-      </form.Form>
+          <form.SubmitButton width="full">Confirm</form.SubmitButton>
+        </form.Layout>
+      </Form>
     </AuthCard>
   )
 }

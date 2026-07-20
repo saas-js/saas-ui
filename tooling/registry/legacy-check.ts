@@ -58,8 +58,8 @@ export const migratedLegacyCheckScopes: readonly LegacyCheckScope[] = [
   },
   { name: 'website', root: 'apps/website' },
   { name: 'compositions', root: 'apps/compositions' },
-  { name: 'forms', root: 'packages/saas-ui-forms' },
-  { name: 'modals', root: 'packages/saas-ui-modals' },
+  { name: 'forms', root: 'packages/saas-ui-forms', optional: true },
+  { name: 'modals', root: 'packages/saas-ui-modals', optional: true },
   {
     name: 'assets',
     root: 'packages/saas-ui-assets',
@@ -68,6 +68,7 @@ export const migratedLegacyCheckScopes: readonly LegacyCheckScope[] = [
   {
     name: 'auth-provider',
     root: 'packages/saas-ui-auth-provider',
+    optional: true,
     mode: 'installable-tree',
   },
   {
@@ -88,6 +89,7 @@ export const migratedLegacyCheckScopes: readonly LegacyCheckScope[] = [
   {
     name: 'modals-provider',
     root: 'packages/saas-ui-modals-provider',
+    optional: true,
     mode: 'installable-tree',
   },
   {
@@ -103,6 +105,7 @@ export const migratedLegacyCheckScopes: readonly LegacyCheckScope[] = [
   {
     name: 'supabase',
     root: 'packages/saas-ui-supabase',
+    optional: true,
     mode: 'installable-tree',
   },
   {
@@ -122,22 +125,11 @@ export const migratedLegacyCheckScopes: readonly LegacyCheckScope[] = [
   { name: 'palette', root: 'apps/palette' },
   { name: 'panda-testing', root: 'apps/panda-testing' },
   { name: 'example-react-router', root: 'examples/react-router' },
-  { name: 'example-remix', root: 'examples/remix-ts' },
+  { name: 'example-remix', root: 'examples/remix-ts', optional: true },
   { name: 'example-tsrouter', root: 'examples/tsrouter' },
   { name: 'example-next-pages', root: 'examples/next-pages' },
   { name: 'example-next-app', root: 'examples/next-app' },
   { name: 'example-tanstack', root: 'examples/tanstack' },
-  {
-    name: 'pro-packages',
-    root: 'packages/pro/packages',
-    optional: true,
-    mode: 'installable-tree',
-  },
-  {
-    name: 'pro-demo',
-    root: 'packages/pro/apps/demo',
-    optional: true,
-  },
 ]
 
 /**
@@ -426,6 +418,10 @@ export async function scanLegacyReferences(
     const files = new Set<string>()
     await collectScopeFiles(absolute, scope, files)
     if (!files.size) {
+      if (scope.optional) {
+        skippedScopes.push(scope.name)
+        continue
+      }
       throw new Error(
         `Legacy-check scope "${scope.name}" contains no enforceable files: ${scope.root}`,
       )

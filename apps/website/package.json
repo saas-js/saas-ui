@@ -69,7 +69,6 @@
     "rehype-slug": "6.0.0",
     "remark-directive": "4.0.0",
     "remark-gfm": "4.0.1",
-    "saas-ui-blocks": "workspace:*",
     "scule": "1.3.0",
     "shiki": "3.13.0",
     "three": "^0.180.0",
@@ -97,7 +96,6 @@
     "eta": "^4.0.1",
     "fumadocs-core": "^16.0.3",
     "lodash.template": "^4.5.0",
-    "saas-ui-blocks": "workspace:*",
     "ts-morph": "^26.0.0",
     "typescript": "5.9.3"
   }

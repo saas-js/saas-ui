@@ -1,22 +1,34 @@
 'use client'
 
-import { FormLayout, useForm } from '@saas-ui/forms'
+import { Form, useAppForm } from 'compositions/components/forms'
+import { PinInput } from 'compositions/ui/pin-input'
 
 export function FormPin() {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
       pin: '',
     },
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: ({ value }) => {
+      console.log(value)
     },
   })
 
   return (
-    <form.Form>
-      <FormLayout>
-        <form.Field name="pin" label="Pin" type="pin" pinLength={4} />
-      </FormLayout>
-    </form.Form>
+    <Form form={form}>
+      <form.Layout>
+        <form.AppField name="pin">
+          {(field) => (
+            <PinInput
+              name={field.name}
+              value={field.state.value.split('')}
+              placeholder="0"
+              pinLength={4}
+              onValueChange={({ value }) => field.handleChange(value.join(''))}
+              inputProps={{ onBlur: field.handleBlur }}
+            />
+          )}
+        </form.AppField>
+      </form.Layout>
+    </Form>
   )
 }

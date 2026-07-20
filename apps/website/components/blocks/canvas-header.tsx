@@ -1,12 +1,8 @@
 import { UiComponent } from '@/blocks'
-import { LinkButton } from '@/components/link-button'
 import { trackEvent } from '@/utils/track-event'
 import { Badge, Box, HStack, Heading, Tabs, Text } from '@chakra-ui/react'
-import { useRouter } from 'next/navigation'
-import { FaGithub } from 'react-icons/fa'
 import { FiCode, FiEye, FiLock } from 'react-icons/fi'
 
-import { IconButton } from '#components/ui/icon-button'
 import { Tag } from '#components/ui/tag'
 
 // import { ColorControl } from './color-control'
@@ -31,11 +27,7 @@ export function CanvasHeader({
   zIndex,
   ...rest
 }: CanvasHeaderProps) {
-  const router = useRouter()
-
-  // const { isAuthenticated } = useAuth()
-  const isAuthenticated = true
-  const isUnlocked = isAuthenticated || attributes.public
+  const isUnlocked = attributes.public
 
   return (
     <HStack py="4" {...rest} id={slug}>
@@ -77,22 +69,6 @@ export function CanvasHeader({
             </Tag>
           )}
 
-          {isAuthenticated && (
-            <IconButton
-              variant="ghost"
-              aria-label="View source on github"
-              asChild
-            >
-              <a
-                href={`https://github.com/saas-js/saas-ui-pro/tree/main/packages/blocks/src/${attributes.category}/${slug}/${slug}.tsx`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub size="0.9rem" />
-              </a>
-            </IconButton>
-          )}
-
           {attributes.responsive && <Badge variant="subtle">Responsive</Badge>}
         </HStack>
       </HStack>
@@ -129,14 +105,13 @@ export function CanvasHeader({
             </Tabs.List>
           </Tabs.Root>
         ) : (
-          <LinkButton
-            variant="outline"
-            data-checked={state === 'code' ? 'true' : undefined}
-            href="/pricing"
+          <button
+            type="button"
+            onClick={() => (window.location.href = '/pricing')}
           >
             <FiLock size="1rem" />
             Get the code
-          </LinkButton>
+          </button>
         )}
       </HStack>
     </HStack>

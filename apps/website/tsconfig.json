@@ -24,11 +24,10 @@
     "paths": {
       "content-collections": ["./.content-collections/generated"],
       "compositions/*": ["../compositions/src/*"],
-      "saas-ui-blocks": ["../../packages/pro/packages/blocks/index.ts"],
       "#components/*": ["./components/*"],
       "#lib/*": ["./lib/*"],
       "#utils/*": ["./utils/*"],
-      "#hooks/*": ["./hooks/*", "../../packages/pro/packages/blocks/hooks/*"],
+      "#hooks/*": ["./hooks/*"],
       "#theme/*": ["./theme/*"],
       "#registry/*": ["./registry/*"],
       "@/*": ["./*"]

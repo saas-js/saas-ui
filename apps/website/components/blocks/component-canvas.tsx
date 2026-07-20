@@ -1,126 +1,55 @@
 'use client'
 
-import React, { forwardRef, useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
-import * as UiComponents from 'saas-ui-blocks'
 import { UiComponent } from '@/blocks'
-import { Box, Card, Stack } from '@chakra-ui/react'
+import { Box, Card, Stack, Text } from '@chakra-ui/react'
 
 import { LoadingOverlay } from '#components/ui/loading-overlay'
 
-import { ChakraFrame } from '../chakra-frame/chakra-frame'
 import { CanvasHeader } from './canvas-header'
 import { CodeTabs } from './code-tabs'
-import { ComponentPreview } from './component-preview'
-// const themes = {
-//   'saas-ui': theme,
-//   glass: glassTheme,
-// }
-
-// import { ChakraFrame } from '../code-panel/chakra-frame'
 import { Resizer } from './resizer'
 
-const LinkStub = forwardRef((props: any, ref) => {
-  return (
-    <a
-      ref={ref}
-      {...props}
-      onClick={(e) => {
-        e.stopPropagation()
-        e.preventDefault()
-      }}
-    />
-  )
-})
-
-LinkStub.displayName = 'LinkStub'
-
 export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
-  // const user = useCurrentUser<User>()
   const [state, setState] = useState('preview')
-
-  const user = {
-    user_metadata: {
-      licenses: ['saas-ui'],
-    },
-  }
-
-  // const [primaryColor, setPrimaryColor] = useLocalStorage(
-  //   'theme.primaryColor',
-  //   'primary'
-  // )
-  // const [themeId, setTheme] = useLocalStorage('theme.id', 'saas-ui')
-
+  const [code, setCode] = useState(props.code)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
 
-  const Component: any =
-    UiComponents[props.component as keyof typeof UiComponents] ??
-    (() => 'Not found')
-
-  const isUnlocked =
-    user?.user_metadata.licenses?.length || props.attributes.public
-
-  const [code, setCode] = useState(props.code)
-
-  const [data, setData] = useState()
-
-  const get = useCallback(async () => {
-    try {
-      const response = await fetch(
-        `/api/blocks/${props.attributes.category}/${props.slug}?version=${props.attributes.version}`,
-      )
-      if (!response.ok) throw new Error('Failed to fetch code')
-
-      return await response.json()
-    } catch (e) {
-      console.error(e)
-      setError(true)
-    }
-  }, [props])
-
   const fetchCode = useCallback(async () => {
-    const data = await get()
-
-    if (data) {
-      setData(data)
-      setCode(data.code)
-    } else {
+    setLoading(true)
+    setError(false)
+    try {
+      const response = await fetch(`/api/pro/blocks/${props.slug}`, {
+        credentials: 'same-origin',
+        cache: 'no-store',
+      })
+      if (!response.ok) throw new Error('Failed to fetch block source')
+      const data = await response.json()
+      setCode(data.code ?? [])
+    } catch {
       setError(true)
+    } finally {
+      setLoading(false)
     }
-  }, [get])
+  }, [props.slug])
 
-  React.useEffect(() => {
-    if (isUnlocked && !data) {
-      fetchCode()
+  useEffect(() => {
+    if (state === 'code' && !code.length && !loading && !error) {
+      void fetchCode()
     }
-  }, [isUnlocked, fetchCode, data])
+  }, [code.length, error, fetchCode, loading, state])
 
-  const [frameHeight, setFrameHeight] = useState<string | undefined>()
-  const frameRef = React.useRef<HTMLIFrameElement | null>(null)
-  const containerRef = React.useRef<HTMLBodyElement | null>(null)
-  console.log(frameHeight)
-  // const selectedTheme = React.useMemo(() => {
-  //   return extendTheme(
-  //     {
-  //       colors: {
-  //         primary: themes[themeId].colors[primaryColor],
-  //       },
-  //     },
-  //     themes[themeId]
-  //   )
-  // }, [themeId, primaryColor])
+  const canvas = props.attributes.canvas
+  const preview = props.attributes.previewUrl
+  const canvasHeight = canvas?.height ?? 400
+  const height =
+    typeof canvasHeight === 'number' ? `${canvasHeight}px` : canvasHeight
 
   return (
     <Box overflow="hidden" mb="20">
-      <CanvasHeader
-        {...props}
-        state={state}
-        // primaryColor={primaryColor}
-        onStateChange={setState}
-        // onPrimaryColorChange={setPrimaryColor}
-        // onThemeChange={setTheme}
-        // theme={themeId}
-      />
+      <CanvasHeader {...props} state={state} onStateChange={setState} />
 
       <Card.Root rounded="xl" overflow="hidden" mb="20">
         <Card.Body bg="component-canvas-bg" padding="0">
@@ -128,34 +57,36 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
             <Resizer>
               <Stack
                 style={{ zIndex: props.zIndex }}
-                height={frameHeight + 'px'}
+                minH={height}
                 alignItems="stretch"
                 justifyContent="stretch"
                 fontSize="md"
               >
-                <ChakraFrame
-                  frameRef={(el) => {
-                    frameRef.current = el
-                  }}
-                  onHeightChange={(height) => setFrameHeight(String(height))}
-                  linkComponent={LinkStub}
-                >
-                  <ComponentPreview canvas={props.attributes.canvas}>
-                    <Component
-                      {...props.attributes.props}
-                      getRootNode={() =>
-                        frameRef.current?.contentWindow?.document
-                      }
-                    />
-                  </ComponentPreview>
-                </ChakraFrame>
+                {preview ? (
+                  <iframe
+                    title={props.attributes.title}
+                    src={preview}
+                    loading="lazy"
+                    sandbox="allow-forms allow-modals allow-popups allow-scripts"
+                    style={{
+                      border: 0,
+                      display: 'block',
+                      height,
+                      width: '100%',
+                    }}
+                  />
+                ) : (
+                  <Box p="8">
+                    <Text color="fg.muted">Preview unavailable.</Text>
+                  </Box>
+                )}
               </Stack>
             </Resizer>
           ) : (
             <Box pos="relative" minH="400px">
-              {code?.length ? (
+              {code.length ? (
                 <CodeTabs code={code} />
-              ) : (
+              ) : loading ? (
                 <LoadingOverlay.Root
                   position="absolute"
                   inset="0"
@@ -163,7 +94,14 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
                 >
                   <LoadingOverlay.Spinner />
                 </LoadingOverlay.Root>
-              )}
+              ) : error ? (
+                <Box p="8">
+                  <Text color="fg.muted">
+                    Source is unavailable. Sign in with a Pro entitlement to
+                    view this block&apos;s code.
+                  </Text>
+                </Box>
+              ) : null}
             </Box>
           )}
         </Card.Body>

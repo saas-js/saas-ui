@@ -408,16 +408,19 @@ async function createDirectoryItem(args: {
     sourceDirectory,
   })
 
-  const previewPath = config.preview
-    ? await resolveOwnedConfiguredPath({
-        diagnostics: context.diagnostics,
-        itemName: name,
-        kind: 'preview',
-        sourceBasePath: root.sourceBasePath,
-        sourceDirectory,
-        value: config.preview,
-      })
-    : undefined
+  // A preview may be a local source file for the public registry or a stable
+  // Storybook story id for an external preview runtime.
+  const previewPath =
+    config.preview && /\.(?:[cm]?[jt]sx?)$/.test(config.preview)
+      ? await resolveOwnedConfiguredPath({
+          diagnostics: context.diagnostics,
+          itemName: name,
+          kind: 'preview',
+          sourceBasePath: root.sourceBasePath,
+          sourceDirectory,
+          value: config.preview,
+        })
+      : undefined
   const primaryFilePath = config.primaryFile
     ? await resolveOwnedConfiguredPath({
         diagnostics: context.diagnostics,

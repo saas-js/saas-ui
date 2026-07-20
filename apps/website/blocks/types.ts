@@ -18,8 +18,9 @@ export interface CanvasAttributes {
   dimmed?: boolean
   canvas: {
     center: boolean
-    maxWidth?: number
-    height?: number
+    maxWidth?: string | number
+    className?: string
+    height?: string | number
     overflow?: string
   }
   category: string
@@ -27,6 +28,11 @@ export interface CanvasAttributes {
   props?: Record<string, any>
   version?: string
   public?: boolean
+  private?: boolean
+  preview?: string
+  previewUrl?: string
+  description?: string
+  [key: string]: any
 }
 
 export interface UiComponent {

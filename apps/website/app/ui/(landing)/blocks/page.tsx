@@ -1,7 +1,6 @@
 import { CATEGORIES } from '@/blocks'
 import {
   countComponentsByCategory,
-  getAllComponents,
 } from '@/blocks/components'
 import { CategoriesList } from '@/components/blocks/categories-list'
 import { LinkButton } from '@/components/link-button'

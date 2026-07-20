@@ -12,6 +12,7 @@ import {
   ts,
 } from 'ts-morph'
 
+import { registryIndexSchema, registryUrlSchema } from '../schema.js'
 import type {
   AnalyzeItemFilesOptions,
   AnalyzedImport,
@@ -23,6 +24,7 @@ import type {
   RegistryCompilerDiagnostic,
   RegistryDiscoveryResult,
 } from './model.js'
+import type { ExternalRegistryCatalog } from './model.js'
 import {
   comparePaths,
   kebabCase,
@@ -358,6 +360,167 @@ function resolveAliasBase(
   return undefined
 }
 
+interface ExternalRegistryLookup {
+  alias: string
+  baseUrl: string
+  style: string
+  owners: Map<string, { name: string; private: boolean }[]>
+}
+
+function catalogPath(value: string) {
+  const normalized = value
+    .replaceAll('\\', '/')
+    .replace(/^\.\//, '')
+    .replace(/\.(?:ts|tsx|mts|cts|js|jsx)$/, '')
+  return normalized.endsWith('/index')
+    ? normalized.slice(0, -'/index'.length)
+    : normalized
+}
+
+function externalRegistryItemUrl(
+  lookup: Pick<ExternalRegistryLookup, 'baseUrl' | 'style'>,
+  name: string,
+) {
+  const baseUrl = lookup.baseUrl.endsWith('/')
+    ? lookup.baseUrl
+    : `${lookup.baseUrl}/`
+  return new URL(
+    `styles/${encodeURIComponent(lookup.style)}/${encodeURIComponent(name)}.json`,
+    baseUrl,
+  ).toString()
+}
+
+function createExternalRegistryLookups(
+  catalogs: readonly ExternalRegistryCatalog[],
+  diagnostics: RegistryCompilerDiagnostic[],
+) {
+  const seenAliases = new Set<string>()
+  const lookups: ExternalRegistryLookup[] = []
+
+  for (const catalog of catalogs) {
+    if (
+      !catalog ||
+      typeof catalog.alias !== 'string' ||
+      !catalog.alias.trim() ||
+      /\s/.test(catalog.alias) ||
+      typeof catalog.baseUrl !== 'string' ||
+      !registryUrlSchema.safeParse(catalog.baseUrl).success
+    ) {
+      diagnostics.push({
+        code: 'external-registry-invalid-catalog',
+        message:
+          'External registry catalogs require a non-empty alias and an HTTP(S) baseUrl',
+        severity: 'error',
+        stage: 'analysis',
+      })
+      continue
+    }
+
+    if (seenAliases.has(catalog.alias)) {
+      diagnostics.push({
+        code: 'external-registry-duplicate-alias',
+        message: `External registry alias "${catalog.alias}" is declared more than once`,
+        severity: 'error',
+        stage: 'analysis',
+      })
+      continue
+    }
+    seenAliases.add(catalog.alias)
+
+    const parsed = registryIndexSchema.safeParse(catalog.index)
+    if (!parsed.success) {
+      diagnostics.push({
+        code: 'external-registry-invalid-catalog',
+        message: `External registry "${catalog.alias}" has an invalid index: ${parsed.error.message}`,
+        severity: 'error',
+        stage: 'analysis',
+      })
+      continue
+    }
+
+    const owners = new Map<string, { name: string; private: boolean }[]>()
+    for (const item of parsed.data) {
+      for (const file of item.files ?? []) {
+        const filePath = typeof file === 'string' ? file : file.path
+        const key = catalogPath(filePath)
+        if (!key || key.startsWith('../') || key.startsWith('/')) {
+          diagnostics.push({
+            code: 'external-registry-invalid-catalog',
+            message: `External registry "${catalog.alias}" contains an unsafe file path "${filePath}"`,
+            severity: 'error',
+            stage: 'analysis',
+          })
+          continue
+        }
+        const current = owners.get(key) ?? []
+        current.push({ name: item.name, private: item.private === true })
+        owners.set(key, current)
+      }
+    }
+
+    const style = catalog.alias.split('/').pop() || 'default'
+    lookups.push({
+      alias: catalog.alias.replace(/\/$/, ''),
+      baseUrl: catalog.baseUrl,
+      style,
+      owners,
+    })
+  }
+
+  return lookups.sort((left, right) => right.alias.length - left.alias.length)
+}
+
+function resolveExternalRegistryImport(
+  specifier: string,
+  lookups: readonly ExternalRegistryLookup[],
+  diagnostics: RegistryCompilerDiagnostic[],
+  item: DiscoveredRegistryItem,
+  filePath: string,
+) {
+  for (const lookup of lookups) {
+    if (
+      specifier !== lookup.alias &&
+      !specifier.startsWith(`${lookup.alias}/`)
+    ) {
+      continue
+    }
+
+    const sourcePath = specifier.slice(lookup.alias.length + 1)
+    const owners = lookup.owners.get(catalogPath(sourcePath)) ?? []
+    if (owners.length !== 1) {
+      diagnostics.push({
+        code:
+          owners.length > 1
+            ? 'external-registry-ambiguous-file'
+            : 'external-registry-item-not-found',
+        message:
+          owners.length > 1
+            ? `External registry import "${specifier}" has ambiguous file ownership`
+            : `External registry import "${specifier}" does not belong to an indexed item`,
+        severity: 'error',
+        stage: 'analysis',
+        itemName: item.name,
+        filePath,
+        moduleSpecifier: specifier,
+      })
+      return { handled: true }
+    }
+
+    const owner = owners[0]!
+    return {
+      handled: true,
+      externalRegistry: {
+        alias: lookup.alias,
+        baseUrl: externalRegistryItemUrl(lookup, owner.name),
+        item: owner.name,
+        private: owner.private,
+      },
+    }
+  }
+
+  return { handled: false }
+}
+
 function matchingTargetPatterns(
   item: DiscoveredRegistryItem,
   filePath: string,
@@ -380,12 +543,22 @@ function getTarget(item: DiscoveredRegistryItem, filePath: string) {
 
 async function analyzeImport(args: {
   aliases: Readonly<Record<string, string>>
+  externalRegistries: readonly ExternalRegistryLookup[]
+  diagnostics: RegistryCompilerDiagnostic[]
   filePath: string
   importedNames: string[]
   item: DiscoveredRegistryItem
   specifier: string
 }): Promise<AnalyzedImport> {
-  const { aliases, filePath, importedNames, item, specifier } = args
+  const {
+    aliases,
+    diagnostics,
+    externalRegistries,
+    filePath,
+    importedNames,
+    item,
+    specifier,
+  } = args
   const iconNames = iconNamesFromImport(specifier, importedNames)
   if (specifier.startsWith('.')) {
     return {
@@ -396,6 +569,25 @@ async function analyzeImport(args: {
         path.resolve(path.dirname(filePath), specifier),
       ),
       iconNames,
+    }
+  }
+
+  const external = resolveExternalRegistryImport(
+    specifier,
+    externalRegistries,
+    diagnostics,
+    item,
+    filePath,
+  )
+  if (external.handled) {
+    return {
+      specifier,
+      kind: 'alias',
+      importedNames,
+      iconNames,
+      ...(external.externalRegistry
+        ? { externalRegistry: external.externalRegistry }
+        : {}),
     }
   }
 
@@ -435,12 +627,20 @@ async function analyzeImport(args: {
 
 async function analyzeFile(args: {
   aliases: Readonly<Record<string, string>>
+  externalRegistries: readonly ExternalRegistryLookup[]
   diagnostics: RegistryCompilerDiagnostic[]
   item: DiscoveredRegistryItem
   project: Project
   sourcePath: string
 }): Promise<AnalyzedRegistryFile> {
-  const { aliases, diagnostics, item, project, sourcePath } = args
+  const {
+    aliases,
+    diagnostics,
+    externalRegistries,
+    item,
+    project,
+    sourcePath,
+  } = args
   const sourceContent = await fs.readFile(sourcePath, 'utf8')
   const sourceFile = project.createSourceFile(sourcePath, sourceContent, {
     overwrite: true,
@@ -477,6 +677,8 @@ async function analyzeFile(args: {
     importRecords.map((record) =>
       analyzeImport({
         aliases,
+        diagnostics,
+        externalRegistries,
         filePath: sourcePath,
         importedNames: uniqueSorted(record.importedNames),
         item,
@@ -507,7 +709,11 @@ async function analyzeFile(args: {
     hasRenderableDefaultExport: hasRenderableDefaultExport(sourceFile),
     moduleSpecifiers: importRecords.map((record) => record.specifier),
     imports,
-    iconDependencies: uniqueSorted(imports.flatMap((entry) => entry.iconNames)),
+    iconDependencies: uniqueSorted(
+      imports
+        .filter((entry) => !entry.externalRegistry)
+        .flatMap((entry) => entry.iconNames),
+    ),
     presetImports,
     recipeReferences: collectRecipeReferences(sourceFile),
     presetRecipeBindings: presetRecipeBindingsFromImports(imports),
@@ -556,17 +762,23 @@ async function analyzePreview(args: {
 
 async function analyzeItem(args: {
   aliases: Readonly<Record<string, string>>
+  externalRegistries: readonly ExternalRegistryLookup[]
   diagnostics: RegistryCompilerDiagnostic[]
   item: DiscoveredRegistryItem
   project: Project
 }): Promise<AnalyzedRegistryItem> {
-  const { aliases, diagnostics, item, project } = args
+  const { aliases, diagnostics, externalRegistries, item, project } = args
   const files = await Promise.all(
-    [...item.filePaths]
-      .sort(comparePaths)
-      .map((sourcePath) =>
-        analyzeFile({ aliases, diagnostics, item, project, sourcePath }),
-      ),
+    [...item.filePaths].sort(comparePaths).map((sourcePath) =>
+      analyzeFile({
+        aliases,
+        diagnostics,
+        externalRegistries,
+        item,
+        project,
+        sourcePath,
+      }),
+    ),
   )
   const previewAnalysis = await analyzePreview({ diagnostics, item, project })
   const matchedTargetPatterns = new Set(
@@ -630,10 +842,22 @@ export async function analyzeItemFiles(
     skipAddingFilesFromTsConfig: true,
   })
   const aliases = options.aliases ?? {}
+  const externalRegistries = createExternalRegistryLookups(
+    options.externalRegistries ?? [],
+    diagnostics,
+  )
   const items: AnalyzedRegistryItem[] = []
 
   for (const item of discovery.items) {
-    items.push(await analyzeItem({ aliases, diagnostics, item, project }))
+    items.push(
+      await analyzeItem({
+        aliases,
+        diagnostics,
+        externalRegistries,
+        item,
+        project,
+      }),
+    )
   }
 
   return { items, diagnostics }

@@ -308,6 +308,8 @@ const registryItemFields = {
   tailwind: registryItemTailwindSchema.optional(),
   cssVars: registryItemCssVarsSchema.optional(),
   source: z.string().optional(),
+  preview: z.string().optional(),
+  primaryFile: z.string().optional(),
   order: z.number().optional(),
   categories: z.array(z.string()).optional(),
   category: z.string().optional(),
@@ -437,6 +439,8 @@ export type RegistryInstallableItem = z.output<
   typeof registryInstallableItemSchema
 >
 export type RegistryIndexItem = z.output<typeof registryIndexItemSchema>
+/** A validated catalog index published by a registry. */
+export type RegistryIndex = RegistryIndexItem[]
 export type RegistryEntries = z.output<typeof registryEntriesSchema>
 export type Registry = z.output<typeof registrySchema>
 

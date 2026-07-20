@@ -7,7 +7,7 @@ const config = {
   org: 'saas-ui',
   packagesDir: 'packages',
   appsDir: 'apps',
-  blocksDir: 'packages/pro/packages/blocks/src',
+  blocksDir: 'apps/website/registry/default/blocks',
 }
 
 const packageName = (org, name, separator = '/') => {
@@ -76,7 +76,7 @@ module.exports = {
       return path.join(config.appsDir, app)
     },
     /**
-     * Returns the blocks directory, eg: packages/pro/packages/blocks/src/
+     * Returns the public registry blocks directory.
      * @param {string} category
      * @param {string} name
      * @returns

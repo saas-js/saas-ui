@@ -25,18 +25,6 @@ async function write(root: string, relative: string, content: string) {
   await writeFile(target, content)
 }
 
-function lockImporter(source: string, name: string) {
-  const marker = `\n  ${name}:\n`
-  const start = source.indexOf(marker)
-  if (start < 0) throw new Error(`Missing lockfile importer ${name}`)
-  const contentStart = start + marker.length
-  const next = /\n  [^\s][^\n]*:\n/.exec(source.slice(contentStart))
-  return source.slice(
-    contentStart,
-    next ? contentStart + (next.index ?? 0) : source.length,
-  )
-}
-
 afterEach(async () => {
   await Promise.all(
     temporaryRoots
@@ -85,31 +73,15 @@ describe('packed release wiring', () => {
     expect(release).not.toContain('git diff')
   })
 
-  test('prepares both generated catalogs before they are consumed', async () => {
-    const root = await manifest('package.json')
-    const prepare = root.scripts?.['registry:prepare'] ?? ''
-    const ci = root.scripts?.['registry:ci'] ?? ''
-
-    expect(prepare).toContain('registry:generate')
-    expect(prepare).toContain('@saas-ui-pro/registry build:registry')
-    expect(root.scripts?.prepare).toContain('registry:prepare')
-    expect(ci.match(/registry:prepare/g)).toHaveLength(1)
-    expect(ci).toContain('registry:cli:acceptance:prepared')
-    expect(ci).toContain('registry:consumer:packed:acceptance:prepared')
-    expect(ci).toContain('registry:pro:ci:prepared')
-  })
-
-  test('clean-checkout CLI, dogfood, consumer, and Pro entry points prepare emitted inputs', async () => {
-    const [root, cli, pro, website] = await Promise.all([
+  test('clean-checkout CLI, dogfood, consumer, and website entry points prepare emitted inputs', async () => {
+    const [root, cli, website] = await Promise.all([
       manifest('package.json'),
       manifest('packages/saas-ui-cli/package.json'),
-      manifest('packages/pro/packages/registry/package.json'),
       manifest('apps/website/package.json'),
     ])
 
     for (const name of [
       'registry:ci',
-      'registry:pro:ci',
       'registry:dogfood:check',
       'registry:cli:acceptance',
       'registry:consumer:test',
@@ -132,84 +104,18 @@ describe('packed release wiring', () => {
     ]) {
       expect(cli.scripts?.[name], `CLI ${name}`).toContain('registry:generate')
     }
-    for (const name of [
-      'dev',
-      'test',
-      'test:ci',
-      'test:consumer',
-      'test:consumer:acceptance',
-    ]) {
-      expect(pro.scripts?.[name], `Pro ${name}`).toContain('registry:prepare')
-    }
     expect(website.scripts?.dev).toContain('registry:generate')
     expect(website.scripts?.dev).toContain('registry:dev')
     expect(website.scripts?.prebuild).toBe('pnpm registry:generate')
   })
 
-  test('keeps derived public and Pro catalogs out of new commits', async () => {
-    const [rootIgnore, proIgnore] = await Promise.all([
-      readFile(path.join(repositoryRoot, '.gitignore'), 'utf8'),
-      readFile(path.join(repositoryRoot, 'packages/pro/.gitignore'), 'utf8'),
-    ])
-
+  test('keeps derived public catalogs out of new commits', async () => {
+    const rootIgnore = await readFile(
+      path.join(repositoryRoot, '.gitignore'),
+      'utf8',
+    )
     expect(rootIgnore).toContain('/apps/website/public/r/')
     expect(rootIgnore).toContain('/apps/website/__registry__/')
-    expect(proIgnore).toContain('/packages/registry/public/r/')
-    expect(proIgnore).toContain('/packages/registry/__registry__/')
-  })
-
-  test('keeps retained Pro consumers on the public preset baseline', async () => {
-    const [preset, workspace, lock, rootLock, ...consumers] = await Promise.all(
-      [
-        manifest('packages/saas-ui-chakra-preset/package.json'),
-        readFile(
-          path.join(repositoryRoot, 'packages/pro/pnpm-workspace.yaml'),
-          'utf8',
-        ),
-        readFile(
-          path.join(repositoryRoot, 'packages/pro/pnpm-lock.yaml'),
-          'utf8',
-        ),
-        readFile(path.join(repositoryRoot, 'pnpm-lock.yaml'), 'utf8'),
-        manifest('packages/pro/apps/demo/package.json'),
-        manifest('packages/pro/packages/blocks/package.json'),
-        manifest('packages/pro/packages/conditions/package.json'),
-        manifest('packages/pro/packages/react/package.json'),
-        manifest('packages/pro/packages/storybook/package.json'),
-      ],
-    )
-    const version = preset.version
-
-    expect(version).toMatch(/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/)
-    for (const consumer of consumers) {
-      expect(
-        consumer.dependencies?.['@saas-ui/chakra-preset'] ??
-          consumer.devDependencies?.['@saas-ui/chakra-preset'],
-      ).toBe(version)
-    }
-    expect(workspace).toContain(`'@saas-ui/chakra-preset': '${version}'`)
-    expect(lock).toContain(`'@saas-ui/chakra-preset': ${version}`)
-    expect(rootLock).not.toContain('3.0.0-next.8')
-    expect(rootLock).toContain(`specifier: ${version}`)
-    for (const importer of [
-      'packages/pro/packages/blocks',
-      'packages/pro/packages/conditions',
-      'packages/pro/packages/react',
-      'packages/pro/packages/storybook',
-    ]) {
-      expect(lockImporter(rootLock, importer)).toContain(
-        `specifier: ${version}`,
-      )
-    }
-    for (const importer of [
-      'apps/demo',
-      'packages/blocks',
-      'packages/conditions',
-      'packages/react',
-      'packages/storybook',
-    ]) {
-      expect(lockImporter(lock, importer)).toContain(`specifier: ${version}`)
-    }
   })
 
   test('the prepublish command validates existing build bytes', async () => {

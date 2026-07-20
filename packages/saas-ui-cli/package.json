@@ -17,6 +17,13 @@
     "sui": "lib/cli.js",
     "@saas-ui/cli": "lib/cli.js"
   },
+  "exports": {
+    ".": "./lib/cli.js",
+    "./consumer": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/consumer/index.js"
+    }
+  },
   "engines": {
     "node": ">=20"
   },

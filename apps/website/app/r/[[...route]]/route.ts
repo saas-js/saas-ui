@@ -18,7 +18,7 @@ const defaultHeaders = {
 const privateHeaders = {
   headers: {
     'Cache-Control': 'private, no-store',
-    Vary: 'Authorization',
+    Vary: 'Authorization, Cookie',
   },
 }
 
@@ -45,7 +45,7 @@ async function loadRegistryItem(style: string, component: string) {
 
 async function authorize(c: Context, verifyAccessToken: AccessTokenVerifier) {
   c.header('Cache-Control', 'private, no-store')
-  c.header('Vary', 'Authorization')
+  c.header('Vary', 'Authorization, Cookie')
 
   const authorized = await isRegistryRequestAuthorized(
     c.req.header('Authorization'),

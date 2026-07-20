@@ -43,6 +43,114 @@ afterEach(async () => {
 })
 
 describe('registry compiler core', () => {
+  it('resolves external UI, setup, icon, hook, and nested files by catalog ownership', async () => {
+    const root = await createFixture({
+      'ui/dashboard/dashboard.tsx': `
+        import { Button } from '#registry/default/ui/button/button'
+        import { useThing } from '#registry/default/hooks/use-thing'
+        import { XIcon } from '#registry/default/icons/x-icon'
+        import { Theme } from '#registry/default/setup/theme/theme'
+        import { nested } from '#registry/default/ui/complex/nested'
+        export const Dashboard = () => [Button, useThing, XIcon, Theme, nested]
+      `,
+    })
+    const discovered = await discoverRegistryItems({ sourceRoots: [root] })
+    const analyzed = await analyzeItemFiles(discovered, {
+      externalRegistries: [
+        {
+          alias: '#registry/default',
+          baseUrl: 'https://public.example/r',
+          index: [
+            {
+              name: 'button',
+              type: 'registry:ui',
+              files: [{ path: 'ui/button/button.tsx', type: 'registry:ui' }],
+            },
+            {
+              name: 'use-thing',
+              type: 'registry:hook',
+              files: [{ path: 'hooks/use-thing.ts', type: 'registry:hook' }],
+            },
+            {
+              name: 'x-icon',
+              type: 'registry:icon',
+              files: [{ path: 'icons/x-icon.tsx', type: 'registry:icon' }],
+            },
+            {
+              name: 'theme',
+              type: 'registry:setup',
+              files: [{ path: 'setup/theme/theme.ts', type: 'registry:setup' }],
+            },
+            {
+              name: 'complex',
+              type: 'registry:ui',
+              files: [{ path: 'ui/complex/nested.ts', type: 'registry:ui' }],
+            },
+          ],
+        },
+      ],
+    })
+    const graph = resolveDependencyGraph(analyzed)
+
+    expect(graph.items[0]?.registryDependencies).toEqual([
+      'https://public.example/r/styles/default/button.json',
+      'https://public.example/r/styles/default/complex.json',
+      'https://public.example/r/styles/default/theme.json',
+      'https://public.example/r/styles/default/use-thing.json',
+      'https://public.example/r/styles/default/x-icon.json',
+    ])
+    expect(graph.diagnostics).toEqual([])
+  })
+
+  it('diagnoses missing, ambiguous, duplicate, and malformed external catalogs', async () => {
+    const root = await createFixture({
+      'ui/dashboard/dashboard.tsx': `
+        import { Missing } from '#registry/public/ui/missing'
+        import { Ambiguous } from '#registry/public/ui/ambiguous'
+        export const Dashboard = () => [Missing, Ambiguous]
+      `,
+    })
+    const discovered = await discoverRegistryItems({ sourceRoots: [root] })
+    const analyzed = await analyzeItemFiles(discovered, {
+      externalRegistries: [
+        {
+          alias: '#registry/public',
+          baseUrl: 'https://public.example/r',
+          index: [
+            {
+              name: 'one',
+              type: 'registry:ui',
+              files: [{ path: 'ui/ambiguous.ts', type: 'registry:ui' }],
+            },
+            {
+              name: 'two',
+              type: 'registry:ui',
+              files: [{ path: 'ui/ambiguous.ts', type: 'registry:ui' }],
+            },
+          ],
+        },
+        {
+          alias: '#registry/public',
+          baseUrl: 'https://public.example/r',
+          index: [],
+        },
+        {
+          alias: '#registry/bad',
+          baseUrl: 'file:///tmp/registry',
+          index: [],
+        },
+      ],
+    })
+
+    expect(analyzed.diagnostics).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'external-registry-ambiguous-file' }),
+        expect.objectContaining({ code: 'external-registry-item-not-found' }),
+        expect.objectContaining({ code: 'external-registry-duplicate-alias' }),
+        expect.objectContaining({ code: 'external-registry-invalid-catalog' }),
+      ]),
+    )
+  })
   it('inherits an owning source version without overriding item metadata', async () => {
     const root = await createFixture({
       'ui/sidebar/component.config.ts': `

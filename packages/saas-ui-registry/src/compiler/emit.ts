@@ -725,7 +725,9 @@ function resolvedItemToEmitItem(
         : { compiler: compilerMetadata },
     canvas: item.metadata.canvas,
     docs: item.metadata.docs,
-    preview: configuredSourcePath(item, item.metadata.preview),
+    preview: item.previewAnalysis
+      ? configuredSourcePath(item, item.metadata.preview)
+      : item.metadata.preview,
     previewAnalysis: item.previewAnalysis
       ? {
           path: item.previewAnalysis.path,

@@ -34,5 +34,6 @@ defaultConfig.utilities = Object.assign(
 export const defaultSystem = createSystem(defaultConfig)
 
 export { defaultSystem as system, defaultConfig }
+export { presetRecipeKeys } from './recipe-keys.ts'
 
 export type { RecipeProps, SlotRecipeProps } from './types.ts'

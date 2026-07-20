@@ -16,8 +16,6 @@ import { repositoryRoot } from './public-registry'
 
 export interface RegistryReleaseBundleOptions {
   outputDir: string
-  proPreviewDir: string
-  proRegistryDir: string
   publicPreviewDir: string
   publicRegistryDir: string
 }
@@ -36,7 +34,6 @@ interface ReleaseCatalog {
 
 export interface RegistryReleaseManifest {
   catalogs: {
-    pro: ReleaseCatalog
     public: ReleaseCatalog
   }
   files: ReleaseFile[]
@@ -49,12 +46,7 @@ export interface RegistryReleaseManifest {
 type ManifestWithoutDigest = Omit<RegistryReleaseManifest, 'releaseDigest'>
 
 const manifestFileName = 'manifest.json'
-const releaseRoots = [
-  'pro/__registry__/',
-  'pro/r/',
-  'public/__registry__/',
-  'public/r/',
-] as const
+const releaseRoots = ['public/__registry__/', 'public/r/'] as const
 
 function compareStrings(left: string, right: string) {
   return left < right ? -1 : left > right ? 1 : 0
@@ -211,7 +203,6 @@ function assertManifest(
     manifest.schemaVersion !== REGISTRY_SCHEMA_VERSION ||
     !Array.isArray(manifest.files) ||
     !manifest.catalogs?.public ||
-    !manifest.catalogs.pro ||
     typeof manifest.releaseDigest !== 'string'
   ) {
     throw new Error('Invalid registry release manifest')
@@ -250,7 +241,7 @@ export async function verifyRegistryReleaseBundle(bundleDir: string) {
     actualFiles.push(actual)
   }
 
-  for (const name of ['public', 'pro'] as const) {
+  for (const name of ['public'] as const) {
     const catalog = manifest.catalogs[name]
     const catalogFiles = actualFiles.filter((file) =>
       file.path.startsWith(`${name}/`),
@@ -348,8 +339,6 @@ export async function createRegistryReleaseBundle(
     const staged = await Promise.allSettled([
       stageDirectory(options.publicRegistryDir, stageDir, 'public/r'),
       stageDirectory(options.publicPreviewDir, stageDir, 'public/__registry__'),
-      stageDirectory(options.proRegistryDir, stageDir, 'pro/r'),
-      stageDirectory(options.proPreviewDir, stageDir, 'pro/__registry__'),
     ])
     const failures = staged.filter(
       (result): result is PromiseRejectedResult => result.status === 'rejected',
@@ -361,29 +350,17 @@ export async function createRegistryReleaseBundle(
         'Multiple registry release inputs failed to stage.',
       )
     }
-    const [publicRegistry, publicPreview, proRegistry, proPreview] = staged.map(
+    const [publicRegistry, publicPreview] = staged.map(
       (result) => (result as PromiseFulfilledResult<ReleaseFile[]>).value,
     )
-    const files = [
-      ...publicRegistry,
-      ...publicPreview,
-      ...proRegistry,
-      ...proPreview,
-    ].sort((left, right) => compareStrings(left.path, right.path))
+    const files = [...publicRegistry, ...publicPreview].sort((left, right) =>
+      compareStrings(left.path, right.path),
+    )
     validateUniquePaths(files)
     validateReleaseLayout(files)
 
     const manifestWithoutDigest: ManifestWithoutDigest = {
       catalogs: {
-        pro: {
-          digest: catalogDigest(
-            files.filter((file) => file.path.startsWith('pro/')),
-          ),
-          index: 'pro/r/index.json',
-          items: await readItemCount(
-            path.join(stageDir, 'pro', 'r', 'index.json'),
-          ),
-        },
         public: {
           digest: catalogDigest(
             files.filter((file) => file.path.startsWith('public/')),
@@ -421,23 +398,6 @@ export async function createRegistryReleaseBundle(
 async function main() {
   const manifest = await createRegistryReleaseBundle({
     outputDir: path.join(repositoryRoot, '.artifacts', 'registry-release'),
-    proPreviewDir: path.join(
-      repositoryRoot,
-      'packages',
-      'pro',
-      'packages',
-      'registry',
-      '__registry__',
-    ),
-    proRegistryDir: path.join(
-      repositoryRoot,
-      'packages',
-      'pro',
-      'packages',
-      'registry',
-      'public',
-      'r',
-    ),
     publicPreviewDir: path.join(
       repositoryRoot,
       'apps',
@@ -454,7 +414,7 @@ async function main() {
   })
   console.log(
     `Verified registry release candidate ${manifest.releaseDigest} ` +
-      `(${manifest.catalogs.public.items} public, ${manifest.catalogs.pro.items} Pro items).`,
+      `(${manifest.catalogs.public.items} public items).`,
   )
 }
 

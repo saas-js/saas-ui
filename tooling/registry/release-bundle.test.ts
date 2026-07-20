@@ -24,14 +24,10 @@ async function createFixture() {
   temporaryRoots.push(root)
   const publicRegistryDir = path.join(root, 'public-r')
   const publicPreviewDir = path.join(root, 'public-preview')
-  const proRegistryDir = path.join(root, 'pro-r')
-  const proPreviewDir = path.join(root, 'pro-preview')
   const outputDir = path.join(root, 'release')
   await Promise.all([
     mkdir(path.join(publicRegistryDir, 'styles'), { recursive: true }),
     mkdir(publicPreviewDir, { recursive: true }),
-    mkdir(proRegistryDir, { recursive: true }),
-    mkdir(proPreviewDir, { recursive: true }),
   ])
   await Promise.all([
     writeFile(
@@ -43,16 +39,9 @@ async function createFixture() {
       'button\n',
     ),
     writeFile(path.join(publicPreviewDir, 'index.tsx'), 'public preview\n'),
-    writeFile(
-      path.join(proRegistryDir, 'index.json'),
-      `${JSON.stringify([{ name: 'sidebar' }, { name: 'split-page' }])}\n`,
-    ),
-    writeFile(path.join(proPreviewDir, 'index.tsx'), 'pro preview\n'),
   ])
   return {
     outputDir,
-    proPreviewDir,
-    proRegistryDir,
     publicPreviewDir,
     publicRegistryDir,
     root,
@@ -68,7 +57,7 @@ afterEach(async () => {
 })
 
 describe('registry release bundle', () => {
-  test('publishes public and Pro registries as one deterministic release unit', async () => {
+  test('publishes the public registry as one deterministic release unit', async () => {
     const fixture = await createFixture()
     const first = await createRegistryReleaseBundle(fixture)
     const firstManifest = await readFile(
@@ -83,7 +72,6 @@ describe('registry release bundle', () => {
     ).toBe(firstManifest)
     expect(first.kind).toBe('saas-ui.registry-release')
     expect(first.catalogs.public.items).toBe(1)
-    expect(first.catalogs.pro.items).toBe(2)
     expect(first.releaseDigest).toMatch(/^[a-f0-9]{64}$/)
     await expect(
       readFile(
@@ -91,12 +79,6 @@ describe('registry release bundle', () => {
         'utf8',
       ),
     ).resolves.toBe('button\n')
-    await expect(
-      readFile(
-        path.join(fixture.outputDir, 'pro', '__registry__', 'index.tsx'),
-        'utf8',
-      ),
-    ).resolves.toBe('pro preview\n')
     await expect(
       verifyRegistryReleaseBundle(fixture.outputDir),
     ).resolves.toEqual(first)
@@ -140,7 +122,7 @@ describe('registry release bundle', () => {
     ).rejects.toThrow('file list does not match')
   })
 
-  test('rejects declared files outside the four release roots', async () => {
+  test('rejects declared files outside the public release roots', async () => {
     const fixture = await createFixture()
     const manifest = await createRegistryReleaseBundle(fixture)
     const content = 'unexpected\n'

@@ -25,7 +25,10 @@ import sidebar from './sidebar.svg?url'
 import tablesDark from './tables-dark.svg?url'
 import tables from './tables.svg?url'
 
-const image = (src: string, alt: string) => ({ src, alt })
+const image = (asset: string | { src: string }, alt: string) => ({
+  src: typeof asset === 'string' ? asset : asset.src,
+  alt,
+})
 
 const img = {
   sidebars: {

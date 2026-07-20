@@ -150,13 +150,13 @@
                       "enum": [
                         "registry:setup",
                         "registry:ui",
+                        "registry:component",
                         "registry:lib",
                         "registry:hook",
                         "registry:icon",
                         "registry:block",
                         "registry:example",
                         "registry:style",
-                        "registry:component",
                         "registry:theme",
                         "registry:page",
                         "registry:story"
@@ -189,6 +189,12 @@
           "order": {
             "type": "number"
           },
+          "preview": {
+            "type": "string"
+          },
+          "primaryFile": {
+            "type": "string"
+          },
           "private": {
             "type": "boolean"
           },
@@ -198,6 +204,10 @@
                 {
                   "minLength": 1,
                   "pattern": "^[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$",
+                  "type": "string"
+                },
+                {
+                  "pattern": "^@[a-z0-9][a-z0-9_-]*\\/[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$",
                   "type": "string"
                 },
                 {
@@ -254,13 +264,13 @@
             "enum": [
               "registry:setup",
               "registry:ui",
+              "registry:component",
               "registry:lib",
               "registry:hook",
               "registry:icon",
               "registry:block",
               "registry:example",
               "registry:style",
-              "registry:component",
               "registry:theme",
               "registry:page",
               "registry:story"

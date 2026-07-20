@@ -1,31 +1,42 @@
 'use client'
 
-import { FormLayout, useForm } from '@saas-ui/forms'
+import { Fieldset, HStack, RadioGroup } from '@chakra-ui/react'
+import { Form, useAppForm } from 'compositions/components/forms'
+import { Radio } from 'compositions/ui/radio'
 
 export function FormRadio() {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
       color: 'red',
     },
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: ({ value }) => {
+      console.log(value)
     },
   })
 
   return (
-    <form.Form>
-      <FormLayout>
-        <form.Field
-          name="color"
-          label="Color"
-          type="radio"
-          options={[
-            { label: 'Red', value: 'red' },
-            { label: 'Green', value: 'green' },
-            { label: 'Blue', value: 'blue' },
-          ]}
-        />
-      </FormLayout>
-    </form.Form>
+    <Form form={form}>
+      <form.Layout>
+        <form.AppField name="color">
+          {(field) => (
+            <Fieldset.Root>
+              <Fieldset.Legend>Color</Fieldset.Legend>
+              <RadioGroup.Root
+                name={field.name}
+                value={field.state.value}
+                onValueChange={({ value }) => field.handleChange(value ?? '')}
+                onBlur={field.handleBlur}
+              >
+                <HStack gap="6">
+                  <Radio value="red">Red</Radio>
+                  <Radio value="green">Green</Radio>
+                  <Radio value="blue">Blue</Radio>
+                </HStack>
+              </RadioGroup.Root>
+            </Fieldset.Root>
+          )}
+        </form.AppField>
+      </form.Layout>
+    </Form>
   )
 }

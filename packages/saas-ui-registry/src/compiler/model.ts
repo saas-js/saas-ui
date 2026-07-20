@@ -1,4 +1,13 @@
-import type { RegistryEntry, RegistryItem } from '../schema.js'
+import type { RegistryEntry, RegistryIndex, RegistryItem } from '../schema.js'
+
+export interface ExternalRegistryCatalog {
+  /** Module prefix used by source imports, for example `#registry/default`. */
+  alias: string
+  /** HTTP(S) base URL of the external registry, normally ending in `/r`. */
+  baseUrl: string
+  /** Parsed and validated external registry index. */
+  index: RegistryIndex
+}
 
 export type CompilerRegistryItemType = Extract<
   RegistryEntry['type'],
@@ -178,6 +187,12 @@ export interface AnalyzedImport {
   packageName?: string
   resolvedPath?: string
   iconNames: string[]
+  externalRegistry?: {
+    alias: string
+    baseUrl: string
+    item: string
+    private: boolean
+  }
 }
 
 export interface AnalyzedRegistryFile {
@@ -221,6 +236,8 @@ export interface AnalyzedRegistryItem extends Omit<
 export interface AnalyzeItemFilesOptions {
   /** Module prefix to absolute source directory mappings. */
   aliases?: Readonly<Record<string, string>>
+  /** Published catalogs used to resolve source imports without local files. */
+  externalRegistries?: readonly ExternalRegistryCatalog[]
 }
 
 export interface RegistryAnalysisResult {

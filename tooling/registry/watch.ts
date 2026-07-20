@@ -1,4 +1,4 @@
-import { type FSWatcher, readdir, watch } from 'node:fs'
+import { type FSWatcher, readFile, readdir, watch } from 'node:fs'
 import { stat } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -13,6 +13,7 @@ import {
 } from './public-registry'
 
 const watchers = new Map<string, FSWatcher>()
+const watchedFileSnapshots = new Map<string, string>()
 const ignoredDirectoryNames = new Set([
   '.git',
   '.next',
@@ -99,7 +100,21 @@ async function addFileWatcher(filename: string) {
     return
   }
 
-  const watcher = watch(filename, () => scheduleGeneration(filename))
+  try {
+    watchedFileSnapshots.set(filename, await readFile(filename, 'utf8'))
+  } catch {
+    return
+  }
+
+  const watcher = watch(filename, () => {
+    void readFile(filename, 'utf8')
+      .then((content) => {
+        if (watchedFileSnapshots.get(filename) === content) return
+        watchedFileSnapshots.set(filename, content)
+        scheduleGeneration(filename)
+      })
+      .catch(() => scheduleGeneration(filename))
+  })
   watcher.on('error', reportRegistryError)
   watchers.set(filename, watcher)
 }
@@ -115,6 +130,7 @@ function close() {
   if (debounce) clearTimeout(debounce)
   for (const watcher of watchers.values()) watcher.close()
   watchers.clear()
+  watchedFileSnapshots.clear()
 }
 
 process.once('SIGINT', () => {

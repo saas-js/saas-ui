@@ -296,10 +296,8 @@ describe('registry schema', () => {
     })
   })
 
-  it.each([
-    ['public', 'apps/website/public/r'],
-    ['Pro', 'packages/pro/packages/registry/public/r'],
-  ])('validates the current %s registry artifacts', async (_, relativePath) => {
+  it('validates the current public registry artifacts', async () => {
+    const relativePath = 'apps/website/public/r'
     const registryPath = path.join(repositoryRoot, relativePath)
     const index = JSON.parse(
       await fs.readFile(path.join(registryPath, 'index.json'), 'utf8'),

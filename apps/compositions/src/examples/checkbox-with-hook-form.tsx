@@ -1,7 +1,7 @@
 'use client'
 
-import { Controller, useForm } from '@saas-ui/forms'
-import { Button, Code, HStack, Stack, Field } from '@chakra-ui/react'
+import { Button, Code, Field, HStack, Stack } from '@chakra-ui/react'
+import { Form, useAppForm } from 'compositions/components/forms'
 import { Checkbox } from 'compositions/ui/checkbox'
 import { z } from 'zod'
 
@@ -10,37 +10,44 @@ const formSchema = z.object({
 })
 
 export const CheckboxWithHookForm = () => {
-  const form = useForm({
-    schema: formSchema,
+  const form = useAppForm({
+    validators: { onSubmit: formSchema },
     defaultValues: { enabled: false },
-    onSubmit: (data) => console.log(data),
+    onSubmit: ({ value }) => console.log(value),
   })
 
   return (
-    <form.Form>
+    <Form form={form}>
       <Stack align="flex-start">
-        <Controller
-          control={form.control}
-          name="enabled"
-          render={({ field, fieldState }) => (
-            <Field.Root disabled={field.disabled} invalid={fieldState.invalid}>
+        <form.AppField name="enabled">
+          {(field) => (
+            <Field.Root invalid={field.state.meta.isTouched}>
               <Field.Label>Checkbox</Field.Label>
               <Checkbox
-                checked={field.value}
-                onCheckedChange={({ checked }) => field.onChange(checked)}
+                checked={field.state.value === true}
+                onCheckedChange={({ checked }) =>
+                  field.handleChange(checked === true)
+                }
+                inputProps={{ onBlur: field.handleBlur }}
               >
                 Checkbox
               </Checkbox>
-              <Field.ErrorText>{fieldState.error?.message}</Field.ErrorText>
+              {field.state.meta.errors[0] && (
+                <Field.ErrorText>
+                  {String(field.state.meta.errors[0])}
+                </Field.ErrorText>
+              )}
             </Field.Root>
           )}
-        />
+        </form.AppField>
 
         <HStack>
           <Button
             size="xs"
             variant="outline"
-            onClick={() => form.setValue('enabled', !form.getValues('enabled'))}
+            onClick={() =>
+              form.setFieldValue('enabled', !form.getFieldValue('enabled'))
+            }
           >
             Toggle
           </Button>
@@ -53,10 +60,12 @@ export const CheckboxWithHookForm = () => {
           Submit
         </Button>
 
-        <Code>
-          Checked: {JSON.stringify(form.getValues('enabled'), null, 2)}
-        </Code>
+        <form.Subscribe selector={(state) => state.values.enabled}>
+          {(enabled) => (
+            <Code>Checked: {JSON.stringify(enabled, null, 2)}</Code>
+          )}
+        </form.Subscribe>
       </Stack>
-    </form.Form>
+    </Form>
   )
 }

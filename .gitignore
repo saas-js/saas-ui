@@ -67,6 +67,7 @@ yarn-error.log*
 .changelogrc
 
 *storybook.log
+/packages/storybook/storybook-static/
 
 ## Panda
 styled-system
@@ -86,8 +87,9 @@ node_modules/
 # Generated registry artifacts (authored icon sources remain tracked)
 /apps/website/public/r/
 /apps/website/__registry__/
-/packages/pro/packages/registry/public/r/
-/packages/pro/packages/registry/__registry__/
+
+# Local standalone Pro checkout
+/packages/pro/
 
 # Impeccable local critique reports
 .impeccable/

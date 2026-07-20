@@ -9,8 +9,8 @@ published transactionally to `apps/website/public/r` and
 Run these commands from the repository root:
 
 - `pnpm registry:generate` validates and writes every public artifact.
-- `pnpm registry:prepare` deterministically writes both the public and Pro
-  catalogs. The root install lifecycle runs this after dependencies are linked.
+- `pnpm registry:prepare` deterministically writes the public catalog. The root
+  install lifecycle runs this after dependencies are linked.
 - `pnpm registry:dev` generates once and watches registry, compiler, and preset
   source files. It never watches generated output.
 - `pnpm registry:check` validates the graph and compares two independent clean
@@ -23,18 +23,14 @@ Run these commands from the repository root:
 - `pnpm registry:test` runs the shared compiler and automation tests.
 - `pnpm registry:icons` explicitly downloads the configured Lucide icons and
   updates their checked-in source templates.
-- `pnpm registry:pro:ci` generates the public and checked-out Pro catalogs,
-  verifies two independent Pro generations byte for byte, runs its
-  shared-compiler/service/consumer tests, and builds the strict clean consumer
-  fixture. It requires the private Pro submodule.
 - `pnpm registry:cli:acceptance` builds the distributable CLI and drives its
   real process boundary through `init`, `add`, `diff`, `update`, and migration
   against a temporary project and the canonical local registry.
 - `pnpm registry:consumer:packed:acceptance` packs the preset and CLI, installs
   those tarballs with pnpm offline outside the workspace, runs the built CLI,
   and type-checks and builds the resulting Next.js consumer.
-- `pnpm registry:release` compiles and validates the complete public and private
-  artifact set, then assembles one deterministic release candidate under
+- `pnpm registry:release` compiles and validates the complete public artifact
+  set, then assembles one deterministic release candidate under
   `.artifacts/registry-release`. The candidate contains both JSON catalogs and
   preview indexes, with a joint checksummed manifest, and is verified before an
   atomic local directory swap.
@@ -89,13 +85,9 @@ verified unit to an immutable `releases/<releaseDigest>/` location and only then
 atomically switch a single current-release pointer. That external promotion is
 intentionally separate from repository-local generation.
 
-`release-promotion.ts` defines that promotion boundary and includes a tested
-filesystem implementation. It verifies the combined candidate, writes public and
-Pro catalogs to separate immutable `<root>/releases/<releaseDigest>` locations,
-stores the joint manifest in a separate control root, and compare-and-swaps one
-`current.json` pointer only after both destinations succeed. CDN/object-storage
-adapters must preserve that ordering, separation, immutability, and CAS
-contract; credentials and the production provider remain external.
+The public release bundle is intentionally limited to public artifacts. Pro
+registry publication is owned by the standalone Pro repository and should use
+its own immutable release location and authorization boundary.
 
 ## Manual npm deprecation
 

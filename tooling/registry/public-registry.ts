@@ -18,7 +18,7 @@ import {
   icons,
 } from '../../apps/website/registry/registry-icons'
 import { version as chakraPresetVersion } from '../../packages/saas-ui-chakra-preset/package.json'
-import { presetRecipeKeys } from '../../packages/saas-ui-chakra-preset/src/recipe-keys.ts'
+import { presetRecipeKeys } from '@saas-ui/chakra-preset/recipe-keys'
 
 export const repositoryRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),

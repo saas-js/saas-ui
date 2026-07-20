@@ -84,6 +84,23 @@ export function resolveDependencyGraph(
 
     for (const file of item.files) {
       for (const imported of file.imports) {
+        if (imported.externalRegistry) {
+          if (imported.externalRegistry.private) {
+            diagnostics.push({
+              code: 'external-registry-private-item',
+              message: `External registry item "${imported.externalRegistry.item}" is private and cannot be consumed through a public catalog dependency`,
+              severity: 'error',
+              stage: 'graph',
+              itemName: item.name,
+              filePath: file.path,
+              moduleSpecifier: imported.specifier,
+              dependency: imported.externalRegistry.item,
+            })
+          } else {
+            registryDependencies.add(imported.externalRegistry.baseUrl)
+          }
+          continue
+        }
         if (imported.kind === 'external' && imported.packageName) {
           const packageName = packageRootFromSpecifier(imported.specifier)
           if (

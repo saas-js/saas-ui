@@ -21,6 +21,7 @@ import type {
 import {
   isPathInside,
   isRegistryNonInstallableSource,
+  isRegistryPreviewSource,
   isRegistryTypeTestSource,
   isSafeRelativePath,
 } from './path-utils.js'
@@ -494,6 +495,13 @@ export function validateRegistry(
 
     for (const field of ['preview', 'primaryFile'] as const) {
       const configuredPath = item.metadata[field]
+      if (
+        field === 'preview' &&
+        configuredPath &&
+        !isRegistryPreviewSource(configuredPath)
+      ) {
+        continue
+      }
       if (configuredPath && isRegistryTypeTestSource(configuredPath)) {
         const label = field === 'primaryFile' ? 'primary file' : 'preview'
         diagnostics.push({

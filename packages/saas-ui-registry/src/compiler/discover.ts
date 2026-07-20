@@ -16,6 +16,7 @@ import {
   isPathInside,
   isRegistryAuxiliarySource,
   isRegistryExampleSource,
+  isRegistryPreviewSource,
   isRegistryTypeTestSource,
   isSafeRelativePath,
   isTypeScriptDeclarationSource,
@@ -411,7 +412,7 @@ async function createDirectoryItem(args: {
   // A preview may be a local source file for the public registry or a stable
   // Storybook story id for an external preview runtime.
   const previewPath =
-    config.preview && /\.(?:[cm]?[jt]sx?)$/.test(config.preview)
+    config.preview && isRegistryPreviewSource(config.preview)
       ? await resolveOwnedConfiguredPath({
           diagnostics: context.diagnostics,
           itemName: name,

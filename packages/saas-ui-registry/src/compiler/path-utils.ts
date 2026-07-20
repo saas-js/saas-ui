@@ -34,6 +34,11 @@ export function isRegistryTypeTestSource(filePath: string) {
   return /(?:^|\.)(?:test-d|spec-d|type-tests?)\.[cm]?[jt]sx?$/i.test(basename)
 }
 
+/** Whether a preview value identifies a local JavaScript/TypeScript module. */
+export function isRegistryPreviewSource(value: string) {
+  return /\.[cm]?[jt]sx?$/i.test(value)
+}
+
 /** Test, story and preview support files that must never enter a payload. */
 export function isRegistryAuxiliarySource(filePath: string) {
   const normalized = filePath.replaceAll('\\', '/')

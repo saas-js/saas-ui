@@ -354,6 +354,70 @@ describe('registry artifact emitter', () => {
     )
   })
 
+  it('preserves external preview ids without treating them as modules', () => {
+    const artifacts = createRegistryArtifacts({
+      items: [
+        {
+          name: 'add-contact-drawer',
+          type: 'registry:block',
+          preview: 'blocks-drawers-add-contact-drawer--default',
+          files: [
+            {
+              path: 'blocks/drawers/add-contact-drawer/add-contact-drawer.tsx',
+              content: 'export const AddContactDrawer = () => null',
+              type: 'registry:block',
+              hasRenderableDefaultExport: false,
+            },
+          ],
+        },
+      ],
+    })
+    const preview = artifacts.files.find(
+      (file) => file.path === '__registry__/index.tsx',
+    )
+    const index = JSON.parse(
+      artifacts.files.find((file) => file.path === 'index.json')?.content ??
+        '[]',
+    )
+    const payload = JSON.parse(
+      artifacts.files.find(
+        (file) => file.path === 'styles/default/add-contact-drawer.json',
+      )?.content ?? '{}',
+    )
+
+    expect(index[0].preview).toBe('blocks-drawers-add-contact-drawer--default')
+    expect(payload.preview).toBe('blocks-drawers-add-contact-drawer--default')
+    expect(preview?.content).toContain(
+      'preview: "blocks-drawers-add-contact-drawer--default"',
+    )
+    expect(preview?.content).not.toContain(
+      'import("blocks-drawers-add-contact-drawer--default")',
+    )
+    expect(artifacts.validationReport).toMatchObject({
+      valid: true,
+      errors: 0,
+    })
+    const withoutPreview = createRegistryArtifacts({
+      items: [
+        {
+          name: 'add-contact-drawer',
+          type: 'registry:block',
+          files: [
+            {
+              path: 'blocks/drawers/add-contact-drawer/add-contact-drawer.tsx',
+              content: 'export const AddContactDrawer = () => null',
+              type: 'registry:block',
+              hasRenderableDefaultExport: false,
+            },
+          ],
+        },
+      ],
+    })
+    expect(artifacts.contentHashes['add-contact-drawer']).toBe(
+      withoutPreview.contentHashes['add-contact-drawer'],
+    )
+  })
+
   it('does not lazy-load a named-only component without default-export proof', () => {
     const artifacts = createRegistryArtifacts({
       items: [

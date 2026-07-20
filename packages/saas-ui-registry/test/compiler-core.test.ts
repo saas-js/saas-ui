@@ -1110,6 +1110,36 @@ describe('registry compiler core', () => {
     ).toMatchObject({ hasRenderableDefaultExport: false })
   })
 
+  it('accepts external preview ids without resolving them as files', async () => {
+    const root = await createFixture({
+      'blocks/add-contact-drawer/component.config.ts': `
+        export default {
+          preview: 'blocks-drawers-add-contact-drawer--default',
+        }
+      `,
+      'blocks/add-contact-drawer/add-contact-drawer.tsx': `
+        export const AddContactDrawer = () => null
+      `,
+    })
+    const discovered = await discoverRegistryItems({ sourceRoots: [root] })
+    const item = discovered.items.find(
+      (candidate) => candidate.name === 'add-contact-drawer',
+    )
+    const analyzed = await analyzeItemFiles(discovered)
+    const report = validateRegistry(resolveDependencyGraph(analyzed))
+
+    expect(item?.previewPath).toBeUndefined()
+    expect(item?.metadata.preview).toBe(
+      'blocks-drawers-add-contact-drawer--default',
+    )
+    expect(report.valid).toBe(true)
+    expect(report.diagnostics).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'configured-preview-not-found' }),
+      ]),
+    )
+  })
+
   describe('exclusive alternative metadata', () => {
     it('accepts provider alternatives with a shared target', async () => {
       const report = await validateFixture({

@@ -27,6 +27,7 @@ import type {
 } from './model.js'
 import {
   isRegistryNonInstallableSource,
+  isRegistryPreviewSource,
   isRegistryTypeTestSource,
 } from './path-utils.js'
 
@@ -279,7 +280,7 @@ function normalizeItem(item: EmitRegistryItem): NormalizedRegistryItem {
 
 function itemPayload(item: NormalizedRegistryItem) {
   const {
-    preview: _preview,
+    preview,
     previewAnalysis: _previewAnalysis,
     primaryFile: _primaryFile,
     files,
@@ -287,6 +288,7 @@ function itemPayload(item: NormalizedRegistryItem) {
   } = item
   return {
     ...payload,
+    ...(preview && !isRegistryPreviewSource(preview) ? { preview } : {}),
     files: files.map(
       ({ hasRenderableDefaultExport: _hasRenderableDefaultExport, ...file }) =>
         file,
@@ -295,7 +297,8 @@ function itemPayload(item: NormalizedRegistryItem) {
 }
 
 function itemHash(item: NormalizedRegistryItem) {
-  return sha256(json(itemPayload(item)))
+  const { preview: _preview, ...payload } = itemPayload(item)
+  return sha256(json(payload))
 }
 
 function withContentHash(item: NormalizedRegistryItem) {
@@ -352,6 +355,10 @@ function selectPreviewFile(
     return { ...item.previewAnalysis, selection: 'preview' }
   }
 
+  if (item.preview && !isRegistryPreviewSource(item.preview)) {
+    return undefined
+  }
+
   const selected = item.preview ?? item.primaryFile
   if (selected) {
     const normalized = selected.replace(/^\.\//, '')
@@ -390,6 +397,10 @@ function createPreviewIndex(
     }
 
     const previewCandidate = selectPreviewFile(item)
+    const externalPreview =
+      item.preview && !isRegistryPreviewSource(item.preview)
+        ? item.preview
+        : undefined
     if (previewCandidate && isRegistryTypeTestSource(previewCandidate.path)) {
       diagnostics.push({
         code: 'preview-type-test-source',
@@ -428,8 +439,8 @@ function createPreviewIndex(
         `      files: ${JSON.stringify(
           item.files.map((file) => `../${file.path}`),
         )},\n` +
-        (previewFile
-          ? `      preview: ${JSON.stringify(previewFile.path)},\n`
+        (externalPreview || previewFile
+          ? `      preview: ${JSON.stringify(externalPreview ?? previewFile?.path)},\n`
           : '') +
         (previewFile?.hasRenderableDefaultExport
           ? `      component: React.lazy(() => import(${JSON.stringify(

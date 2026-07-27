@@ -1,1 +1,1 @@
-export { Timeline } from '@chakra-ui/react/timeline'
+export * as Timeline from './timeline.tsx'

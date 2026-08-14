@@ -9,7 +9,8 @@ export const addCommand = buildCommand({
     flags: {
       all: {
         kind: 'boolean',
-        brief: 'Add all available components',
+        brief:
+          'Add every public installable item, using defaults for exclusive groups.',
       },
       yes: {
         kind: 'boolean',
@@ -18,6 +19,19 @@ export const addCommand = buildCommand({
       overwrite: {
         kind: 'boolean',
         brief: 'Overwrite existing files.',
+      },
+      dryRun: {
+        kind: 'boolean',
+        brief: 'Show the install plan without changing the project.',
+      },
+      diff: {
+        kind: 'parsed',
+        parse: String,
+        optional: true,
+        inferEmpty: true,
+        placeholder: 'path',
+        brief:
+          'Show registry file differences without changing the project. Optionally filter by path.',
       },
       cwd: {
         kind: 'parsed',
@@ -28,17 +42,6 @@ export const addCommand = buildCommand({
       silent: {
         kind: 'boolean',
         brief: 'Mute output.',
-      },
-      srcDir: {
-        kind: 'boolean',
-        optional: true,
-        brief: 'Use the src directory when creating a new project.',
-      },
-      path: {
-        kind: 'parsed',
-        parse: String,
-        optional: true,
-        brief: 'The path to add the component to.',
       },
     },
     positional: {

@@ -1,7 +1,7 @@
 'use client'
 
-import { For, HStack } from '@saas-ui/react'
-import { CloseButton } from '@saas-ui/react'
+import { For, HStack } from '@chakra-ui/react'
+import { CloseButton } from 'compositions/ui/close-button'
 
 export const CloseButtonWithSizes = () => {
   return (

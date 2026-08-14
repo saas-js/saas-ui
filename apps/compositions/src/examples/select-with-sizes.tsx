@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Stack, createListCollection } from '@saas-ui/react'
-import { Select } from '@saas-ui/react'
+import { For, Stack, createListCollection } from '@chakra-ui/react'
+import { Select } from 'compositions/ui/select'
 
 export const SelectWithSizes = () => {
   return (

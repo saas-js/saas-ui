@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { Tag } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { Tag } from 'compositions/ui/tag'
 import { LuActivity } from 'react-icons/lu'
 
 export const TagWithClose = () => {

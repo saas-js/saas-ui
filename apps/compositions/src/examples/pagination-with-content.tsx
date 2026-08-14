@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { HStack, Stack, Text } from '@saas-ui/react'
-import { Pagination } from '@saas-ui/react'
+import { HStack, Stack, Text } from '@chakra-ui/react'
+import { Pagination } from 'compositions/ui/pagination'
 
 const pageSize = 5
 const count = 50

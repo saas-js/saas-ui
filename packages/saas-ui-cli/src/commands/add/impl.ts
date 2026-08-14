@@ -11,22 +11,28 @@ import { handleError } from '#utils/handle-error'
 import { highlighter } from '#utils/highlighter'
 import { logger } from '#utils/logger'
 import { getRegistryIndex } from '#utils/registry'
+import { selectAllRegistryItems } from '#utils/registry/select-items'
 
 import type { LocalContext } from '../../context'
 
 export const addOptionsFlagsSchema = z.object({
   yes: z.boolean(),
   overwrite: z.boolean(),
+  dryRun: z.boolean(),
+  diff: z.string().optional(),
   cwd: z.string().optional(),
   all: z.boolean(),
-  path: z.string().optional(),
   silent: z.boolean(),
-  srcDir: z.boolean().optional(),
 })
 
-const addOptionsSchema = addOptionsFlagsSchema.extend({
-  components: z.array(z.string()).optional(),
-})
+const addOptionsSchema = addOptionsFlagsSchema
+  .extend({
+    components: z.array(z.string()).optional(),
+  })
+  .refine(
+    (options) => !(options.all && options.components?.length),
+    '--all cannot be combined with explicitly named components.',
+  )
 
 type AddCommandFlags = z.infer<typeof addOptionsFlagsSchema>
 type AddCommandOptions = z.infer<typeof addOptionsSchema>
@@ -35,21 +41,29 @@ export type AddOptions = AddCommandOptions & {
   cwd: string
 }
 
+export function resolveAddCommandOptions(
+  flags: AddCommandFlags,
+  components: readonly string[],
+  defaultCwd = process.cwd(),
+): AddOptions {
+  const parsed = addOptionsSchema.parse({
+    ...flags,
+    components: [...components],
+  })
+  return {
+    ...parsed,
+    dryRun: parsed.dryRun || parsed.diff !== undefined,
+    cwd: path.resolve(parsed.cwd ?? defaultCwd),
+  }
+}
+
 export async function add(
   this: LocalContext,
   flags: AddCommandFlags,
   ...components: Array<string>
 ): Promise<void> {
   try {
-    const parsedFlags = addOptionsSchema.parse({
-      ...flags,
-      components: components ?? [],
-    })
-
-    const options = {
-      ...parsedFlags,
-      cwd: path.resolve(parsedFlags.cwd ?? process.cwd()),
-    }
+    const options = resolveAddCommandOptions(flags, components)
 
     if (!options.components?.length) {
       options.components = await promptForRegistryComponents(options)
@@ -70,14 +84,12 @@ export async function add(
 
     // No components.json file. Prompt the user to run init.
     if (result.errors[ERRORS.MISSING_CONFIG]) {
-      const { proceed } = await prompts({
-        type: 'confirm',
-        name: 'proceed',
-        message: `You need to create a ${highlighter.info(
-          'components.json',
-        )} file to add components. Proceed?`,
-        initial: true,
-      })
+      if (options.dryRun) {
+        throw new Error(
+          'A components.json file is required for --dry-run. Run init first.',
+        )
+      }
+      const proceed = await confirmMissingConfigInit(options.yes)
 
       if (!proceed) {
         logger.break()
@@ -92,6 +104,7 @@ export async function add(
         skipPreflight: false,
         silent: true,
         isNewProject: false,
+        starter: false,
       })
     }
 
@@ -108,6 +121,29 @@ export async function add(
   }
 }
 
+type MissingConfigConfirmation = () => Promise<boolean>
+
+/**
+ * Keeps the missing-config branch testable and guarantees that `--yes` never
+ * opens an interactive confirmation prompt.
+ */
+export async function confirmMissingConfigInit(
+  yes: boolean,
+  confirm: MissingConfigConfirmation = async () => {
+    const { proceed } = await prompts({
+      type: 'confirm',
+      name: 'proceed',
+      message: `You need to create a ${highlighter.info(
+        'components.json',
+      )} file to add components. Proceed?`,
+      initial: true,
+    })
+    return Boolean(proceed)
+  },
+) {
+  return yes ? true : confirm()
+}
+
 async function promptForRegistryComponents(
   options: z.infer<typeof addOptionsSchema>,
 ) {
@@ -119,7 +155,7 @@ async function promptForRegistryComponents(
   }
 
   if (options.all) {
-    return registryIndex.map((entry) => entry.name)
+    return selectAllRegistryItems(registryIndex)
   }
 
   if (options.components?.length) {
@@ -133,7 +169,12 @@ async function promptForRegistryComponents(
     hint: 'Space to select. A to toggle all. Enter to submit.',
     instructions: false,
     choices: registryIndex
-      .filter((entry) => entry.type === 'registry:block')
+      .filter(
+        (entry) =>
+          entry.type === 'registry:block' ||
+          entry.type === 'registry:component' ||
+          entry.type === 'registry:ui',
+      )
       .map((entry) => ({
         title: `${entry.category}/${entry.subcategory}/${entry.name} ${entry.private ? kleur.blue(kleur.bold('(PRO)')) : ''}`,
         value: entry.name,

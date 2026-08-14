@@ -1,7 +1,10 @@
-'use client'
-
+'use client';
 import { SaasUILogo } from '@saas-ui/assets'
-import { AppShell, Navbar, Page, SearchInput, Spacer } from '@saas-ui/react'
+import { AppShell } from 'compositions/ui/app-shell'
+import { Navbar } from 'compositions/ui/navbar'
+import { Page } from 'compositions/ui/page'
+import { SearchInput } from 'compositions/ui/search-input'
+import { Spacer } from '@chakra-ui/react'
 
 export const AppShellNavbar = () => {
   return (

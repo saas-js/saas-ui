@@ -1,7 +1,8 @@
 'use client'
 
-import { Box, Container, Grid, Heading, Text } from '@saas-ui/react'
-import { Persona } from '@saas-ui/react'
+import { Box, Container, Grid, Heading, Text } from '@chakra-ui/react'
+
+import { Persona } from '#components/ui/persona'
 
 export function FounderSection() {
   return (

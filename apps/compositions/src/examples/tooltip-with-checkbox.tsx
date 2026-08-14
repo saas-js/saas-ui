@@ -1,8 +1,8 @@
-'use client'
-
+'use client';
 import { useId } from 'react'
 
-import { Checkbox, Tooltip } from '@saas-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 export const TooltipWithCheckbox = () => {
   const id = useId()

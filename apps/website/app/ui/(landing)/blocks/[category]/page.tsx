@@ -1,5 +1,5 @@
 import { CATEGORIES_SLUGS, getCategoryData } from '@/blocks'
-import { getAllComponents, getComponentsByCategory } from '@/blocks/components'
+import { getComponentsByCategory } from '@/blocks/components'
 import { CategoryPage } from '@/components/blocks/category-page'
 import { notFound } from 'next/navigation'
 

@@ -1,7 +1,5 @@
-'use client'
-
-import { Group, Stack } from '@saas-ui/react'
-import { Input, InputAddon } from '@saas-ui/react'
+'use client';
+import { Group, Stack, Input, InputAddon } from '@chakra-ui/react'
 
 export const InputWithAddon = () => (
   <Stack gap="10">

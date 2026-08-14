@@ -1,7 +1,7 @@
 'use client'
 
-import { Box } from '@saas-ui/react'
-import { Button, Menu } from '@saas-ui/react'
+import { Box, Button } from '@chakra-ui/react'
+import { Menu } from 'compositions/ui/menu'
 import { LuClipboardPaste, LuCopy, LuScissors } from 'react-icons/lu'
 
 export const MenuWithIconAndCommand = () => {

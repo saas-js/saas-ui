@@ -1,6 +1,6 @@
 'use client'
 
-import { Accordion } from '@saas-ui/react'
+import { Accordion } from 'compositions/ui/accordion'
 
 export const AccordionWithDisabledItem = () => {
   return (

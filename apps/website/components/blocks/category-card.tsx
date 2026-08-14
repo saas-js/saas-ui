@@ -1,13 +1,5 @@
 import { Category } from '@/blocks'
-import {
-  Card,
-  Flex,
-  Heading,
-  Image,
-  LinkBox,
-  LinkOverlay,
-  Text,
-} from '@saas-ui/react'
+import { Card, Flex, Heading, Image, LinkBox, LinkOverlay, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
 export interface CategoryCardProps {

@@ -1,21 +1,36 @@
 {
+  "files": [
+    {
+      "content": "export { ToggleTip, type ToggleTipProps } from './toggle-tip.tsx'\n",
+      "path": "ui/toggle-tip/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Popover } from '../popover/index.ts'\nimport { Portal } from '../portal/index.ts'\n\nexport interface ToggleTipProps extends Popover.RootProps {\n  /**\n   * Whether to show the arrow.\n   * @default true\n   */\n  showArrow?: boolean\n  /**\n   * Whether to portall the content.\n   * @default true\n   */\n  portalled?: boolean\n  /**\n   * The ref to the portal.\n   */\n  portalRef?: React.RefObject<HTMLElement>\n  /**\n   * The content to display in the tooltip.\n   */\n  content?: React.ReactNode\n  /**\n   * The trigger element.\n   */\n  children: React.ReactNode\n}\n\nexport const ToggleTip = React.forwardRef<HTMLDivElement, ToggleTipProps>(\n  function ToggleTip(props, ref) {\n    const {\n      showArrow,\n      children,\n      portalled = true,\n      content,\n      portalRef,\n      ...rest\n    } = props\n\n    return (\n      <Popover.Root {...rest} positioning={{ ...rest.positioning, gutter: 4 }}>\n        <Popover.Trigger asChild>{children}</Popover.Trigger>\n\n        <Portal disabled={!portalled} container={portalRef}>\n          <Popover.Content\n            width=\"auto\"\n            px=\"2\"\n            py=\"1\"\n            textStyle=\"xs\"\n            rounded=\"sm\"\n            ref={ref}\n          >\n            {showArrow && <Popover.Arrow />}\n            {content}\n          </Popover.Content>\n        </Portal>\n      </Popover.Root>\n    )\n  },\n)\n",
+      "path": "ui/toggle-tip/toggle-tip.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/toggle-tip/index.ts": "3dbb9e619633b21802eb7c03c916467427dac70f365ac6a290d4bd6c9bdb310b",
+        "ui/toggle-tip/toggle-tip.tsx": "7805769d1a9872695cd4a3b39f1dec13bed8cd9cda8ffd6293a1431701b1dcf3"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "a069500b9d47d462cbc33cd9495bd254e6a2f00a8cb30beadaa3ea390509265f"
+  },
   "name": "toggle-tip",
-  "type": "registry:ui",
-  "dependencies": [],
   "registryDependencies": [
     "popover",
     "portal"
   ],
-  "files": [
-    {
-      "path": "ui/toggle-tip/index.ts",
-      "content": "export { ToggleTip, type ToggleTipProps } from './toggle-tip.tsx'\n",
-      "type": "registry:ui"
-    },
-    {
-      "path": "ui/toggle-tip/toggle-tip.tsx",
-      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Popover } from '../popover/index.ts'\nimport { Portal } from '../portal/index.ts'\n\nexport interface ToggleTipProps extends Popover.RootProps {\n  /**\n   * Whether to show the arrow.\n   * @default true\n   */\n  showArrow?: boolean\n  /**\n   * Whether to portall the content.\n   * @default true\n   */\n  portalled?: boolean\n  /**\n   * The ref to the portal.\n   */\n  portalRef?: React.RefObject<HTMLElement>\n  /**\n   * The content to display in the tooltip.\n   */\n  content?: React.ReactNode\n  /**\n   * The trigger element.\n   */\n  children: React.ReactNode\n}\n\nexport const ToggleTip = React.forwardRef<HTMLDivElement, ToggleTipProps>(\n  function ToggleTip(props, ref) {\n    const {\n      showArrow,\n      children,\n      portalled = true,\n      content,\n      portalRef,\n      ...rest\n    } = props\n\n    return (\n      <Popover.Root {...rest} positioning={{ ...rest.positioning, gutter: 4 }}>\n        <Popover.Trigger asChild>{children}</Popover.Trigger>\n\n        <Portal disabled={!portalled} container={portalRef}>\n          <Popover.Content\n            width=\"auto\"\n            px=\"2\"\n            py=\"1\"\n            textStyle=\"xs\"\n            rounded=\"sm\"\n            ref={ref}\n          >\n            {showArrow && <Popover.Arrow />}\n            {content}\n          </Popover.Content>\n        </Portal>\n      </Popover.Root>\n    )\n  },\n)\n",
-      "type": "registry:ui"
-    }
-  ]
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

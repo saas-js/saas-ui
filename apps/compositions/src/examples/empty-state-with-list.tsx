@@ -1,7 +1,7 @@
 'use client'
 
-import { List } from '@saas-ui/react'
-import { EmptyState } from '@saas-ui/react'
+import { List } from '@chakra-ui/react'
+import { EmptyState } from 'compositions/ui/empty-state'
 import { LuSearch } from 'react-icons/lu'
 
 export const EmptyStateWithList = () => {

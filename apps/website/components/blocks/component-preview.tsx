@@ -1,7 +1,7 @@
 'use client'
 
 import { CanvasAttributes } from '@/blocks'
-import { Box } from '@saas-ui/react'
+import { Box } from '@chakra-ui/react'
 
 interface ComponentPreviewProps {
   children: React.ReactNode

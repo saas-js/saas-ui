@@ -2,8 +2,9 @@
 
 import { useRef } from 'react'
 
-import { Input, Stack } from '@saas-ui/react'
-import { Button, Dialog } from '@saas-ui/react'
+import { Input, Stack } from '@chakra-ui/react'
+import { Button } from 'compositions/ui/button'
+import { Dialog } from 'compositions/ui/dialog'
 
 export const DialogWithInitialFocus = () => {
   const ref = useRef<HTMLInputElement>(null)

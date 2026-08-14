@@ -1,25 +1,35 @@
 {
-  "name": "checkbox",
-  "type": "registry:ui",
   "dependencies": [
     "@chakra-ui/react"
   ],
-  "registryDependencies": [],
   "files": [
     {
-      "path": "ui/checkbox/checkbox.stories.tsx",
-      "content": "import React from 'react'\n\nimport { Field, Stack } from '@chakra-ui/react'\nimport { HStack } from '@chakra-ui/react'\nimport { Meta, type StoryObj } from '@storybook/react-vite'\n\nimport { Checkbox } from './checkbox.tsx'\n\nexport default {\n  title: 'Components/Checkbox',\n  component: Checkbox,\n}\n\ntype Story = StoryObj<typeof Checkbox>\n\nexport const Default: Story = {}\n\nexport const Checked: Story = {\n  args: {\n    checked: true,\n  },\n}\n\nexport const Indeterminate: Story = {\n  args: {\n    checked: 'indeterminate',\n  },\n}\n\nexport const Disabled: Story = {\n  args: {\n    disabled: true,\n  },\n}\n\nexport const Sizes: Story = {\n  render: () => (\n    <HStack>\n      <Stack>\n        <Checkbox size=\"sm\" />\n        <Checkbox size=\"md\" />\n        <Checkbox size=\"lg\" />\n      </Stack>\n      <Stack>\n        <Checkbox size=\"sm\" checked />\n        <Checkbox size=\"md\" checked />\n        <Checkbox size=\"lg\" checked />\n      </Stack>\n    </HStack>\n  ),\n}\n\nexport const Variants: Story = {\n  render: () => (\n    <HStack>\n      <Stack>\n        <Checkbox variant=\"outline\" />\n        <Checkbox variant=\"outline\" checked />\n      </Stack>\n      <Stack>\n        <Checkbox variant=\"solid\" />\n        <Checkbox variant=\"solid\" checked />\n      </Stack>\n      <Stack>\n        <Checkbox variant=\"subtle\" />\n        <Checkbox variant=\"subtle\" checked />\n      </Stack>\n    </HStack>\n  ),\n}\n\nexport const WithLabel: Story = {\n  render: () => <Checkbox>Accept terms and conditions</Checkbox>,\n}\n\nexport const WithLabelDisabled: Story = {\n  render: () => <Checkbox disabled>Accept terms and conditions</Checkbox>,\n}\n",
-      "type": "registry:story"
-    },
-    {
-      "path": "ui/checkbox/checkbox.tsx",
       "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Checkbox as ChakraCheckbox } from '@chakra-ui/react/checkbox'\n\nexport interface CheckboxProps extends ChakraCheckbox.RootProps {\n  icon?: React.ReactNode\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n  rootRef?: React.Ref<HTMLLabelElement>\n}\n\nexport const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(\n  function Checkbox(props, ref) {\n    const { icon, children, inputProps, rootRef, ...rest } = props\n    return (\n      <ChakraCheckbox.Root ref={rootRef} {...rest}>\n        <ChakraCheckbox.HiddenInput ref={ref} {...inputProps} />\n        <ChakraCheckbox.Control>\n          {icon || <ChakraCheckbox.Indicator strokeWidth=\"4\" />}\n        </ChakraCheckbox.Control>\n        {children != null && (\n          <ChakraCheckbox.Label>{children}</ChakraCheckbox.Label>\n        )}\n      </ChakraCheckbox.Root>\n    )\n  },\n)\n",
+      "path": "ui/checkbox/checkbox.tsx",
       "type": "registry:ui"
     },
     {
-      "path": "ui/checkbox/index.ts",
       "content": "export { Checkbox } from './checkbox.tsx'\nexport type { CheckboxProps } from './checkbox.tsx'\nexport {\n  CheckboxGroup,\n  type CheckboxGroupProps,\n} from '@chakra-ui/react/checkbox'\n",
+      "path": "ui/checkbox/index.ts",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/checkbox/checkbox.tsx": "3008de99365d18f4add6e505066675d47426645442ff131e8e2bb377136dab38",
+        "ui/checkbox/index.ts": "103bc5692e22e3cff34822df1a873fb1b70c1897b38f06771eab9b9fd9fe8e27"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "b178b62de1c19b290d7c894ea2d88772d8c3f4da685442cc707c8fd4149e8b6f"
+  },
+  "name": "checkbox",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

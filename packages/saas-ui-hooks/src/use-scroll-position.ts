@@ -31,7 +31,7 @@ export interface UseScrollPositionOptions {
   /**
    * The element to track the scroll position for.
    */
-  elementRef?: React.RefObject<HTMLElement> | null
+  elementRef?: React.RefObject<HTMLElement | null> | null
   /**
    * The callback function to be called when the scroll position changes.
    */

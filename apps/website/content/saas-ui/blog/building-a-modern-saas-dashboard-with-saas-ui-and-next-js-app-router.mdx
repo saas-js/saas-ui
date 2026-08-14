@@ -93,12 +93,12 @@ First, run the following command in your terminal to install the required
 packages:
 
 ```bash
-npm i @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+npx @saas-ui/cli init
 ```
 
 Here's a brief explanation of these packages:
 
-- `@saas-ui/react`: Saas UI itself.
+- `@saas-ui/cli`: installs the preset and user-owned Saas UI templates.
 - `@chakra-ui/react`: The Chakra UI package for React. Saas UI is built on top
   of Chakra UI, so it needs it as a dependency.
 - `@chakra-ui/next-js`: Chakra UI package for smoother integration with
@@ -121,7 +121,7 @@ _providers.jsx_ inside the app directory. Paste the following content in it:
 'use client'
 
 import { CacheProvider } from '@chakra-ui/next-js'
-import { SaasProvider } from '@saas-ui/react'
+import { Provider as SaasProvider } from '#components/setup/provider/provider'
 
 export function Providers({ children }) {
   return (
@@ -205,26 +205,15 @@ file called `SidebarLayout.jsx` inside it. Once the file is created, paste the
 following code inside it:
 
 ```tsx
-import {
-  Box,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Spacer,
-} from '@saas-ui/react'
-import {
-  AppShell,
-  NavItem,
-  PersonaAvatar,
-  Sidebar,
-  SidebarSection,
-  SidebarToggleButton,
-} from '@saas-ui/react'
+import { Box, Spacer } from '@chakra-ui/react'
+import { IconButton } from '#components/ui/icon-button'
+import { AppShell } from '#components/ui/app-shell'
+import { Menu } from '#components/ui/menu'
+import { Persona } from '#components/ui/persona/persona-composed'
+import { Sidebar } from '#components/ui/sidebar'
 import Image from 'next/image'
 import Logo from 'public/logoipsum-288.svg'
-import { FiBarChart, FiHome, FiSettings, FiUsers } from 'react-icons/fi'
+import { FiBarChart, FiHome, FiSettings, FiSidebar, FiUsers } from 'react-icons/fi'
 
 export function SidebarLayout({ children }) {
   return (
@@ -232,33 +221,49 @@ export function SidebarLayout({ children }) {
       height="$100vh"
       fontSize="md"
       sidebar={
-        <Sidebar width="25%" bg="gray.100">
-          <SidebarToggleButton />
-          <SidebarSection direction="row">
+        <Sidebar.Provider>
+          <Sidebar.Root width="25%" bg="gray.100">
+            <Sidebar.Header>
+              <Sidebar.Trigger asChild>
+                <IconButton aria-label="Toggle sidebar" variant="ghost">
+                  <FiSidebar />
+                </IconButton>
+              </Sidebar.Trigger>
             <Image src={Logo} width="100" alt="Logo" />
             <Spacer />
-            <Menu>
-              <MenuButton
-                as={IconButton}
-                icon={
-                  <PersonaAvatar presence="online" size="xs" name="John Doe" />
-                }
-                variant="ghost"
-              />
-              <MenuList>
-                <MenuItem>Sign out</MenuItem>
-              </MenuList>
-            </Menu>
-          </SidebarSection>
-          <SidebarSection flex="1" overflowY="auto">
-            <NavItem icon={<FiHome size="1.1em" />}>Home</NavItem>
-            <NavItem icon={<FiUsers size="1.1em" />} isActive={true}>
-              Users
-            </NavItem>
-            <NavItem icon={<FiBarChart size="1.1em" />}>Analytics</NavItem>
-            <NavItem icon={<FiSettings size="1.1em" />}>Settings</NavItem>
-          </SidebarSection>
-        </Sidebar>
+            <Menu.Root>
+              <Menu.Trigger asChild>
+                <IconButton aria-label="User menu" variant="ghost">
+                  <Persona.Root presence="online">
+                    <Persona.Avatar size="xs" name="John Doe" />
+                  </Persona.Root>
+                </IconButton>
+              </Menu.Trigger>
+              <Menu.Content>
+                <Menu.Item value="sign-out">Sign out</Menu.Item>
+              </Menu.Content>
+            </Menu.Root>
+            </Sidebar.Header>
+          <Sidebar.Body flex="1" overflowY="auto">
+            <Sidebar.Group>
+              <Sidebar.GroupContent>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton><FiHome /> Home</Sidebar.NavButton>
+                </Sidebar.NavItem>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton active><FiUsers /> Users</Sidebar.NavButton>
+                </Sidebar.NavItem>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton><FiBarChart /> Analytics</Sidebar.NavButton>
+                </Sidebar.NavItem>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton><FiSettings /> Settings</Sidebar.NavButton>
+                </Sidebar.NavItem>
+              </Sidebar.GroupContent>
+            </Sidebar.Group>
+          </Sidebar.Body>
+          </Sidebar.Root>
+        </Sidebar.Provider>
       }
     >
       <Box as="main" overflow="auto" py="6" px="8" fontSize="md">
@@ -281,26 +286,23 @@ Let's quickly go over this code.
 
 - The _AppShell_ component accepts a sidebar prop. This prop is used to pass JSX
   for displaying a sidebar, as a component.
-- The _Sidebar_ and _SidebarSection_ components themselves are available from
-  the Saas UI package. The _Sidebar_ component consists of two SidebarSection's
-  for our design: one for displaying the logo and user profile image and the
-  other for displaying the navigation menu.
-- We'll also include Saas UI's _SidebarToggleButton_ for showing or hiding the
-  Sidebar on mobile/tablet devices.
-- The navigation items for the Sidebar are wrapped inside the _NavItem_
-  component, imported from the Saas UI package. The _children_ prop is provided
+- The installed _Sidebar_ template exposes `Sidebar.Header`, `Sidebar.Body`,
+  and `Sidebar.Footer` parts for the logo, account menu, navigation, and color
+  mode action.
+- `Sidebar.Trigger` toggles the Sidebar on mobile and tablet devices.
+- Navigation entries compose `Sidebar.NavItem` and `Sidebar.NavButton`. The
+  _children_ prop is provided
   inside the _Box_ component to display the child elements.
-- The _PersonaAvatar_ component in the above code is used for displaying the
-  user's profile image. It is imported from the Saas UI package. You can provide
+- The installed `Persona.Avatar` component displays the user's profile image.
+  You can provide
   a _src_ prop to it containing an image URL, and it'll display the image. If
   you don't want to display the image, pass another prop called _name_ with the
   user's name. In this case, it's _John Doe_, and it will display the initial of
   the name inside it. You can also provide a _presence_ prop that can either be
   _online_, _offline_, _busy_, _dnd_, or _away_. You can see more
   [in the docs](https://saas-ui.dev/docs/components/data-display/persona).
-- For an accessible dropdown menu that is Tab navigable,
-  [_Menu_](https://chakra-ui.com/docs/components/menu/usage), _MenuItem_,
-  _MenuButton_, _MenuList_, etc., are imported from the Chakra UI library. Check
+- For an accessible dropdown menu that is Tab navigable, the installed `Menu`
+  composition exposes `Menu.Trigger`, `Menu.Content`, and `Menu.Item`. Check
   [docs](https://chakra-ui.com/docs/components) here for a better understanding
   of their functionalities.
 
@@ -311,24 +313,13 @@ Chakra UI to do this. Add the following code to the `SidebarLayout.jsx` file:
 ```tsx
 'use client'
 
-import {
-  Box,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Spacer,
-  useColorMode,
-} from '@saas-ui/react'
-import {
-  AppShell,
-  NavItem,
-  PersonaAvatar,
-  Sidebar,
-  SidebarSection,
-  SidebarToggleButton,
-} from '@saas-ui/react'
+import { Box, Spacer } from '@chakra-ui/react'
+import { IconButton } from '#components/ui/icon-button'
+import { useColorMode } from '#components/setup/color-mode/color-mode'
+import { AppShell } from '#components/ui/app-shell'
+import { Menu } from '#components/ui/menu'
+import { Persona } from '#components/ui/persona/persona-composed'
+import { Sidebar } from '#components/ui/sidebar'
 import Image from 'next/image'
 import Logo from 'public/logoipsum-288.svg'
 import {
@@ -336,6 +327,7 @@ import {
   FiHome,
   FiMoon,
   FiSettings,
+  FiSidebar,
   FiSun,
   FiUsers,
 } from 'react-icons/fi'
@@ -348,40 +340,57 @@ export function SidebarLayout({ children }) {
       height="$100vh"
       fontSize="md"
       sidebar={
-        <Sidebar width="25%" bg="gray.100">
-          <SidebarToggleButton />
-          <SidebarSection direction="row">
+        <Sidebar.Provider>
+          <Sidebar.Root width="25%" bg="gray.100">
+            <Sidebar.Header>
+              <Sidebar.Trigger asChild>
+                <IconButton aria-label="Toggle sidebar" variant="ghost">
+                  <FiSidebar />
+                </IconButton>
+              </Sidebar.Trigger>
             <Image src={Logo} width="100" alt="Logo" />
             <Spacer />
-            <Menu>
-              <MenuButton
-                as={IconButton}
-                icon={
-                  <PersonaAvatar presence="online" size="xs" name="John Doe" />
-                }
-                variant="ghost"
-              />
-              <MenuList>
-                <MenuItem>Sign out</MenuItem>
-              </MenuList>
-            </Menu>
-          </SidebarSection>
-          <SidebarSection flex="1" overflowY="auto">
-            <NavItem icon={<FiHome size="1.2em" />}>Home</NavItem>
-            <NavItem icon={<FiUsers size="1.2em" />} isActive={true}>
-              Users
-            </NavItem>
-            <NavItem icon={<FiBarChart size="1.2em" />}>Analytics</NavItem>
-            <NavItem icon={<FiSettings size="1.2em" />}>Settings</NavItem>
-          </SidebarSection>
-          <SidebarSection alignItems="flex-start">
+            <Menu.Root>
+              <Menu.Trigger asChild>
+                <IconButton aria-label="User menu" variant="ghost">
+                  <Persona.Root presence="online">
+                    <Persona.Avatar size="xs" name="John Doe" />
+                  </Persona.Root>
+                </IconButton>
+              </Menu.Trigger>
+              <Menu.Content>
+                <Menu.Item value="sign-out">Sign out</Menu.Item>
+              </Menu.Content>
+            </Menu.Root>
+            </Sidebar.Header>
+          <Sidebar.Body flex="1" overflowY="auto">
+            <Sidebar.Group>
+              <Sidebar.GroupContent>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton><FiHome /> Home</Sidebar.NavButton>
+                </Sidebar.NavItem>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton active><FiUsers /> Users</Sidebar.NavButton>
+                </Sidebar.NavItem>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton><FiBarChart /> Analytics</Sidebar.NavButton>
+                </Sidebar.NavItem>
+                <Sidebar.NavItem>
+                  <Sidebar.NavButton><FiSettings /> Settings</Sidebar.NavButton>
+                </Sidebar.NavItem>
+              </Sidebar.GroupContent>
+            </Sidebar.Group>
+          </Sidebar.Body>
+          <Sidebar.Footer alignItems="flex-start">
             <IconButton
-              icon={colorMode === 'dark' ? <FiMoon /> : <FiSun />}
               aria-label="Toggle color mode"
               onClick={toggleColorMode}
-            />
-          </SidebarSection>
-        </Sidebar>
+            >
+              {colorMode === 'dark' ? <FiMoon /> : <FiSun />}
+            </IconButton>
+          </Sidebar.Footer>
+          </Sidebar.Root>
+        </Sidebar.Provider>
       }
     >
       <Box as="main" overflow="auto" py="6" px="8" fontSize="md">
@@ -493,23 +502,23 @@ Paste the below code into it:
 ```tsx
 'use client'
 
-import { Card, CardBody } from '@saas-ui/react'
-import { DataTable as DataTableRoot } from '@saas-ui/react'
+import { Card } from '@chakra-ui/react'
+import { DataGrid } from '@saas-ui-pro/react'
 
 export function DataTable({ columns, data }) {
   return (
-    <Card>
-      <CardBody overflowX="auto" px="0">
-        <DataTable columns={columns} data={data} />
-      </CardBody>
-    </Card>
+    <Card.Root>
+      <Card.Body overflowX="auto" px="0">
+        <DataGrid columns={columns} data={data} />
+      </Card.Body>
+    </Card.Root>
   )
 }
 ```
 
-The DataTable component is built using the
-[_DataTable_ component](https://saas-ui.dev/docs/components/data-display/data-table)
-imported from Saas UI. The _DatatableComponent_ takes two props. One is for the
+The DataTable component is built using the Pro
+[_DataGrid_ component](https://saas-ui.dev/docs/components/data-display/data-grid)
+installed in the project. The component takes two props. One is for the
 columns, and the other is for the data. These props are passed into the columns
 and data props of the _DataTable_ component.
 
@@ -517,7 +526,7 @@ Change the body of the page like this:
 
 ```tsx
 import { DataTable } from '@/components/DataTable'
-import { Box } from '@saas-ui/react'
+import { Box } from '@chakra-ui/react'
 
 export default async function Home() {
   const COLUMNS = [
@@ -550,19 +559,20 @@ Inside the parent Box component of the _DatatableComponent_, paste the following
 code:
 
 ```tsx
-import { Card, CardBody, CardHeader } from '@saas-ui/react'
-import { DataTable as DataTableRoot, SearchInput } from '@saas-ui/react'
+import { Card } from '@chakra-ui/react'
+import { SearchInput } from '#components/ui/search-input'
+import { DataGrid } from '@saas-ui-pro/react'
 
 export function DataTable({ columns, data }) {
   return (
-    <Card>
-      <CardHeader>
+    <Card.Root>
+      <Card.Header>
         <SearchInput width="40%" placeholder="Search" />
-      </CardHeader>
-      <CardBody overflowX="auto" px="0">
-        <DataTableRoot columns={columns} data={data} />
-      </CardBody>
-    </Card>
+      </Card.Header>
+      <Card.Body overflowX="auto" px="0">
+        <DataGrid columns={columns} data={data} />
+      </Card.Body>
+    </Card.Root>
   )
 }
 ```
@@ -588,16 +598,17 @@ Now change the `DataTable.jsx` file to the following:
 
 import React from 'react'
 
-import { Card, CardBody, CardHeader } from '@saas-ui/react'
-import { DataTable as DataTableRoot, SearchInput } from '@saas-ui/react'
+import { Card } from '@chakra-ui/react'
+import { SearchInput } from '#components/ui/search-input'
+import { DataGrid } from '@saas-ui-pro/react'
 import { getFilteredRowModel } from '@tanstack/react-table'
 
 export function DataTable({ columns, data }) {
   const [globalFilter, setGlobalFilter] = React.useState('')
 
   return (
-    <Card>
-      <CardHeader>
+    <Card.Root>
+      <Card.Header>
         <SearchInput
           width="40%"
           placeholder="Search"
@@ -605,17 +616,17 @@ export function DataTable({ columns, data }) {
           onChange={(e) => setGlobalFilter(e.target.value)}
           onReset={() => setGlobalFilter('')}
         />
-      </CardHeader>
-      <CardBody overflowX="auto" px="0">
-        <DataTableRoot
+      </Card.Header>
+      <Card.Body overflowX="auto" px="0">
+        <DataGrid
           columns={columns}
           data={data}
           getFilteredRowModel={getFilteredRowModel()}
           state={{ globalFilter }}
           onGlobalFilterChange={setGlobalFilter}
         />
-      </CardBody>
-    </Card>
+      </Card.Body>
+    </Card.Root>
   )
 }
 ```
@@ -638,18 +649,8 @@ Create a new file called _Summary.jsx_ inside the components folder and paste
 the following code into it:
 
 ```tsx
-import {
-  Box,
-  Card,
-  CardBody,
-  Grid,
-  GridItem,
-  Stat,
-  StatArrow,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-} from '@saas-ui/react'
+import { Box, Card, Grid, GridItem } from '@chakra-ui/react'
+import { Stat } from '#components/ui/stat'
 
 export function Summary({ currentUsersCount, oldUsersCount }) {
   return (
@@ -659,53 +660,37 @@ export function Summary({ currentUsersCount, oldUsersCount }) {
         gap="4"
         width="full"
       >
-        <GridItem as={Card}>
-          <CardBody>
-            <Stat>
-              <StatLabel>Total Users</StatLabel>
-              <StatNumber>{currentUsersCount}</StatNumber>
-              <StatHelpText>
-                <StatArrow type="increase" />
-                80%
-              </StatHelpText>
-            </Stat>
-          </CardBody>
+        <GridItem>
+          <Card.Root><Card.Body><Stat.Root>
+            <Stat.Label>Total Users</Stat.Label>
+            <Stat.ValueText>{currentUsersCount}</Stat.ValueText>
+            <Stat.HelpText><Stat.UpTrend>80%</Stat.UpTrend></Stat.HelpText>
+          </Stat.Root></Card.Body></Card.Root>
         </GridItem>
-        <GridItem as={Card}>
-          <CardBody>
-            <Stat>
-              <StatLabel>New Users (Q3 23)</StatLabel>
-              <StatNumber>{currentUsersCount - oldUsersCount}</StatNumber>
-              <StatHelpText>
-                <StatArrow type="increase" />
+        <GridItem>
+          <Card.Root><Card.Body><Stat.Root>
+            <Stat.Label>New Users (Q3 23)</Stat.Label>
+            <Stat.ValueText>{currentUsersCount - oldUsersCount}</Stat.ValueText>
+            <Stat.HelpText>
+              <Stat.UpTrend>
                 {((currentUsersCount - oldUsersCount) / oldUsersCount) * 100}%
-              </StatHelpText>
-            </Stat>
-          </CardBody>
+              </Stat.UpTrend>
+            </Stat.HelpText>
+          </Stat.Root></Card.Body></Card.Root>
         </GridItem>
-        <GridItem as={Card}>
-          <CardBody>
-            <Stat>
-              <StatLabel>Revenue</StatLabel>
-              <StatNumber> $12,345</StatNumber>
-              <StatHelpText>
-                <StatArrow type="increase" />
-                78%
-              </StatHelpText>
-            </Stat>
-          </CardBody>
+        <GridItem>
+          <Card.Root><Card.Body><Stat.Root>
+            <Stat.Label>Revenue</Stat.Label>
+            <Stat.ValueText>$12,345</Stat.ValueText>
+            <Stat.HelpText><Stat.UpTrend>78%</Stat.UpTrend></Stat.HelpText>
+          </Stat.Root></Card.Body></Card.Root>
         </GridItem>
-        <GridItem as={Card}>
-          <CardBody>
-            <Stat>
-              <StatLabel>Churn</StatLabel>
-              <StatNumber>0</StatNumber>
-              <StatHelpText>
-                <StatArrow type="" />
-                0%
-              </StatHelpText>
-            </Stat>
-          </CardBody>
+        <GridItem>
+          <Card.Root><Card.Body><Stat.Root>
+            <Stat.Label>Churn</Stat.Label>
+            <Stat.ValueText>0</Stat.ValueText>
+            <Stat.HelpText>0%</Stat.HelpText>
+          </Stat.Root></Card.Body></Card.Root>
         </GridItem>
       </Grid>
     </Box>
@@ -728,88 +713,65 @@ cancellations, and so on.
 The Timeline component can display a simple list of events, or - as we're doing
 here - custom content.
 
-The
-[TimelineIcon](https://saas-ui.dev/docs/components/data-display/timeline#colored-icons)
-component lets us customize the component/icon we want to use for each item, and
+The Chakra UI
+[`Timeline.Connector`](https://chakra-ui.com/docs/components/timeline)
+part lets us customize the component/icon we want to use for each item, and
 we'll use the
 [Persona component](https://saas-ui.dev/docs/components/data-display/persona)
 here, again, to represent users, as each event in our Timeline has _something_
 to do with a user.
 
 ```tsx
-import { Card, CardBody, CardHeader, Heading, Text } from '@saas-ui/react'
-import {
-  PersonaAvatar,
-  Timeline,
-  TimelineContent,
-  TimelineIcon,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineTrack,
-} from '@saas-ui/react'
+import { Card, Heading, Text, Timeline } from '@chakra-ui/react'
+import { Persona } from '#components/ui/persona/persona-composed'
 
 export function Recent() {
   return (
-    <Card variant="solid" bg="transparent">
-      <CardHeader pb="0">
+    <Card.Root variant="solid" bg="transparent">
+      <Card.Header pb="0">
         <Heading as="h3" size="md">
           Recent Activity
         </Heading>
-      </CardHeader>
-      <CardBody>
-        <Timeline variant="outline">
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineIcon>
-                <PersonaAvatar
-                  name="Nicholas Runolfsdottir V"
-                  size="xs"
-                  presence="online"
-                />
-              </TimelineIcon>
-              <TimelineTrack />
-            </TimelineSeparator>
-            <TimelineContent pt="2" px="3">
+      </Card.Header>
+      <Card.Body>
+        <Timeline.Root variant="outline">
+          <Timeline.Item>
+            <Timeline.Connector>
+              <Persona.Root presence="online">
+                <Persona.Avatar name="Nicholas Runolfsdottir V" size="xs" />
+              </Persona.Root>
+            </Timeline.Connector>
+            <Timeline.Content pt="2" px="3">
               <Text fontWeight="medium">Maxime_Nienow</Text>
               <Text color="muted">signed up.</Text>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineIcon>
-                <PersonaAvatar
-                  name="Clementine Bauch"
-                  size="xs"
-                  presence="dnd"
-                />
-              </TimelineIcon>
-              <TimelineTrack />
-            </TimelineSeparator>
-            <TimelineContent pt="2" px="3">
+            </Timeline.Content>
+          </Timeline.Item>
+          <Timeline.Item>
+            <Timeline.Connector>
+              <Persona.Root presence="dnd">
+                <Persona.Avatar name="Clementine Bauch" size="xs" />
+              </Persona.Root>
+            </Timeline.Connector>
+            <Timeline.Content pt="2" px="3">
               <Text fontWeight="medium">Samantha</Text>
               <Text color="muted">subscription changed to </Text>
               <Text>12_PREMIUM</Text>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineIcon>
-                <PersonaAvatar
-                  name="Leanne Graham"
-                  size="xs"
-                  presence="offline"
-                />
-              </TimelineIcon>
-              <TimelineTrack />
-            </TimelineSeparator>
-            <TimelineContent pt="2" px="3">
+            </Timeline.Content>
+          </Timeline.Item>
+          <Timeline.Item>
+            <Timeline.Connector>
+              <Persona.Root presence="offline">
+                <Persona.Avatar name="Leanne Graham" size="xs" />
+              </Persona.Root>
+            </Timeline.Connector>
+            <Timeline.Content pt="2" px="3">
               <Text fontWeight="medium">Bret</Text>
               <Text color="muted">subscription cancelled.</Text>
-            </TimelineContent>
-          </TimelineItem>
-        </Timeline>
-      </CardBody>
-    </Card>
+            </Timeline.Content>
+          </Timeline.Item>
+        </Timeline.Root>
+      </Card.Body>
+    </Card.Root>
   )
 }
 ```
@@ -822,7 +784,7 @@ Replace the current contents of the _page.js_ file and paste this code:
 import { DataTable } from '@/components/DataTable'
 import { Recent } from '@/components/Recent'
 import { Summary } from '@/components/Summary'
-import { Box, Flex } from '@saas-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 
 export default async function Home() {
   const COLUMNS = [

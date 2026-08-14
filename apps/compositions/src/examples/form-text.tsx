@@ -1,9 +1,9 @@
 'use client'
 
-import { FormLayout, useForm } from '@saas-ui/forms'
+import { Form, useAppForm } from 'compositions/components/forms'
 
 export function FormText() {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
       name: '',
       email: '',
@@ -11,25 +11,32 @@ export function FormText() {
       time: '',
       url: '',
     },
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: ({ value }) => {
+      console.log(value)
     },
   })
 
   return (
-    <form.Form>
-      <FormLayout>
-        <form.Field name="name" label="Name" type="text" />
-        <form.Field name="email" label="Email" type="email" />
-        <form.Field
-          name="email"
-          label="Phone"
-          type="phone"
-          startElement={'+1'}
-        />
-        <form.Field name="time" label="Time" type="time" />
-        <form.Field name="url" label="Url" type="url" />
-      </FormLayout>
-    </form.Form>
+    <Form form={form}>
+      <form.Layout>
+        <form.AppField name="name">
+          {(field) => <field.TextField label="Name" />}
+        </form.AppField>
+        <form.AppField name="email">
+          {(field) => <field.TextField label="Email" type="email" />}
+        </form.AppField>
+        <form.AppField name="phone">
+          {(field) => (
+            <field.TextField label="Phone" type="tel" startElement="+1" />
+          )}
+        </form.AppField>
+        <form.AppField name="time">
+          {(field) => <field.TextField label="Time" inputMode="numeric" />}
+        </form.AppField>
+        <form.AppField name="url">
+          {(field) => <field.TextField label="Url" type="url" />}
+        </form.AppField>
+      </form.Layout>
+    </Form>
   )
 }

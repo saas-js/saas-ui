@@ -1,37 +1,21 @@
 import { UiComponent } from '@/blocks'
-import { LinkButton } from '@/components/link-button'
 import { trackEvent } from '@/utils/track-event'
-import {
-  Badge,
-  Box,
-  Button,
-  ButtonGroup,
-  HStack,
-  Heading,
-  IconButton,
-  Tabs,
-  Tag,
-  Text,
-} from '@saas-ui/react'
-import { useRouter } from 'next/navigation'
-import { FaGithub } from 'react-icons/fa'
+import { Badge, Box, HStack, Heading, Tabs, Text } from '@chakra-ui/react'
 import { FiCode, FiEye, FiLock } from 'react-icons/fi'
+
+import { Tag } from '#components/ui/tag'
 
 // import { ColorControl } from './color-control'
 // import { ThemeControl } from './theme-control'
 
-export interface CanvasHeaderProps
-  extends UiComponent,
-    React.ComponentPropsWithoutRef<'div'> {
-  state: string
-  onStateChange(state: string): void
-  onPrimaryColorChange(color: string): void
-  onThemeChange(theme: string): void
-  theme: string
-  primaryColor: string
-  excludeExternal?: boolean
-  zIndex?: number
-}
+export type CanvasHeaderProps = Omit<UiComponent, 'attributes'> &
+  React.ComponentPropsWithoutRef<'div'> & {
+    attributes: UiComponent['attributes'] & { description?: string }
+    state: string
+    onStateChange(state: string): void
+    excludeExternal?: boolean
+    zIndex?: number
+  }
 
 export function CanvasHeader({
   attributes,
@@ -39,19 +23,11 @@ export function CanvasHeader({
   component,
   state,
   onStateChange,
-  primaryColor,
-  onPrimaryColorChange,
-  theme,
-  onThemeChange,
   excludeExternal = false,
   zIndex,
   ...rest
 }: CanvasHeaderProps) {
-  const router = useRouter()
-
-  // const { isAuthenticated } = useAuth()
-  const isAuthenticated = true
-  const isUnlocked = isAuthenticated || attributes.public
+  const isUnlocked = attributes.public
 
   return (
     <HStack py="4" {...rest} id={slug}>
@@ -93,20 +69,7 @@ export function CanvasHeader({
             </Tag>
           )}
 
-          {isAuthenticated && (
-            <IconButton
-              variant="default"
-              aria-label="View source on github"
-              as="a"
-              href={`https://github.com/saas-js/saas-ui-pro/tree/main/packages/blocks/src/${attributes.category}/${slug}/${slug}.tsx`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub size="0.9rem" />
-            </IconButton>
-          )}
-
-          {attributes.responsive && <Badge variant="light">Responsive</Badge>}
+          {attributes.responsive && <Badge variant="subtle">Responsive</Badge>}
         </HStack>
       </HStack>
 
@@ -142,14 +105,13 @@ export function CanvasHeader({
             </Tabs.List>
           </Tabs.Root>
         ) : (
-          <LinkButton
-            variant="outline"
-            data-checked={state === 'code' ? 'true' : undefined}
-            href="/pricing"
+          <button
+            type="button"
+            onClick={() => (window.location.href = '/pricing')}
           >
             <FiLock size="1rem" />
             Get the code
-          </LinkButton>
+          </button>
         )}
       </HStack>
     </HStack>

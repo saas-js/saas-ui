@@ -1,6 +1,9 @@
-import { docsConfig } from '@/app/pro/docs/docs.config'
 import { FlattenNavItem, NavItem } from '@/website.config'
 import { usePathname } from 'next/navigation'
+
+// The legacy Pro docs route tree has been removed. Keep this unused compatibility
+// hook inert until the remaining Pro docs shell is retired.
+const docsConfig: { navigation: NavItem[] } = { navigation: [] }
 
 const join = (...args: Array<string | undefined>) =>
   `/${args.filter(Boolean).join('/')}`

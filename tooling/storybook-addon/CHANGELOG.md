@@ -1,5 +1,22 @@
 # @saas-ui/storybook-addon
 
+## 7.0.0-next.10
+
+### Minor Changes
+
+- aac593e: Ship the preset-and-registry transition: portable Chakra templates,
+  automated CLI initialization and migration, pre-install diffs,
+  `components.json`-tracked updates, shadcn-compatible public and private
+  registry namespaces, current forms and the locally owned modal manager
+  template.
+
+### Patch Changes
+
+- Updated dependencies [dfc8727]
+- Updated dependencies [aac593e]
+- Updated dependencies [5116c7c]
+  - @saas-ui/chakra-preset@3.0.0-next.10
+
 ## 7.0.0-next.9
 
 ### Major Changes

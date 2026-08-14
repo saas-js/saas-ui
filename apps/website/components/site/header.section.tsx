@@ -1,22 +1,12 @@
-'use client'
-
+'use client';
 import { ColorModeButton } from '@/components/docs/color-mode-button'
 import { Logo } from '@/components/logo'
 import { SocialLinks } from '@/components/social-links'
-import {
-  Alert,
-  Box,
-  Button,
-  Container,
-  Dialog,
-  HStack,
-  IconButton,
-  Separator,
-  Spacer,
-  Stack,
-  Text,
-  chakra,
-} from '@saas-ui/react'
+import { Alert } from '#components/ui/alert'
+import { Box, Button, Container, HStack, Separator, Spacer, Stack, Text } from '@chakra-ui/react'
+import { Dialog } from '#components/ui/dialog'
+import { IconButton } from '#components/ui/icon-button'
+import { chakra } from '@chakra-ui/react/styled-system'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'

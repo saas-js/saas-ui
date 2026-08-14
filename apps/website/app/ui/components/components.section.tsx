@@ -1,15 +1,7 @@
-import {
-  Accordion,
-  Box,
-  Button,
-  Card,
-  Center,
-  Field,
-  HStack,
-  Input,
-  Menu,
-  Switch,
-} from '@saas-ui/react'
+import { Accordion } from '#components/ui/accordion'
+import { Box, Button, Card, Center, Field, HStack, Input } from '@chakra-ui/react'
+import { Menu } from '#components/ui/menu'
+import { Switch } from '#components/ui/switch'
 
 export const ComponentsSection = () => {
   return (

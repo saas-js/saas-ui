@@ -1,6 +1,6 @@
-'use client'
-
-import { Tabs, Tooltip } from '@saas-ui/react'
+'use client';
+import { Tabs } from '@chakra-ui/react'
+import { Tooltip } from 'compositions/ui/tooltip'
 import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu'
 
 export const TooltipWithTab = () => {

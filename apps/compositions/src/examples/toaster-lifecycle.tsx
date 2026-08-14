@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { HStack, Stack, Text } from '@saas-ui/react'
-import { Button, toast } from '@saas-ui/react'
+import { HStack, Stack, Text, Button } from '@chakra-ui/react'
+import { toast } from 'compositions/ui/toaster'
 
 export const ToasterLifecycle = () => {
   const [statusLog, setStatusLog] = useState<[number, string][]>([])

@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack, Text } from '@saas-ui/react'
-import { Blockquote } from '@saas-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
+import { Blockquote } from 'compositions/ui/blockquote'
 
 import { colorPalettes } from '../lib/color-palettes'
 

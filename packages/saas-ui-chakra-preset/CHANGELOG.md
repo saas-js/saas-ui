@@ -1,5 +1,31 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-next.10
+
+### Minor Changes
+
+- aac593e: Ship the preset-and-registry transition: portable Chakra templates,
+  automated CLI initialization and migration, pre-install diffs,
+  `components.json`-tracked updates, shadcn-compatible public and private
+  registry namespaces, current forms and the locally owned modal manager
+  template.
+- d79c7ca: Add ColorSwatch and Fieldset recipes, new Button, DataList, and Tabs
+  variants, and exported recipe keys and variant prop types for registry
+  templates.
+
+### Patch Changes
+
+- dfc8727: Publish the registry compiler and recipe-key metadata for independent
+  Pro repository builds.
+- 5116c7c: Support external preview identifiers such as Storybook story IDs
+  without treating them as local preview modules. External identifiers are
+  preserved in registry artifacts and excluded from file/default-export
+  validation.
+
+  Restore the public recipe variant type exports consumed by installed registry
+  components.
+- a2c1e38: Fix select content max height
+
 ## 3.0.0-next.9
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 'use client'
 
-import { Checkbox } from '@saas-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 export const CheckboxBasic = () => {
   return <Checkbox>Accept terms and conditions</Checkbox>

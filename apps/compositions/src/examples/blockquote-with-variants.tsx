@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack } from '@saas-ui/react'
-import { Blockquote } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { Blockquote } from 'compositions/ui/blockquote'
 
 export const BlockquoteWithVariants = () => {
   return (

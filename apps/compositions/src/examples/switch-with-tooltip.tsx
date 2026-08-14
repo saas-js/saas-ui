@@ -1,8 +1,8 @@
-'use client'
-
+'use client';
 import { useId } from 'react'
 
-import { Switch, Tooltip } from '@saas-ui/react'
+import { Switch } from 'compositions/ui/switch'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 export const SwitchWithTooltip = () => {
   const id = useId()

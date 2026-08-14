@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, Card, Icon, Text } from '@saas-ui/react'
+import { Box, Button, Card, Icon, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { FiArrowRight } from 'react-icons/fi'
 
@@ -36,23 +36,21 @@ export const QuickLink = (props: {
             {description}
           </Text>
           <Button
-            variant="link"
+            variant="plain"
             color="inherit"
-            rightIcon={
-              <Icon
-                as={FiArrowRight}
-                mt="1px"
-                transform="translateX(-5px)"
-                transitionProperty="common"
-                transitionDuration="fast"
-                css={{ '.chakra-card:hover &': { transform: 'translateX(0)' } }}
-              />
-            }
             _hover={{
               textDecoration: 'none',
             }}
           >
             {label}
+            <Icon
+              as={FiArrowRight}
+              mt="1px"
+              transform="translateX(-5px)"
+              transitionProperty="common"
+              transitionDuration="fast"
+              css={{ '.chakra-card:hover &': { transform: 'translateX(0)' } }}
+            />
           </Button>
         </Card.Body>
       </Link>

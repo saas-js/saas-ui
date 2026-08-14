@@ -1,7 +1,9 @@
 import { forwardRef } from 'react'
 
-import { Button, ButtonProps, IconButton, Kbd, Span } from '@saas-ui/react'
+import { Button, ButtonProps, Kbd, Span } from '@chakra-ui/react'
 import { LuSearch } from 'react-icons/lu'
+
+import { IconButton, type IconButtonProps } from '#components/ui/icon-button'
 
 export const SearchButton = forwardRef<HTMLButtonElement, ButtonProps>(
   function SearchButton(props, ref) {
@@ -34,12 +36,13 @@ export const SearchButton = forwardRef<HTMLButtonElement, ButtonProps>(
   },
 )
 
-export const MobileSearchButton = forwardRef<HTMLButtonElement, ButtonProps>(
-  function SearchButton(props, ref) {
-    return (
-      <IconButton variant="ghost" size="sm" ref={ref} {...props}>
-        <LuSearch />
-      </IconButton>
-    )
-  },
-)
+export const MobileSearchButton = forwardRef<
+  HTMLButtonElement,
+  IconButtonProps
+>(function SearchButton(props, ref) {
+  return (
+    <IconButton variant="ghost" size="sm" ref={ref} {...props}>
+      <LuSearch />
+    </IconButton>
+  )
+})

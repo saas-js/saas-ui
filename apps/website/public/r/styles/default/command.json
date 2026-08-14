@@ -1,26 +1,43 @@
 {
-  "name": "command",
-  "type": "registry:ui",
   "dependencies": [
     "@chakra-ui/react",
     "@saas-ui/chakra-preset"
   ],
-  "registryDependencies": [],
   "files": [
     {
-      "path": "ui/command/command.stories.tsx",
-      "content": "import React from 'react'\n\nimport { Button, Center, Tooltip, VStack } from '@chakra-ui/react'\n\nimport { Command } from './command'\n\nexport default {\n  title: 'Components/Command',\n  decorators: [\n    (Story: any) => (\n      <Center height=\"100%\">\n        <Story />\n      </Center>\n    ),\n  ],\n}\n\nexport const Basic = {\n  render: () => (\n    <VStack>\n      <Command>shift+X</Command>\n      <Command>A then B</Command>\n      <Command>alt or option</Command>\n    </VStack>\n  ),\n}\n\nexport const Sizes = {\n  render: () => (\n    <VStack>\n      <Command size=\"sm\">shift+X</Command>\n      <Command size=\"md\">A then B</Command>\n      <Command size=\"lg\">alt or option</Command>\n    </VStack>\n  ),\n}\n\nexport const TooltipCommand = {\n  render: () => (\n    <Tooltip.Root>\n      <Tooltip.Trigger>\n        <Button>Inbox</Button>\n      </Tooltip.Trigger>\n      <Tooltip.Positioner>\n        <Tooltip.Content>\n          <Tooltip.Arrow>\n            <Tooltip.ArrowTip />\n          </Tooltip.Arrow>\n\n          <>\n            Inbox <Command size=\"sm\">G then I</Command>\n          </>\n        </Tooltip.Content>\n      </Tooltip.Positioner>\n    </Tooltip.Root>\n  ),\n}\n",
-      "type": "registry:story"
-    },
-    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport {\n  type HTMLChakraProps,\n  Kbd,\n  type KbdProps,\n  UnstyledProp,\n  createRecipeContext,\n} from '@chakra-ui/react'\nimport type { RecipeProps } from '@saas-ui/chakra-preset'\nimport {\n  type CommandVariantProps,\n  commandRecipe,\n} from '@saas-ui/chakra-preset/recipes/command'\n\nconst { withContext } = createRecipeContext({\n  recipe: commandRecipe,\n})\n\nexport interface CommandBaseProps\n  extends RecipeProps<'suiCommand', CommandVariantProps>, UnstyledProp {}\n\nexport interface CommandProps\n  extends HTMLChakraProps<'span'>, CommandBaseProps, CommandVariantProps {\n  /**\n   * The modifiers to use for the command.\n   * @default ['then', 'or', '+']\n   */\n  modifiers?: Array<string>\n}\n\ntype ConditionalScalar<T> = T extends readonly unknown[]\n  ? never\n  : T extends object\n    ? never\n    : T\n\ntype CommandSize = Exclude<\n  ConditionalScalar<NonNullable<CommandVariantProps['size']>>,\n  undefined\n>\ntype KbdSize = Exclude<\n  ConditionalScalar<NonNullable<KbdProps['size']>>,\n  undefined\n>\n\nconst commandSizeToKbdSize = {\n  xs: 'sm',\n  sm: 'sm',\n  md: 'md',\n  lg: 'lg',\n} as const satisfies Record<CommandSize, KbdSize>\n\nfunction mapCommandScalarSize(size: CommandSize): KbdSize {\n  return commandSizeToKbdSize[size]\n}\n\nexport function getCommandKbdSize(\n  size: CommandVariantProps['size'],\n): KbdProps['size'] {\n  if (Array.isArray(size)) {\n    return size.map((value) =>\n      value == null ? null : mapCommandScalarSize(value),\n    )\n  }\n\n  if (size && typeof size === 'object') {\n    return Object.fromEntries(\n      Object.entries(size).map(([condition, value]) => [\n        condition,\n        getCommandKbdSize(value),\n      ]),\n    ) as KbdProps['size']\n  }\n\n  return size ? mapCommandScalarSize(size as CommandSize) : undefined\n}\n\nexport const Command: React.FC<CommandProps> = (props) => {\n  const { children, modifiers, ...rest } = props\n\n  if (typeof children !== 'string') {\n    return <>{children}</>\n  }\n\n  const keys = children.split(/\\s|\\+/)\n\n  return (\n    <StyledCommand {...rest}>\n      {keys.map((key) => (\n        <Key\n          key={key}\n          modifiers={modifiers}\n          size={getCommandKbdSize(props.size)}\n        >\n          {key}\n        </Key>\n      ))}\n    </StyledCommand>\n  )\n}\n\nconst StyledCommand = withContext<HTMLDivElement, CommandBaseProps>('span')\n\nconst Key: React.FC<KbdProps & { modifiers?: Array<string> }> = (props) => {\n  const { modifiers = ['then', 'or', '+'], children, ...rest } = props\n  if (typeof children !== 'string') {\n    return <>{children}</>\n  }\n\n  if (modifiers.includes(children)) {\n    return <span>{children}</span>\n  }\n\n  return <Kbd {...rest}>{children}</Kbd>\n}\n",
       "path": "ui/command/command.tsx",
-      "content": "'use client'\n\nimport * as React from 'react'\n\nimport {\n  type HTMLChakraProps,\n  Kbd,\n  type KbdProps,\n  UnstyledProp,\n  createRecipeContext,\n} from '@chakra-ui/react'\nimport type { RecipeProps } from '@saas-ui/chakra-preset'\nimport type { CommandVariantProps } from '@saas-ui/chakra-preset/recipes/command'\n\nconst { withContext } = createRecipeContext({\n  key: 'suiCommand',\n})\n\nexport interface CommandBaseProps\n  extends RecipeProps<'suiCommand', CommandVariantProps>,\n    UnstyledProp {}\n\nexport interface CommandProps\n  extends HTMLChakraProps<'span'>,\n    CommandBaseProps,\n    CommandVariantProps {\n  /**\n   * The modifiers to use for the command.\n   * @default ['then', 'or', '+']\n   */\n  modifiers?: Array<string>\n}\n\nexport const Command: React.FC<CommandProps> = (props) => {\n  const { children, modifiers, ...rest } = props\n\n  if (typeof children !== 'string') {\n    return <>{children}</>\n  }\n\n  const keys = children.split(/\\s|\\+/)\n\n  return (\n    <StyledCommand {...rest}>\n      {keys.map((key) => (\n        <Key key={key} modifiers={modifiers} size={props.size}>\n          {key}\n        </Key>\n      ))}\n    </StyledCommand>\n  )\n}\n\nconst StyledCommand = withContext<HTMLDivElement, CommandBaseProps>('span')\n\nconst Key: React.FC<KbdProps & { modifiers?: Array<string> }> = (props) => {\n  const { modifiers = ['then', 'or', '+'], children, ...rest } = props\n  if (typeof children !== 'string') {\n    return <>{children}</>\n  }\n\n  if (modifiers.includes(children)) {\n    return <span>{children}</span>\n  }\n\n  return <Kbd {...rest}>{children}</Kbd>\n}\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/command/index.ts",
       "content": "export { Command } from './command.tsx'\n",
+      "path": "ui/command/index.ts",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/command/command.tsx": "cfffa7b796cfaca326a26b65f1d89c307ab13d4c5e44da6f1233955ceac4a81c",
+        "ui/command/index.ts": "47b46bd5922a7d8dec0a72dbdd4b4a3cd2007de7c1cdd4035d159c126ab6298f"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset",
+        "@saas-ui/chakra-preset/recipes/command"
+      ],
+      "presetRecipeBindings": [
+        "command"
+      ],
+      "recipeReferences": [
+        "suiCommand"
+      ]
+    },
+    "contentHash": "609350d73c7432f9da3038f21bbce7e4e3859b06cd591e72dff4151932569b1a"
+  },
+  "name": "command",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

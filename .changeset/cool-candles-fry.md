@@ -1,6 +1,5 @@
 ---
-'@saas-ui/forms': patch
-'@saas-ui/react': patch
+'@saas-ui/chakra-preset': patch
 ---
 
 Upgrade to Chakra 3.27

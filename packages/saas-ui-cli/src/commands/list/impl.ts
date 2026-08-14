@@ -34,7 +34,9 @@ export async function list(this: LocalContext, flags: ListCommandFlags) {
     })
 
     let components = registryIndex.filter((component) =>
-      ['registry:ui', 'registry:block'].includes(component.type),
+      ['registry:ui', 'registry:component', 'registry:block'].includes(
+        component.type,
+      ),
     )
 
     if (parsedFlags.category) {

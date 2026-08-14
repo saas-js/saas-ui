@@ -1,8 +1,8 @@
-import { ClientOnly } from '@chakra-ui/react'
 import {
   Box,
   Button,
   Checkbox,
+  ClientOnly,
   Heading,
   HStack,
   Image,
@@ -10,7 +10,7 @@ import {
   RadioGroup,
   Skeleton,
   VStack,
-} from '@saas-ui/react'
+} from '@chakra-ui/react'
 import { ColorModeToggle } from './components/color-mode-toggle'
 
 export default function App() {
@@ -38,7 +38,13 @@ export default function App() {
         </Heading>
 
         <HStack gap="10">
-          <Checkbox>Checkbox</Checkbox>
+          <Checkbox.Root>
+            <Checkbox.HiddenInput />
+            <Checkbox.Control>
+              <Checkbox.Indicator />
+            </Checkbox.Control>
+            <Checkbox.Label>Checkbox</Checkbox.Label>
+          </Checkbox.Root>
 
           <RadioGroup.Root display="inline-flex" defaultValue="1">
             <RadioGroup.Item value="1" mr="2">
@@ -67,7 +73,9 @@ export default function App() {
 
         <HStack>
           <Button>Lets go</Button>
-          <Button variant="outline">bun install @saas-ui/react</Button>
+          <Button variant="outline">
+            bun add @chakra-ui/react @emotion/react @saas-ui/chakra-preset
+          </Button>
         </HStack>
       </VStack>
 

@@ -1,4 +1,4 @@
-import { Icon } from '@saas-ui/react'
+import { Icon } from '@chakra-ui/react'
 import { TbArrowRight } from 'react-icons/tb'
 
 export function ActionArrow() {
@@ -6,8 +6,8 @@ export function ActionArrow() {
     <Icon
       transform="translateX(-4px)"
       transition="transform 0.2s ease-in-out"
-      _parentHover={{
-        transform: 'translateX(0)',
+      css={{
+        '[data-group]:hover &': { transform: 'translateX(0)' },
       }}
     >
       <TbArrowRight />

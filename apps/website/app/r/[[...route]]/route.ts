@@ -1,3 +1,9 @@
+import {
+  type AccessTokenVerifier,
+  createSupabaseAccessTokenVerifier,
+  isRegistryRequestAuthorized,
+} from '@saas-ui/registry/auth'
+import { type RegistryItem, parseRegistryItem } from '@saas-ui/registry/schema'
 import { type Context, Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { HTTPException } from 'hono/http-exception'
@@ -9,74 +15,121 @@ const defaultHeaders = {
   },
 }
 
-const basePath = process.env.REGISTRY_BASE_PATH ?? '/r'
-
-const app = new Hono()
-
-app.use(
-  '*',
-  cors({
-    origin: '*',
-    allowMethods: ['GET'],
-    credentials: true,
-    allowHeaders: ['Content-Type', 'Authorization'],
-  }),
-)
-
-if (process.env.NODE_ENV !== 'production') {
-  app.use('*', (c, next) => {
-    console.log('[req]', c.req.url)
-    return next()
-  })
+const privateHeaders = {
+  headers: {
+    'Cache-Control': 'private, no-store',
+    Vary: 'Authorization, Cookie',
+  },
 }
 
-function authorize(c: Context) {
-  const authorization = c.req.header('Authorization')
+const basePath = process.env.REGISTRY_BASE_PATH ?? '/r'
 
-  const token = authorization?.split(' ')[1]
+interface RegistryAppOptions {
+  verifyAccessToken?: AccessTokenVerifier
+  loadRegistryItem?: (style: string, component: string) => Promise<unknown>
+}
 
-  if (!token) {
+const defaultVerifyAccessToken = createSupabaseAccessTokenVerifier({
+  supabaseUrl: process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL,
+  supabaseAnonKey:
+    process.env.SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_KEY,
+})
+
+async function loadRegistryItem(style: string, component: string) {
+  const file = await import(`@/public/r/styles/${style}/${component}`, {
+    with: { type: 'json' },
+  })
+
+  return file.default as unknown
+}
+
+async function authorize(c: Context, verifyAccessToken: AccessTokenVerifier) {
+  c.header('Cache-Control', 'private, no-store')
+  c.header('Vary', 'Authorization, Cookie')
+
+  const authorized = await isRegistryRequestAuthorized(
+    c.req.header('Authorization'),
+    verifyAccessToken,
+  )
+
+  if (!authorized) {
+    c.header('WWW-Authenticate', 'Bearer')
     throw new HTTPException(401, {
       message: 'Unauthorized',
     })
   }
 }
 
-app.get(`${basePath}/schema/registry.json`, async (c) => {
-  const file = await import('@/public/r/schema/registry.json', {
-    with: { type: 'json' },
-  })
-  return c.json(file.default, defaultHeaders)
-})
+export function createRegistryApp(options: RegistryAppOptions = {}) {
+  const app = new Hono()
+  const verifyAccessToken =
+    options.verifyAccessToken ?? defaultVerifyAccessToken
+  const loadItem = options.loadRegistryItem ?? loadRegistryItem
 
-app.get(`${basePath}/index.json`, async (c) => {
-  const file = await import('@/public/r/index.json', {
-    with: { type: 'json' },
-  })
-  return c.json(file.default, defaultHeaders)
-})
+  app.use(
+    '*',
+    cors({
+      origin: '*',
+      allowMethods: ['GET'],
+      credentials: true,
+      allowHeaders: ['Content-Type', 'Authorization'],
+    }),
+  )
 
-app.get(`${basePath}/styles/index.json`, async (c) => {
-  const file = await import('@/public/r/styles/index.json', {
-    with: { type: 'json' },
-  })
-  return c.json(file.default, defaultHeaders)
-})
-
-app.get(`${basePath}/styles/:style/:component{.+\\.json$}`, async (c) => {
-  const { style, component } = c.req.param()
-
-  const file = await import(`@/public/r/styles/${style}/${component}`, {
-    with: { type: 'json' },
-  })
-
-  const content = file.default
-
-  if (file.private) {
-    authorize(c)
+  if (process.env.NODE_ENV !== 'production') {
+    app.use('*', (c, next) => {
+      console.log('[req]', c.req.url)
+      return next()
+    })
   }
 
-  return c.json(content, defaultHeaders)
-})
+  app.get(`${basePath}/schema/registry.json`, async (c) => {
+    const file = await import('@/public/r/schema/registry.json', {
+      with: { type: 'json' },
+    })
+    return c.json(file.default, defaultHeaders)
+  })
+
+  app.get(`${basePath}/schema/components.json`, async (c) => {
+    const file = await import('@/public/r/schema/components.json', {
+      with: { type: 'json' },
+    })
+    return c.json(file.default, defaultHeaders)
+  })
+
+  app.get(`${basePath}/index.json`, async (c) => {
+    const file = await import('@/public/r/index.json', {
+      with: { type: 'json' },
+    })
+    return c.json(file.default, defaultHeaders)
+  })
+
+  app.get(`${basePath}/styles/index.json`, async (c) => {
+    const file = await import('@/public/r/styles/index.json', {
+      with: { type: 'json' },
+    })
+    return c.json(file.default, defaultHeaders)
+  })
+
+  app.get(`${basePath}/styles/:style/:component{.+\\.json$}`, async (c) => {
+    const { style, component } = c.req.param()
+    const content: RegistryItem = parseRegistryItem(
+      await loadItem(style, component),
+      `registry item ${style}/${component}`,
+    )
+
+    if (content.private) {
+      await authorize(c, verifyAccessToken)
+
+      return c.json(content, privateHeaders)
+    }
+
+    return c.json(content, defaultHeaders)
+  })
+
+  return app
+}
+
+const app = createRegistryApp()
 
 export const GET = handle(app)

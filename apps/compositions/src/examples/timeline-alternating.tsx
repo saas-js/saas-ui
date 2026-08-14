@@ -1,6 +1,6 @@
 'use client'
 
-import { Timeline } from '@saas-ui/react'
+import { Timeline } from '@chakra-ui/react'
 
 export const TimelineAlternating = () => {
   return (

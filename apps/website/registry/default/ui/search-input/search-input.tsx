@@ -12,9 +12,16 @@ import {
   mergeRefs,
   useControllableState,
 } from '@chakra-ui/react'
-import { callAll } from '@saas-ui/core/utils'
 
 import { CloseIcon, SearchIcon } from '../../icons/index.ts'
+
+function callAll<T extends (...args: any[]) => void>(
+  ...handlers: Array<T | undefined>
+) {
+  return (...args: Parameters<T>) => {
+    handlers.forEach((handler) => handler?.(...args))
+  }
+}
 
 export interface SearchInputProps extends InputProps {
   value?: string

@@ -48,16 +48,11 @@ const nextConfig = {
     resolveAlias: {
       '@saas-ui/assets': '../../packages/saas-ui-assets/src/index.ts',
       '@saas-ui/use-hotkeys': '../../packages/saas-ui-use-hotkeys/src/index.ts',
-      '@saas-ui/chakra-preset': '../../packages/saas-ui-chakra-preset/src/index.ts',
-      '@saas-ui/forms': '../../packages/saas-ui-forms/src/index.ts',
-      '@saas-ui/core': '../../packages/saas-ui-core/src/index.ts',
-      '@saas-ui/core/utils': '../../packages/saas-ui-core/src/utils/index.ts',
-      '@saas-ui/core/*': '../../packages/saas-ui-core/src/components/*',
+      '@saas-ui/chakra-preset':
+        '../../packages/saas-ui-chakra-preset/src/index.ts',
       '@saas-ui/hooks': '../../packages/saas-ui-hooks/src/index.ts',
-      '@saas-ui/react': '../../packages/saas-ui-react/src/index.ts',
-      '@saas-ui/react/*': '../../packages/saas-ui-react/src/components/*'
-    }
-  }
+    },
+  },
 } satisfies NextConfig
 
 export default withContentCollections(nextConfig)

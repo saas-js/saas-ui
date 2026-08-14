@@ -10,8 +10,8 @@ import {
   Stack,
   Text,
   VisuallyHidden,
-} from '@saas-ui/react'
-import { Avatar, AvatarGroup } from '@saas-ui/react'
+} from '@chakra-ui/react'
+import { Avatar, AvatarGroup } from '#components/ui/avatar'
 import { Blog } from 'content-collections'
 import Image from 'next/image'
 import Link from 'next/link'

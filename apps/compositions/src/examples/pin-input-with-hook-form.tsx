@@ -1,15 +1,13 @@
-'use client'
-
+'use client';
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Stack } from '@saas-ui/react'
-import { Field } from '@saas-ui/react'
-import { PinInput } from '@saas-ui/react'
+import { Button, Stack, Field } from '@chakra-ui/react'
+import { PinInput } from 'compositions/ui/pin-input'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const formSchema = z.object({
   pin: z
-    .array(z.string().min(1), { required_error: 'Pin is required' })
+    .array(z.string().min(1), { error: 'Pin is required' })
     .length(4, { message: 'Pin must be 4 digits long' }),
 })
 

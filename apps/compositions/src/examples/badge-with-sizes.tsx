@@ -1,5 +1,4 @@
-import { HStack } from '@saas-ui/react'
-import { Badge } from '@saas-ui/react'
+import { HStack, Badge } from '@chakra-ui/react'
 
 export const BadgeWithSizes = () => {
   return (

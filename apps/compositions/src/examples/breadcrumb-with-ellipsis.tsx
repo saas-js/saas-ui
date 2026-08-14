@@ -1,6 +1,6 @@
 'use client'
 
-import { Breadcrumb } from '@saas-ui/react'
+import { Breadcrumb } from 'compositions/ui/breadcrumb'
 
 export const BreadcrumbWithEllipsis = () => {
   return (

@@ -1,7 +1,7 @@
 'use client'
 
-import { createListCollection } from '@saas-ui/react'
-import { Select } from '@saas-ui/react'
+import { createListCollection } from '@chakra-ui/react'
+import { Select } from 'compositions/ui/select'
 
 export const SelectWithOverflow = () => {
   return (

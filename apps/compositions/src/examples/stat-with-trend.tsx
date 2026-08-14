@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { Stat } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { Stat } from 'compositions/ui/stat'
 
 export const StatWithTrend = () => {
   return (

@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Span, useSlotRecipe } from '@saas-ui/react'
-import { Progress } from '@saas-ui/react'
+import { For, Span, Progress } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
 
 import { colorPalettes } from '../lib/color-palettes'
 import { PlaygroundTable } from '../lib/playground-table'

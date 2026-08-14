@@ -1,95 +1,81 @@
 import * as React from 'react'
 
-import { extendTheme } from '@chakra-ui/react'
-import { makeDecorator, addons } from '@storybook/preview-api'
+import { ChakraProvider } from '@chakra-ui/react'
+import { defaultSystem } from '@saas-ui/chakra-preset'
+import { addons, makeDecorator } from 'storybook/preview-api'
+
 import { ColorModeSync } from './color-mode/ColorModeSync'
+import { DIRECTION_TOOL_ID, EVENTS } from './constants'
 import { useDirection } from './direction/useDirection'
-import { EVENTS, DIRECTION_TOOL_ID } from './constants'
 
-import {
-  SaasProvider,
-  useLocalStorage,
-  baseTheme,
-  theme as suiTheme,
-} from '@saas-ui/react'
+function isSystemContext(value: unknown): value is typeof defaultSystem {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    'css' in value &&
+    'token' in value
+  )
+}
 
-import { theme as baseGlassTheme } from '@saas-ui/theme-glass'
-
-const glassTheme = extendTheme(baseGlassTheme, suiTheme)
-
-const useThemeSync = () => {
-  const [themeId, setTheme] = useLocalStorage('storybook.theme', '1')
+function useThemeSync() {
+  const [themeId, setThemeId] = React.useState(() => {
+    if (typeof window === 'undefined') return '1'
+    return window.localStorage.getItem('storybook.theme') ?? '1'
+  })
 
   React.useEffect(() => {
     const channel = addons.getChannel()
-    const themeCallback = (value: string) => {
-      setTheme(value)
+    const setTheme = (value: string) => {
+      window.localStorage.setItem('storybook.theme', value)
+      setThemeId(value)
     }
-    channel.on(EVENTS.SET_THEME, themeCallback)
-
-    return () => {
-      channel.removeListener(EVENTS.SET_THEME, themeCallback)
-    }
-  }, [setTheme])
+    channel.on(EVENTS.SET_THEME, setTheme)
+    return () => channel.removeListener(EVENTS.SET_THEME, setTheme)
+  }, [])
 
   return themeId
 }
 
+/**
+ * Chakra v3 decorator backed by the published Saas UI preset.
+ *
+ * `parameters.saasui.system` is the preferred custom-system override. For
+ * compatibility, `parameters.saasui.theme` is also accepted when it is a
+ * Chakra v3 SystemContext or a function returning one.
+ */
 export const ChakraProviderDecorator = makeDecorator({
   name: 'ChakraProviderDecorator',
   parameterName: 'chakra',
   skipIfNoParametersOrOptions: false,
-  wrapper: (getStory, context, { parameters }) => {
+  wrapper: (getStory, context) => {
     const {
-      parameters: { saasui: saasuiParams },
+      parameters: { saasui: saasuiParams = {} },
       globals: { [DIRECTION_TOOL_ID]: globalDirection },
     } = context
 
-    const themeId = useThemeSync()
+    useThemeSync()
+    useDirection(globalDirection === 'rtl' ? 'rtl' : 'ltr')
 
-    const getTheme = React.useCallback(() => {
-      switch (themeId) {
-        case '1':
-          return suiTheme
-        case '2':
-          return glassTheme
-        default:
-          return baseTheme
-      }
-    }, [themeId])
-
-    const theme = saasuiParams?.theme || getTheme()
-    const themeOverride = !!saasuiParams?.theme
-
-    const chakraTheme = saasuiParams?.theme
-      ? typeof saasuiParams.theme === 'function'
+    const configuredSystem =
+      typeof saasuiParams.system === 'function'
+        ? saasuiParams.system(context)
+        : saasuiParams.system
+    const legacyTheme =
+      typeof saasuiParams.theme === 'function'
         ? saasuiParams.theme(context)
         : saasuiParams.theme
-      : theme
-    const direction = useDirection(globalDirection || chakraTheme?.direction)
-    const themeWithDirectionOverride = React.useMemo(
-      () =>
-        extendTheme(
-          {
-            direction,
-            styles: {
-              global: {
-                body: {
-                  minHeight: 'var(--chakra-vh)',
-                },
-              },
-            },
-          },
-          chakraTheme
-        ),
-      [chakraTheme, direction]
-    )
+    const system = isSystemContext(configuredSystem)
+      ? configuredSystem
+      : isSystemContext(legacyTheme)
+        ? legacyTheme
+        : defaultSystem
+    const story = getStory(context) as React.ReactNode
 
     return (
-      <SaasProvider {...saasuiParams} theme={themeWithDirectionOverride}>
+      <ChakraProvider value={system}>
         <ColorModeSync />
-        {getStory(context)}
-      </SaasProvider>
+        {story}
+      </ChakraProvider>
     )
   },
 })

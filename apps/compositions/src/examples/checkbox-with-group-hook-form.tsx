@@ -1,8 +1,8 @@
 'use client'
 
-import { Controller, SubmitButton, useForm } from '@saas-ui/forms'
-import { CheckboxGroup, Code, Fieldset } from '@saas-ui/react'
-import { Checkbox } from '@saas-ui/react'
+import { CheckboxGroup, Code, Fieldset } from '@chakra-ui/react'
+import { Form, useAppForm } from 'compositions/components/forms'
+import { Checkbox } from 'compositions/ui/checkbox'
 import { z } from 'zod'
 
 const formSchema = z.object({
@@ -19,26 +19,23 @@ const items = [
 ]
 
 export const CheckboxWithGroupHookForm = () => {
-  const form = useForm({
-    schema: formSchema,
+  const form = useAppForm({
+    validators: { onSubmit: formSchema },
     defaultValues: {
-      framework: [],
+      framework: [] as string[],
     },
-    onSubmit: (data) => console.log(data),
+    onSubmit: ({ value }) => console.log(value),
   })
 
   return (
-    <form.Form>
-      <Controller
-        control={form.control}
-        name="framework"
-        render={({ field, fieldState }) => (
-          <Fieldset.Root>
+    <Form form={form}>
+      <form.AppField name="framework">
+        {(field) => (
+          <Fieldset.Root invalid={field.state.meta.isTouched}>
             <Fieldset.Legend>Select your framework</Fieldset.Legend>
             <CheckboxGroup
-              invalid={fieldState.invalid}
-              value={field.value}
-              onValueChange={field.onChange}
+              value={field.state.value}
+              onValueChange={field.handleChange}
               name={field.name}
             >
               <Fieldset.Content>
@@ -50,18 +47,20 @@ export const CheckboxWithGroupHookForm = () => {
               </Fieldset.Content>
             </CheckboxGroup>
 
-            {fieldState.error && (
+            {field.state.meta.errors[0] && (
               <Fieldset.ErrorText>
-                {fieldState.error.message}
+                {String(field.state.meta.errors[0])}
               </Fieldset.ErrorText>
             )}
           </Fieldset.Root>
         )}
-      />
+      </form.AppField>
 
-      <SubmitButton>Submit</SubmitButton>
+      <form.SubmitButton>Submit</form.SubmitButton>
 
-      <Code>Values: {JSON.stringify(form.getValues(), null, 2)}</Code>
-    </form.Form>
+      <form.Subscribe selector={(state) => state.values}>
+        {(values) => <Code>Values: {JSON.stringify(values, null, 2)}</Code>}
+      </form.Subscribe>
+    </Form>
   )
 }

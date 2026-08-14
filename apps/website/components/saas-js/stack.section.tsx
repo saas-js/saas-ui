@@ -1,16 +1,7 @@
-'use client'
-
-import {
-  Box,
-  Card,
-  Container,
-  Heading,
-  Link,
-  List,
-  Section,
-  Stack,
-  Text,
-} from '@saas-ui/react'
+'use client';
+import { Box, Card, Container, Heading, List, Stack, Text } from '@chakra-ui/react'
+import { Link } from '#components/ui/link'
+import { Section } from '#components/ui/section'
 import Image from 'next/image'
 import { TbCheck } from 'react-icons/tb'
 

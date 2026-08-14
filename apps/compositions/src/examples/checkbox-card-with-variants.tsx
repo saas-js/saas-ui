@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Stack } from '@saas-ui/react'
-import { CheckboxCard } from '@saas-ui/react'
+import { For, Stack } from '@chakra-ui/react'
+import { CheckboxCard } from 'compositions/ui/checkbox-card'
 
 export const CheckboxCardWithVariants = () => {
   return (

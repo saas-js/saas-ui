@@ -1,7 +1,7 @@
 'use client'
 
-import { Input, Text } from '@saas-ui/react'
-import { Button, Popover } from '@saas-ui/react'
+import { Input, Text, Button } from '@chakra-ui/react'
+import { Popover } from 'compositions/ui/popover'
 
 export const PopoverWithCustomBg = () => {
   return (

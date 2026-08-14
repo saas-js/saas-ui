@@ -1,5 +1,5 @@
-import { Stack } from '@saas-ui/react'
-import { Alert } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { Alert } from 'compositions/ui/alert'
 
 export const AlertWithVariants = () => {
   return (

@@ -1,8 +1,8 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Stack } from '@saas-ui/react'
-import { Button, Field, Slider } from '@saas-ui/react'
+import { Stack, Button, Field } from '@chakra-ui/react'
+import { Slider } from 'compositions/ui/slider'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 

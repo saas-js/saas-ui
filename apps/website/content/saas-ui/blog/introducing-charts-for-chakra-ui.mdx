@@ -26,25 +26,25 @@ making it easy to see fluctuations and trends.
 
 ```jsx inline=true
 import { AreaChart } from '@saas-ui/charts'
-import { Card, CardBody, CardHeader, Heading } from '@saas-ui/react'
+import { Card, Heading } from '@chakra-ui/react'
 
 export default function Page() {
   return (
-    <Card>
-      <CardHeader pb="0">
+    <Card.Root>
+      <Card.Header pb="0">
         <Heading as="h4" fontWeight="medium" size="md">
           Developers
         </Heading>
-      </CardHeader>
-      <CardBody>
+      </Card.Header>
+      <Card.Body>
         <AreaChart
           data={data}
           categories={['Backend', 'Frontend']}
           colors={['primary', 'secondary']}
           height="300px"
         />
-      </CardBody>
-    </Card>
+      </Card.Body>
+    </Card.Root>
   )
 }
 
@@ -215,7 +215,7 @@ It's a great choice when you want to emphasize the actual data points' values.
 
 ```jsx inline=true
 import { LineChart } from '@saas-ui/charts'
-import { Card, CardBody, CardHeader, Heading } from '@saas-ui/react'
+import { Card, Heading } from '@chakra-ui/react'
 
 const valueFormatter = (value) => {
   return new Intl.NumberFormat('en-US', {
@@ -226,13 +226,13 @@ const valueFormatter = (value) => {
 
 export default function Page() {
   return (
-    <Card>
-      <CardHeader pb="0">
+    <Card.Root>
+      <Card.Header pb="0">
         <Heading as="h4" fontWeight="medium" size="md">
           Revenue over time
         </Heading>
-      </CardHeader>
-      <CardBody>
+      </Card.Header>
+      <Card.Body>
         <LineChart
           data={data}
           categories={['Revenue']}
@@ -240,8 +240,8 @@ export default function Page() {
           yAxisWidth={80}
           height="300px"
         />
-      </CardBody>
-    </Card>
+      </Card.Body>
+    </Card.Root>
   )
 }
 
@@ -361,17 +361,17 @@ bars, making it easy to visualize relative values and comparisons.
 
 ```jsx inline=true
 import { BarChart } from '@saas-ui/charts'
-import { Card, CardBody, CardHeader, Heading } from '@saas-ui/react'
+import { Card, Heading } from '@chakra-ui/react'
 
 export default function Page() {
   return (
-    <Card>
-      <CardHeader pb="0">
+    <Card.Root>
+      <Card.Header pb="0">
         <Heading as="h4" fontWeight="medium" size="md">
           Customers
         </Heading>
-      </CardHeader>
-      <CardBody>
+      </Card.Header>
+      <Card.Body>
         <BarChart
           data={data}
           categories={['New', 'Active', 'Churned']}
@@ -379,8 +379,8 @@ export default function Page() {
           variant="solid"
           height="300px"
         />
-      </CardBody>
-    </Card>
+      </Card.Body>
+    </Card.Root>
   )
 }
 
@@ -584,15 +584,8 @@ changes over time quickly.
 
 ```jsx inline=true center=true
 import { Sparkline } from '@saas-ui/charts'
-import {
-  Card,
-  CardBody,
-  Stat,
-  StatArrow,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-} from '@saas-ui/react'
+import { Card } from '@chakra-ui/react'
+import { Stat } from '#components/ui/stat'
 
 export default function Page() {
   const value = Number(data[data.length - 1].value ?? 0)
@@ -601,14 +594,14 @@ export default function Page() {
   const percentage = Math.round(((value - compareValue) / value) * 100)
 
   return (
-    <Card width="300px">
-      <CardBody>
-        <Stat pos="relative">
-          <StatLabel>New customers</StatLabel>
-          <StatHelpText pos="absolute" top="0" right="0">
-            <StatArrow type="increase" /> {percentage}%
-          </StatHelpText>
-          <StatNumber>{data[data.length - 1].value ?? 0}</StatNumber>
+    <Card.Root width="300px">
+      <Card.Body>
+        <Stat.Root pos="relative">
+          <Stat.Label>New customers</Stat.Label>
+          <Stat.HelpText pos="absolute" top="0" right="0">
+            <Stat.UpTrend>{percentage}%</Stat.UpTrend>
+          </Stat.HelpText>
+          <Stat.ValueText>{data[data.length - 1].value ?? 0}</Stat.ValueText>
           <Sparkline
             data={data}
             categories={['value', 'compareValue']}
@@ -616,9 +609,9 @@ export default function Page() {
             height="60px"
             mx="-4"
           />
-        </Stat>
-      </CardBody>
-    </Card>
+        </Stat.Root>
+      </Card.Body>
+    </Card.Root>
   )
 }
 

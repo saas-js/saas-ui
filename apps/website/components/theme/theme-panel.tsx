@@ -15,14 +15,13 @@ import {
   createListCollection,
 } from '@chakra-ui/react'
 import { type ColorPalette, colors } from '@saas-ui/chakra-preset/colors'
-import {
-  CloseButton,
-  RadioCard,
-  Slider,
-  Tooltip,
-  useColorMode,
-} from '@saas-ui/react'
 import { TbPaintFilled, TbPaletteFilled } from 'react-icons/tb'
+
+import { useColorMode } from '#components/setup/color-mode/color-mode'
+import { CloseButton } from '#components/ui/close-button'
+import { RadioCard } from '#components/ui/radio-card'
+import { Slider } from '#components/ui/slider'
+import { Tooltip } from '#components/ui/tooltip'
 
 import { useTheme } from './theme-provider'
 
@@ -137,7 +136,11 @@ export const ThemePanel = () => {
                   <Field.Label>Appearance</Field.Label>
                   <RadioCard.Root
                     value={colorMode}
-                    onValueChange={({ value }) => setColorMode(value)}
+                    onValueChange={({ value }) => {
+                      if (value === 'light' || value === 'dark') {
+                        setColorMode(value)
+                      }
+                    }}
                     display="flex"
                     flexDirection="row"
                     gap="2"

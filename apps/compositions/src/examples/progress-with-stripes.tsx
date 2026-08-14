@@ -1,6 +1,6 @@
 'use client'
 
-import { Progress } from '@saas-ui/react'
+import { Progress } from '@chakra-ui/react'
 
 export const ProgressWithStripes = () => {
   return (

@@ -1,7 +1,7 @@
-'use client'
-
-import { For, HStack, Span, useSlotRecipe } from '@saas-ui/react'
-import { Radio, RadioGroup } from '@saas-ui/react'
+'use client';
+import { For, HStack, Span, RadioGroup } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
+import { Radio } from 'compositions/ui/radio'
 
 import { colorPalettes } from '../lib/color-palettes'
 import { PlaygroundTable } from '../lib/playground-table'

@@ -1,16 +1,7 @@
 import { MDXContent } from '@/components/mdx-content'
 import { formatBlogDate, getBlogAuthor } from '@/lib/blog'
-import {
-  Badge,
-  Container,
-  HStack,
-  Heading,
-  Separator,
-  Span,
-  Stack,
-  Text,
-} from '@saas-ui/react'
-import { Avatar } from '@saas-ui/react'
+import { Badge, Container, HStack, Heading, Separator, Span, Stack, Text } from '@chakra-ui/react'
+import { Avatar } from '#components/ui/avatar'
 import { allBlogs } from 'content-collections'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'

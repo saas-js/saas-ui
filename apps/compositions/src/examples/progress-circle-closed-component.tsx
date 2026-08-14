@@ -2,11 +2,8 @@
 
 import * as React from 'react'
 
-import type { SystemStyleObject } from '@saas-ui/react'
-import {
-  AbsoluteCenter,
-  ProgressCircle as ChakraProgressCircle,
-} from '@saas-ui/react'
+import type { SystemStyleObject } from '@chakra-ui/react/styled-system'
+import { AbsoluteCenter, ProgressCircle as ChakraProgressCircle } from '@chakra-ui/react'
 
 interface ProgressCircleProps extends ChakraProgressCircle.RootProps {
   showValueText?: boolean

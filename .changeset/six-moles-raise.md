@@ -1,6 +1,5 @@
 ---
-'@saas-ui/react': patch
-'@saas-ui/core': patch
+'@saas-ui/chakra-preset': patch
 ---
 
 Fixed issue where Sidebar mode could not be controlled

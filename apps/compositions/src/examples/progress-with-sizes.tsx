@@ -1,7 +1,5 @@
-'use client'
-
-import { Stack } from '@saas-ui/react'
-import { Progress } from '@saas-ui/react'
+'use client';
+import { Stack, Progress } from '@chakra-ui/react'
 
 export const ProgressWithSizes = () => {
   return (

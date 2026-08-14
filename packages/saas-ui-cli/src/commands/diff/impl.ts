@@ -1,313 +1,134 @@
-import { type Change, diffLines } from 'diff'
-import { existsSync, promises as fs } from 'node:fs'
-import path from 'node:path'
 import { z } from 'zod'
 
 import type { LocalContext } from '#context'
-import { detectMonorepo } from '#utils/detect-monorepo'
-import { type Config, getConfig } from '#utils/get-config'
+import type { Config } from '#utils/get-config'
 import { handleError } from '#utils/handle-error'
-import { highlighter } from '#utils/highlighter'
+import { formatInstallPlanDiff } from '#utils/install-diff'
+import {
+  type InstallPlan,
+  type PlannedFileAction,
+  createInstallPlan,
+} from '#utils/install-plan'
 import { logger } from '#utils/logger'
-import {
-  getRegistryIndex,
-  getRegistryItemFileTargetPath,
-  registryResolveItemsTree,
-} from '#utils/registry'
-import {
-  type RegistryItem,
-  registryItemFileSchema,
-} from '#utils/registry/schema'
-import { transform } from '#utils/transformers'
-import { transformImport } from '#utils/transformers/transform-import'
-import { transformRsc } from '#utils/transformers/transform-rsc'
+import type { RegistryClient } from '#utils/registry/client'
+import { RegistryItemFetchError } from '#utils/registry/graph'
+import { resolveRegistryCommandConfig } from '#utils/resolve-registry-command-config'
+
+export interface RegistryFileDiff {
+  source: string
+  target: string
+  status: Exclude<PlannedFileAction, 'create'> | 'missing'
+}
+
+export interface RegistryItemDiff {
+  name: string
+  files: RegistryFileDiff[]
+}
+
+export interface RegistryDiff {
+  plan: InstallPlan
+  items: RegistryItemDiff[]
+  hasChanges: boolean
+}
+
+export function shouldFailDiffCheck(result: RegistryDiff, check: boolean) {
+  return check && result.hasChanges
+}
+
+export async function diffRegistryItems(
+  names: readonly string[],
+  config: Config,
+  options: { client?: RegistryClient } = {},
+): Promise<RegistryDiff> {
+  const installed = config.installed ?? []
+  const selected = names.length ? [...new Set(names)] : [...installed]
+  if (!selected.length) {
+    throw new Error(
+      'No installed registry items found in components.json. Add an item before running diff.',
+    )
+  }
+  const unknown = selected.filter((name) => !installed.includes(name))
+  if (unknown.length) {
+    throw new Error(`Items are not installed: ${unknown.join(', ')}`)
+  }
+
+  let plan: InstallPlan
+  try {
+    plan = await createInstallPlan(selected, config, {
+      client: options.client,
+      mode: 'update',
+      overwrite: true,
+    })
+  } catch (error) {
+    if (error instanceof RegistryItemFetchError) {
+      const subject = error.requestedRoot
+        ? `Requested registry item "${error.reference}" could not be resolved upstream.`
+        : `Registry dependency "${error.reference}" required by "${error.owner}" could not be resolved upstream.`
+      const detail =
+        error.cause instanceof Error ? ` ${error.cause.message}` : ''
+      throw new Error(
+        `${subject}${detail} Local files and components.json were left unchanged.`,
+        { cause: error },
+      )
+    }
+    throw error
+  }
+
+  const items = plan.items.map((item) => ({
+    name: item.reference,
+    files: plan.files
+      .filter((file) => file.item === item.reference)
+      .map(({ source, target, action }) => ({
+        source,
+        target,
+        status: action === 'create' ? ('missing' as const) : action,
+      })),
+  }))
+
+  return {
+    plan,
+    items,
+    hasChanges: items.some((item) =>
+      item.files.some((file) => file.status !== 'unchanged'),
+    ),
+  }
+}
 
 const diffOptionsSchema = z.object({
-  component: z.string().optional(),
-  yes: z.boolean(),
   cwd: z.string().optional(),
+  check: z.boolean(),
+  components: z.array(z.string()),
 })
-
-type DiffOptions = z.infer<typeof diffOptionsSchema>
-
-type RegistryIndexItem = Omit<RegistryItem, 'files'> & {
-  files?: Array<string | z.infer<typeof registryItemFileSchema>>
-}
 
 export async function diff(
   this: LocalContext,
-  flags: Omit<DiffOptions, 'component'>,
-  ...components: Array<string>
-): Promise<void> {
+  flags: { yes: boolean; check: boolean; cwd?: string },
+  ...components: string[]
+) {
   try {
     const options = diffOptionsSchema.parse({
-      ...flags,
-      component: components[0],
-      cwd: flags.cwd ?? process.cwd(),
+      cwd: flags.cwd,
+      check: flags.check,
+      components,
     })
-
-    let cwd = path.resolve(options.cwd!)
-
-    if (!existsSync(cwd)) {
-      logger.error(`The path ${cwd} does not exist. Please try again.`)
-      process.exit(1)
+    const config = await resolveRegistryCommandConfig(
+      options.cwd ?? process.cwd(),
+    )
+    const result = await diffRegistryItems(options.components, config)
+    if (!result.hasChanges) {
+      logger.info('All installed registry items are up to date.')
+      return
     }
-
-    const monorepoInfo = await detectMonorepo(cwd)
-    logger.debug(`Monorepo detected: ${monorepoInfo.isMonorepo}`)
-
-    let componentsJsonPath = path.resolve(cwd, 'components.json')
-
-    if (!existsSync(componentsJsonPath) && monorepoInfo.isMonorepo) {
-      logger.debug(`Looking for components.json in monorepo packages...`)
-
-      const uiPackagePath = path.join(cwd, 'packages', 'ui', 'components.json')
-
-      if (existsSync(uiPackagePath)) {
-        cwd = path.join(cwd, 'packages', 'ui')
-        componentsJsonPath = uiPackagePath
-        logger.info(
-          `Detected monorepo. Checking components in ${highlighter.info('packages/ui/')}`,
-        )
-        logger.break()
-      } else if (monorepoInfo.root) {
-        const rootUiPath = path.join(
-          monorepoInfo.root,
-          'packages',
-          'ui',
-          'components.json',
-        )
-
-        if (existsSync(rootUiPath)) {
-          cwd = path.join(monorepoInfo.root, 'packages', 'ui')
-          componentsJsonPath = rootUiPath
-          logger.info(
-            `Detected monorepo. Checking components in ${highlighter.info('packages/ui/')}`,
-          )
-          logger.break()
-        }
-      }
-    }
-
-    const config = await getConfig(cwd)
-    if (!config) {
-      logger.warn(
-        `Configuration is missing. Please run ${highlighter.info(
-          'init',
-        )} to create a components.json file.`,
-      )
-      process.exit(1)
-    }
-
-    const registryIndex = await getRegistryIndex()
-    if (!registryIndex) {
-      handleError(new Error('Failed to fetch registry index.'))
-      process.exit(1)
-    }
-
-    if (!options.component) {
-      await checkAllComponents(registryIndex, config)
-    } else {
-      await checkSingleComponent(options.component, registryIndex, config)
+    logger.log(
+      await formatInstallPlanDiff(result.plan, {
+        changedOnly: true,
+        limit: Number.POSITIVE_INFINITY,
+      }),
+    )
+    if (shouldFailDiffCheck(result, options.check)) {
+      return new Error('Installed registry items differ from the registry.')
     }
   } catch (error) {
     handleError(error)
   }
-}
-
-async function checkAllComponents(
-  registryIndex: Array<RegistryIndexItem>,
-  config: Config,
-) {
-  const projectComponents = []
-
-  // console.log('registryIndex', registryIndex)
-
-  for (const item of registryIndex) {
-    if (!item.files?.length) continue
-
-    const exists = await checkComponentExists(item, config)
-    if (exists) {
-      projectComponents.push(item)
-    }
-  }
-
-  if (projectComponents.length === 0) {
-    logger.info('No components found in your project.')
-    process.exit(0)
-  }
-
-  const componentsWithUpdates = []
-  for (const component of projectComponents) {
-    const changes = await diffComponent(component, config)
-    if (changes.length) {
-      componentsWithUpdates.push({
-        name: component.name,
-        changes,
-      })
-    }
-  }
-
-  if (!componentsWithUpdates.length) {
-    logger.info('All components are up to date.')
-    process.exit(0)
-  }
-
-  logger.info('The following components have updates available:')
-  logger.break()
-  for (const component of componentsWithUpdates) {
-    logger.info(`- ${highlighter.info(component.name)}`)
-    for (const change of component.changes) {
-      logger.log(`  - ${change.filePath}`)
-    }
-  }
-  logger.break()
-  logger.info(
-    `Run ${highlighter.success(`sui diff <component>`)} to see the changes.`,
-  )
-  logger.info(
-    `Run ${highlighter.success(`sui add ${componentsWithUpdates.map((component) => component.name).join(' ')} --overwrite`)} to update the component(s).`,
-  )
-}
-
-async function checkSingleComponent(
-  componentName: string,
-  registryIndex: Array<RegistryIndexItem>,
-  config: Config,
-) {
-  const component = registryIndex.find((item) => item.name === componentName)
-
-  if (!component) {
-    logger.error(
-      `The component ${highlighter.info(
-        componentName,
-      )} does not exist in the registry.`,
-    )
-    process.exit(1)
-  }
-
-  const exists = await checkComponentExists(component, config)
-  if (!exists) {
-    logger.error(
-      `The component ${highlighter.info(
-        componentName,
-      )} is not installed in your project.`,
-    )
-    process.exit(1)
-  }
-
-  const changes = await diffComponent(component, config)
-
-  if (!changes.length) {
-    logger.info(`No updates found for ${highlighter.info(componentName)}.`)
-    process.exit(0)
-  }
-
-  logger.info(`Updates available for ${highlighter.info(componentName)}:`)
-  logger.break()
-  for (const change of changes) {
-    logger.info(`File: ${highlighter.info(change.filePath)}`)
-    logger.break()
-    await printDiff(change.patch)
-    logger.break()
-  }
-}
-
-async function checkComponentExists(
-  component: RegistryIndexItem,
-  config: Config,
-): Promise<boolean> {
-  if (!component.files?.length) return false
-
-  for (const file of component.files) {
-    if (typeof file === 'string') continue
-
-    const targetDir = getRegistryItemFileTargetPath(file, config)
-    const fileName = path.basename(file.path)
-    let filePath = path.join(targetDir, fileName)
-
-    if (!config.tsx) {
-      filePath = filePath.replace(/\.tsx?$/, (match) =>
-        match === '.tsx' ? '.jsx' : '.js',
-      )
-    }
-
-    if (existsSync(filePath)) {
-      return true
-    }
-  }
-
-  return false
-}
-
-async function diffComponent(
-  component: RegistryIndexItem,
-  config: Config,
-): Promise<Array<{ filePath: string; patch: Change[] }>> {
-  const changes = []
-
-  const tree = await registryResolveItemsTree([component.name], config)
-  if (!tree || !tree.files) {
-    return []
-  }
-
-  for (const file of tree.files) {
-    if (!file.content) continue
-
-    const targetDir = getRegistryItemFileTargetPath(file, config)
-    const fileName = path.basename(file.path)
-    let filePath = path.join(targetDir, fileName)
-
-    if (file.target) {
-      filePath = file.target.startsWith('~/')
-        ? path.join(config.resolvedPaths.cwd, file.target.replace('~/', ''))
-        : path.join(config.resolvedPaths.cwd, file.target)
-    }
-
-    if (!config.tsx) {
-      filePath = filePath.replace(/\.tsx?$/, (match) =>
-        match === '.tsx' ? '.jsx' : '.js',
-      )
-    }
-
-    if (!existsSync(filePath)) {
-      continue
-    }
-
-    const currentContent = await fs.readFile(filePath, 'utf8')
-
-    const registryContent = await transform(
-      {
-        filename: file.path,
-        raw: file.content,
-        config,
-        transformJsx: !config.tsx,
-      },
-      [transformImport, transformRsc],
-    )
-
-    const patch = diffLines(currentContent, registryContent)
-    if (patch.length > 1) {
-      changes.push({
-        filePath: path.relative(config.resolvedPaths.cwd, filePath),
-        patch,
-      })
-    }
-  }
-
-  return changes
-}
-
-async function printDiff(diff: Change[]) {
-  diff.forEach((part) => {
-    if (part) {
-      if (part.added) {
-        return process.stdout.write(highlighter.success(`+ ${part.value}`))
-      }
-      if (part.removed) {
-        return process.stdout.write(highlighter.error(`- ${part.value}`))
-      }
-      return process.stdout.write(`  ${part.value}`)
-    }
-  })
 }

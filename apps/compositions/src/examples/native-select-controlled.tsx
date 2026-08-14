@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { NativeSelect } from '@saas-ui/react'
+import { NativeSelect } from 'compositions/ui/native-select'
 
 export const NativeSelectControlled = () => {
   const [value, setValue] = useState('')

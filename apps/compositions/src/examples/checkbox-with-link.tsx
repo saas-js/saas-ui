@@ -1,7 +1,7 @@
 'use client'
 
-import { Link } from '@saas-ui/react'
-import { Checkbox } from '@saas-ui/react'
+import { Link } from 'compositions/ui/link'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 export const CheckboxWithLink = () => {
   return (

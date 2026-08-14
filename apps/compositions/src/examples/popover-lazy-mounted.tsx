@@ -1,7 +1,7 @@
 'use client'
 
-import { Text } from '@saas-ui/react'
-import { Button, Popover } from '@saas-ui/react'
+import { Text, Button } from '@chakra-ui/react'
+import { Popover } from 'compositions/ui/popover'
 
 export const PopoverLazyMounted = () => {
   return (

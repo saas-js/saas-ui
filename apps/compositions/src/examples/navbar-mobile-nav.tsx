@@ -1,18 +1,11 @@
-'use client'
-
+'use client';
 import { SaasUILogo } from '@saas-ui/assets'
-import {
-  AppShell,
-  Box,
-  Button,
-  Container,
-  Drawer,
-  Navbar,
-  Skeleton,
-  SkeletonText,
-  Stack,
-  useDisclosure,
-} from '@saas-ui/react'
+import { AppShell } from 'compositions/ui/app-shell'
+import { Box, Container, Stack, useDisclosure } from '@chakra-ui/react'
+import { Button } from 'compositions/ui/button'
+import { Drawer } from 'compositions/ui/drawer'
+import { Navbar } from 'compositions/ui/navbar'
+import { Skeleton, SkeletonText } from 'compositions/ui/skeleton'
 import { FiMenu, FiX } from 'react-icons/fi'
 
 export const NavbarMobileNav = () => {

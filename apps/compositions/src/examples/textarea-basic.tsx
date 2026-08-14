@@ -1,6 +1,6 @@
 'use client'
 
-import { Textarea } from '@saas-ui/react'
+import { Textarea } from '@chakra-ui/react'
 
 export const TextareaBasic = () => {
   return <Textarea placeholder="Comment..." />

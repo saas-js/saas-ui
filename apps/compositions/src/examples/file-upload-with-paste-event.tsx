@@ -1,13 +1,7 @@
 'use client'
 
-import {
-  FileUpload as ChakraFileUpload,
-  Float,
-  HStack,
-  Input,
-  type InputProps,
-} from '@saas-ui/react'
-import { FileUpload, useFileUploadContext } from '@saas-ui/react'
+import { FileUpload as ChakraFileUpload, FileUpload } from 'compositions/ui/file-upload'
+import { Float, HStack, Input, type InputProps, useFileUploadContext } from '@chakra-ui/react'
 import { HiX } from 'react-icons/hi'
 
 const FilePasteInput = (props: InputProps) => {

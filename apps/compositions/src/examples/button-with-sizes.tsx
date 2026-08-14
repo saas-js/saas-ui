@@ -1,7 +1,5 @@
-'use client'
-
-import { HStack } from '@saas-ui/react'
-import { Button } from '@saas-ui/react'
+'use client';
+import { HStack, Button } from '@chakra-ui/react'
 
 export const ButtonWithSizes = () => {
   return (

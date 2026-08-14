@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack } from '@saas-ui/react'
-import { Breadcrumb } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { Breadcrumb } from 'compositions/ui/breadcrumb'
 
 export const BreadcrumbWithVariants = () => {
   return (

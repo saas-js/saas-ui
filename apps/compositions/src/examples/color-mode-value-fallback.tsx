@@ -1,6 +1,8 @@
-'use client'
-
-import { ClientOnly, IconButton, Skeleton, useColorMode } from '@saas-ui/react'
+'use client';
+import { ClientOnly } from '@chakra-ui/react'
+import { IconButton } from 'compositions/ui/icon-button'
+import { Skeleton } from 'compositions/ui/skeleton'
+import { useColorMode } from 'compositions/components/setup/color-mode/color-mode'
 import { LuMoon, LuSun } from 'react-icons/lu'
 
 export const ColorModeValueFallback = () => {

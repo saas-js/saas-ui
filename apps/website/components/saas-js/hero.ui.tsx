@@ -1,22 +1,21 @@
 'use client'
 
 import {
-  Avatar,
-  AvatarGroup,
   Badge,
   Box,
-  Button,
   Container,
   Flex,
   HStack,
   Heading,
   Stack,
   Text,
-} from '@saas-ui/react'
+} from '@chakra-ui/react'
 import { TbStarFilled } from 'react-icons/tb'
 
 import { ActionArrow } from '#components/action-arrow'
 import { Subheading } from '#components/site/typography'
+import { Avatar, AvatarGroup } from '#components/ui/avatar'
+import { Button } from '#components/ui/button'
 import { Link } from '#components/ui/link'
 
 const StarterKitHeroUI = ({

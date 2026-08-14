@@ -11,8 +11,8 @@ import {
   Span,
   Stack,
   Text,
-} from '@saas-ui/react'
-import { Avatar } from '@saas-ui/react'
+} from '@chakra-ui/react'
+import { Avatar } from '#components/ui/avatar'
 import { allBlogs } from 'content-collections'
 import { Metadata } from 'next'
 import Link from 'next/link'

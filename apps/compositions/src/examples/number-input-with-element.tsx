@@ -1,4 +1,4 @@
-import { NumberInput } from '@saas-ui/react'
+import { NumberInput } from 'compositions/ui/number-input'
 import { LuDollarSign } from 'react-icons/lu'
 
 export const NumberInputWithElement = () => {

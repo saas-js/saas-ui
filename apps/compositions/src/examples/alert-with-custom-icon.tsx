@@ -1,4 +1,4 @@
-import { Alert } from '@saas-ui/react'
+import { Alert } from 'compositions/ui/alert'
 import { LuAlarmClockPlus } from 'react-icons/lu'
 
 export const AlertWithCustomIcon = () => {

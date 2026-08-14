@@ -1,6 +1,6 @@
-'use client'
-
-import { Blockquote, BlockquoteIcon, Float } from '@saas-ui/react'
+'use client';
+import { Blockquote, BlockquoteIcon } from 'compositions/ui/blockquote'
+import { Float } from '@chakra-ui/react'
 
 export const BlockquoteWithIcon = () => {
   return (

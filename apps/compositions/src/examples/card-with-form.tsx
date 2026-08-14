@@ -1,19 +1,19 @@
 'use client'
 
-import { SubmitButton, useForm } from '@saas-ui/forms'
-import { Stack } from '@saas-ui/react'
-import { Card } from '@saas-ui/react'
+import { Card, Stack } from '@chakra-ui/react'
+import { Form, useAppForm } from 'compositions/components/forms'
 
 export const CardWithForm = () => {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
       firstName: '',
       lastName: '',
     },
+    onSubmit: ({ value }) => console.log(value),
   })
 
   return (
-    <form.Form onSubmit={(values) => console.log(values)}>
+    <Form form={form}>
       <Card.Root maxW="sm">
         <Card.Header>
           <Card.Title>Sign up</Card.Title>
@@ -23,14 +23,18 @@ export const CardWithForm = () => {
         </Card.Header>
         <Card.Body>
           <Stack gap="4" w="full">
-            <form.Field name="firstName" label="First Name" />
-            <form.Field name="lastName" label="Last Name" />
+            <form.AppField name="firstName">
+              {(field) => <field.TextField label="First Name" />}
+            </form.AppField>
+            <form.AppField name="lastName">
+              {(field) => <field.TextField label="Last Name" />}
+            </form.AppField>
           </Stack>
         </Card.Body>
         <Card.Footer justifyContent="flex-end">
-          <SubmitButton>Save</SubmitButton>
+          <form.SubmitButton>Save</form.SubmitButton>
         </Card.Footer>
       </Card.Root>
-    </form.Form>
+    </Form>
   )
 }

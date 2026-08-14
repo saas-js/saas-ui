@@ -1,7 +1,5 @@
-'use client'
-
-import { HStack } from '@saas-ui/react'
-import { Field, Input } from '@saas-ui/react'
+'use client';
+import { HStack, Field, Input } from '@chakra-ui/react'
 
 export const InputWithField = () => {
   return (

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 
-import { Editable, Input, Stack } from '@saas-ui/react'
+import { Editable, Input, Stack } from '@chakra-ui/react'
 
 export const EditableWithFinalFocus = () => {
   const ref = useRef<HTMLInputElement>(null)

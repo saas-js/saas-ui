@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Stack, Text } from '@saas-ui/react'
-import { PasswordInput } from '@saas-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
+import { PasswordInput } from 'compositions/ui/password-input'
 
 export const PasswordInputControlledVisibility = () => {
   const [visible, setVisible] = useState(false)

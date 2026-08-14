@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Table } from '@saas-ui/react'
-import { Checkbox } from '@saas-ui/react'
+import { Table } from '@chakra-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 export const TableWithSelection = () => {
   const [selection, setSelection] = useState<string[]>([])

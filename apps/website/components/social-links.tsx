@@ -1,4 +1,5 @@
-import { HStack, IconButton } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { IconButton } from '#components/ui/icon-button'
 import Link from 'next/link'
 import { BsDiscord, BsGithub, BsTwitterX } from 'react-icons/bs'
 

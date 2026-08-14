@@ -1,12 +1,6 @@
-'use client'
-
-import {
-  Box,
-  Button,
-  Stack,
-  useColorMode,
-  useColorModeValue,
-} from '@saas-ui/react'
+'use client';
+import { Box, Button, Stack } from '@chakra-ui/react'
+import { useColorMode, useColorModeValue } from 'compositions/components/setup/color-mode/color-mode'
 
 export const ColorModeValue = () => {
   const { toggleColorMode } = useColorMode()

@@ -2,9 +2,10 @@
 
 import { Category } from '@/blocks'
 import { LinkButton } from '@/components/link-button'
-import { Box, HStack, Heading, Icon, Link } from '@saas-ui/react'
-import NextLink from 'next/link'
+import { Box, HStack, Heading, Icon } from '@chakra-ui/react'
 import { FiArrowLeft } from 'react-icons/fi'
+
+import { Link } from '#components/ui/link'
 
 interface CategoryHeaderProps {
   category: Category
@@ -17,7 +18,6 @@ export function CategoryHeader({ category }: CategoryHeaderProps) {
     <HStack alignItems="start">
       <Box mb="12" flex="1">
         <Link
-          as={NextLink}
           href="/blocks"
           role="group"
           display="inline-flex"

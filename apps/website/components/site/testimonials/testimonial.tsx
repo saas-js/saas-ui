@@ -1,5 +1,6 @@
 import { XIcon } from '@/components/icons/x-icon'
-import { Avatar, Card, Heading, Stack, Text } from '@saas-ui/react'
+import { Avatar } from '#components/ui/avatar'
+import { Card, Heading, Stack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
 interface Testimonial extends Card.RootProps {

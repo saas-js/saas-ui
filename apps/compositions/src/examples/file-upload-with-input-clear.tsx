@@ -1,6 +1,7 @@
-'use client'
-
-import { CloseButton, FileUpload, InputGroup } from '@saas-ui/react'
+'use client';
+import { CloseButton } from 'compositions/ui/close-button'
+import { FileUpload } from 'compositions/ui/file-upload'
+import { InputGroup } from '@chakra-ui/react'
 import { LuFileUp } from 'react-icons/lu'
 
 export const FileUploadWithInputClear = () => {

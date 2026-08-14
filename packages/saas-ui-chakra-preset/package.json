@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/chakra-preset",
-  "version": "3.0.0-next.9",
+  "version": "3.0.0-next.10",
   "description": "Saas UI - The Chakra UI preset",
   "type": "module",
   "exports": {
@@ -18,6 +18,11 @@
       "sui": "./src/appearance.ts",
       "types": "./dist/appearance.d.ts",
       "import": "./dist/appearance.js"
+    },
+    "./recipe-keys": {
+      "sui": "./src/recipe-keys.ts",
+      "types": "./dist/recipe-keys.d.ts",
+      "import": "./dist/recipe-keys.js"
     },
     "./recipes/*": {
       "sui": "./src/theme/recipes/*.recipe.ts",

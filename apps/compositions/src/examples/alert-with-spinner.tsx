@@ -1,4 +1,5 @@
-import { Alert, Spinner } from '@saas-ui/react'
+import { Alert } from 'compositions/ui/alert'
+import { Spinner } from 'compositions/ui/spinner'
 
 export const AlertWithSpinner = () => {
   return (

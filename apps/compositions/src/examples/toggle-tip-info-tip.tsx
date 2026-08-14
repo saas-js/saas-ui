@@ -1,7 +1,7 @@
 'use client'
 
-import { FormatByte, HStack, Text } from '@saas-ui/react'
-import { InfoTip } from '@saas-ui/react'
+import { FormatByte, HStack, Text } from '@chakra-ui/react'
+import { InfoTip } from 'compositions/ui/info-tip'
 
 export const ToggleTipInfoTip = () => {
   return (

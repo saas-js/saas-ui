@@ -2,7 +2,7 @@
 
 import { ActionArrow } from '@/components/action-arrow'
 import { LinkButton } from '@/components/link-button'
-import { Box, Container, HStack, Heading, Stack, Text } from '@saas-ui/react'
+import { Box, Container, HStack, Heading, Stack, Text } from '@chakra-ui/react'
 
 export function CTA() {
   return (

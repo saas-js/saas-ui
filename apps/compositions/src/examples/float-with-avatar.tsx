@@ -1,7 +1,7 @@
 'use client'
 
-import { Box, Float } from '@saas-ui/react'
-import { Avatar, Badge } from '@saas-ui/react'
+import { Box, Float, Badge } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
 
 export const FloatWithAvatar = () => {
   return (

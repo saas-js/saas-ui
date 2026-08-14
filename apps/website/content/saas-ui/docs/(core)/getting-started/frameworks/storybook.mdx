@@ -12,7 +12,8 @@ description: A guide for using Saas UI with Storybook
 Install the required dependencies for Saas UI and Storybook.
 
 ```bash
-npm i @storybook/addon-themes @saas-ui/react@next @chakra-ui/react @emotion/react
+npm i @storybook/addon-themes
+npx @saas-ui/cli init
 ```
 
 ### Setup Preview
@@ -20,7 +21,8 @@ npm i @storybook/addon-themes @saas-ui/react@next @chakra-ui/react @emotion/reac
 Edit the `.storybook/preview.tsx` file to include the Saas UI provider.
 
 ```tsx
-import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { Provider as SuiProvider } from '#components/setup/provider/provider'
+import { defaultSystem } from '@saas-ui/chakra-preset'
 import type { Preview } from '@storybook/react'
 
 const preview: Preview = {
@@ -70,7 +72,7 @@ npm run storybook
 Use Saas UI components in your stories.
 
 ```tsx
-import { Button } from '@saas-ui/react'
+import { Button } from '@chakra-ui/react'
 
 export const SampleStory = {
   render() {

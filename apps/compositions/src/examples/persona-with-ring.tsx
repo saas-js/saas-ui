@@ -1,6 +1,6 @@
-'use client'
-
-import { Persona, defineStyle } from '@saas-ui/react'
+'use client';
+import { Persona } from 'compositions/ui/persona'
+import { defineStyle } from '@chakra-ui/react/styled-system'
 
 export const PersonaWithRing = () => {
   return (

@@ -1,5 +1,6 @@
-import { Tabs } from "@chakra-ui/react"
-import { Children } from "react"
+import { Children, isValidElement } from 'react'
+
+import { Tabs } from '@chakra-ui/react'
 
 interface CodeGroupProps {
   children: React.ReactElement
@@ -11,10 +12,17 @@ export const CodeGroup: React.FC<CodeGroupProps> = (props) => {
   const titles: React.ReactNode[] = []
   const contents: React.ReactNode[] = []
 
-  let firstTitle = ""
+  let firstTitle = ''
 
-  Children.forEach(children, (child: React.ReactElement, index: number) => {
-    const title = child.props["data-title"]
+  Children.forEach(children, (child, index) => {
+    if (
+      !isValidElement<{ 'data-title': string; children?: React.ReactNode }>(
+        child,
+      )
+    ) {
+      return
+    }
+    const title = child.props['data-title']
     if (index === 0) firstTitle = title
     titles.push(
       <Tabs.Trigger key={title} value={title}>
@@ -27,7 +35,7 @@ export const CodeGroup: React.FC<CodeGroupProps> = (props) => {
         value={title}
         mt="-2"
         css={{
-          "& pre": { mb: "0" },
+          '& pre': { mb: '0' },
         }}
       >
         {child.props.children}

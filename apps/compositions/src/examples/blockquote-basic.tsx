@@ -1,6 +1,6 @@
 'use client'
 
-import { Blockquote } from '@saas-ui/react'
+import { Blockquote } from 'compositions/ui/blockquote'
 
 export const BlockquoteBasic = () => {
   return (

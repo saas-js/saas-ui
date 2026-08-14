@@ -1,7 +1,5 @@
-'use client'
-
-import { Stack } from '@saas-ui/react'
-import { Button, Field, Textarea } from '@saas-ui/react'
+'use client';
+import { Stack, Button, Field, Textarea } from '@chakra-ui/react'
 
 export const TextareaWithForm = () => {
   return (

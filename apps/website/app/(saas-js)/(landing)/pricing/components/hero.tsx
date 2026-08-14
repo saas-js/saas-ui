@@ -1,6 +1,7 @@
-'use client'
-
-import { Alert, Box, HStack, Heading, Link, Stack, Text } from '@saas-ui/react'
+'use client';
+import { Alert } from '#components/ui/alert'
+import { Box, HStack, Heading, Stack, Text } from '@chakra-ui/react'
+import { Link } from '#components/ui/link'
 
 export function Hero() {
   return (

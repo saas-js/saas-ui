@@ -13,16 +13,18 @@ import {
   Separator,
   Stack,
   Text,
-  chakra,
-} from '@saas-ui/react'
-import { Breadcrumb, Drawer, Sidebar } from '@saas-ui/react'
+} from '@chakra-ui/react'
+import { chakra } from '@chakra-ui/react/styled-system'
 import { searchPath } from 'fumadocs-core/breadcrumb'
+import type { PageTreeBuilder } from 'fumadocs-core/source'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AiOutlineMenu, AiOutlineRight } from 'react-icons/ai'
 import { LuChevronRight } from 'react-icons/lu'
 
-import type { PageTreeBuilder } from '#node_modules/fumadocs-core/dist/source'
+import { Breadcrumb } from '#components/ui/breadcrumb'
+import { Drawer } from '#components/ui/drawer'
+import { Sidebar } from '#components/ui/sidebar'
 
 type PageTree = Awaited<ReturnType<PageTreeBuilder['build']>>
 type PageTreeNode = PageTree['children'][number]
@@ -140,14 +142,14 @@ function SidebarItem({ item }: { item: PageTreeNode }) {
             _active={{
               bg: 'sidebar.accent.bg',
             }}
+            css={{
+              '&[data-state=open] svg': { transform: 'rotate(90deg)' },
+            }}
           >
             <Sidebar.GroupTitle>{item.name}</Sidebar.GroupTitle>
             <Sidebar.GroupEndElement>
               <Icon
                 as={LuChevronRight}
-                _groupOpen={{
-                  transform: 'rotate(90deg)',
-                }}
                 transition="transform 0.2s ease-in-out"
               />
             </Sidebar.GroupEndElement>
@@ -313,7 +315,10 @@ export const MobileSidebarNav = () => {
                 key={group.title}
                 currentUrl={route.currentUrl}
                 title={group.title}
-                items={group.items}
+                items={group.items.filter(
+                  (item): item is typeof item & { url: string } =>
+                    typeof item.url === 'string',
+                )}
               />
             ))}
           </Drawer.Body>

@@ -1,6 +1,6 @@
-'use client'
-
-import { Button, ButtonGroup, EmptyState } from '@saas-ui/react'
+'use client';
+import { Button, ButtonGroup } from '@chakra-ui/react'
+import { EmptyState } from 'compositions/ui/empty-state'
 import { HiColorSwatch } from 'react-icons/hi'
 
 export const EmptyStateWithAction = () => {

@@ -1,10 +1,8 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
-  "description": "A Saas UI registry of components, hooks, pages, etc.",
-  "type": "object",
+  "$id": "https://saas-ui.dev/r/schema/registry.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
   "properties": {
-<<<<<<< Updated upstream
-=======
     "homepage": {
       "format": "uri",
       "type": "string"
@@ -191,6 +189,12 @@
           "order": {
             "type": "number"
           },
+          "preview": {
+            "type": "string"
+          },
+          "primaryFile": {
+            "type": "string"
+          },
           "private": {
             "type": "boolean"
           },
@@ -287,21 +291,21 @@
       },
       "type": "array"
     },
->>>>>>> Stashed changes
     "name": {
       "type": "string"
     },
-    "homepage": {
-      "type": "string"
-    },
-    "items": {
-      "type": "array",
-      "items": {
-        "$ref": "https://saas-ui.dev/schema/registry-item.json"
-      }
+    "schemaVersion": {
+      "const": 1,
+      "default": 1,
+      "type": "number"
     }
   },
-  "required": ["name", "homepage", "items"],
-  "uniqueItems": true,
-  "minItems": 1
+  "required": [
+    "schemaVersion",
+    "name",
+    "homepage",
+    "items"
+  ],
+  "type": "object",
+  "x-registry-schema-version": 1
 }

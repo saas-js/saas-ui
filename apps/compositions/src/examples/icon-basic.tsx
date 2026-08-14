@@ -1,4 +1,4 @@
-import { Icon } from '@saas-ui/react'
+import { Icon } from '@chakra-ui/react'
 import { HiHeart } from 'react-icons/hi'
 
 export const IconBasic = () => (

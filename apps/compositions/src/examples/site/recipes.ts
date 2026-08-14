@@ -1,4 +1,4 @@
-import { defineRecipe } from '@saas-ui/react'
+import { defineRecipe } from '@chakra-ui/react/styled-system'
 
 export const cardRecipe = defineRecipe({
   base: {

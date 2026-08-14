@@ -6,25 +6,26 @@ import {
   RouterProvider,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+import { ChakraProvider } from '@chakra-ui/react'
+import { defaultSystem } from '@saas-ui/chakra-preset'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import reportWebVitals from './reportWebVitals.ts'
 import './styles.css'
 
-import { defaultSystem, SuiProvider } from '@saas-ui/react'
 import { ThemeProvider } from 'next-themes'
 import App from './App.tsx'
 
 const rootRoute = createRootRoute({
   component: () => (
     <>
-      <SuiProvider value={defaultSystem}>
+      <ChakraProvider value={defaultSystem}>
         <ThemeProvider attribute="class" disableTransitionOnChange>
           <Outlet />
           <TanStackRouterDevtools />
         </ThemeProvider>
-      </SuiProvider>
+      </ChakraProvider>
     </>
   ),
 })

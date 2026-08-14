@@ -1,6 +1,6 @@
 'use client'
 
-import { Field, Input } from '@saas-ui/react'
+import { Field, Input } from '@chakra-ui/react'
 
 export const FieldBasic = () => {
   return (

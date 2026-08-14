@@ -1,14 +1,6 @@
 import { BlitzFillIcon } from '@/components/site/icons'
-import {
-  HStack,
-  Heading,
-  HeadingProps,
-  Highlight,
-  StackProps,
-  Text,
-  TextProps,
-  defineStyle,
-} from '@saas-ui/react'
+import { HStack, Heading, HeadingProps, Highlight, StackProps, Text, TextProps } from '@chakra-ui/react'
+import { defineStyle } from '@chakra-ui/react/styled-system'
 
 const styles = defineStyle({
   color: { _light: 'indigo.600', _dark: 'indigo.500' },

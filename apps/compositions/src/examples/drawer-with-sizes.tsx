@@ -1,7 +1,8 @@
 'use client'
 
-import { For, HStack, Kbd } from '@saas-ui/react'
-import { Button, Drawer } from '@saas-ui/react'
+import { For, HStack, Kbd } from '@chakra-ui/react'
+import { Button } from 'compositions/ui/button'
+import { Drawer } from 'compositions/ui/drawer'
 
 export const DrawerWithSizes = () => {
   return (

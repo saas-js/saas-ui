@@ -1,5 +1,5 @@
 import { CategoriesGroup } from '@/blocks'
-import { SimpleGrid } from '@saas-ui/react'
+import { SimpleGrid } from '@chakra-ui/react'
 
 import { CategoryCard } from './category-card'
 

@@ -1,7 +1,5 @@
 ---
-'@saas-ui/modals': minor
-'@saas-ui/forms': minor
-'@saas-ui/react': minor
+'@saas-ui/chakra-preset': minor
 ---
 
 Updated to Chakra 3.27.0

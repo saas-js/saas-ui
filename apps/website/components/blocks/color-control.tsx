@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
-import { FiPenTool, FiCheck } from 'react-icons/fi'
+
 import {
-  Box,
-  Stack,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  useTheme,
-  IconButton,
   Badge,
+  IconButton,
+  Popover,
+  Stack,
+  useChakraContext,
 } from '@chakra-ui/react'
-import { LuCheck, LuPenTool } from 'react-icons/lu'
+import { LuCheck } from 'react-icons/lu'
 
 interface ColorControlProps {
   onChange(color: string): void
@@ -34,7 +31,7 @@ const ignore = [
 
 export function ColorControl({ onChange, value }: ColorControlProps) {
   const [opened, setOpened] = useState(false)
-  const theme = useTheme()
+  const system = useChakraContext()
 
   // @todo remove this hack to prevent hydration errors
   const initializedRef = React.useRef(false)
@@ -48,15 +45,15 @@ export function ColorControl({ onChange, value }: ColorControlProps) {
     return null
   }
 
-  const colors = Object.keys(theme.colors).filter(
-    (color) => !color.match('Alpha') && !ignore.includes(color)
+  const colors = Array.from(system.tokens.colorPaletteMap.keys()).filter(
+    (color) => !color.match('Alpha') && !ignore.includes(color),
   )
 
   const swatches = colors.map((color) => (
     <IconButton
       aria-label={color}
       onClick={() => onChange(color)}
-      isRound
+      rounded="full"
       size="xs"
       key={color}
       bg={`${color}.500`}
@@ -79,25 +76,24 @@ export function ColorControl({ onChange, value }: ColorControlProps) {
   ))
 
   return (
-    <Popover
-      isOpen={opened}
-      onClose={() => setOpened(false)}
-      placement="bottom-end"
-      isLazy
+    <Popover.Root
+      open={opened}
+      onOpenChange={(details) => setOpened(details.open)}
+      positioning={{ placement: 'bottom-end' }}
+      lazyMount
     >
-      <PopoverTrigger>
-        <IconButton
-          aria-label="Change primary color"
-          icon={<Badge rounded="full" boxSize="3" bg={`${value}.500`} />}
-          variant="tertiary"
-          onClick={() => setOpened((o) => !o)}
-        />
-      </PopoverTrigger>
-      <PopoverContent>
-        <Stack gap="2" flexDirection="row" flexWrap="wrap" p="2">
-          {swatches}
-        </Stack>
-      </PopoverContent>
-    </Popover>
+      <Popover.Trigger asChild>
+        <IconButton aria-label="Change primary color" variant="ghost">
+          <Badge rounded="full" boxSize="3" bg={`${value}.500`} />
+        </IconButton>
+      </Popover.Trigger>
+      <Popover.Positioner>
+        <Popover.Content>
+          <Stack gap="2" flexDirection="row" flexWrap="wrap" p="2">
+            {swatches}
+          </Stack>
+        </Popover.Content>
+      </Popover.Positioner>
+    </Popover.Root>
   )
 }

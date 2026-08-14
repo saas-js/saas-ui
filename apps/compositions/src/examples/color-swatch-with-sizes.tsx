@@ -1,8 +1,5 @@
-'use client'
-
-import { HStack } from '@saas-ui/react'
-import { ColorSwatch } from '@saas-ui/react'
-import { For } from '@saas-ui/react'
+'use client';
+import { HStack, ColorSwatch, For } from '@chakra-ui/react'
 
 export const ColorSwatchWithSizes = () => {
   return (

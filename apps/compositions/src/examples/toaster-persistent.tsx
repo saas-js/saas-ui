@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from '@saas-ui/react'
-import { toast } from '@saas-ui/react'
+import { Button } from '@chakra-ui/react'
+import { toast } from 'compositions/ui/toaster'
 
 export const ToasterPersistent = () => {
   return (

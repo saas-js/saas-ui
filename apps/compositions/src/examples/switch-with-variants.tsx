@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { Switch } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { Switch } from 'compositions/ui/switch'
 
 export const SwitchWithVariants = () => {
   return (

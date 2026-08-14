@@ -1,4 +1,5 @@
-import { chakra, useColorModeValue } from '@saas-ui/react'
+import { chakra } from '@chakra-ui/react/styled-system'
+import { useColorModeValue } from '#components/setup/color-mode/color-mode'
 
 export const Ownco = (props: any) => {
   return (

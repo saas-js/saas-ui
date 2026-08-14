@@ -1,5 +1,4 @@
-import { promises as fs } from 'node:fs'
-import { tmpdir } from 'node:os'
+import { randomUUID } from 'node:crypto'
 import path from 'node:path'
 import { Project, ScriptKind, type SourceFile } from 'ts-morph'
 import { z } from 'zod'
@@ -28,30 +27,33 @@ const project = new Project({
   compilerOptions: {},
 })
 
-async function createTempSourceFile(filename: string) {
-  const dir = await fs.mkdtemp(path.join(tmpdir(), 'sui-'))
-  return path.join(dir, filename)
-}
-
 export async function transform(
   opts: TransformOpts,
   transformers: Transformer[] = [transformImport, transformRsc],
 ) {
-  const tempFile = await createTempSourceFile(opts.filename)
-  const sourceFile = project.createSourceFile(tempFile, opts.raw, {
+  const virtualFile = path.join(
+    '/__saas-ui-transform__',
+    randomUUID(),
+    path.basename(opts.filename),
+  )
+  const sourceFile = project.createSourceFile(virtualFile, opts.raw, {
     scriptKind: ScriptKind.TSX,
   })
 
-  for (const transformer of transformers) {
-    transformer({ sourceFile, ...opts })
-  }
+  try {
+    for (const transformer of transformers) {
+      await transformer({ sourceFile, ...opts })
+    }
 
-  if (opts.transformJsx) {
-    return await transformJsx({
-      sourceFile,
-      ...opts,
-    })
-  }
+    if (opts.transformJsx) {
+      return await transformJsx({
+        sourceFile,
+        ...opts,
+      })
+    }
 
-  return sourceFile.getText()
+    return sourceFile.getText()
+  } finally {
+    project.removeSourceFile(sourceFile)
+  }
 }

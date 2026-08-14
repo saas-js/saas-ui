@@ -1,7 +1,5 @@
-'use client'
-
-import { HStack } from '@saas-ui/react'
-import { Progress } from '@saas-ui/react'
+'use client';
+import { HStack, Progress } from '@chakra-ui/react'
 
 export const ProgressBarWithLabel = () => {
   return (

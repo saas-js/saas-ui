@@ -1,15 +1,9 @@
 ---
-'@saas-ui/modals-provider': major
-'@saas-ui/auth-provider': major
 '@saas-ui/use-hotkeys': major
-'@saas-ui/supabase': major
 '@saas-ui/assets': major
-'@saas-ui/modals': major
 '@saas-ui/storybook-addon': major
-'@saas-ui/forms': major
 '@saas-ui/hooks': major
-'@saas-ui/react': major
-'@saas-ui/core': major
+'@saas-ui/chakra-preset': major
 'saas-ui-storybook': major
 '@saas-ui/test-utils': major
 ---

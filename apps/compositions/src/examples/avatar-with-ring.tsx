@@ -1,5 +1,6 @@
-import { HStack, defineStyle } from '@saas-ui/react'
-import { Avatar } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { defineStyle } from '@chakra-ui/react/styled-system'
+import { Avatar } from 'compositions/ui/avatar'
 
 const ringCss = defineStyle({
   outlineWidth: '2px',

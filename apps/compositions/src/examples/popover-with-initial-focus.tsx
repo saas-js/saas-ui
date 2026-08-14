@@ -2,8 +2,8 @@
 
 import { useRef } from 'react'
 
-import { Box, Group } from '@saas-ui/react'
-import { Button, Popover } from '@saas-ui/react'
+import { Box, Group, Button } from '@chakra-ui/react'
+import { Popover } from 'compositions/ui/popover'
 
 export const PopoverWithInitialFocus = () => {
   const ref = useRef<HTMLButtonElement>(null)

@@ -1,7 +1,7 @@
 'use client'
 
-import { CheckboxGroup, Float, Icon, SimpleGrid } from '@saas-ui/react'
-import { CheckboxCard } from '@saas-ui/react'
+import { CheckboxGroup, Icon, SimpleGrid } from '@chakra-ui/react'
+import { CheckboxCard } from 'compositions/ui/checkbox-card'
 import { HiGlobeAlt, HiLockClosed, HiShieldCheck, HiUser } from 'react-icons/hi'
 
 export const CheckboxCardWithIcon = () => {

@@ -1,7 +1,7 @@
 'use client'
 
-import { Group } from '@saas-ui/react'
-import { Pagination } from '@saas-ui/react'
+import { Group } from '@chakra-ui/react'
+import { Pagination } from 'compositions/ui/pagination'
 
 export const PaginationAttached = () => {
   return (

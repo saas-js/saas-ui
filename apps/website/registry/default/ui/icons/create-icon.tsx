@@ -1,9 +1,11 @@
 'use client'
 
+import type { ReactElement } from 'react'
+
 import type { IconProps } from '@chakra-ui/react/icon'
 import { createIcon as _createIcon } from '@chakra-ui/react/icon'
 
-interface CreateIconOptions {
+export interface CreateIconOptions {
   /**
    * The icon `svg` viewBox
    * @default "0 0 24 24"
@@ -13,7 +15,7 @@ interface CreateIconOptions {
    * The `svg` path or group element
    * @type React.ReactElement | React.ReactElement[]
    */
-  path?: React.ReactElement | React.ReactElement[]
+  path?: ReactElement | ReactElement[]
   /**
    * If the `svg` has a single path, simply copy the path's `d` attribute
    */

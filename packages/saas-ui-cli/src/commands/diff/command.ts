@@ -12,6 +12,11 @@ export const diffCommand = buildCommand({
         brief: 'Skip confirmation prompt.',
         default: false,
       },
+      check: {
+        kind: 'boolean',
+        brief: 'Exit with an error when installed registry items have drifted.',
+        default: false,
+      },
       cwd: {
         kind: 'parsed',
         parse: String,
@@ -26,10 +31,9 @@ export const diffCommand = buildCommand({
         brief: 'The component to check for updates.',
       },
       minimum: 0,
-      maximum: 1,
     },
   },
   docs: {
-    brief: 'Check for component updates',
+    brief: 'Compare installed registry items with local files and the registry',
   },
 })

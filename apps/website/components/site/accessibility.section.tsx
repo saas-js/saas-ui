@@ -1,15 +1,4 @@
-import {
-  Button,
-  Container,
-  Flex,
-  HStack,
-  Heading,
-  Image,
-  Span,
-  Stack,
-  Tabs,
-  Text,
-} from '@saas-ui/react'
+import { Button, Container, Flex, HStack, Heading, Image, Span, Stack, Tabs, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
 // import { DemoCode } from "../demo-code"

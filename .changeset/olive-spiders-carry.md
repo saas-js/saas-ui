@@ -1,5 +1,5 @@
 ---
-'@saas-ui/react': patch
+'@saas-ui/chakra-preset': patch
 ---
 
 Added \_rowHover condition

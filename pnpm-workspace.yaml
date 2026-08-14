@@ -2,7 +2,6 @@ packages:
   - apps/website
   - apps/compositions
   - packages/storybook
-  - packages/pro/packages/*
   - packages/saas-ui-*
   - tooling/next-workspaces
   - tooling/test-utils

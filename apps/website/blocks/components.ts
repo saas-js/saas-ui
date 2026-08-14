@@ -1,152 +1,177 @@
-import { highlightCode } from '@/lib/highlight-code'
-import { pascalCase } from 'change-case'
-import fs from 'node:fs'
-import path from 'node:path'
+import {
+  type RegistryIndexItem,
+  type RegistryItem,
+  parseRegistryIndex,
+  parseRegistryItem,
+} from '@saas-ui/registry/schema'
 
-interface ComponentInfo {
-  component: string
-  slug: string
-  code: { fileName: string; language: string; code: string }[]
-  attributes: any
-}
+import type { UiComponent } from './types'
 
-function removeReact(input: string) {
-  const lines = input.split('\n')
-
-  if (lines[0].includes("import React from 'react';")) {
-    lines.shift()
-  } else if (lines[0].includes('import React')) {
-    const remainingImports = lines[0].replace(/import React[^;]+;/, '')
-    lines[0] = remainingImports
-  }
-
-  return lines.join('\n')
-}
-
-async function getComponentCode(
-  componentFolder: string,
-  componentName: string,
-) {
-  const componentContents = fs
-    .readdirSync(componentFolder)
-    .filter(
-      (item) =>
-        (item.endsWith('.tsx') && !item.endsWith('.stories.tsx')) ||
-        item.endsWith('.ts'),
-    )
-
-  const mainFileContent = removeReact(
-    fs.readFileSync(
-      path.join(componentFolder, `${componentName}.tsx`),
-      'utf-8',
-    ),
+const registryBaseUrl = () =>
+  (process.env.PRO_REGISTRY_URL ?? 'http://localhost:4000/r').replace(
+    /\/+$/,
+    '',
   )
-  const otherFilesContent = componentContents
-    .filter((file) => file !== `${componentName}.tsx`)
-    .map((file) => ({
-      name: file,
-      content: removeReact(
-        fs.readFileSync(path.join(componentFolder, file), 'utf-8'),
-      ),
-    }))
 
-  const highlighted = await highlightCode(mainFileContent)
+function itemUrl(name: string) {
+  const baseUrl = registryBaseUrl()
+  if (!baseUrl) return undefined
+  return `${baseUrl}/styles/default/${encodeURIComponent(name)}.json`
+}
 
-  return [
-    {
-      fileName: `${componentName}.tsx`,
-      language: 'tsx',
-      code: mainFileContent,
-      highlighted,
+function storybookSegment(value: string) {
+  return value.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+}
+
+function sourcePath(item: RegistryIndexItem | RegistryItem) {
+  const file = item.files?.find((value) => typeof value !== 'string')
+  return file && typeof file.path === 'string' ? file.path : undefined
+}
+
+function blockCategory(item: RegistryIndexItem | RegistryItem) {
+  const path = sourcePath(item)
+  return path?.split('/')[1] ?? item.subcategory ?? item.category
+}
+
+function blockPreview(item: RegistryIndexItem | RegistryItem) {
+  if (item.preview) return item.preview
+
+  const category = blockCategory(item)
+  if (!category) return undefined
+
+  return `blocks-${storybookSegment(category)}-${storybookSegment(item.name)}--default`
+}
+
+function previewUrl(preview: string | undefined) {
+  const storybookUrl = (
+    process.env.PRO_STORYBOOK_URL ?? 'http://localhost:6007'
+  ).replace(/\/+$/, '')
+  if (!storybookUrl || !preview) return undefined
+  return `${storybookUrl}/iframe.html?id=${encodeURIComponent(preview)}&viewMode=story`
+}
+
+function componentFromItem(
+  item: RegistryIndexItem | RegistryItem,
+): UiComponent {
+  const meta = item.meta ?? {}
+  const canvas = item.canvas ?? {}
+  const category = blockCategory(item) ?? 'uncategorized'
+  const preview = blockPreview(item)
+  const canvasMaxWidth = canvas.maxWidth
+  const canvasClassName = canvas.className
+  const canvasHeight = canvas.height
+  const canvasOverflow = canvas.overflow
+
+  return {
+    component: item.name,
+    slug: item.name,
+    code: [],
+    attributes: {
+      category,
+      title:
+        typeof meta.title === 'string'
+          ? meta.title
+          : item.name.replaceAll('-', ' '),
+      description: item.description,
+      version: item.version,
+      public: item.private !== true,
+      private: item.private === true,
+      preview,
+      previewUrl: previewUrl(preview),
+      canvas: {
+        center: canvas.center ?? false,
+        maxWidth:
+          typeof canvasMaxWidth === 'string' ||
+          typeof canvasMaxWidth === 'number'
+            ? canvasMaxWidth
+            : undefined,
+        className:
+          typeof canvasClassName === 'string' ? canvasClassName : undefined,
+        height:
+          typeof canvasHeight === 'string' || typeof canvasHeight === 'number'
+            ? canvasHeight
+            : undefined,
+        overflow:
+          typeof canvasOverflow === 'string' ? canvasOverflow : undefined,
+      },
     },
-    ...otherFilesContent.map(({ name, content }) => ({
-      fileName: name,
-      language: name.endsWith('.css') ? 'css' : 'tsx',
-      code: content,
-    })),
-  ]
-}
-
-const getRootFolder = () => {
-  return path.join(process.cwd(), '../../packages/pro/packages/blocks')
-}
-
-export async function getAllComponents(): Promise<ComponentInfo[]> {
-  const rootFolder = getRootFolder()
-
-  const categories = fs.readdirSync(rootFolder)
-
-  const components: ComponentInfo[] = []
-  for (const category of categories) {
-    const categoryDirectory = path.join(rootFolder, category)
-    if (!fs.lstatSync(categoryDirectory).isDirectory()) {
-      continue
-    }
-    const componentsInCategory = fs.readdirSync(categoryDirectory)
-    for (const componentName of componentsInCategory) {
-      const componentDirectory = path.join(rootFolder, category, componentName)
-      const componentAttributes = path.join(
-        componentDirectory,
-        'attributes.json',
-      )
-
-      if (fs.lstatSync(componentDirectory).isDirectory()) {
-        let attributes = {}
-        try {
-          attributes = JSON.parse(fs.readFileSync(componentAttributes, 'utf8'))
-        } catch {}
-
-        components.push({
-          component: pascalCase(componentName),
-          slug: componentName,
-          code: [],
-          attributes: {
-            title: pascalCase(componentName),
-            category,
-            ...attributes,
-          },
-        })
-      }
-    }
   }
+}
 
-  return components.sort(({ attributes }) => (attributes.public ? -1 : 1))
+export async function getProRegistryIndex(
+  fetchImplementation: typeof globalThis.fetch = globalThis.fetch,
+) {
+  const baseUrl = registryBaseUrl()
+  if (!baseUrl || !fetchImplementation) return []
+
+  try {
+    const response = await fetchImplementation(`${baseUrl}/index.json`, {
+      cache: 'no-store',
+    })
+    if (!response.ok) return []
+    return parseRegistryIndex(await response.json(), 'Pro registry index')
+  } catch {
+    return []
+  }
+}
+
+export async function getProRegistryItem(
+  name: string,
+  options: {
+    authorization?: string
+    fetchImplementation?: typeof globalThis.fetch
+  } = {},
+) {
+  const url = itemUrl(name)
+  if (!url) return null
+
+  const headers = new Headers()
+  if (options.authorization) headers.set('Authorization', options.authorization)
+
+  const response = await (options.fetchImplementation ?? globalThis.fetch)(
+    url,
+    {
+      headers,
+      cache: 'no-store',
+    },
+  )
+  if (!response.ok) return null
+  return parseRegistryItem(await response.json(), `Pro registry item ${name}`)
+}
+
+export async function getAllComponents(): Promise<UiComponent[]> {
+  const items = await getProRegistryIndex()
+  return items
+    .filter((item) => item.type === 'registry:block')
+    .map(componentFromItem)
+    .sort((left, right) => {
+      const leftPrivate = left.attributes.private ? 1 : 0
+      const rightPrivate = right.attributes.private ? 1 : 0
+      return (
+        leftPrivate - rightPrivate ||
+        left.attributes.category.localeCompare(right.attributes.category) ||
+        left.slug.localeCompare(right.slug)
+      )
+    })
 }
 
 export async function getComponent(
   categoryName: string,
   componentName: string,
-): Promise<ComponentInfo | null> {
-  const componentDirectory = path.join(
-    getRootFolder(),
-    categoryName,
-    componentName,
+) {
+  const component = (await getAllComponents()).find(
+    (item) =>
+      item.slug === componentName && item.attributes.category === categoryName,
   )
-  const componentAttributes = path.join(componentDirectory, 'attributes.json')
-
-  if (fs.lstatSync(componentDirectory).isDirectory()) {
-    const code = await getComponentCode(componentDirectory, componentName)
-    const attributes = JSON.parse(fs.readFileSync(componentAttributes, 'utf8'))
-    return {
-      component: pascalCase(componentName),
-      slug: componentName,
-      code,
-      attributes,
-    }
-  }
-
-  return null
+  return component ?? null
 }
 
 export async function getComponentsByCategory() {
   const all = await getAllComponents()
-  return all.reduce<Record<string, ComponentInfo[]>>((acc, component) => {
-    if (!(component.attributes.category in acc)) {
-      acc[component.attributes.category] = []
-    }
-    if (component) {
-      acc[component.attributes.category].push(component)
-    }
+  return all.reduce<Record<string, UiComponent[]>>((acc, component) => {
+    const category = component.attributes.category
+    acc[category] ??= []
+    acc[category].push(component)
     return acc
   }, {})
 }
@@ -154,10 +179,8 @@ export async function getComponentsByCategory() {
 export async function countComponentsByCategory() {
   const all = await getAllComponents()
   return all.reduce<Record<string, number>>((acc, component) => {
-    if (!(component.attributes.category in acc)) {
-      acc[component.attributes.category] = 0
-    }
-    acc[component.attributes.category] += 1
+    const category = component.attributes.category
+    acc[category] = (acc[category] ?? 0) + 1
     return acc
   }, {})
 }
@@ -173,5 +196,5 @@ export async function getAllChangelogs() {
   const all = await getAllComponents()
   return Array.from(
     new Set(all.map((component) => component.attributes.changelog)),
-  ).filter((c) => c)
+  ).filter((value): value is string => Boolean(value))
 }

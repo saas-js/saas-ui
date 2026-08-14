@@ -1,6 +1,6 @@
 'use client'
 
-import { HStack, Stack, Text } from '@saas-ui/react'
+import { HStack, Stack, Text } from '@chakra-ui/react'
 import { usePathname } from 'next/navigation'
 import { LuChevronsUpDown } from 'react-icons/lu'
 
@@ -81,16 +81,20 @@ export const Navigation = () => {
                   const isActive = kit.id === activeStarter.id
 
                   return (
-                    <ListItem key={kit.id} href={kit.href}>
-                      <HStack
-                        as="span"
-                        fontWeight={isActive ? 'semibold' : 'medium'}
-                        textStyle="sm"
-                        color={isActive ? 'fg' : 'fg'}
-                      >
-                        <Logo fontSize="lg" /> {kit.label}
-                      </HStack>
-                    </ListItem>
+                    <ListItem
+                      key={kit.id}
+                      href={kit.href}
+                      title={
+                        <HStack
+                          as="span"
+                          fontWeight={isActive ? 'semibold' : 'medium'}
+                          textStyle="sm"
+                          color="fg"
+                        >
+                          <Logo fontSize="lg" /> {kit.label}
+                        </HStack>
+                      }
+                    />
                   )
                 })}
               </Stack>
@@ -150,7 +154,7 @@ export const Navigation = () => {
           <NavigationMenuLink href="/showcase">Showcase</NavigationMenuLink>
         </NavigationMenuItem>
 
-        <NavigationMenuIndicator></NavigationMenuIndicator>
+        <NavigationMenuIndicator />
       </NavigationMenuList>
 
       <ViewportPosition>

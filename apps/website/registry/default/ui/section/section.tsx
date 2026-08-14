@@ -4,15 +4,16 @@ import * as React from 'react'
 
 import {
   type HTMLChakraProps,
-  type SlotRecipeProps,
   chakra,
 } from '@chakra-ui/react'
+import type { SlotRecipeProps } from '@saas-ui/chakra-preset'
+import type { SectionVariantProps } from '@saas-ui/chakra-preset/slot-recipes/section'
 
 import { withContext, withProvider } from './section.context.ts'
 
 interface SectionRootProps
   extends HTMLChakraProps<'div'>,
-    SlotRecipeProps<'suiSection'> {}
+    SlotRecipeProps<'suiSection', SectionVariantProps> {}
 
 const SectionRoot = withProvider<HTMLDivElement, SectionRootProps>(
   'div',

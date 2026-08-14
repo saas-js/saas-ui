@@ -1,6 +1,6 @@
 'use client'
 
-import { DataList } from '@saas-ui/react'
+import { DataList } from '@chakra-ui/react'
 
 const stats = [
   { label: 'New Users', value: '234', diff: -12, helpText: 'Till date' },

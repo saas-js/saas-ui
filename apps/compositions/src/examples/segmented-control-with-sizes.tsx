@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Stack, Text, VStack } from '@saas-ui/react'
-import { SegmentedControl } from '@saas-ui/react'
+import { For, Stack, Text, VStack } from '@chakra-ui/react'
+import { SegmentedControl } from 'compositions/ui/segmented-control'
 
 export const SegmentedControlWithSizes = () => {
   return (

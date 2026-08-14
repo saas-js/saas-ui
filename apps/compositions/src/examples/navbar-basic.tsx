@@ -1,7 +1,8 @@
-'use client'
-
+'use client';
 import { SaasUILogo } from '@saas-ui/assets'
-import { AppShell, Button, Navbar } from '@saas-ui/react'
+import { AppShell } from 'compositions/ui/app-shell'
+import { Button } from 'compositions/ui/button'
+import { Navbar } from 'compositions/ui/navbar'
 
 export const NavbarBasic = () => {
   return (

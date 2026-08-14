@@ -1,5 +1,15 @@
 # saas-ui-storybook
 
+## 3.0.0-next.56
+
+### Patch Changes
+
+- Updated dependencies [d79c7ca]
+- Updated dependencies [a2c1e38]
+  - @saas-ui/chakra-preset@3.0.0-next.10
+  - @saas-ui/react@3.0.0-next.56
+  - @saas-ui/storybook-addon@7.0.0-next.9
+
 ## 3.0.0-next.55
 
 ### Patch Changes

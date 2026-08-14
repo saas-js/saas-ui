@@ -9,6 +9,9 @@
   `components.json`-tracked updates, shadcn-compatible public and private
   registry namespaces, current forms and the locally owned modal manager
   template.
+- d79c7ca: Add ColorSwatch and Fieldset recipes, new Button, DataList, and Tabs
+  variants, and exported recipe keys and variant prop types for registry
+  templates.
 
 ### Patch Changes
 
@@ -21,6 +24,7 @@
 
   Restore the public recipe variant type exports consumed by installed registry
   components.
+- a2c1e38: Fix select content max height
 
 ## 3.0.0-next.9
 

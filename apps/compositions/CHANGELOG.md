@@ -7,6 +7,8 @@
 - Updated dependencies [dfc8727]
 - Updated dependencies [aac593e]
 - Updated dependencies [5116c7c]
+- Updated dependencies [d79c7ca]
+- Updated dependencies [a2c1e38]
   - @saas-ui/chakra-preset@3.0.0-next.10
 
 ## 1.0.1-next.58

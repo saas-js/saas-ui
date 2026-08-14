@@ -1,5 +1,11 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-next.11
+
+### Patch Changes
+
+- a2c1e38: Fix select content max height
+
 ## 3.0.0-next.10
 
 ### Minor Changes
@@ -24,7 +30,6 @@
 
   Restore the public recipe variant type exports consumed by installed registry
   components.
-- a2c1e38: Fix select content max height
 
 ## 3.0.0-next.9
 

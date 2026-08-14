@@ -5,7 +5,7 @@ components from the Saas UI registry.
 
 After a global install, the preferred executable is `saas-ui`. The existing
 `sui` executable remains available for compatibility. Without a global install,
-use `npx @saas-ui/cli` in place of `saas-ui` in the examples below.
+use `npx @saas-ui/cli@rc` in place of `saas-ui` in the examples below.
 
 ## Initialize a project
 
@@ -22,7 +22,7 @@ initialization and installs `next-themes`; choose explicitly with
 `--color-mode on` or `--color-mode off`.
 
 Framework package versions come from one CLI compatibility policy. While the v3
-preset is published on the `next` channel, clean projects receive the exact
+preset is published on the `rc` channel, clean projects receive the exact
 current workspace release (embedded into the CLI at build time) rather than a
 moving dist-tag; compatible stable v3 declarations remain valid for the eventual
 stable channel. In a monorepo, `workspace:` declarations are retained only after

@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@saas-ui/cli">
-    <img src="https://img.shields.io/npm/v/@saas-ui/cli" alt="Saas UI CLI on npm">
+    <img src="https://img.shields.io/npm/v/@saas-ui/cli/rc" alt="Saas UI CLI on npm">
   </a>
   <a href="https://www.npmjs.com/package/@saas-ui/chakra-preset">
     <img src="https://img.shields.io/npm/v/@saas-ui/chakra-preset" alt="Saas UI Chakra preset on npm">
@@ -33,13 +33,13 @@ supporting packages, examples, and documentation website.
 Initialize an existing React project:
 
 ```sh
-npx @saas-ui/cli init
+npx @saas-ui/cli@rc init
 ```
 
 Add editable components or compositions:
 
 ```sh
-npx @saas-ui/cli add sidebar
+npx @saas-ui/cli@rc add sidebar
 ```
 
 Initialization installs compatible Chakra, Emotion, and preset dependencies,

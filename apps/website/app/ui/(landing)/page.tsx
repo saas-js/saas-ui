@@ -147,7 +147,7 @@ const opensource = `
 `
 
 const gettingStarted = `
-- npx @saas-ui/cli init
+- npx @saas-ui/cli@rc init
 - examples
 - documentation
 - discord

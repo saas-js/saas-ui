@@ -8,7 +8,7 @@ For a new application, let the CLI install compatible dependency versions and
 local provider setup:
 
 ```sh
-npx @saas-ui/cli init
+npx @saas-ui/cli@rc init
 ```
 
 The underlying provider boundary is:
@@ -27,7 +27,7 @@ local link adapter or color-mode integration. Install editable custom components
 separately:
 
 ```sh
-npx @saas-ui/cli add sidebar app-shell page
+npx @saas-ui/cli@rc add sidebar app-shell page
 ```
 
 The package exports `defaultSystem` (also aliased as `system`), `defaultConfig`,

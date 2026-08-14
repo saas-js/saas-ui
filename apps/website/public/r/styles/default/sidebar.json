@@ -40,10 +40,10 @@
       ],
       "recipeReferences": []
     },
-    "contentHash": "2e92ee25d7a877631780028893a34c3f066dd485c7d9483e4cff4080eedbf2bd"
+    "contentHash": "f299b137b2700cf48da69daac4e2290c5da91bd3e6a5143a15e25dbeee9a5bd9"
   },
   "name": "sidebar",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

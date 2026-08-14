@@ -26,7 +26,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "33112d3db9efca4bdfb8f8bc5eedd18517c60608ba10ebcd2746d6af6d669369"
+    "contentHash": "8e4502b4db7da8d971d19441c98f6f97e4a1fdd27667d8d4e59009f61ecc64aa"
   },
   "name": "toaster",
   "registryDependencies": [
@@ -35,5 +35,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

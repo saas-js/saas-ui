@@ -29,7 +29,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "c13f087d3393285cc40befbe720462f9a22aac7955fbd2d264f44d009e430cdf"
+    "contentHash": "44928c402c6ba0bf3b26ecaeb0dfdd755a01576b4e029fa5f8c5a33d5d2bbd57"
   },
   "name": "search-input",
   "registryDependencies": [
@@ -38,5 +38,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "EllipsisIcon",
-    "contentHash": "df0a9c5d96c1e5123db9fda983ba5dc39a96d24ae7024566b2f17112cb16eaa7",
+    "contentHash": "d610e546095a12d72192ed5a383a0844c2e461415f40a11e2170aab15c0d355d",
     "iconName": "Ellipsis",
     "iconSet": "lucide"
   },
   "name": "ellipsis-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "HamburgerIcon",
-    "contentHash": "dbe7dec56ed1dec1222e85b5b61644e44b760dfbbb42041d3969c8710e9fe5f6",
+    "contentHash": "70062e8569a8fc5fd0d6d9e59a9b8c9ca6a5b46395b27645880f856d60a470b4",
     "iconName": "Menu",
     "iconSet": "lucide"
   },
   "name": "hamburger-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

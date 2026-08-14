@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "de299ee6156f0fa9898291159ddc63f5ac902c5dc8bb6daac6658f287c4ba851"
+    "contentHash": "9045808f70d7e0cfb77eca3a307535ed3d9a24ef9ecffb4772da82fe01564a7b"
   },
   "name": "radio-card",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

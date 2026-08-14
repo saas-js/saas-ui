@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "ViewOffIcon",
-    "contentHash": "54d764f95349d641fefa33263199bd0b0a5c032e189d4c8478a9ac344245d296",
+    "contentHash": "9d52246375a2b6221c353fc2e0c7ba595d36308a52794af260abda4fb1ab5b26",
     "iconName": "EyeOff",
     "iconSet": "lucide"
   },
   "name": "view-off-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

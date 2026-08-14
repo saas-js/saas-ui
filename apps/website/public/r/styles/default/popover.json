@@ -26,7 +26,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "3000aa7d00e3f8dc10b8f8c107c30827eab4f26fbd94cc665aca088b3699526c"
+    "contentHash": "a029539797128dbf7f23586c35274cdfa3b916203133644806a7fc64f77375ec"
   },
   "name": "popover",
   "registryDependencies": [
@@ -34,5 +34,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

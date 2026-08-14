@@ -31,10 +31,10 @@
       ],
       "recipeReferences": []
     },
-    "contentHash": "0e98d3291a0595f9e9ff1c61945ed04599a4b9f81b166b68d256982a3c9d0a2f"
+    "contentHash": "d436875965b1be9a82b85c500e5e74755a8a2594cfc97cc8f49a57dc0352ba77"
   },
   "name": "tooltip",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

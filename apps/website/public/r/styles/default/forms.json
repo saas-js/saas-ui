@@ -106,7 +106,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "0f6e78c520c22d4962b6d7ead338b121af1e377e298a88350a6e4263a46ed99b"
+    "contentHash": "1f7200b533715655e0ff58e5d8e83f28ca7b2db8a7ac1143713b33627b39ebce"
   },
   "name": "forms",
   "registryDependencies": [
@@ -119,5 +119,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:component",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

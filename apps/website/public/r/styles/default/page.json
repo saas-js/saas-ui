@@ -40,7 +40,7 @@
         "suiPage"
       ]
     },
-    "contentHash": "c4160641957517d59f3b9ec5b40fa9c90c5a2e555f33e2e697a9617855bdae70"
+    "contentHash": "edfe9a98d8e9d10b995860d1a3feb83369ce00113e55bd2ed2c94dd483b52051"
   },
   "name": "page",
   "registryDependencies": [
@@ -48,5 +48,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

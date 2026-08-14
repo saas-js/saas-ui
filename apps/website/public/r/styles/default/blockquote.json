@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "b750f25930fc118fde38f695e8d4a81f230815e7d3b01b2095a40135623876a4"
+    "contentHash": "1f49eaf5ba90452fed1492ab23ada35ab7c7e9e09e0513bd6fb0c0a3aab00975"
   },
   "name": "blockquote",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

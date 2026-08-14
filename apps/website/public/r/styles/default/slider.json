@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "6490fb5f93a77a5835467f7346b2529cf2cb2fe132ffd976e9c3472d56f31b19"
+    "contentHash": "8d2810c2fdfe5324a4f873899e3c622d48ede64f62b4151bff2444a13e0dd85b"
   },
   "name": "slider",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

@@ -26,7 +26,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "7b94bbd8a0a64d0893b744fc76ca0932557723616bd21317d95d7b000752899d"
+    "contentHash": "d8a7aa2a34af4f431ddb78f8004ebacd1ff16b1582a7e710c0b603c0528ec4f5"
   },
   "name": "dialog",
   "registryDependencies": [
@@ -34,5 +34,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

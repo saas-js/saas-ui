@@ -34,10 +34,10 @@
         "suiCommand"
       ]
     },
-    "contentHash": "34affb69748b34e94c9f663c9223a36eaaac2b750de29faa579f752a94275786"
+    "contentHash": "b4ae1807a1d6831c1d9f300e025c85a77c7e6a8c82945247faaeb590b775466f"
   },
   "name": "command",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

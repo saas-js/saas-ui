@@ -34,10 +34,10 @@
         "suiIconBadge"
       ]
     },
-    "contentHash": "fa5b323e1559a7fa5fd5bbb7917b5f6ee18a76c6531b03327cfc21efa18fd07a"
+    "contentHash": "4686b6ce7cf2f7f5b672fff496880939fedefad5d1651befdcd058120b563bec"
   },
   "name": "icon-badge",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

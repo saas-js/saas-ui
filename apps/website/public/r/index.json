@@ -27,7 +27,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "3e9ca4be50e3c27f80a65686bcf45ee76e0081f1f02636b3ffd50a5ffbc47df2"
+      "contentHash": "b9cba84a41905f4eae98110625c4ade5ffb734ef5c43734100ed00f2a93ed6ca"
     },
     "name": "accordion",
     "registryDependencies": [
@@ -35,7 +35,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -63,7 +63,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "776d2f4db1583bec8fb65ceadd3f7502a1465ce12b4819e311178150b458aa63"
+      "contentHash": "5f7da6190457cea4335b58854917d6aa06f9c65f944aace640b1bb679ae86608"
     },
     "name": "action-bar",
     "registryDependencies": [
@@ -71,7 +71,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -99,7 +99,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "e5b8989ff8b0be7cd76fa5374408c23b1f4f966803a51987a1f727819a4a2f04"
+      "contentHash": "dfca3719003122b15f233748a63abc09fab12613ccffa0eaad0259576a199a20"
     },
     "name": "alert",
     "registryDependencies": [
@@ -107,7 +107,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -140,12 +140,12 @@
         ],
         "recipeReferences": []
       },
-      "contentHash": "2fc0c1e35ff64387c5daa503cf4c8f26b2a51e6cc76385507c0644a9e400d297"
+      "contentHash": "b4f941ca4fea45180586609faa12a9393433928157c1aee5cb832fc82c6899fc"
     },
     "name": "app-shell",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -166,14 +166,14 @@
         "recipeReferences": []
       },
       "componentName": "ArrowLeftIcon",
-      "contentHash": "9e0f68e6958a414c94fdb32e0169c480a739ac282d9f4d35e447d028d6fe496f",
+      "contentHash": "2466dfcfdbf89bef0899c4344057cb7cd4a8988c9004bc053c2177cdbbd21393",
       "iconName": "ArrowLeft",
       "iconSet": "lucide"
     },
     "name": "arrow-left-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -201,12 +201,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "0fd8cc95779ed842ba07cab6fa623263a5af49c52300c62e6d42e4cb1cc0629b"
+      "contentHash": "f344267e5426bc0454bd760cbfad46827ee4bd9123e4c7200d43197017af8ea0"
     },
     "name": "avatar",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -236,7 +236,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "a0d368acb75c4bc84eb40dfec6dfa458725b92f7a1b8ff44bdf5790c606522b6"
+      "contentHash": "d490d72610e2b7c5d93f7c7c67f85a1babafebf6b5dee4311a8c26ef96c82a13"
     },
     "name": "back-button",
     "registryDependencies": [
@@ -244,7 +244,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -272,12 +272,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "b750f25930fc118fde38f695e8d4a81f230815e7d3b01b2095a40135623876a4"
+      "contentHash": "1f49eaf5ba90452fed1492ab23ada35ab7c7e9e09e0513bd6fb0c0a3aab00975"
     },
     "name": "blockquote",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -305,12 +305,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "c3d473e3343e245fb09de4ef62c3f9cae252d6163cc23f138eb617efc86e9e9f"
+      "contentHash": "34bf377667ef756de30e5004bf4a50dd7201bb991693de3bf20e3d28ef38d383"
     },
     "name": "breadcrumb",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -343,12 +343,12 @@
         ],
         "recipeReferences": []
       },
-      "contentHash": "5158479ee7cf8668b49ade256581c51cd6bb9bb77e1134a8d0c9814a50dafeaa"
+      "contentHash": "1f5f5a88d6ab5eb4aca7ec1355b3eaf83b03063a5628e7baa881652cdfecee5b"
     },
     "name": "button",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -369,14 +369,14 @@
         "recipeReferences": []
       },
       "componentName": "CalendarIcon",
-      "contentHash": "2a0d0f2c7b17210ca77207598d86e2cd8445be6a0a15a006bfbf31a6905a5a8c",
+      "contentHash": "136174caa25f24d5ad02b456d9bc3394fb1f2410c1ac522dd0e842c97879d291",
       "iconName": "Calendar",
       "iconSet": "lucide"
     },
     "name": "calendar-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -397,14 +397,14 @@
         "recipeReferences": []
       },
       "componentName": "CheckIcon",
-      "contentHash": "d3234d12ac700cd6b63a3082a3a87d5eab146861162537a6fd9139df3d31f9cb",
+      "contentHash": "f55821308151125ea9714a39cad660ef8f10d610fbe01948051026f8ad2a908e",
       "iconName": "Check",
       "iconSet": "lucide"
     },
     "name": "check-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -432,12 +432,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "259a1f81b016c0f7040cd314d25f9f4fa07b25b5814494b007d948f0bc818f83"
+      "contentHash": "78aaef7a883b88b98a273c901c7e4b8555768399d8f9ddfd9e156580026c011c"
     },
     "name": "checkbox",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -465,12 +465,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "6d66430ca3364a2f9698785948ecd2835a33128f3f22aa6fcecbfff3e6d15346"
+      "contentHash": "cb2a0320c49cfc4e4090a23a12cdac7cb7b986ee9d9c3f5c358022874a4ba3f0"
     },
     "name": "checkbox-card",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -491,14 +491,14 @@
         "recipeReferences": []
       },
       "componentName": "ChevronDownIcon",
-      "contentHash": "fbb257562b542a7e3c07ae25cd6012b42e46d283a361a92f8da9a4b0817ca63c",
+      "contentHash": "190e2c1cf97ab29bb581d49c6cb406585a9c0cef70686b1fe809bf28faef74fa",
       "iconName": "ChevronDown",
       "iconSet": "lucide"
     },
     "name": "chevron-down-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -519,14 +519,14 @@
         "recipeReferences": []
       },
       "componentName": "ChevronLeftIcon",
-      "contentHash": "4fc99b04cd5e65aee9e2f593b960c509163eec139dd86aa08ff59814e045f250",
+      "contentHash": "8a754dd4664e328663e42c1c4092995ab00e525f878bba25fa7d0797583c9476",
       "iconName": "ChevronLeft",
       "iconSet": "lucide"
     },
     "name": "chevron-left-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -547,14 +547,14 @@
         "recipeReferences": []
       },
       "componentName": "ChevronRightIcon",
-      "contentHash": "a35a753db141c2d12289f1ded13c7e060c9285f8b8bb00e9bb9903f13bd22fa8",
+      "contentHash": "5ba73db78d8d34eca821aa6e742c7c361b638ff7c10511e82e03dba2d2bcf018",
       "iconName": "ChevronRight",
       "iconSet": "lucide"
     },
     "name": "chevron-right-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -575,14 +575,14 @@
         "recipeReferences": []
       },
       "componentName": "ChevronUpIcon",
-      "contentHash": "d6ec3a541c2fb2ab978f92cf641808095b1ec0474c52c9f2cdbbc6e65878d548",
+      "contentHash": "e12f8e012fad7a98535acdb6330a31751b57aa9394425942cbf275c3c80d2c08",
       "iconName": "ChevronUp",
       "iconSet": "lucide"
     },
     "name": "chevron-up-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -613,7 +613,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "10bd1999978637b08f0ef78bf0723f0e407799d3eeffba0549ca6264bb3fb137"
+      "contentHash": "407fd2be93fe25ab23c56473f593ab0fb4e6b1bd32d12f97912df5114ebbaeee"
     },
     "name": "clipboard",
     "registryDependencies": [
@@ -625,7 +625,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -652,7 +652,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "e5d52d361955c3c1954175d5cffb2ded95b7e76ca95b13a549aee01cf7861560"
+      "contentHash": "1f527b72338bdb15d6b373b0f3cc2190f60983fea8ccf0f3b84801412e386129"
     },
     "name": "close-button",
     "registryDependencies": [
@@ -661,7 +661,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -682,14 +682,14 @@
         "recipeReferences": []
       },
       "componentName": "CloseIcon",
-      "contentHash": "f64d5bf5d570c15587fc38130be03b5df3ff9fd4da51ac33f77653a1642dc75d",
+      "contentHash": "9f5d668544edfc2b20b44daa41d0313641eecade4e73d959664f058cf8d2f1f0",
       "iconName": "X",
       "iconSet": "lucide"
     },
     "name": "close-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -715,12 +715,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "9381b9ebb916768869e8fb2200ac29693328772cc2736491baf794eae441b4b1"
+      "contentHash": "835081da477e4ede5cef897a1e7e267bcf2991b83d68fbb1674f2c2e964c3a6c"
     },
     "name": "color-mode",
     "schemaVersion": 1,
     "type": "registry:setup",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -756,12 +756,12 @@
           "suiCommand"
         ]
       },
-      "contentHash": "34affb69748b34e94c9f663c9223a36eaaac2b750de29faa579f752a94275786"
+      "contentHash": "b4ae1807a1d6831c1d9f300e025c85a77c7e6a8c82945247faaeb590b775466f"
     },
     "name": "command",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -782,14 +782,14 @@
         "recipeReferences": []
       },
       "componentName": "CopyIcon",
-      "contentHash": "12c1560a58de2dcfc37793ea2ad2c6591c1bdc8cf6eb74912dc38f803dbe3ac4",
+      "contentHash": "063108176c6c3d0289afb06843c5c1f17872799ef40538c7ccf279d21d42e3c9",
       "iconName": "Copy",
       "iconSet": "lucide"
     },
     "name": "copy-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -817,7 +817,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "7b94bbd8a0a64d0893b744fc76ca0932557723616bd21317d95d7b000752899d"
+      "contentHash": "d8a7aa2a34af4f431ddb78f8004ebacd1ff16b1582a7e710c0b603c0528ec4f5"
     },
     "name": "dialog",
     "registryDependencies": [
@@ -825,7 +825,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -859,7 +859,7 @@
         ],
         "recipeReferences": []
       },
-      "contentHash": "3d7ce7dce731a13a6f3d4122b24aab3b0c10bb8c4d9173ad34cbb79d63612a86"
+      "contentHash": "f130cc732dfd88557f97471401588d6ae59247538f21f225b18af09c00076023"
     },
     "name": "drawer",
     "registryDependencies": [
@@ -867,7 +867,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -888,14 +888,14 @@
         "recipeReferences": []
       },
       "componentName": "EllipsisIcon",
-      "contentHash": "df0a9c5d96c1e5123db9fda983ba5dc39a96d24ae7024566b2f17112cb16eaa7",
+      "contentHash": "d610e546095a12d72192ed5a383a0844c2e461415f40a11e2170aab15c0d355d",
       "iconName": "Ellipsis",
       "iconSet": "lucide"
     },
     "name": "ellipsis-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -923,12 +923,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "ab14cd133a2166248f3852854a5ab879508ff2f9ab3dfc200b3226d2dc007a12"
+      "contentHash": "e54d23d8822dadf68d24a70b058705a2a7816c397f900efa1b86ac8d796b0bb9"
     },
     "name": "empty-state",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -949,14 +949,14 @@
         "recipeReferences": []
       },
       "componentName": "EyeIcon",
-      "contentHash": "b968c43ef3a5d335e5da26e2f0fe56603cfca041d6c619d69d0572d33a4c617f",
+      "contentHash": "5401c34e36619242260c1d453b09d907d7dd2580b0999d49ef6d6ed04d63ab24",
       "iconName": "Eye",
       "iconSet": "lucide"
     },
     "name": "eye-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -977,14 +977,14 @@
         "recipeReferences": []
       },
       "componentName": "EyeOffIcon",
-      "contentHash": "2916d26c217690e62b2134dbb2e60024708ff422e2cba53c6aa10bd1c3ab298e",
+      "contentHash": "9023518e9ee0a2f28c3df583ed04461485a77899313248c52dba48d04c004e38",
       "iconName": "EyeOff",
       "iconSet": "lucide"
     },
     "name": "eye-off-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1012,7 +1012,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "a8df95bc8cb2a72f9709ef1248c08aa2dff8f97fa531d2b3fe9ba2be59702f0e"
+      "contentHash": "cc00ea18ae88a2903af387d1bde580c6b5d390c2487bec66c2c7fff80cbee330"
     },
     "name": "file-upload",
     "registryDependencies": [
@@ -1021,7 +1021,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -1042,14 +1042,14 @@
         "recipeReferences": []
       },
       "componentName": "FilterIcon",
-      "contentHash": "d4223f82074620deb4b6a4ccb838b93165b51dbc86c01a62b68706e99407e427",
+      "contentHash": "d7f285cc0ad4c494b6f799c5bb87c3683f4d50f918a4e8faaaa964024b81e444",
       "iconName": "Filter",
       "iconSet": "lucide"
     },
     "name": "filter-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1144,7 +1144,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "0f6e78c520c22d4962b6d7ead338b121af1e377e298a88350a6e4263a46ed99b"
+      "contentHash": "1f7200b533715655e0ff58e5d8e83f28ca7b2db8a7ac1143713b33627b39ebce"
     },
     "name": "forms",
     "registryDependencies": [
@@ -1157,7 +1157,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:component",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1199,12 +1199,12 @@
           "suiGridList"
         ]
       },
-      "contentHash": "a37af372ffa4c28ace0cb44827d935cc55e6970d7806ca8de73d7b0ef02a6a38"
+      "contentHash": "b90ccdcc10880c4ba7746370ef58ca8cdd326234912f8d4876fde38e65fec52b"
     },
     "name": "grid-list",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -1225,14 +1225,14 @@
         "recipeReferences": []
       },
       "componentName": "HamburgerIcon",
-      "contentHash": "dbe7dec56ed1dec1222e85b5b61644e44b760dfbbb42041d3969c8710e9fe5f6",
+      "contentHash": "70062e8569a8fc5fd0d6d9e59a9b8c9ca6a5b46395b27645880f856d60a470b4",
       "iconName": "Menu",
       "iconSet": "lucide"
     },
     "name": "hamburger-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1260,12 +1260,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "4e3fd3eaec3ceeb62783de42d22a08cc76c286c05c3c9d0a97004336cbbe7084"
+      "contentHash": "2d181a19bfb8f88b61d3f443ed6d29893b4bfbbae6ea3204f1904f966dc391f0"
     },
     "name": "hover-card",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1301,12 +1301,12 @@
           "suiIconBadge"
         ]
       },
-      "contentHash": "fa5b323e1559a7fa5fd5bbb7917b5f6ee18a76c6531b03327cfc21efa18fd07a"
+      "contentHash": "4686b6ce7cf2f7f5b672fff496880939fedefad5d1651befdcd058120b563bec"
     },
     "name": "icon-badge",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -1331,7 +1331,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "35b1ef70b8e4de31f2199794c4df4011524f836398cb2a9cb4dd7351db129b19"
+      "contentHash": "727067fa8dfc6eb9499107c4eac496a4f6779a054a596f55377ad6617246a25c"
     },
     "name": "icon-button",
     "registryDependencies": [
@@ -1339,7 +1339,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1372,12 +1372,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "10e95d7e54ec5c46df464d4dc1d60b2310fdf1faa9e1b987da99a4fb8dc76641"
+      "contentHash": "66febc84dd479b2a5b16399bc571647c95757b2e10f07ad707cbcddb76520935"
     },
     "name": "icons",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -1398,14 +1398,14 @@
         "recipeReferences": []
       },
       "componentName": "InfoIcon",
-      "contentHash": "b5b6b4b4e4d3ba333b62e92e46fcb3c0e4720c5e75cc9079e898f94a2d9149cc",
+      "contentHash": "6d1487f8fecb674480e9d15e2d8ac32f16d250b020c94d2db78e3ac9415639c6",
       "iconName": "Info",
       "iconSet": "lucide"
     },
     "name": "info-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -1432,7 +1432,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "4a645aa0f58c414c13297361bedc21d78015d5dac9d54774b19004ec493ac2cd"
+      "contentHash": "9415d965344a77ed6c9d7ce3a32bff8bc103d239c4052e273a4d115b39447925"
     },
     "name": "info-tip",
     "registryDependencies": [
@@ -1442,7 +1442,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1470,12 +1470,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "baba00b52d3435372149023680d2bdbf2d67e34648976c15e6491d71a3fb328e"
+      "contentHash": "befa8d66ecd0142aa2fffab474b3613dbeab1a80d7d769f7cb3dbe34864a0678"
     },
     "name": "input",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1503,12 +1503,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "426cb961db41c4d08349cd34d49889990136fae5a4e660f194d7cd4abcfe7ce1"
+      "contentHash": "1bfeb3513dca24490f7c5249d3485a2a94d3bfd1784ad61428f4987617546666"
     },
     "name": "input-group",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1536,7 +1536,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "a2e40f0822261b98518be915e7429cb81d03e5be43a82fb68008cf74ae7f729e"
+      "contentHash": "ebd375b007856f645337c75a3e6c750d6da6c56dd5cc65346f065403b7c378ba"
     },
     "name": "link",
     "registryDependencies": [
@@ -1544,7 +1544,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1586,7 +1586,7 @@
           "suiLoadingOverlay"
         ]
       },
-      "contentHash": "c28b6bafbd75b20fb0bc47e237dd70a64715b4c6851f161a5e2be62c6f9770c4"
+      "contentHash": "2345b96e58c4abce44e97f66f79916c899de3a52dedb3108af134ef6ad6d7da3"
     },
     "name": "loading-overlay",
     "registryDependencies": [
@@ -1594,7 +1594,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1625,7 +1625,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "71e70e094ea17e9e265de8801efb24bd367aba5f73f40688b87a02ba0d8a2be6"
+      "contentHash": "008d89a5b2727975b701ed37225d4b0870c0f4fcf871522c95beddb29be8f1b7"
     },
     "name": "menu",
     "registryDependencies": [
@@ -1635,7 +1635,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -1656,14 +1656,14 @@
         "recipeReferences": []
       },
       "componentName": "MinusIcon",
-      "contentHash": "84578fa1def3dc8b88a41c3d09d94aa05b9c150031480ec6f75b6b21ffa76b12",
+      "contentHash": "10aa6ddd272ea0e12eb13ef5b22587b43d84b162da423b544b50e8703c8bbfcf",
       "iconName": "Minus",
       "iconSet": "lucide"
     },
     "name": "minus-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1702,7 +1702,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "d37f217d2c7e5add801dea45b54f4c175f5dc731f0c5f8fd8606e67a27f00ab0"
+      "contentHash": "4c47b985e62e3dd1d1a26ce396b432488abcc7ca3e970c735379f3cb0a269c7f"
     },
     "name": "modals",
     "registryDependencies": [
@@ -1711,7 +1711,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1741,7 +1741,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "34e5c8fc2b6a9f8fb68dfcf40535798890a4c3dca8e5987b980fc64abbd66de8"
+      "contentHash": "4ccf9d4143633176bb41c2acb3940eacd39f0d979e265ebfc90c4739030e7966"
     },
     "name": "native-select",
     "registryDependencies": [
@@ -1749,7 +1749,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1791,7 +1791,7 @@
           "suiNavbar"
         ]
       },
-      "contentHash": "06479830f0e8ab343fcc445824edf483450b92342307da28ebedcdae92baa768"
+      "contentHash": "9c2629dfc587cbea43ff8126d37f384ec845080254acec79691b96b72f940bfe"
     },
     "name": "navbar",
     "registryDependencies": [
@@ -1799,7 +1799,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1827,7 +1827,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "c9ba06d778a3c3e0df9a923bb4f6de8dc5ffc07cdf74e92038e12161426eba26"
+      "contentHash": "6f358e0f06918a4427a198fdae87d70add0c41cad7c99141920c5eea9e91f25e"
     },
     "name": "number-input",
     "registryDependencies": [
@@ -1835,7 +1835,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1876,7 +1876,7 @@
           "suiPage"
         ]
       },
-      "contentHash": "c4160641957517d59f3b9ec5b40fa9c90c5a2e555f33e2e697a9617855bdae70"
+      "contentHash": "edfe9a98d8e9d10b995860d1a3feb83369ce00113e55bd2ed2c94dd483b52051"
     },
     "name": "page",
     "registryDependencies": [
@@ -1884,7 +1884,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1916,7 +1916,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "428e1313ceffa0bfe0138c43df5edad467a9d621f304a00aa256be1293b6b977"
+      "contentHash": "9a86c2bf874e7301785dbb02ca916cabe58c644fe240fb51fa8c5b03132364dd"
     },
     "name": "pagination",
     "registryDependencies": [
@@ -1926,7 +1926,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -1957,7 +1957,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "d06123d24a8955d55a4f088cb836ad888be99d62c631679ce41fa78ce866c485"
+      "contentHash": "75d79d29ba5f81ef21d675c86ce7a6a57c739901c73de7673ca11f873e244a20"
     },
     "name": "password-input",
     "registryDependencies": [
@@ -1966,7 +1966,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2016,7 +2016,7 @@
           "suiPersona"
         ]
       },
-      "contentHash": "d35438e50033a3e38d89d72a86ce6ba753b3a381961d38c37c3fdb6cf93dd8d0"
+      "contentHash": "748c5dd25136775135b6b8fe522c3fcdb2954ec48ce65f2a08a19c2f0407b65b"
     },
     "name": "persona",
     "registryDependencies": [
@@ -2024,7 +2024,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2052,12 +2052,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "e7d83b853d56fcbbd0ff725c34e34795ecd8d702d091a21fdfc9a0d6e462215c"
+      "contentHash": "400565018871ab9357739758497e7ef4e7fc5c60ffba5fe646a41b24dec3ffdf"
     },
     "name": "pin-input",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -2078,14 +2078,14 @@
         "recipeReferences": []
       },
       "componentName": "PlusIcon",
-      "contentHash": "6768e88dd36c0653085c5e68f903658aee7e54765d8e493951ba428d8d68cf63",
+      "contentHash": "5ba6d5753c8e883d784e18079f0cce044ecc2295e3f1b35962a9bec642de35c9",
       "iconName": "Plus",
       "iconSet": "lucide"
     },
     "name": "plus-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2113,7 +2113,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "3000aa7d00e3f8dc10b8f8c107c30827eab4f26fbd94cc665aca088b3699526c"
+      "contentHash": "a029539797128dbf7f23586c35274cdfa3b916203133644806a7fc64f77375ec"
     },
     "name": "popover",
     "registryDependencies": [
@@ -2121,7 +2121,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2149,12 +2149,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "6979fc3fc3f58bc5b38822b125478dbacefb31e5ca219886daedd11193e8447a"
+      "contentHash": "38bf6d2b8fdb56260cb1a95a40ab37d36ac8a416aea4cb8479e3d386d9540cd2"
     },
     "name": "portal",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2185,7 +2185,7 @@
       "conflicts": [
         "provider-no-color-mode"
       ],
-      "contentHash": "b29d0e1d514acced8b23e4a12f15740183ed6f1b823dd9cde1cf829a0614c479",
+      "contentHash": "1ebd39dbe915fe6ac217e65a68b38867ff4d53dbcdd9d2648ef8a48c80cd0307",
       "exclusiveDefault": true,
       "exclusiveGroup": "provider"
     },
@@ -2196,7 +2196,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:setup",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2227,7 +2227,7 @@
       "conflicts": [
         "provider"
       ],
-      "contentHash": "99410f23dc6d9e1bb216f5178b2afcf1848a238ad034fc54720f4d4b1d9c75db",
+      "contentHash": "bbf752ae2d5f660d3353fb8b5d2751e8e70ff35335e587d8185e4aea828d3cac",
       "exclusiveGroup": "provider"
     },
     "name": "provider-no-color-mode",
@@ -2236,7 +2236,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:setup",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2264,12 +2264,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "d937d77eafee4cb7bf3bf3d1e6ff719b370181f3086a6634dce893fba98c2b3b"
+      "contentHash": "83956628671b660dbe8032a44f390bbce0b64e88f8c16c610e81a537116d1112"
     },
     "name": "radio",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2297,12 +2297,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "de299ee6156f0fa9898291159ddc63f5ac902c5dc8bb6daac6658f287c4ba851"
+      "contentHash": "9045808f70d7e0cfb77eca3a307535ed3d9a24ef9ecffb4772da82fe01564a7b"
     },
     "name": "radio-card",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -2323,14 +2323,14 @@
         "recipeReferences": []
       },
       "componentName": "SearchIcon",
-      "contentHash": "527c3a380ba9d8c35eeec1c65b0cfb29316a125145cba73ad6212d7d8c043ef5",
+      "contentHash": "af4a28d291b7581639a63c57e4936a8e711bb99105bfc8095e94d539e7ab4348",
       "iconName": "Search",
       "iconSet": "lucide"
     },
     "name": "search-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2361,7 +2361,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "c13f087d3393285cc40befbe720462f9a22aac7955fbd2d264f44d009e430cdf"
+      "contentHash": "44928c402c6ba0bf3b26ecaeb0dfdd755a01576b4e029fa5f8c5a33d5d2bbd57"
     },
     "name": "search-input",
     "registryDependencies": [
@@ -2370,7 +2370,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2411,12 +2411,12 @@
           "suiSection"
         ]
       },
-      "contentHash": "71d78a01fa350962ebb2242e16ceb45284fd69a7f2ac9d628cb8224397804bd9"
+      "contentHash": "a1b8c7fefaa59ab79068599445e270f1da0bffa4424436d192be46e0d1fd15b4"
     },
     "name": "section",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2444,12 +2444,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "29717395ad26075abfa186692e91431e908a72e80443b69eddf663e790b132ff"
+      "contentHash": "91fdccb18fb7d11bd9d6bebaee56ad420b7b84760693753d059542e397a0b68d"
     },
     "name": "segmented-control",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2482,7 +2482,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "07afa446a809178cd20b7eb8e091ca5c6384696a7ea381c35980a3c921315bf9"
+      "contentHash": "f0806b0893b4ba1f855cb78924c024824aab8233951ba141b87cee04fe816637"
     },
     "name": "select",
     "registryDependencies": [
@@ -2490,7 +2490,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2531,12 +2531,12 @@
         ],
         "recipeReferences": []
       },
-      "contentHash": "2e92ee25d7a877631780028893a34c3f066dd485c7d9483e4cff4080eedbf2bd"
+      "contentHash": "f299b137b2700cf48da69daac4e2290c5da91bd3e6a5143a15e25dbeee9a5bd9"
     },
     "name": "sidebar",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2564,12 +2564,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "70df6246350bcd94f8a8da3dc896eb516ce3e56d67562a849d4df9a0167dffcd"
+      "contentHash": "edd4cf20956e36d84ac1888d273623f96dce13bd9cd9e910efb31e9132ec8d5e"
     },
     "name": "skeleton",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2597,12 +2597,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "6490fb5f93a77a5835467f7346b2529cf2cb2fe132ffd976e9c3472d56f31b19"
+      "contentHash": "8d2810c2fdfe5324a4f873899e3c622d48ede64f62b4151bff2444a13e0dd85b"
     },
     "name": "slider",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2630,12 +2630,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "7f9367bcac2b5225a42f5e472a6f003b06ce12af8e84b19ece4812e848d0846a"
+      "contentHash": "96e8b9a281bd6c6f62090c02187136fafc1ff93d13e7e816774eea973edd1933"
     },
     "name": "spinner",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2663,12 +2663,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "5356cf1f683076e2e10dda8973e2cbbf380f9e699b4cc9058a4b93a296ab6eec"
+      "contentHash": "c8d6ce872c395e52ca6a7f7c92f754ed9fd0b27e280a28e491b52fdba919ed2b"
     },
     "name": "stat",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2696,12 +2696,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "3d9d6c4b3c8379302347883f7bb003439d21e8fcf1f3807c4fc5d87538d3936e"
+      "contentHash": "ece748a53267e6910368f6aaddbdc413709e7aa8804933849c3fb85185cd8925"
     },
     "name": "status",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2731,7 +2731,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "6983072a974a859844ef2cbc9397c1912acecb8f9e9d61cb26705b47360c606a"
+      "contentHash": "85101914ea3666d53452c331cb0b064435906dc642062c6fd2e50ed015081431"
     },
     "name": "steps",
     "registryDependencies": [
@@ -2739,7 +2739,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2767,12 +2767,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "76643b06a61a8b7f1220661c369e909c43f76de360ebbd2cd799952d1c366488"
+      "contentHash": "85aae7d760d8a7ff918cb21effe4b57594d4e5b39eee23e645be5ee61b7f9f21"
     },
     "name": "switch",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2800,12 +2800,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "79fbcf21a957350595a5b2d58150a0a72f2291d6a729e4b16da36896da653f0c"
+      "contentHash": "50618cb1c6a5198c294f5313de01c31259d67ff38f9cf5412dd97fec366cb86a"
     },
     "name": "tag",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2836,12 +2836,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "fe11a33c6be25b7c24251e23e187f7b146e6fb6d3defd5993d3c5baa048a1c1c"
+      "contentHash": "b00e4c1b33f826fe886c0a3bfaf529459ce17222b7b89f9e9c9af45c4d2e0725"
     },
     "name": "theme",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2869,7 +2869,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "33112d3db9efca4bdfb8f8bc5eedd18517c60608ba10ebcd2746d6af6d669369"
+      "contentHash": "8e4502b4db7da8d971d19441c98f6f97e4a1fdd27667d8d4e59009f61ecc64aa"
     },
     "name": "toaster",
     "registryDependencies": [
@@ -2878,7 +2878,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -2903,7 +2903,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "5c5513d4506e9660bd6d9710caf0f9a0490e10cea30c3da499f5f57483dca781"
+      "contentHash": "c993cccf773348542214eb94b10fc5df0ed2dfcb783a18efe65e02a14197beb0"
     },
     "name": "toggle-tip",
     "registryDependencies": [
@@ -2912,7 +2912,7 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2945,12 +2945,12 @@
         ],
         "recipeReferences": []
       },
-      "contentHash": "0e98d3291a0595f9e9ff1c61945ed04599a4b9f81b166b68d256982a3c9d0a2f"
+      "contentHash": "d436875965b1be9a82b85c500e5e74755a8a2594cfc97cc8f49a57dc0352ba77"
     },
     "name": "tooltip",
     "schemaVersion": 1,
     "type": "registry:ui",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "dependencies": [
@@ -2974,12 +2974,12 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "a86787e5ec2359d661b777e2d822e1b1a4ec4aaba731496ba941a39e19d933ef"
+      "contentHash": "7163ef1fbf89e89bbb8dea324ef3a34909d60a13dd7c55ce716a51afd513de85"
     },
     "name": "use-link",
     "schemaVersion": 1,
     "type": "registry:lib",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -3000,14 +3000,14 @@
         "recipeReferences": []
       },
       "componentName": "ViewIcon",
-      "contentHash": "fa80c8dfe6b5b1977f7b77646e16d72e1b733acec619b784fc6fd4e4a05fd999",
+      "contentHash": "26ed9c02c5d8c78912ab99a35bdbaea272313fcc0524d82488a9d433393a29f9",
       "iconName": "Eye",
       "iconSet": "lucide"
     },
     "name": "view-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   },
   {
     "files": [
@@ -3028,13 +3028,13 @@
         "recipeReferences": []
       },
       "componentName": "ViewOffIcon",
-      "contentHash": "54d764f95349d641fefa33263199bd0b0a5c032e189d4c8478a9ac344245d296",
+      "contentHash": "9d52246375a2b6221c353fc2e0c7ba595d36308a52794af260abda4fb1ab5b26",
       "iconName": "EyeOff",
       "iconSet": "lucide"
     },
     "name": "view-off-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
-    "version": "3.0.0-next.11"
+    "version": "3.0.0-rc.0"
   }
 ]

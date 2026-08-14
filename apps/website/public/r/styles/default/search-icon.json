@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "SearchIcon",
-    "contentHash": "527c3a380ba9d8c35eeec1c65b0cfb29316a125145cba73ad6212d7d8c043ef5",
+    "contentHash": "af4a28d291b7581639a63c57e4936a8e711bb99105bfc8095e94d539e7ab4348",
     "iconName": "Search",
     "iconSet": "lucide"
   },
   "name": "search-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

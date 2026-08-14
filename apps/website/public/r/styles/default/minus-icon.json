@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "MinusIcon",
-    "contentHash": "84578fa1def3dc8b88a41c3d09d94aa05b9c150031480ec6f75b6b21ffa76b12",
+    "contentHash": "10aa6ddd272ea0e12eb13ef5b22587b43d84b162da423b544b50e8703c8bbfcf",
     "iconName": "Minus",
     "iconSet": "lucide"
   },
   "name": "minus-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-next.11"
+  "version": "3.0.0-rc.0"
 }

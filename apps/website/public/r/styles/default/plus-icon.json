@@ -1,16 +1,29 @@
 {
-  "name": "plus-icon",
-  "type": "registry:icon",
   "files": [
     {
+      "content": "import React from 'react';\n\nexport interface PlusIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * plus\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const PlusIcon: React.FC<PlusIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 12h14m-7-7v14\"/>\n    </svg>\n  );\n};\n",
       "path": "icons/plus-icon.tsx",
-      "type": "registry:icon",
-      "content": "import React from 'react';\n\nexport interface PlusIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * plus\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const PlusIcon: React.FC<PlusIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 12h14m-7-7v14\"/>\n    </svg>\n  );\n};\n"
+      "type": "registry:icon"
     }
   ],
   "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/plus-icon.tsx": "e472b2f7118b63bde4f74fca5ad9af82220bb952776669fa7646beea587d6715"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
     "componentName": "PlusIcon",
-    "iconSet": "lucide",
-    "iconName": "Plus"
-  }
+    "contentHash": "8fe7d70ee445871639c17dcf8a4b585701a675bf8b8a7637f3681385b4c1787c",
+    "iconName": "Plus",
+    "iconSet": "lucide"
+  },
+  "name": "plus-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-next.9"
 }

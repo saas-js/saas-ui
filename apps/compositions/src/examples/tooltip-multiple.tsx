@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { Button, Tooltip } from '@saas-ui/react'
+import { HStack, Button } from '@chakra-ui/react'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 export const TooltipMultiple = () => {
   return (

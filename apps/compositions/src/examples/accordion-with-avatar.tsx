@@ -1,7 +1,7 @@
-'use client'
-
-import { Badge, HStack } from '@saas-ui/react'
-import { Accordion, Avatar } from '@saas-ui/react'
+'use client';
+import { Badge, HStack } from '@chakra-ui/react'
+import { Accordion } from 'compositions/ui/accordion'
+import { Avatar } from 'compositions/ui/avatar'
 import { LuTrophy } from 'react-icons/lu'
 import { LoremIpsum } from 'react-lorem-ipsum'
 

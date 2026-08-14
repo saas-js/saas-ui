@@ -1,7 +1,8 @@
 /// <reference types="vite/client" />
 import * as React from 'react'
 
-import { Flex, SuiProvider, defaultSystem } from '@saas-ui/react'
+import { ChakraProvider, Flex } from '@chakra-ui/react'
+import { defaultSystem } from '@saas-ui/chakra-preset'
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { ThemeProvider } from 'next-themes'
@@ -65,7 +66,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <SuiProvider value={defaultSystem}>
+      <ChakraProvider value={defaultSystem}>
         <ThemeProvider attribute="class" defaultTheme="system">
           <body>
             <Flex p={2} gap={2} fontSize="lg">
@@ -138,7 +139,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <Scripts />
           </body>
         </ThemeProvider>
-      </SuiProvider>
+      </ChakraProvider>
     </html>
   )
 }

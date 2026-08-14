@@ -1,21 +1,25 @@
-on: [push]
+name: Test
+
+on:
+  push:
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Vitest
+    name: Build, registry, and tests
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          submodules: recursive
-          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20.x
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
         run: pnpm i --ignore-scripts
@@ -25,6 +29,18 @@ jobs:
 
       - name: Build tokens
         run: pnpm build:tokens
+
+      - name: Validate registry, CLI, and generated consumer
+        run: pnpm registry:ci
+
+      - name: Typecheck migrated dogfood applications
+        run: |
+          pnpm --dir apps/compositions typecheck
+          pnpm --dir apps/compositions typecheck:dogfood
+          pnpm --dir apps/website exec tsc --noEmit
+
+      - name: Build migrated website
+        run: pnpm --dir apps/website build
 
       - name: Run tests
         run: pnpm test:ci

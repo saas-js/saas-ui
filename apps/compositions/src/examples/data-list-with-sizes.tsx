@@ -1,7 +1,5 @@
-'use client'
-
-import { Stack } from '@saas-ui/react'
-import { DataList } from '@saas-ui/react'
+'use client';
+import { Stack, DataList } from '@chakra-ui/react'
 
 export const DataListWithSizes = () => {
   return (

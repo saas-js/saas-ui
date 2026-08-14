@@ -1,4 +1,4 @@
-import { chakra } from '@saas-ui/react'
+import { chakra } from '@chakra-ui/react/styled-system'
 
 export const Polypane = (props: any) => (
   <chakra.svg viewBox="0 0 1024 1024" {...props}>

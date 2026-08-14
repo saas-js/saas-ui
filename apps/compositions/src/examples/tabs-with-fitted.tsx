@@ -1,6 +1,6 @@
 'use client'
 
-import { Tabs } from '@saas-ui/react'
+import { Tabs } from '@chakra-ui/react'
 
 export const TabsWithFitted = () => {
   return (

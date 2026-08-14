@@ -15,7 +15,7 @@ import { getPackageInfo } from '#utils/get-package-info'
 
 import { SYSTEMS, type System } from './systems'
 
-type ProjectInfo = {
+export type ProjectInfo = {
   framework: Framework
   system: System | null
   isSrcDir: boolean
@@ -104,6 +104,17 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     return type
   }
 
+  // Generic React projects do not always have a framework config file.
+  if (
+    Object.keys({
+      ...packageJson?.dependencies,
+      ...packageJson?.devDependencies,
+    }).includes('react')
+  ) {
+    type.framework = FRAMEWORKS['react']
+    return type
+  }
+
   return type
 }
 
@@ -114,7 +125,8 @@ export async function getTsConfigAliasPrefix(cwd: string) {
     return null
   }
 
-  // This assume that the first alias is the prefix.
+  // Return the complete prefix so aliases such as `@/*` remain `@/` rather
+  // than being collapsed to `@`.
   for (const [alias, paths] of Object.entries(tsConfig.paths)) {
     if (
       paths.includes('./*') ||
@@ -122,7 +134,7 @@ export async function getTsConfigAliasPrefix(cwd: string) {
       paths.includes('./app/*') ||
       paths.includes('./resources/js/*') // Laravel.
     ) {
-      return alias.at(0) ?? null
+      return alias.endsWith('*') ? alias.slice(0, -1) : alias
     }
   }
 
@@ -174,18 +186,20 @@ export async function getProjectConfig(
     return null
   }
 
+  const aliasPrefix = projectInfo.aliasPrefix ?? '@/'
   const config: RawConfig = {
     $schema: SCHEMA_URL,
     rsc: projectInfo.isRSC,
     tsx: projectInfo.isTsx,
     system: projectInfo.system?.name ?? SYSTEMS.chakra.name,
     style: 'default',
+    installed: [],
     aliases: {
-      components: `${projectInfo.aliasPrefix}components`,
-      ui: `${projectInfo.aliasPrefix}components/ui`,
-      hooks: `${projectInfo.aliasPrefix}hooks`,
-      lib: `${projectInfo.aliasPrefix}lib`,
-      utils: `${projectInfo.aliasPrefix}lib/utils`,
+      components: `${aliasPrefix}components`,
+      ui: `${aliasPrefix}components/ui`,
+      hooks: `${aliasPrefix}hooks`,
+      lib: `${aliasPrefix}lib`,
+      utils: `${aliasPrefix}lib/utils`,
     },
   }
 

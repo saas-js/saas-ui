@@ -1,6 +1,6 @@
 'use client'
 
-import { PinInput } from '@saas-ui/react'
+import { PinInput } from 'compositions/ui/pin-input'
 
 export const PinInputWithMask = () => {
   return <PinInput mask />

@@ -1,15 +1,13 @@
 'use client'
 
+import { Spacer } from '@chakra-ui/react'
 import { SaasUILogo } from '@saas-ui/assets'
-import {
-  AppShell,
-  IconButton,
-  Menu,
-  Page,
-  Persona,
-  Sidebar,
-  Spacer,
-} from '@saas-ui/react'
+import { AppShell } from 'compositions/ui/app-shell'
+import { IconButton } from 'compositions/ui/icon-button'
+import { Menu } from 'compositions/ui/menu'
+import { Page } from 'compositions/ui/page'
+import { Persona } from 'compositions/ui/persona'
+import { Sidebar } from 'compositions/ui/sidebar'
 import { FiHome, FiUsers } from 'react-icons/fi'
 
 export const AppShellSidebar = () => {

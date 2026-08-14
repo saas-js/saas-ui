@@ -1,6 +1,6 @@
-'use client'
-
-import { InfoTip, Stat } from '@saas-ui/react'
+'use client';
+import { InfoTip } from 'compositions/ui/info-tip'
+import { Stat } from 'compositions/ui/stat'
 
 export const StatWithInfoTip = () => {
   return (

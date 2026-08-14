@@ -1,20 +1,23 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import {
   Presence,
   type PresenceBaseProps,
   splitPresenceProps,
 } from '@ark-ui/react/presence'
-import { HTMLChakraProps, SlotRecipeProps, chakra } from '@chakra-ui/react'
+import { HTMLChakraProps, chakra } from '@chakra-ui/react'
+import type { SlotRecipeProps } from '@saas-ui/chakra-preset'
+import type { LoadingOverlayVariantProps } from '@saas-ui/chakra-preset/slot-recipes/loading-overlay'
 
 import { Spinner } from '../spinner/index.ts'
 import { withContext, withProvider } from './loading-overlay.context.ts'
 
 interface LoadingOverlayProps
-  extends HTMLChakraProps<'div'>,
-    SlotRecipeProps<'suiLoadingOverlay'>,
+  extends
+    HTMLChakraProps<'div'>,
+    SlotRecipeProps<'suiLoadingOverlay', LoadingOverlayVariantProps>,
     PresenceBaseProps {
   /**
    * Show or hide the LoadingOverlay.

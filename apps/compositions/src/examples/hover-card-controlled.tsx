@@ -1,9 +1,10 @@
-'use client'
-
+'use client';
 import { useState } from 'react'
 
-import { Stack, Text } from '@saas-ui/react'
-import { Avatar, HoverCard, Link } from '@saas-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
+import { HoverCard } from 'compositions/ui/hover-card'
+import { Link } from 'compositions/ui/link'
 
 export const HoverCardControlled = () => {
   const [open, setOpen] = useState(false)

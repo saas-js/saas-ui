@@ -1,5 +1,4 @@
-import { Stack, Text } from '@saas-ui/react'
-import { Badge } from '@saas-ui/react'
+import { Stack, Text, Badge } from '@chakra-ui/react'
 
 import { colorPalettes } from '../lib/color-palettes'
 

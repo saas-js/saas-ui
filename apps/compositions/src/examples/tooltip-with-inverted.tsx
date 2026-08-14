@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from '@saas-ui/react'
-import { Tooltip } from '@saas-ui/react'
+import { Button } from '@chakra-ui/react'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 export const TooltipWithInverted = () => {
   return (

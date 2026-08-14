@@ -1,8 +1,9 @@
-import { Sidebar, type SidebarProviderProps } from '@saas-ui/core/sidebar'
 import { sidebar, sidebarItem } from '@saas-ui/panda-preset/recipes'
 
+import * as Sidebar from './sidebar.primitive'
 import { createStyleContext } from '../context'
 import { HTMLSuiProps } from '../types'
+import type { SidebarProviderProps } from './sidebar.context'
 
 const { withContext, withProvider } = createStyleContext(sidebar)
 
@@ -13,38 +14,31 @@ export const SidebarProvider = withProvider(function SidebarProvider(
 ) {
   const { children, ...ctx } = props
 
-  return <Sidebar.Provider {...ctx}>{props.children}</Sidebar.Provider>
+  return <Sidebar.Provider {...ctx}>{children}</Sidebar.Provider>
 })
 
-export interface SidebarRootProps
-  extends HTMLSuiProps<'div'>,
-    Sidebar.RootProps {}
+export interface SidebarRootProps extends HTMLSuiProps<'div'> {}
 
 export const SidebarRoot = withContext<HTMLDivElement, SidebarRootProps>(
   Sidebar.Root,
   'root',
 )
 
-export interface SidebarTriggerProps
-  extends HTMLSuiProps<'div'>,
-    Sidebar.TriggerProps {}
+export interface SidebarTriggerProps extends HTMLSuiProps<'button'> {}
 
-export const SidebarTrigger = withContext<HTMLDivElement, SidebarTriggerProps>(
-  Sidebar.Trigger,
-  'trigger',
-  {
-    defaultProps: {
-      asChild: true,
-    },
+export const SidebarTrigger = withContext<
+  HTMLButtonElement,
+  SidebarTriggerProps
+>(Sidebar.Trigger, 'trigger', {
+  defaultProps: {
+    asChild: true,
   },
-)
+})
 
-export interface SidebarFlyoutTriggerProps
-  extends HTMLSuiProps<'div'>,
-    Sidebar.FlyoutTriggerProps {}
+export interface SidebarFlyoutTriggerProps extends HTMLSuiProps<'button'> {}
 
 export const SidebarFlyoutTrigger = withContext<
-  HTMLDivElement,
+  HTMLButtonElement,
   SidebarFlyoutTriggerProps
 >(Sidebar.FlyoutTrigger, 'flyoutTrigger', {
   defaultProps: {
@@ -119,9 +113,9 @@ export const SidebarNavItem = withSidebarItemProvider<
   SidebarNavItemProps
 >(Sidebar.NavItem, 'item')
 
-export interface SidebarNavButtonProps
-  extends HTMLSuiProps<'div'>,
-    Sidebar.NavButtonProps {}
+export interface SidebarNavButtonProps extends HTMLSuiProps<'div'> {
+  active?: boolean
+}
 
 export const SidebarNavButton = withSidebarItemContext<
   HTMLDivElement,

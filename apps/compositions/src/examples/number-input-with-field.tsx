@@ -1,4 +1,5 @@
-import { Field, NumberInput } from '@saas-ui/react'
+import { Field } from '@chakra-ui/react'
+import { NumberInput } from 'compositions/ui/number-input'
 
 export const NumberInputWithField = () => {
   return (

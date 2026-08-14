@@ -1,6 +1,6 @@
-'use client'
-
-import { Clipboard, InputGroup } from '@saas-ui/react'
+'use client';
+import { Clipboard } from 'compositions/ui/clipboard'
+import { InputGroup } from '@chakra-ui/react'
 
 export const ClipboardWithInput = () => {
   return (

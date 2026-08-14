@@ -1,7 +1,7 @@
 'use client'
 
-import { Box, Center, Flex, Text } from '@saas-ui/react'
-import { Menu } from '@saas-ui/react'
+import { Box, Center, Flex, Text } from '@chakra-ui/react'
+import { Menu } from 'compositions/ui/menu'
 
 export const MenuWithHideWhenDetached = () => {
   return (

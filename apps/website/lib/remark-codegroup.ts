@@ -29,5 +29,5 @@ export function remarkCodeGroup() {
         })
         .filter(Boolean) as (BlockContent | DefinitionContent)[]
     })
-  }
+  };
 }

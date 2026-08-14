@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.0.15-next.0
+
+### Patch Changes
+
+- Updated dependencies [dfc8727]
+- Updated dependencies [aac593e]
+- Updated dependencies [5116c7c]
+  - @saas-ui/chakra-preset@3.0.0-next.10
+
 ## 2.0.14
 
 ### Patch Changes

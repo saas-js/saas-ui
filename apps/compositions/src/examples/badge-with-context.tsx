@@ -1,5 +1,4 @@
-import { Group } from '@saas-ui/react'
-import { Badge, BadgePropsProvider } from '@saas-ui/react'
+import { Group, Badge, BadgePropsProvider } from '@chakra-ui/react'
 
 export const BadgeWithContext = () => {
   return (

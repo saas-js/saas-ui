@@ -1,20 +1,35 @@
 {
-  "name": "radio",
-  "type": "registry:ui",
   "dependencies": [
     "@chakra-ui/react"
   ],
-  "registryDependencies": [],
   "files": [
     {
-      "path": "ui/radio/index.ts",
       "content": "export { Radio } from './radio.tsx'\nexport type { RadioProps } from './radio.tsx'\nexport { RadioGroup } from '@chakra-ui/react/radio-group'\n",
+      "path": "ui/radio/index.ts",
       "type": "registry:ui"
     },
     {
-      "path": "ui/radio/radio.tsx",
       "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react/radio-group'\n\nexport interface RadioProps extends ChakraRadioGroup.ItemProps {\n  rootRef?: React.Ref<HTMLDivElement>\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n}\n\nexport const Radio = forwardRef<HTMLInputElement, RadioProps>(\n  function Radio(props, ref) {\n    const { children, inputProps, rootRef, ...rest } = props\n    return (\n      <ChakraRadioGroup.Item ref={rootRef} {...rest}>\n        <ChakraRadioGroup.ItemHiddenInput ref={ref} {...inputProps} />\n        <ChakraRadioGroup.ItemIndicator />\n        {children && (\n          <ChakraRadioGroup.ItemText>{children}</ChakraRadioGroup.ItemText>\n        )}\n      </ChakraRadioGroup.Item>\n    )\n  },\n)\n\nexport type RadioGroupProps = ChakraRadioGroup.RootProps\n\nexport const RadioGroup = ChakraRadioGroup.Root\n",
+      "path": "ui/radio/radio.tsx",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/radio/index.ts": "69b4c1875be8c1c5cb7de32dc42e7e6d1e33e8e0933f5b430bc269b7ef832fe9",
+        "ui/radio/radio.tsx": "499b43a780feffd4ff03a63071378c77b706e8c796a56b44e53410f7a731ed71"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "e9f0fbd47141e0f0bdc5638e2fd8d576365dd929dcf57c767d4a7594667a731e"
+  },
+  "name": "radio",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

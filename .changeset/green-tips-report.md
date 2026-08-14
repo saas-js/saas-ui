@@ -1,5 +1,6 @@
 ---
-'@saas-ui/react': patch
+'@saas-ui/chakra-preset': patch
 ---
 
-Improved Sidebar recipe with beter balance and added --sidebar-item-icon-color variable
+Improved Sidebar recipe with beter balance and added --sidebar-item-icon-color
+variable

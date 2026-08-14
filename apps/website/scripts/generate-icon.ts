@@ -29,7 +29,7 @@ function toDashCase(str: string) {
   return str
     .replace(/([A-Z])/g, "-$1")
     .replace(/^-/, "")
-    .toLowerCase()
+    .toLowerCase();
 }
 
 const dashName = toDashCase(name)

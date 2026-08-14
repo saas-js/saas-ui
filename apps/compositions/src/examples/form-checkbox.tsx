@@ -1,26 +1,35 @@
 'use client'
 
-import { FormLayout, useForm } from '@saas-ui/forms'
+import { Form, useAppForm } from 'compositions/components/forms'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 export function FormCheckbox() {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
       terms: false,
     },
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: ({ value }) => {
+      console.log(value)
     },
   })
 
   return (
-    <form.Form>
-      <FormLayout>
-        <form.Field
-          name="terms"
-          label="Accept terms and conditions"
-          type="checkbox"
-        />
-      </FormLayout>
-    </form.Form>
+    <Form form={form}>
+      <form.Layout>
+        <form.AppField name="terms">
+          {(field) => (
+            <Checkbox
+              checked={field.state.value === true}
+              onCheckedChange={({ checked }) =>
+                field.handleChange(checked === true)
+              }
+              inputProps={{ onBlur: field.handleBlur }}
+            >
+              Accept terms and conditions
+            </Checkbox>
+          )}
+        </form.AppField>
+      </form.Layout>
+    </Form>
   )
 }

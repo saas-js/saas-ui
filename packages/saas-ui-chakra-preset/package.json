@@ -19,6 +19,11 @@
       "types": "./dist/appearance.d.ts",
       "import": "./dist/appearance.js"
     },
+    "./recipe-keys": {
+      "sui": "./src/recipe-keys.ts",
+      "types": "./dist/recipe-keys.d.ts",
+      "import": "./dist/recipe-keys.js"
+    },
     "./recipes/*": {
       "sui": "./src/theme/recipes/*.recipe.ts",
       "types": "./dist/theme/recipes/*.recipe.d.ts",

@@ -1,16 +1,9 @@
-'use client'
-
+'use client';
 import { SaasUILogo } from '@saas-ui/assets'
-import {
-  AppShell,
-  Box,
-  Button,
-  Container,
-  Navbar,
-  Skeleton,
-  SkeletonText,
-  Stack,
-} from '@saas-ui/react'
+import { AppShell } from 'compositions/ui/app-shell'
+import { Box, Button, Container, Stack } from '@chakra-ui/react'
+import { Navbar } from 'compositions/ui/navbar'
+import { Skeleton, SkeletonText } from 'compositions/ui/skeleton'
 
 export const NavbarBorderBottom = () => {
   return (
@@ -40,7 +33,7 @@ export const NavbarBorderBottom = () => {
                 <Button>Login</Button>
               </Navbar.Item>
               <Navbar.Item>
-                <Button variant="primary">Sign up</Button>
+                <Button variant="solid">Sign up</Button>
               </Navbar.Item>
             </Navbar.ItemGroup>
           </Navbar.Content>

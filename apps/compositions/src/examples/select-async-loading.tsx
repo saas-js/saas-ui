@@ -2,8 +2,8 @@
 
 import { useMemo } from 'react'
 
-import { createListCollection } from '@saas-ui/react'
-import { Select } from '@saas-ui/react'
+import { createListCollection } from '@chakra-ui/react'
+import { Select } from 'compositions/ui/select'
 import { useAsync } from 'react-use'
 
 interface Item {

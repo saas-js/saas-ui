@@ -22,8 +22,8 @@ const docsLinks: NavItem = {
           items: [
             { title: 'Next.js (App)', url: 'next-app' },
             { title: 'Next.js (Pages)', url: 'next-pages' },
-            { title: 'Remix', url: 'remix' },
             { title: 'Storybook', url: 'storybook' },
+            { title: 'TanStack Start', url: 'tanstack' },
             { title: 'Vite', url: 'vite' },
           ],
         },

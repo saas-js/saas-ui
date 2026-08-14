@@ -1,6 +1,6 @@
 'use client'
 
-import { Slider } from '@saas-ui/react'
+import { Slider } from 'compositions/ui/slider'
 
 export const SliderWithMarksVertical = () => {
   return (

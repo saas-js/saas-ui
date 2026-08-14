@@ -1,5 +1,6 @@
-import type { ColorPalette, ThemeProps } from '@saas-ui/react'
-import { Theme, useColorMode } from '@saas-ui/react'
+import type { ColorPalette } from '@saas-ui/chakra-preset/colors'
+import { type ThemeProps, Theme } from '#components/ui/theme'
+import { useColorMode } from '#components/setup/color-mode/color-mode'
 import { create } from 'zustand'
 
 type ThemeStoreProps = Required<

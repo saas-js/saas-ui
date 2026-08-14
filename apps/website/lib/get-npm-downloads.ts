@@ -5,7 +5,7 @@ export async function getNpmDownloads() {
 
   try {
     const data = await fetch(
-      'https://api.npmjs.org/downloads/point/last-month/@saas-ui/react',
+      'https://api.npmjs.org/downloads/point/last-month/@saas-ui/cli',
     ).then((res) => res.json())
 
     count = data.downloads

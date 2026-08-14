@@ -1,7 +1,5 @@
-'use client'
-
-import { HStack } from '@saas-ui/react'
-import { Button } from '@saas-ui/react'
+'use client';
+import { HStack, Button } from '@chakra-ui/react'
 import { RiArrowRightLine, RiMailLine } from 'react-icons/ri'
 
 export const ButtonWithIcons = () => {

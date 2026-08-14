@@ -1,15 +1,6 @@
 'use client'
 
-import {
-  Box,
-  Center,
-  Container,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Span,
-  Stack,
-} from '@saas-ui/react'
+import { Box, Center, Container, Flex, Heading, SimpleGrid, Span, Stack } from '@chakra-ui/react'
 
 import { Aidbase } from './logos/customers/aidbase'
 import { Growtha } from './logos/customers/growtha'

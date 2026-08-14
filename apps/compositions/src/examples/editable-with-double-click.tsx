@@ -1,6 +1,6 @@
 'use client'
 
-import { Editable } from '@saas-ui/react'
+import { Editable } from '@chakra-ui/react'
 
 export const EditableWithDoubleClick = () => (
   <Editable.Root defaultValue="Double click to edit" activationMode="dblclick">

@@ -1,6 +1,6 @@
-'use client'
-
-import { InfoTip, Progress } from '@saas-ui/react'
+'use client';
+import { InfoTip } from 'compositions/ui/info-tip'
+import { Progress } from '@chakra-ui/react'
 
 export const ProgressWithLabelInfo = () => {
   return (

@@ -1,7 +1,7 @@
 'use client'
 
-import { Badge, HStack } from '@saas-ui/react'
-import { CheckboxCard } from '@saas-ui/react'
+import { Badge, HStack } from '@chakra-ui/react'
+import { CheckboxCard } from 'compositions/ui/checkbox-card'
 
 export const CheckboxCardWithAddon = () => {
   return (

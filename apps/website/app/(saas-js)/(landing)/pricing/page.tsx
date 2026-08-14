@@ -1,6 +1,6 @@
 import { CustomersSection } from '@/components/site/customers.section'
 import { Octokit } from '@octokit/rest'
-import { Container, Stack } from '@saas-ui/react'
+import { Container, Stack } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 
 import { FAQ } from './components/faq'

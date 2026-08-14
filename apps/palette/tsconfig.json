@@ -15,8 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/client/*"],
-      "@saas-ui/react": ["../../packages/saas-ui-react/src"]
+      "@/*": ["src/client/*"]
     },
     "incremental": true
   },

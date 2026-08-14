@@ -16,8 +16,7 @@ import {
 import { EyeIcon, EyeOffIcon } from '../../icons/index.ts'
 
 export interface PasswordInputProps
-  extends InputProps,
-    PasswordVisibilityProps {
+  extends InputProps, PasswordVisibilityProps {
   rootProps?: InputGroupProps
 }
 

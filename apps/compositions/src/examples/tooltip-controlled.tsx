@@ -1,8 +1,8 @@
-'use client'
-
+'use client';
 import { useState } from 'react'
 
-import { Button, Tooltip } from '@saas-ui/react'
+import { Button } from '@chakra-ui/react'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 export const TooltipControlled = () => {
   const [open, setOpen] = useState(false)

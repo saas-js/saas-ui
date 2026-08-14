@@ -1,34 +1,45 @@
 'use client'
 
-import { FormLayout, useForm } from '@saas-ui/forms'
+import { Form, useAppForm } from 'compositions/components/forms'
 
 export function FormNumber() {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
-      amount: 0,
+      amount: '',
     },
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: ({ value }) => {
+      console.log(value)
     },
   })
 
   return (
-    <form.Form>
-      <FormLayout>
-        <form.Field name="amount" label="Amount" type="number" />
-        <form.Field
-          name="amount"
-          label="Amount (with start element)"
-          type="number"
-          startElement={'$'}
-        />
-        <form.Field
-          name="amount"
-          label="Amount (no controls)"
-          type="number"
-          hideControls
-        />
-      </FormLayout>
-    </form.Form>
+    <Form form={form}>
+      <form.Layout>
+        <form.AppField name="amount">
+          {(field) => (
+            <field.TextField label="Amount" inputMode="decimal" type="text" />
+          )}
+        </form.AppField>
+        <form.AppField name="amount">
+          {(field) => (
+            <field.TextField
+              label="Amount (with start element)"
+              inputMode="decimal"
+              type="text"
+              startElement="$"
+            />
+          )}
+        </form.AppField>
+        <form.AppField name="amount">
+          {(field) => (
+            <field.TextField
+              label="Amount (no controls)"
+              inputMode="decimal"
+              type="text"
+            />
+          )}
+        </form.AppField>
+      </form.Layout>
+    </Form>
   )
 }

@@ -1,6 +1,6 @@
-'use client'
-
-import { Persona, Stack } from '@saas-ui/react'
+'use client';
+import { Persona } from 'compositions/ui/persona'
+import { Stack } from '@chakra-ui/react'
 
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const
 

@@ -1,7 +1,6 @@
 import { readExampleFile } from '@/lib/composition'
 import { highlightCode } from '@/lib/highlight-code'
-// import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
-import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@saas-ui/react'
+import { Box, BoxProps, HStack, Stack, Tabs, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
 import { ExamplePreview } from './example-preview'

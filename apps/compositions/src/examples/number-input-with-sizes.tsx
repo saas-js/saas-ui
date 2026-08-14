@@ -1,5 +1,5 @@
-import { For, Stack } from '@saas-ui/react'
-import { NumberInput } from '@saas-ui/react'
+import { For, Stack } from '@chakra-ui/react'
+import { NumberInput } from 'compositions/ui/number-input'
 
 export const NumberInputWithSizes = () => {
   return (

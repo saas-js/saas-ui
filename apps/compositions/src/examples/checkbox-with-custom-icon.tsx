@@ -1,6 +1,6 @@
 'use client'
 
-import { Checkbox } from '@saas-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 import { HiOutlinePlus } from 'react-icons/hi'
 
 export const CheckboxWithCustomIcon = () => {

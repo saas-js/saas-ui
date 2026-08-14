@@ -1,18 +1,10 @@
 import { CATEGORIES } from '@/blocks'
 import {
   countComponentsByCategory,
-  getAllComponents,
 } from '@/blocks/components'
 import { CategoriesList } from '@/components/blocks/categories-list'
 import { LinkButton } from '@/components/link-button'
-import {
-  Box,
-  ButtonGroup,
-  Container,
-  HStack,
-  Heading,
-  Text,
-} from '@saas-ui/react'
+import { Box, ButtonGroup, Container, HStack, Heading, Text } from '@chakra-ui/react'
 import { TbLock } from 'react-icons/tb'
 
 export default async function Page() {

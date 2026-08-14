@@ -1,7 +1,7 @@
-'use client'
-
-import { For, Stack, useSlotRecipe } from '@saas-ui/react'
-import { CheckboxCard, type CheckboxCardProps } from '@saas-ui/react'
+'use client';
+import { For, Stack } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
+import { CheckboxCard, type CheckboxCardProps } from 'compositions/ui/checkbox-card'
 
 import { PlaygroundTable } from '../lib/playground-table'
 

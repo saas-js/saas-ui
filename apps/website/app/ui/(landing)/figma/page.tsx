@@ -16,8 +16,9 @@ import {
   Icon,
   Stack,
   type StackProps,
+  type SystemStyleObject,
   Text,
-} from '@saas-ui/react'
+} from '@chakra-ui/react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { FaFigma } from 'react-icons/fa'
@@ -160,11 +161,11 @@ const StatsCard = ({
   title: string
   children: React.ReactNode
   description: React.ReactNode
-  gridColumn: string
+  gridColumn?: SystemStyleObject['gridColumn']
 } & StackProps) => {
   return (
     <Card.Root
-      gridColumn={gridColumn}
+      css={{ gridColumn }}
       borderRadius="lg"
       gap="2"
       py="4"
@@ -395,10 +396,7 @@ const Stats = () => {
         <StatsCard
           title="2000+ icons"
           description="Icons for every use case. Multiple styles from nine free to use icon packs."
-          gridColumn={{
-            base: 'span 3',
-            md: 'span 2',
-          }}
+          gridColumn={{ base: 'span 3', md: 'span 2' }}
           flexDirection="column-reverse"
         >
           <Box height="160px">

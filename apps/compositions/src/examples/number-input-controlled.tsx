@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { NumberInput } from '@saas-ui/react'
+import { NumberInput } from 'compositions/ui/number-input'
 
 export const NumberInputControlled = () => {
   const [value, setValue] = useState('10')

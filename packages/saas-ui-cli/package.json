@@ -3,7 +3,7 @@
   "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "description": "Saas UI command line",
   "type": "module",
-  "version": "0.1.0-next.1",
+  "version": "0.1.0-next.2",
   "files": [
     "lib"
   ],
@@ -13,8 +13,16 @@
   },
   "bin": {
     "__cli_bash_complete": "lib/bash-complete.js",
+    "saas-ui": "lib/cli.js",
     "sui": "lib/cli.js",
     "@saas-ui/cli": "lib/cli.js"
+  },
+  "exports": {
+    ".": "./lib/cli.js",
+    "./consumer": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/consumer/index.js"
+    }
   },
   "engines": {
     "node": ">=20"
@@ -27,9 +35,19 @@
   },
   "scripts": {
     "prebuild": "tsc -p tsconfig.json",
+    "test": "pnpm --dir ../.. registry:generate && pnpm test:prepared",
+    "test:prepared": "vitest run",
+    "test:consumer": "pnpm --dir ../.. registry:generate && pnpm test:consumer:prepared",
+    "test:consumer:prepared": "vitest run test/consumer/fixture.test.ts",
+    "test:consumer:install-all": "pnpm --dir ../.. registry:generate && pnpm test:consumer:install-all:prepared",
+    "test:consumer:install-all:prepared": "vitest run test/consumer/install-all.fixture.test.ts",
+    "test:consumer:acceptance": "pnpm --dir ../.. registry:generate && pnpm test:consumer:acceptance:prepared",
+    "test:consumer:acceptance:prepared": "tsx --conditions=sui test/consumer/acceptance.ts",
+    "test:consumer:install-all:acceptance": "pnpm --dir ../.. registry:generate && pnpm test:consumer:install-all:acceptance:prepared",
+    "test:consumer:install-all:acceptance:prepared": "tsx --conditions=sui test/consumer/acceptance.ts --install-all",
     "build": "dotenvx run -f .env.production -- tsup",
     "build:dev": "dotenvx run -f .env.local -- tsup --watch",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "tsx --conditions=sui ../../tooling/registry/cli-prepublish-contract.ts",
     "postinstall2": "sui install",
     "dev": "dotenvx run -f .env.local -- tsx --tsconfig tsconfig.json bin/cli.ts"
   },
@@ -48,6 +66,7 @@
     "cosmiconfig": "^9.0.0",
     "deepmerge": "^4.3.1",
     "diff": "^8.0.2",
+    "dotenv": "^17.2.3",
     "execa": "^9.5.2",
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.1",
@@ -69,6 +88,8 @@
     "zod": "4.1.5"
   },
   "devDependencies": {
+    "@saas-ui/chakra-preset": "workspace:*",
+    "@saas-ui/registry": "workspace:*",
     "@types/babel__core": "^7.20.5",
     "@dotenvx/dotenvx": "^1.39.0",
     "@tsconfig/node20": "^20.1.4",
@@ -78,6 +99,7 @@
     "@types/prompts": "^2.4.9",
     "@types/stringify-object": "^4.0.5",
     "tsup": "^8.5.0",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "vitest": "^3.2.2"
   }
 }

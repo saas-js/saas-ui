@@ -1,5 +1,4 @@
-import { Stack } from '@saas-ui/react'
-import { Badge } from '@saas-ui/react'
+import { Stack, Badge } from '@chakra-ui/react'
 
 export const BadgeBasic = () => {
   return (

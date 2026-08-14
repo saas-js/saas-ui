@@ -11,8 +11,9 @@ import {
   Span,
   Stack,
   Text,
-} from '@saas-ui/react'
-import { Button, Section } from '@saas-ui/react'
+  Button,
+} from '@chakra-ui/react'
+import { Section } from '#components/ui/section'
 import Image from 'next/image'
 import Link from 'next/link'
 

@@ -36,7 +36,7 @@ You can see the Kanboard in action on the contacts page of the
 Building something with the Kanban primitives is really easy.
 
 ```jsx
-import { Card, CardBody } from '@saas-ui/react'
+import { Card } from '@chakra-ui/react'
 import {
   Kanban,
   KanbanColumn,
@@ -74,9 +74,9 @@ export default function Basic() {
                   {items[columnId].map((itemId) => {
                     return (
                       <KanbanCard id={itemId}>
-                        <Card minHeight="80px" w="full" fontSize="sm">
-                          <CardBody>{itemId}</CardBody>
-                        </Card>
+                        <Card.Root minHeight="80px" w="full" fontSize="sm">
+                          <Card.Body>{itemId}</Card.Body>
+                        </Card.Root>
                       </KanbanCard>
                     )
                   })}
@@ -87,14 +87,14 @@ export default function Basic() {
             <KanbanDragOverlay>
               {activeId ? (
                 <KanbanCard id={activeId}>
-                  <Card
+                  <Card.Root
                     minHeight="80px"
                     w="full"
                     fontSize="sm"
                     cursor="grabbing"
                   >
-                    <CardBody>{activeId}</CardBody>
-                  </Card>
+                    <Card.Body>{activeId}</Card.Body>
+                  </Card.Root>
                 </KanbanCard>
               ) : null}
             </KanbanDragOverlay>

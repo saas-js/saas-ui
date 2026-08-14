@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge, Field, Input } from '@saas-ui/react'
+import { Badge, Field, Input } from '@chakra-ui/react'
 
 export const FieldWithOptional = () => {
   return (

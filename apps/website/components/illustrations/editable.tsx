@@ -1,4 +1,4 @@
-import { createComponent } from "./create-component"
+import { createComponent } from './create-component'
 
 export const EditableAnatomy = createComponent((props) => {
   const { palette, ...rest } = props
@@ -22,7 +22,7 @@ export const EditableAnatomy = createComponent((props) => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M209 143C208.448 143 208 142.552 208 142L208 123C208 122.448 208.448 122 209 122C209.552 122 210 122.448 210 123L210 142C210 142.552 209.552 143 209 143Z"
-        fill={palette[undefined]}
+        fill={palette[15]}
       />
       <rect x={249} y={163} width={45} height={45} rx={5} fill={palette[2]} />
       <path

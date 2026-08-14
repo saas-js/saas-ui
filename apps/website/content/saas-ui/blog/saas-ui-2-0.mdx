@@ -39,7 +39,7 @@ export default function MyForm = () => {
 
 ```tsx
 // form.tsx
-import { createField, createForm } from '@saas-ui/react'
+import { createField, createForm } from '@saas-ui/forms'
 
 // zod
 // import {createZodForm} from '@saas-ui/forms/zod'
@@ -48,15 +48,15 @@ import { createField, createForm } from '@saas-ui/react'
 // import {createYupForm} from '@saas-ui/forms/yup'
 
 const MyCustomField = createField(
-  React.forwardRef((props, ref) => {
+  (props, ref) => {
     return <input ref={ref} {...props} />
-  }),
+  },
 )
 
 const MyCustomControlledField = createField(
-  React.forwardRef((props, ref) => {
+  (props, ref) => {
     return <ReactSelect ref={ref} {...props} />
-  }),
+  },
   {
     isControlled: true,
   },
@@ -70,120 +70,88 @@ export const Form = createForm({
 })
 ```
 
-## StepForm
+## Multi-step forms
 
-`StepForm` has a new improved API, similar to `Form`.
+The v2 `StepForm` API has since been replaced by composing the current form
+hook with application-owned step state. This keeps navigation explicit while
+retaining field validation and typed form values.
 
 ```tsx
-import {StepForm} from '@saas-ui/react'
+import { useState } from 'react'
+import { Button } from '@chakra-ui/react'
+import { FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
 
-// zod
-// import { StepForm } from '@saas-ui/forms/zod'
+export default function MyStepForm() {
+  const [step, setStep] = useState<'profile' | 'password'>('profile')
+  const form = useForm({
+    defaultValues: { name: '', email: '', password: '' },
+    onSubmit,
+  })
 
-// yup
-// import { StepForm } from '@saas-ui/forms/yup'
+  const showPasswordStep = async () => {
+    const valid = await form.trigger(['name', 'email'])
+    if (valid) setStep('password')
+  }
 
-export default function MyStepForm = () => {
   return (
-    <StepForm
-      defaultValues={{
-        name: '',
-        email: '',
-        password: '',
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ Field, FormStep }) => (
-        <FormLayout>
-          <FormStep name="profile">
-            <FormLayout>
-              <Field name="name" label="Name" rules={{ required: true }} />
-              <Field name="email" label="Email" rules={{ required: true }} />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-          <FormStep name="password">
-            <FormLayout>
-              <Field
-                name="password"
-                label="Password"
-                rules={{ required: true, minLength: 4 }}
-              />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-        </FormLayout>
-      )}
-    </StepForm>
+    <form.Form>
+      <FormLayout>
+        {step === 'profile' ? (
+          <>
+            <form.Field name="name" label="Name" rules={{ required: true }} />
+            <form.Field name="email" label="Email" rules={{ required: true }} />
+            <Button type="button" onClick={showPasswordStep}>Next</Button>
+          </>
+        ) : (
+          <>
+            <form.Field
+              name="password"
+              label="Password"
+              rules={{ required: true, minLength: 4 }}
+            />
+            <SubmitButton>Finish</SubmitButton>
+          </>
+        )}
+      </FormLayout>
+    </form.Form>
   )
 }
 ```
 
-Zod and Yup forms now expect a `steps` property that contains the schemas for
-each step.
+Standard Schema validation can cover the complete form while `trigger` limits
+the validation performed before moving to the next step.
 
 ```tsx
-export default function MyStepForm = () => {
-  return (
-    <StepForm
-      steps={[{
-        name: 'profile',
-        schema: z.object({
-          name: z.string(),
-          email: z.string().email(),
-        })
-      }, {
-        name: 'password',
-        schema: z.object({
-          password: z.string().min(4),
-        })
-      }]}
-      defaultValues={{
-        name: '',
-        email: '',
-        password: '',
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ Field, FormStep }) => (
-        <FormLayout>
-          <FormStep name="profile">
-            <FormLayout>
-              <Field name="name" label="Name" rules={{ required: true }} />
-              <Field name="email" label="Email" rules={{ required: true }} />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-          <FormStep name="password">
-            <FormLayout>
-              <Field
-                name="password"
-                label="Password"
-                rules={{ required: true, minLength: 4 }}
-              />
-              <NextButton />
-            </FormLayout>
-          </FormStep>
-        </FormLayout>
-      )}
-    </StepForm>
-  )
+import { z } from 'zod'
+
+const schema = z.object({
+  name: z.string().min(1),
+  email: z.string().email(),
+  password: z.string().min(4),
+})
+
+const form = useForm({
+  schema,
+  defaultValues: { name: '', email: '', password: '' },
+  onSubmit,
+})
+
+const showPasswordStep = async () => {
+  const valid = await form.trigger(['name', 'email'])
+  if (valid) setStep('password')
 }
 ```
 
 ## FormDialog
 
-`FormDialog` now comes with a Yup and Zod variant out of the box.
-
-To use Zod schemas, you can import `FormDialog` from `@saas-ui/forms/zod` (or
-`@saas-ui/forms/yup` for Yup schemas)
+The former `FormDialog` helper is now expressed by composing the registry
+dialog template with `useForm`.
 
 ```jsx
 import * as z from 'zod'
-import { FormDialog } from '@saas-ui/forms/zod'
-import { Button, useDisclosure } from '@saas-ui/react'
-import { FormLayout, createFormDialog } from '@saas-ui/react'
-import { FiArchive, FiTag, FiUsers } from 'react-icons/fi'
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
+import { Dialog } from '#components/ui/dialog'
 
 const schema = z.object({
   title: z.string().describe('Title'),
@@ -192,31 +160,41 @@ const schema = z.object({
 
 export default function Page() {
   const disclosure = useDisclosure()
-
-  const onSubmit = async (data) => {
-    disclosure.onClose()
-  }
+  const form = useForm({
+    schema,
+    defaultValues: { title: '', description: '' },
+    onSubmit: async (data) => {
+      console.log(data)
+      disclosure.onClose()
+    },
+  })
 
   return (
-    <>
-      <Button onClick={() => disclosure.onOpen()}>Create new post</Button>
-
-      <FormDialog
-        title="New post"
-        schema={schema}
-        {...disclosure}
-        defaultValues={{
-          title: '',
-          description: '',
-        }}
-        fields={{
-          description: {
-            type: 'textarea',
-          },
-        }}
-        onSubmit={onSubmit}
-      />
-    </>
+    <Dialog.Root
+      open={disclosure.open}
+      onOpenChange={(event) =>
+        event.open ? disclosure.onOpen() : disclosure.onClose()
+      }
+    >
+      <Dialog.Trigger asChild>
+        <Button>Create new post</Button>
+      </Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title>New post</Dialog.Title>
+          <Dialog.CloseButton />
+        </Dialog.Header>
+        <Dialog.Body>
+          <form.Form>
+            <FormLayout>
+              <form.Field name="title" label="Title" />
+              <form.Field name="description" label="Description" type="textarea" />
+              <SubmitButton>Create post</SubmitButton>
+            </FormLayout>
+          </form.Form>
+        </Dialog.Body>
+      </Dialog.Content>
+    </Dialog.Root>
   )
 }
 ```
@@ -227,14 +205,12 @@ The modals manager now has a new API that allows you to create modals or change
 the default modals in a convenient way.
 
 ```tsx
-import { FormDialog } from '@saas-ui/forms/zod'
-import { createModals } from '@saas-ui/react'
+import { createModals } from '@saas-ui/modals-provider'
 
 const { ModalsProvider, useModals } = createModals({
   modals: {
     modal: MyModal,
     custom: CustomModal,
-    form: FormDialog,
   },
 })
 
@@ -290,9 +266,9 @@ gives you much more flexibility to build all kinds of lists,
 `Loader` has been renamed to `LoadingOverlay` and has a new improved API.
 
 ```tsx
-<LoadingOverlay>
-  <LoadingSpinner />
-</LoadingOverlay>
+<LoadingOverlay.Root>
+  <LoadingOverlay.Spinner />
+</LoadingOverlay.Root>
 ```
 
 ### Sidebar

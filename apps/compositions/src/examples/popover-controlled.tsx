@@ -1,8 +1,8 @@
-'use client'
-
+'use client';
 import { useState } from 'react'
 
-import { Button, Popover } from '@saas-ui/react'
+import { Button } from '@chakra-ui/react'
+import { Popover } from 'compositions/ui/popover'
 
 export const PopoverControlled = () => {
   const [open, setOpen] = useState(false)

@@ -6,9 +6,11 @@ import { GetStartedSection } from '@/components/saas-js/get-started.section'
 import { HeroSection } from '@/components/saas-js/hero.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
 import { WhySection } from '@/components/saas-js/why.section'
-import { Button, ButtonGroup, Stack, Text } from '@chakra-ui/react'
+import { ButtonGroup, Stack, Text } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+
+import { Button } from '#components/ui/button'
 
 export const metadata: Metadata = {
   title: 'AI-native SaaS starter kit for TanStack Start',

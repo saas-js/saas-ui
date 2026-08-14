@@ -2,15 +2,7 @@ import { CustomersSection } from '@/components/site/customers.section'
 import { DemoSection } from '@/components/site/demo.section'
 import { GetStartedSection } from '@/components/site/get-started.section'
 import { TestimonialsSection } from '@/components/site/testimonials.section'
-import {
-  Box,
-  Container,
-  Grid,
-  HStack,
-  Heading,
-  List,
-  Text,
-} from '@saas-ui/react'
+import { Box, Container, Grid, HStack, Heading, List, Text } from '@chakra-ui/react'
 import { TbCheck } from 'react-icons/tb'
 
 import { ComponentsSection } from '../components/components.section'
@@ -155,7 +147,7 @@ const opensource = `
 `
 
 const gettingStarted = `
-- pnpm i @saas-ui/react @emotion/styled
+- npx @saas-ui/cli init
 - examples
 - documentation
 - discord

@@ -1,15 +1,16 @@
 'use client'
 
-import { forwardRef } from 'react'
+import { type ComponentType, forwardRef } from 'react'
 
 import { DialogContext } from '@ark-ui/react/dialog'
 import { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'
+import type { DrawerVariantProps } from '@saas-ui/chakra-preset/slot-recipes/drawer'
 
 import { CloseButton as CloseButtonBase } from '../close-button/index.ts'
 
 export interface ContentProps extends ChakraDrawer.ContentProps {
   portalled?: boolean
-  portalRef?: React.RefObject<HTMLElement>
+  portalRef?: React.RefObject<HTMLElement | null>
   offset?: ChakraDrawer.ContentProps['padding']
 }
 
@@ -44,7 +45,16 @@ export const CloseButton = forwardRef<
 
 export const CloseTrigger = ChakraDrawer.CloseTrigger
 export const Trigger = ChakraDrawer.Trigger
-export const Root = ChakraDrawer.Root
+
+type ChakraDrawerRootPropsWithoutPresetVariants = Omit<
+  ChakraDrawer.RootProps,
+  keyof DrawerVariantProps
+>
+
+export interface RootProps
+  extends ChakraDrawerRootPropsWithoutPresetVariants, DrawerVariantProps {}
+
+export const Root = ChakraDrawer.Root as ComponentType<RootProps>
 export const Footer = ChakraDrawer.Footer
 export const Header = ChakraDrawer.Header
 export const Body = ChakraDrawer.Body
@@ -53,5 +63,3 @@ export const Description = ChakraDrawer.Description
 export const Title = ChakraDrawer.Title
 export const ActionTrigger = ChakraDrawer.ActionTrigger
 export const Context = DialogContext
-
-export type RootProps = ChakraDrawer.RootProps

@@ -1,6 +1,6 @@
-'use client'
-
-import { Avatar, Button, Card } from '@saas-ui/react'
+'use client';
+import { Avatar } from 'compositions/ui/avatar'
+import { Button, Card } from '@chakra-ui/react'
 
 export const CardBasic = () => {
   return (

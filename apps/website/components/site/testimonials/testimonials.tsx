@@ -1,4 +1,5 @@
-import { Section, SimpleGrid, Stack } from '@saas-ui/react'
+import { Section } from '#components/ui/section'
+import { SimpleGrid, Stack } from '@chakra-ui/react'
 
 import { Testimonial } from './testimonial'
 

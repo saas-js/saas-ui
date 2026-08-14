@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@saas-ui/react'
+import { Button } from '@chakra-ui/react'
 
 export const ButtonBasic = () => {
   return <Button>Button</Button>

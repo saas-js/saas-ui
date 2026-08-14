@@ -1,4 +1,6 @@
-import { Button, Menu, Tooltip } from '@saas-ui/react'
+import { Button } from '@chakra-ui/react'
+import { Menu } from 'compositions/ui/menu'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 export const TooltipWithMenuItem = () => {
   return (

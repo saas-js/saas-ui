@@ -1,4 +1,4 @@
-import { type HTMLChakraProps, chakra } from '@saas-ui/react'
+import { type HTMLChakraProps, chakra } from '@chakra-ui/react/styled-system'
 
 export const Voxtell = (props: HTMLChakraProps<'svg'>) => {
   return (

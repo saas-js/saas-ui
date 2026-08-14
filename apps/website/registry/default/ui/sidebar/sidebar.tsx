@@ -1,198 +1,257 @@
 'use client'
 
-import React from 'react'
+import * as React from 'react'
 
-import type {
-  HTMLChakraProps,
-  SlotRecipeProps,
-} from '@chakra-ui/react/styled-system'
-import { Sidebar, useSidebar } from '@saas-ui/core/sidebar'
+import type { HTMLChakraProps } from '@chakra-ui/react'
+import { Presence, chakra } from '@chakra-ui/react'
 
 import {
   ClassNamesProvider,
+  SidebarBehaviorProvider,
+  type SidebarNavItemVariantProps,
+  type SidebarOptions,
+  type SidebarVariantProps,
   StylesProvider,
   useRecipeResult,
+  useSidebar,
   withContext,
   withItemContext,
   withItemProvider,
 } from './sidebar.context.ts'
 
-interface SidebarProviderProps
-  extends Sidebar.ProviderProps,
-    Omit<SlotRecipeProps<'suiSidebar'>, 'mode'> {}
+type SidebarProviderRecipeProps = Omit<SidebarVariantProps, 'mode'>
+
+type SidebarProviderProps = SidebarOptions &
+  SidebarProviderRecipeProps & {
+    children: React.ReactNode
+  }
 
 function SidebarProvider(props: SidebarProviderProps) {
+  const {
+    children,
+    defaultOpen,
+    mode,
+    open,
+    onOpenChange,
+    onModeChange,
+    ...recipe
+  } = props
+
   return (
-    <Sidebar.Provider {...props}>
-      <RecipeProvider {...props}>{props.children}</RecipeProvider>
-    </Sidebar.Provider>
+    <SidebarBehaviorProvider
+      defaultOpen={defaultOpen}
+      open={open}
+      mode={mode}
+      onOpenChange={onOpenChange}
+      onModeChange={onModeChange}
+    >
+      <RecipeProvider {...recipe}>{children}</RecipeProvider>
+    </SidebarBehaviorProvider>
   )
 }
 
 function RecipeProvider(
-  props: SlotRecipeProps<'suiSidebar'> & { children: React.ReactNode },
+  props: SidebarProviderRecipeProps & { children: React.ReactNode },
 ) {
   const { mode } = useSidebar()
-
+  const { children, ...recipeProps } = props
   const { styles, classNames } = useRecipeResult({
-    ...props,
+    ...recipeProps,
     mode,
   })
 
   return (
     <StylesProvider value={styles}>
-      <ClassNamesProvider value={classNames}>
-        {props.children}
-      </ClassNamesProvider>
+      <ClassNamesProvider value={classNames}>{children}</ClassNamesProvider>
     </StylesProvider>
   )
 }
 
-interface SidebarRootProps
-  extends HTMLChakraProps<'div'>,
-    Sidebar.RootBaseProps {}
+interface SidebarRootProps extends HTMLChakraProps<'div'> {}
 
-/**
- * Side navigation, commonly used as the primary navigation
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
+const SidebarRootPrimitive = React.forwardRef<HTMLDivElement, SidebarRootProps>(
+  function SidebarRoot(props, ref) {
+    const { open, mode } = useSidebar()
+
+    return (
+      <chakra.div
+        ref={ref}
+        data-state={open ? 'open' : 'closed'}
+        data-mode={mode}
+        {...props}
+      />
+    )
+  },
+)
+
 const SidebarRoot = withContext<HTMLDivElement, SidebarRootProps>(
-  Sidebar.Root,
+  SidebarRootPrimitive,
   'root',
 )
 
 interface SidebarTriggerProps extends HTMLChakraProps<'button'> {}
 
-/**
- * Button that toggles the sidebar visibility.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
+const SidebarTriggerPrimitive = React.forwardRef<
+  HTMLButtonElement,
+  SidebarTriggerProps
+>(function SidebarTrigger(props, ref) {
+  const { onClick, ...rest } = props
+  const { open, toggle } = useSidebar()
+
+  return (
+    <chakra.button
+      ref={ref}
+      aria-label={open ? 'Close sidebar' : 'Open sidebar'}
+      data-state={open ? 'open' : 'closed'}
+      onClick={(event) => {
+        onClick?.(event)
+        if (!event.defaultPrevented) toggle()
+      }}
+      {...rest}
+    />
+  )
+})
+
 const SidebarTrigger = withContext<HTMLButtonElement, SidebarTriggerProps>(
-  Sidebar.Trigger,
+  SidebarTriggerPrimitive,
   'trigger',
-  {
-    forwardAsChild: true,
-  },
+  { forwardAsChild: true },
 )
 
 interface SidebarFlyoutTriggerProps extends HTMLChakraProps<'button'> {}
 
-/**
- * Opens the sidebar when hovering over the trigger.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
+const SidebarFlyoutTriggerPrimitive = React.forwardRef<
+  HTMLButtonElement,
+  SidebarFlyoutTriggerProps
+>(function SidebarFlyoutTrigger(props, ref) {
+  const { onMouseEnter, ...rest } = props
+  const { open, setOpen } = useSidebar()
+
+  return (
+    <chakra.button
+      ref={ref}
+      data-state={open ? 'open' : 'closed'}
+      onMouseEnter={(event) => {
+        onMouseEnter?.(event)
+        if (!event.defaultPrevented) setOpen(true)
+      }}
+      {...rest}
+    />
+  )
+})
+
 const SidebarFlyoutTrigger = withContext<
   HTMLButtonElement,
   SidebarFlyoutTriggerProps
->(Sidebar.FlyoutTrigger, 'flyoutTrigger', {
+>(SidebarFlyoutTriggerPrimitive, 'flyoutTrigger', {
   forwardAsChild: true,
 })
 
-/**
- * Overlay shown when sidebar is open on mobile.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-const SidebarBackdrop = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Sidebar.Backdrop,
+interface SidebarBackdropProps extends HTMLChakraProps<'div'> {}
+
+const SidebarBackdropPrimitive = React.forwardRef<
+  HTMLDivElement,
+  SidebarBackdropProps
+>(function SidebarBackdrop(props, ref) {
+  const { onClick, onMouseEnter, ...rest } = props
+  const { isMobile, mode, open, setOpen } = useSidebar()
+
+  if (!isMobile && mode !== 'flyout') return null
+
+  return (
+    <Presence present={open} lazyMount unmountOnExit asChild>
+      <chakra.div
+        ref={ref}
+        data-state={open ? 'open' : 'closed'}
+        onClick={(event) => {
+          onClick?.(event)
+          if (!event.defaultPrevented && mode !== 'flyout') setOpen(false)
+        }}
+        onMouseEnter={(event) => {
+          onMouseEnter?.(event)
+          if (!event.defaultPrevented && mode === 'flyout') setOpen(false)
+        }}
+        {...rest}
+      />
+    </Presence>
+  )
+})
+
+const SidebarBackdrop = withContext<HTMLDivElement, SidebarBackdropProps>(
+  SidebarBackdropPrimitive,
   'backdrop',
-  {
-    forwardAsChild: true,
-  },
+  { forwardAsChild: true },
 )
 
-/**
- * Sidebar header section.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-const SidebarHeader = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Sidebar.Header,
+const SidebarHeader = withContext<HTMLElement, HTMLChakraProps<'header'>>(
+  'header',
   'header',
 )
-
-/**
- * Sidebar body section, used for the main content of the sidebar.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
 const SidebarBody = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Sidebar.Body,
+  'div',
   'body',
 )
-
-/**
- * Sidebar footer section.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
-const SidebarFooter = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Sidebar.Footer,
+const SidebarFooter = withContext<HTMLElement, HTMLChakraProps<'footer'>>(
+  'footer',
   'footer',
 )
 
-/**
- * Sidebar track section.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
+const SidebarTrackPrimitive = React.forwardRef<
+  HTMLDivElement,
+  HTMLChakraProps<'div'>
+>(function SidebarTrack(props, ref) {
+  const { onClick, ...rest } = props
+  const { mode, setOpen } = useSidebar()
+
+  return (
+    <chakra.div
+      ref={ref}
+      onClick={(event) => {
+        onClick?.(event)
+        if (!event.defaultPrevented && mode !== 'flyout') setOpen(false)
+      }}
+      {...rest}
+    />
+  )
+})
+
 const SidebarTrack = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Sidebar.Track,
+  SidebarTrackPrimitive,
   'track',
-  {
-    forwardAsChild: true,
-  },
+  { forwardAsChild: true },
 )
 
-/**
- * Sidebar inset.
- *
- * @see Docs https://saas-ui.dev/docs/components/layout/sidebar
- */
 const SidebarInset = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   'div',
   'inset',
 )
-
 const SidebarGroup = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Sidebar.Group,
+  'div',
   'group',
-  {
-    defaultProps: {
-      role: 'group',
-    },
-  },
+  { defaultProps: { role: 'group' } },
 )
-
 const SidebarGroupHeader = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Sidebar.GroupHeader,
+  'div',
   'groupHeader',
 )
-
 const SidebarGroupTitle = withContext<
   HTMLHeadingElement,
   HTMLChakraProps<'h5'>
->(Sidebar.GroupTitle, 'groupTitle')
-
+>('h5', 'groupTitle')
 const SidebarGroupEndElement = withContext<
   HTMLDivElement,
   HTMLChakraProps<'div'>
->(Sidebar.GroupEndElement, 'groupEndElement')
-
+>('div', 'groupEndElement')
 const SidebarGroupContent = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
-  Sidebar.GroupContent,
+  'div',
   'groupContent',
 )
 
 interface SidebarNavItemProps
-  extends SlotRecipeProps<'suiSidebarNavItem'>,
-    HTMLChakraProps<'div'> {}
+  extends SidebarNavItemVariantProps, HTMLChakraProps<'div'> {}
 
 const SidebarNavItem = withItemProvider<HTMLDivElement, SidebarNavItemProps>(
-  Sidebar.NavItem,
+  'div',
   'item',
 )
 
@@ -200,23 +259,43 @@ interface SidebarNavButtonProps extends HTMLChakraProps<'button'> {
   active?: boolean
 }
 
+const SidebarNavButtonPrimitive = React.forwardRef<
+  HTMLButtonElement,
+  SidebarNavButtonProps
+>(function SidebarNavButton(props, ref) {
+  const { active, onClick, ...rest } = props
+  const { isMobile, setOpenMobile } = useSidebar()
+
+  return (
+    <chakra.button
+      ref={ref}
+      data-active={active ? '' : undefined}
+      onClick={(event) => {
+        onClick?.(event)
+        if (!event.defaultPrevented && isMobile) setOpenMobile(false)
+      }}
+      {...rest}
+    />
+  )
+})
+
 const SidebarNavButton = withItemContext<
   HTMLButtonElement,
   SidebarNavButtonProps
->(Sidebar.NavButton, 'button', {
-  forwardAsChild: true,
-})
+>(SidebarNavButtonPrimitive, 'button', { forwardAsChild: true })
 
 const SidebarNavButtonEndElement = withItemContext<
   HTMLDivElement,
   HTMLChakraProps<'div'>
->(Sidebar.NavItemEndElement, 'endElement', {
-  defaultProps: {
-    'data-slot': 'endElement',
-  },
+>('div', 'endElement', {
+  defaultProps: { 'data-slot': 'endElement' },
 })
 
-const SidebarContext = Sidebar.Context
+function SidebarContext(props: {
+  children: (context: ReturnType<typeof useSidebar>) => React.ReactNode
+}) {
+  return props.children(useSidebar())
+}
 
 export {
   SidebarProvider as Provider,
@@ -241,6 +320,7 @@ export {
 }
 
 export type {
+  SidebarOptions as RootBaseProps,
   SidebarProviderProps as ProviderProps,
   SidebarRootProps as RootProps,
   SidebarTriggerProps as TriggerProps,

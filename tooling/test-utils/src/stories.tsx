@@ -5,7 +5,6 @@ import type { ReactRenderer } from '@storybook/react'
 
 import { render } from './render'
 import { testA11y } from './accessibility'
-import isFunction from 'lodash/isFunction'
 import type { Store_CSFExports } from '@storybook/types'
 
 export { composeStories } from '@storybook/react'
@@ -32,14 +31,10 @@ export function testStories<
   TModule extends Store_CSFExports<ReactRenderer, any>,
 >(stories: TModule, { snapshots = true, a11y = true } = {}) {
   const _stories = Object.fromEntries(
-    Object.entries(stories).map<any>((story) => {
-      if (isFunction(story)) {
-        return {
-          render: story,
-        }
-      }
-      return story
-    })
+    Object.entries(stories).map<any>(([name, story]) => [
+      name,
+      typeof story === 'function' ? { render: story } : story,
+    ]),
   ) as TModule
 
   const composedStories = composeStories<TModule>(_stories)

@@ -1,5 +1,4 @@
-import { HStack, Heading, Span, Square, Stack } from '@saas-ui/react'
-import { Progress } from '@saas-ui/react'
+import { HStack, Heading, Span, Square, Stack, Progress } from '@chakra-ui/react'
 import { HiFolder, HiLockClosed, HiPencil } from 'react-icons/hi'
 
 export const ProgressComposition = () => {

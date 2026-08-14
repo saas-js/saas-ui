@@ -1,16 +1,29 @@
 {
-  "name": "chevron-down-icon",
-  "type": "registry:icon",
   "files": [
     {
+      "content": "import React from 'react';\n\nexport interface ChevronDownIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * chevron-down\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m6 9l6 6l6-6\"/>\n    </svg>\n  );\n};\n",
       "path": "icons/chevron-down-icon.tsx",
-      "type": "registry:icon",
-      "content": "import React from 'react';\n\nexport interface ChevronDownIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * chevron-down\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m6 9l6 6l6-6\"/>\n    </svg>\n  );\n};\n"
+      "type": "registry:icon"
     }
   ],
   "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/chevron-down-icon.tsx": "f98bf1e4585f43553b84207a447fc5062cf30cdedc5a035c99740e266cb90d9a"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
     "componentName": "ChevronDownIcon",
-    "iconSet": "lucide",
-    "iconName": "ChevronDown"
-  }
+    "contentHash": "c96c51e32c24b59a18835d4b9c19062cc8c5f2b6b5c1a4285ad88c89d54b0163",
+    "iconName": "ChevronDown",
+    "iconSet": "lucide"
+  },
+  "name": "chevron-down-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-next.9"
 }

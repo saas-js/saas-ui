@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack } from '@saas-ui/react'
-import { Avatar, AvatarGroup } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { Avatar, AvatarGroup } from 'compositions/ui/avatar'
 
 export const AvatarGroupWithStacking = () => {
   return (

@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack, Stack, Strong, Text } from '@saas-ui/react'
-import { Avatar, Button, Card } from '@saas-ui/react'
+import { HStack, Stack, Strong, Text, Button, Card } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
 import { LuCheck, LuX } from 'react-icons/lu'
 
 export const CardWithAvatar = () => {

@@ -1,22 +1,40 @@
 {
-  "name": "native-select",
-  "type": "registry:ui",
   "dependencies": [
     "@chakra-ui/react"
   ],
-  "registryDependencies": [
-    "chevron-down-icon"
-  ],
   "files": [
     {
-      "path": "ui/native-select/index.ts",
       "content": "export { NativeSelect } from './native-select.tsx'\nexport type { NativeSelectProps } from './native-select.tsx'\n",
+      "path": "ui/native-select/index.ts",
       "type": "registry:ui"
     },
     {
+      "content": "'use client'\n\nimport * as React from 'react'\nimport type { ComponentType } from 'react'\n\nimport { NativeSelect as Select } from '@chakra-ui/react/native-select'\n\nimport { ChevronDownIcon } from '../../icons/chevron-down-icon'\n\ntype NativeSelectFieldProps = React.ComponentProps<typeof Select.Field>\n\ntype NativeSelectControlledFieldProps = Pick<\n  React.SelectHTMLAttributes<HTMLSelectElement>,\n  | 'defaultValue'\n  | 'form'\n  | 'name'\n  | 'onBlur'\n  | 'onChange'\n  | 'required'\n  | 'value'\n>\n\ntype NativeSelectFieldWithNativeProps = Omit<\n  NativeSelectFieldProps,\n  keyof NativeSelectControlledFieldProps\n> &\n  NativeSelectControlledFieldProps\n\nconst Field = Select.Field as ComponentType<NativeSelectFieldWithNativeProps>\n\nexport type NativeSelectProps = Omit<\n  Select.RootProps,\n  keyof NativeSelectControlledFieldProps\n> &\n  NativeSelectControlledFieldProps & {\n    icon?: React.ReactNode\n    placeholder?: string\n    fieldProps?: Omit<\n      NativeSelectFieldWithNativeProps,\n      'children' | 'placeholder'\n    >\n  }\n\nexport const NativeSelect = React.forwardRef<HTMLDivElement, NativeSelectProps>(\n  function NativeSelect(props, ref) {\n    const {\n      icon = <ChevronDownIcon />,\n      placeholder,\n      children,\n      fieldProps,\n      defaultValue = fieldProps?.defaultValue,\n      form = fieldProps?.form,\n      name = fieldProps?.name,\n      onBlur = fieldProps?.onBlur,\n      onChange = fieldProps?.onChange,\n      required = fieldProps?.required,\n      value = fieldProps?.value,\n      ...rest\n    } = props\n    return (\n      <Select.Root ref={ref} {...rest}>\n        <Field\n          {...fieldProps}\n          defaultValue={defaultValue}\n          form={form}\n          name={name}\n          onBlur={onBlur}\n          onChange={onChange}\n          placeholder={placeholder}\n          required={required}\n          value={value}\n        >\n          {children}\n        </Field>\n        <Select.Indicator>{icon}</Select.Indicator>\n      </Select.Root>\n    )\n  },\n)\n",
       "path": "ui/native-select/native-select.tsx",
-      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { NativeSelect as Select } from '@chakra-ui/react/native-select'\n\nimport { ChevronDownIcon } from '../../icons/index.ts'\n\nexport interface NativeSelectProps extends Select.RootProps {\n  icon?: React.ReactNode\n  placeholder?: string\n}\n\nexport const NativeSelect = React.forwardRef<HTMLDivElement, NativeSelectProps>(\n  function NativeSelect(props, ref) {\n    const { icon = <ChevronDownIcon />, placeholder, children, ...rest } = props\n    return (\n      <Select.Root ref={ref} {...rest}>\n        <Select.Field placeholder={placeholder}>\n          {children}\n          <Select.Indicator>{icon}</Select.Indicator>\n        </Select.Field>\n      </Select.Root>\n    )\n  },\n)\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/native-select/index.ts": "3a30ffbfed49797c2e54969bd93d79717db89c77f3c669ffe1bbd3509d4977da",
+        "ui/native-select/native-select.tsx": "9cfb5387cd2e358e23f603b057df5e63a8c42e2d1b88cec04dcf0b5633e69272"
+      },
+      "iconDependencies": [
+        "chevron-down-icon"
+      ],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "e2fd67cc5d4c7b9f614bf9f80c0f3cc7513cb23a89805cd1db71f53c98a82d3a"
+  },
+  "name": "native-select",
+  "registryDependencies": [
+    "chevron-down-icon"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

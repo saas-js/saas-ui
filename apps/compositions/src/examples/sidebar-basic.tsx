@@ -1,7 +1,11 @@
 'use client'
 
+import { Spacer } from '@chakra-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
-import { IconButton, Menu, Persona, Sidebar, Spacer } from '@saas-ui/react'
+import { IconButton } from 'compositions/ui/icon-button'
+import { Menu } from 'compositions/ui/menu'
+import { Persona } from 'compositions/ui/persona'
+import { Sidebar } from 'compositions/ui/sidebar'
 import { TbHome, TbUsers } from 'react-icons/tb'
 
 export const SidebarBasic = () => {

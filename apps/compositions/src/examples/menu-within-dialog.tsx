@@ -1,7 +1,7 @@
-'use client'
-
-import { HStack } from '@saas-ui/react'
-import { Button, Dialog, Menu } from '@saas-ui/react'
+'use client';
+import { HStack, Button } from '@chakra-ui/react'
+import { Dialog } from 'compositions/ui/dialog'
+import { Menu } from 'compositions/ui/menu'
 import Lorem from 'react-lorem-ipsum'
 
 export const MenuWithinDialog = () => {

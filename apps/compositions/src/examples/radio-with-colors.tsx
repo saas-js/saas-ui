@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack, Stack, Text } from '@saas-ui/react'
-import { Radio, RadioGroup } from '@saas-ui/react'
+import { HStack, Stack, Text, RadioGroup } from '@chakra-ui/react'
+import { Radio } from 'compositions/ui/radio'
 
 import { colorPalettes } from '../lib/color-palettes'
 

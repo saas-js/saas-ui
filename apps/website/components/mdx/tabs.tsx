@@ -1,4 +1,4 @@
-import { Box, Tabs as TabsPrimitive } from '@saas-ui/react'
+import { Box, Tabs as TabsPrimitive } from '@chakra-ui/react'
 
 export const Tabs = (
   props: TabsPrimitive.RootProps & {

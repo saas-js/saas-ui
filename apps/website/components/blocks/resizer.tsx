@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Splitter } from '@ark-ui/react'
-import { Box } from '@saas-ui/react'
+import { Box } from '@chakra-ui/react'
 
 export const Resizer = (props: { children: React.ReactNode }) => {
   const [isResizing, setResizing] = React.useState(false)

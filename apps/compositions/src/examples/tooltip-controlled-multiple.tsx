@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Box, Flex } from '@saas-ui/react'
-import { Tooltip } from '@saas-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 function DemoTooltip() {
   const [open, setOpen] = useState(false)

@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Stack, Text } from '@saas-ui/react'
-import { Accordion } from '@saas-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
+import { Accordion } from 'compositions/ui/accordion'
 
 export const AccordionControlled = () => {
   const [value, setValue] = useState(['second-item'])

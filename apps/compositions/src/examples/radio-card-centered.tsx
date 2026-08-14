@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack, Icon } from '@saas-ui/react'
-import { RadioCard } from '@saas-ui/react'
+import { HStack, Icon } from '@chakra-ui/react'
+import { RadioCard } from 'compositions/ui/radio-card'
 import { LuClock, LuDollarSign, LuTrendingUp } from 'react-icons/lu'
 
 export const RadioCardCentered = () => {

@@ -1,6 +1,6 @@
 'use client'
 
-import { DataList } from '@saas-ui/react'
+import { DataList } from '@chakra-ui/react'
 
 export const DataListWithSeparator = () => {
   return (

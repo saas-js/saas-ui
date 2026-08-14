@@ -3,7 +3,7 @@ import { ensureDirSync } from 'fs-extra'
 import { writeFile } from 'node:fs/promises'
 import { camelCase, kebabCase } from 'scule'
 
-import { defaultSystem } from '../../../../packages/saas-ui-react/src/preset'
+import { defaultSystem } from '../../../../packages/saas-ui-chakra-preset/src'
 import { getComponentList } from '../get-component-list'
 import { getRecipeTypes } from '../get-recipe-types'
 import { stringify, toComponentCase } from '../shared'

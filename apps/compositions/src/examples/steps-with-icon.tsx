@@ -1,7 +1,7 @@
 'use client'
 
-import { Group } from '@saas-ui/react'
-import { Button, Steps } from '@saas-ui/react'
+import { Group, Button } from '@chakra-ui/react'
+import { Steps } from 'compositions/ui/steps'
 import { LuCalendar, LuUser, LuWallet } from 'react-icons/lu'
 
 export const StepsWithIcon = () => {

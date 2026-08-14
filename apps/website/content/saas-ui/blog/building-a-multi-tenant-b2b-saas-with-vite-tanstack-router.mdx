@@ -164,14 +164,14 @@ To make our application look great, we'll use Chakra UI with the Saas UI design
 system. First, we'll install the dependencies.
 
 ```bash
-npm i @saas-ui/react @chakra-ui/react @chakra-ui/next-js @emotion/react @emotion/styled framer-motion
+npx @saas-ui/cli init
 ```
 
 Then we need to add the `SaasProvider` to the `context/provider.tsx` file.
 
 ```typescript
 import { forwardRef } from "react";
-import { SaasProvider } from "@saas-ui/react";
+import { Provider as SaasProvider } from '#components/setup/provider/provider';
 import {
   Link,
   LinkProps,
@@ -214,7 +214,7 @@ Now we can start using the Chakra UI components in our application. Let's update
 the `routes/index.tsx` file to use the Saas UI components.
 
 ```tsx
-import { Box, Heading } from '@saas-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
@@ -263,7 +263,8 @@ the `context/provider.tsx` file.
 ```tsx
 import { forwardRef } from 'react'
 
-import { LinkProps, SaasProvider } from '@saas-ui/react'
+import { LinkProps } from '@chakra-ui/react'
+import { Provider as SaasProvider } from '#components/setup/provider/provider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Link, RouterProvider, createRouter } from '@tanstack/react-router'
 
@@ -361,7 +362,7 @@ Now we can create a simple loader to fetch some data. Create a new file called
 fetch data from, so we'll just return some dummy data for now.
 
 ```tsx
-import { Box, Heading } from '@saas-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import { queryOptions, useQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -437,8 +438,8 @@ additional tooling.
 Create a new file called `sidebar.tsx` in the `src/components` folder.
 
 ```tsx
-import { NavGroup, NavItem, Sidebar, SidebarSection } from '@saas-ui/react'
-import { getRouteApi } from '@tanstack/react-router'
+import { Sidebar } from '#components/ui/sidebar'
+import { Link, getRouteApi } from '@tanstack/react-router'
 
 const route = getRouteApi('/_app/$workspace/')
 
@@ -446,13 +447,21 @@ export const AppSidebar = () => {
   const params = route.useParams()
 
   return (
-    <Sidebar>
-      <SidebarSection>
-        <NavGroup>
-          <NavItem href={`/${params.workspace}`}>Home</NavItem>
-        </NavGroup>
-      </SidebarSection>
-    </Sidebar>
+    <Sidebar.Provider>
+      <Sidebar.Root>
+        <Sidebar.Body>
+          <Sidebar.Group>
+            <Sidebar.GroupContent>
+              <Sidebar.NavItem>
+                <Sidebar.NavButton asChild>
+                  <Link to={`/${params.workspace}`}>Home</Link>
+                </Sidebar.NavButton>
+              </Sidebar.NavItem>
+            </Sidebar.GroupContent>
+          </Sidebar.Group>
+        </Sidebar.Body>
+      </Sidebar.Root>
+    </Sidebar.Provider>
   )
 }
 ```
@@ -466,7 +475,7 @@ way.
 Create a new file called `sidebar-layout.tsx` in the `src/layouts` folder.
 
 ```tsx
-import { AppShell } from '@saas-ui/react'
+import { AppShell } from '#components/ui/app-shell'
 
 import { AppSidebar } from '#components/sidebar'
 
@@ -542,8 +551,8 @@ Create a new folder `$workspace` in `/src/routes/_app` and create a new file
 called `index.tsx` in that folder.
 
 ```tsx
-import { Center } from '@saas-ui/react'
-import { EmptyState } from '@saas-ui/react'
+import { Center } from '@chakra-ui/react'
+import { EmptyState } from '#components/ui/empty-state'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_app/$workspace/')({
@@ -587,7 +596,7 @@ This layout can be used for features like onboarding, that allow users to focus
 on a single task.
 
 ```tsx
-import { AppShell } from '@saas-ui/react'
+import { AppShell } from '#components/ui/app-shell'
 
 export const FullscreenLayout: React.FC<React.PropsWithChildren> = (props) => {
   return <AppShell height="$100vh">{props.children}</AppShell>
@@ -619,8 +628,8 @@ And create the page route in `src/routes/_onboarding/getting-started.tsx`.
 ```tsx
 import { FormEvent } from 'react'
 
-import { Center, Container, Heading } from '@saas-ui/react'
-import { Field, Form, FormLayout, SubmitButton } from '@saas-ui/react'
+import { Center, Container, Heading } from '@chakra-ui/react'
+import { Field, Form, FormLayout, SubmitButton } from '@saas-ui/forms'
 import { useMutation } from '@tanstack/react-query'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 
@@ -718,7 +727,7 @@ want to redirect them to the onboarding screen.
 Edit `src/routes/index.tsx` and add the following code.
 
 ```tsx
-import { Box, Heading } from '@saas-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import { createFileRoute, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({

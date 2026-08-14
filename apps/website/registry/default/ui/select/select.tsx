@@ -49,7 +49,7 @@ const SelectClearTrigger = forwardRef<
 
 export interface SelectContentProps extends SelectPrimitive.ContentProps {
   portalled?: boolean
-  portalRef?: React.RefObject<HTMLElement>
+  portalRef?: React.RefObject<HTMLElement | null>
 }
 
 export const SelectContent = forwardRef<HTMLDivElement, SelectContentProps>(
@@ -77,8 +77,10 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectPrimitive.ItemProps>(
   },
 )
 
-export interface SelectValueTextProps
-  extends Omit<SelectPrimitive.ValueTextProps, 'children'> {
+export interface SelectValueTextProps extends Omit<
+  SelectPrimitive.ValueTextProps,
+  'children'
+> {
   children?(items: CollectionItem[]): React.ReactNode
 }
 

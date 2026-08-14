@@ -2,10 +2,10 @@ import React from 'react'
 
 import { ChakraProvider } from '@chakra-ui/react'
 import '@fontsource-variable/inter'
-import { defaultSystem } from '@saas-ui/react'
+import { defaultSystem } from '@saas-ui/chakra-preset'
 import { withThemeByClassName } from '@storybook/addon-themes'
-import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import type { Preview, ReactRenderer } from '@storybook/react-vite'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 
 /**
  * Add global context for RTL-LTR switching
@@ -37,8 +37,8 @@ const preview: Preview = {
     },
 
     docs: {
-      codePanel: true
-    }
+      codePanel: true,
+    },
   },
   decorators: [
     withThemeByClassName<ReactRenderer>({

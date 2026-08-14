@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-import { Tabs } from '@saas-ui/react'
+import { Tabs } from '@chakra-ui/react'
 
 export const TabsLazyMounted = () => {
   return (

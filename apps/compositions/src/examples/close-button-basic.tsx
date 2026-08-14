@@ -1,6 +1,6 @@
 'use client'
 
-import { CloseButton } from '@saas-ui/react'
+import { CloseButton } from 'compositions/ui/close-button'
 
 export const CloseButtonBasic = () => {
   return <CloseButton />

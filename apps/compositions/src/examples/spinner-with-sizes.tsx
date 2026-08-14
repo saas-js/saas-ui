@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { Spinner } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { Spinner } from 'compositions/ui/spinner'
 
 export const SpinnerWithSizes = () => {
   return (

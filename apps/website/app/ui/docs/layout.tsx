@@ -1,13 +1,6 @@
 import { Header } from '@/components/docs/header'
 import { source } from '@/lib/source'
-import {
-  Box,
-  Container,
-  Flex,
-  HStack,
-  SkipNavContent,
-  SkipNavLink,
-} from '@saas-ui/react'
+import { Box, Container, Flex, HStack, SkipNavContent, SkipNavLink } from '@chakra-ui/react'
 
 import { MobileSidebarNav, SidebarStart } from './sidebar'
 

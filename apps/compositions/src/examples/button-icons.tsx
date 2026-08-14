@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack } from '@saas-ui/react'
-import { IconButton } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { IconButton } from 'compositions/ui/icon-button'
 import { RiPhoneLine, RiSearchLine } from 'react-icons/ri'
 
 export const ButtonIcons = () => (

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Tabs } from '@saas-ui/react'
+import { Tabs } from '@chakra-ui/react'
 
 export const TabsControlled = () => {
   const [value, setValue] = useState<string | null>('first')

@@ -27,7 +27,7 @@ configured correctly to use Saas UI.
 ### Install dependencies
 
 ```bash
-npm i @saas-ui/react@next @chakra-ui/react @emotion/react next-themes
+npx @saas-ui/cli init
 ```
 
 ### Setup provider
@@ -38,7 +38,8 @@ with the `SuiProvider` and `ThemeProvider` at the root of your application.
 ```tsx title="app/providers.ts"
 'use client'
 
-import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { Provider as SuiProvider } from '#components/setup/provider/provider'
+import { defaultSystem } from '@saas-ui/chakra-preset'
 import { ThemeProvider } from 'next-themes'
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -72,7 +73,7 @@ export default function RootLayout({
 ### Use Saas UI components
 
 ```tsx title="app/page.tsx"
-import { Button } from '@saas-ui/react'
+import { Button } from '@chakra-ui/react'
 
 export default function Home() {
   return <Button>Click me</Button>

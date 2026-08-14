@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckboxCard } from '@saas-ui/react'
+import { CheckboxCard } from 'compositions/ui/checkbox-card'
 
 export const CheckboxCardBasic = () => {
   return (

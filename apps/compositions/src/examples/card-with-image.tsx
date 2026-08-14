@@ -1,7 +1,5 @@
-'use client'
-
-import { Image, Text } from '@saas-ui/react'
-import { Button, Card } from '@saas-ui/react'
+'use client';
+import { Image, Text, Button, Card } from '@chakra-ui/react'
 
 export const CardWithImage = () => {
   return (

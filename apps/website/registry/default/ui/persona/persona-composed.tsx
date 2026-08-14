@@ -2,8 +2,6 @@
 
 import * as React from 'react'
 
-import type { PersonaVariantProps } from '@saas-ui/chakra-preset/slot-recipes/persona'
-
 import * as PersonaPrimitive from './persona.tsx'
 import type { PersonaPresence } from './presence.ts'
 
@@ -56,10 +54,10 @@ interface PersonaOptions {
 }
 
 export interface PersonaProps
-  extends PersonaOptions,
-    Omit<PersonaPrimitive.AvatarProps, 'size'>,
-    Omit<PersonaPrimitive.RootProps, 'presence'>,
-    PersonaVariantProps {}
+  extends
+    PersonaOptions,
+    Omit<PersonaPrimitive.AvatarProps, 'size' | 'variant'>,
+    Omit<PersonaPrimitive.RootProps, 'presence'> {}
 
 /**
  * The wrapper component that handles default composition.
@@ -139,11 +137,10 @@ export const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
 
 Persona.displayName = 'Persona'
 
-export interface PersonaAvatarProps
-  extends Omit<
-    PersonaProps,
-    'hideDetails' | 'label' | 'secondaryLabel' | 'tertiaryLabel' | 'children'
-  > {}
+export interface PersonaAvatarProps extends Omit<
+  PersonaProps,
+  'hideDetails' | 'label' | 'secondaryLabel' | 'tertiaryLabel' | 'children'
+> {}
 
 export const PersonaAvatar = React.forwardRef<
   HTMLDivElement,

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
-import { Button, Menu } from '@saas-ui/react'
 import { LuPaintbrush } from 'react-icons/lu'
+
+import { Menu } from '#components/ui/menu'
 
 interface ColorControlProps {
   onChange(color: string): void
@@ -28,7 +29,8 @@ export function ThemeControl({ onChange, value }: ColorControlProps) {
 
   return (
     <Menu.Root>
-      <Menu.Button as={Button} leftIcon={<LuPaintbrush />} variant="tertiary">
+      <Menu.Button variant="ghost">
+        <LuPaintbrush />
         {themes[value]}
       </Menu.Button>
       <Menu.Content>

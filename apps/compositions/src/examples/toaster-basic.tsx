@@ -1,6 +1,6 @@
-'use client'
-
-import { Button, toast } from '@saas-ui/react'
+'use client';
+import { Button } from '@chakra-ui/react'
+import { toast } from 'compositions/ui/toaster'
 
 export const ToasterBasic = () => {
   return (

@@ -1,4 +1,4 @@
-import { defineSemanticTokens } from '@saas-ui/react'
+import { defineSemanticTokens } from '@chakra-ui/react/styled-system'
 
 export const semanticColors = defineSemanticTokens.colors({
   status: {

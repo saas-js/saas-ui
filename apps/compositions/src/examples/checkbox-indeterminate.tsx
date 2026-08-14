@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Stack } from '@saas-ui/react'
-import { Checkbox } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 const initialValues = [
   { label: 'Monday', checked: false, value: 'monday' },

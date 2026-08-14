@@ -1,7 +1,8 @@
 'use client'
 
-import { Controller, FormLayout, SubmitButton, useForm } from '@saas-ui/forms'
-import { Button, Field, FileUpload } from '@saas-ui/react'
+import { Button, Field } from '@chakra-ui/react'
+import { Form, useAppForm } from 'compositions/components/forms'
+import { FileUpload } from 'compositions/ui/file-upload'
 import { HiUpload } from 'react-icons/hi'
 import { z } from 'zod'
 
@@ -10,30 +11,26 @@ const formSchema = z.object({
 })
 
 export const FileUploadWithHookForm = () => {
-  const form = useForm({
-    schema: formSchema,
+  const form = useAppForm({
+    validators: { onSubmit: formSchema },
     defaultValues: {
-      images: [],
+      images: [] as File[],
     },
-    onSubmit: (data) => console.log(data),
+    onSubmit: ({ value }) => console.log(value),
   })
 
   return (
-    <form.Form>
-      <FormLayout>
-        <Controller
-          control={form.control}
-          name="images"
-          render={({ field, fieldState }) => (
-            <Field.Root invalid={!!fieldState.error}>
+    <Form form={form}>
+      <form.Layout>
+        <form.AppField name="images">
+          {(field) => (
+            <Field.Root invalid={field.state.meta.isTouched}>
               <Field.Label>Images</Field.Label>
               <FileUpload.Root
                 name={field.name}
-                onFileChange={(e) => {
-                  field.onChange(e.acceptedFiles)
-                }}
+                onFileChange={(e) => field.handleChange(e.acceptedFiles)}
               >
-                <FileUpload.Trigger asChild onBlur={() => field.onBlur()}>
+                <FileUpload.Trigger asChild onBlur={field.handleBlur}>
                   <Button variant="outline" size="sm">
                     <HiUpload /> Upload file
                   </Button>
@@ -41,13 +38,17 @@ export const FileUploadWithHookForm = () => {
 
                 <FileUpload.List showSize />
               </FileUpload.Root>
-              <Field.ErrorText>{fieldState.error?.message}</Field.ErrorText>
+              {field.state.meta.errors[0] && (
+                <Field.ErrorText>
+                  {String(field.state.meta.errors[0])}
+                </Field.ErrorText>
+              )}
             </Field.Root>
           )}
-        />
+        </form.AppField>
 
-        <SubmitButton>Submit</SubmitButton>
-      </FormLayout>
-    </form.Form>
+        <form.SubmitButton>Submit</form.SubmitButton>
+      </form.Layout>
+    </Form>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { ProgressCircle } from '@saas-ui/react'
+import { ProgressCircle } from '@chakra-ui/react'
 
 export const ProgressCircleIndeterminate = () => {
   return (

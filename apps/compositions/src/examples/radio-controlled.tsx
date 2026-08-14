@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { HStack } from '@saas-ui/react'
-import { Radio, RadioGroup } from '@saas-ui/react'
+import { HStack, RadioGroup } from '@chakra-ui/react'
+import { Radio } from 'compositions/ui/radio'
 
 export const RadioControlled = () => {
   const [value, setValue] = useState<string | null>('1')

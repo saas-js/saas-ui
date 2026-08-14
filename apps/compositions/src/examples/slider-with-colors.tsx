@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack } from '@saas-ui/react'
-import { Slider } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { Slider } from 'compositions/ui/slider'
 
 export const SliderWithColors = () => {
   return (

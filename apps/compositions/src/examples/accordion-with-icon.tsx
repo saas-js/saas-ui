@@ -1,7 +1,7 @@
 'use client'
 
-import { Heading, Icon, Stack } from '@saas-ui/react'
-import { Accordion } from '@saas-ui/react'
+import { Heading, Icon, Stack } from '@chakra-ui/react'
+import { Accordion } from 'compositions/ui/accordion'
 import { LuChartBarStacked, LuTags } from 'react-icons/lu'
 
 export const AccordionWithIcon = () => {

@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack, Text } from '@saas-ui/react'
-import { Switch } from '@saas-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
+import { Switch } from 'compositions/ui/switch'
 
 import { colorPalettes } from '../lib/color-palettes'
 

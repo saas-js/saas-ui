@@ -1,5 +1,4 @@
 import { Chart, useChart } from '@chakra-ui/charts'
-import { SaasUIIcon } from '@saas-ui/assets'
 import {
   Badge,
   ButtonGroup,
@@ -10,20 +9,12 @@ import {
   Grid,
   Heading,
   Icon,
-  IconButton,
   List,
   Portal,
   Spacer,
   Text,
-} from '@saas-ui/react'
-import {
-  AppShell,
-  Menu,
-  Page,
-  SegmentedControl,
-  Sidebar,
-  useSidebar,
-} from '@saas-ui/react'
+} from '@chakra-ui/react'
+import { SaasUIIcon } from '@saas-ui/assets'
 import {
   LuActivity,
   LuBuilding2,
@@ -48,6 +39,13 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+
+import { AppShell } from '#components/ui/app-shell'
+import { IconButton } from '#components/ui/icon-button'
+import { Menu } from '#components/ui/menu'
+import { Page } from '#components/ui/page'
+import { SegmentedControl } from '#components/ui/segmented-control'
+import { Sidebar, useSidebar } from '#components/ui/sidebar'
 
 export function CRMDemo() {
   return (
@@ -109,15 +107,15 @@ function AppSidebar() {
 
           <Collapsible.Root asChild defaultOpen>
             <Sidebar.Group>
-              <Sidebar.GroupHeader>
+              <Sidebar.GroupHeader
+                css={{
+                  '&[data-state=open] svg': { transform: 'rotate(90deg)' },
+                }}
+              >
                 <Collapsible.Trigger asChild>
                   <Sidebar.GroupTitle>
                     Favourites{' '}
-                    <Icon
-                      ms="1"
-                      transition="transform"
-                      _groupOpen={{ transform: 'rotate(90deg)' }}
-                    >
+                    <Icon ms="1" transition="transform">
                       <LuChevronRight />
                     </Icon>
                   </Sidebar.GroupTitle>
@@ -144,9 +142,9 @@ function AppSidebar() {
                       <Spacer />
                       <Sidebar.NavButtonEndElement
                         opacity="0"
-                        _parentHover={{
-                          opacity: 0.6,
-                          _hover: { opacity: 1 },
+                        css={{
+                          '[data-group]:hover &': { opacity: 0.6 },
+                          '&:hover': { opacity: 1 },
                         }}
                       >
                         <IconButton
@@ -168,9 +166,9 @@ function AppSidebar() {
                       <Spacer />
                       <Sidebar.NavButtonEndElement
                         opacity="0"
-                        _parentHover={{
-                          opacity: 0.6,
-                          _hover: { opacity: 1 },
+                        css={{
+                          '[data-group]:hover &': { opacity: 0.6 },
+                          '&:hover': { opacity: 1 },
                         }}
                       >
                         <IconButton
@@ -191,15 +189,15 @@ function AppSidebar() {
 
           <Collapsible.Root asChild defaultOpen>
             <Sidebar.Group>
-              <Sidebar.GroupHeader>
+              <Sidebar.GroupHeader
+                css={{
+                  '&[data-state=open] svg': { transform: 'rotate(90deg)' },
+                }}
+              >
                 <Collapsible.Trigger asChild>
                   <Sidebar.GroupTitle>
                     Workspace
-                    <Icon
-                      ms="1"
-                      transition="transform"
-                      _groupOpen={{ transform: 'rotate(90deg)' }}
-                    >
+                    <Icon ms="1" transition="transform">
                       <LuChevronRight />
                     </Icon>
                   </Sidebar.GroupTitle>

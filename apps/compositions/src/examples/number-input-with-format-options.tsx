@@ -1,5 +1,5 @@
-import { Stack } from '@saas-ui/react'
-import { NumberInput } from '@saas-ui/react'
+import { Stack } from '@chakra-ui/react'
+import { NumberInput } from 'compositions/ui/number-input'
 
 export const NumberInputWithFormatOptions = () => {
   return (

@@ -1,7 +1,7 @@
-'use client'
-
-import { For, HStack } from '@saas-ui/react'
-import { Avatar, Tag } from '@saas-ui/react'
+'use client';
+import { For, HStack } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
+import { Tag } from 'compositions/ui/tag'
 
 export const TagWithAvatar = () => {
   return (

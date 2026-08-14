@@ -1,7 +1,7 @@
 'use client'
 
 import { Category, UiComponent } from '@/blocks'
-import { Box, Container } from '@saas-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 
 import { CategoryHeader } from './category-header'
 import { ComponentCanvas } from './component-canvas'

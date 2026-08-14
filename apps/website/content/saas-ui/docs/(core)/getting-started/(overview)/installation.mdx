@@ -16,12 +16,6 @@ Easily add Saas UI with Next.js app directory
 
 </Card>
 
-<Card title="Remix" href="/docs/getting-started/frameworks/remix" icon="remix">
-
-Use Saas UI in your Remix application
-
-</Card>
-
 <Card title="Vite" href="/docs/getting-started/frameworks/vite" icon="vite">
 
 Use Saas UI in your Vite application
@@ -41,17 +35,20 @@ To manually set up Saas UI in your project, follow the steps below.
 ### Install Saas UI
 
 ```bash
-npm i @saas-ui/react@next @emotion/react
+npx @saas-ui/cli init
 ```
 
-The `@chakra-ui/react` package is not required, it is automatically installed when you install Saas UI, all components are exported from the `@saas-ui/react` package.
+The CLI installs Chakra UI, Emotion, and `@saas-ui/chakra-preset`. Chakra
+primitives are imported from `@chakra-ui/react`; Saas UI compositions are
+installed as source templates owned by your project.
 
 ### Setup provider
 
 Wrap your application with the `SuiProvider` at the root of your application.
 
 ```jsx
-import { SuiProvider, defaultSystem } from '@saas-ui/react'
+import { Provider as SuiProvider } from '#components/setup/provider/provider'
+import { defaultSystem } from '@saas-ui/chakra-preset'
 
 function App({ Component, pageProps }) {
   return (

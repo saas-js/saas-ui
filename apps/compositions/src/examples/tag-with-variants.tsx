@@ -1,7 +1,7 @@
 'use client'
 
-import { For, HStack, Stack } from '@saas-ui/react'
-import { Tag } from '@saas-ui/react'
+import { For, HStack, Stack } from '@chakra-ui/react'
+import { Tag } from 'compositions/ui/tag'
 import { HiCheck } from 'react-icons/hi'
 
 export const TagWithVariants = () => {

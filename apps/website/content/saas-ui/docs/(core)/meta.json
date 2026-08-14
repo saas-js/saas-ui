@@ -1,5 +1,5 @@
 {
   "title": "Component system",
-  "pages": ["getting-started", "components", "forms", "styling", "theming"],
+  "pages": ["getting-started", "components", "styling", "theming"],
   "root": true
 }

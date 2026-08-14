@@ -71,12 +71,12 @@
     "lucide": "Search",
     "tabler": "IconSearch"
   },
-  "ViewOff": {
-    "lucide": "EyeOff",
-    "tabler": "IconEyeOff"
-  },
   "View": {
     "lucide": "Eye",
     "tabler": "IconEye"
+  },
+  "ViewOff": {
+    "lucide": "EyeOff",
+    "tabler": "IconEyeOff"
   }
 }

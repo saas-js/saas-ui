@@ -1,12 +1,6 @@
-'use client'
-
-import {
-  For,
-  Span,
-  Table,
-  type TableRootProps,
-  useSlotRecipe,
-} from '@saas-ui/react'
+'use client';
+import { For, Span, Table, type TableRootProps } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
 
 import { PlaygroundTable } from '../lib/playground-table'
 

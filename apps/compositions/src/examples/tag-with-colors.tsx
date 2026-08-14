@@ -1,7 +1,7 @@
 'use client'
 
-import { Stack, Text } from '@saas-ui/react'
-import { Tag } from '@saas-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
+import { Tag } from 'compositions/ui/tag'
 import { HiPlus } from 'react-icons/hi'
 
 import { colorPalettes } from '../lib/color-palettes'

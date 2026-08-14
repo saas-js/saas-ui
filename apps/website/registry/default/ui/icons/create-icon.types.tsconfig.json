@@ -1,0 +1,14 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "customConditions": [],
+    "incremental": false
+  },
+  "include": [
+    "create-icon.tsx",
+    "icons.tsx",
+    "index.ts",
+    "create-icon.types.test-d.ts"
+  ],
+  "exclude": []
+}

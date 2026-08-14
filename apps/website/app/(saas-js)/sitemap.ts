@@ -8,12 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const docUrls = allSJSDocs.map(
     (doc) =>
-      ({
+      (({
         url: `${baseUrl}/docs/${doc.slug.replaceAll(/\([^)]*\)\/?/g, '')}`,
         lastModified: doc.updatedAt ? new Date(doc.updatedAt) : new Date(),
         changeFrequency: 'monthly',
-        priority: 1,
-      }) as const,
+        priority: 1
+      }) as const),
   )
 
   const changelogs = allChangelogs.filter((changelog) =>
@@ -24,12 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const changelogUrls = changelogs.map(
     (changelog) =>
-      ({
+      (({
         url: `${baseUrl}/${changelog.slug}`,
         lastModified: new Date(changelog.publishedAt),
         changeFrequency: 'monthly',
-        priority: 1,
-      }) as const,
+        priority: 1
+      }) as const),
   )
 
   return [

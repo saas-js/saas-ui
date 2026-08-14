@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { PinInput } from '@saas-ui/react'
+import { PinInput } from 'compositions/ui/pin-input'
 
 export const PinInputControlled = () => {
   const [value, setValue] = useState(['', '', '', ''])

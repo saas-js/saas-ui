@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Stack } from '@saas-ui/react'
-import { Avatar, Button, Card } from '@saas-ui/react'
+import { For, Stack, Button, Card } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
 
 export const CardWithVariants = () => {
   return (

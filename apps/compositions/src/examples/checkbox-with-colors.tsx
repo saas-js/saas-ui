@@ -1,7 +1,7 @@
 'use client'
 
-import { For, Stack, Text } from '@saas-ui/react'
-import { Checkbox } from '@saas-ui/react'
+import { For, Stack, Text } from '@chakra-ui/react'
+import { Checkbox } from 'compositions/ui/checkbox'
 
 import { colorPalettes } from '../lib/color-palettes'
 

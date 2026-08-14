@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Container } from '@saas-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 import dynamic from 'next/dynamic'
 

@@ -1,4 +1,4 @@
-import { Box, Container, HStack, SkipNavContent } from '@saas-ui/react'
+import { Box, Container, HStack, SkipNavContent } from '@chakra-ui/react'
 
 import { source } from '../lib/source'
 import { SidebarStart } from '../sidebar'

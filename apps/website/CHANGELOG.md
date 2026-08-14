@@ -4,12 +4,14 @@
 
 ### Patch Changes
 
+- Updated dependencies [dfc8727]
+- Updated dependencies [aac593e]
+- Updated dependencies [5116c7c]
 - Updated dependencies [d79c7ca]
 - Updated dependencies [a2c1e38]
+  - @saas-ui/registry@0.2.0-next.0
   - @saas-ui/chakra-preset@3.0.0-next.10
-  - @saas-ui/react@3.0.0-next.56
-  - @saas-ui/forms@3.0.0-next.59
-  - @saas-ui/modals@3.0.0-next.59
+  - @saas-ui/cli@0.1.0-next.2
 
 ## 0.1.1-next.94
 

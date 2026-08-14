@@ -1,7 +1,5 @@
-'use client'
-
-import { Box, HStack, Image } from '@saas-ui/react'
-import { Badge, Button, Card } from '@saas-ui/react'
+'use client';
+import { Box, HStack, Image, Badge, Button, Card } from '@chakra-ui/react'
 
 export const CardHorizontal = () => (
   <Card.Root flexDirection="row" overflow="hidden" maxW="xl">

@@ -1,9 +1,10 @@
-import { forwardRef } from 'react'
+import { type ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
+import { Box, HStack } from '@chakra-ui/react'
+import { type HTMLChakraProps, chakra } from '@chakra-ui/react/styled-system'
 import { keyframes } from '@emotion/react'
-import { Box, HStack, type HTMLChakraProps, chakra } from '@saas-ui/react'
-import Link from 'next/link'
+import Link, { type LinkProps } from 'next/link'
 
 const enterFromRight = keyframes({
   from: { transform: 'translateX(200px)', opacity: 0 },
@@ -194,12 +195,19 @@ export const List = chakra('ul', {
 
 export const ListItem = forwardRef<
   HTMLAnchorElement,
-  Omit<HTMLChakraProps<'a'>, 'title'> & {
+  {
+    href: LinkProps['href']
+    target?: ComponentPropsWithoutRef<'a'>['target']
+    rel?: ComponentPropsWithoutRef<'a'>['rel']
     icon?: React.ReactNode
     title: React.ReactNode
+    children?: React.ReactNode
+    gridRow?: HTMLChakraProps<'li'>['gridRow']
+    gridColumn?: HTMLChakraProps<'li'>['gridColumn']
+    gridArea?: HTMLChakraProps<'li'>['gridArea']
   }
 >(function ListItem(
-  { children, title, icon, gridRow, gridColumn, gridArea, ...props },
+  { children, title, icon, gridRow, gridColumn, gridArea, href, target, rel },
   forwardedRef,
 ) {
   return (
@@ -210,7 +218,7 @@ export const ListItem = forwardRef<
       gridArea={gridArea}
     >
       <NavigationMenu.Link asChild>
-        <ListItemLink {...props} ref={forwardedRef}>
+        <ListItemLink href={href} target={target} rel={rel} ref={forwardedRef}>
           <HStack alignItems="flex-start">
             {icon}
             <Box>

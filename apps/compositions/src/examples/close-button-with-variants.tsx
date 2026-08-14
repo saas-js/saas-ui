@@ -1,7 +1,7 @@
 'use client'
 
-import { HStack } from '@saas-ui/react'
-import { CloseButton } from '@saas-ui/react'
+import { HStack } from '@chakra-ui/react'
+import { CloseButton } from 'compositions/ui/close-button'
 
 export const CloseButtonWithVariants = () => {
   return (

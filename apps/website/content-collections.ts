@@ -123,6 +123,7 @@ const docs = defineCollection({
     return {
       ...doc,
       code,
+      llm: replaceExampleTabs(doc.content),
       slug: slugify(doc._meta.path),
       links: {
         ...links,

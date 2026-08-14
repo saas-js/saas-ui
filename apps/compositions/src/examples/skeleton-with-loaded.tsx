@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Stack, Text } from '@saas-ui/react'
-import { Button, Skeleton } from '@saas-ui/react'
+import { Stack, Text, Button } from '@chakra-ui/react'
+import { Skeleton } from 'compositions/ui/skeleton'
 
 export const SkeletonWithLoaded = () => {
   const [loading, setLoading] = useState(true)

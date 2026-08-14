@@ -1,7 +1,5 @@
-'use client'
-
-import { HStack } from '@saas-ui/react'
-import { Field, Textarea } from '@saas-ui/react'
+'use client';
+import { HStack, Field, Textarea } from '@chakra-ui/react'
 
 export const TextareaWithField = () => {
   return (

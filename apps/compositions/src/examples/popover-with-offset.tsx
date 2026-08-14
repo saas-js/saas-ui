@@ -1,6 +1,6 @@
-'use client'
-
-import { Button, Popover } from '@saas-ui/react'
+'use client';
+import { Button } from '@chakra-ui/react'
+import { Popover } from 'compositions/ui/popover'
 
 export const PopoverWithOffset = () => {
   return (

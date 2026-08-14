@@ -3,8 +3,7 @@
 import { useState } from 'react'
 
 import { Splitter } from '@ark-ui/react'
-import { FieldsProvider, defaultFieldTypes } from '@saas-ui/forms'
-import { Box } from '@saas-ui/react'
+import { Box } from '@chakra-ui/react'
 
 import { ExamplePreview } from './example-preview'
 
@@ -28,15 +27,9 @@ export function ExampleCanvas(props: { name: string }) {
         onResizeEnd={() => setResizing(false)}
       >
         <Splitter.Panel id="a"> */}
-      <FieldsProvider
-        value={{
-          fields: defaultFieldTypes,
-        }}
-      >
-        {/* <Box pointerEvents={resizing ? 'none' : undefined}> */}
-        <ExamplePreview name={props.name} />
-        {/* </Box> */}
-      </FieldsProvider>
+      {/* <Box pointerEvents={resizing ? 'none' : undefined}> */}
+      <ExamplePreview name={props.name} />
+      {/* </Box> */}
       {/* </Splitter.Panel>
 
         <Splitter.ResizeTrigger id="a:b" aria-label="Resize">

@@ -1,4 +1,4 @@
-import type { ColorPalette } from '@saas-ui/react'
+import type { ColorPalette } from '@saas-ui/chakra-preset/colors'
 
 export const colorPalettes: ColorPalette[] = [
   'gray',

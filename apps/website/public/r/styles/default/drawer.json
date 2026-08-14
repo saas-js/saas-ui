@@ -1,28 +1,44 @@
 {
-  "name": "drawer",
-  "type": "registry:ui",
   "dependencies": [
     "@ark-ui/react",
-    "@chakra-ui/react"
-  ],
-  "registryDependencies": [
-    "close-button"
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset"
   ],
   "files": [
     {
-      "path": "ui/drawer/drawer.stories.tsx",
-      "content": "import React from 'react'\n\nimport type { Meta } from '@storybook/react-vite'\n\nimport { Button } from '../button/index.ts'\nimport { Drawer } from './index.ts'\n\nexport default {\n  title: 'Components / Drawer',\n  decorators: [(Story) => <Story />],\n} satisfies Meta\n\nexport const Basic = () => {\n  return (\n    <Drawer.Root defaultOpen>\n      <Drawer.Backdrop />\n      <Drawer.Trigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          Open Drawer\n        </Button>\n      </Drawer.Trigger>\n      <Drawer.Content>\n        <Drawer.Header>\n          <Drawer.Title>Drawer Title</Drawer.Title>\n          <Drawer.CloseButton />\n        </Drawer.Header>\n        <Drawer.Body>\n          <p>\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do\n            eiusmod tempor incididunt ut labore et dolore magna aliqua.\n          </p>\n        </Drawer.Body>\n        <Drawer.Footer>\n          <Drawer.ActionTrigger asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </Drawer.ActionTrigger>\n          <Button>Save</Button>\n        </Drawer.Footer>\n      </Drawer.Content>\n    </Drawer.Root>\n  )\n}\n\nexport const Attached = () => {\n  return (\n    <Drawer.Root defaultOpen attached>\n      <Drawer.Backdrop />\n      <Drawer.Trigger asChild>\n        <Button variant=\"outline\" size=\"sm\">\n          Open Drawer\n        </Button>\n      </Drawer.Trigger>\n      <Drawer.Content>\n        <Drawer.Header>\n          <Drawer.Title>Drawer Title</Drawer.Title>\n          <Drawer.CloseButton />\n        </Drawer.Header>\n        <Drawer.Body>\n          <p>\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do\n            eiusmod tempor incididunt ut labore et dolore magna aliqua.\n          </p>\n        </Drawer.Body>\n        <Drawer.Footer>\n          <Drawer.ActionTrigger asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </Drawer.ActionTrigger>\n          <Button>Save</Button>\n        </Drawer.Footer>\n      </Drawer.Content>\n    </Drawer.Root>\n  )\n}\n",
-      "type": "registry:story"
-    },
-    {
+      "content": "'use client'\n\nimport { type ComponentType, forwardRef } from 'react'\n\nimport { DialogContext } from '@ark-ui/react/dialog'\nimport { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'\nimport type { DrawerVariantProps } from '@saas-ui/chakra-preset/slot-recipes/drawer'\n\nimport { CloseButton as CloseButtonBase } from '../close-button/index.ts'\n\nexport interface ContentProps extends ChakraDrawer.ContentProps {\n  portalled?: boolean\n  portalRef?: React.RefObject<HTMLElement | null>\n  offset?: ChakraDrawer.ContentProps['padding']\n}\n\nexport const Content = forwardRef<HTMLDivElement, ContentProps>(\n  function DrawerContent(props, ref) {\n    const { children, portalled = true, portalRef, offset, ...rest } = props\n    return (\n      <Portal disabled={!portalled} container={portalRef}>\n        <ChakraDrawer.Positioner padding={offset}>\n          <ChakraDrawer.Content ref={ref} {...rest} asChild={false}>\n            {children}\n          </ChakraDrawer.Content>\n        </ChakraDrawer.Positioner>\n      </Portal>\n    )\n  },\n)\n\nexport const CloseButton = forwardRef<\n  HTMLButtonElement,\n  ChakraDrawer.CloseTriggerProps\n>(function DrawerCloseTrigger(props, ref) {\n  const { children, ...rest } = props\n  return (\n    <ChakraDrawer.CloseTrigger {...rest} asChild>\n      <CloseButtonBase size=\"sm\" ref={ref}>\n        {children}\n      </CloseButtonBase>\n    </ChakraDrawer.CloseTrigger>\n  )\n})\n\nexport const CloseTrigger = ChakraDrawer.CloseTrigger\nexport const Trigger = ChakraDrawer.Trigger\n\ntype ChakraDrawerRootPropsWithoutPresetVariants = Omit<\n  ChakraDrawer.RootProps,\n  keyof DrawerVariantProps\n>\n\nexport interface RootProps\n  extends ChakraDrawerRootPropsWithoutPresetVariants, DrawerVariantProps {}\n\nexport const Root = ChakraDrawer.Root as ComponentType<RootProps>\nexport const Footer = ChakraDrawer.Footer\nexport const Header = ChakraDrawer.Header\nexport const Body = ChakraDrawer.Body\nexport const Backdrop = ChakraDrawer.Backdrop\nexport const Description = ChakraDrawer.Description\nexport const Title = ChakraDrawer.Title\nexport const ActionTrigger = ChakraDrawer.ActionTrigger\nexport const Context = DialogContext\n",
       "path": "ui/drawer/drawer.tsx",
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { DialogContext } from '@ark-ui/react/dialog'\nimport { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'\n\nimport { CloseButton as CloseButtonBase } from '../close-button/index.ts'\n\nexport interface ContentProps extends ChakraDrawer.ContentProps {\n  portalled?: boolean\n  portalRef?: React.RefObject<HTMLElement>\n  offset?: ChakraDrawer.ContentProps['padding']\n}\n\nexport const Content = forwardRef<HTMLDivElement, ContentProps>(\n  function DrawerContent(props, ref) {\n    const { children, portalled = true, portalRef, offset, ...rest } = props\n    return (\n      <Portal disabled={!portalled} container={portalRef}>\n        <ChakraDrawer.Positioner padding={offset}>\n          <ChakraDrawer.Content ref={ref} {...rest} asChild={false}>\n            {children}\n          </ChakraDrawer.Content>\n        </ChakraDrawer.Positioner>\n      </Portal>\n    )\n  },\n)\n\nexport const CloseButton = forwardRef<\n  HTMLButtonElement,\n  ChakraDrawer.CloseTriggerProps\n>(function DrawerCloseTrigger(props, ref) {\n  const { children, ...rest } = props\n  return (\n    <ChakraDrawer.CloseTrigger {...rest} asChild>\n      <CloseButtonBase size=\"sm\" ref={ref}>\n        {children}\n      </CloseButtonBase>\n    </ChakraDrawer.CloseTrigger>\n  )\n})\n\nexport const CloseTrigger = ChakraDrawer.CloseTrigger\nexport const Trigger = ChakraDrawer.Trigger\nexport const Root = ChakraDrawer.Root\nexport const Footer = ChakraDrawer.Footer\nexport const Header = ChakraDrawer.Header\nexport const Body = ChakraDrawer.Body\nexport const Backdrop = ChakraDrawer.Backdrop\nexport const Description = ChakraDrawer.Description\nexport const Title = ChakraDrawer.Title\nexport const ActionTrigger = ChakraDrawer.ActionTrigger\nexport const Context = DialogContext\n\nexport type RootProps = ChakraDrawer.RootProps\n",
       "type": "registry:ui"
     },
     {
-      "path": "ui/drawer/index.ts",
       "content": "export * as Drawer from './drawer.tsx'\n",
+      "path": "ui/drawer/index.ts",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/drawer/drawer.tsx": "dcbfbb4cd3ce81e995487fa5d23ba1b1adcc2d547a4f556b89e471db2b87370a",
+        "ui/drawer/index.ts": "6b897d314f551eb2abcc72919512edba81c6dfb468b53a5f2eaff8a9b4911273"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset/slot-recipes/drawer"
+      ],
+      "presetRecipeBindings": [
+        "drawer"
+      ],
+      "recipeReferences": []
+    },
+    "contentHash": "12dfac17b8e9937b02b4195a5a47d047c391c60bf8cd0c08d40d2a6afd0f6119"
+  },
+  "name": "drawer",
+  "registryDependencies": [
+    "close-button"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-next.9"
 }

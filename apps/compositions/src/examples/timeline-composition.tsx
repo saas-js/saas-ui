@@ -1,7 +1,7 @@
 'use client'
 
-import { Span } from '@saas-ui/react'
-import { Avatar, Button, Card, Icon, Input, Timeline } from '@saas-ui/react'
+import { Span, Button, Card, Icon, Input, Timeline } from '@chakra-ui/react'
+import { Avatar } from 'compositions/ui/avatar'
 import { LuPen, LuX } from 'react-icons/lu'
 import LoremIpsum from 'react-lorem-ipsum'
 

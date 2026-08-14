@@ -1,13 +1,7 @@
-'use client'
-
-import {
-  For,
-  Group,
-  Span,
-  type StepsRootProps,
-  useSlotRecipe,
-} from '@saas-ui/react'
-import { Button, Steps } from '@saas-ui/react'
+'use client';
+import { For, Group, Span, type StepsRootProps, Button } from '@chakra-ui/react'
+import { useSlotRecipe } from '@chakra-ui/react/styled-system'
+import { Steps } from 'compositions/ui/steps'
 
 import { PlaygroundTable } from '../lib/playground-table'
 

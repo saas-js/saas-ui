@@ -1,10 +1,11 @@
 import { deepMerge } from '@/lib/deep-merge'
-import { Box, Code, Icon, Link, Span, Stack, Table, Text } from '@saas-ui/react'
-import NextLink from 'next/link'
+import { Box, Code, Icon, Span, Stack, Table, Text } from '@chakra-ui/react'
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { LuMinus } from 'react-icons/lu'
 import { kebabCase } from 'scule'
+
+import { Link } from '#components/ui/link'
 
 interface PropTableProps {
   component: string
@@ -131,11 +132,7 @@ export const PropTable = async (props: PropTableProps) => {
                   {name === 'asChild' && (
                     <Text as="span">
                       For more details, read our{' '}
-                      <Link asChild>
-                        <NextLink href={`/docs/guides/composition`}>
-                          Composition
-                        </NextLink>
-                      </Link>{' '}
+                      <Link href="/docs/guides/composition">Composition</Link>{' '}
                       guide.
                     </Text>
                   )}

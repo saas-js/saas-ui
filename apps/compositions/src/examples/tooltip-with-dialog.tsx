@@ -1,6 +1,7 @@
-'use client'
-
-import { Button, Dialog, Tooltip } from '@saas-ui/react'
+'use client';
+import { Button } from '@chakra-ui/react'
+import { Dialog } from 'compositions/ui/dialog'
+import { Tooltip } from 'compositions/ui/tooltip'
 
 export const TooltipWithDialog = () => {
   return (

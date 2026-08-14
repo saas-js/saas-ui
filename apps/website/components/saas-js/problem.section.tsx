@@ -1,14 +1,6 @@
-'use client'
-
-import {
-  Box,
-  Container,
-  HStack,
-  Heading,
-  Section,
-  Stack,
-  Text,
-} from '@saas-ui/react'
+'use client';
+import { Box, Container, HStack, Heading, Stack, Text } from '@chakra-ui/react'
+import { Section } from '#components/ui/section'
 
 export const ProblemSection = () => {
   return (

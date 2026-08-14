@@ -1,6 +1,8 @@
-'use client'
-
-import { Checkbox, GridList, Tag, Text } from '@saas-ui/react'
+'use client';
+import { Checkbox } from 'compositions/ui/checkbox'
+import { GridList } from 'compositions/ui/grid-list'
+import { Tag } from 'compositions/ui/tag'
+import { Text } from '@chakra-ui/react'
 
 export function GridListBasic() {
   return (

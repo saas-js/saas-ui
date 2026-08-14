@@ -1,3 +1,6 @@
+import React from 'react'
+
+import { toast } from '@/components/ui/toaster'
 import {
   Box,
   Flex,
@@ -8,13 +11,9 @@ import {
   SimpleGrid,
   Stack,
   Text,
-  useClipboard,
-  useTheme,
+  useToken,
 } from '@chakra-ui/react'
-import React from 'react'
-
 import chroma from 'chroma-js'
-import { useSnackbar } from '@saas-ui/react'
 
 type ColorPaletteProps = FlexProps & { color: string; name?: string }
 
@@ -37,27 +36,15 @@ export const ColorName = (props: FlexProps) => {
 export const ColorPalette = (props: ColorPaletteProps) => {
   const { color, name, ...rest } = props
 
-  const snackbar = useSnackbar()
-
-  const theme = useTheme()
-
-  let colorCode = color
-  const [hue, shade] = color.split('.')
-
-  if (shade && hue) {
-    colorCode = theme.colors[hue][shade]
-  }
-
-  if (color in theme.colors && typeof theme.colors[color] === 'string') {
-    colorCode = theme.colors[color]
-  }
-
-  const { onCopy } = useClipboard(colorCode)
+  const [colorCode, white, black] = useToken('colors', [
+    color,
+    'white',
+    'black',
+  ])
 
   const lightContrast =
-    Math.round(chroma.contrast(colorCode, theme.colors.white) * 100) / 100
-  const darkContrast =
-    Math.round(chroma.contrast(colorCode, theme.colors.black) * 100) / 100
+    Math.round(chroma.contrast(colorCode, white) * 100) / 100
+  const darkContrast = Math.round(chroma.contrast(colorCode, black) * 100) / 100
 
   const textColor = lightContrast < 4.5 ? 'black' : 'white'
   const contrast = lightContrast < 4.5 ? darkContrast : lightContrast
@@ -72,7 +59,7 @@ export const ColorPalette = (props: ColorPaletteProps) => {
         color={textColor}
         fontSize="sm"
         overflow="hidden"
-        sx={{
+        css={{
           position: 'absolute',
           width: '100%',
           cursor: 'pointer',
@@ -97,8 +84,11 @@ export const ColorPalette = (props: ColorPaletteProps) => {
           },
         }}
         onClick={() => {
-          snackbar.info(`Copied ${colorCode}`)
-          onCopy()
+          toast.create({
+            description: `Copied ${colorCode}`,
+            type: 'info',
+          })
+          void navigator.clipboard.writeText(colorCode)
         }}
       >
         <Stack width="100%" textAlign="center" p="4">
@@ -119,8 +109,7 @@ export const ColorPalette = (props: ColorPaletteProps) => {
 
 export const ColorPalettes = (props: { color: string; name: string }) => {
   const { color, name } = props
-  const theme = useTheme()
-  const keys = Object.keys(theme.colors[color])
+  const keys = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 
   return (
     <>
@@ -137,5 +126,5 @@ export const ColorPalettes = (props: { color: string; name: string }) => {
 }
 
 export const ColorWrapper: React.FC<GridProps> = (props) => (
-  <SimpleGrid columns={11} {...props} spacing="0" />
+  <SimpleGrid columns={11} {...props} gap="0" />
 )

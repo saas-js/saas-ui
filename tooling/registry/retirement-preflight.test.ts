@@ -124,6 +124,18 @@ Migration: ${MIGRATION_URL}
   )
   await write(
     root,
+    'packages/saas-ui-cli/lib/cli.js',
+    `#!/usr/bin/env node
+https://saas-ui.dev
+https://saas-ui.dev/r
+https://saas-ui.dev/r/schema/components.json
+3.0.0
+1.0.0
+`,
+  )
+  await write(root, 'packages/saas-ui-cli/lib/bash-complete.js', 'export {}\n')
+  await write(
+    root,
     'packages/saas-ui-cli/lib/release-contract.js',
     [
       'https://saas-ui.dev',
@@ -220,6 +232,16 @@ describe('react package retirement preflight', () => {
       '3.0.0-rc.0',
       '0.1.0-rc.0',
     ].join('\n')
+    await write(
+      root,
+      'packages/saas-ui-cli/lib/cli.js',
+      `#!/usr/bin/env node\n${releaseValues}\n`,
+    )
+    await write(
+      root,
+      'packages/saas-ui-cli/lib/bash-complete.js',
+      'export {}\n',
+    )
     await write(
       root,
       'packages/saas-ui-cli/lib/release-contract.js',

@@ -266,6 +266,19 @@ export async function verifyBuiltCliProductionContract(rootInput: string) {
   }
   verifyCliBuildInfo(buildInfo, cli.version ?? '', preset.version ?? '')
 
+  for (const relative of [
+    'packages/saas-ui-cli/lib/cli.js',
+    'packages/saas-ui-cli/lib/bash-complete.js',
+  ]) {
+    await requireRegularFile(root, relative)
+  }
+  const cliSource = await readRequired(root, 'packages/saas-ui-cli/lib/cli.js')
+  if (!cliSource.startsWith('#!/usr/bin/env node')) {
+    throw new Error(
+      'packages/saas-ui-cli/lib/cli.js must start with a Node shebang',
+    )
+  }
+
   const files = await javascriptFiles(
     path.join(root, 'packages/saas-ui-cli/lib'),
   )

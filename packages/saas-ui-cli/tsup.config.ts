@@ -16,18 +16,18 @@ export default defineConfig(({ watch }) => {
     process.env.SCHEMA_URL ?? 'https://saas-ui.dev/r/schema/components.json'
 
   return {
-    entry: [
-      'src/bin/cli.ts',
-      'src/bin/bash-complete.ts',
-      'src/consumer/index.ts',
-    ],
+    entry: {
+      cli: 'src/bin/cli.ts',
+      'bash-complete': 'src/bin/bash-complete.ts',
+      'consumer/index': 'src/consumer/index.ts',
+    },
     outDir: 'lib',
     format: ['esm'],
     tsconfig: 'tsconfig.json',
     sourcemap: !!watch,
     external: ['fs'],
     noExternal: ['@saas-ui/registry'],
-    dts: { entry: 'src/consumer/index.ts' },
+    dts: { entry: { index: 'src/consumer/index.ts' } },
     platform: 'node',
     env: {
       SUPABASE_URL: process.env.SUPABASE_URL ?? '',

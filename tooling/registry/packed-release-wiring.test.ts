@@ -141,7 +141,12 @@ describe('packed release wiring', () => {
       '1.2.3',
       '3.0.0-next.10',
     ].join('\n')
-    await write(root, 'packages/saas-ui-cli/lib/cli.js', values)
+    await write(
+      root,
+      'packages/saas-ui-cli/lib/cli.js',
+      `#!/usr/bin/env node\n${values}\n`,
+    )
+    await write(root, 'packages/saas-ui-cli/lib/bash-complete.js', 'export {}\n')
     await write(
       root,
       'packages/saas-ui-cli/lib/build-info.json',

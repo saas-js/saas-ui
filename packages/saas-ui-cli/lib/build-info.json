@@ -1,8 +1,8 @@
 {
   "authOrigin": "https://saas-ui.dev",
-  "cliVersion": "0.1.0-next.1",
+  "cliVersion": "0.1.0-next.2",
   "kind": "saas-ui.cli-build-info",
-  "presetVersion": "3.0.0-next.9",
+  "presetVersion": "3.0.0-next.11",
   "registryUrl": "https://saas-ui.dev/r",
   "schemaUrl": "https://saas-ui.dev/r/schema/components.json",
   "version": 1

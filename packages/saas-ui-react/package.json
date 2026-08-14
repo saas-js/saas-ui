@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/react",
-  "version": "3.0.0-next.55",
+  "version": "3.0.0-rc.0",
   "description": "Unstyled primitives for building React applications.",
   "type": "module",
   "exports": {

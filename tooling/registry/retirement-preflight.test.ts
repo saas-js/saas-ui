@@ -33,11 +33,11 @@ function legacyResult(
 const releasePlan = async () => ({
   preState: { mode: 'pre', tag: 'rc' },
   releases: [
-    { name: '@saas-ui/cli', type: 'minor', newVersion: '0.1.0-next.2' },
+    { name: '@saas-ui/cli', type: 'minor', newVersion: '0.1.0-rc.0' },
     {
       name: '@saas-ui/chakra-preset',
       type: 'minor',
-      newVersion: '3.0.0-next.10',
+      newVersion: '3.0.0-rc.0',
     },
   ],
 })
@@ -176,8 +176,8 @@ describe('react package retirement preflight', () => {
       stage: 'repository-ready-for-compatibility-release',
     })
     expect(report.releaseVersions).toEqual({
-      '@saas-ui/chakra-preset': '3.0.0-next.10',
-      '@saas-ui/cli': '0.1.0-next.2',
+      '@saas-ui/chakra-preset': '3.0.0-rc.0',
+      '@saas-ui/cli': '0.1.0-rc.0',
     })
     expect(report.checks).toHaveLength(10)
   })
@@ -194,7 +194,7 @@ describe('react package retirement preflight', () => {
         bin: { 'saas-ui': 'lib/cli.js' },
         files: ['lib'],
         name: '@saas-ui/cli',
-        version: '0.1.0-next.2',
+        version: '0.1.0-rc.0',
       }),
     )
     await write(
@@ -202,7 +202,7 @@ describe('react package retirement preflight', () => {
       'packages/saas-ui-chakra-preset/package.json',
       JSON.stringify({
         name: '@saas-ui/chakra-preset',
-        version: '3.0.0-next.10',
+        version: '3.0.0-rc.0',
       }),
     )
     await write(
@@ -210,15 +210,15 @@ describe('react package retirement preflight', () => {
       'packages/saas-ui-react/package.json',
       JSON.stringify({
         name: '@saas-ui/react',
-        version: '3.0.0-next.56',
+        version: '3.0.0-rc.0',
       }),
     )
     const releaseValues = [
       'https://saas-ui.dev',
       'https://saas-ui.dev/r',
       'https://saas-ui.dev/r/schema/components.json',
-      '3.0.0-next.10',
-      '0.1.0-next.2',
+      '3.0.0-rc.0',
+      '0.1.0-rc.0',
     ].join('\n')
     await write(
       root,
@@ -230,9 +230,9 @@ describe('react package retirement preflight', () => {
       'packages/saas-ui-cli/lib/build-info.json',
       JSON.stringify({
         authOrigin: 'https://saas-ui.dev',
-        cliVersion: '0.1.0-next.2',
+        cliVersion: '0.1.0-rc.0',
         kind: 'saas-ui.cli-build-info',
-        presetVersion: '3.0.0-next.10',
+        presetVersion: '3.0.0-rc.0',
         registryUrl: 'https://saas-ui.dev/r',
         schemaUrl: 'https://saas-ui.dev/r/schema/components.json',
         version: 1,
@@ -250,8 +250,8 @@ describe('react package retirement preflight', () => {
 
     expect(report.checks).toHaveLength(10)
     expect(report.releaseVersions).toEqual({
-      '@saas-ui/chakra-preset': '3.0.0-next.10',
-      '@saas-ui/cli': '0.1.0-next.2',
+      '@saas-ui/chakra-preset': '3.0.0-rc.0',
+      '@saas-ui/cli': '0.1.0-rc.0',
     })
   })
 
@@ -343,12 +343,12 @@ describe('react package retirement preflight', () => {
             {
               name: '@saas-ui/cli',
               type: 'minor',
-              newVersion: '0.1.0-next.2',
+              newVersion: '0.1.0-rc.0',
             },
             {
               name: '@saas-ui/chakra-preset',
               type: 'patch',
-              newVersion: '3.0.0-next.10',
+              newVersion: '3.0.0-rc.0',
             },
           ],
         }),

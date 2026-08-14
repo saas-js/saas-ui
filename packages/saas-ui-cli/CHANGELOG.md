@@ -1,5 +1,13 @@
 # @saas-ui/cli
 
+## 0.1.0-rc.0
+
+### Patch Changes
+
+- 6e6def9: Restore unstyled primitives as `@saas-ui/react` (formerly
+  `@saas-ui/core`) and have registry Sidebar, Navbar, and GridList templates
+  wrap that package.
+
 ## 0.1.0-next.2
 
 ### Minor Changes

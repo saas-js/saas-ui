@@ -49,7 +49,7 @@ export const SUPPORTED_PACKAGE_POLICIES = {
     major: 3,
     minimum: [3, 0, 0],
     prerelease: {
-      channel: 'next',
+      channel: 'rc',
       minimum: SUPPORTED_PRESET_VERSION,
     },
   },
@@ -59,7 +59,7 @@ export const SUPPORTED_PACKAGE_POLICIES = {
     major: 3,
     minimum: [3, 0, 0],
     prerelease: {
-      channel: 'next',
+      channel: 'rc',
       minimum: reactVersion,
     },
   },

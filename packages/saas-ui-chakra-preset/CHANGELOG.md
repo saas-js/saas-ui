@@ -1,5 +1,19 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-rc.0
+
+### Minor Changes
+
+- d79c7ca: Add ColorSwatch and Fieldset recipes, new Button, DataList, and Tabs
+  variants, and exported recipe keys and variant prop types for registry
+  templates.
+
+### Patch Changes
+
+- 6e6def9: Restore unstyled primitives as `@saas-ui/react` (formerly
+  `@saas-ui/core`) and have registry Sidebar, Navbar, and GridList templates
+  wrap that package.
+
 ## 3.0.0-next.11
 
 ### Patch Changes

@@ -21,8 +21,8 @@ const VERSIONED_TRANSITION_MINIMUMS = new Map<
   string,
   { minimum: number; prefix: string }
 >([
-  ['@saas-ui/cli', { minimum: 2, prefix: '0.1.0-next.' }],
-  ['@saas-ui/chakra-preset', { minimum: 10, prefix: '3.0.0-next.' }],
+  ['@saas-ui/cli', { minimum: 0, prefix: '0.1.0-rc.' }],
+  ['@saas-ui/chakra-preset', { minimum: 0, prefix: '3.0.0-rc.' }],
 ] as const)
 const REQUIRED_MIGRATION_READMES = [
   'packages/saas-ui-chakra-preset/README.md',

@@ -35,6 +35,14 @@ export const buttonRecipe = defineRecipe({
 
   variants: {
     size: {
+      '2xs': {
+        gap: '1',
+        h: '6',
+        minW: '6',
+        textStyle: 'xs',
+        borderRadius: 'control.sm',
+        px: '2',
+      },
       xs: {
         gap: '1',
         h: '6',

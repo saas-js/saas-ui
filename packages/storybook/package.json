@@ -17,6 +17,8 @@
     "@emotion/styled": "^11.14.0",
     "@fontsource-variable/inter": "^5.2.5",
     "@saas-ui/chakra-preset": "workspace:*",
+    "@saas-ui/core": "workspace:*",
+    "@saas-ui/react": "workspace:*",
     "@saas-ui/storybook-addon": "workspace:*",
     "@storybook/addon-a11y": "^9.1.10",
     "@storybook/addon-themes": "^9.1.10",

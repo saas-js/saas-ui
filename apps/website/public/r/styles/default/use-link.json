@@ -1,0 +1,30 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "description": "Configurable router link behavior for registry components",
+  "files": [
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { chakra } from '@chakra-ui/react'\n\nexport type LinkComponent = React.ElementType\n\nexport interface LinkProviderProps {\n  children: React.ReactNode\n  component?: LinkComponent\n}\n\nconst LinkContext = React.createContext<LinkComponent>(chakra.a)\n\nexport function LinkProvider(props: LinkProviderProps) {\n  const { children, component = chakra.a } = props\n\n  return (\n    <LinkContext.Provider value={component}>{children}</LinkContext.Provider>\n  )\n}\n\nexport function useLink(): LinkComponent {\n  return React.useContext(LinkContext)\n}\n",
+      "path": "lib/use-link/use-link.tsx",
+      "type": "registry:lib"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "lib/use-link/use-link.tsx": "22a9c8464e313a0bed4b162889ecec59caded078c2d9a8d556bd3877fdee12cb"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "cb80e29240c30fe3067876b962e6b955312176fec058c6837c3b9ba7fe152565"
+  },
+  "name": "use-link",
+  "schemaVersion": 1,
+  "type": "registry:lib",
+  "version": "3.0.0-next.9"
+}

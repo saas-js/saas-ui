@@ -1,0 +1,41 @@
+{
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset"
+  ],
+  "description": "Chakra provider without a color-mode runtime dependency",
+  "files": [
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { LinkProvider } from '@/registry/default/lib/use-link/use-link.tsx'\nimport { ChakraProvider } from '@chakra-ui/react'\nimport { defaultSystem } from '@saas-ui/chakra-preset'\n\nexport interface ProviderProps {\n  children: React.ReactNode\n  linkComponent?: React.ElementType\n}\n\nexport function Provider(props: ProviderProps) {\n  const { children, linkComponent } = props\n\n  return (\n    <ChakraProvider value={defaultSystem}>\n      <LinkProvider component={linkComponent}>{children}</LinkProvider>\n    </ChakraProvider>\n  )\n}\n",
+      "path": "setup/provider-no-color-mode/provider-no-color-mode.tsx",
+      "target": "components/setup/provider/provider.tsx",
+      "type": "registry:setup"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "setup/provider-no-color-mode/provider-no-color-mode.tsx": "2627a663214abdf2b51c81d28eab7c9d367e1e8167dbef240c7ce1aa7cfedfd8"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset"
+      ],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "conflicts": [
+      "provider"
+    ],
+    "contentHash": "9d2b54f5c5a5190c33358f2c172c863e3817c96b1d7b3b4049874b23d9b13f63",
+    "exclusiveGroup": "provider"
+  },
+  "name": "provider-no-color-mode",
+  "registryDependencies": [
+    "use-link"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:setup",
+  "version": "3.0.0-next.9"
+}

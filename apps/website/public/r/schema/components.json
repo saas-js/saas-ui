@@ -1,0 +1,147 @@
+{
+  "$id": "https://saas-ui.dev/r/schema/components.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "aliases": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "type": "string"
+        },
+        "hooks": {
+          "type": "string"
+        },
+        "icons": {
+          "type": "string"
+        },
+        "lib": {
+          "type": "string"
+        },
+        "ui": {
+          "type": "string"
+        },
+        "utils": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "components",
+        "utils"
+      ],
+      "type": "object"
+    },
+    "icons": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "propertyNames": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "defaultIconSet": {
+          "type": "string"
+        },
+        "iconSize": {
+          "type": "string"
+        },
+        "outputDir": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "installed": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "registries": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "minLength": 1,
+            "pattern": "\\{name\\}",
+            "type": "string"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "headers": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "propertyNames": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "params": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "propertyNames": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "url": {
+                "minLength": 1,
+                "pattern": "\\{name\\}",
+                "type": "string"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "propertyNames": {
+        "pattern": "^@[a-z0-9][a-z0-9_-]*$",
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "rsc": {
+      "default": false,
+      "type": "boolean"
+    },
+    "style": {
+      "default": "default",
+      "type": "string"
+    },
+    "system": {
+      "default": "chakra",
+      "enum": [
+        "chakra",
+        "panda"
+      ],
+      "type": "string"
+    },
+    "tsx": {
+      "default": true,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "system",
+    "style",
+    "rsc",
+    "tsx",
+    "installed",
+    "aliases"
+  ],
+  "type": "object",
+  "x-registry-schema-version": 1
+}

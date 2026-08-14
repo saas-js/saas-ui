@@ -1,5 +1,8 @@
 import { tooltipAnatomy } from '@chakra-ui/react/anatomy'
-import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
+import {
+  type RecipeVariantProps,
+  defineSlotRecipe,
+} from '@chakra-ui/react/styled-system'
 
 export const tooltipSlotRecipe = defineSlotRecipe({
   slots: tooltipAnatomy.keys(),
@@ -51,3 +54,5 @@ export const tooltipSlotRecipe = defineSlotRecipe({
     },
   },
 })
+
+export type TooltipVariantProps = RecipeVariantProps<typeof tooltipSlotRecipe>

@@ -1,5 +1,17 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-next.10
+
+### Minor Changes
+
+- d79c7ca: Add ColorSwatch and Fieldset recipes, new Button, DataList, and Tabs
+  variants, and exported recipe keys and variant prop types for registry
+  templates.
+
+### Patch Changes
+
+- a2c1e38: Fix select content max height
+
 ## 3.0.0-next.9
 
 ### Minor Changes

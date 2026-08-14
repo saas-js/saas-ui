@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "77e958f5a737795418292bc0d34cd9dc761286310095d3f0f9fed10925d5fa08"
+    "contentHash": "e7d83b853d56fcbbd0ff725c34e34795ecd8d702d091a21fdfc9a0d6e462215c"
   },
   "name": "pin-input",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

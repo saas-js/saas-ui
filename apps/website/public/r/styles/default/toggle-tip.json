@@ -23,7 +23,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "a069500b9d47d462cbc33cd9495bd254e6a2f00a8cb30beadaa3ea390509265f"
+    "contentHash": "5c5513d4506e9660bd6d9710caf0f9a0490e10cea30c3da499f5f57483dca781"
   },
   "name": "toggle-tip",
   "registryDependencies": [
@@ -32,5 +32,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

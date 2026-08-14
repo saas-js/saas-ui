@@ -1,4 +1,4 @@
-export * as Sidebar from './sidebar'
+export * as Sidebar from './sidebar.tsx'
 
 export {
   useSidebar,

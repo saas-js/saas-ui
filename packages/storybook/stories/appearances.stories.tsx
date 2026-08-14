@@ -9,6 +9,13 @@ import {
   Separator,
   Stack,
   Text,
+  Avatar,
+  Badge,
+  Card,
+  Field,
+  Input,
+  Switch,
+  Table,
   createSystem,
   defineConfig,
 } from '@chakra-ui/react'
@@ -17,23 +24,16 @@ import {
   type AppearanceOptions,
   createAppearance,
 } from '@saas-ui/chakra-preset/appearance'
+import { AppShell } from '../../../apps/website/components/ui/app-shell'
+import { Button } from '../../../apps/website/components/ui/button'
+import { IconBadge } from '../../../apps/website/components/ui/icon-badge'
+import { Page } from '../../../apps/website/components/ui/page'
+import { Section } from '../../../apps/website/components/ui/section'
+import { Sidebar } from '../../../apps/website/components/ui/sidebar'
 import {
-  AppShell,
-  Avatar,
-  Badge,
-  Button,
-  Card,
-  Field,
-  IconBadge,
-  Input,
-  Page,
-  Section,
-  Sidebar,
-  Switch,
-  Table,
   Theme,
   type ThemeProps,
-} from '@saas-ui/react'
+} from '../../../apps/website/components/ui/theme'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import {
   LuBell,

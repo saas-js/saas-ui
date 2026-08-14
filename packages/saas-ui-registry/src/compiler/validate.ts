@@ -26,7 +26,7 @@ import {
   isSafeRelativePath,
 } from './path-utils.js'
 
-const defaultForbiddenPackages = ['@saas-ui/react', '@saas-ui/core'] as const
+const defaultForbiddenPackages = ['@saas-ui/core'] as const
 
 function itemKey(style: string, name: string) {
   return `${style}:${name}`

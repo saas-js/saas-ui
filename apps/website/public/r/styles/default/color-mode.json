@@ -23,10 +23,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "a9f8103c8443dae35b20afd8477280d4766be8b2288efa6743e98586acd89671"
+    "contentHash": "9381b9ebb916768869e8fb2200ac29693328772cc2736491baf794eae441b4b1"
   },
   "name": "color-mode",
   "schemaVersion": 1,
   "type": "registry:setup",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

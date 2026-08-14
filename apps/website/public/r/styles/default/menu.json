@@ -29,7 +29,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "e139adcb462828b000b9cc79b276ff82c3da59755463abe3f70a556bac7d9c1d"
+    "contentHash": "71e70e094ea17e9e265de8801efb24bd367aba5f73f40688b87a02ba0d8a2be6"
   },
   "name": "menu",
   "registryDependencies": [
@@ -39,5 +39,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

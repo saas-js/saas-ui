@@ -28,7 +28,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "e2fd67cc5d4c7b9f614bf9f80c0f3cc7513cb23a89805cd1db71f53c98a82d3a"
+    "contentHash": "34e5c8fc2b6a9f8fb68dfcf40535798890a4c3dca8e5987b980fc64abbd66de8"
   },
   "name": "native-select",
   "registryDependencies": [
@@ -36,5 +36,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

@@ -21,10 +21,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "cb80e29240c30fe3067876b962e6b955312176fec058c6837c3b9ba7fe152565"
+    "contentHash": "a86787e5ec2359d661b777e2d822e1b1a4ec4aaba731496ba941a39e19d933ef"
   },
   "name": "use-link",
   "schemaVersion": 1,
   "type": "registry:lib",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

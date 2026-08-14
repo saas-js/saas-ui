@@ -26,7 +26,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "7d014ccc0cfa17627875a4f58cf396797d61ced3ffaaf6abdc5b184f71d0b3fb"
+    "contentHash": "776d2f4db1583bec8fb65ceadd3f7502a1465ce12b4819e311178150b458aa63"
   },
   "name": "action-bar",
   "registryDependencies": [
@@ -34,5 +34,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

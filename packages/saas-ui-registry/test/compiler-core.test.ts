@@ -590,7 +590,7 @@ describe('registry compiler core', () => {
           (diagnostic) => diagnostic.code === 'forbidden-template-package',
         )
         .map((diagnostic) => diagnostic.dependency),
-    ).toEqual(['@saas-ui/core', '@saas-ui/react'])
+    ).toEqual(['@saas-ui/core'])
   })
 
   it('validates later dependencies and exempts provided runtime packages', async () => {

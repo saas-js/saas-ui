@@ -182,6 +182,12 @@
       "order": {
         "type": "number"
       },
+      "preview": {
+        "type": "string"
+      },
+      "primaryFile": {
+        "type": "string"
+      },
       "private": {
         "type": "boolean"
       },

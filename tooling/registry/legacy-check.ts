@@ -2,7 +2,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
-export const LEGACY_PACKAGES = ['@saas-ui/core', '@saas-ui/react'] as const
+export const LEGACY_PACKAGES = ['@saas-ui/core'] as const
 
 export type LegacyPackage = (typeof LEGACY_PACKAGES)[number]
 
@@ -113,11 +113,6 @@ export const migratedLegacyCheckScopes: readonly LegacyCheckScope[] = [
     root: 'packages/saas-ui-tailwind-preset',
     mode: 'installable-tree',
   },
-  {
-    name: 'use-hotkeys',
-    root: 'packages/saas-ui-use-hotkeys',
-    mode: 'installable-tree',
-  },
   { name: 'test-utils', root: 'tooling/test-utils' },
   { name: 'next-workspaces', root: 'tooling/next-workspaces' },
   { name: 'storybook-addon', root: 'tooling/storybook-addon' },
@@ -141,25 +136,10 @@ export const migratedLegacyCheckScopes: readonly LegacyCheckScope[] = [
 export const migratedLegacyCheckAllowlist: readonly LegacyCheckAllowlistEntry[] =
   [
     {
-      path: 'packages/saas-ui-cli/src/utils/migrations/react-to-registry-packages.ts',
-      package: '@saas-ui/react',
-      reason:
-        'The migration removes the legacy package from consumer manifests.',
-    },
-    {
-      path: 'packages/saas-ui-cli/src/utils/migrations/react-to-registry.ts',
-      package: '@saas-ui/react',
-      reason: 'The migration transformer must recognize the legacy module.',
-    },
-    {
-      path: 'packages/saas-ui-registry/src/compiler/validate.ts',
-      package: '@saas-ui/react',
-      reason: 'The compiler rejects this package in installable templates.',
-    },
-    {
       path: 'packages/saas-ui-registry/src/compiler/validate.ts',
       package: '@saas-ui/core',
-      reason: 'The compiler rejects this package in installable templates.',
+      reason:
+        'The compiler rejects this retired package in installable templates.',
     },
   ]
 
@@ -206,16 +186,14 @@ const IGNORED_SOURCE_PATTERN =
   /(?:^|\.)(?:example|spec|stories|story|test)\.(?:[cm]?[jt]sx?|mdx)$/
 
 const STATIC_SPECIFIER_PATTERN =
-  /(['"`])(@saas-ui\/(?:react|core)(?:\/[^'"`\r\n$\\]*)?)\1/g
+  /(['"`])(@saas-ui\/core(?:\/[^'"`\r\n$\\]*)?)\1/g
 
 function toPosix(value: string) {
   return value.split(path.sep).join('/')
 }
 
-function packageFromSpecifier(specifier: string): LegacyPackage {
-  return specifier === '@saas-ui/core' || specifier.startsWith('@saas-ui/core/')
-    ? '@saas-ui/core'
-    : '@saas-ui/react'
+function packageFromSpecifier(_specifier: string): LegacyPackage {
+  return '@saas-ui/core'
 }
 
 function location(source: string, offset: number) {

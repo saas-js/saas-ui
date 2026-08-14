@@ -252,14 +252,13 @@ const packages = [
   'saas-ui-data-table',
   'saas-ui-date-picker',
   'saas-ui-hooks',
-  'saas-ui-hotkeys',
   'saas-ui-modals',
   'saas-ui-nprogress',
   'pro/saas-ui/kanban',
   'pro/saas-ui/onboarding',
   'pro/saas-ui/feature-flags',
 ]
-const collections = ['saas-ui-core', 'pro/saas-ui/react']
+const collections = ['saas-ui-react', 'pro/saas-ui/react']
 
 const main = async () => {
   //

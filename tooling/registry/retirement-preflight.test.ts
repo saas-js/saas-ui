@@ -31,18 +31,13 @@ function legacyResult(
 }
 
 const releasePlan = async () => ({
-  preState: { mode: 'pre', tag: 'next' },
+  preState: { mode: 'pre', tag: 'rc' },
   releases: [
     { name: '@saas-ui/cli', type: 'minor', newVersion: '0.1.0-next.2' },
     {
       name: '@saas-ui/chakra-preset',
       type: 'minor',
       newVersion: '3.0.0-next.10',
-    },
-    {
-      name: '@saas-ui/react',
-      type: 'patch',
-      newVersion: '3.0.0-next.56',
     },
   ],
 })
@@ -56,7 +51,6 @@ async function fixture() {
     `---
 '@saas-ui/cli': minor
 '@saas-ui/chakra-preset': minor
-'@saas-ui/react': patch
 ---
 
 Compatibility release.
@@ -70,7 +64,7 @@ Compatibility release.
   await write(
     root,
     '.changeset/pre.json',
-    JSON.stringify({ mode: 'pre', tag: 'next' }),
+    JSON.stringify({ mode: 'pre', tag: 'rc' }),
   )
   await write(
     root,
@@ -83,7 +77,6 @@ Package lifecycle status is determined by published npm metadata.
   for (const relative of [
     'packages/saas-ui-chakra-preset/README.md',
     'packages/saas-ui-cli/README.md',
-    'packages/saas-ui-core/README.md',
     'packages/saas-ui-react/README.md',
     'packages/saas-ui-tailwind-preset/README.md',
   ]) {
@@ -92,8 +85,8 @@ Package lifecycle status is determined by published npm metadata.
   await write(
     root,
     'packages/saas-ui-react/README.md',
-    `Migration: ${MIGRATION_URL}
-Package lifecycle status is determined by published npm metadata.
+    `Unstyled React primitives for Saas UI.
+Migration: ${MIGRATION_URL}
 `,
   )
   await write(
@@ -185,7 +178,6 @@ describe('react package retirement preflight', () => {
     expect(report.releaseVersions).toEqual({
       '@saas-ui/chakra-preset': '3.0.0-next.10',
       '@saas-ui/cli': '0.1.0-next.2',
-      '@saas-ui/react': '3.0.0-next.56',
     })
     expect(report.checks).toHaveLength(10)
   })
@@ -260,7 +252,6 @@ describe('react package retirement preflight', () => {
     expect(report.releaseVersions).toEqual({
       '@saas-ui/chakra-preset': '3.0.0-next.10',
       '@saas-ui/cli': '0.1.0-next.2',
-      '@saas-ui/react': '3.0.0-next.56',
     })
   })
 
@@ -279,14 +270,13 @@ describe('react package retirement preflight', () => {
     ).rejects.toThrow('must contain the versioned compatibility release')
   })
 
-  test('rejects a missing compatibility-package changeset bump', async () => {
+  test('rejects a missing transition changeset bump', async () => {
     const root = await fixture()
     await write(
       root,
       '.changeset/registry-template-transition.md',
       `---
 '@saas-ui/cli': minor
-'@saas-ui/chakra-preset': minor
 ---
 `,
     )
@@ -297,7 +287,7 @@ describe('react package retirement preflight', () => {
         releasePlan,
         scanLegacy: async () => legacyResult(),
       }),
-    ).rejects.toThrow("must declare '@saas-ui/react': patch")
+    ).rejects.toThrow("must declare '@saas-ui/chakra-preset': minor")
   })
 
   test('rejects tarball-unsafe migration links', async () => {
@@ -348,7 +338,7 @@ describe('react package retirement preflight', () => {
       runRetirementPreflight({
         repositoryRoot: root,
         releasePlan: async () => ({
-          preState: { mode: 'pre', tag: 'next' },
+          preState: { mode: 'pre', tag: 'rc' },
           releases: [
             {
               name: '@saas-ui/cli',
@@ -357,20 +347,15 @@ describe('react package retirement preflight', () => {
             },
             {
               name: '@saas-ui/chakra-preset',
-              type: 'minor',
+              type: 'patch',
               newVersion: '3.0.0-next.10',
-            },
-            {
-              name: '@saas-ui/react',
-              type: 'minor',
-              newVersion: '3.0.0-next.56',
             },
           ],
         }),
         scanLegacy: async () => legacyResult(),
       }),
     ).rejects.toThrow(
-      'computed Changesets plan must release @saas-ui/react as patch',
+      'computed Changesets plan must release @saas-ui/chakra-preset as minor',
     )
   })
 

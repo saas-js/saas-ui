@@ -1,7 +1,8 @@
 {
   "dependencies": [
     "@chakra-ui/react",
-    "@saas-ui/chakra-preset"
+    "@saas-ui/chakra-preset",
+    "@saas-ui/react"
   ],
   "files": [
     {
@@ -15,7 +16,7 @@
       "type": "registry:ui"
     },
     {
-      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { useLink } from '@/registry/default/lib/use-link/use-link.tsx'\nimport type { HTMLChakraProps } from '@chakra-ui/react'\nimport { chakra } from '@chakra-ui/react'\nimport type { NavbarVariantProps } from '@saas-ui/chakra-preset/slot-recipes/navbar'\n\nimport { withContext, withProvider } from './navbar.context.ts'\n\ninterface NavbarBehaviorProps {\n  parentRef?: React.RefObject<HTMLElement | null>\n  height?: number | string\n  shouldHideOnScroll?: boolean\n  disableScrollHandler?: boolean\n  onScrollPositionChange?: (scrollPosition: number) => void\n}\n\ninterface NavbarRootProps\n  extends\n    NavbarVariantProps,\n    NavbarBehaviorProps,\n    Omit<HTMLChakraProps<'div'>, 'height'> {}\n\nconst NavbarRootPrimitive = React.forwardRef<HTMLDivElement, NavbarRootProps>(\n  function NavbarRoot(props, forwardedRef) {\n    const {\n      parentRef,\n      height = '3.5rem',\n      shouldHideOnScroll = false,\n      disableScrollHandler = false,\n      onScrollPositionChange,\n      style,\n      ...rest\n    } = props\n    const rootRef = React.useRef<HTMLDivElement>(null)\n    const [hidden, setHidden] = React.useState(false)\n    const [atTop, setAtTop] = React.useState(true)\n\n    React.useImperativeHandle(\n      forwardedRef,\n      () => rootRef.current as HTMLDivElement,\n    )\n\n    React.useEffect(() => {\n      if (disableScrollHandler && !shouldHideOnScroll) return\n\n      const target = parentRef?.current ?? window\n      const getPosition = () =>\n        target === window ? window.scrollY : (target as HTMLElement).scrollTop\n      let previousPosition = getPosition()\n      let throttleTimeout: ReturnType<typeof setTimeout> | undefined\n\n      setAtTop(previousPosition === 0)\n\n      const updateScrollPosition = () => {\n        const position = getPosition()\n        onScrollPositionChange?.(position)\n        setAtTop(position === 0)\n\n        if (shouldHideOnScroll) {\n          const navbarHeight = rootRef.current?.offsetHeight ?? 0\n          setHidden(position > previousPosition && position > navbarHeight)\n        }\n        previousPosition = position\n        throttleTimeout = undefined\n      }\n\n      const handleScroll = () => {\n        throttleTimeout ??= setTimeout(updateScrollPosition, 30)\n      }\n\n      target.addEventListener('scroll', handleScroll, { passive: true })\n      return () => {\n        target.removeEventListener('scroll', handleScroll)\n        if (throttleTimeout !== undefined) clearTimeout(throttleTimeout)\n      }\n    }, [\n      disableScrollHandler,\n      onScrollPositionChange,\n      parentRef,\n      shouldHideOnScroll,\n    ])\n\n    return (\n      <chakra.div\n        ref={rootRef}\n        data-hidden={hidden ? '' : undefined}\n        data-at-top={atTop ? '' : undefined}\n        style={\n          {\n            '--navbar-height': height,\n            ...style,\n          } as React.CSSProperties\n        }\n        {...rest}\n      />\n    )\n  },\n)\n\nconst NavbarRoot = withProvider<HTMLDivElement, NavbarRootProps>(\n  NavbarRootPrimitive,\n  'root',\n)\n\nconst NavbarBrand = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  'div',\n  'brand',\n)\nconst NavbarContent = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  'div',\n  'content',\n)\nconst NavbarItemGroup = withContext<HTMLUListElement, HTMLChakraProps<'ul'>>(\n  'ul',\n  'itemGroup',\n)\nconst NavbarItem = withContext<HTMLLIElement, HTMLChakraProps<'li'>>(\n  'li',\n  'item',\n)\n\ninterface NavbarLinkProps extends HTMLChakraProps<'a'> {\n  active?: boolean\n}\n\nconst NavbarLinkPrimitive = React.forwardRef<\n  HTMLAnchorElement,\n  NavbarLinkProps\n>(function NavbarLink(props, ref) {\n  const { active, asChild, children, ...rest } = props\n  const Link = useLink()\n\n  if (asChild) {\n    return (\n      <chakra.a\n        asChild\n        ref={ref}\n        data-active={active ? '' : undefined}\n        {...rest}\n      >\n        {children}\n      </chakra.a>\n    )\n  }\n\n  return (\n    <chakra.a asChild ref={ref} data-active={active ? '' : undefined} {...rest}>\n      <Link>{children}</Link>\n    </chakra.a>\n  )\n})\n\nconst NavbarLink = withContext<HTMLAnchorElement, NavbarLinkProps>(\n  NavbarLinkPrimitive,\n  'link',\n  { forwardAsChild: true },\n)\n\nexport {\n  NavbarRoot as Root,\n  NavbarContent as Content,\n  NavbarBrand as Brand,\n  NavbarItemGroup as ItemGroup,\n  NavbarItem as Item,\n  NavbarLink as Link,\n}\n\nexport type { NavbarRootProps as RootProps, NavbarLinkProps as LinkProps }\n",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { useLink } from '@/registry/default/lib/use-link/use-link.tsx'\nimport type { HTMLChakraProps } from '@chakra-ui/react'\nimport type { SlotRecipeProps } from '@saas-ui/chakra-preset'\nimport { Navbar } from '@saas-ui/react/navbar'\n\nimport { withContext, withProvider } from './navbar.context.ts'\n\ninterface NavbarRootProps\n  extends\n    SlotRecipeProps<'suiNavbar'>,\n    HTMLChakraProps<'div', Navbar.RootProps> {}\n\nconst NavbarRoot = withProvider<HTMLDivElement, NavbarRootProps>(\n  Navbar.Root,\n  'root',\n)\n\nconst NavbarBrand = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  Navbar.Brand,\n  'brand',\n)\n\nconst NavbarContent = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  Navbar.Content,\n  'content',\n)\n\nconst NavbarItemGroup = withContext<HTMLUListElement, HTMLChakraProps<'ul'>>(\n  'ul',\n  'itemGroup',\n)\n\nconst NavbarItem = withContext<\n  HTMLLIElement,\n  HTMLChakraProps<'li', Navbar.ItemProps>\n>(Navbar.Item, 'item')\n\ninterface NavbarLinkProps extends HTMLChakraProps<'a', Navbar.LinkProps> {\n  active?: boolean\n}\n\nconst NavbarLink = withContext<HTMLAnchorElement, NavbarLinkProps>(\n  forwardRef<HTMLAnchorElement, NavbarLinkProps>(\n    function NavbarLink(props, ref) {\n      const { active, asChild, children, ...rest } = props\n      const Link = useLink()\n\n      if (asChild) {\n        return (\n          <Navbar.Link\n            ref={ref}\n            data-active={active ? '' : undefined}\n            {...rest}\n          >\n            {children}\n          </Navbar.Link>\n        )\n      }\n\n      return (\n        <Navbar.Link\n          asChild\n          ref={ref}\n          data-active={active ? '' : undefined}\n          {...rest}\n        >\n          <Link>{children}</Link>\n        </Navbar.Link>\n      )\n    },\n  ),\n  'link',\n  { forwardAsChild: true },\n)\n\nexport {\n  NavbarRoot as Root,\n  NavbarContent as Content,\n  NavbarBrand as Brand,\n  NavbarItemGroup as ItemGroup,\n  NavbarItem as Item,\n  NavbarLink as Link,\n}\n\nexport type { NavbarRootProps as RootProps, NavbarLinkProps as LinkProps }\n",
       "path": "ui/navbar/navbar.tsx",
       "type": "registry:ui"
     }
@@ -26,18 +27,21 @@
       "fileHashes": {
         "ui/navbar/index.ts": "c4584f79e2110f9fe3c3d769e6ce24bb0a421403f2e700be79306bb60a7b5793",
         "ui/navbar/navbar.context.ts": "5d115857a5d1cced0bcf9bb9a92c86885df6e197d326956775348beac4f16bf4",
-        "ui/navbar/navbar.tsx": "b5f8d0888a102b1d94e7c0c8163415712f990948084a1548b9fe97ef5da3029b"
+        "ui/navbar/navbar.tsx": "948f803637c206449c55d5ac624833494aacc63b5838152d95438e747ac37dd1"
       },
       "iconDependencies": [],
       "presetImports": [
+        "@saas-ui/chakra-preset",
         "@saas-ui/chakra-preset/slot-recipes/navbar"
       ],
       "presetRecipeBindings": [
         "navbar"
       ],
-      "recipeReferences": []
+      "recipeReferences": [
+        "suiNavbar"
+      ]
     },
-    "contentHash": "44a0cfd783bb60cbb5b23366c384052e6fb75992a70de48047e27e66f5fe9afe"
+    "contentHash": "06479830f0e8ab343fcc445824edf483450b92342307da28ebedcdae92baa768"
   },
   "name": "navbar",
   "registryDependencies": [
@@ -45,5 +49,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

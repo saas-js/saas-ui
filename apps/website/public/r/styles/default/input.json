@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "26632b1d485e72db783b62f8e31c5f80364286e3e7065f57b700f7b88453c5bc"
+    "contentHash": "baba00b52d3435372149023680d2bdbf2d67e34648976c15e6491d71a3fb328e"
   },
   "name": "input",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

@@ -26,7 +26,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "5b5cf4b4acf2c0faeb63cba3129aa02aed0c1a837f79497fee4bd011e45af9c7"
+    "contentHash": "a8df95bc8cb2a72f9709ef1248c08aa2dff8f97fa531d2b3fe9ba2be59702f0e"
   },
   "name": "file-upload",
   "registryDependencies": [
@@ -35,5 +35,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

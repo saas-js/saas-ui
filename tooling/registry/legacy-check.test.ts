@@ -77,26 +77,6 @@ describe('legacy package regression guard', () => {
         path: 'migrated/dynamic.ts',
         specifier: '@saas-ui/core',
       },
-      {
-        name: '@saas-ui/react',
-        path: 'migrated/package.json',
-        specifier: '@saas-ui/react',
-      },
-      {
-        name: '@saas-ui/react',
-        path: 'migrated/reference.ts',
-        specifier: '@saas-ui/react',
-      },
-      {
-        name: '@saas-ui/react',
-        path: 'migrated/static.ts',
-        specifier: '@saas-ui/react',
-      },
-      {
-        name: '@saas-ui/react',
-        path: 'migrated/type.ts',
-        specifier: '@saas-ui/react/sidebar',
-      },
     ])
   })
 
@@ -131,20 +111,19 @@ describe('legacy package regression guard', () => {
     expect(ordinary.references.map(({ path }) => path)).toEqual([
       'migrated/button.stories.tsx',
       'migrated/guide.mdx',
-      'migrated/input.test.ts',
     ])
   })
 
   it('requires precise, live allowlist entries', async () => {
     const root = await fixture()
-    await write(root, 'migrated/bridge.ts', `export * from '@saas-ui/react'`)
+    await write(root, 'migrated/bridge.ts', `export * from '@saas-ui/core'`)
     const options = {
       repositoryRoot: root,
       scopes: [{ name: 'fixture', root: 'migrated' }],
       allowlist: [
         {
           path: 'migrated/bridge.ts',
-          package: '@saas-ui/react' as const,
+          package: '@saas-ui/core' as const,
           reason: 'Time-bounded compatibility bridge.',
         },
       ],
@@ -247,7 +226,6 @@ describe('legacy package regression guard', () => {
     })
 
     expect(result.references.map(({ path }) => path)).toEqual([
-      'blocks/cards/card/card.tsx',
       'blocks/hooks/use-open.ts',
     ])
   })

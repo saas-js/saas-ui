@@ -83,10 +83,8 @@ function fixtures() {
       'README.md': migrationReadme,
       'dist/index.d.ts': 'export declare const Sidebar: unknown\n',
       'dist/index.js': 'export const Sidebar = {}\n',
-      'dist/preset.d.ts': 'export declare const preset: unknown\n',
-      'dist/preset.js': 'export const preset = {}\n',
       'package.json': json({
-        dependencies: { '@saas-ui/chakra-preset': presetVersion },
+        dependencies: { '@saas-ui/hooks': '3.0.0-next.4' },
         name: '@saas-ui/react',
         version: reactVersion,
       }),
@@ -110,7 +108,7 @@ describe('post-version packed release gate', () => {
           name: '@saas-ui/chakra-preset',
           version: '3.0.0-next.10',
         },
-        { files: 6, name: '@saas-ui/react', version: '3.0.0-next.56' },
+        { files: 4, name: '@saas-ui/react', version: '3.0.0-next.56' },
       ],
       publication: [],
       stage: 'packed-artifacts-ready-for-publication',
@@ -178,20 +176,19 @@ describe('post-version packed release gate', () => {
     )
   })
 
-  test('rejects a React tarball pinned to a different preset', () => {
+  test('rejects a React tarball without the hooks dependency', () => {
     const artifacts = fixtures()
     const react = artifacts.find((entry) => entry.name === '@saas-ui/react')!
     react.files.set(
       'package.json',
       json({
-        dependencies: { '@saas-ui/chakra-preset': '3.0.0-next.8' },
         name: react.name,
         version: react.version,
       }),
     )
 
     expect(() => verifyPackedReleaseArtifacts(artifacts, versions)).toThrow(
-      'packed dependency on @saas-ui/chakra-preset must equal 3.0.0-next.10',
+      'packed manifest must depend on @saas-ui/hooks',
     )
   })
 

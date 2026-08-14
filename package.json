@@ -34,9 +34,9 @@
     "changelog:gen": "tsx scripts/changelog-generate.ts",
     "changelog:write": "tsx scripts/changelog-write.ts",
     "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs: add changelog' && git push",
-    "changeset:next": "pnpm changeset pre enter next",
+    "changeset:rc": "pnpm changeset pre enter rc",
     "changeset:version": "changeset version",
-    "publish:next": "pnpm --filter '@saas-ui/*' publish --access public --tag next --publish-branch v3 --no-git-checks && pnpm changeset tag --no-git-checks",
+    "publish:rc": "pnpm --filter '@saas-ui/*' publish --access public --tag rc --publish-branch v3 --no-git-checks && pnpm changeset tag --no-git-checks",
     "publish": "pnpm --filter '@saas-ui/*' publish --no-git-checks && pnpm changeset tag --no-git-checks",
     "storybook": "pnpm --filter saas-ui-storybook dev",
     "build:storybook": "pnpm --filter saas-ui-storybook build",
@@ -96,7 +96,7 @@
     "build:props-docs": "pnpm typedocs && pnpm --filter @saas-ui/props-docs build",
     "typedocs": "tsx scripts/typedocs.ts",
     "preinstall": "rm -rf node_modules/odiff-bin",
-    "release": "pnpm run changeset:version && pnpm run build:packages && pnpm run build:tokens && pnpm run registry:retirement:packed-release && pnpm run publish:next"
+    "release": "pnpm run changeset:version && pnpm run build:packages && pnpm run build:tokens && pnpm run registry:retirement:packed-release && pnpm run publish:rc"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^3.30.0",

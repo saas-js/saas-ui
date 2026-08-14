@@ -1,6 +1,5 @@
 import { HTMLSuiProps } from '../types'
-import type { SidebarOptions } from './sidebar.options'
 
-export type { SidebarMode, SidebarOptions } from './sidebar.options'
+export type { SidebarMode, SidebarOptions } from '@saas-ui/react/sidebar'
 
-export interface SidebarProps extends SidebarOptions, HTMLSuiProps<'div'> {}
+export interface SidebarProps extends HTMLSuiProps<'div'> {}

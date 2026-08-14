@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "ChevronRightIcon",
-    "contentHash": "a960e78409e2219be6daa58d179f95532a2d161bd078e425f2bf4ff486abf845",
+    "contentHash": "a35a753db141c2d12289f1ded13c7e060c9285f8b8bb00e9bb9903f13bd22fa8",
     "iconName": "ChevronRight",
     "iconSet": "lucide"
   },
   "name": "chevron-right-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

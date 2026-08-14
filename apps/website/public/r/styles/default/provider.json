@@ -28,7 +28,7 @@
     "conflicts": [
       "provider-no-color-mode"
     ],
-    "contentHash": "7bdddc92c9448f030496d5020190176f721fe96547d19aa02eadc3c3cc91e3fd",
+    "contentHash": "b29d0e1d514acced8b23e4a12f15740183ed6f1b823dd9cde1cf829a0614c479",
     "exclusiveDefault": true,
     "exclusiveGroup": "provider"
   },
@@ -39,5 +39,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:setup",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

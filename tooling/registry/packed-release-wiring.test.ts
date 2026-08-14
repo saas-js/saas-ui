@@ -48,7 +48,7 @@ describe('packed release wiring', () => {
     const version = release.indexOf('changeset:version')
     const build = release.indexOf('build:packages')
     const packed = release.indexOf('registry:retirement:packed-release')
-    const publish = release.indexOf('publish:next')
+    const publish = release.indexOf('publish:rc')
 
     expect(version).toBeGreaterThanOrEqual(0)
     expect(build).toBeGreaterThan(version)

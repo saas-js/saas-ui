@@ -4,7 +4,7 @@
 
 Saas UI is a React component library and design system for SaaS applications.
 It's built on top of Chakra UI v3 and Ark UI, providing unstyled primitives
-(`@saas-ui/core`) and styled components (`@saas-ui/react`).
+(`@saas-ui/react`) and styled compositions installed from the registry.
 
 **Repository**: https://github.com/saas-js/saas-ui
 **Main branch**: `v3`
@@ -19,8 +19,7 @@ apps/
   compositions/      # Composition showcase
   palette/           # Palette documentation
 packages/
-  saas-ui-core/      # Unstyled primitives (GridList, Navbar, Sidebar, Steps, ErrorBoundary)
-  saas-ui-react/     # Styled Chakra UI components (30+ components)
+  saas-ui-react/     # Unstyled primitives (GridList, Navbar, Sidebar, Steps, ErrorBoundary)
   saas-ui-forms/     # React Hook Form + Zod integration
   saas-ui-hooks/     # React hooks library
   saas-ui-modals/    # Modal manager
@@ -29,7 +28,6 @@ packages/
   saas-ui-panda-preset/  # Panda CSS preset (experimental)
   saas-ui-tailwind-preset/ # Tailwind CSS preset
   saas-ui-cli/       # CLI tool for scaffolding
-  saas-ui-use-hotkeys/ # Hotkeys hook
   saas-ui-assets/    # Design assets and icons
   storybook/         # Storybook documentation site
   pro/               # Pro/premium packages (private)
@@ -63,7 +61,7 @@ pnpm lint                       # Run ESLint across repo (via Turbo)
 # Releasing
 pnpm changeset                  # Create a changeset entry
 pnpm changeset:version          # Update package versions
-pnpm publish:next               # Publish pre-release to npm
+pnpm publish:rc                 # Publish release candidate to npm
 ```
 
 ## Code Style & Conventions
@@ -115,12 +113,12 @@ Categories: `feat`, `fix`, `refactor`, `docs`, `build`, `test`, `ci`, `chore`
 
 ### Component Layering
 
-1. **`@saas-ui/core`** — Unstyled, headless primitives built on Ark UI
-2. **`@saas-ui/react`** — Styled components built on core + Chakra UI v3
+1. **`@saas-ui/react`** — Unstyled, headless primitives built on Ark UI
+2. **Registry templates** — Styled Chakra compositions that wrap those primitives
 3. **Presets** — Design tokens for Chakra (`chakra-preset`), Tailwind
    (`tailwind-preset`), or Panda CSS (`panda-preset`)
 
-This separation allows using core primitives with different styling systems.
+This separation allows using primitives with different styling systems.
 
 ### Build System
 

@@ -16,7 +16,6 @@ const CHANGESET_PATH = '.changeset/registry-template-transition.md'
 const REQUIRED_CHANGESET_BUMPS = new Map([
   ['@saas-ui/chakra-preset', 'minor'],
   ['@saas-ui/cli', 'minor'],
-  [REACT_PACKAGE, 'patch'],
 ] as const)
 const VERSIONED_TRANSITION_MINIMUMS = new Map<
   string,
@@ -24,12 +23,10 @@ const VERSIONED_TRANSITION_MINIMUMS = new Map<
 >([
   ['@saas-ui/cli', { minimum: 2, prefix: '0.1.0-next.' }],
   ['@saas-ui/chakra-preset', { minimum: 10, prefix: '3.0.0-next.' }],
-  [REACT_PACKAGE, { minimum: 56, prefix: '3.0.0-next.' }],
 ] as const)
 const REQUIRED_MIGRATION_READMES = [
   'packages/saas-ui-chakra-preset/README.md',
   'packages/saas-ui-cli/README.md',
-  'packages/saas-ui-core/README.md',
   'packages/saas-ui-react/README.md',
   'packages/saas-ui-tailwind-preset/README.md',
 ] as const
@@ -342,10 +339,6 @@ export async function runRetirementPreflight(
         manifest: 'packages/saas-ui-chakra-preset/package.json',
         name: '@saas-ui/chakra-preset',
       },
-      {
-        manifest: 'packages/saas-ui-react/package.json',
-        name: REACT_PACKAGE,
-      },
     ]) {
       const manifest = await readManifest(root, spec.manifest)
       const expected = VERSIONED_TRANSITION_MINIMUMS.get(spec.name)!
@@ -376,9 +369,9 @@ export async function runRetirementPreflight(
       mode?: string
       tag?: string
     }
-    if (pre.mode !== 'pre' || pre.tag !== 'next') {
+    if (pre.mode !== 'pre' || pre.tag !== 'rc') {
       throw new Error(
-        `.changeset/pre.json must be in next prerelease mode; found ${String(pre.mode)}/${String(pre.tag)}`,
+        `.changeset/pre.json must be in rc prerelease mode; found ${String(pre.mode)}/${String(pre.tag)}`,
       )
     }
   })
@@ -395,10 +388,6 @@ export async function runRetirementPreflight(
           manifest: 'packages/saas-ui-chakra-preset/package.json',
           name: '@saas-ui/chakra-preset',
         },
-        {
-          manifest: 'packages/saas-ui-react/package.json',
-          name: REACT_PACKAGE,
-        },
       ]) {
         const manifest = await readManifest(root, spec.manifest)
         releaseVersions[spec.name] = manifest.version!
@@ -408,8 +397,8 @@ export async function runRetirementPreflight(
     const status = await (options.releasePlan ?? computeChangesetReleasePlan)(
       root,
     )
-    if (status.preState?.mode !== 'pre' || status.preState.tag !== 'next') {
-      throw new Error('computed Changesets plan is not on the next channel')
+    if (status.preState?.mode !== 'pre' || status.preState.tag !== 'rc') {
+      throw new Error('computed Changesets plan is not on the rc channel')
     }
     const releases = new Map(
       (status.releases ?? []).map((release) => [release.name, release]),
@@ -492,24 +481,20 @@ export async function runRetirementPreflight(
     await verifyBuiltCliProductionContract(root)
   })
 
-  await check('legacy compatibility package retained', async () => {
+  await check('primitives package retained', async () => {
     const relative = 'packages/saas-ui-react/package.json'
     const manifest = await readManifest(root, relative)
     if (manifest.name !== REACT_PACKAGE || !manifest.version) {
       throw new Error(
-        `${relative} must retain a versioned ${REACT_PACKAGE} compatibility package`,
+        `${relative} must retain a versioned ${REACT_PACKAGE} primitives package`,
       )
     }
     const readme = normalizedProse(
       await readRequired(root, 'packages/saas-ui-react/README.md'),
     )
-    if (
-      !readme.includes(
-        'Package lifecycle status is determined by published npm metadata',
-      )
-    ) {
+    if (!readme.includes('Unstyled React primitives')) {
       throw new Error(
-        'packages/saas-ui-react/README.md must describe npm lifecycle status using published metadata',
+        'packages/saas-ui-react/README.md must describe the unstyled primitives package',
       )
     }
   })

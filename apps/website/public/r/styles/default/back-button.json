@@ -28,7 +28,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "a7d8f6b578953777c9d5b938cb16b4da53dc741a303717d65aea225c533e8cfd"
+    "contentHash": "a0d368acb75c4bc84eb40dfec6dfa458725b92f7a1b8ff44bdf5790c606522b6"
   },
   "name": "back-button",
   "registryDependencies": [
@@ -36,5 +36,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

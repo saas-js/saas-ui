@@ -15,9 +15,9 @@ Run these commands from the repository root:
   source files. It never watches generated output.
 - `pnpm registry:check` validates the graph and compares two independent clean
   generations byte for byte. It does not require generated artifacts to exist.
-- `pnpm registry:legacy-check` rejects exact `@saas-ui/react` and
-  `@saas-ui/core` references in explicitly migrated runtime, config, and
-  manifest scopes, including the migrated website and compositions apps.
+- `pnpm registry:legacy-check` rejects `@saas-ui/core` references in explicitly
+  migrated runtime, config, and manifest scopes, including the migrated website
+  and compositions apps. `@saas-ui/react` primitives are allowed.
 - `pnpm registry:typecheck` checks the provider, Sidebar, and cross-template
   TypeScript contracts that are not part of a package tsconfig.
 - `pnpm registry:test` runs the shared compiler and automation tests.

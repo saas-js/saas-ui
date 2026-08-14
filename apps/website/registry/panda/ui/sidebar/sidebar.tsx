@@ -1,16 +1,15 @@
 import { sidebar, sidebarItem } from '@saas-ui/panda-preset/recipes'
+import { Sidebar } from '@saas-ui/react/sidebar'
 
-import * as Sidebar from './sidebar.primitive'
 import { createStyleContext } from '../context'
 import { HTMLSuiProps } from '../types'
-import type { SidebarProviderProps } from './sidebar.context'
 
 const { withContext, withProvider } = createStyleContext(sidebar)
 
 export const SidebarContext = Sidebar.Context
 
 export const SidebarProvider = withProvider(function SidebarProvider(
-  props: SidebarProviderProps,
+  props: Sidebar.ProviderProps,
 ) {
   const { children, ...ctx } = props
 
@@ -48,10 +47,10 @@ export const SidebarFlyoutTrigger = withContext<
 
 export interface SidebarBackdropProps extends HTMLSuiProps<'div'> {}
 
-export const SidebarBackdrop = withContext<
-  HTMLDivElement,
-  SidebarBackdropProps
->(Sidebar.Backdrop, 'backdrop')
+export const SidebarBackdrop = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
+  Sidebar.Backdrop,
+  'backdrop',
+)
 
 export const SidebarHeader = withContext<HTMLDivElement, HTMLSuiProps<'div'>>(
   Sidebar.Header,

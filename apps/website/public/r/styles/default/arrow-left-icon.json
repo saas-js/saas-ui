@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "ArrowLeftIcon",
-    "contentHash": "aa92039b673db2c2635ae15ecbc342f194a2fb883b1596eb9c3928b19f6a0cd1",
+    "contentHash": "9e0f68e6958a414c94fdb32e0169c480a739ac282d9f4d35e447d028d6fe496f",
     "iconName": "ArrowLeft",
     "iconSet": "lucide"
   },
   "name": "arrow-left-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

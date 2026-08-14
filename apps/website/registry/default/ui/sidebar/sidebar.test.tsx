@@ -27,6 +27,10 @@ function mediaQueryList(matches: boolean, media: string): MediaQueryList {
 }
 
 function mockViewport(desktop: boolean) {
+  Object.defineProperty(window, 'innerWidth', {
+    configurable: true,
+    value: desktop ? 1024 : 500,
+  })
   vi.spyOn(window, 'matchMedia').mockImplementation((query) =>
     mediaQueryList(!desktop && query === '(max-width: 767px)', query),
   )

@@ -40,10 +40,10 @@
         "suiSection"
       ]
     },
-    "contentHash": "fa0104122d332f5a1d534cd2d12228e0ec6ff8798ebc1f45cf281b9c87caadf2"
+    "contentHash": "71d78a01fa350962ebb2242e16ceb45284fd69a7f2ac9d628cb8224397804bd9"
   },
   "name": "section",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

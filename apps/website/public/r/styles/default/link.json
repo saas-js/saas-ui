@@ -26,7 +26,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "dde6ee190306a93e6cc7091941c8b56a994b0c27561704fe535249cf8094dc1b"
+    "contentHash": "a2e40f0822261b98518be915e7429cb81d03e5be43a82fb68008cf74ae7f729e"
   },
   "name": "link",
   "registryDependencies": [
@@ -34,5 +34,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

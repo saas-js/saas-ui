@@ -1,5 +1,4 @@
 ---
-'@saas-ui/use-hotkeys': minor
 '@saas-ui/assets': minor
 '@saas-ui/storybook-addon': minor
 '@saas-ui/hooks': minor

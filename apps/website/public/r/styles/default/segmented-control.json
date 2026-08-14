@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "cfb0e2563ac1ef662ecba323f4a9a57c254c1bddee7ebde3016c5a6547dee273"
+    "contentHash": "29717395ad26075abfa186692e91431e908a72e80443b69eddf663e790b132ff"
   },
   "name": "segmented-control",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

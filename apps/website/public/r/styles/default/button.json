@@ -31,10 +31,10 @@
       ],
       "recipeReferences": []
     },
-    "contentHash": "c063e5534ee4d1a7b4b67b8e6ca211f034d3033e4aade995c01016f67aa1e17d"
+    "contentHash": "5158479ee7cf8668b49ade256581c51cd6bb9bb77e1134a8d0c9814a50dafeaa"
   },
   "name": "button",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

@@ -61,6 +61,9 @@ describe('supported package compatibility', () => {
     expect(supportedPackageDeclaration('@saas-ui/chakra-preset')).toBe(
       `@saas-ui/chakra-preset@${SUPPORTED_PRESET_VERSION}`,
     )
+    expect(supportedPackageDeclaration('@saas-ui/react')).toMatch(
+      /^@saas-ui\/react@3\.0\.0-next\.\d+$/,
+    )
     expect(supportedPackageDeclaration('next-themes')).toBe(
       'next-themes@^0.4.6',
     )

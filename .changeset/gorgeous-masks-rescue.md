@@ -1,5 +1,4 @@
 ---
-'@saas-ui/use-hotkeys': major
 '@saas-ui/assets': major
 '@saas-ui/storybook-addon': major
 '@saas-ui/hooks': major

@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 
 import { version as presetVersion } from '../../../saas-ui-chakra-preset/package.json'
+import { version as reactVersion } from '../../../saas-ui-react/package.json'
 
 /**
  * The preset is bundled into the CLI compatibility policy at build time. This
@@ -40,16 +41,26 @@ export const SUPPORTED_PACKAGE_POLICIES = {
   },
   '@saas-ui/chakra-preset': {
     package: '@saas-ui/chakra-preset',
-    // The v3 workspace currently publishes on `next`. Pinning the concrete
-    // release makes clean installs resolvable without depending on a moving
-    // dist-tag. When v3 becomes stable, only this canonical specifier needs to
-    // move to ^3.0.0; supported stable v3 declarations already validate.
+    // Pin the concrete workspace version so clean installs do not depend on a
+    // moving dist-tag. When v3 becomes stable, only this canonical specifier
+    // needs to move to ^3.0.0; supported stable v3 declarations already
+    // validate.
     specifier: SUPPORTED_PRESET_VERSION,
     major: 3,
     minimum: [3, 0, 0],
     prerelease: {
       channel: 'next',
       minimum: SUPPORTED_PRESET_VERSION,
+    },
+  },
+  '@saas-ui/react': {
+    package: '@saas-ui/react',
+    specifier: reactVersion,
+    major: 3,
+    minimum: [3, 0, 0],
+    prerelease: {
+      channel: 'next',
+      minimum: reactVersion,
     },
   },
   'next-themes': {

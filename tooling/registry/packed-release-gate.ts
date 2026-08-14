@@ -59,8 +59,6 @@ const PACKAGE_SPECS = [
       'package.json',
       'dist/index.d.ts',
       'dist/index.js',
-      'dist/preset.d.ts',
-      'dist/preset.js',
     ],
   },
 ] as const
@@ -365,13 +363,9 @@ export function verifyPackedReleaseArtifacts(
     react.files.get('package.json')!,
     '@saas-ui/react packed package.json',
   )
-  if (
-    reactManifest.dependencies?.['@saas-ui/chakra-preset'] !== presetVersion
-  ) {
+  if (!reactManifest.dependencies?.['@saas-ui/hooks']) {
     throw new Error(
-      `@saas-ui/react packed dependency on @saas-ui/chakra-preset must equal ${presetVersion}; found ${String(
-        reactManifest.dependencies?.['@saas-ui/chakra-preset'],
-      )}`,
+      '@saas-ui/react packed manifest must depend on @saas-ui/hooks',
     )
   }
   verifyPackedCli(byName.get('@saas-ui/cli')!, presetVersion)

@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "471d0d29b1cf84e693c992a9b1394ad3300e7f8a23526429aa09cd3f26ea4354"
+    "contentHash": "7f9367bcac2b5225a42f5e472a6f003b06ce12af8e84b19ece4812e848d0846a"
   },
   "name": "spinner",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

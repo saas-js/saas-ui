@@ -3,9 +3,5 @@
   "compilerOptions": {
     "incremental": false
   },
-  "include": [
-    "sidebar.context.tsx",
-    "sidebar.primitive.tsx",
-    "sidebar.options.ts"
-  ]
+  "include": ["sidebar.tsx", "sidebar.types.ts"]
 }

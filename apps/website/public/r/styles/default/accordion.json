@@ -28,7 +28,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "ad2323d931b581a7394221b916abc2dae2962daa589a6431f688465a604e640b"
+    "contentHash": "3e9ca4be50e3c27f80a65686bcf45ee76e0081f1f02636b3ffd50a5ffbc47df2"
   },
   "name": "accordion",
   "registryDependencies": [
@@ -36,5 +36,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-next.9"
+  "version": "3.0.0-next.11"
 }

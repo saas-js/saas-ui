@@ -1,14 +1,16 @@
-'use client';
+'use client'
+
 import { ReactNode, useState } from 'react'
 
 import { Combobox, createListCollection } from '@ark-ui/react'
 import { Center, HStack, Icon, Input, Text } from '@chakra-ui/react'
 import { chakra } from '@chakra-ui/react/styled-system'
-import { Dialog } from '#components/ui/dialog'
-import { useHotkeys } from '@saas-ui/use-hotkeys'
+import { useHotkey } from '@tanstack/react-hotkeys'
 import { useDocsSearch } from 'fumadocs-core/search/client'
 import { useRouter } from 'next/navigation'
 import { TbFile, TbHash } from 'react-icons/tb'
+
+import { Dialog } from '#components/ui/dialog'
 
 const ComboboxRoot = chakra(Combobox.Root, {
   base: {
@@ -67,9 +69,9 @@ export const CommandMenu = (props: Props) => {
 
   const router = useRouter()
 
-  useHotkeys(['cmd+k', 'ctrl+k'], () => !props.disableHotkey && setOpen(true), [
-    props.disableHotkey,
-  ])
+  useHotkey('Mod+K', () => setOpen(true), {
+    enabled: !props.disableHotkey,
+  })
 
   const collection = createListCollection({
     items: Array.isArray(query.data) ? query.data.slice(0, 20) : [],

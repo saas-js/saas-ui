@@ -161,11 +161,13 @@ saas-ui update --all
 
 ## Migrate from `@saas-ui/react`
 
-Read the repository's authoritative
+Read the
+[Migrating from next to rc](https://saas-ui.dev/docs/getting-started/migrating-from-next)
+guide before applying a write migration. It covers provider and color-mode
+changes, component ownership, Pro blocks, manual cases, and verification. The
+repository
 [`@saas-ui/react` migration guide](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md)
-before applying a write migration. It covers provider and color-mode changes,
-component ownership, Pro blocks, manual cases, verification, and the staged
-package-retirement policy.
+is the detailed source for the same path.
 
 The migration scans the project by default, or only the supplied files,
 directories, and globs:
@@ -217,10 +219,12 @@ not fall back to the network when a generated artifact is missing.
 
 ## Documentation
 
-Visit <https://beta.saas-ui.dev/docs/cli> for the full documentation.
+Visit <https://saas-ui.dev/docs/getting-started/cli> for the full documentation.
 
 For the distribution-model transition, see
-[Migrating from `@saas-ui/react`](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md).
+[Migrating from next to rc](https://saas-ui.dev/docs/getting-started/migrating-from-next)
+and the repository
+[`@saas-ui/react` migration guide](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md).
 
 ## Acknowledgements
 

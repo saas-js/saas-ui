@@ -11,7 +11,8 @@ const docsLinks: NavItem = {
           items: [
             { title: 'Introduction', url: 'introduction' },
             { title: 'Installation', url: 'installation' },
-            { title: 'Migration', url: 'migration' },
+            { title: 'From next to rc', url: 'migrating-from-next' },
+            { title: 'Migration to v3', url: 'migration' },
             { title: 'CLI', url: 'cli' },
             { title: 'Contributing', url: 'contributing' },
           ],

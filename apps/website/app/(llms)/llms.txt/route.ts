@@ -30,7 +30,8 @@ export const GET = async () => {
     {
       title: 'Migrating to v3',
       href: `${baseUrl}/llms-v3-migration.txt`,
-      description: 'Documentation for migrating to Saas UI v3.',
+      description:
+        'Guides for migrating from Chakra v2 / Saas UI v2, and from @saas-ui/react@next to rc.',
     },
   ]
 

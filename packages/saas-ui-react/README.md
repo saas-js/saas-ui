@@ -16,7 +16,8 @@ import { GridList } from '@saas-ui/react/grid-list'
 The package also exports `ErrorBoundary`, stepper hooks, and shared utilities.
 
 Existing projects that used the previous Chakra re-export bundle should follow
-the [migration guide](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md).
+the [docs](https://saas-ui.dev/docs/getting-started/migrating-from-next) or the
+[migration guide](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md).
 
 ## License
 

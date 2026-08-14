@@ -4,6 +4,7 @@ import { forwardRef } from 'react'
 
 import type { HTMLChakraProps } from '@chakra-ui/react'
 import type { SlotRecipeProps } from '@saas-ui/chakra-preset'
+import type { NavbarVariantProps } from '@saas-ui/chakra-preset/slot-recipes/navbar'
 import { Navbar } from '@saas-ui/react/navbar'
 import { useLink } from 'compositions/lib/use-link/use-link'
 
@@ -11,7 +12,7 @@ import { withContext, withProvider } from './navbar.context'
 
 interface NavbarRootProps
   extends
-    SlotRecipeProps<'suiNavbar'>,
+    SlotRecipeProps<'suiNavbar', NavbarVariantProps>,
     HTMLChakraProps<'div', Navbar.RootProps> {}
 
 const NavbarRoot = withProvider<HTMLDivElement, NavbarRootProps>(

@@ -26,6 +26,12 @@ jobs:
       - name: Install Dependencies
         run: pnpm i --ignore-scripts
 
+      - name: Build packages
+        run: pnpm build:packages
+
+      - name: Build tokens
+        run: pnpm build:tokens
+
       - name: Generate and validate release registry artifacts
         run: pnpm registry:release
 

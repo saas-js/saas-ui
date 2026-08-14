@@ -48,7 +48,7 @@ export const DemoSection = () => {
   )
 }
 
-function ErrorFallback(props: { error: Error }) {
+function ErrorFallback(props: { error: unknown }) {
   console.error(props.error)
   return <div>Error</div>
 }

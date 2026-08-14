@@ -33,7 +33,15 @@
       ]
     },
     "@saas-ui/cli#build": {
-      "outputs": ["lib/**"]
+      "dependsOn": ["^build"],
+      "outputs": ["lib/**"],
+      "env": [
+        "SUPABASE_URL",
+        "SUPABASE_ANON_KEY",
+        "AUTH_ORIGIN",
+        "REGISTRY_URL",
+        "SCHEMA_URL"
+      ]
     },
     "test": {
       "dependsOn": ["^build"],

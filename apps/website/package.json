@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "test:content": "node scripts/validate-content.mjs",
     "types:ark": "pnpm tsx scripts/types/ark.ts",
     "types:recipe": "pnpm tsx scripts/types/recipe.ts",

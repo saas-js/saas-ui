@@ -47,6 +47,11 @@
   "exclude": [
     "**/node_modules",
     "registry/panda/**",
+    ".next/types/validator.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
     "registry/**/*.stories.ts",
     "registry/**/*.stories.tsx",
     "registry/**/*.spec.ts",

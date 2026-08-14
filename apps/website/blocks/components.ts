@@ -24,8 +24,10 @@ function storybookSegment(value: string) {
 }
 
 function sourcePath(item: RegistryIndexItem | RegistryItem) {
-  const file = item.files?.find((value) => typeof value !== 'string')
-  return file && typeof file.path === 'string' ? file.path : undefined
+  for (const value of item.files ?? []) {
+    if (typeof value !== 'string') return value.path
+  }
+  return undefined
 }
 
 function blockCategory(item: RegistryIndexItem | RegistryItem) {

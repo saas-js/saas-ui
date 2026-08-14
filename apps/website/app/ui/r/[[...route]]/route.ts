@@ -1,6 +1,6 @@
 import { handle } from 'hono/vercel'
 
-import { createRegistryApp } from '../registry-app'
+import { createRegistryApp } from '@/app/r/registry-app'
 
 const app = createRegistryApp()
 

@@ -116,10 +116,11 @@ Procedure
    from `@chakra-ui/react`; BackButton `href` → asChild + Link.
    Drop or ask about props that are gone. Do not invent replacements.
 9. Pro: `npx @saas-ui/cli@rc login` then `add` only items that exist in
-   the registry. If `add` 404s or 500s (DataGrid, Filters, Aside,
-   SplitPage, Resizer, Toolbar are not public registry items), keep the
-   existing `@saas-ui-pro/react` import and record it. Do not invent
-   replacements or `file:` Pro links unless the user asks.
+   the registry. Aside, SplitPage, and Page are public registry items
+   (`npx @saas-ui/cli@rc add aside split-page page`). If `add` 404s or
+   500s (DataGrid, Filters, Resizer, Toolbar are not public registry
+   items), keep the existing `@saas-ui-pro/react` import and record it.
+   Do not invent replacements or `file:` Pro links unless the user asks.
 10. Keep `MIGRATION-NOTES.md` up to date. Include:
    - `manual` diagnostics and how each was resolved
    - CLI failures, typegen failures, rollbacks, `--overwrite` decisions

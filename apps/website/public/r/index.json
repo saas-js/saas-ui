@@ -177,6 +177,53 @@
   },
   {
     "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset",
+      "@saas-ui/hooks"
+    ],
+    "files": [
+      {
+        "path": "ui/aside/aside.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/aside/aside.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/aside/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/aside/aside.context.ts": "697ec8a11b406d4b91831b6d9515a2a4d0b7189566387088fce2aa4ecd4337f1",
+          "ui/aside/aside.tsx": "4b60fad4f97f5e3ebd116fc4a7d6ff8622854ed67cce5d5b1c6e41976a114ed5",
+          "ui/aside/index.ts": "dc44c96ebbc7acdd73a789efbed3a3bb8df5ce4433ed95c0432e9aced4afaed7"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/aside"
+        ],
+        "presetRecipeBindings": [
+          "aside"
+        ],
+        "recipeReferences": [
+          "suiAside"
+        ]
+      },
+      "contentHash": "d1eab13ccc4ca893e84111245469ca7b4c3633dc4e8c7aa395a33fde74847e88"
+    },
+    "name": "aside",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "dependencies": [
       "@chakra-ui/react"
     ],
     "files": [
@@ -1777,7 +1824,7 @@
         "fileHashes": {
           "ui/navbar/index.ts": "c4584f79e2110f9fe3c3d769e6ce24bb0a421403f2e700be79306bb60a7b5793",
           "ui/navbar/navbar.context.ts": "5d115857a5d1cced0bcf9bb9a92c86885df6e197d326956775348beac4f16bf4",
-          "ui/navbar/navbar.tsx": "948f803637c206449c55d5ac624833494aacc63b5838152d95438e747ac37dd1"
+          "ui/navbar/navbar.tsx": "f540d8ef9d66cae402e7d377857d8d1d4c42b1e3c92b068936386a4291e53125"
         },
         "iconDependencies": [],
         "presetImports": [
@@ -1791,7 +1838,7 @@
           "suiNavbar"
         ]
       },
-      "contentHash": "9c2629dfc587cbea43ff8126d37f384ec845080254acec79691b96b72f940bfe"
+      "contentHash": "53f28e478d8724a03871d2f1e36d3a0574296a33ad67f426777f41e15203ef4b"
     },
     "name": "navbar",
     "registryDependencies": [
@@ -2633,6 +2680,53 @@
       "contentHash": "96e8b9a281bd6c6f62090c02187136fafc1ff93d13e7e816774eea973edd1933"
     },
     "name": "spinner",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset",
+      "@saas-ui/hooks"
+    ],
+    "files": [
+      {
+        "path": "ui/split-page/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/split-page/split-page.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/split-page/split-page.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/split-page/index.ts": "c776b99a0bc1411a75845b45b1f6b515f3c2278966f16a6980d0d6da1885d9ba",
+          "ui/split-page/split-page.context.ts": "408617b8e648679cd2dbf1c733bc9e03e9f914df103b22cda5ebf4cf2a9a081e",
+          "ui/split-page/split-page.tsx": "bd00ba021c89f2027917a8a2b07375a532ac1a48cdf703c70e71db812e4060e9"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/split-page"
+        ],
+        "presetRecipeBindings": [
+          "splitPage"
+        ],
+        "recipeReferences": [
+          "suiSplitPage"
+        ]
+      },
+      "contentHash": "3884e07ac8fd6e34f78ddf9d33b673e678f04fba21741db6b274431311c4c163"
+    },
+    "name": "split-page",
     "schemaVersion": 1,
     "type": "registry:ui",
     "version": "3.0.0-rc.0"

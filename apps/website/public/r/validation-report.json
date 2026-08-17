@@ -5,6 +5,7 @@
     "alert": "dfca3719003122b15f233748a63abc09fab12613ccffa0eaad0259576a199a20",
     "app-shell": "b4f941ca4fea45180586609faa12a9393433928157c1aee5cb832fc82c6899fc",
     "arrow-left-icon": "2466dfcfdbf89bef0899c4344057cb7cd4a8988c9004bc053c2177cdbbd21393",
+    "aside": "d1eab13ccc4ca893e84111245469ca7b4c3633dc4e8c7aa395a33fde74847e88",
     "avatar": "f344267e5426bc0454bd760cbfad46827ee4bd9123e4c7200d43197017af8ea0",
     "back-button": "d490d72610e2b7c5d93f7c7c67f85a1babafebf6b5dee4311a8c26ef96c82a13",
     "blockquote": "1f49eaf5ba90452fed1492ab23ada35ab7c7e9e09e0513bd6fb0c0a3aab00975",
@@ -49,7 +50,7 @@
     "minus-icon": "10aa6ddd272ea0e12eb13ef5b22587b43d84b162da423b544b50e8703c8bbfcf",
     "modals": "4c47b985e62e3dd1d1a26ce396b432488abcc7ca3e970c735379f3cb0a269c7f",
     "native-select": "4ccf9d4143633176bb41c2acb3940eacd39f0d979e265ebfc90c4739030e7966",
-    "navbar": "9c2629dfc587cbea43ff8126d37f384ec845080254acec79691b96b72f940bfe",
+    "navbar": "53f28e478d8724a03871d2f1e36d3a0574296a33ad67f426777f41e15203ef4b",
     "number-input": "6f358e0f06918a4427a198fdae87d70add0c41cad7c99141920c5eea9e91f25e",
     "page": "edfe9a98d8e9d10b995860d1a3feb83369ce00113e55bd2ed2c94dd483b52051",
     "pagination": "9a86c2bf874e7301785dbb02ca916cabe58c644fe240fb51fa8c5b03132364dd",
@@ -72,6 +73,7 @@
     "skeleton": "edd4cf20956e36d84ac1888d273623f96dce13bd9cd9e910efb31e9132ec8d5e",
     "slider": "8d2810c2fdfe5324a4f873899e3c622d48ede64f62b4151bff2444a13e0dd85b",
     "spinner": "96e8b9a281bd6c6f62090c02187136fafc1ff93d13e7e816774eea973edd1933",
+    "split-page": "3884e07ac8fd6e34f78ddf9d33b673e678f04fba21741db6b274431311c4c163",
     "stat": "c8d6ce872c395e52ca6a7f7c92f754ed9fd0b27e280a28e491b52fdba919ed2b",
     "status": "ece748a53267e6910368f6aaddbdc413709e7aa8804933849c3fb85185cd8925",
     "steps": "85101914ea3666d53452c331cb0b064435906dc642062c6fd2e50ed015081431",
@@ -112,6 +114,13 @@
       "file": "ui/app-shell/app-shell.tsx",
       "item": "app-shell",
       "message": "Preview candidate \"ui/app-shell/app-shell.tsx\" does not have a statically proven renderable default export; its lazy component was omitted",
+      "severity": "info"
+    },
+    {
+      "code": "preview-default-export-not-renderable",
+      "file": "ui/aside/aside.tsx",
+      "item": "aside",
+      "message": "Preview candidate \"ui/aside/aside.tsx\" does not have a statically proven renderable default export; its lazy component was omitted",
       "severity": "info"
     },
     {
@@ -403,6 +412,13 @@
     },
     {
       "code": "preview-default-export-not-renderable",
+      "file": "ui/split-page/split-page.tsx",
+      "item": "split-page",
+      "message": "Preview candidate \"ui/split-page/split-page.tsx\" does not have a statically proven renderable default export; its lazy component was omitted",
+      "severity": "info"
+    },
+    {
+      "code": "preview-default-export-not-renderable",
       "file": "ui/stat/stat.tsx",
       "item": "stat",
       "message": "Preview candidate \"ui/stat/stat.tsx\" does not have a statically proven renderable default export; its lazy component was omitted",
@@ -466,8 +482,8 @@
     }
   ],
   "errors": 0,
-  "infos": 54,
-  "items": 84,
+  "infos": 56,
+  "items": 86,
   "schemaVersion": 1,
   "valid": true,
   "warnings": 0

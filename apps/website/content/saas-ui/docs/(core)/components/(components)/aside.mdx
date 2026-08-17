@@ -1,0 +1,39 @@
+---
+title: Aside
+description: A sliding side panel for secondary content.
+links:
+  source: components/aside
+  storybook: components-aside--basic
+  recipe: aside
+---
+
+<ExampleTabs name="aside-basic" />
+
+## Anatomy
+
+```ts
+import { Aside } from '#components/ui/aside'
+```
+
+```tsx
+<Aside.Root>
+  <Aside.Header>
+    <Aside.Title>Details</Aside.Title>
+  </Aside.Header>
+  <Aside.Body />
+</Aside.Root>
+```
+
+## Examples
+
+### Controlled
+
+Control open state with `open` and `onOpenChange`.
+
+<ExampleTabs name="aside-controlled" />
+
+## Props
+
+### Root
+
+<PropTable component="Aside" part="Root" />

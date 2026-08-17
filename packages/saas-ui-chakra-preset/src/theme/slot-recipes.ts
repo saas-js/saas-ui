@@ -2,6 +2,7 @@ import { accordionSlotRecipe } from './slot-recipes/accordion.recipe.ts'
 import { actionBarSlotRecipe } from './slot-recipes/action-bar.recipe.ts'
 import { alertSlotRecipe } from './slot-recipes/alert.recipe.ts'
 import { appShellSlotRecipe } from './slot-recipes/app-shell.recipe.ts'
+import { asideSlotRecipe } from './slot-recipes/aside.recipe.ts'
 import { avatarSlotRecipe } from './slot-recipes/avatar.recipe.ts'
 import { blockquoteSlotRecipe } from './slot-recipes/blockquote.recipe.ts'
 import { breadcrumbSlotRecipe } from './slot-recipes/breadcrumb.recipe.ts'
@@ -41,6 +42,7 @@ import { selectSlotRecipe } from './slot-recipes/select.recipe.ts'
 import { sidebarNavItemSlotRecipe } from './slot-recipes/sidebar-nav-item.recipe.ts'
 import { sidebarSlotRecipe } from './slot-recipes/sidebar.recipe.ts'
 import { sliderSlotRecipe } from './slot-recipes/slider.recipe.ts'
+import { splitPageSlotRecipe } from './slot-recipes/split-page.recipe.ts'
 import { splitterSlotRecipe } from './slot-recipes/splitter.recipe.ts'
 import { statSlotRecipe } from './slot-recipes/stat.recipe.ts'
 import { statusSlotRecipe } from './slot-recipes/status.recipe.ts'
@@ -104,6 +106,7 @@ export const slotRecipes = {
   timeline: timelineSlotRecipe,
   // Saas UI Recipes
   suiAppShell: appShellSlotRecipe,
+  suiAside: asideSlotRecipe,
   suiLoadingOverlay: loadingOverlaySlotRecipe,
   suiPersona: personaSlotRecipe,
   suiGridList: gridListSlotRecipe,
@@ -112,4 +115,5 @@ export const slotRecipes = {
   suiSidebarNavItem: sidebarNavItemSlotRecipe,
   suiPage: pageSlotRecipe,
   suiSection: sectionSlotRecipe,
+  suiSplitPage: splitPageSlotRecipe,
 }

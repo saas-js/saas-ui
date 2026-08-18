@@ -6,8 +6,7 @@ import { LinkButton } from '@/components/link-button'
 import { MobileSearchButton, SearchButton } from '@/components/search-button'
 import { HeaderVersionMenu } from '@/components/site/version-menu'
 import { SocialLinks } from '@/components/social-links'
-import { useRoute } from '@/lib/use-route'
-import { websiteConfig } from '@/website.config'
+import { docsConfig } from '@/app/(saas-js)/docs/docs.config'
 import { HoverCard } from '@ark-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
 import { Box, HStack, Portal, Separator, Spacer, Span, VStack } from '@chakra-ui/react'
@@ -78,16 +77,22 @@ const TopNavMobileLink = chakra(Link, {
 })
 
 const HeaderSocialLinks = () => (
-  <SocialLinks items={[{ type: 'github', href: websiteConfig.repoUrl }]} />
+  <SocialLinks items={[{ type: 'github', href: docsConfig.repoUrl }]} />
 )
+
+const docsMobileNavItems = [
+  { title: 'Starter kits', url: '/docs/starter-kits/tanstack-start' },
+  { title: 'Packages', url: '/packages' },
+  { title: 'Drizzle CRUD', url: '/packages/drizzle-crud' },
+  { title: 'Conditions', url: '/packages/conditions' },
+  { title: 'Slingshot', url: '/packages/slingshot' },
+  { title: 'Better Auth React Query', url: '/packages/better-auth-react-query' },
+  { title: 'Iconx', url: '/packages/iconx' },
+]
 
 const HeaderMobileMenuDropdown = () => {
   const [isOpen, setIsOpen] = useState(false)
   const closeMenu = () => setIsOpen(false)
-
-  const route = useRoute()
-  const primaryNavItems = route.getPrimaryNavItems()
-  const secondaryNavItems = route.getSecondaryNavItems()
 
   const containerRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
@@ -119,22 +124,11 @@ const HeaderMobileMenuDropdown = () => {
           <Drawer.CloseButton />
           <Drawer.Body display="flex" flexDir="column" gap="10" py="5" flex="1">
             <VStack align="start" justify="stretch">
-              {primaryNavItems.map((item) => (
+              {docsMobileNavItems.map((item) => (
                 <TopNavMobileLink
                   key={item.title}
-                  href={item.url || '#'}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.title}
-                </TopNavMobileLink>
-              ))}
-            </VStack>
-            <VStack align="start" justify="stretch">
-              {secondaryNavItems.map((item) => (
-                <TopNavMobileLink
-                  key={item.title}
-                  href={item.url || '#'}
-                  aria-current={item.current ? 'page' : undefined}
+                  href={item.url}
+                  aria-current={pathname.startsWith(item.url) ? 'page' : undefined}
                 >
                   {item.title}
                 </TopNavMobileLink>
@@ -216,31 +210,37 @@ const HeaderDesktopNavbar = () => {
           <HoverMenu
             trigger={
               <PrimaryNavLink
-                href="/docs/utilities"
+                href="/packages"
                 onClick={(e) => {
                   e.preventDefault()
                 }}
                 aria-current={
-                  path.startsWith('/docs/utilities') ? 'page' : undefined
+                  path.startsWith('/packages') ? 'page' : undefined
                 }
               >
-                Utilities <LuChevronDown />
+                Packages <LuChevronDown />
               </PrimaryNavLink>
             }
           >
+            <Menu.Item value="all-packages" asChild>
+              <Link href="/packages">All packages</Link>
+            </Menu.Item>
+            <Menu.Item value="drizzle-crud" asChild>
+              <Link href="/packages/drizzle-crud">Drizzle CRUD</Link>
+            </Menu.Item>
+            <Menu.Item value="conditions" asChild>
+              <Link href="/packages/conditions">Conditions</Link>
+            </Menu.Item>
+            <Menu.Item value="slingshot" asChild>
+              <Link href="/packages/slingshot">Slingshot</Link>
+            </Menu.Item>
             <Menu.Item value="better-auth-react-query" asChild>
-              <Link href="/docs/better-auth-react-query">
+              <Link href="/packages/better-auth-react-query">
                 Better Auth React Query
               </Link>
             </Menu.Item>
-            <Menu.Item value="drizzle-crud" asChild>
-              <Link href="/docs/drizzle-crud">Drizzle CRUD</Link>
-            </Menu.Item>
-            <Menu.Item value="slingshot" asChild>
-              <Link href="/docs/slingshot">Slingshot</Link>
-            </Menu.Item>
             <Menu.Item value="iconx" asChild>
-              <Link href="/docs/iconx">Iconx</Link>
+              <Link href="/packages/iconx">Iconx</Link>
             </Menu.Item>
           </HoverMenu>
         </HStack>
@@ -258,12 +258,12 @@ const HeaderDesktopNavbar = () => {
           <ColorModeButton />
           <Separator orientation="vertical" height="4" mx="2" />
           <LinkButton
-            href="/pro/pricing"
+            href="/pricing"
             colorPalette="accent"
             variant="glass"
             size="sm"
           >
-            Get Pro
+            Buy now
           </LinkButton>
         </HStack>
       </HStack>

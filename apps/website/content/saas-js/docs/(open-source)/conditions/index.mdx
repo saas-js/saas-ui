@@ -1,0 +1,217 @@
+---
+title: Conditions
+description:
+  A headless condition expression engine for filters and rule builders.
+---
+
+`@saas-js/conditions` is a framework-agnostic condition expression engine for
+filters, rule builders, segments, and other `when` or `where` interfaces.
+
+The package provides reusable condition definitions, versioned AND/OR expression
+trees, validation, evaluation, serialization, and immutable mutations. It has no
+React, DOM, or visual component code.
+
+## Installation
+
+```bash
+npm install @saas-js/conditions
+```
+
+## Define conditions
+
+Fields use [Standard Schema](https://standardschema.dev/schema), so their input
+and output types are inferred and their values are validated at runtime. Zod,
+Valibot, ArkType, and other Standard Schema implementations work without an
+adapter.
+
+```ts
+import { defineConditions } from '@saas-js/conditions'
+import { z } from 'zod'
+
+const contacts = defineConditions({
+  fields: {
+    status: {
+      type: 'enum',
+      label: 'Status',
+      schema: z.enum(['active', 'pending']),
+      operators: ['equals', 'not', 'in'],
+      defaultOperator: 'equals',
+      options: [
+        { value: 'active', label: 'Active' },
+        { value: 'pending', label: 'Pending' },
+      ],
+    },
+    age: {
+      type: 'number',
+      label: 'Age',
+      schema: z.number().int().min(0),
+      operators: ['gte', 'lte', 'between'],
+      defaultOperator: 'gte',
+    },
+  },
+})
+```
+
+`fields` and optional `operators` are the only definition properties. Share the
+same definition between filter UIs, rule builders, server validation, and
+multiple independent stores.
+
+The field `type` is intentional UI and operator metadata. Standard Schema infers
+and validates values, but does not guarantee the introspection needed to choose
+a date picker, number input, or combobox.
+
+## Create a store
+
+```ts
+const store = contacts.createStore({
+  onValueChange({ value }) {
+    console.log(value)
+  },
+})
+
+store.actions.addCondition({
+  id: 'active',
+  field: 'status',
+  value: 'active',
+})
+
+store.actions.addCondition({
+  id: 'pending',
+  field: 'status',
+  value: 'pending',
+})
+
+store.actions.group(['active', 'pending'], 'or', {
+  id: 'allowed-statuses',
+})
+
+store.actions.addCondition({
+  id: 'adult',
+  field: 'age',
+  operator: 'gte',
+  value: 18,
+})
+```
+
+This produces an AND root containing an OR status group and an age condition.
+Multiple conditions may target the same field because every expression has its
+own stable id.
+
+The store uses TanStack Store internally and exposes a framework-neutral `get()`
+and `subscribe()` interface. Mutations are immutable and validated before
+publication.
+
+## Infer operator operands
+
+Built-in operator operands are derived from the field schema and value mode:
+
+- `single` operators accept one field value.
+- `multiple` operators accept an array of field values.
+- `range` operators accept a two-value tuple.
+- `none` operators do not accept a value.
+
+For example, `status in` accepts `('active' | 'pending')[]`, while `age between`
+accepts `[number, number]`.
+
+## Define custom operators
+
+Custom operators use Standard Schema for both the subject and operand. The
+comparator parameters are inferred without generic annotations.
+
+```ts
+import {
+  defaultOperators,
+  defineConditions,
+  defineOperator,
+} from '@saas-js/conditions'
+import { z } from 'zod'
+
+const matches = defineOperator({
+  id: 'matches',
+  label: 'matches',
+  types: ['string'],
+  valueMode: 'single',
+  subjectSchema: z.string(),
+  valueSchema: z.object({
+    pattern: z.string().min(1),
+    flags: z.string().default('i'),
+  }),
+  serialize(value) {
+    return `${value.flags}:${value.pattern}`
+  },
+  deserialize(value) {
+    const [flags, pattern] = String(value).split(':')
+    return { flags, pattern }
+  },
+  comparator(actual, expected) {
+    return new RegExp(expected.pattern, expected.flags).test(actual)
+  },
+})
+
+const searchableContacts = defineConditions({
+  operators: [...defaultOperators, matches],
+  fields: {
+    name: {
+      type: 'string',
+      schema: z.string(),
+      operators: ['equals', 'matches'],
+    },
+  },
+})
+```
+
+Operator ids, supported field types, operand shapes, and comparator arguments
+are checked statically. The same schemas validate query values and custom
+operator subjects at runtime.
+
+## Validate, evaluate, and serialize
+
+Pure operations live on the reusable definition:
+
+```ts
+const query = contacts.parse(savedJson)
+
+contacts.validate(query)
+contacts.assert(query)
+contacts.evaluate(query, { status: 'active', age: 21 })
+contacts.filter(query, contactList)
+contacts.stringify(query)
+```
+
+The store exposes conveniences for its current value:
+
+```ts
+const subscription = store.subscribe((state) => {
+  console.log(state.value)
+})
+
+const matches = store.evaluate({ status: 'active', age: 21 })
+const json = store.stringify()
+
+subscription.unsubscribe()
+```
+
+Condition queries include a format version. Dates are encoded as ISO strings and
+restored according to the field type. Fields can customize scalar value
+serialization without changing the query format:
+
+```ts
+const geometry = defineConditions({
+  fields: {
+    point: {
+      type: 'point',
+      schema: z.object({ x: z.number(), y: z.number() }),
+      operators: ['equals'],
+      serialize: ({ x, y }) => `${x},${y}`,
+      deserialize: (value) => {
+        const [x, y] = String(value).split(',').map(Number)
+        return { x, y }
+      },
+    },
+  },
+})
+```
+
+For built-in `multiple` and `range` operators, field hooks are applied to each
+item. Custom operators can define their own hooks; operator hooks take
+precedence because their operand may differ from the field value.

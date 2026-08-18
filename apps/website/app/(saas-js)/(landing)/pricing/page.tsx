@@ -1,16 +1,18 @@
 import { CustomersSection } from '@/components/site/customers.section'
 import { Octokit } from '@octokit/rest'
 import { Container, Stack } from '@chakra-ui/react'
+import { createSjsMetadata } from '@/lib/saas-js/metadata'
 import type { Metadata } from 'next'
 
 import { FAQ } from './components/faq'
 import { Hero } from './components/hero'
 import { PricingTable } from './components/pricing-table'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createSjsMetadata({
   title: 'Pricing',
   description: 'Pricing for the Pro plan',
-}
+  path: '/pricing',
+})
 
 export default async function Page() {
   const octokit = new Octokit({

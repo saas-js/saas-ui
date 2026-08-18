@@ -47,6 +47,7 @@ const LogoLink = () => (
 )
 
 const NAV_LINKS = [
+  { title: 'Packages', url: '/packages' },
   { title: 'Docs', url: '/docs' },
   { title: 'Pricing', url: '/pricing' },
   { title: 'Resources', url: '/resources' },
@@ -169,6 +170,7 @@ export const HeaderSection = () => {
         position="fixed"
         top="0"
         w="full"
+        h="48px"
         zIndex="3"
         backdropFilter="blur(10px)"
         bg="bg.muted/90"

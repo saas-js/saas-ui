@@ -1,8 +1,8 @@
 import { Flex, SkipNavContent, SkipNavLink } from '@chakra-ui/react'
 
-import { Header } from './header'
-import { MobileSidebarNav } from './sidebar'
-import { source } from './lib/source'
+import { source } from '../docs/lib/source'
+import { Header } from '../docs/header'
+import { MobileSidebarNav } from '../docs/sidebar'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

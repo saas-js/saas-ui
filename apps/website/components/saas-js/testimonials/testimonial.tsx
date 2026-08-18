@@ -1,13 +1,10 @@
-import { XIcon } from '@/components/icons/x-icon'
 import { Avatar } from '#components/ui/avatar'
-import { Card, Heading, Stack, Text } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Card, Stack, Text } from '@chakra-ui/react'
 
 interface Testimonial extends Card.RootProps {
   name: string
   description: React.ReactNode
   avatar?: string
-  href?: string
   children?: React.ReactNode
 }
 
@@ -15,7 +12,6 @@ export const Testimonial = ({
   name,
   description,
   avatar,
-  href,
   children,
   ...rest
 }: Testimonial) => {
@@ -29,7 +25,9 @@ export const Testimonial = ({
           bg={avatar ? 'transparent' : undefined}
         />
         <Stack gap="0" ms="4">
-          <Heading size="sm">{name}</Heading>
+          <Text textStyle="sm" fontWeight="semibold">
+            {name}
+          </Text>
           <Text color="fg.muted" textStyle="sm">
             {description}
           </Text>
@@ -37,12 +35,6 @@ export const Testimonial = ({
       </Card.Header>
       <Card.Body pt="2">
         {children}
-
-        {/* {href && (
-          <Link href={href} position="absolute" top="4" right="4">
-            <XIcon />
-          </Link>
-        )} */}
       </Card.Body>
     </Card.Root>
   )

@@ -1,50 +1,56 @@
-import { CustomersSection } from '@/components/saas-js/customers.section'
-import { DemoSection } from '@/components/saas-js/demo.section'
 import { FeaturesSection } from '@/components/saas-js/features.section'
 import { FounderSection } from '@/components/saas-js/founder.section'
 import { GetStartedSection } from '@/components/saas-js/get-started.section'
 import { HeroSection } from '@/components/saas-js/hero.section'
+import { ProofSection } from '@/components/saas-js/proof.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
-import { WhySection } from '@/components/saas-js/why.section'
-import { ButtonGroup, Stack, Text } from '@chakra-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { Button } from '#components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'AI-native SaaS starter kit for TanStack Start',
+  title: 'Agent-ready SaaS starter kit for TanStack Start',
   description:
-    'TanStack Start starter kit built for AI-assisted development. Auth, billing, dashboards, and strict types that keep your AI agents on track.',
+    'A production-ready TanStack Start foundation with consistent patterns, strict types, focused documentation, and tests that help AI agents make reliable changes.',
 }
 
 export default function Page() {
   return (
-    <>
+    <Stack gap="0">
       <HeroSection />
-      <DemoSection />
-      <CustomersSection />
+      <ProofSection />
       <FeaturesSection />
       <FounderSection />
       <TestimonialsSection />
       <GetStartedSection>
-        <Stack>
-          <ButtonGroup>
-            <Button variant="glass" colorPalette="accent" asChild>
-              <Link href="/pricing">Buy now</Link>
+        <Stack gap="3">
+          <Stack direction={{ base: 'column', sm: 'row' }} gap="3">
+            <Button
+              variant="glass"
+              colorPalette="accent"
+              size="lg"
+              width={{ base: 'full', sm: 'auto' }}
+              asChild
+            >
+              <Link href="#proof-workspace">Explore the architecture</Link>
             </Button>
-            <Button variant="outline" asChild>
-              <Link href="/docs/starter-kits/tanstack-start">
-                Read the docs
-              </Link>
+            <Button
+              variant="outline"
+              size="lg"
+              width={{ base: 'full', sm: 'auto' }}
+              asChild
+            >
+              <Link href="/pricing">View pricing</Link>
             </Button>
-          </ButtonGroup>
+          </Stack>
 
           <Text textStyle="xs" color="fg.muted">
-            <strong>30% off</strong> for a limited time
+            Direct support from the SaaS.js team is included.
           </Text>
         </Stack>
       </GetStartedSection>
-    </>
+    </Stack>
   )
 }

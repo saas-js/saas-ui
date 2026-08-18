@@ -21,9 +21,11 @@ import { Link } from '#components/ui/link'
 const StarterKitHeroUI = ({
   description,
   latestChangelog,
+  showActions = false,
 }: {
   description: string
   latestChangelog: { title: string; link: string } | null
+  showActions?: boolean
 }) => {
   return (
     <Box>
@@ -50,13 +52,41 @@ const StarterKitHeroUI = ({
               align={{ base: 'start', md: 'end' }}
               gap={{ base: '6', md: '8' }}
             >
-              <Text
-                textStyle={{ base: 'md', md: 'lg' }}
-                color="fg.subtle"
-                maxW="xl"
-              >
-                {description}
-              </Text>
+              <Stack gap="5" align="flex-start" maxW="xl">
+                <Text
+                  textStyle={{ base: 'md', md: 'lg' }}
+                  color="fg.subtle"
+                >
+                  {description}
+                </Text>
+                {showActions ? (
+                  <Stack
+                    direction={{ base: 'column', sm: 'row' }}
+                    gap="3"
+                    width={{ base: 'full', sm: 'auto' }}
+                  >
+                    <Button
+                      asChild
+                      variant="glass"
+                      colorPalette="accent"
+                      size="lg"
+                      width={{ base: 'full', sm: 'auto' }}
+                    >
+                      <Link href="#proof-workspace">
+                        Explore the architecture
+                      </Link>
+                    </Button>
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="lg"
+                      width={{ base: 'full', sm: 'auto' }}
+                    >
+                      <Link href="/pricing">View pricing</Link>
+                    </Button>
+                  </Stack>
+                ) : null}
+              </Stack>
               <Flex
                 align="center"
                 gap={{ base: '4', md: '8' }}
@@ -70,18 +100,9 @@ const StarterKitHeroUI = ({
                     <Avatar src="https://senjaio.b-cdn.net/public/avatar/48bd839c-bbab-4290-ae39-a3731486d63e_IMG_6039%20%281%29.jpg?width=40&height=40&format=webp" />
                     <Avatar src="https://cdn.senja.io/public/avatar/660ebe99-0c37-4fc3-8396-fd24dcf7afd1_Avatar%20512x512.jpg?width=40&format=webp" />
                   </AvatarGroup>
-                  <Stack gap="0">
-                    <HStack color="yellow.500" gap="0.5">
-                      <TbStarFilled size={10} />
-                      <TbStarFilled size={10} />
-                      <TbStarFilled size={10} />
-                      <TbStarFilled size={10} />
-                      <TbStarFilled size={10} />
-                    </HStack>
-                    <Text textStyle="xs" color="fg.muted" whiteSpace="nowrap">
-                      Used by 1000+ developers
-                    </Text>
-                  </Stack>
+                  <Text textStyle="xs" color="fg.muted" whiteSpace="nowrap">
+                    Used by 1,000+ developers
+                  </Text>
                 </HStack>
                 {latestChangelog ? (
                   <Flex align="center" gap="3">
@@ -117,8 +138,9 @@ export const HeroUI = ({
   latestChangelog: { title: string; link: string } | null
 }) => (
   <StarterKitHeroUI
-    description="Production ready TanStack Start SaaS starter kit for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
+    description="Give your agents a codebase they can reason about. SaaS.js combines consistent patterns, strict types, focused documentation, and tests in a production-ready TanStack Start foundation—so agents can make bounded changes you can verify."
     latestChangelog={latestChangelog}
+    showActions
   />
 )
 

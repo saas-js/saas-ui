@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- The stacked body uses separate left and right planes for real depth. -->
+    <path
+      d="M165 148 320 226v137c0 6-7 9-12 6l-133-67c-7-4-10-9-10-17V148Z"
+      fill="#F4F5F7"
+      fill-opacity=".72"
+    />
+    <path
+      d="M475 148 320 226v137c0 6 7 9 12 6l133-67c7-4 10-9 10-17V148Z"
+      fill="#EEF0F3"
+      fill-opacity=".62"
+    />
+
+    <!-- Quiet seams describe four repeated architectural layers. -->
+    <g stroke="#9BA0A9" stroke-width=".9">
+      <path d="m165 176 142 72q13 7 26 0l142-72"/>
+      <path d="m165 205 142 72q13 7 26 0l142-72"/>
+      <path d="m165 234 142 72q13 7 26 0l142-72"/>
+      <path d="m165 263 142 72q13 7 26 0l142-72"/>
+    </g>
+
+    <!-- Outer body edges carry the strongest contrast. -->
+    <g stroke="#686E78" stroke-width="1.45">
+      <path d="M165 148v137c0 8 3 13 10 17l133 67q12 6 24 0l133-67c7-4 10-9 10-17V148"/>
+      <path d="M320 226v137"/>
+    </g>
+
+    <!-- A shallow rounded wall gives the top deck physical thickness. -->
+    <path
+      d="m165 122 140 71q15 8 30 0l140-71v27c0 7-4 12-11 16l-129 65q-15 8-30 0l-129-65c-7-4-11-9-11-16v-27Z"
+      fill="#F0F1F3"
+      stroke="#747A84"
+      stroke-width="1.2"
+    />
+
+    <!-- The upper plane is one clean, fully occluding rounded surface. -->
+    <path
+      d="m166 112 139-70q15-8 30 0l139 70c13 6 13 15 0 22l-139 70q-15 8-30 0l-139-70c-13-7-13-16 0-22Z"
+      fill="#FAFAFB"
+      stroke="#626973"
+      stroke-width="1.55"
+    />
+
+    <!-- Four connected modules represent route, schema, service, and query. -->
+    <g stroke="#A4A8B0" stroke-width=".82">
+      <path d="m320 92-39 20"/>
+      <path d="m320 92 39 20"/>
+      <path d="m281 128 39 20"/>
+      <path d="m359 128-39 20"/>
+    </g>
+    <g fill="#F4F5F7" stroke="#777D87" stroke-width="1.05">
+      <path
+        d="m309 82 7-4q4-2 8 0l7 4q4 2 0 4l-7 4q-4 2-8 0l-7-4q-4-2 0-4Z"
+      />
+      <path
+        d="m270 118 7-4q4-2 8 0l7 4q4 2 0 4l-7 4q-4 2-8 0l-7-4q-4-2 0-4Z"
+      />
+      <path
+        d="m348 118 7-4q4-2 8 0l7 4q4 2 0 4l-7 4q-4 2-8 0l-7-4q-4-2 0-4Z"
+      />
+      <path
+        d="m309 154 7-4q4-2 8 0l7 4q4 2 0 4l-7 4q-4 2-8 0l-7-4q-4-2 0-4Z"
+      />
+    </g>
+  </g>
+</svg>

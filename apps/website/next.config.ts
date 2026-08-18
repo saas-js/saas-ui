@@ -9,6 +9,24 @@ const nextConfig = {
     externalDir: true,
   },
   async redirects() {
+    const packageRedirects = [
+      'drizzle-crud',
+      'iconx',
+      'slingshot',
+      'better-auth-react-query',
+    ].flatMap((pkg) => [
+      {
+        source: `/docs/${pkg}`,
+        destination: `/packages/${pkg}/docs`,
+        permanent: true,
+      },
+      {
+        source: `/docs/${pkg}/:path*`,
+        destination: `/packages/${pkg}/docs/:path*`,
+        permanent: true,
+      },
+    ])
+
     return [
       {
         source: '/discord',
@@ -22,9 +40,10 @@ const nextConfig = {
       },
       {
         source: '/docs/iconify-cli',
-        destination: '/docs/iconx',
+        destination: '/packages/iconx/docs',
         permanent: true,
       },
+      ...packageRedirects,
     ]
   },
   webpack: (config) => {

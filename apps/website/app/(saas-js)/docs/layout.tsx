@@ -2,6 +2,7 @@ import { Flex, SkipNavContent, SkipNavLink } from '@chakra-ui/react'
 
 import { Header } from './header'
 import { MobileSidebarNav } from './sidebar'
+import { source } from './lib/source'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -16,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           } as any
         }
       >
-        <MobileSidebarNav />
+        <MobileSidebarNav tree={source.pageTree} />
         <Flex maxWidth="full" minH="0">
           <SkipNavContent />
 

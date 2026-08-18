@@ -1,6 +1,13 @@
 import { Container, Grid, Heading, List, SkipNavContent, Stack, Text } from '@chakra-ui/react'
 import { Link } from '#components/ui/link'
-import { TbExternalLink } from 'react-icons/tb'
+
+import { createSjsMetadata } from '@/lib/saas-js/metadata'
+
+export const metadata = createSjsMetadata({
+  title: 'Documentation',
+  description: 'Guides and documentation for Saas.js starter kits and packages.',
+  path: '/docs',
+})
 
 export default function Page() {
   return (
@@ -15,7 +22,7 @@ export default function Page() {
           Explore our guides and documentation to work with Saas.js
         </Text>
 
-        <Grid templateColumns="repeat(3, 1fr)" gap="12">
+        <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap="12">
           <Stack gap="4">
             <Heading as="h3" size="xl">
               Starter kits
@@ -45,22 +52,22 @@ export default function Page() {
 
           <Stack gap="4">
             <Heading as="h3" size="xl">
-              Open Source
+              Packages
             </Heading>
 
             <List.Root textStyle="lg" gap="2" listStyle="none">
               <List.Item>
                 <Link
-                  href="/docs/better-auth-react-query"
+                  href="/packages"
                   colorPalette="cyan"
                   fontWeight="medium"
                 >
-                  Better Auth React Query
+                  All packages
                 </Link>
               </List.Item>
               <List.Item>
                 <Link
-                  href="/docs/drizzle-crud"
+                  href="/packages/drizzle-crud/docs"
                   colorPalette="cyan"
                   fontWeight="medium"
                 >
@@ -69,7 +76,7 @@ export default function Page() {
               </List.Item>
               <List.Item>
                 <Link
-                  href="/docs/slingshot"
+                  href="/packages/slingshot/docs"
                   colorPalette="cyan"
                   fontWeight="medium"
                 >
@@ -78,38 +85,20 @@ export default function Page() {
               </List.Item>
               <List.Item>
                 <Link
-                  href="/docs/iconx"
+                  href="/packages/better-auth-react-query/docs"
+                  colorPalette="cyan"
+                  fontWeight="medium"
+                >
+                  Better Auth React Query
+                </Link>
+              </List.Item>
+              <List.Item>
+                <Link
+                  href="/packages/iconx/docs"
                   colorPalette="cyan"
                   fontWeight="medium"
                 >
                   Iconx
-                </Link>
-              </List.Item>
-            </List.Root>
-          </Stack>
-
-          <Stack gap="4">
-            <Heading as="h3" size="xl">
-              UI
-            </Heading>
-
-            <List.Root textStyle="lg" gap="2" listStyle="none">
-              <List.Item>
-                <Link
-                  href="https://saas-ui.dev/docs"
-                  colorPalette="indigo"
-                  fontWeight="medium"
-                >
-                  Saas UI <TbExternalLink />
-                </Link>
-              </List.Item>
-              <List.Item>
-                <Link
-                  href="https://saas-ui.dev/docs/pro"
-                  colorPalette="indigo"
-                  fontWeight="medium"
-                >
-                  Saas UI Pro <TbExternalLink />
                 </Link>
               </List.Item>
             </List.Root>

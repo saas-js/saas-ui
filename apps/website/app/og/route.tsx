@@ -17,19 +17,27 @@ export const GET = async (req: NextRequest) => {
 
     const { searchParams } = new URL(req.url)
     const fontData = await font
-    // const fontDataBold = await fontBold
+    const requestHost = req.headers.get('host') || ''
+    const site =
+      searchParams.get('site') === 'sjs' || requestHost.includes('saas-js')
+        ? 'sjs'
+        : 'sui'
     const hasTitle = searchParams.has('title')
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, 100)
-      : 'The React component library for startups'
+      : site === 'sjs'
+        ? 'Building blocks for SaaS products'
+        : 'The React component library for startups'
     const description = hasTitle
       ? searchParams.get('description')?.slice(0, 200)
       : undefined
     const screenshot = searchParams.get('screenshot')
 
-    const host = process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : 'http://localhost:3020'
+    const host = requestHost.includes('localhost')
+      ? `http://${requestHost}`
+      : site === 'sjs'
+        ? 'https://saas-js.com'
+        : 'https://saas-ui.dev'
 
     return new ImageResponse(
       (
@@ -73,13 +81,28 @@ export const GET = async (req: NextRequest) => {
               zIndex: 10,
             }}
           >
-            <img
-              alt="Saas UI"
-              height="60"
-              src={`${host}/img/saasui-dark.svg`}
-              style={{ margin: '0 30px' }}
-              width="200"
-            />
+            {site === 'sjs' ? (
+              <div
+                style={{
+                  fontFamily: 'Inter',
+                  fontSize: 28,
+                  fontWeight: 700,
+                  color: 'white',
+                  letterSpacing: '-0.04em',
+                  margin: '0 30px',
+                }}
+              >
+                SAAS.JS
+              </div>
+            ) : (
+              <img
+                alt="Saas UI"
+                height="60"
+                src={`${host}/img/saasui-dark.svg`}
+                style={{ margin: '0 30px' }}
+                width="200"
+              />
+            )}
           </div>
           <div
             style={{

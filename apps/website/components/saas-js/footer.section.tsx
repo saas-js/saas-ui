@@ -6,41 +6,27 @@ const linkTree = [
   {
     title: 'Resources',
     items: [
-      {
-        label: 'Affiliate program',
-        href: 'https://saas-ui.affonso.io',
-      },
+      { label: 'TanStack Start kit', href: '/' },
       { label: 'Documentation', href: '/docs' },
       { label: 'Blog', href: '/blog' },
-      { label: 'Roadmap', href: 'https://roadmap.saas-ui.dev' },
       { label: 'Changelog', href: '/changelog' },
+      { label: 'Affiliate program', href: 'https://saas-ui.affonso.io' },
     ],
   },
   {
-    title: 'Products',
+    title: 'Packages',
     items: [
-      {
-        label: 'Tanstack Start starter kit',
-        href: '/',
-      },
-      { label: 'Next.js starter kit', href: '/' },
-      {
-        label: 'Drizzle CRUD',
-        href: '/docs/drizzle-crud',
-      },
-      {
-        label: 'Slingshot',
-        href: '/docs/slingshot',
-      },
-      {
-        label: 'Iconx',
-        href: '/docs/iconx',
-      },
+      { label: 'All packages', href: '/packages' },
+      { label: 'Drizzle CRUD', href: '/packages/drizzle-crud' },
+      { label: 'Slingshot', href: '/packages/slingshot' },
+      { label: 'Better Auth React Query', href: '/packages/better-auth-react-query' },
+      { label: 'Iconx', href: '/packages/iconx' },
     ],
   },
   {
     title: 'Company',
     items: [
+      { label: 'Saas UI', href: 'https://saas-ui.dev' },
       { label: 'License', href: '/license' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },

@@ -1,0 +1,119 @@
+---
+title: The query
+description: A condition query is a plain, versioned tree of groups and conditions.
+---
+
+Everything in this package produces or consumes a **condition query**: a
+plain, versioned tree of groups and conditions. The store holds one as its
+value:
+
+```ts
+const query = store.get().value
+```
+
+```ts
+{
+  version: 1,
+  root: {
+    kind: 'group',
+    id: 'root',
+    combinator: 'and',
+    items: [
+      {
+        kind: 'group',
+        id: 'allowed-statuses',
+        combinator: 'or',
+        items: [
+          {
+            kind: 'condition',
+            id: 'active',
+            field: 'status',
+            operator: 'equals',
+            value: 'customer',
+          },
+          {
+            kind: 'condition',
+            id: 'pending',
+            field: 'status',
+            operator: 'equals',
+            value: 'lead',
+          },
+        ],
+      },
+      {
+        kind: 'condition',
+        id: 'adult',
+        field: 'arr',
+        operator: 'gte',
+        value: 50000,
+      },
+    ],
+  },
+}
+```
+
+## Building blocks
+
+- A **condition** is one comparison: `field`, `operator`, and (unless the
+  operator's value mode is `none`) a `value`. It reads as
+  "`status` `equals` `'customer'`".
+- A **group** combines items with a `combinator` — `and` or `or` — and groups
+  nest arbitrarily deep.
+- The **root** is always a group. `version` stamps the format for stored
+  payloads.
+- Every node has a stable `id`. Store actions (`updateCondition`, `remove`,
+  `parentId` targets) and UI code address nodes through those ids.
+
+A query is just data — no classes, no store required. Type it against a
+definition, build or inspect it directly, and traverse it with the expression
+helpers:
+
+```ts
+import {
+  type ConditionQueryForDefinition,
+  createConditionQuery,
+  findConditionExpression,
+  foldConditionQuery,
+  isConditionGroup,
+} from '@saas-js/conditions'
+
+type ContactsQuery = ConditionQueryForDefinition<typeof contacts>
+
+const adults = createConditionQuery({
+  items: [
+    {
+      kind: 'condition',
+      id: 'adult',
+      field: 'arr',
+      operator: 'gte',
+      value: 50_000,
+    },
+  ],
+})
+
+const node = findConditionExpression(query.root, 'allowed-statuses')
+if (node && isConditionGroup(node)) {
+  console.log(node.combinator) // 'or'
+}
+```
+
+## Fold the tree
+
+`foldConditionQuery` walks the tree bottom-up into any representation — a
+human-readable summary, a SQL clause, a ZQL expression:
+
+```ts
+const summary = foldConditionQuery(query, {
+  condition: (condition) => `${condition.field} ${condition.operator}`,
+  group: (combinator, parts) => `(${parts.join(` ${combinator} `)})`,
+})
+```
+
+The published adapters do this for you:
+
+- [`@saas-js/conditions-drizzle`](/packages/conditions/docs/integrations/drizzle)
+  → a Drizzle `where` clause
+- [`@saas-js/conditions-tanstack-table`](/packages/conditions/docs/integrations/tanstack-table)
+  → a TanStack Table global filter
+- [`@saas-js/conditions-zero`](/packages/conditions/docs/integrations/zero) → a
+  Zero (ZQL) where expression

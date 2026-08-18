@@ -90,8 +90,10 @@ const page = await users.list({
     tagline:
       'A headless condition expression engine for filters and rule builders.',
     headline: 'Conditions for filters and rule builders.',
-    description:
-      'Define fields once, then validate, evaluate, and serialize the same AND/OR expression tree on the server and in the UI. The package has no React or DOM code — it owns the condition model, not the controls.',
+    description: [
+      'Define fields once, then validate, evaluate, and serialize the same AND/OR expression tree on the server and in the UI. The core package has no React or DOM code — it owns the condition model, not the controls.',
+      'Headless React bindings add drafts and filter-chip orchestration. Adapters turn the same query into a TanStack Table global filter, a Drizzle where clause, or a Zero (ZQL) expression.',
+    ],
     mark: 'C',
     install: 'npm install @saas-js/conditions',
     github: 'https://github.com/saas-js/saas-js/tree/main/packages/conditions',
@@ -103,7 +105,7 @@ const page = await users.list({
       'Runtime validation and inference through Standard Schema',
       'Framework-neutral state powered by TanStack Store',
       'Evaluation, filtering, parsing, and serialization',
-      'Built-in and custom operators with typed operands',
+      'Headless React UI, plus TanStack Table, Drizzle, and Zero adapters',
     ],
     sample: {
       language: 'ts',
@@ -111,21 +113,22 @@ const page = await users.list({
   fields: {
     status: {
       type: 'enum',
-      schema: z.enum(['active', 'pending']),
+      schema: z.enum(['lead', 'customer', 'churned']),
       operators: ['equals', 'not', 'in'],
     },
-    age: {
+    arr: {
       type: 'number',
-      schema: z.number().int().min(0),
+      schema: z.coerce.number().min(0),
       operators: ['gte', 'lte', 'between'],
     },
   },
 })
 
-const matches = contacts.evaluate(query, {
-  status: 'active',
-  age: 21,
-})`,
+const query = contacts.parse(saved.query)
+contacts.evaluate(query, { status: 'customer', arr: 84_000 })
+db.select().from(table).where(
+  conditionsToDrizzle(contacts, query, { columns }),
+)`,
     },
   },
   {
@@ -292,6 +295,41 @@ export const packageGuides: PackageGuide[] = [
     packageId: 'drizzle-crud',
     path: packageDocsPath('drizzle-crud', ['advanced', 'transactions']),
     title: 'Transactions',
+  },
+  {
+    packageId: 'conditions',
+    path: packageDocsPath('conditions', ['getting-started', 'basic-usage']),
+    title: 'Basic usage',
+  },
+  {
+    packageId: 'conditions',
+    path: packageDocsPath('conditions', ['react']),
+    title: 'React',
+  },
+  {
+    packageId: 'conditions',
+    path: packageDocsPath('conditions', ['react', 'chakra-ui']),
+    title: 'Chakra UI',
+  },
+  {
+    packageId: 'conditions',
+    path: packageDocsPath('conditions', ['react', 'shadcn']),
+    title: 'shadcn',
+  },
+  {
+    packageId: 'conditions',
+    path: packageDocsPath('conditions', ['integrations', 'tanstack-table']),
+    title: 'TanStack Table',
+  },
+  {
+    packageId: 'conditions',
+    path: packageDocsPath('conditions', ['integrations', 'drizzle']),
+    title: 'Drizzle',
+  },
+  {
+    packageId: 'conditions',
+    path: packageDocsPath('conditions', ['integrations', 'zero']),
+    title: 'Zero Sync',
   },
   {
     packageId: 'iconx',

@@ -1,0 +1,104 @@
+---
+title: Operators
+description: Built-in operators, value modes, and how to define your own.
+---
+
+## Value modes
+
+Built-in operator operands are derived from the field schema and value mode:
+
+| Mode | Operand |
+| --- | --- |
+| `single` | One field value |
+| `multiple` | An array of field values |
+| `range` | A two-value tuple |
+| `none` | No value |
+
+For example, `status in` accepts `('lead' | 'customer' | 'churned')[]`, while
+`arr between` accepts `[number, number]`.
+
+## Built-in operators
+
+`defaultOperators` ships with the package. Restrict each field to the
+operators that make sense for it.
+
+| Operator | Label | Types | Mode |
+| --- | --- | --- | --- |
+| `equals` | is | enum, string, number, boolean, date, datetime | single |
+| `not` | is not | enum, string, number, boolean, date, datetime | single |
+| `gt` | greater than | number, date, datetime | single |
+| `gte` | greater than or equal | number, date, datetime | single |
+| `lt` | less than | number, date, datetime | single |
+| `lte` | less than or equal | number, date, datetime | single |
+| `between` | is between | number, date, datetime | range |
+| `contains` | contains | string | single |
+| `startsWith` | starts with | string | single |
+| `endsWith` | ends with | string | single |
+| `in` | is any of | enum, string, number | multiple |
+| `notIn` | is none of | enum, string, number | multiple |
+| `some` | has some of | enum (array subjects) | multiple |
+| `every` | has all of | enum (array subjects) | multiple |
+| `isNull` | is empty | enum, string, number, boolean, date, datetime | none |
+| `isNotNull` | is not empty | enum, string, number, boolean, date, datetime | none |
+
+String operators (`contains`, `startsWith`, `endsWith`) compare
+case-insensitively. The Drizzle and Zero adapters preserve those semantics in
+SQL / ZQL.
+
+`some` and `every` compare against array subjects. They have no generic SQL or
+ZQL form — map them yourself through the adapter `operators` option.
+
+## Custom operators
+
+Custom operators use Standard Schema for both the subject and operand. The
+comparator parameters are inferred without generic annotations.
+
+```ts
+import {
+  defaultOperators,
+  defineConditions,
+  defineOperator,
+} from '@saas-js/conditions'
+import { z } from 'zod'
+
+const matches = defineOperator({
+  id: 'matches',
+  label: 'matches',
+  types: ['string'],
+  valueMode: 'single',
+  subjectSchema: z.string(),
+  valueSchema: z.object({
+    pattern: z.string().min(1),
+    flags: z.string().default('i'),
+  }),
+  serialize(value) {
+    return `${value.flags}:${value.pattern}`
+  },
+  deserialize(value) {
+    const [flags, pattern] = String(value).split(':')
+    return { flags, pattern }
+  },
+  comparator(actual, expected) {
+    return new RegExp(expected.pattern, expected.flags).test(actual)
+  },
+})
+
+const searchableContacts = defineConditions({
+  operators: [...defaultOperators, matches],
+  fields: {
+    name: {
+      type: 'string',
+      schema: z.string(),
+      operators: ['equals', 'matches'],
+    },
+  },
+})
+```
+
+Operator ids, supported field types, operand shapes, and comparator arguments
+are checked statically. The same schemas validate query values and custom
+operator subjects at runtime.
+
+Adapters that emit SQL or ZQL need an explicit mapping for custom operators —
+see [Drizzle](/packages/conditions/docs/integrations/drizzle) and
+[Zero](/packages/conditions/docs/integrations/zero).

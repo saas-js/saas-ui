@@ -16,6 +16,7 @@ import { ZIndexTokenDoc } from 'compositions/lib/z-index-token-doc'
 
 import { Example, ExampleTabs } from './example'
 import { ExamplePreview } from './example-preview'
+import { ConditionsChakraExample } from './saas-js/conditions-chakra-example'
 import { Anchor } from './mdx/anchor'
 import { Blockquote } from './mdx/blockquote'
 import { Callout } from './mdx/callout'
@@ -63,6 +64,7 @@ const sharedComponents = {
   Example: Example,
   ExampleTabs: ExampleTabs,
   ExamplePreview: ExamplePreview,
+  ConditionsChakraExample,
   card: Card,
   'card-group': CardGroup,
   Card,

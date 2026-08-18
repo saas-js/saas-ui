@@ -1,0 +1,357 @@
+---
+title: Overview
+description: Headless React bindings and composition helpers for Conditions.
+---
+
+`@saas-js/conditions-react` owns React lifecycle, scoped contexts,
+subscriptions, incomplete UI drafts, and filter-chip interaction
+orchestration. The conditions definition remains the only source of field,
+operator, validation, evaluation, and serialization behavior.
+
+There are no styles and no component-library dependencies. React is a peer
+dependency and `@saas-js/conditions` is external to the bundle.
+
+```bash
+npm install @saas-js/conditions @saas-js/conditions-react
+```
+
+Ready-made adapters:
+
+- [Chakra UI](/packages/conditions/docs/react/chakra-ui)
+- [shadcn](/packages/conditions/docs/react/shadcn)
+
+## Architecture
+
+Each `useConditions` call creates or adopts one committed Conditions store and
+one draft controller:
+
+- The committed store always contains a valid expression query.
+- The draft controller can contain a missing field, operator, or value.
+- `commitDraft` validates through the definition's public Standard Schema API
+  and applies one atomic store action.
+- Contexts contain the stable controller and node IDs, never state snapshots.
+- Hooks subscribe with selectors through `useSyncExternalStore` with selector
+  memoization. A condition component can select one condition without
+  rerendering when a sibling changes. An optional `isEqual` function keeps
+  derived selections (arrays, objects) referentially stable.
+- Bound components (`Root`, scopes, `Subscribe`, `ValueEditor`) are created
+  once per hook instance, so component identities stay stable for the life of
+  the instance.
+
+The React package does not evaluate, serialize, or independently validate a
+query. `conditions.filter(subjects)` / `conditions.useFilter(subjects)`
+delegate to the definition. Use `conditions.definition` or `conditions.store`
+for everything else.
+
+## Create a component composition
+
+Bind the definition when creating the hook. Every hook, selector, and draft
+action is fully typed without generic annotations.
+
+```tsx
+import { z } from 'zod'
+
+import { defineConditions } from '@saas-js/conditions'
+import { createConditionsHook } from '@saas-js/conditions-react'
+
+const contactConditions = defineConditions({
+  fields: {
+    status: {
+      type: 'enum',
+      label: 'Status',
+      schema: z.enum(['lead', 'customer', 'churned']),
+      options: [
+        { value: 'lead', label: 'Lead' },
+        { value: 'customer', label: 'Customer' },
+        { value: 'churned', label: 'Churned' },
+      ],
+    },
+    company: { type: 'string', label: 'Company', schema: z.string() },
+    arr: { type: 'number', label: 'ARR', schema: z.number() },
+  },
+})
+
+export const contactUI = createConditionsHook({
+  definition: contactConditions,
+  valueEditors: {
+    string: StringValueEditor,
+    number: NumberValueEditor,
+    enum: EnumValueEditor,
+  },
+  conditionComponents: { FieldSelect, OperatorSelect, RemoveButton },
+  groupComponents: { CombinatorSelect, AddConditionButton, AddGroupButton },
+  conditionsComponents: { ConditionTree, ClearButton },
+})
+```
+
+`definition` and `contexts` are both optional. Omitting `definition` keeps the
+per-call form (`useConditions({ definition })`). Pass shared `contexts` (from
+`createConditionsHookContexts`) only when several compositions must resolve
+the same providers.
+
+Registered components are pre-bound onto the inferred instance:
+
+```tsx
+function ContactFilters() {
+  const conditions = contactUI.useConditions({
+    defaultValue,
+    onValueChange({ value }) {
+      console.log(value)
+    },
+  })
+
+  return (
+    <conditions.Root>
+      <conditions.ConditionTree />
+      <conditions.ClearButton />
+    </conditions.Root>
+  )
+}
+```
+
+Component names may not shadow built-in instance members (`Root`, `Subscribe`,
+`ValueEditor`, `useFilter`, …). Duplicates throw at creation.
+
+## Store modes
+
+```tsx
+contactUI.useConditions({ defaultValue, onValueChange }) // uncontrolled
+contactUI.useConditions({ value, onValueChange }) // controlled
+contactUI.useConditions({ store: definition.createStore() }) // external store
+```
+
+`value` is a single optional prop: leave it `undefined` for uncontrolled
+usage, in the familiar React pattern. Controlled synchronization runs in an
+effect and suppresses its own callback, so prop updates do not create
+`onValueChange` loops. A parent that rerenders without accepting a change
+reverts it.
+
+The `onValueChange` details type is exported as
+`ConditionsValueChangeDetails<TDefinition>`.
+
+For non-hook ownership, `createConditionsController({ definition })` and
+`createConditionsController({ store })` create the same controller shape.
+
+## Common data hooks
+
+The selections every conditions UI needs are available as dedicated hooks —
+no selector boilerplate. All of them are pre-bound on the instance and also
+exported standalone (`useConditionsValue(conditions)`,
+`useCondition(conditions, id)`, …) for code that holds a bare controller:
+
+```tsx
+const query = conditions.useValue() // committed query
+const root = conditions.useRoot() // root group
+const isEmpty = conditions.useIsEmpty() // no conditions or groups
+const condition = conditions.useCondition(id) // one condition, or undefined
+const group = conditions.useGroup(id) // one group, or undefined
+const draft = conditions.useDraft() // the active draft
+const editDraft = conditions.useEditDraft(id) // draft while editing `id`
+const addDraft = conditions.useAddDraft(groupId) // add draft for a group
+const hasDraft = conditions.useHasAddDraft(groupId) // boolean, edit-stable
+const matches = conditions.useFilter(contacts) // filtered subjects
+```
+
+Each hook subscribes through the memoized selector layer, so a component
+rerenders only when its selected data changes:
+
+- `useCondition` ignores sibling updates
+- `useEditDraft` / `useAddDraft` rerender only the chip that owns the draft
+- `useHasAddDraft` stays stable across draft keystrokes — use it in group
+  nodes and render the draft chip in a child component
+
+## Selectors and scopes
+
+For everything else, the selector hooks remain the escape hatch:
+
+```tsx
+const count = useConditionsSelector(
+  conditions,
+  (state) => state.value.root.items.length,
+)
+
+const ids = useConditionsSelector(
+  conditions,
+  (state) => state.value.root.items.map((item) => item.id),
+  (a, b) => a.join(',') === b.join(','),
+)
+
+<conditions.Subscribe selector={(state) => state.value.root.combinator}>
+  {(combinator) => <span>{combinator}</span>}
+</conditions.Subscribe>
+```
+
+Use `conditions.ConditionScope` and `conditions.ConditionGroupScope` while
+recursively rendering a tree. `useConditionContext` and
+`useConditionGroupContext` return the stable controller/id pair and throw a
+descriptive error outside the matching provider. `useConditionSelector` and
+`useConditionGroupSelector` subscribe to individual nodes. All selector hooks
+accept the optional `isEqual` argument.
+
+## Filtering subjects
+
+```tsx
+const matches = conditions.useFilter(contacts) // reactive
+conditions.filter(contacts) // one-shot, outside render
+```
+
+Both delegate to `definition.filter` with the current committed query.
+`useFilter` resubscribes when the query changes and memoizes against the
+`subjects` reference.
+
+For tables, databases, and sync replicas, pass the committed query to an
+adapter instead of filtering in memory — see
+[TanStack Table](/packages/conditions/docs/integrations/tanstack-table),
+[Drizzle](/packages/conditions/docs/integrations/drizzle), and
+[Zero](/packages/conditions/docs/integrations/zero).
+
+## Drafts
+
+```tsx
+conditions.draft.beginAddCondition({ parentId: groupId })
+conditions.draft.updateDraft({ field: 'status' })
+conditions.draft.updateDraft({ operator: 'in' })
+conditions.draft.commitDraft({ value: ['lead', 'customer'] })
+
+conditions.draft.beginEditCondition(conditionId)
+conditions.draft.cancelDraft()
+```
+
+Draft `field` and `operator` patches are typed against the bound definition.
+Changing a field recalculates the available/default operator and resets the
+value. Changing an operator normalizes draft shape for `none`, `single`,
+`multiple`, and `range`. `commitDraft` accepts an optional final patch, so
+"pick an option and commit" is one atomic call. Failed validation leaves both
+the draft and committed query intact.
+
+Subscribe without broad tree rerenders with `useConditionDraftSelector`.
+
+## Chip orchestration
+
+`useConditionChip` owns the interaction flow every filter-chip UI repeats —
+which panel is open, when an edit draft begins, and when a selection commits —
+while rendering stays with the adapter:
+
+```tsx
+function FilterChip() {
+  const { conditions, id } = contactUI.useConditionContext()
+  const condition = conditions.useCondition(id)
+  const draft = conditions.useEditDraft(id)
+  const chip = contactUI.useConditionChip(conditions, { condition, draft })
+
+  // chip.field / chip.operator / chip.value / chip.error / chip.panel
+  // chip.openPanel('field' | 'operator' | 'value')
+  // chip.selectField(id)     — commits valueMode 'none', else opens value panel
+  // chip.selectOperator(id)  — same commit-or-advance behavior
+  // chip.setValue(value), chip.apply(patch?), chip.close(), chip.remove()
+}
+```
+
+Opening a panel on a committed condition cancels any other active draft and
+begins an edit draft. `apply` closes the panel on success and returns the
+committed id.
+
+## Value editors
+
+Editors receive the same normalized props whether they came from a field
+type, field, operator, or combination registry:
+
+```ts
+interface ValueEditorProps<TValue> {
+  value: TValue | undefined
+  onValueChange(value: TValue): void
+  field: ConditionFieldDefinition
+  operator: ConditionOperator
+  disabled?: boolean
+  readOnly?: boolean
+  error?: string
+}
+```
+
+Resolution precedence is:
+
+1. `fieldOperatorValueEditors['field:operator']`
+2. `fieldValueEditors[field]`
+3. `operatorValueEditors[operator]`
+4. `valueEditors[field.type]`
+5. `fallbackValueEditor`
+
+`resolveValueEditor(context, resolved)` is called last and may replace the
+resolved editor. The standalone `resolveValueEditor` helper implements and
+tests the same order.
+
+The instance also exposes a bound `conditions.ValueEditor` component that
+resolves and renders the editor for a field/operator pair, and renders
+nothing for unknown pairs or operators without a value:
+
+```tsx
+<conditions.ValueEditor
+  field={chip.field}
+  operator={chip.operator}
+  value={chip.value}
+  error={chip.error}
+  onValueChange={chip.setValue}
+/>
+```
+
+## Async option sources
+
+Calling `useConditionOptions(conditions, { field, value })` is the opt-in
+fetch boundary. No source is invoked until an editor calls the hook.
+
+```tsx
+const { options, query, setQuery, loading, error, reload } =
+  useConditionOptions(conditions, { field: 'owner', value, debounceMs: 150 })
+```
+
+The hook passes the field ID, current value, query, and an `AbortSignal` to
+the definition's option source. It aborts superseded/unmounted requests and
+guards against stale responses. Value changes do not refetch — sources read
+the latest value when they run — and `debounceMs` debounces query-driven
+refetches. Boolean fields without a source get default Yes/No options.
+
+## Reusable builders and design-system adapters
+
+Bind a definition without losing inference. With a factory-bound definition
+the `definition` option is omitted:
+
+```tsx
+const ContactFilters = contactUI.withConditions({
+  render: ({ conditions }) => (
+    <conditions.Root>
+      <conditions.ConditionTree />
+    </conditions.Root>
+  ),
+})
+```
+
+`withConditionGroup` binds reusable group UI to an explicit `id` or current
+group scope.
+
+Applications can extend an adapter once for their own components and field
+types:
+
+```tsx
+const appConditions = contactUI.extendConditions({
+  valueEditors: { currency: CurrencyValueEditor },
+  conditionComponents: { ConditionSummary },
+})
+```
+
+Types and runtime checks reject duplicate names within a registry. One or two
+extension layers are recommended; build a new composition instead of creating
+an unbounded type chain.
+
+## API notes
+
+- Registry-specific editor maps are separate properties rather than
+  overloaded key conventions. This makes precedence visible and makes
+  duplicate extension names statically checkable.
+- Scope components are named `ConditionScope` and `ConditionGroupScope` to
+  make it clear that they provide IDs. Expression rendering remains entirely
+  owned by the adapter's `ConditionTree`.
+- The context helpers exported for advanced composition are
+  `useConditionsRootContext`, `useConditionScopeContext`, and
+  `useConditionGroupScopeContext`. They take the shared contexts object and
+  back the instance-level `useConditionsContext` / `useConditionContext` /
+  `useConditionGroupContext` hooks.

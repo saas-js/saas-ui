@@ -2,6 +2,7 @@ export const SITE_URL = 'https://saas-js.com'
 
 export const PACKAGE_IDS = [
   'drizzle-crud',
+  'conditions',
   'slingshot',
   'better-auth-react-query',
   'iconx',
@@ -9,18 +10,22 @@ export const PACKAGE_IDS = [
 
 export type PackageId = (typeof PACKAGE_IDS)[number]
 
-export type PackageGroupId = 'data' | 'files' | 'auth' | 'ui'
+export type PackageGroupId = 'data' | 'logic' | 'files' | 'auth' | 'ui'
 
 export interface SjsPackage {
   id: PackageId
   name: string
   npm: string
   tagline: string
+  headline: string
+  description: string | readonly string[]
   install: string
   github: string
   npmUrl: string
-  usedInStarterKit: boolean
   group: PackageGroupId
+  mark: string
+  logo?: string
+  logoFramed?: boolean
   features: string[]
   sample: {
     language: 'ts' | 'tsx' | 'bash'
@@ -30,6 +35,7 @@ export interface SjsPackage {
 
 export const packageGroups: { id: PackageGroupId; label: string }[] = [
   { id: 'data', label: 'Data' },
+  { id: 'logic', label: 'Logic' },
   { id: 'files', label: 'Files' },
   { id: 'auth', label: 'Auth' },
   { id: 'ui', label: 'UI' },
@@ -41,10 +47,17 @@ export const packages: SjsPackage[] = [
     name: 'Drizzle CRUD',
     npm: 'drizzle-crud',
     tagline: 'Type-safe CRUD operations, generated from your Drizzle schema.',
+    headline: 'CRUD from your Drizzle schema.',
+    description: [
+      'Most SaaS tables need the same work: create, read, update, delete, then list with search, filters, and pagination. That usually means a new query helper per feature — and soft deletes, validation, and access control get copied into every route.',
+      'Drizzle CRUD generates those operations from the tables you already have. Pass a Drizzle schema and you get typed create, findById, list, update, and delete, plus filter operators, full-text search, pagination, soft delete, and restore on one API.',
+      'Validation stays on Standard Schema (Zod and others) so inputs match the table. Actor-based access control and scope filters keep multi-tenant queries honest. Lifecycle hooks and bulk operations put the business rules next to the table instead of in every caller.',
+    ],
+    mark: 'DC',
+    logo: '/img/frameworks/drizzle.svg',
     install: 'npm install drizzle-crud',
     github: 'https://github.com/saas-js/saas-js',
     npmUrl: 'https://www.npmjs.com/package/drizzle-crud',
-    usedInStarterKit: true,
     group: 'data',
     features: [
       'CRUD operations generated from your Drizzle schema',
@@ -71,14 +84,62 @@ const page = await users.list({
     },
   },
   {
+    id: 'conditions',
+    name: 'Conditions',
+    npm: '@saas-js/conditions',
+    tagline:
+      'A headless condition expression engine for filters and rule builders.',
+    headline: 'Conditions for filters and rule builders.',
+    description:
+      'Define fields once, then validate, evaluate, and serialize the same AND/OR expression tree on the server and in the UI. The package has no React or DOM code — it owns the condition model, not the controls.',
+    mark: 'C',
+    install: 'npm install @saas-js/conditions',
+    github: 'https://github.com/saas-js/saas-js/tree/main/packages/conditions',
+    npmUrl: 'https://www.npmjs.com/package/@saas-js/conditions',
+    group: 'logic',
+    features: [
+      'Typed condition definitions for filters, segments, and rule builders',
+      'Versioned AND/OR expression trees with immutable mutations',
+      'Runtime validation and inference through Standard Schema',
+      'Framework-neutral state powered by TanStack Store',
+      'Evaluation, filtering, parsing, and serialization',
+      'Built-in and custom operators with typed operands',
+    ],
+    sample: {
+      language: 'ts',
+      code: `const contacts = defineConditions({
+  fields: {
+    status: {
+      type: 'enum',
+      schema: z.enum(['active', 'pending']),
+      operators: ['equals', 'not', 'in'],
+    },
+    age: {
+      type: 'number',
+      schema: z.number().int().min(0),
+      operators: ['gte', 'lte', 'between'],
+    },
+  },
+})
+
+const matches = contacts.evaluate(query, {
+  status: 'active',
+  age: 21,
+})`,
+    },
+  },
+  {
     id: 'slingshot',
     name: 'Slingshot',
     npm: '@saas-js/slingshot',
     tagline: 'Direct-to-S3 file uploads for any JavaScript runtime.',
+    headline: 'Direct S3 uploads for any runtime.',
+    description:
+      'Authorize and key files on the server, then let the browser send bytes straight to S3-compatible storage. Works on any JavaScript server runtime, with a composable React upload UI when you need one.',
+    mark: 'S',
     install: 'npm install @saas-js/slingshot @saas-js/slingshot-react',
     github: 'https://github.com/saas-js/saas-js',
     npmUrl: 'https://www.npmjs.com/package/@saas-js/slingshot',
-    usedInStarterKit: true,
     group: 'files',
     features: [
       'Presigned uploads straight to S3-compatible storage',
@@ -104,10 +165,15 @@ export const POST = handle(slingshot)`,
     name: 'Better Auth React Query',
     npm: 'better-auth-react-query',
     tagline: 'React Query bindings for Better Auth.',
+    headline: 'Better Auth, as TanStack Query.',
+    description:
+      'Wrap your Better Auth client once. Methods that get or list become queries; everything else becomes a mutation, with typed query keys for cache invalidation.',
+    mark: 'BA',
+    logo: '/img/frameworks/better-auth.svg',
+    logoFramed: true,
     install: 'npm install better-auth-react-query',
     github: 'https://github.com/saas-js/saas-js',
     npmUrl: 'https://www.npmjs.com/package/better-auth-react-query',
-    usedInStarterKit: true,
     group: 'auth',
     features: [
       'Wraps your Better Auth client in TanStack Query',
@@ -133,18 +199,24 @@ function Profile() {
     id: 'iconx',
     name: 'Iconx',
     npm: 'iconx',
-    tagline: '200,000+ Iconify icons, generated as type-safe React components.',
+    tagline:
+      'An agent-friendly CLI to manage and install icons in React projects.',
+    headline: 'Icons for React, installed by the CLI — or by your agent.',
+    description: [
+      'Iconx is a CLI for adding, searching, and managing icons in a React project. Agents can run the same commands — or the MCP server — instead of pasting SVGs or pulling in a heavy icon package.',
+      'Each icon is generated as a type-safe React component in your repo. No runtime CDN, unused icons tree-shake away, and it works with React Server Components. The catalog is Iconify: 200,000+ icons across 150+ sets.',
+    ],
+    mark: 'Ix',
     install: 'npm install iconx',
     github: 'https://github.com/saas-js/saas-js',
     npmUrl: 'https://www.npmjs.com/package/iconx',
-    usedInStarterKit: true,
     group: 'ui',
     features: [
-      'Generate React components from 200,000+ Iconify icons',
-      'You own the output — no runtime icon CDN',
-      'Tree-shakes to the icons you actually import',
-      'Works with React Server Components',
-      'CLI and MCP server for adding icons',
+      'Agent-friendly CLI to add, search, and list icons',
+      'MCP server so agents can install icons without leaving the editor',
+      'Type-safe React components you own — no runtime CDN',
+      '200,000+ Iconify icons across 150+ sets',
+      'Tree-shakes; works with React Server Components',
     ],
     sample: {
       language: 'tsx',
@@ -179,67 +251,86 @@ export function packagePath(id: PackageId) {
   return `/packages/${id}`
 }
 
-export interface KeywordPage {
+export interface PackageGuide {
   packageId: PackageId
-  slug: string
   path: string
   title: string
-  description: string
 }
 
-export const keywordPages: KeywordPage[] = [
+export const packageGuides: PackageGuide[] = [
+  {
+    packageId: 'drizzle-crud',
+    path: packageDocsPath('drizzle-crud', ['getting-started', 'basic-usage']),
+    title: 'Basic Usage',
+  },
+  {
+    packageId: 'drizzle-crud',
+    path: packageDocsPath('drizzle-crud', ['reference', 'core-operations']),
+    title: 'Core Operations',
+  },
+  {
+    packageId: 'drizzle-crud',
+    path: packageDocsPath('drizzle-crud', ['advanced', 'filtering']),
+    title: 'Advanced Filtering',
+  },
+  {
+    packageId: 'drizzle-crud',
+    path: packageDocsPath('drizzle-crud', ['advanced', 'access-control']),
+    title: 'Access Control',
+  },
+  {
+    packageId: 'drizzle-crud',
+    path: packageDocsPath('drizzle-crud', ['advanced', 'hooks']),
+    title: 'Lifecycle Hooks',
+  },
+  {
+    packageId: 'drizzle-crud',
+    path: packageDocsPath('drizzle-crud', ['advanced', 'validation']),
+    title: 'Validation',
+  },
+  {
+    packageId: 'drizzle-crud',
+    path: packageDocsPath('drizzle-crud', ['advanced', 'transactions']),
+    title: 'Transactions',
+  },
   {
     packageId: 'iconx',
-    slug: 'react-icons-alternative',
-    path: '/react-icons-alternative',
-    title: 'A react-icons alternative that actually tree-shakes',
-    description:
-      'Why react-icons, icon fonts, and Iconify web components fall short — and how Iconx generates type-safe React icons from Iconify.',
+    path: packageDocsPath('iconx', ['getting-started', 'basic-usage']),
+    title: 'Basic Usage',
   },
   {
-    packageId: 'drizzle-crud',
-    slug: 'pagination',
-    path: '/drizzle-orm-pagination',
-    title: 'Drizzle ORM pagination without the boilerplate',
-    description:
-      'Paginate Drizzle queries with limit, offset, and total counts generated from your schema.',
+    packageId: 'iconx',
+    path: packageDocsPath('iconx', ['reference', 'cli']),
+    title: 'CLI Reference',
   },
   {
-    packageId: 'drizzle-crud',
-    slug: 'soft-delete',
-    path: '/drizzle-soft-delete',
-    title: 'Soft deletes in Drizzle ORM',
-    description:
-      'Add soft delete, restore, and permanent delete to Drizzle tables from a single schema field.',
+    packageId: 'iconx',
+    path: packageDocsPath('iconx', ['reference', 'configuration']),
+    title: 'Configuration',
   },
   {
-    packageId: 'drizzle-crud',
-    slug: 'generator',
-    path: '/drizzle-crud-generator',
-    title: 'A CRUD generator for Drizzle ORM',
-    description:
-      'Generate type-safe create, read, update, and delete operations from your Drizzle schema.',
-  },
-  {
-    packageId: 'drizzle-crud',
-    slug: 'filtering',
-    path: '/drizzle-filtering',
-    title: 'Filtering Drizzle ORM queries',
-    description:
-      'JSON-serializable filters, operators, and OR/AND logic on top of Drizzle.',
+    packageId: 'iconx',
+    path: packageDocsPath('iconx', ['reference', 'icon-sets']),
+    title: 'Icon Sets',
   },
   {
     packageId: 'slingshot',
-    slug: 's3-direct-upload',
-    path: '/s3-direct-upload-react',
-    title: 'Direct S3 uploads in React',
-    description:
-      'Presigned, direct-to-S3 file uploads for React — without proxying bytes through your server.',
+    path: packageDocsPath('slingshot', ['getting-started', 'basic-usage']),
+    title: 'Basic usage',
+  },
+  {
+    packageId: 'slingshot',
+    path: packageDocsPath('slingshot', ['frameworks', 'nextjs']),
+    title: 'Next.js',
+  },
+  {
+    packageId: 'slingshot',
+    path: packageDocsPath('slingshot', ['reference', 'react']),
+    title: 'React',
+  },
+  {
+    packageId: 'slingshot',
+    path: packageDocsPath('slingshot', ['ui', 'shadcn']),
+    title: 'Shadcn UI',
   },
 ]
-
-export function getKeywordPage(packageId: string, slug: string) {
-  return keywordPages.find(
-    (page) => page.packageId === packageId && page.slug === slug,
-  )
-}

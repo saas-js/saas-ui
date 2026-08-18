@@ -18,6 +18,7 @@ const linkTree = [
     items: [
       { label: 'All packages', href: '/packages' },
       { label: 'Drizzle CRUD', href: '/packages/drizzle-crud' },
+      { label: 'Conditions', href: '/packages/conditions' },
       { label: 'Slingshot', href: '/packages/slingshot' },
       { label: 'Better Auth React Query', href: '/packages/better-auth-react-query' },
       { label: 'Iconx', href: '/packages/iconx' },

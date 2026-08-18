@@ -11,6 +11,7 @@ const nextConfig = {
   async redirects() {
     const packageRedirects = [
       'drizzle-crud',
+      'conditions',
       'iconx',
       'slingshot',
       'better-auth-react-query',
@@ -44,6 +45,36 @@ const nextConfig = {
         permanent: true,
       },
       ...packageRedirects,
+      {
+        source: '/drizzle-orm-pagination',
+        destination: '/packages/drizzle-crud/docs/reference/core-operations',
+        permanent: true,
+      },
+      {
+        source: '/drizzle-soft-delete',
+        destination: '/packages/drizzle-crud/docs/reference/core-operations',
+        permanent: true,
+      },
+      {
+        source: '/drizzle-crud-generator',
+        destination: '/packages/drizzle-crud/docs/getting-started/basic-usage',
+        permanent: true,
+      },
+      {
+        source: '/drizzle-filtering',
+        destination: '/packages/drizzle-crud/docs/advanced/filtering',
+        permanent: true,
+      },
+      {
+        source: '/react-icons-alternative',
+        destination: '/packages/iconx/docs',
+        permanent: true,
+      },
+      {
+        source: '/s3-direct-upload-react',
+        destination: '/packages/slingshot/docs/getting-started/basic-usage',
+        permanent: true,
+      },
     ]
   },
   webpack: (config) => {

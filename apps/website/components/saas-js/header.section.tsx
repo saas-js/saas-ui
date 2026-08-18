@@ -170,6 +170,7 @@ export const HeaderSection = () => {
         position="fixed"
         top="0"
         w="full"
+        h="48px"
         zIndex="3"
         backdropFilter="blur(10px)"
         bg="bg.muted/90"

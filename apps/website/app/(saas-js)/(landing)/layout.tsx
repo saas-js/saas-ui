@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       bg="bg.muted"
       _dark={{ bg: 'bg' }}
       css={{
-        paddingTop: '64px',
+        paddingTop: '48px',
         '&:has([data-announcement])': {
           paddingTop: '105px',
         },

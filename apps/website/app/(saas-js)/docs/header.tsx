@@ -84,6 +84,7 @@ const docsMobileNavItems = [
   { title: 'Starter kits', url: '/docs/starter-kits/tanstack-start' },
   { title: 'Packages', url: '/packages' },
   { title: 'Drizzle CRUD', url: '/packages/drizzle-crud' },
+  { title: 'Conditions', url: '/packages/conditions' },
   { title: 'Slingshot', url: '/packages/slingshot' },
   { title: 'Better Auth React Query', url: '/packages/better-auth-react-query' },
   { title: 'Iconx', url: '/packages/iconx' },
@@ -226,6 +227,9 @@ const HeaderDesktopNavbar = () => {
             </Menu.Item>
             <Menu.Item value="drizzle-crud" asChild>
               <Link href="/packages/drizzle-crud">Drizzle CRUD</Link>
+            </Menu.Item>
+            <Menu.Item value="conditions" asChild>
+              <Link href="/packages/conditions">Conditions</Link>
             </Menu.Item>
             <Menu.Item value="slingshot" asChild>
               <Link href="/packages/slingshot">Slingshot</Link>

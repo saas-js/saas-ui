@@ -76,6 +76,15 @@ export default function Page() {
               </List.Item>
               <List.Item>
                 <Link
+                  href="/packages/conditions/docs"
+                  colorPalette="cyan"
+                  fontWeight="medium"
+                >
+                  Conditions
+                </Link>
+              </List.Item>
+              <List.Item>
+                <Link
                   href="/packages/slingshot/docs"
                   colorPalette="cyan"
                   fontWeight="medium"

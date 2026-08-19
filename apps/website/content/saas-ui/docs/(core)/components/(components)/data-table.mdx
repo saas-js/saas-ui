@@ -155,6 +155,15 @@ totals. The footer only renders when at least one column defines one; pass
 
 <ExampleTabs name="data-table-footer" />
 
+### Empty State
+
+Pass `emptyState` to `table.Body` to render custom content when there are no
+rows. The built-in `table.NoResults` reflects the active filters in its message
+and clears them on click — pass `onReset` when filters are managed outside the
+table.
+
+<ExampleTabs name="data-table-no-results" />
+
 ### Sub Rows
 
 Use `getSubRows` to render hierarchical data. Add an `ExpanderCell` to a column

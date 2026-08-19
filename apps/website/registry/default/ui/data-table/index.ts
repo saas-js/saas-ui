@@ -128,3 +128,8 @@ export type {
   SortingState,
   TableState,
 } from '@tanstack/react-table'
+
+export {
+  DataTableNoResults,
+  type DataTableNoResultsProps,
+} from './data-table-no-results.tsx'

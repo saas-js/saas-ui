@@ -852,6 +852,10 @@
         "type": "registry:ui"
       },
       {
+        "path": "ui/data-table/data-table-no-results.tsx",
+        "type": "registry:ui"
+      },
+      {
         "path": "ui/data-table/data-table-pagination.tsx",
         "type": "registry:ui"
       },
@@ -897,6 +901,7 @@
         "client": true,
         "fileHashes": {
           "ui/data-table/data-table-cells.tsx": "d49dd27b40f5cdb905159d1cc3cd711ba3bc7bd4b422773e46f1298d11938fa5",
+          "ui/data-table/data-table-no-results.tsx": "c3f5852e6266c63e1701b1f93dcd63bb33a995e7445986a2d15a8e2224f19b5b",
           "ui/data-table/data-table-pagination.tsx": "da01a2720f55bc3019022b9ae19613602657330d247f98bc7b4f65577457cac6",
           "ui/data-table/data-table-virtual.tsx": "7fcef8809ca37c8e85817396010d17711dab2a43c7e2e6a3a299d4309c5b8ba0",
           "ui/data-table/data-table.context.ts": "74bede00fcf3bfda9f5e39e7750a29677c87be347b1a850fce402638bbe10ddf",
@@ -905,8 +910,8 @@
           "ui/data-table/data-table.recipe.ts": "36559d093d3c9d5106522d4555e12e478b137443bb84e50bbb4904ee18b19601",
           "ui/data-table/data-table.tsx": "7368e257b8d7c047a570bf84602ff919fb1192b1d34d84670f7de66a221b2346",
           "ui/data-table/data-table.utils.ts": "2629fb8954e1340de71e4054dce036d5f1a5eff19c6ba1da93fc92cf8c35454d",
-          "ui/data-table/index.ts": "1ee9196237da286e1c000350b7321f8f3468e038f37bcf57a2292c4aa02369ae",
-          "ui/data-table/use-data-table.ts": "e58200de8290cc2214aeba588da3c1efecc324a5a4b84bf8716f9805f643c177"
+          "ui/data-table/index.ts": "d379cf399b3bcd379c5ea666396ca0d2028b22a8edb9f96c6bab3535c38083fa",
+          "ui/data-table/use-data-table.ts": "e593624c1fa69728652cf2651d1c85d92b83cf5b4f540242dbf220fa3c4c57b3"
         },
         "iconDependencies": [
           "chevron-down-icon",
@@ -918,7 +923,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "7cc79d975dd9e0f3574904b8de601f456fd4cfe225dba1190cc28d2df479450d"
+      "contentHash": "7e640088792e691cec0f62d350490e6d2206d707478f1281d916ea5d397f76e1"
     },
     "name": "data-table",
     "registryDependencies": [

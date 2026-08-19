@@ -16,6 +16,7 @@ import {
   SortIndicator,
   TextCell,
 } from './data-table-cells.tsx'
+import { DataTableNoResults } from './data-table-no-results.tsx'
 import {
   DataTablePageSelect,
   DataTablePagination,
@@ -59,6 +60,7 @@ const dataTableComponents = {
   Row: DataTableRow,
   Cell: DataTableCell,
   Footer: DataTableFooter,
+  NoResults: DataTableNoResults,
   Pagination: DataTablePagination,
   PaginationRange: DataTablePaginationRange,
   PaginationNav: DataTablePaginationNav,

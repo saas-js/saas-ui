@@ -158,7 +158,7 @@ export const Index: Record<string, any> = {
       name: "data-table",
       type: "registry:ui",
       registryDependencies: ["checkbox","chevron-down-icon","chevron-left-icon","chevron-right-icon","chevron-up-icon","format-date","pagination"],
-      files: ["../ui/data-table/data-table-cells.tsx","../ui/data-table/data-table-pagination.tsx","../ui/data-table/data-table-virtual.tsx","../ui/data-table/data-table.context.ts","../ui/data-table/data-table.features.ts","../ui/data-table/data-table.primitives.tsx","../ui/data-table/data-table.recipe.ts","../ui/data-table/data-table.tsx","../ui/data-table/data-table.utils.ts","../ui/data-table/index.ts","../ui/data-table/use-data-table.ts"],
+      files: ["../ui/data-table/data-table-cells.tsx","../ui/data-table/data-table-no-results.tsx","../ui/data-table/data-table-pagination.tsx","../ui/data-table/data-table-virtual.tsx","../ui/data-table/data-table.context.ts","../ui/data-table/data-table.features.ts","../ui/data-table/data-table.primitives.tsx","../ui/data-table/data-table.recipe.ts","../ui/data-table/data-table.tsx","../ui/data-table/data-table.utils.ts","../ui/data-table/index.ts","../ui/data-table/use-data-table.ts"],
       preview: "ui/data-table/data-table.tsx",
       source: "",
       categories: undefined,

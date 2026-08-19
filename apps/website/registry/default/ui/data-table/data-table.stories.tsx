@@ -893,7 +893,12 @@ function FooterStory() {
 function EmptyStateStory() {
   const table = useDataTable({
     columns,
-    data: [] as Account[],
+    data: accounts,
+    getRowId: (row) => row.id,
+    initialState: {
+      globalFilter: 'wayfarer',
+      pagination: { pageIndex: 0, pageSize: 18 },
+    },
   })
 
   return (
@@ -902,13 +907,7 @@ function EmptyStateStory() {
         <table.ScrollArea>
           <table.Table aria-label="Accounts">
             <table.Header />
-            <table.Body
-              emptyState={
-                <HStack justifyContent="center">
-                  <Text>No accounts found.</Text>
-                </HStack>
-              }
-            />
+            <table.Body emptyState={<table.NoResults resource="accounts" />} />
           </table.Table>
         </table.ScrollArea>
       </table.Root>

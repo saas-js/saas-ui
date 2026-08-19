@@ -1,0 +1,11 @@
+{
+  "FormatDate": {
+    "props": {
+      "value": {
+        "type": "Date | string | number",
+        "isRequired": true,
+        "description": "The date to format. Date-only strings (`2026-03-18`) are interpreted as local calendar dates."
+      }
+    }
+  }
+}

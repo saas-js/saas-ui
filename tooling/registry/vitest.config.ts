@@ -14,5 +14,9 @@ export default defineConfig({
   test: {
     environment: 'node',
     include: ['tooling/registry/**/*.test.ts'],
+    // Several tests compile the full public registry in-process; the compile
+    // scales with registry size, so give it headroom beyond vitest's 5s
+    // default.
+    testTimeout: 30_000,
   },
 })

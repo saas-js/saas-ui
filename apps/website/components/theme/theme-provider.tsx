@@ -23,6 +23,7 @@ import {
   createRandomAppearance,
   defaultAppearance,
 } from './appearance'
+import { applyFonts, createRandomFonts } from './fonts'
 
 type ThemeStoreProps = Required<
   Pick<
@@ -39,6 +40,10 @@ type ThemeStoreProps = Required<
     preset: string | null
     /** Named palette that seeded the accent, for swatch highlighting. */
     accentPalette: AccentPalette | null
+    /** Selected heading font id, null for the site default. */
+    headingFont: string | null
+    /** Selected body font id, null for the site default. */
+    bodyFont: string | null
   }
 
 const defaultValue: ThemeStoreProps = {
@@ -50,6 +55,8 @@ const defaultValue: ThemeStoreProps = {
   ...defaultAppearance,
   preset: 'default',
   accentPalette: 'indigo',
+  headingFont: null,
+  bodyFont: null,
 }
 
 const scaleFactors = [0.9, 0.95, 1, 1.05, 1.1] as const
@@ -71,6 +78,8 @@ interface ThemeStore extends ThemeStoreProps {
   setAccent: (accent: AccentAppearance) => void
   setAccentPalette: (palette: AccentPalette) => void
   setSidebar: (sidebar: SidebarAppearance) => void
+  setHeadingFont: (headingFont: string | null) => void
+  setBodyFont: (bodyFont: string | null) => void
   applyPreset: (preset: AppearancePreset) => void
   randomize: () => void
   reset: () => void
@@ -94,22 +103,28 @@ const useStore = create<ThemeStore>()(
           preset: null,
         }),
       setSidebar: (sidebar) => set({ sidebar, preset: null }),
+      setHeadingFont: (headingFont) => set({ headingFont }),
+      setBodyFont: (bodyFont) => set({ bodyFont }),
       applyPreset: (preset) =>
         set({
           ...preset.appearance,
           preset: preset.id,
           accentPalette: preset.accentPalette ?? null,
         }),
-      randomize: () =>
+      randomize: () => {
+        const fonts = createRandomFonts()
         set({
           ...createRandomAppearance(),
           scaleFactor: randomValue(scaleFactors),
           controlRadius: randomValue(controlRadii),
           panelRadius: randomValue(panelRadii),
           indicatorRadius: randomValue(indicatorRadii),
+          headingFont: fonts.heading,
+          bodyFont: fonts.body,
           preset: null,
           accentPalette: null,
-        }),
+        })
+      },
       reset: () => set(defaultValue),
     }),
     {
@@ -162,11 +177,20 @@ export const GlobalAppearance = () => {
     controlRadius,
     panelRadius,
     indicatorRadius,
+    headingFont,
+    bodyFont,
   } = useStore()
 
   React.useEffect(() => {
     applyAppearance(document.documentElement, { base, accent, sidebar })
   }, [base, accent, sidebar])
+
+  React.useEffect(() => {
+    applyFonts(document.documentElement, {
+      heading: headingFont,
+      body: bodyFont,
+    })
+  }, [headingFont, bodyFont])
 
   React.useEffect(() => {
     const style = document.documentElement.style

@@ -28,6 +28,7 @@ import {
   appearancePresets,
   formatOklch,
 } from './appearance'
+import { bodyFontOptions, headingFontOptions } from './fonts'
 import { useTheme } from './theme-provider'
 
 const overlayEffects = createListCollection({
@@ -74,6 +75,28 @@ const contrastLevels = [
   { label: 'Strong', value: 'strong' },
 ] as const
 
+const defaultFontItem = { label: 'Inter (default)', value: 'default' }
+
+const headingFonts = createListCollection({
+  items: [
+    defaultFontItem,
+    ...headingFontOptions.map((font) => ({
+      label: font.label,
+      value: font.id,
+    })),
+  ],
+})
+
+const bodyFonts = createListCollection({
+  items: [
+    defaultFontItem,
+    ...bodyFontOptions.map((font) => ({
+      label: font.label,
+      value: font.id,
+    })),
+  ],
+})
+
 function PresetSwatch(props: { colors: string[] }) {
   return (
     <HStack gap="0">
@@ -111,9 +134,13 @@ export const ThemePanel = () => {
     sidebar,
     preset,
     accentPalette,
+    headingFont,
+    bodyFont,
     setBase,
     setAccentPalette,
     setSidebar,
+    setHeadingFont,
+    setBodyFont,
     applyPreset,
     randomize,
     reset,
@@ -405,6 +432,50 @@ export const ThemePanel = () => {
                       </ToggleGroup.Item>
                     </ButtonGroup>
                   </ToggleGroup.Root>
+                </Field.Root>
+
+                <Field.Root>
+                  <Field.Label>Heading font</Field.Label>
+                  <Select.Root
+                    collection={headingFonts}
+                    value={[headingFont ?? 'default']}
+                    onValueChange={({ value }) =>
+                      setHeadingFont(value[0] === 'default' ? null : value[0]!)
+                    }
+                  >
+                    <Select.Trigger>
+                      <Select.ValueText placeholder="Select heading font" />
+                    </Select.Trigger>
+                    <Select.Content>
+                      {headingFonts.items.map((item) => (
+                        <Select.Item item={item} key={item.value}>
+                          {item.label}
+                        </Select.Item>
+                      ))}
+                    </Select.Content>
+                  </Select.Root>
+                </Field.Root>
+
+                <Field.Root>
+                  <Field.Label>Body font</Field.Label>
+                  <Select.Root
+                    collection={bodyFonts}
+                    value={[bodyFont ?? 'default']}
+                    onValueChange={({ value }) =>
+                      setBodyFont(value[0] === 'default' ? null : value[0]!)
+                    }
+                  >
+                    <Select.Trigger>
+                      <Select.ValueText placeholder="Select body font" />
+                    </Select.Trigger>
+                    <Select.Content>
+                      {bodyFonts.items.map((item) => (
+                        <Select.Item item={item} key={item.value}>
+                          {item.label}
+                        </Select.Item>
+                      ))}
+                    </Select.Content>
+                  </Select.Root>
                 </Field.Root>
 
                 <Field.Root>

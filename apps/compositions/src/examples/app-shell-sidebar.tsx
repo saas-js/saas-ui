@@ -42,7 +42,7 @@ export const AppShellSidebar = () => {
                     </Sidebar.NavButton>
                   </Sidebar.NavItem>
                   <Sidebar.NavItem>
-                    <Sidebar.NavButton>
+                    <Sidebar.NavButton active>
                       <FiUsers /> Contacts
                     </Sidebar.NavButton>
                   </Sidebar.NavItem>
@@ -53,8 +53,8 @@ export const AppShellSidebar = () => {
         }
       >
         <Page.Root>
-          <Page.Header title="Users" />
-          <Page.Body p="0"></Page.Body>
+          <Page.Header title="Contacts" />
+          <Page.Body textStyle="sm">Your application content</Page.Body>
         </Page.Root>
       </AppShell>
     </Sidebar.Provider>

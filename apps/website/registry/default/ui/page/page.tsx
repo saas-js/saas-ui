@@ -125,7 +125,7 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
 
 const PageHeaderSection = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   'div',
-  'section',
+  'headerContent',
 )
 
 const PageTitle = withContext<HTMLDivElement, HTMLChakraProps<'h2'>>(

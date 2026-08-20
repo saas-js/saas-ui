@@ -15,7 +15,7 @@ export const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(
   (props, ref) => {
     const { variant = 'ghost', mr = 2, children, ...rest } = props
 
-    let content = children || <ArrowLeftIcon />
+    const content = children || <ArrowLeftIcon />
 
     return (
       <IconButton

@@ -1,0 +1,51 @@
+{
+  "Root": {
+    "props": {
+      "variant": {
+        "type": "'panel' | 'settings'",
+        "defaultValue": "panel",
+        "isRequired": false,
+        "description": "The visual style of the page"
+      },
+      "loading": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Show a loading overlay in the page body"
+      },
+      "skeleton": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Custom loading state, rendered in the body while loading"
+      }
+    }
+  },
+  "Header": {
+    "props": {
+      "nav": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Page header navigation. Typically breadcrumbs or a back button"
+      },
+      "title": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Page header title"
+      },
+      "description": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Page header description"
+      },
+      "actions": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Page header actions, typically a toolbar"
+      },
+      "footer": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Page header footer, typically tabs"
+      }
+    }
+  }
+}

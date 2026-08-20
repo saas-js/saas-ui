@@ -120,7 +120,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/align-center-icon.tsx": "b9f93b5d3e58cc3d55f0edce4ba6dad1131dd61e0ed6071a9ac991379b980277"
+          "icons/align-center-icon.tsx": "162e272619dba50198638f41bb7251973322b9a2b031e8b3e49e8655e6d8f0a9"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -128,7 +128,7 @@
         "recipeReferences": []
       },
       "componentName": "AlignCenterIcon",
-      "contentHash": "4093e3ab44438360a9e82019f6b6eed54914b918a368c8417fec8737d8bb75eb",
+      "contentHash": "fbed7dd96e2f74faecf77c271a4dbd9224e0d36f3b56ec22c948f9bce683b7ac",
       "iconName": "AlignCenter",
       "iconSet": "lucide"
     },
@@ -148,7 +148,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/align-justify-icon.tsx": "7029b40355b9ba57d74ead7cf2fe6328761e5c05fc3f5eb5098fab04d7602994"
+          "icons/align-justify-icon.tsx": "a412d54a63df9f8fccf1ea2c6f2889ae81558dd8822db242f1f04619c242b9bf"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -156,7 +156,7 @@
         "recipeReferences": []
       },
       "componentName": "AlignJustifyIcon",
-      "contentHash": "c3704edd345fbefe5905adbd83dff2349ee1b5dae88e7130280c495e222933d1",
+      "contentHash": "ec05ee771897b69a3798c31e85bb87159c1942af041b562c981d61ff9eb8f253",
       "iconName": "AlignJustify",
       "iconSet": "lucide"
     },
@@ -176,7 +176,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/align-left-icon.tsx": "d87ff20aa35411d04a91d07d88e78423a6792f9694e82f8774a0427ae13d2027"
+          "icons/align-left-icon.tsx": "960533c3f09608a67729216e42ae2cfd9f2592d80dd3dc55fff6c4c7c157ee2a"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -184,7 +184,7 @@
         "recipeReferences": []
       },
       "componentName": "AlignLeftIcon",
-      "contentHash": "3c3e290ab191297e96949149e646141e5efd673c240dcbb4dd1bf05e868bf753",
+      "contentHash": "76634426ac869d9fc4808b13d5462c210cf5b3d5cc33579e3159b38a39778a75",
       "iconName": "AlignLeft",
       "iconSet": "lucide"
     },
@@ -204,7 +204,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/align-right-icon.tsx": "5042b71a9f529135e4b7d6a7ed57b441f7b2860f38a881ac7d15fb1c20faf67e"
+          "icons/align-right-icon.tsx": "96289a2c6862a47126d8b55cd349b2d0bb83af3117b5173f3931037edb79c678"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -212,7 +212,7 @@
         "recipeReferences": []
       },
       "componentName": "AlignRightIcon",
-      "contentHash": "abf4ee767f4daa97d461669be584fa600830e961279e387c468e695a198c2554",
+      "contentHash": "c61388a5b2cfc6e53f84c8d7fcc2b7ca1e648deca8234a81bc753f78ebb1eb31",
       "iconName": "AlignRight",
       "iconSet": "lucide"
     },
@@ -270,7 +270,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/arrow-left-icon.tsx": "34f7e7ec828033fb833eda79cdd393e6ba3101ecaf9cefc9405bc2ac7fd37a3a"
+          "icons/arrow-left-icon.tsx": "f23ce89191787c6766143ee7c425c6382983567e141ffaddb6c7f8743c37bed6"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -278,7 +278,7 @@
         "recipeReferences": []
       },
       "componentName": "ArrowLeftIcon",
-      "contentHash": "2466dfcfdbf89bef0899c4344057cb7cd4a8988c9004bc053c2177cdbbd21393",
+      "contentHash": "fc96e1064866a427a15736019583ac581b7cba9b9cfbfb69296426be60b1a3f9",
       "iconName": "ArrowLeft",
       "iconSet": "lucide"
     },
@@ -385,7 +385,7 @@
       "compiler": {
         "client": true,
         "fileHashes": {
-          "ui/back-button/back-button.tsx": "b34817cb70a6733fccdfc5cd1745cf39334a46af192621468b9b5bff05e7e2d1",
+          "ui/back-button/back-button.tsx": "414b66f3448a0a2c37075e7c10e2283e0d4265ae33a10c35fe4c2b40b9e40d81",
           "ui/back-button/index.ts": "4df866418ac411d2a4ec841d70a99896450efd345832dcca3e3e940f5793694d"
         },
         "iconDependencies": [
@@ -395,7 +395,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "d490d72610e2b7c5d93f7c7c67f85a1babafebf6b5dee4311a8c26ef96c82a13"
+      "contentHash": "f52b05264bdccd8ed9820f04fac2a9870af15058ce94c1345633323912b0d78a"
     },
     "name": "back-button",
     "registryDependencies": [
@@ -449,7 +449,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/bold-icon.tsx": "fb61e5af732b3f1ba3c9735df0dd418107a402e3a39f047845845a26e36b7159"
+          "icons/bold-icon.tsx": "e96ffb77c25efcd73953a18b656e38dfd2c4991fd6470678209ead3f3c0f979c"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -457,7 +457,7 @@
         "recipeReferences": []
       },
       "componentName": "BoldIcon",
-      "contentHash": "c31851b3ab2bee7fe2c7ab5212249b1c608e1a50b30f032189b4bdb5a40b7fda",
+      "contentHash": "b4d0fd3fd7c9cfbdda28264af1b7eeacafc9c751c5096fb78cf88d3fe3c2a30a",
       "iconName": "Bold",
       "iconSet": "lucide"
     },
@@ -548,7 +548,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/calendar-icon.tsx": "691c9f012ae0414b7fc3c2470c479ed5ffb9d18daa9f0edac28ef77102614d5b"
+          "icons/calendar-icon.tsx": "65b249a4a467d2e1310157d50da87ecd473fd9710351e11c840fbd716b200df0"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -556,7 +556,7 @@
         "recipeReferences": []
       },
       "componentName": "CalendarIcon",
-      "contentHash": "136174caa25f24d5ad02b456d9bc3394fb1f2410c1ac522dd0e842c97879d291",
+      "contentHash": "7c29595014946029bda1af3d1b7eca75876c32e8290b5e4773d26fe0614c2273",
       "iconName": "Calendar",
       "iconSet": "lucide"
     },
@@ -576,7 +576,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/check-icon.tsx": "d336100260eeb35940b4b91f56e969d8329b5148e5aa3b33789affc1559e5e65"
+          "icons/check-icon.tsx": "831e74a62e559b59dfa669b7b9379e4318a69fbc462c0c2a75dc2d64036766b5"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -584,7 +584,7 @@
         "recipeReferences": []
       },
       "componentName": "CheckIcon",
-      "contentHash": "f55821308151125ea9714a39cad660ef8f10d610fbe01948051026f8ad2a908e",
+      "contentHash": "4c74dabcadaa816792b0928a41aeded43933aa338dc4e13c6227e0448b6d7722",
       "iconName": "Check",
       "iconSet": "lucide"
     },
@@ -670,7 +670,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/chevron-down-icon.tsx": "f98bf1e4585f43553b84207a447fc5062cf30cdedc5a035c99740e266cb90d9a"
+          "icons/chevron-down-icon.tsx": "50000e4b39ac955f43b7949400b38c40191333c77441737003152c8a7151c99e"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -678,7 +678,7 @@
         "recipeReferences": []
       },
       "componentName": "ChevronDownIcon",
-      "contentHash": "190e2c1cf97ab29bb581d49c6cb406585a9c0cef70686b1fe809bf28faef74fa",
+      "contentHash": "b185e52e626d3e4ec7fdb305f890a440ab35ad5a5c33dfe70cc4329e0f88456c",
       "iconName": "ChevronDown",
       "iconSet": "lucide"
     },
@@ -698,7 +698,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/chevron-left-icon.tsx": "cf2bd5b211184cbb97acac3d14471ae47197c16e16c31db13a9b6fd5730699a2"
+          "icons/chevron-left-icon.tsx": "663b9e42d58122d7aa62b0acfcf21795a933fc848f00a1271bc74e5cb4bf3974"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -706,7 +706,7 @@
         "recipeReferences": []
       },
       "componentName": "ChevronLeftIcon",
-      "contentHash": "8a754dd4664e328663e42c1c4092995ab00e525f878bba25fa7d0797583c9476",
+      "contentHash": "2aac58f2e7e2ad7c6df1393bbe250ecee36fbdca7c21b65ba86ca23a87de1a41",
       "iconName": "ChevronLeft",
       "iconSet": "lucide"
     },
@@ -726,7 +726,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/chevron-right-icon.tsx": "017bf136a7988a70efc2252bed0397da697f8ca3ccf80d472676abdfae5896bc"
+          "icons/chevron-right-icon.tsx": "3a54c1563bda8af9d8ad52c7d762678047318c10c703d985181dd37f3eae9aa4"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -734,7 +734,7 @@
         "recipeReferences": []
       },
       "componentName": "ChevronRightIcon",
-      "contentHash": "5ba73db78d8d34eca821aa6e742c7c361b638ff7c10511e82e03dba2d2bcf018",
+      "contentHash": "2d40e734b70c34ce75dcff760993309d296e4d0ced5c90843c7314297f3a22ac",
       "iconName": "ChevronRight",
       "iconSet": "lucide"
     },
@@ -754,7 +754,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/chevron-up-icon.tsx": "c7d63b748ccf2474054ba29248489b9e75751937ac02c9527c57dd79c904ac32"
+          "icons/chevron-up-icon.tsx": "c85a1c5b4f597345f4e188fcafa2f59ab6d61713f73c6d4d54c4e4a278cd08b9"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -762,7 +762,7 @@
         "recipeReferences": []
       },
       "componentName": "ChevronUpIcon",
-      "contentHash": "e12f8e012fad7a98535acdb6330a31751b57aa9394425942cbf275c3c80d2c08",
+      "contentHash": "4970b50cf55316aa12b24e96798124eff9a8e500f0fe0f6ae2433372f0be784f",
       "iconName": "ChevronUp",
       "iconSet": "lucide"
     },
@@ -889,7 +889,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/code-icon.tsx": "1ea511fabb5514bd415e6574f2ad5d773728c4fd3b0f96df7ef011f33c0e20e7"
+          "icons/code-icon.tsx": "791cdd785b3a819b4ae027e5603ae9bffc4fabd9e94ac33247617bd7532e0cb5"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -897,7 +897,7 @@
         "recipeReferences": []
       },
       "componentName": "CodeIcon",
-      "contentHash": "91be6e18dbc3d58552e6ac39cb0bc5cb16723a3df20152765299efc3ca4c214f",
+      "contentHash": "0b4b6a06a954bf04789a481807384b173e16d07808829c65b0417b9a3b043b82",
       "iconName": "Code",
       "iconSet": "lucide"
     },
@@ -989,7 +989,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/copy-icon.tsx": "2c1e821c885e9cc977fb9ed237d420003b1b18180eb4ef62eec78e71737618e6"
+          "icons/copy-icon.tsx": "754814f99322799240f91b13bf3a898226a107f1978677af4f6e7b67bc51ad4f"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -997,7 +997,7 @@
         "recipeReferences": []
       },
       "componentName": "CopyIcon",
-      "contentHash": "063108176c6c3d0289afb06843c5c1f17872799ef40538c7ccf279d21d42e3c9",
+      "contentHash": "67b7af0884958c3cdb02cba8aa589ecf50807d000f10f3c3d36d15550856fbc6",
       "iconName": "Copy",
       "iconSet": "lucide"
     },
@@ -1073,7 +1073,7 @@
           "ui/data-table/data-table-pagination.tsx": "da01a2720f55bc3019022b9ae19613602657330d247f98bc7b4f65577457cac6",
           "ui/data-table/data-table-virtual.tsx": "7fcef8809ca37c8e85817396010d17711dab2a43c7e2e6a3a299d4309c5b8ba0",
           "ui/data-table/data-table.context.ts": "74bede00fcf3bfda9f5e39e7750a29677c87be347b1a850fce402638bbe10ddf",
-          "ui/data-table/data-table.features.ts": "6c4b6f0f30af5a11dfe7a2110863a54e010bad9e9dc5dde747ea7638eea54837",
+          "ui/data-table/data-table.features.ts": "264a41973e82132f700ddd1a88ef03048d84eb10f1db5df6e2e34ef0a23ee16c",
           "ui/data-table/data-table.primitives.tsx": "11165b2759e71ebea6af00173600003ec2e8271f31914c3811b007327dbb13bb",
           "ui/data-table/data-table.recipe.ts": "36559d093d3c9d5106522d4555e12e478b137443bb84e50bbb4904ee18b19601",
           "ui/data-table/data-table.tsx": "7368e257b8d7c047a570bf84602ff919fb1192b1d34d84670f7de66a221b2346",
@@ -1091,7 +1091,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "33b742471efcab8004e5917c25af9610cbbcb6d31ed88863e227bfd7d5b1bec9"
+      "contentHash": "da4c1fe1955008c17464e2a1a3e87f61e312e5f28c9bd05ea76bb7951ae9324a"
     },
     "name": "data-table",
     "registryDependencies": [
@@ -1197,7 +1197,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/ellipsis-icon.tsx": "1aac0051e7769f812decd685833fdbd1ce239be7956100c7e106306d14de8959"
+          "icons/ellipsis-icon.tsx": "ec3d6e0c01a415eec523c32d69c017cad40f7bdfcca20ce451b319e5d182893b"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1205,7 +1205,7 @@
         "recipeReferences": []
       },
       "componentName": "EllipsisIcon",
-      "contentHash": "d610e546095a12d72192ed5a383a0844c2e461415f40a11e2170aab15c0d355d",
+      "contentHash": "c4ac337330418768f9101debd54bd5e96d118ae384d7ccc4910d6476e99cca36",
       "iconName": "Ellipsis",
       "iconSet": "lucide"
     },
@@ -1258,7 +1258,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/eye-icon.tsx": "d5269d500b540a7af113dcf8c80e076dd1e3f13f925bbf3d57d291ea5abd58bb"
+          "icons/eye-icon.tsx": "e458408a5a38ee79818a07bd2898a39c1c8e8617c414009f559cb13a58a08303"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1266,7 +1266,7 @@
         "recipeReferences": []
       },
       "componentName": "EyeIcon",
-      "contentHash": "5401c34e36619242260c1d453b09d907d7dd2580b0999d49ef6d6ed04d63ab24",
+      "contentHash": "6e9278701faa3dd7d00bb25c80a25fce26956e949e3cd9cc32fef170bfefae24",
       "iconName": "Eye",
       "iconSet": "lucide"
     },
@@ -1286,7 +1286,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/eye-off-icon.tsx": "71eee3fbc7559cf2205b6a7a8806c1d7179dfca9b06787678d7762b015be4f17"
+          "icons/eye-off-icon.tsx": "31afdfef34fc18c462336fdf5cd3e9bcd6d414ab08a0c97e5718506f01243721"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1294,7 +1294,7 @@
         "recipeReferences": []
       },
       "componentName": "EyeOffIcon",
-      "contentHash": "9023518e9ee0a2f28c3df583ed04461485a77899313248c52dba48d04c004e38",
+      "contentHash": "af35d13af70a589b242bece7e2f8654f945ecd91265d2d211ca80bb86c94eb46",
       "iconName": "EyeOff",
       "iconSet": "lucide"
     },
@@ -1351,7 +1351,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/filter-icon.tsx": "44921f1e4b439bbf3a6a8cb64d558247543fc849853cb890eed5e2cf53ff687f"
+          "icons/filter-icon.tsx": "8523fa4b7cd416c9cd9fbec31b7b46d1b57fe2ad833178e9bc37f3bf641f6ad3"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1359,7 +1359,7 @@
         "recipeReferences": []
       },
       "componentName": "FilterIcon",
-      "contentHash": "d7f285cc0ad4c494b6f799c5bb87c3683f4d50f918a4e8faaaa964024b81e444",
+      "contentHash": "1e63ab7765f462593cbc68fa312b32b11e2bc1d60853f0a48706c9a31e3a132b",
       "iconName": "Filter",
       "iconSet": "lucide"
     },
@@ -1631,7 +1631,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/hamburger-icon.tsx": "b1a74ecd5e3d46904909b424d39977cc4b875319839492f1cbfb0dea1dc875a9"
+          "icons/hamburger-icon.tsx": "a6f3892a3e730b70c69bed6676d45c40de096c867a4a618578ee5841cd09be98"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1639,7 +1639,7 @@
         "recipeReferences": []
       },
       "componentName": "HamburgerIcon",
-      "contentHash": "70062e8569a8fc5fd0d6d9e59a9b8c9ca6a5b46395b27645880f856d60a470b4",
+      "contentHash": "7af2c549b8e39676b67af28ab21308b5926921de67dfad6e36841001d13d1eaa",
       "iconName": "Menu",
       "iconSet": "lucide"
     },
@@ -1659,7 +1659,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/heading1-icon.tsx": "1d224fd486d84bb6858d4c8e3ecd8065e3ef7f628dd426783183dd94440886cb"
+          "icons/heading1-icon.tsx": "61500e6c7e0e7f5dea1e7c4e2462c442853a6f2312ef76859a1ff94812ff6679"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1667,7 +1667,7 @@
         "recipeReferences": []
       },
       "componentName": "Heading1Icon",
-      "contentHash": "846bc7e1131055c4d58b5f47512e6df828e8822d64612076b66057e8bbcf39cf",
+      "contentHash": "f332a894099c853bdae8c04743a6c35427ca490e9d731a64a75abe59dee532a3",
       "iconName": "Heading1",
       "iconSet": "lucide"
     },
@@ -1687,7 +1687,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/heading2-icon.tsx": "5c0930aea4492207f13d5aa1e85d2b6be7d9f2ef761daecf8f45fcc319b6182e"
+          "icons/heading2-icon.tsx": "1b2ea02db14aa64f81db0fecaf246742e51b20e8322cdff3d06b8b78259034a1"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1695,7 +1695,7 @@
         "recipeReferences": []
       },
       "componentName": "Heading2Icon",
-      "contentHash": "b666c52526f5a7ea4efdb8bbae736c1eb99cba85cc70df831e54c10d2232cb48",
+      "contentHash": "b9aa34ee982411f9d5fcc2599be2154de552ca5e48969163532f237c8f358f30",
       "iconName": "Heading2",
       "iconSet": "lucide"
     },
@@ -1715,7 +1715,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/heading3-icon.tsx": "a595f76749efcedb4ca667f1fa96f165aa3dd37f4dcc231b3c1bdf119dfd7388"
+          "icons/heading3-icon.tsx": "265415f2d340ae43b20fd816b0fdf52d73198db91a423618e4ea470120640b29"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1723,7 +1723,7 @@
         "recipeReferences": []
       },
       "componentName": "Heading3Icon",
-      "contentHash": "c28cf3393ac8d093cb424057078666551070b3dfcbb334c3c9279ffcb59b7905",
+      "contentHash": "d7bd69d2ae0eaa7fe48d2e99ad64f89f66c234e290c1bff3aadcc57e149880b9",
       "iconName": "Heading3",
       "iconSet": "lucide"
     },
@@ -1743,7 +1743,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/heading4-icon.tsx": "7949703602199f9296366a25d15bfb31e61cecb6fc973588c633ef78a6b3fe5d"
+          "icons/heading4-icon.tsx": "c10303e9337266b885eda2c458057db0c29502dc60e76809d3dac8ebfc489d5a"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1751,7 +1751,7 @@
         "recipeReferences": []
       },
       "componentName": "Heading4Icon",
-      "contentHash": "bb3d32cda102d17aa54702c7309c7d0da0762f641cc322e5c714413dca7c57ab",
+      "contentHash": "2c43646c31230719643fe22f9c5411f3ca28dea01ae97b0e45792517d279dce4",
       "iconName": "Heading4",
       "iconSet": "lucide"
     },
@@ -1771,7 +1771,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/highlighter-icon.tsx": "af11acf8f80f1bdb6cf45767f410d327b3179dd7c5ddb3946a871785c45cbeb2"
+          "icons/highlighter-icon.tsx": "e997d79417a3a787b9571563a49e65d744a9bd3627462d0e288be001877b6d58"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1779,7 +1779,7 @@
         "recipeReferences": []
       },
       "componentName": "HighlighterIcon",
-      "contentHash": "1789b276b7dd1678415cece8566ca0b83f6b26d6117966c6a6a9c4cab928a816",
+      "contentHash": "41ae07ee2f7f13db2d42868c19a36fc004823ad78ba53520847a74f8147666df",
       "iconName": "Highlighter",
       "iconSet": "lucide"
     },
@@ -1944,7 +1944,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/info-icon.tsx": "944aca508dd883b1a911e6253f521122ec8f55407835383a90c1309ae30cd890"
+          "icons/info-icon.tsx": "ddbceda9cd45cea133d0e4dff5fba28fae509ab7a977a3aee428b5409d640667"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -1952,7 +1952,7 @@
         "recipeReferences": []
       },
       "componentName": "InfoIcon",
-      "contentHash": "6d1487f8fecb674480e9d15e2d8ac32f16d250b020c94d2db78e3ac9415639c6",
+      "contentHash": "736f4336170446b3838c3596cd72b15df5bd8ae8bfa729f2b910264153a651c6",
       "iconName": "Info",
       "iconSet": "lucide"
     },
@@ -2075,7 +2075,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/italic-icon.tsx": "8cb23e12235a294a6aaa248762b7ef2168d50635da67b5c493fa69af8b1fa258"
+          "icons/italic-icon.tsx": "39cbdb1a7f6228a7371a2ee306e70ee0eb8c5fc701142db073925ebe60dbaef0"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -2083,7 +2083,7 @@
         "recipeReferences": []
       },
       "componentName": "ItalicIcon",
-      "contentHash": "f23712dd6698c2bd182615a30146dc2a42d596a95821bbb1ea4d0c4114b70f70",
+      "contentHash": "91b401787fd8586c2493c19be5ba58c313549ca5c81bd20fb87dba47bd96008f",
       "iconName": "Italic",
       "iconSet": "lucide"
     },
@@ -2139,7 +2139,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/link-icon.tsx": "c708a1416d232b6915465f35b6f8d9c48fe47db8778e23824aeba73000a8df21"
+          "icons/link-icon.tsx": "198bedb8f16d8ba2fae1e6acf601d3da0f891c76a387d05ffbb2f7307f472203"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -2147,7 +2147,7 @@
         "recipeReferences": []
       },
       "componentName": "LinkIcon",
-      "contentHash": "f84228b8fd2377a84709ebef2b5896358016e71b0c3eed09c566e49967533592",
+      "contentHash": "e3b7663358908bfbaa02595302f7cb4e2a2c90098c92f710e9ae6e54df5d54ee",
       "iconName": "Link",
       "iconSet": "lucide"
     },
@@ -2167,7 +2167,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/list-icon.tsx": "f1077984953946fc50f33ab4accb6d143c7ae54f2fb97dd342c2b5d39bb779d0"
+          "icons/list-icon.tsx": "c6ca7cd630e66a1a54a3e42f7832415f4231e3e003ba21ea5cbc59755e879a84"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -2175,7 +2175,7 @@
         "recipeReferences": []
       },
       "componentName": "ListIcon",
-      "contentHash": "9eea93241ae9348577ca4308dcb1451932c57e5d9648e30c316d5d62958f3a87",
+      "contentHash": "831ceb0dc621794eb476e06add86670df16a193a0bc103b0100590a2c69e71b4",
       "iconName": "List",
       "iconSet": "lucide"
     },
@@ -2195,7 +2195,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/list-ordered-icon.tsx": "1496ad692236c27693d2acb59fe2efda6acf96e1115fd857c9d6a5f78c3f795c"
+          "icons/list-ordered-icon.tsx": "8de51f78ad3529abfa9e799f1407ee17c3ca5ed917862c4db469b73906b36a63"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -2203,7 +2203,7 @@
         "recipeReferences": []
       },
       "componentName": "ListOrderedIcon",
-      "contentHash": "6187e6a34829b70c1b6d5e13b41c60d7731b0044c042896d70091a90f1891233",
+      "contentHash": "6c94dd20cc94100684de211dc87b9eadeb377c6231e25b13ba96543f346d732b",
       "iconName": "ListOrdered",
       "iconSet": "lucide"
     },
@@ -2314,7 +2314,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/minus-icon.tsx": "dddfcd9073235e272aeccf11607ac08e859701fce377da743b88c8ecd69d2741"
+          "icons/minus-icon.tsx": "d95432cdc953ef7fb836cf7346679053abb1fea6e3a33baabe71408ae3236899"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -2322,7 +2322,7 @@
         "recipeReferences": []
       },
       "componentName": "MinusIcon",
-      "contentHash": "10aa6ddd272ea0e12eb13ef5b22587b43d84b162da423b544b50e8703c8bbfcf",
+      "contentHash": "67703d11abf78a5104ae623b9721ba8c002a84d5d21b75628f43c9f39a3e28a4",
       "iconName": "Minus",
       "iconSet": "lucide"
     },
@@ -2528,7 +2528,7 @@
         "fileHashes": {
           "ui/page/index.ts": "f21b48edbb98e1ba4004bb5fd74c85abdbc32d6fdf24ff91e17931185f477c2f",
           "ui/page/page.context.ts": "aa08fc2e4c8387b571086f054f17a33cef55ad7cf2d6f54637c0303dbfc723a7",
-          "ui/page/page.tsx": "9f6f98a3435045c28657d0cfef5aacef667d98a84fff318e6086a08eed7d8e38"
+          "ui/page/page.tsx": "1e7156e87be68d08b204dcff5064bd76dab15f228a1a59386873c1e50b5ddfa2"
         },
         "iconDependencies": [],
         "presetImports": [
@@ -2542,7 +2542,7 @@
           "suiPage"
         ]
       },
-      "contentHash": "edfe9a98d8e9d10b995860d1a3feb83369ce00113e55bd2ed2c94dd483b52051"
+      "contentHash": "e18196ac9761b44002983845007e45e90ab79c641e26f97aaedff1b885ee673e"
     },
     "name": "page",
     "registryDependencies": [
@@ -2736,7 +2736,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/plus-icon.tsx": "e472b2f7118b63bde4f74fca5ad9af82220bb952776669fa7646beea587d6715"
+          "icons/plus-icon.tsx": "90e7583801c9837dc6926152f175c7cece078702e74748f41d51de1eea7355ec"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -2744,7 +2744,7 @@
         "recipeReferences": []
       },
       "componentName": "PlusIcon",
-      "contentHash": "5ba6d5753c8e883d784e18079f0cce044ecc2295e3f1b35962a9bec642de35c9",
+      "contentHash": "e8748054213d6bbb5394396d08fa4d0880997b20d211a4db05e2ba1f88750613",
       "iconName": "Plus",
       "iconSet": "lucide"
     },
@@ -2915,7 +2915,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/quote-icon.tsx": "1e815bb280a18d09192706ae46aafaa8ebc3791ac3775e4e933dee05fe705e35"
+          "icons/quote-icon.tsx": "2ed34e7ca756400f0400cda389bb6637699cc4751ab1150533813e5a186eeca6"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -2923,7 +2923,7 @@
         "recipeReferences": []
       },
       "componentName": "QuoteIcon",
-      "contentHash": "3fec9235b3eac8ccdeb83fefe33587e6c5757a389d9d297cff3f90e3c601f225",
+      "contentHash": "4633bd846a63efd9c29171c48f28f69ffce85ef13f284af61a34e19ba9914159",
       "iconName": "Quote",
       "iconSet": "lucide"
     },
@@ -3009,7 +3009,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/redo-icon.tsx": "8883efdbf04164f34d8b4d318d8acf2d54823d5ee36ec23e7fa3720a0d4fb6a6"
+          "icons/redo-icon.tsx": "163ae698337c8a9bf1ab5b232b33b5d44781f3f818a9d4067b9945a4b9dbd2f0"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -3017,7 +3017,7 @@
         "recipeReferences": []
       },
       "componentName": "RedoIcon",
-      "contentHash": "87e964d5c1c1a861b0eef29387bda54abc12291eb71901ad607c48cc65213f0b",
+      "contentHash": "1c59d939f3bc83992b4dcd81d8c0ec4fef984c9e636bb54be8e1b7a49b72fd96",
       "iconName": "Redo",
       "iconSet": "lucide"
     },
@@ -3141,7 +3141,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/search-icon.tsx": "f67feb43f39a5aa8986635f1f708e58113a423de5f122acd70f6245a8e077e6a"
+          "icons/search-icon.tsx": "2c43390763e707afb0c522f31ef34814513e6493e34422eaf1f49106953070ff"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -3149,7 +3149,7 @@
         "recipeReferences": []
       },
       "componentName": "SearchIcon",
-      "contentHash": "af4a28d291b7581639a63c57e4936a8e711bb99105bfc8095e94d539e7ab4348",
+      "contentHash": "a1a5d429f66bbfda0f0cfc71c18a1ab1b41d0bc7d3065f6d75e5fc25b7c7c14a",
       "iconName": "Search",
       "iconSet": "lucide"
     },
@@ -3344,7 +3344,7 @@
         "fileHashes": {
           "ui/sidebar/index.ts": "c0bff814fe24e7f716018653730c20e823e9c517b74d4e9c962b17d37a3479f3",
           "ui/sidebar/sidebar.context.ts": "c58513d91e9d92994e218a316b14987f16e9e621bac7a7062e22041fac99fdcd",
-          "ui/sidebar/sidebar.tsx": "f2919a0f443a9b5d87ebfdd14d39f9a19bcdaa3f7cc03a0e72da8ec0babc894c"
+          "ui/sidebar/sidebar.tsx": "d30a7f8b1009b528327a7bb8ca54a980e62bd7d2cbdce9cd2b196e301dbafe89"
         },
         "iconDependencies": [],
         "presetImports": [
@@ -3357,7 +3357,7 @@
         ],
         "recipeReferences": []
       },
-      "contentHash": "f299b137b2700cf48da69daac4e2290c5da91bd3e6a5143a15e25dbeee9a5bd9"
+      "contentHash": "7d662f4120d2249a2ccc2383becb8bc71a92631da6dca7bf34d8abef0834a782"
     },
     "name": "sidebar",
     "schemaVersion": 1,
@@ -3625,7 +3625,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/strikethrough-icon.tsx": "267e134d2c9e7ece7c263bf0d2462727cceef192a7d06f039d5053a7a70351fc"
+          "icons/strikethrough-icon.tsx": "44c46ac5b1d7d7d940159029b5f5bf3878f3f67b78b4dfe64b01676d421717eb"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -3633,7 +3633,7 @@
         "recipeReferences": []
       },
       "componentName": "StrikethroughIcon",
-      "contentHash": "c58274d6fefea4d8d260292b382f26374b29e1aa6d9034597444940b003ebc31",
+      "contentHash": "6efba08970f879e9038b1ece15f9762f2b6ea46da73eecb599327fb0654cd368",
       "iconName": "Strikethrough",
       "iconSet": "lucide"
     },
@@ -3864,7 +3864,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/underline-icon.tsx": "0d4cb92fddc1a9ef1dc3c419efa224bce4c25a85c6f8cc2e7acd6acd1f282a09"
+          "icons/underline-icon.tsx": "1b113270e2c9ea87687af54da0fc84d6f1d95d1948a5349846e6758220028c64"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -3872,7 +3872,7 @@
         "recipeReferences": []
       },
       "componentName": "UnderlineIcon",
-      "contentHash": "b59bc714af056cba1e2dd3d2736075d63a6ceea4b6eb7404b6618a08626ca5b6",
+      "contentHash": "934fa4bf596105acd26e5ab99b88cb951e631f09fd13b58a0e725abb74655a69",
       "iconName": "Underline",
       "iconSet": "lucide"
     },
@@ -3892,7 +3892,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/undo-icon.tsx": "91836aed692544f52ea96d4c428f719d5cdadf4220cba1727314c3ab5cffb622"
+          "icons/undo-icon.tsx": "a837253108c7bca75b356676bef87b460485685c03307e35dc014a677a7d6237"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -3900,7 +3900,7 @@
         "recipeReferences": []
       },
       "componentName": "UndoIcon",
-      "contentHash": "d24da7fce233e7cf1f778768b8cbc2810581e6dae6126bc5596dc22822487b47",
+      "contentHash": "0e2328158101a9a7850c76930547774988482111004ce53a27e7e710b33f0632",
       "iconName": "Undo",
       "iconSet": "lucide"
     },
@@ -3920,7 +3920,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/unlink-icon.tsx": "cbb30c76f13f48d4985093703538d4016c1458ee76a86efc2ff6c1c76f4670d9"
+          "icons/unlink-icon.tsx": "2707f1a933529b37bd44acc20aa64a013f8bae36d19f705fbd75c4c7287cf447"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -3928,7 +3928,7 @@
         "recipeReferences": []
       },
       "componentName": "UnlinkIcon",
-      "contentHash": "c5a7732e9673d157856cb367a40eccad7a1f84bf2147b87858b536f72b43474a",
+      "contentHash": "0a0b67b227338f06a6294c1c92eb1159859366b67ce58faa705751e8da30b3ab",
       "iconName": "Unlink",
       "iconSet": "lucide"
     },
@@ -3977,7 +3977,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/view-icon.tsx": "3e2357726346e52a0471f062e61edbcc40eb1d9db0967f5bd06fe2c01a47702c"
+          "icons/view-icon.tsx": "0732d58134421965148c714384a1d8d9acb43ffb2a43edc83bffad5badbf01ff"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -3985,7 +3985,7 @@
         "recipeReferences": []
       },
       "componentName": "ViewIcon",
-      "contentHash": "26ed9c02c5d8c78912ab99a35bdbaea272313fcc0524d82488a9d433393a29f9",
+      "contentHash": "51d0d5fb6c4ce33c6086ff10d7c27874a29e3eb518d4c69c4faa638ed9f51814",
       "iconName": "Eye",
       "iconSet": "lucide"
     },
@@ -4005,7 +4005,7 @@
       "compiler": {
         "client": false,
         "fileHashes": {
-          "icons/view-off-icon.tsx": "daa346ed18cbd0b0e11bef12efd48736e29d25f6e48eccb28178e168ea005b24"
+          "icons/view-off-icon.tsx": "e29500498454540f2fbce99c46cabfd359345f7d138147a9ee9b594036696cee"
         },
         "iconDependencies": [],
         "presetImports": [],
@@ -4013,7 +4013,7 @@
         "recipeReferences": []
       },
       "componentName": "ViewOffIcon",
-      "contentHash": "9d52246375a2b6221c353fc2e0c7ba595d36308a52794af260abda4fb1ab5b26",
+      "contentHash": "f7b2d8147a8a4abbfa696db73339ea0ea979d855b7921314347f35271d16ced9",
       "iconName": "EyeOff",
       "iconSet": "lucide"
     },

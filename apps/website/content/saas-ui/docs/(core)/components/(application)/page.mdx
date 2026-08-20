@@ -17,7 +17,7 @@ import { Page } from '#components/ui/page'
 
 ```tsx
 <Page.Root>
-  <Page.Header title="Users" description="Manage your users" />
+  <Page.Header title="Users" />
   <Page.Body />
 </Page.Root>
 ```
@@ -26,13 +26,29 @@ import { Page } from '#components/ui/page'
 
 ### With actions
 
-Add toolbar actions to the page header.
+Add toolbar actions to the page header. Use the `xs` size for buttons in the
+header toolbar.
 
 <ExampleTabs name="page-with-actions" />
 
+### With filters
+
+Use the `footer` prop on `Page.Header` to render a [filter bar](/docs/components/filters)
+below the page title.
+
+<ExampleTabs name="page-with-filters" />
+
+### With data table
+
+Combine the page layout with a [data table](/docs/components/data-table) to
+build list views.
+
+<ExampleTabs name="page-with-data-table" />
+
 ### Settings variant
 
-Use the `settings` variant for settings-style pages with larger headings.
+Use the `settings` variant for settings-style pages with larger headings. Pair
+the title with the `description` prop for a subtitle.
 
 <ExampleTabs name="page-settings" />
 

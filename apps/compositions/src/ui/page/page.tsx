@@ -2,10 +2,7 @@
 
 import React, { forwardRef } from 'react'
 
-import {
-  type HTMLChakraProps,
-  chakra,
-} from '@chakra-ui/react'
+import { type HTMLChakraProps, chakra } from '@chakra-ui/react'
 import type { SlotRecipeProps } from '@saas-ui/chakra-preset'
 import type { PageVariantProps } from '@saas-ui/chakra-preset/slot-recipes/page'
 
@@ -26,7 +23,8 @@ interface PageOptions {
 }
 
 interface PageRootProps
-  extends PageOptions,
+  extends
+    PageOptions,
     HTMLChakraProps<'main'>,
     SlotRecipeProps<'suiPage', PageVariantProps> {}
 
@@ -50,8 +48,10 @@ const PageRoot = withProvider<HTMLDivElement, PageRootProps>(
   'root',
 )
 
-interface PageHeaderProps
-  extends Omit<HTMLChakraProps<'header'>, 'title' | 'children'> {
+interface PageHeaderProps extends Omit<
+  HTMLChakraProps<'header'>,
+  'title' | 'children'
+> {
   /**
    * Page header navigation
    * Typically breadcrumbs or backbutton.
@@ -77,7 +77,7 @@ interface PageHeaderProps
 
 const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
   forwardRef<HTMLDivElement, PageHeaderProps>(function PageHeader(props, ref) {
-    const { nav, title, description, actions, footer, css, ...rest } = props
+    const { nav, title, description, actions, footer, ...rest } = props
 
     const styles = usePageStyles()
     const classNames = useClassNames()
@@ -85,11 +85,7 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
     let heading
     if (title || description) {
       heading = (
-        <chakra.div
-          gridArea="heading"
-          className={classNames.heading}
-          css={styles.heading}
-        >
+        <chakra.div className={classNames.heading} css={styles.heading}>
           {typeof title === 'string' ? <PageTitle>{title}</PageTitle> : title}
           {typeof description === 'string' ? (
             <PageDescription>{description}</PageDescription>
@@ -101,24 +97,25 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
     }
 
     return (
-      <chakra.header ref={ref} css={css} {...rest} className={props.className}>
-        {React.isValidElement(nav)
-          ? React.cloneElement(nav, {
-              gridArea: 'nav',
-            } as any)
-          : null}
-        {heading}
-        {React.isValidElement(actions)
-          ? React.cloneElement(actions, {
-              gridArea: 'actions',
-            } as any)
-          : null}
-
-        {React.isValidElement(footer)
-          ? React.cloneElement(footer, {
-              gridArea: 'footer',
-            } as any)
-          : null}
+      <chakra.header ref={ref} {...rest}>
+        {nav != null || heading != null || actions != null ? (
+          <chakra.div
+            className={classNames.headerContent}
+            css={styles.headerContent}
+          >
+            {nav}
+            {heading}
+            {actions}
+          </chakra.div>
+        ) : null}
+        {footer != null ? (
+          <chakra.div
+            className={classNames.headerFooter}
+            css={styles.headerFooter}
+          >
+            {footer}
+          </chakra.div>
+        ) : null}
       </chakra.header>
     )
   }),
@@ -127,7 +124,7 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
 
 const PageHeaderSection = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   'div',
-  'section',
+  'headerContent',
 )
 
 const PageTitle = withContext<HTMLDivElement, HTMLChakraProps<'h2'>>(

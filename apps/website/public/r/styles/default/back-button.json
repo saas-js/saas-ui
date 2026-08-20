@@ -4,7 +4,7 @@
   ],
   "files": [
     {
-      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { type ButtonProps, IconButton } from '@chakra-ui/react'\n\nimport { ArrowLeftIcon } from '#registry/default/icons/arrow-left-icon'\n\nexport interface BackButtonProps extends ButtonProps {\n  'aria-label'?: string\n  children?: React.ReactNode\n}\n\nexport const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(\n  (props, ref) => {\n    const { variant = 'ghost', mr = 2, children, ...rest } = props\n\n    let content = children || <ArrowLeftIcon />\n\n    return (\n      <IconButton\n        ref={ref}\n        aria-label=\"Go back\"\n        variant={variant}\n        mr={mr}\n        {...rest}\n      >\n        {content}\n      </IconButton>\n    )\n  },\n)\n",
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { type ButtonProps, IconButton } from '@chakra-ui/react'\n\nimport { ArrowLeftIcon } from '#registry/default/icons/arrow-left-icon'\n\nexport interface BackButtonProps extends ButtonProps {\n  'aria-label'?: string\n  children?: React.ReactNode\n}\n\nexport const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(\n  (props, ref) => {\n    const { variant = 'ghost', mr = 2, children, ...rest } = props\n\n    const content = children || <ArrowLeftIcon />\n\n    return (\n      <IconButton\n        ref={ref}\n        aria-label=\"Go back\"\n        variant={variant}\n        mr={mr}\n        {...rest}\n      >\n        {content}\n      </IconButton>\n    )\n  },\n)\n",
       "path": "ui/back-button/back-button.tsx",
       "type": "registry:ui"
     },
@@ -18,7 +18,7 @@
     "compiler": {
       "client": true,
       "fileHashes": {
-        "ui/back-button/back-button.tsx": "b34817cb70a6733fccdfc5cd1745cf39334a46af192621468b9b5bff05e7e2d1",
+        "ui/back-button/back-button.tsx": "414b66f3448a0a2c37075e7c10e2283e0d4265ae33a10c35fe4c2b40b9e40d81",
         "ui/back-button/index.ts": "4df866418ac411d2a4ec841d70a99896450efd345832dcca3e3e940f5793694d"
       },
       "iconDependencies": [
@@ -28,7 +28,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "d490d72610e2b7c5d93f7c7c67f85a1babafebf6b5dee4311a8c26ef96c82a13"
+    "contentHash": "f52b05264bdccd8ed9820f04fac2a9870af15058ce94c1345633323912b0d78a"
   },
   "name": "back-button",
   "registryDependencies": [

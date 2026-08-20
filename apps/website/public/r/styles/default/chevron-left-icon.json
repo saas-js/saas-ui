@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "content": "import React from 'react';\n\nexport interface ChevronLeftIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * chevron-left\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronLeftIcon: React.FC<ChevronLeftIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m15 18l-6-6l6-6\"/>\n    </svg>\n  );\n};\n",
+      "content": "import React from 'react'\n\nexport interface ChevronLeftIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * chevron-left\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronLeftIcon: React.FC<ChevronLeftIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"m15 18l-6-6l6-6\"\n      />\n    </svg>\n  )\n}\n",
       "path": "icons/chevron-left-icon.tsx",
       "type": "registry:icon"
     }
@@ -10,7 +10,7 @@
     "compiler": {
       "client": false,
       "fileHashes": {
-        "icons/chevron-left-icon.tsx": "cf2bd5b211184cbb97acac3d14471ae47197c16e16c31db13a9b6fd5730699a2"
+        "icons/chevron-left-icon.tsx": "663b9e42d58122d7aa62b0acfcf21795a933fc848f00a1271bc74e5cb4bf3974"
       },
       "iconDependencies": [],
       "presetImports": [],
@@ -18,7 +18,7 @@
       "recipeReferences": []
     },
     "componentName": "ChevronLeftIcon",
-    "contentHash": "8a754dd4664e328663e42c1c4092995ab00e525f878bba25fa7d0797583c9476",
+    "contentHash": "2aac58f2e7e2ad7c6df1393bbe250ecee36fbdca7c21b65ba86ca23a87de1a41",
     "iconName": "ChevronLeft",
     "iconSet": "lucide"
   },

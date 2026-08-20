@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "content": "import React from 'react';\n\nexport interface InfoIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * info\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const InfoIcon: React.FC<InfoIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4m0-4h.01\"/></g>\n    </svg>\n  );\n};\n",
+      "content": "import React from 'react'\n\nexport interface InfoIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * info\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const InfoIcon: React.FC<InfoIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n      >\n        <circle cx=\"12\" cy=\"12\" r=\"10\" />\n        <path d=\"M12 16v-4m0-4h.01\" />\n      </g>\n    </svg>\n  )\n}\n",
       "path": "icons/info-icon.tsx",
       "type": "registry:icon"
     }
@@ -10,7 +10,7 @@
     "compiler": {
       "client": false,
       "fileHashes": {
-        "icons/info-icon.tsx": "944aca508dd883b1a911e6253f521122ec8f55407835383a90c1309ae30cd890"
+        "icons/info-icon.tsx": "ddbceda9cd45cea133d0e4dff5fba28fae509ab7a977a3aee428b5409d640667"
       },
       "iconDependencies": [],
       "presetImports": [],
@@ -18,7 +18,7 @@
       "recipeReferences": []
     },
     "componentName": "InfoIcon",
-    "contentHash": "6d1487f8fecb674480e9d15e2d8ac32f16d250b020c94d2db78e3ac9415639c6",
+    "contentHash": "736f4336170446b3838c3596cd72b15df5bd8ae8bfa729f2b910264153a651c6",
     "iconName": "Info",
     "iconSet": "lucide"
   },

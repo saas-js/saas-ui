@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 export interface InfoIconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
+  size?: number | string
 }
 
 /**
@@ -10,9 +10,9 @@ export interface InfoIconProps extends React.SVGProps<SVGSVGElement> {
  * @url https://icon-sets.iconify.design/lucide
  * @license ISC
  */
-export const InfoIcon: React.FC<InfoIconProps> = ({ 
-  size = "1em", 
-  ...props 
+export const InfoIcon: React.FC<InfoIconProps> = ({
+  size = '1em',
+  ...props
 }) => {
   return (
     <svg
@@ -23,7 +23,16 @@ export const InfoIcon: React.FC<InfoIconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></g>
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 16v-4m0-4h.01" />
+      </g>
     </svg>
-  );
-};
+  )
+}

@@ -5,13 +5,23 @@ export function createSjsMetadata({
   title,
   description,
   path,
+  ogLabel,
 }: {
   title: string
   description: string
   path: string
+  ogLabel?: string
 }): Metadata {
   const url = `${docsConfig.url}${path === '/' ? '' : path}`
-  const ogImage = `${docsConfig.url}/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&site=sjs`
+  const ogSearchParams = new URLSearchParams({
+    title,
+    description,
+    site: 'sjs',
+  })
+  if (ogLabel) {
+    ogSearchParams.set('label', ogLabel)
+  }
+  const ogImage = `${docsConfig.url}/og?${ogSearchParams.toString()}`
 
   return {
     title,

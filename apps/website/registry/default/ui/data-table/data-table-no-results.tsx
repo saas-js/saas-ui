@@ -37,15 +37,22 @@ export function DataTableNoResults(props: DataTableNoResultsProps) {
         globalFilter: state.globalFilter,
       })}
     >
-      {({ columnFilters, globalFilter }) => (
-        <NoResultsImpl
-          {...props}
-          filterCount={columnFilters.length}
-          globalFilter={
-            typeof globalFilter === 'string' ? globalFilter : undefined
-          }
-        />
-      )}
+      {({ columnFilters, globalFilter }) => {
+        // A non-string global filter (e.g. a condition query object from an
+        // adapter) can't be echoed in the message, but still counts as an
+        // active filter.
+        const opaqueGlobalFilter =
+          globalFilter != null && typeof globalFilter !== 'string'
+        return (
+          <NoResultsImpl
+            {...props}
+            filterCount={columnFilters.length + (opaqueGlobalFilter ? 1 : 0)}
+            globalFilter={
+              typeof globalFilter === 'string' ? globalFilter : undefined
+            }
+          />
+        )
+      }}
     </table.Subscribe>
   )
 }
@@ -64,7 +71,9 @@ function NoResultsImpl(
     title = globalFilter
       ? `No ${resource} found for "${globalFilter}"`
       : filterCount
-        ? `No ${resource} matching ${filterCount} filters.`
+        ? `No ${resource} matching ${filterCount} ${
+            filterCount === 1 ? 'filter' : 'filters'
+          }.`
         : `No ${resource}.`,
     clearLabel = 'Clear filters',
     onReset,

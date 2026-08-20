@@ -14,9 +14,11 @@ const websiteRoot = path.resolve(
   '..',
 )
 const entries = Object.entries(icons).map(([componentName, variants]) => ({
+  // Iconify separates a trailing digit ("Heading1" is published as "heading-1").
   sourceName: variants.lucide
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/([a-z])([A-Z0-9])/g, '$1-$2')
     .toLowerCase(),
+  // Registry item names come from the compiler's kebab-case, which does not.
   outputName: componentName
     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
     .toLowerCase(),

@@ -5,174 +5,175 @@ export const runtime = 'edge'
 
 export const contentType = 'image/png'
 
-// const fontBold = fetch(
-//   new URL('../../../public/fonts/Inter-SemiBold.ttf', import.meta.url)
-// ).then((res) => res.arrayBuffer())
+const titleGradient = 'linear-gradient(100deg, #111111 0%, #707070 100%)'
+
+// Same paths as components/logo.tsx, inlined for Satori
+function SaasUILogo({ height = 40 }: { height?: number }) {
+  const accent = '#1a1a1a'
+  const color = '#1a1a1a'
+  return (
+    <svg
+      viewBox="0 0 774 166"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      height={height}
+      width={(774 / 166) * height}
+    >
+      <path
+        d="M771.476 20.8061L754.815 16.2246L754.604 0.225952L771.203 0.00788868L771.476 20.8061ZM755.027 32.4232L763.227 32.3155C768.626 32.2445 772.273 35.7969 772.344 41.1965L773.479 127.589L756.281 127.815L755.027 32.4232Z"
+        fill={color}
+      />
+      <path
+        d="M734.152 128.106L722.753 128.256C714.553 128.363 708.88 122.837 708.77 114.438L708.633 104.039C703.273 122.311 687.985 130.912 672.383 130.917C653.78 130.762 635.208 117.805 634.887 93.4067L634.107 34.0118L651.305 33.7859L652.091 93.5807C652.275 107.58 662.174 115.05 673.591 116.3C689.214 117.895 707.683 107.852 707.402 86.4535L706.701 33.0581L723.899 32.8322L724.968 114.225L733.968 114.107L734.152 128.106Z"
+        fill={color}
+      />
+      <path
+        d="M546.04 94.9739C547.632 109.554 559.071 112.404 570.47 112.254C576.269 112.178 590.665 111.789 590.15 102.995C589.824 93.3986 569.389 90.8669 557.953 88.2169C542.707 84.8168 524.819 78.2512 524.583 60.2528C524.252 35.055 551.197 30.7006 569.995 30.4537C590.793 30.1804 613.678 36.4804 615.44 64.0596L591.866 66.1694C590.495 53.1863 580.449 49.718 569.85 49.8573C564.05 49.9334 549.857 50.5199 550.38 59.9139C550.654 65.5108 558.29 68.2107 570.328 71.0528C587.377 74.6292 616.043 79.453 616.337 101.851C616.668 127.049 590.131 131.998 570.532 132.255C549.534 132.531 524.476 128.26 522.077 97.889L546.04 94.9739Z"
+        fill={color}
+      />
+      <path
+        d="M510.91 131.039L494.711 131.251C483.512 131.399 477.434 125.478 477.321 116.879L477.213 108.679C473.44 125.93 457.341 133.743 441.542 133.95C423.744 134.184 406.032 125.816 405.77 105.818C405.507 85.8193 423.8 77.5783 442.562 74.5316L476.696 69.2827L476.635 64.6831C476.501 54.484 464.674 52.4392 456.472 52.3469C444.873 52.4993 436.113 55.6147 435.078 68.2293L410.852 66.3474C410.742 42.7468 432.406 32.2613 455.404 31.9592C484.801 31.573 501.147 42.5592 501.431 64.1574L502.032 109.953L510.634 110.04L510.91 131.039ZM476.896 84.4814L448.958 89.4488C440.577 90.959 430.631 95.0901 431.541 103.479C432.244 111.27 441.674 113.547 449.858 112.239C462.446 111.274 476.956 104.282 476.967 89.8809L476.896 84.4814Z"
+        fill={color}
+      />
+      <path
+        d="M394.318 132.57L378.12 132.783C366.921 132.93 360.842 127.009 360.729 118.41L360.622 110.211C356.848 127.462 340.749 135.274 324.951 135.482C307.152 135.716 289.441 127.347 289.178 107.349C288.915 87.3509 307.208 79.1099 325.97 76.0632L360.104 70.8143L360.044 66.2147C359.91 56.0156 348.082 53.9708 339.88 53.8786C328.281 54.0309 319.521 57.1463 318.487 69.7609L294.26 67.879C294.15 44.2784 315.814 33.793 338.812 33.4908C368.209 33.1046 384.555 44.0908 384.839 65.689L385.441 111.485L394.042 111.572L394.318 132.57ZM360.304 86.013L332.367 90.9804C323.986 92.4907 314.039 96.6217 314.949 105.01C315.652 112.802 325.083 115.078 333.266 113.771C345.854 112.805 360.364 105.814 360.375 91.4126L360.304 86.013Z"
+        fill={color}
+      />
+      <path
+        d="M207.007 99.428C208.599 114.008 220.037 116.858 231.436 116.709C237.236 116.632 251.632 116.243 251.116 107.449C250.79 97.8527 230.355 95.321 218.92 92.671C203.674 89.2709 185.786 82.7053 185.549 64.7069C185.218 39.5091 212.163 35.1547 230.962 34.9078C251.76 34.6345 274.645 40.9345 276.407 68.5137L252.833 70.6236C251.462 57.6404 241.416 54.1721 230.817 54.3114C225.017 54.3875 210.824 54.974 211.347 64.368C211.621 69.9649 219.257 72.6648 231.295 75.5069C248.344 79.0833 277.009 83.9071 277.304 106.305C277.635 131.503 251.097 136.452 231.499 136.71C210.501 136.985 185.443 132.714 183.044 102.343L207.007 99.428Z"
+        fill={color}
+      />
+      <path
+        d="M49.2863 20.7945C50.6136 20.6653 51.5677 20.4939 52.5248 20.4909C71.8924 20.4759 91.26 20.545 110.625 20.4127C113.875 20.3917 114.7 21.5822 114.655 24.5883C114.516 33.697 114.477 42.8117 114.664 51.9204C114.733 55.3865 113.285 56.1561 110.152 56.1381C91.9071 56.0359 73.6651 56.081 55.4201 56.093C49.4428 56.096 46.7822 58.7595 46.7792 64.6876C46.7762 77.3045 46.6919 89.9214 46.8424 102.535C46.8815 105.815 45.8703 106.954 42.5204 106.909C30.4544 106.747 18.3794 106.729 6.31334 106.918C2.85817 106.972 2.03952 105.671 2.06962 102.508C2.19301 89.0527 2.19602 75.594 2.06661 62.1384C2.03651 59.0571 2.98758 57.9628 6.14178 58.0049C17.5065 58.1522 28.8773 58.0741 40.2451 58.053C45.8673 58.044 49.0335 54.9025 49.0425 49.3832C49.0546 41.3928 49.0335 33.4024 49.0576 25.412C49.0546 23.9119 49.199 22.4088 49.2863 20.7945Z"
+        fill={accent}
+      />
+      <path
+        d="M34.7915 164.33C25.383 164.33 15.9716 164.18 6.5692 164.408C2.96655 164.495 1.98236 163.212 2.0546 159.803C2.23518 150.971 2.30139 142.127 2.03353 133.3C1.91615 129.444 3.33975 128.632 6.90027 128.662C24.8714 128.818 42.8455 128.74 60.8196 128.728C67.1822 128.725 69.9602 125.959 69.9602 119.667C69.9632 107.324 70.0535 94.9838 69.897 82.6434C69.8548 79.3366 70.5621 77.8937 74.2671 77.9568C86.3392 78.1672 98.4172 78.1131 110.492 77.9869C113.541 77.9538 114.7 78.8346 114.667 82.0392C114.522 95.5008 114.522 108.968 114.676 122.43C114.715 125.785 113.583 126.768 110.282 126.717C98.9108 126.543 87.534 126.633 76.1632 126.66C70.7818 126.672 67.7029 129.81 67.6908 135.212C67.6758 143.488 67.5644 151.764 67.739 160.034C67.8082 163.284 66.8391 164.471 63.4411 164.399C53.8912 164.198 44.3413 164.33 34.7915 164.33Z"
+        fill={accent}
+      />
+    </svg>
+  )
+}
 
 export const GET = async (req: NextRequest) => {
   try {
-    const font = fetch(
-      new URL('../../public/fonts/Inter-SemiBold.ttf', import.meta.url),
-    ).then((res) => res.arrayBuffer())
+    const [fontRegular, fontSemiBold] = await Promise.all([
+      fetch(
+        new URL('../../public/fonts/Inter-Regular.ttf', import.meta.url),
+      ).then((res) => res.arrayBuffer()),
+      fetch(
+        new URL('../../public/fonts/Inter-SemiBold.ttf', import.meta.url),
+      ).then((res) => res.arrayBuffer()),
+    ])
 
     const { searchParams } = new URL(req.url)
-    const fontData = await font
     const requestHost = req.headers.get('host') || ''
     const site =
       searchParams.get('site') === 'sjs' || requestHost.includes('saas-js')
         ? 'sjs'
         : 'sui'
-    const hasTitle = searchParams.has('title')
-    const title = hasTitle
-      ? searchParams.get('title')?.slice(0, 100)
-      : site === 'sjs'
-        ? 'Building blocks for SaaS products'
-        : 'The React component library for startups'
-    const description = hasTitle
-      ? searchParams.get('description')?.slice(0, 200)
-      : undefined
-    const screenshot = searchParams.get('screenshot')
 
-    const host = requestHost.includes('localhost')
-      ? `http://${requestHost}`
-      : site === 'sjs'
-        ? 'https://saas-js.com'
-        : 'https://saas-ui.dev'
+    const title =
+      searchParams.get('title')?.slice(0, 100) ||
+      (site === 'sjs'
+        ? 'Building blocks for SaaS products'
+        : 'The React component library for startups')
+    const description = searchParams.get('description')?.slice(0, 160)
+    const label = (searchParams.get('label') || searchParams.get('category'))
+      ?.slice(0, 40)
+      .toUpperCase()
 
     return new ImageResponse(
       (
         <div
           style={{
-            backgroundColor: 'black',
             height: '100%',
             width: '100%',
             display: 'flex',
-            textAlign: 'center',
-            alignItems: 'center',
-            justifyContent: 'center',
             flexDirection: 'column',
-            flexWrap: 'nowrap',
+            justifyContent: 'space-between',
+            backgroundColor: '#ffffff',
+            padding: '72px 80px',
+            fontFamily: 'Inter',
+            position: 'relative',
           }}
         >
-          <img
-            src={`${host}/img/og-background.png`}
-            width="100%"
-            height="100%"
-          />
-          <div
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)',
-              height: '100%',
-              width: '100%',
-              position: 'absolute',
-              top: '0',
-            }}
-          />
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              justifyItems: 'center',
-              position: 'absolute',
-              top: '60px',
-              left: '60px',
-              zIndex: 10,
-            }}
-          >
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             {site === 'sjs' ? (
               <div
                 style={{
-                  fontFamily: 'Inter',
-                  fontSize: 28,
-                  fontWeight: 700,
-                  color: 'white',
-                  letterSpacing: '-0.04em',
-                  margin: '0 30px',
+                  fontSize: 36,
+                  fontWeight: 600,
+                  color: '#1a1a1a',
+                  letterSpacing: '-0.02em',
                 }}
               >
                 SAAS.JS
               </div>
             ) : (
-              <img
-                alt="Saas UI"
-                height="60"
-                src={`${host}/img/saasui-dark.svg`}
-                style={{ margin: '0 30px' }}
-                width="200"
-              />
+              <SaasUILogo height={40} />
             )}
           </div>
+
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
-              fontSize: screenshot ? 60 : 72,
-              fontStyle: 'normal',
-              letterSpacing: '-0.025em',
-              lineHeight: 1.4,
-              whiteSpace: 'pre-wrap',
-              textAlign: 'left',
-              position: 'absolute',
-              left: '100px',
-              top: '200px',
-              bottom: '60px',
-              zIndex: 10,
-              maxWidth: screenshot ? '440px' : '900px',
+              maxWidth: '980px',
             }}
           >
+            {label && (
+              <div
+                style={{
+                  fontSize: 24,
+                  fontWeight: 600,
+                  letterSpacing: '0.16em',
+                  color: '#8a8a8a',
+                  marginBottom: 24,
+                }}
+              >
+                {label}
+              </div>
+            )}
             <div
               style={{
-                fontFamily: 'InterBold',
-                fontWeight: 700,
-                color: 'white',
-                marginBottom: 20,
-                fontSize: 56,
+                fontSize: title.length > 40 ? 56 : 72,
+                fontWeight: 600,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.1,
+                backgroundImage: titleGradient,
+                backgroundClip: 'text',
+                color: 'transparent',
               }}
             >
               {title}
             </div>
-
             {description && (
               <div
                 style={{
-                  fontFamily: 'Inter',
-                  display: 'flex',
+                  marginTop: 28,
                   fontSize: 30,
                   fontWeight: 400,
-                  color: 'rgba(255,255,255,0.5)',
+                  lineHeight: 1.4,
+                  color: 'rgba(26, 26, 26, 0.6)',
                 }}
               >
                 {description}
               </div>
             )}
           </div>
-          {screenshot && (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                justifyItems: 'center',
-                position: 'absolute',
-                top: '40px',
-                right: '-400px',
-                width: '800px',
-                zIndex: 10,
-                transform: 'scale(0.8)',
-              }}
-            >
-              <img
-                alt="Saas UI Dashboard"
-                height="1021"
-                src={`${host}/screenshots/list.png`}
-                style={{ margin: '0 30px' }}
-                width="1607"
-              />
-            </div>
-          )}
+
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              width: '1200px',
+              height: '6px',
+              backgroundImage:
+                'linear-gradient(90deg, #111111 0%, #b0b0b0 100%)',
+            }}
+          />
         </div>
       ),
       {
@@ -181,16 +182,16 @@ export const GET = async (req: NextRequest) => {
         fonts: [
           {
             name: 'Inter',
-            data: fontData,
+            data: fontRegular,
             style: 'normal',
             weight: 400,
           },
-          // {
-          //   name: 'InterBold',
-          //   data: fontDataBold,
-          //   style: 'normal',
-          //   weight: 700,
-          // },
+          {
+            name: 'Inter',
+            data: fontSemiBold,
+            style: 'normal',
+            weight: 600,
+          },
         ],
       },
     )

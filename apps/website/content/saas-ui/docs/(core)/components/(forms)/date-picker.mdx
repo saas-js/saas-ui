@@ -110,6 +110,27 @@ options like "Last 7 days" or "This month" next to the calendar.
 
 <ExampleTabs name="date-picker-presets" />
 
+### Calendar
+
+Set the `inline` prop on `DatePicker.Root` to render the calendar directly on
+the page, without the input, positioner and popup content. Use this when the
+calendar is the main interface, like a booking or scheduling view.
+
+<ExampleTabs name="date-picker-calendar-basic" />
+
+Inline calendars support every selection mode. Set `selectionMode` to `"range"`
+to let people pick a start and end date without opening a popup.
+
+<ExampleTabs name="date-picker-calendar-range-selection" />
+
+### Date Input
+
+Render only `DatePicker.Control` with a `DatePicker.Input` to get a date field
+without a calendar popup. Use this when people already know the date they want
+and typing it is faster than picking it, for example a date of birth.
+
+<ExampleTabs name="date-picker-input-only" />
+
 ## Props
 
 ### Root

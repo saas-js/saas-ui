@@ -1,0 +1,72 @@
+---
+title: Prose
+description:
+  Used to style remote HTML content, such as markdown or a CMS response, with
+  the Saas UI typography language.
+composition: true
+---
+
+<ExampleTabs name="prose-basic" />
+
+## Anatomy
+
+```jsx
+import { Prose } from '#components/ui/prose'
+```
+
+```jsx
+<Prose>
+  <div dangerouslySetInnerHTML={{ __html: '...' }} />
+</Prose>
+```
+
+## Usage
+
+`Prose` is a styled `div` that targets the raw HTML elements inside it —
+headings, paragraphs, lists, tables, code, blockquotes and more. Use it when you
+render content you don't control, like markdown, a rich text editor value, or
+HTML from a CMS, where you can't attach Chakra components to each node.
+
+Content is constrained to `65ch` by default for comfortable reading. Override it
+with the `maxWidth` prop when you need a wider column.
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the base font size of the content. All spacing is
+defined in `em`, so it scales with the size.
+
+<ExampleTabs name="prose-with-sizes" />
+
+### Blockquote
+
+Blockquote elements are styled to match the design language of the
+[Blockquote](/docs/components/blockquote) component.
+
+<ExampleTabs name="prose-with-blockquote" />
+
+### List
+
+List elements are styled to match the design language of the
+[List](/docs/components/list) component.
+
+<ExampleTabs name="prose-with-list" />
+
+### Table
+
+Table elements are styled to match the design language of the
+[Table](/docs/components/table) component.
+
+<ExampleTabs name="prose-with-table" />
+
+### React Markdown
+
+`Prose` pairs well with a markdown renderer. Here's an example using
+`react-markdown`.
+
+<ExampleTabs name="prose-with-react-markdown" />
+
+## Props
+
+<PropTable component="Prose" part="Prose" />

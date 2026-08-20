@@ -110,6 +110,118 @@
     "version": "3.0.0-rc.0"
   },
   {
+    "files": [
+      {
+        "path": "icons/align-center-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/align-center-icon.tsx": "b9f93b5d3e58cc3d55f0edce4ba6dad1131dd61e0ed6071a9ac991379b980277"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "AlignCenterIcon",
+      "contentHash": "4093e3ab44438360a9e82019f6b6eed54914b918a368c8417fec8737d8bb75eb",
+      "iconName": "AlignCenter",
+      "iconSet": "lucide"
+    },
+    "name": "align-center-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/align-justify-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/align-justify-icon.tsx": "7029b40355b9ba57d74ead7cf2fe6328761e5c05fc3f5eb5098fab04d7602994"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "AlignJustifyIcon",
+      "contentHash": "c3704edd345fbefe5905adbd83dff2349ee1b5dae88e7130280c495e222933d1",
+      "iconName": "AlignJustify",
+      "iconSet": "lucide"
+    },
+    "name": "align-justify-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/align-left-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/align-left-icon.tsx": "d87ff20aa35411d04a91d07d88e78423a6792f9694e82f8774a0427ae13d2027"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "AlignLeftIcon",
+      "contentHash": "3c3e290ab191297e96949149e646141e5efd673c240dcbb4dd1bf05e868bf753",
+      "iconName": "AlignLeft",
+      "iconSet": "lucide"
+    },
+    "name": "align-left-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/align-right-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/align-right-icon.tsx": "5042b71a9f529135e4b7d6a7ed57b441f7b2860f38a881ac7d15fb1c20faf67e"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "AlignRightIcon",
+      "contentHash": "abf4ee767f4daa97d461669be584fa600830e961279e387c468e695a198c2554",
+      "iconName": "AlignRight",
+      "iconSet": "lucide"
+    },
+    "name": "align-right-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
     "dependencies": [
       "@chakra-ui/react",
       "@saas-ui/chakra-preset"
@@ -324,6 +436,34 @@
     "name": "blockquote",
     "schemaVersion": 1,
     "type": "registry:ui",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/bold-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/bold-icon.tsx": "fb61e5af732b3f1ba3c9735df0dd418107a402e3a39f047845845a26e36b7159"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "BoldIcon",
+      "contentHash": "c31851b3ab2bee7fe2c7ab5212249b1c608e1a50b30f032189b4bdb5a40b7fda",
+      "iconName": "Bold",
+      "iconSet": "lucide"
+    },
+    "name": "bold-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
     "version": "3.0.0-rc.0"
   },
   {
@@ -739,6 +879,34 @@
     "version": "3.0.0-rc.0"
   },
   {
+    "files": [
+      {
+        "path": "icons/code-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/code-icon.tsx": "1ea511fabb5514bd415e6574f2ad5d773728c4fd3b0f96df7ef011f33c0e20e7"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "CodeIcon",
+      "contentHash": "91be6e18dbc3d58552e6ac39cb0bc5cb16723a3df20152765299efc3ca4c214f",
+      "iconName": "Code",
+      "iconSet": "lucide"
+    },
+    "name": "code-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
     "dependencies": [
       "@chakra-ui/react",
       "next-themes"
@@ -901,7 +1069,7 @@
         "client": true,
         "fileHashes": {
           "ui/data-table/data-table-cells.tsx": "d49dd27b40f5cdb905159d1cc3cd711ba3bc7bd4b422773e46f1298d11938fa5",
-          "ui/data-table/data-table-no-results.tsx": "c3f5852e6266c63e1701b1f93dcd63bb33a995e7445986a2d15a8e2224f19b5b",
+          "ui/data-table/data-table-no-results.tsx": "dc0ad2ab22f18175a0a914551026ac9031f41d242ebc99596bee7c2a9285c762",
           "ui/data-table/data-table-pagination.tsx": "da01a2720f55bc3019022b9ae19613602657330d247f98bc7b4f65577457cac6",
           "ui/data-table/data-table-virtual.tsx": "7fcef8809ca37c8e85817396010d17711dab2a43c7e2e6a3a299d4309c5b8ba0",
           "ui/data-table/data-table.context.ts": "74bede00fcf3bfda9f5e39e7750a29677c87be347b1a850fce402638bbe10ddf",
@@ -923,7 +1091,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "7e640088792e691cec0f62d350490e6d2206d707478f1281d916ea5d397f76e1"
+      "contentHash": "33b742471efcab8004e5917c25af9610cbbcb6d31ed88863e227bfd7d5b1bec9"
     },
     "name": "data-table",
     "registryDependencies": [
@@ -1201,6 +1369,67 @@
     "version": "3.0.0-rc.0"
   },
   {
+    "category": "Data Display",
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-js/conditions-react@^0.1.0",
+      "@saas-js/conditions@^0.1.0"
+    ],
+    "description": "Composable filter bar with typed fields, operators and value editors, built on Saas.js Conditions",
+    "files": [
+      {
+        "path": "ui/filters/filters-value-editors.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/filters/filters.recipe.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/filters/filters.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/filters/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/filters/filters-value-editors.tsx": "b91f98704ebe69719a05dde4f1d7fedeb4055c8547b45d74f8b3bba23fb2ea15",
+          "ui/filters/filters.recipe.ts": "798e0539108de51d95035f8883a5392af68c49f8e06c1cedf9169fefb6a4cbc5",
+          "ui/filters/filters.tsx": "0d72484da4ccf6112f2c3845a7947a03e43b1eb9646788a3b3e5c5b65df35a42",
+          "ui/filters/index.ts": "c4f5156dad92fe4c762ccb75c4e1ad2060c1141e1dd2f061c543e752d7b42db5"
+        },
+        "iconDependencies": [
+          "check-icon",
+          "close-icon",
+          "filter-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "ad71063bdc21f71ec2431c1cbb0a305e657a8466d6b09ee85285b8052070fc66"
+    },
+    "name": "filters",
+    "registryDependencies": [
+      "button",
+      "check-icon",
+      "close-icon",
+      "filter-icon",
+      "icon-button",
+      "input",
+      "menu"
+    ],
+    "schemaVersion": 1,
+    "subcategory": "Filters",
+    "type": "registry:ui",
+    "version": "3.0.0-rc.0"
+  },
+  {
     "category": "Utilities",
     "dependencies": [
       "@chakra-ui/react"
@@ -1415,6 +1644,146 @@
       "iconSet": "lucide"
     },
     "name": "hamburger-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/heading1-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/heading1-icon.tsx": "1d224fd486d84bb6858d4c8e3ecd8065e3ef7f628dd426783183dd94440886cb"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "Heading1Icon",
+      "contentHash": "846bc7e1131055c4d58b5f47512e6df828e8822d64612076b66057e8bbcf39cf",
+      "iconName": "Heading1",
+      "iconSet": "lucide"
+    },
+    "name": "heading1-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/heading2-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/heading2-icon.tsx": "5c0930aea4492207f13d5aa1e85d2b6be7d9f2ef761daecf8f45fcc319b6182e"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "Heading2Icon",
+      "contentHash": "b666c52526f5a7ea4efdb8bbae736c1eb99cba85cc70df831e54c10d2232cb48",
+      "iconName": "Heading2",
+      "iconSet": "lucide"
+    },
+    "name": "heading2-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/heading3-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/heading3-icon.tsx": "a595f76749efcedb4ca667f1fa96f165aa3dd37f4dcc231b3c1bdf119dfd7388"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "Heading3Icon",
+      "contentHash": "c28cf3393ac8d093cb424057078666551070b3dfcbb334c3c9279ffcb59b7905",
+      "iconName": "Heading3",
+      "iconSet": "lucide"
+    },
+    "name": "heading3-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/heading4-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/heading4-icon.tsx": "7949703602199f9296366a25d15bfb31e61cecb6fc973588c633ef78a6b3fe5d"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "Heading4Icon",
+      "contentHash": "bb3d32cda102d17aa54702c7309c7d0da0762f641cc322e5c714413dca7c57ab",
+      "iconName": "Heading4",
+      "iconSet": "lucide"
+    },
+    "name": "heading4-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/highlighter-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/highlighter-icon.tsx": "af11acf8f80f1bdb6cf45767f410d327b3179dd7c5ddb3946a871785c45cbeb2"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "HighlighterIcon",
+      "contentHash": "1789b276b7dd1678415cece8566ca0b83f6b26d6117966c6a6a9c4cab928a816",
+      "iconName": "Highlighter",
+      "iconSet": "lucide"
+    },
+    "name": "highlighter-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
     "version": "3.0.0-rc.0"
@@ -1696,6 +2065,34 @@
     "version": "3.0.0-rc.0"
   },
   {
+    "files": [
+      {
+        "path": "icons/italic-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/italic-icon.tsx": "8cb23e12235a294a6aaa248762b7ef2168d50635da67b5c493fa69af8b1fa258"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ItalicIcon",
+      "contentHash": "f23712dd6698c2bd182615a30146dc2a42d596a95821bbb1ea4d0c4114b70f70",
+      "iconName": "Italic",
+      "iconSet": "lucide"
+    },
+    "name": "italic-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
     "dependencies": [
       "@chakra-ui/react"
     ],
@@ -1729,6 +2126,90 @@
     ],
     "schemaVersion": 1,
     "type": "registry:ui",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/link-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/link-icon.tsx": "c708a1416d232b6915465f35b6f8d9c48fe47db8778e23824aeba73000a8df21"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "LinkIcon",
+      "contentHash": "f84228b8fd2377a84709ebef2b5896358016e71b0c3eed09c566e49967533592",
+      "iconName": "Link",
+      "iconSet": "lucide"
+    },
+    "name": "link-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/list-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/list-icon.tsx": "f1077984953946fc50f33ab4accb6d143c7ae54f2fb97dd342c2b5d39bb779d0"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ListIcon",
+      "contentHash": "9eea93241ae9348577ca4308dcb1451932c57e5d9648e30c316d5d62958f3a87",
+      "iconName": "List",
+      "iconSet": "lucide"
+    },
+    "name": "list-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/list-ordered-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/list-ordered-icon.tsx": "1496ad692236c27693d2acb59fe2efda6acf96e1115fd857c9d6a5f78c3f795c"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ListOrderedIcon",
+      "contentHash": "6187e6a34829b70c1b6d5e13b41c60d7731b0044c042896d70091a90f1891233",
+      "iconName": "ListOrdered",
+      "iconSet": "lucide"
+    },
+    "name": "list-ordered-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
     "version": "3.0.0-rc.0"
   },
   {
@@ -1800,7 +2281,7 @@
         "client": true,
         "fileHashes": {
           "ui/menu/index.ts": "8cb05e036b6f00da84813ebbd5928e21ee538b5bfef6def7e1597eb599d609d0",
-          "ui/menu/menu.tsx": "328701b79ed078994a34df2f0c6761b8f9bdd9f0dd5d3f04ae4772a5773f0aa1"
+          "ui/menu/menu.tsx": "0b13368d82dc49fc96679465770abcb99b9277b2ed128e33bdb78a6c3f6d71c7"
         },
         "iconDependencies": [
           "check-icon",
@@ -1810,7 +2291,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "008d89a5b2727975b701ed37225d4b0870c0f4fcf871522c95beddb29be8f1b7"
+      "contentHash": "c67fb91d4968dc9a9365ea43c9f7beb57dcdf86f55df97325a445d3c6325666a"
     },
     "name": "menu",
     "registryDependencies": [
@@ -2424,6 +2905,34 @@
     "version": "3.0.0-rc.0"
   },
   {
+    "files": [
+      {
+        "path": "icons/quote-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/quote-icon.tsx": "1e815bb280a18d09192706ae46aafaa8ebc3791ac3775e4e933dee05fe705e35"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "QuoteIcon",
+      "contentHash": "3fec9235b3eac8ccdeb83fefe33587e6c5757a389d9d297cff3f90e3c601f225",
+      "iconName": "Quote",
+      "iconSet": "lucide"
+    },
+    "name": "quote-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
     "dependencies": [
       "@chakra-ui/react"
     ],
@@ -2486,6 +2995,138 @@
     },
     "name": "radio-card",
     "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/redo-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/redo-icon.tsx": "8883efdbf04164f34d8b4d318d8acf2d54823d5ee36ec23e7fa3720a0d4fb6a6"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "RedoIcon",
+      "contentHash": "87e964d5c1c1a861b0eef29387bda54abc12291eb71901ad607c48cc65213f0b",
+      "iconName": "Redo",
+      "iconSet": "lucide"
+    },
+    "name": "redo-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "category": "Forms",
+    "dependencies": [
+      "@chakra-ui/react",
+      "@tiptap/react@^3.30.2"
+    ],
+    "description": "Composable rich text editor built on Tiptap, with a toolbar of ready-made controls and factories for custom ones",
+    "files": [
+      {
+        "path": "ui/rich-text-editor/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/rich-text-editor/namespace.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/rich-text-editor/rich-text-editor-context.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/rich-text-editor/rich-text-editor-control.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/rich-text-editor/rich-text-editor.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/rich-text-editor/index.ts": "b7074bcc819d2ea474aa897d69d667edc85fabc920c89ff393af1bf2a8ff9b88",
+          "ui/rich-text-editor/namespace.ts": "45204028083fec2c4b8c15ea080d33107a2e177282e52d6670882affbeb5e6cb",
+          "ui/rich-text-editor/rich-text-editor-context.tsx": "ad7ed6360c9a4b48b9ec9335e9cfa1432044bbfb825445af7550bb9a6dc0a770",
+          "ui/rich-text-editor/rich-text-editor-control.tsx": "dff148cae03f88bc2839505c2e7216df13dd7d4586f8994e1b28f1fd58ef2a75",
+          "ui/rich-text-editor/rich-text-editor.tsx": "6d3f881bd9283d9d55fa29f4b8e0f110cd2e0d2dd3dc139a8f8abb106238e9fa"
+        },
+        "iconDependencies": [
+          "align-center-icon",
+          "align-justify-icon",
+          "align-left-icon",
+          "align-right-icon",
+          "bold-icon",
+          "code-icon",
+          "heading1-icon",
+          "heading2-icon",
+          "heading3-icon",
+          "heading4-icon",
+          "highlighter-icon",
+          "italic-icon",
+          "link-icon",
+          "list-icon",
+          "list-ordered-icon",
+          "minus-icon",
+          "quote-icon",
+          "redo-icon",
+          "strikethrough-icon",
+          "underline-icon",
+          "undo-icon",
+          "unlink-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "58f5950ebf9373784799bbbe7b28e53e46845ffdeaf6472b5cbb9609fa8deb71"
+    },
+    "name": "rich-text-editor",
+    "registryDependencies": [
+      "align-center-icon",
+      "align-justify-icon",
+      "align-left-icon",
+      "align-right-icon",
+      "bold-icon",
+      "close-button",
+      "code-icon",
+      "heading1-icon",
+      "heading2-icon",
+      "heading3-icon",
+      "heading4-icon",
+      "highlighter-icon",
+      "icon-button",
+      "italic-icon",
+      "link-icon",
+      "list-icon",
+      "list-ordered-icon",
+      "minus-icon",
+      "popover",
+      "quote-icon",
+      "redo-icon",
+      "select",
+      "strikethrough-icon",
+      "tooltip",
+      "underline-icon",
+      "undo-icon",
+      "unlink-icon"
+    ],
+    "schemaVersion": 1,
+    "subcategory": "Rich Text Editor",
     "type": "registry:ui",
     "version": "3.0.0-rc.0"
   },
@@ -2974,6 +3615,34 @@
     "version": "3.0.0-rc.0"
   },
   {
+    "files": [
+      {
+        "path": "icons/strikethrough-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/strikethrough-icon.tsx": "267e134d2c9e7ece7c263bf0d2462727cceef192a7d06f039d5053a7a70351fc"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "StrikethroughIcon",
+      "contentHash": "c58274d6fefea4d8d260292b382f26374b29e1aa6d9034597444940b003ebc31",
+      "iconName": "Strikethrough",
+      "iconSet": "lucide"
+    },
+    "name": "strikethrough-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
     "dependencies": [
       "@chakra-ui/react"
     ],
@@ -3182,6 +3851,90 @@
     "name": "tooltip",
     "schemaVersion": 1,
     "type": "registry:ui",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/underline-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/underline-icon.tsx": "0d4cb92fddc1a9ef1dc3c419efa224bce4c25a85c6f8cc2e7acd6acd1f282a09"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "UnderlineIcon",
+      "contentHash": "b59bc714af056cba1e2dd3d2736075d63a6ceea4b6eb7404b6618a08626ca5b6",
+      "iconName": "Underline",
+      "iconSet": "lucide"
+    },
+    "name": "underline-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/undo-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/undo-icon.tsx": "91836aed692544f52ea96d4c428f719d5cdadf4220cba1727314c3ab5cffb622"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "UndoIcon",
+      "contentHash": "d24da7fce233e7cf1f778768b8cbc2810581e6dae6126bc5596dc22822487b47",
+      "iconName": "Undo",
+      "iconSet": "lucide"
+    },
+    "name": "undo-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.0"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/unlink-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/unlink-icon.tsx": "cbb30c76f13f48d4985093703538d4016c1458ee76a86efc2ff6c1c76f4670d9"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "UnlinkIcon",
+      "contentHash": "c5a7732e9673d157856cb367a40eccad7a1f84bf2147b87858b536f72b43474a",
+      "iconName": "Unlink",
+      "iconSet": "lucide"
+    },
+    "name": "unlink-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
     "version": "3.0.0-rc.0"
   },
   {

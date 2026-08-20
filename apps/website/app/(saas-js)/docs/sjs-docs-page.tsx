@@ -68,5 +68,6 @@ export function getSjsDocsMetadata(slug: string[] | undefined) {
     title: page.data.title,
     description: page.data.description ?? docsConfig.description,
     path: page.url,
+    ogLabel: 'Documentation',
   })
 }

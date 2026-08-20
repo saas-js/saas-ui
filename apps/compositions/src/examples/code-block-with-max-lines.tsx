@@ -1,6 +1,7 @@
 'use client'
 
-import { CodeBlock, IconButton } from '@chakra-ui/react'
+import { CodeBlock, IconButton, createShikiAdapter } from '@chakra-ui/react'
+import type { HighlighterGeneric } from 'shiki'
 
 const file = {
   code: `{
@@ -29,33 +30,46 @@ const file = {
 
 export const CodeBlockWithMaxLines = () => {
   return (
-    <CodeBlock.Root code={file.code} language={file.language} maxLines={10}>
-      <CodeBlock.Header>
-        <CodeBlock.Title>{file.title}</CodeBlock.Title>
-        <CodeBlock.Control>
-          <CodeBlock.CollapseTrigger asChild>
-            <IconButton variant="ghost" size="2xs">
-              <CodeBlock.CollapseIndicator />
-            </IconButton>
-          </CodeBlock.CollapseTrigger>
-          <CodeBlock.CopyTrigger asChild>
-            <IconButton variant="ghost" size="2xs">
-              <CodeBlock.CopyIndicator />
-            </IconButton>
-          </CodeBlock.CopyTrigger>
-        </CodeBlock.Control>
-      </CodeBlock.Header>
-      <CodeBlock.Content>
-        <CodeBlock.Code>
-          <CodeBlock.CodeText />
-        </CodeBlock.Code>
+    <CodeBlock.AdapterProvider value={shikiAdapter}>
+      <CodeBlock.Root code={file.code} language={file.language} maxLines={10}>
+        <CodeBlock.Header>
+          <CodeBlock.Title>{file.title}</CodeBlock.Title>
+          <CodeBlock.Control>
+            <CodeBlock.CollapseTrigger asChild>
+              <IconButton variant="ghost" size="2xs">
+                <CodeBlock.CollapseIndicator />
+              </IconButton>
+            </CodeBlock.CollapseTrigger>
+            <CodeBlock.CopyTrigger asChild>
+              <IconButton variant="ghost" size="2xs">
+                <CodeBlock.CopyIndicator />
+              </IconButton>
+            </CodeBlock.CopyTrigger>
+          </CodeBlock.Control>
+        </CodeBlock.Header>
+        <CodeBlock.Content>
+          <CodeBlock.Code>
+            <CodeBlock.CodeText />
+          </CodeBlock.Code>
 
-        <CodeBlock.Overlay>
-          <CodeBlock.CollapseTrigger>
-            <CodeBlock.CollapseText textStyle="sm" />
-          </CodeBlock.CollapseTrigger>
-        </CodeBlock.Overlay>
-      </CodeBlock.Content>
-    </CodeBlock.Root>
+          <CodeBlock.Overlay>
+            <CodeBlock.CollapseTrigger>
+              <CodeBlock.CollapseText textStyle="sm" />
+            </CodeBlock.CollapseTrigger>
+          </CodeBlock.Overlay>
+        </CodeBlock.Content>
+      </CodeBlock.Root>
+    </CodeBlock.AdapterProvider>
   )
 }
+
+const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
+  async load() {
+    const { createHighlighter } = await import('shiki')
+    return createHighlighter({
+      langs: ['json'],
+      themes: ['github-dark'],
+    })
+  },
+  theme: 'github-dark',
+})

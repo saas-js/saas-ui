@@ -96,6 +96,7 @@ const docsLinks: NavItem = {
             { title: 'Empty State', url: 'empty-state' },
             { title: 'Field', url: 'field' },
             { title: 'File Upload', url: 'file-upload' },
+            { title: 'Filters', url: 'filters' },
             { title: 'GridList', url: 'grid-list' },
             { title: 'Hover Card', url: 'hover-card' },
             { title: 'Icon', url: 'icon' },

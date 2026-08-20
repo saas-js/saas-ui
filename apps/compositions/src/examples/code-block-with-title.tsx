@@ -1,7 +1,8 @@
 'use client'
 
-import { CodeBlock, Icon } from '@chakra-ui/react'
+import { CodeBlock, Icon, createShikiAdapter } from '@chakra-ui/react'
 import { FaHtml5 } from 'react-icons/fa'
+import type { HighlighterGeneric } from 'shiki'
 
 const file = {
   code: `<div class="container">
@@ -13,18 +14,31 @@ const file = {
 
 export const CodeBlockWithTitle = () => {
   return (
-    <CodeBlock.Root code={file.code} language={file.language}>
-      <CodeBlock.Header>
-        <CodeBlock.Title>
-          <Icon as={FaHtml5} color="orange.400" />
-          {file.title}
-        </CodeBlock.Title>
-      </CodeBlock.Header>
-      <CodeBlock.Content>
-        <CodeBlock.Code>
-          <CodeBlock.CodeText />
-        </CodeBlock.Code>
-      </CodeBlock.Content>
-    </CodeBlock.Root>
+    <CodeBlock.AdapterProvider value={shikiAdapter}>
+      <CodeBlock.Root code={file.code} language={file.language}>
+        <CodeBlock.Header>
+          <CodeBlock.Title>
+            <Icon as={FaHtml5} color="orange.400" />
+            {file.title}
+          </CodeBlock.Title>
+        </CodeBlock.Header>
+        <CodeBlock.Content>
+          <CodeBlock.Code>
+            <CodeBlock.CodeText />
+          </CodeBlock.Code>
+        </CodeBlock.Content>
+      </CodeBlock.Root>
+    </CodeBlock.AdapterProvider>
   )
 }
+
+const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
+  async load() {
+    const { createHighlighter } = await import('shiki')
+    return createHighlighter({
+      langs: ['html'],
+      themes: ['github-dark'],
+    })
+  },
+  theme: 'github-dark',
+})

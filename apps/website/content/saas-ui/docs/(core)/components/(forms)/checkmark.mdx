@@ -1,0 +1,63 @@
+---
+title: Checkmark
+description:
+  A visual indicator used to show checked, unchecked and indeterminate states.
+links:
+  recipe: checkmark
+---
+
+<ExampleTabs name="checkmark-basic" />
+
+## Anatomy
+
+```tsx
+import { Checkmark } from '@chakra-ui/react'
+```
+
+```tsx
+<Checkmark checked />
+```
+
+## Usage
+
+`Checkmark` is the presentational box used inside
+[Checkbox](/docs/components/checkbox) and
+[Checkbox Card](/docs/components/checkbox-card). It renders an `svg` and has no
+behavior of its own — it does not toggle, and it is not focusable.
+
+Reach for it when you need the look of a checkbox without the interaction, for
+example in a list of selected items, a pricing feature table, or inside a custom
+control where you manage state yourself. For anything a user can toggle, use
+`Checkbox` instead, so you get the input, label association and keyboard
+handling.
+
+## Examples
+
+### States
+
+The component supports three states — unchecked (default), `checked` and
+`indeterminate` — each of which can be combined with `disabled`.
+
+<ExampleTabs name="checkmark-states" />
+
+### Variants
+
+Use the `variant` prop to change the visual style.
+
+<ExampleTabs name="checkmark-with-variants" />
+
+### Sizes
+
+Use the `size` prop to change the size.
+
+<ExampleTabs name="checkmark-with-sizes" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color scheme.
+
+<ExampleTabs name="checkmark-with-colors" />
+
+## Props
+
+<PropTable component="Checkmark" part="Checkmark" />

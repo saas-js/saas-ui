@@ -72,6 +72,7 @@ export async function generateMetadata(props: {
   if (!page) notFound()
 
   const ogSearchParams = new URLSearchParams({
+    site: 'sui',
     title: page.data.title,
     label: 'Documentation',
   })

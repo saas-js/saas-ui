@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Changelog',
   description: 'Latest updates and changes to Saas UI',
   openGraph: {
-    images: `/og?title=Changelog`,
+    images: `/og?site=sui&title=Changelog`,
   },
 }
 

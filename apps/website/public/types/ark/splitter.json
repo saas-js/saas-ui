@@ -11,12 +11,38 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
+  },
+  "Registry": {
+    "props": {
+      "hitAreaMargins": {
+        "type": "HitAreaMargins",
+        "isRequired": false,
+        "description": "The hit area margins for resize handles.\nLarger margins make it easier to grab handles, especially on touch devices."
+      },
+      "nonce": {
+        "type": "string",
+        "isRequired": false,
+        "description": "The nonce for the injected cursor stylesheet (for CSP compliance)."
+      }
+    }
+  },
+  "ResizeTriggerIndicator": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "ResizeTrigger": {
     "props": {
       "id": {
-        "type": "`${string}:${string}`",
+        "type": "ResizeTriggerId",
         "isRequired": true
       },
       "asChild": {
@@ -29,7 +55,8 @@
         "isRequired": false
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Root": {
     "props": {
@@ -44,7 +71,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       },
       "defaultSize": {
-        "type": "number[]",
+        "type": "PanelSize[]",
         "isRequired": false,
         "description": "The initial size of the panels when rendered.\nUse when you don't need to control the size of the panels."
       },
@@ -54,7 +81,7 @@
         "description": "The unique identifier of the machine."
       },
       "ids": {
-        "type": "Partial<{\n  root: string\n  resizeTrigger(id: string): string\n  label(id: string): string\n  panel(id: string | number): string\n}>",
+        "type": "Partial<{\n  root: string\n  resizeTrigger: (id: string) => string\n  label: (id: string) => string\n  panel: (id: string | number) => string\n}>",
         "isRequired": false,
         "description": "The ids of the elements in the splitter. Useful for composition."
       },
@@ -99,13 +126,19 @@
         "defaultValue": "\"horizontal\"",
         "description": "The orientation of the splitter. Can be `horizontal` or `vertical`"
       },
+      "registry": {
+        "type": "SplitterRegistry",
+        "isRequired": false,
+        "description": "The splitter registry to use for multi-drag support.\nWhen provided, enables dragging at the intersection of multiple splitters."
+      },
       "size": {
-        "type": "number[]",
+        "type": "PanelSize[]",
         "isRequired": false,
         "description": "The controlled size data of the panels"
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -119,6 +152,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   }
 }

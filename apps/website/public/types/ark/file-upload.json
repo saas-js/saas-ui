@@ -7,7 +7,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Dropzone": {
     "props": {
@@ -22,7 +23,8 @@
         "description": "Whether to disable the click event on the dropzone"
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "HiddenInput": {
     "props": {
@@ -32,7 +34,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLInputElement"
+    "element": "HTMLInputElement",
+    "tag": "input"
   },
   "ItemDeleteTrigger": {
     "props": {
@@ -42,7 +45,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "ItemGroup": {
     "props": {
@@ -50,9 +54,14 @@
         "type": "boolean",
         "isRequired": false,
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      },
+      "type": {
+        "type": "ItemType",
+        "isRequired": false
       }
     },
-    "element": "HTMLUListElement"
+    "element": "HTMLUListElement",
+    "tag": "ul"
   },
   "ItemName": {
     "props": {
@@ -62,7 +71,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "ItemPreviewImage": {
     "props": {
@@ -72,7 +82,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLImageElement"
+    "element": "HTMLImageElement",
+    "tag": "img"
   },
   "ItemPreview": {
     "props": {
@@ -88,7 +99,8 @@
         "description": "The file type to match against. Matches all file types by default."
       }
     },
-    "element": "HTMLImageElement"
+    "element": "HTMLImageElement",
+    "tag": "div"
   },
   "Item": {
     "props": {
@@ -102,7 +114,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLLIElement"
+    "element": "HTMLLIElement",
+    "tag": "li"
   },
   "ItemSizeText": {
     "props": {
@@ -112,7 +125,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Label": {
     "props": {
@@ -122,7 +136,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLLabelElement"
+    "element": "HTMLLabelElement",
+    "tag": "label"
   },
   "Root": {
     "props": {
@@ -130,6 +145,11 @@
         "type": "Record<string, string[]> | FileMimeType | FileMimeType[]",
         "isRequired": false,
         "description": "The accept file types"
+      },
+      "acceptedFiles": {
+        "type": "File[]",
+        "isRequired": false,
+        "description": "The controlled accepted files"
       },
       "allowDrop": {
         "type": "boolean",
@@ -147,6 +167,11 @@
         "isRequired": false,
         "description": "The default camera to use when capturing media"
       },
+      "defaultAcceptedFiles": {
+        "type": "File[]",
+        "isRequired": false,
+        "description": "The default accepted files when rendered.\nUse when you don't need to control the accepted files of the input."
+      },
       "directory": {
         "type": "boolean",
         "isRequired": false,
@@ -158,7 +183,7 @@
         "description": "Whether the file input is disabled"
       },
       "ids": {
-        "type": "Partial<{\n  root: string\n  dropzone: string\n  hiddenInput: string\n  trigger: string\n  label: string\n  item(id: string): string\n  itemName(id: string): string\n  itemSizeText(id: string): string\n  itemPreview(id: string): string\n}>",
+        "type": "Partial<{\n  root: string\n  dropzone: string\n  hiddenInput: string\n  trigger: string\n  label: string\n  item: (id: string) => string\n  itemName: (id: string) => string\n  itemSizeText: (id: string) => string\n  itemPreview: (id: string) => string\n  itemDeleteTrigger: (id: string) => string\n}>",
         "isRequired": false,
         "description": "The ids of the elements. Useful for composition."
       },
@@ -217,6 +242,11 @@
         "defaultValue": "true",
         "description": "Whether to prevent the drop event on the document"
       },
+      "readOnly": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Whether the file input is read-only"
+      },
       "required": {
         "type": "boolean",
         "isRequired": false,
@@ -238,7 +268,8 @@
         "description": "Function to validate a file"
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -252,7 +283,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Trigger": {
     "props": {
@@ -262,6 +294,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   }
 }

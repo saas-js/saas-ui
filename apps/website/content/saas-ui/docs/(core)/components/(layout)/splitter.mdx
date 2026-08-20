@@ -1,0 +1,120 @@
+---
+title: Splitter
+description:
+  Used to create resizable panels that the user can drag apart with a handle
+links:
+  recipe: splitter
+---
+
+<ExampleTabs name="splitter-basic" />
+
+## Anatomy
+
+```jsx
+import { Splitter } from '@chakra-ui/react'
+```
+
+```jsx
+<Splitter.Root>
+  <Splitter.Panel />
+  <Splitter.ResizeTrigger>
+    <Splitter.ResizeTriggerSeparator />
+    <Splitter.ResizeTriggerIndicator />
+  </Splitter.ResizeTrigger>
+  <Splitter.Panel />
+</Splitter.Root>
+```
+
+The `Splitter.ResizeTrigger` renders the `Splitter.ResizeTriggerSeparator` and
+`Splitter.ResizeTriggerIndicator` for you, so writing
+`<Splitter.ResizeTrigger id="a:b" />` is enough unless you need to customize the
+separator or indicator.
+
+## Examples
+
+### Controlled
+
+Use the `size` and `onResize` props to manage panel sizes programmatically.
+
+```tsx
+<Splitter.Root
+  panels={[{ id: 'a' }, { id: 'b' }]}
+  size={sizes}
+  onResize={(details) => setSizes(details.size)}
+>
+  {/* ... */}
+</Splitter.Root>
+```
+
+<ExampleTabs name="splitter-controlled" />
+
+### Vertical
+
+Pass the `orientation="vertical"` prop to the `Splitter.Root` component for
+stacked panels that resize vertically.
+
+<ExampleTabs name="splitter-vertical" />
+
+### Multiple Panels
+
+Create layouts with more than two resizable panels by passing an array of panels
+to the `panels` prop of the `Splitter.Root` component.
+
+<ExampleTabs name="splitter-multiple-panels" />
+
+### Collapsible Panels
+
+Make the panels collapsible and snapped to a specific size by setting the
+`collapsible` and `collapsedSize` properties on a panel in the `panels` array.
+
+```tsx
+<Splitter.Root
+  defaultSize={[40, 60]}
+  panels={[
+    { id: 'a', collapsible: true, collapsedSize: 5, minSize: 25 },
+    { id: 'b', minSize: 50 },
+  ]}
+>
+  {/* ... */}
+</Splitter.Root>
+```
+
+<ExampleTabs name="splitter-collapsible" />
+
+### Min/Max Constraints
+
+Set `minSize` and `maxSize` on panels to constrain their resizable range and
+prevent resizing beyond these boundaries.
+
+<ExampleTabs name="splitter-min-max-constraints" />
+
+### Nested Panels
+
+Nest splitters inside panels to create more complex layouts. Each nested
+splitter can have its own orientation, sizes, and behaviors independent of the
+parent splitter.
+
+<ExampleTabs name="splitter-nested" />
+
+### Storage
+
+Set a `defaultSize` and pair it with a storage solution, such as
+`useLocalStorage`, to save users' panel size preferences. This ensures that
+panel layouts persist across sessions. Alternatively, you can use cookies or
+other storage mechanisms depending on your needs.
+
+<ExampleTabs name="splitter-with-storage" />
+
+## Props
+
+### Root
+
+<PropTable component="Splitter" part="Root" />
+
+### Panel
+
+<PropTable component="Splitter" part="Panel" />
+
+### ResizeTrigger
+
+<PropTable component="Splitter" part="ResizeTrigger" />

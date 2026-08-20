@@ -1,0 +1,52 @@
+---
+title: Icon Button
+description: Used to render an icon within a button
+links:
+  recipe: button
+---
+
+<ExampleTabs name="icon-button-basic" />
+
+## Anatomy
+
+```jsx
+import { IconButton } from '@chakra-ui/react'
+```
+
+```jsx
+<IconButton aria-label="Search database">
+  <LuSearch />
+</IconButton>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the icon button. You can set the
+value to `xs`, `sm`, `md`, or `lg`.
+
+<ExampleTabs name="icon-button-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the icon button. You can
+set the value to `solid`, `subtle`, `surface`, `outline` or `ghost`.
+
+<ExampleTabs name="icon-button-with-variants" />
+
+### Color
+
+Use the `colorPalette` prop to change the color of the icon button.
+
+<ExampleTabs name="icon-button-with-colors" />
+
+### Rounded
+
+Use the `rounded="full"` prop to make the icon button fully rounded.
+
+<ExampleTabs name="icon-button-rounded" />
+
+## Props
+
+<PropTable component="Button" part="Button" />

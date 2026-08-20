@@ -1,0 +1,37 @@
+'use client'
+
+import { CodeBlock, For, Stack } from '@chakra-ui/react'
+
+const file = {
+  code: `<div class="container">
+  <h1>Hello, world!</h1>
+</div>`,
+  language: 'html',
+  title: 'index.html',
+}
+
+export const CodeBlockWithSizes = () => {
+  return (
+    <Stack gap="8">
+      <For each={['sm', 'md', 'lg']}>
+        {(size) => (
+          <CodeBlock.Root
+            key={size}
+            code={file.code}
+            language={file.language}
+            size={size}
+          >
+            <CodeBlock.Header>
+              <CodeBlock.Title>(size={size})</CodeBlock.Title>
+            </CodeBlock.Header>
+            <CodeBlock.Content>
+              <CodeBlock.Code>
+                <CodeBlock.CodeText />
+              </CodeBlock.Code>
+            </CodeBlock.Content>
+          </CodeBlock.Root>
+        )}
+      </For>
+    </Stack>
+  )
+}

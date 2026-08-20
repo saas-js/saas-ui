@@ -1,0 +1,64 @@
+---
+title: Toggle
+description: Used to create a button that can be toggled on and off.
+---
+
+<ExampleTabs name="toggle-basic" />
+
+## Anatomy
+
+```tsx
+import { Toggle } from '@chakra-ui/react'
+```
+
+```tsx
+<Toggle.Root>
+  <Toggle.Indicator />
+</Toggle.Root>
+```
+
+The `Toggle.Root` renders a `button` element. Use the `asChild` prop to render
+it as any other button component, like the `Button` component.
+
+## Examples
+
+### Basic
+
+Use the `_pressed` condition to style the toggle when it is pressed. Since the
+toggle renders a button, the `asChild` prop lets you reuse the `Button`
+component and its variants.
+
+<ExampleTabs name="toggle-basic" />
+
+### Indicator
+
+Use the `Toggle.Indicator` component to render different content based on the
+pressed state. Pass the unpressed content to the `fallback` prop, and the
+pressed content as children.
+
+<ExampleTabs name="toggle-with-indicator" />
+
+### Pressed Icon
+
+Render a `Toggle.Indicator` without a `fallback` to only show an icon when the
+toggle is pressed. The `colorPalette` prop also accepts the `_pressed`
+condition.
+
+<ExampleTabs name="toggle-with-pressed-icon" />
+
+### Controlled
+
+Use the `pressed` and `onPressedChange` props to control the pressed state
+programmatically.
+
+<ExampleTabs name="toggle-controlled" />
+
+## Props
+
+### Root
+
+<PropTable component="Toggle" part="Root" />
+
+### Indicator
+
+<PropTable component="Toggle" part="Indicator" />

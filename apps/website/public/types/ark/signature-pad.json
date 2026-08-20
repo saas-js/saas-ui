@@ -7,7 +7,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Control": {
     "props": {
@@ -17,7 +18,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Guide": {
     "props": {
@@ -27,7 +29,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "HiddenInput": {
     "props": {
@@ -41,7 +44,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLInputElement"
+    "element": "HTMLInputElement",
+    "tag": "input"
   },
   "Label": {
     "props": {
@@ -51,7 +55,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLLabelElement"
+    "element": "HTMLLabelElement",
+    "tag": "label"
   },
   "Root": {
     "props": {
@@ -59,6 +64,11 @@
         "type": "boolean",
         "isRequired": false,
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      },
+      "defaultPaths": {
+        "type": "string[]",
+        "isRequired": false,
+        "description": "The default paths of the signature pad.\nUse when you don't need to control the paths of the signature pad."
       },
       "disabled": {
         "type": "boolean",
@@ -84,12 +94,17 @@
       "onDraw": {
         "type": "(details: DrawDetails) => void",
         "isRequired": false,
-        "description": "Callback when the signature pad is drawing."
+        "description": "Callback when the signature pad is drawing or the committed paths change.\n`paths` contains only committed strokes; use `currentPath` for the in-progress stroke."
       },
       "onDrawEnd": {
         "type": "(details: DrawEndDetails) => void",
         "isRequired": false,
         "description": "Callback when the signature pad is done drawing."
+      },
+      "paths": {
+        "type": "string[]",
+        "isRequired": false,
+        "description": "The controlled paths of the signature pad."
       },
       "readOnly": {
         "type": "boolean",
@@ -107,7 +122,8 @@
         "description": "The translations of the signature pad. Useful for internationalization."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -121,7 +137,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Segment": {
     "props": {
@@ -131,6 +148,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "SVGSVGElement"
+    "element": "SVGSVGElement",
+    "tag": "svg"
   }
 }

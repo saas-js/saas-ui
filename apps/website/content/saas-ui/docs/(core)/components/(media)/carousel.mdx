@@ -1,0 +1,113 @@
+---
+title: Carousel
+description: Used to cycle through a series of visual content within a container
+links:
+  recipe: carousel
+---
+
+<ExampleTabs name="carousel-basic" />
+
+## Anatomy
+
+```jsx
+import { Carousel } from '@chakra-ui/react'
+```
+
+```jsx
+<Carousel.Root>
+  <Carousel.ItemGroup>
+    <Carousel.Item />
+  </Carousel.ItemGroup>
+  <Carousel.Control>
+    <Carousel.AutoplayTrigger>
+      <Carousel.AutoplayIndicator />
+    </Carousel.AutoplayTrigger>
+    <Carousel.PrevTrigger />
+    <Carousel.Indicators />
+    <Carousel.NextTrigger />
+    <Carousel.ProgressText />
+  </Carousel.Control>
+</Carousel.Root>
+```
+
+## Examples
+
+### Controlled
+
+Use the `page` and `onPageChange` props to programmatically control the active
+carousel page.
+
+<ExampleTabs name="carousel-controlled" />
+
+### Arrows
+
+Use the `Carousel.PrevTrigger` and `Carousel.NextTrigger` components to create
+arrows that navigate between slides.
+
+<ExampleTabs name="carousel-with-floating-arrow" />
+
+### Indicators
+
+Use the `Carousel.Indicators` component to render visual indicators that help
+users track the progress of the carousel and jump to specific slides.
+
+It's a shortcut that renders a full set of indicators based on the number of
+slides, so you don't have to map over them yourself.
+
+```jsx
+<Carousel.IndicatorGroup>
+  {Array.from({ length: items.length }, (_, index) => (
+    <Carousel.Indicator key={index} index={index} />
+  ))}
+</Carousel.IndicatorGroup>
+```
+
+Use `Carousel.IndicatorGroup` and `Carousel.Indicator` directly when you need to
+customize each indicator.
+
+<ExampleTabs name="carousel-with-indicators" />
+
+### Spacing
+
+Use the `spacing` prop to control the spacing between slides.
+
+<ExampleTabs name="carousel-spacing" />
+
+### Vertical
+
+Set the `orientation` prop to `vertical` to transform your carousel into a
+vertical slider.
+
+<ExampleTabs name="carousel-vertical" />
+
+### Autoplay
+
+Pass the `autoplay` prop to the `Carousel.Root` component to make the carousel
+automatically move between slides.
+
+<ExampleTabs name="carousel-with-autoplay" />
+
+### Images
+
+Here's an example that shows how to create an image carousel for a product
+showcase.
+
+<ExampleTabs name="carousel-with-images" />
+
+## Props
+
+### Root
+
+<PropTable component="Carousel" part="Root" />
+
+### ItemGroup
+
+<PropTable component="Carousel" part="ItemGroup" />
+
+### Item
+
+<PropTable component="Carousel" part="Item" />
+
+### Control
+
+<PropTable component="Carousel" part="Control" />

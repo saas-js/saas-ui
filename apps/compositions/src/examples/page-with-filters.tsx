@@ -99,7 +99,9 @@ export const PageWithFilters = () => {
               </Button>
             </ButtonGroup>
           }
-          footer={<conditions.FilterBar pb="3" />}
+          footer={
+            <conditions.FilterBar px="var(--page-header-padding-x)" pb="3" />
+          }
         />
         <Page.Body p="0">
           <Stack gap="0" divideY="1px" divideColor="border">

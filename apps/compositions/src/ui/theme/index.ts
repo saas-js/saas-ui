@@ -1,1 +1,1 @@
-export { Theme, type ThemeProps } from './theme'
+export { Theme, type AppearanceSeeds, type ThemeProps } from './theme.tsx'

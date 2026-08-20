@@ -1,8 +1,10 @@
 'use client'
 
-import { Toaster } from '#components/ui/toaster'
 import { ChakraProvider } from '@chakra-ui/react'
 import { ThemeProvider } from 'next-themes'
+
+import { GlobalAppearance } from '#components/theme/theme-provider'
+import { Toaster } from '#components/ui/toaster'
 
 import { sjsSystem, system } from './theme'
 
@@ -15,6 +17,7 @@ export const Provider = (props: {
   return (
     <ChakraProvider value={site === 'sui' ? system : sjsSystem}>
       <ThemeProvider attribute="class" disableTransitionOnChange>
+        <GlobalAppearance />
         {props.children}
         <Toaster />
       </ThemeProvider>

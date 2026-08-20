@@ -34,7 +34,7 @@ export const tagsInputSlotRecipe = defineSlotRecipe({
       borderRadius: 'l2',
       pos: 'relative',
       transitionProperty: 'border-color, box-shadow',
-      transitionDuration: 'normal',
+      transitionDuration: 'moderate',
 
       _disabled: {
         opacity: '0.5',
@@ -152,7 +152,7 @@ export const tagsInputSlotRecipe = defineSlotRecipe({
       },
       lg: {
         root: {
-          '--tags-input-height': 'sizes.11',
+          '--tags-input-height': 'sizes.10',
           '--tags-input-px': 'spacing.1.5',
           '--tags-input-py': 'spacing.1',
           '--tags-input-gap': 'spacing.1',

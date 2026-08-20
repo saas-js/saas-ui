@@ -18,8 +18,11 @@
   "license": "ISC",
   "dependencies": {
     "@ark-ui/react": "^5.30.0",
-    "@chakra-ui/react": "^3.28.0",
+    "@chakra-ui/react": "^3.36.1",
     "@emotion/react": "^11.14.0",
+    "@saas-js/conditions": "^0.1.0",
+    "@saas-js/conditions-react": "^0.1.0",
+    "@saas-js/conditions-tanstack-table": "^0.1.0",
     "@saas-ui/assets": "workspace:*",
     "@saas-ui/chakra-preset": "workspace:*",
     "@saas-ui/hooks": "workspace:*",

@@ -99,7 +99,7 @@
     "release": "pnpm run changeset:version && pnpm run build:packages && pnpm run build:tokens && pnpm run registry:retirement:packed-release && pnpm run publish:rc"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^3.30.0",
+    "@chakra-ui/cli": "^3.36.1",
     "@changesets/cli": "^2.29.7",
     "@manypkg/get-packages": "^3.1.0",
     "@saas-ui/chakra-preset": "workspace:*",

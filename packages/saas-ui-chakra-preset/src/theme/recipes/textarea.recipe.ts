@@ -22,35 +22,35 @@ export const textareaRecipe = defineRecipe({
   variants: {
     size: {
       xs: {
-        borderRadius: 'control.sm',
+        borderRadius: 'control',
         textStyle: 'xs',
         px: '2',
         py: '1',
         scrollPaddingBottom: '1',
       },
       sm: {
-        borderRadius: 'control.md',
+        borderRadius: 'control',
         textStyle: 'sm',
         px: '2.5',
         py: '1.5',
         scrollPaddingBottom: '1.5',
       },
       md: {
-        borderRadius: 'control.md',
+        borderRadius: 'control',
         textStyle: 'sm',
         px: '3',
         py: '1.5',
         scrollPaddingBottom: '1.5',
       },
       lg: {
-        borderRadius: 'control.lg',
+        borderRadius: 'control',
         textStyle: 'md',
         px: '4',
         py: '2',
         scrollPaddingBottom: '2',
       },
       xl: {
-        borderRadius: 'control.lg',
+        borderRadius: 'control',
         textStyle: 'md',
         px: '4.5',
         py: '3.5',

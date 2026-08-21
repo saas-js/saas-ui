@@ -12,7 +12,7 @@ export interface TokenRef {
 }
 
 const CSS_FUNCTIONS =
-  /^(var\(|calc\(|clamp\(|min\(|max\(|oklch\(|rgb\(|hsl\(|color-mix\(|light-dark\(|linear-gradient\(|url\()/
+  /^(var\(|calc\(|clamp\(|min\(|max\(|oklch\(|rgb\(|rgba\(|hsl\(|hsla\(|color-mix\(|light-dark\(|linear-gradient\(|url\()/
 const CSS_KEYWORDS = new Set([
   'auto',
   'none',
@@ -48,6 +48,10 @@ const CSS_KEYWORDS = new Set([
   'inline',
   'inline-block',
   'contents',
+  'text',
+  'fit-content',
+  'max-content',
+  'min-content',
 ])
 
 const CATEGORY_ALIASES: Record<string, TokenCategory | 'semanticColors'> = {
@@ -97,10 +101,42 @@ export function parseTokenReference(value: string): TokenRef {
   return parseTokenPath(value, value)
 }
 
+function splitTokenPath(path: string): string[] {
+  return path.split('.').reduce<string[]>((parts, part) => {
+    const previous = parts.at(-1)
+    if (previous && /^\d+$/.test(previous) && /^\d+$/.test(part)) {
+      parts[parts.length - 1] = `${previous}.${part}`
+      return parts
+    }
+
+    parts.push(part)
+    return parts
+  }, [])
+}
+
 function parseTokenPath(path: string, source: string): TokenRef {
   const [withoutOpacity, opacityPart] = path.split('/')
   const opacity = opacityPart ? Number(opacityPart) : undefined
-  const segments = withoutOpacity.split('.')
+  const segments = splitTokenPath(withoutOpacity)
+
+  if (segments[0] === 'colors' && segments[1] === 'colorPalette') {
+    return {
+      kind: opacity ? 'colorMix' : 'colorPalette',
+      key: toStylexKey(segments.slice(2)),
+      opacity,
+      source,
+    }
+  }
+
+  if (segments[0] === 'colors' && SEMANTIC_COLOR_ROOTS.has(segments[1] ?? '')) {
+    return {
+      kind: opacity ? 'colorMix' : 'token',
+      category: 'semanticColors',
+      key: toStylexKey(segments.slice(1)),
+      opacity,
+      source,
+    }
+  }
 
   if (segments[0] === 'colorPalette') {
     return {
@@ -167,7 +203,7 @@ export function resolveStyleValue(
   category?: TokenCategory,
 ): TokenRef {
   if (typeof value === 'number') {
-    if (category) {
+    if (category && value !== 0 && isScaleCategory(category)) {
       return {
         kind: 'token',
         category,
@@ -181,6 +217,31 @@ export function resolveStyleValue(
 
   if (typeof value !== 'string') {
     return { kind: 'raw', raw: String(value), source: String(value) }
+  }
+
+  if (value === '0') {
+    return { kind: 'raw', raw: '0', source: value }
+  }
+
+  if (isNumericString(value)) {
+    if (category && isScaleCategory(category)) {
+      if (isKnownScaleToken(value)) {
+        return {
+          kind: 'token',
+          category,
+          key: toStylexKey([value]),
+          source: value,
+        }
+      }
+
+      return {
+        kind: 'raw',
+        raw: `calc(${value} * 0.25rem * var(--scale-factor, 1))`,
+        source: value,
+      }
+    }
+
+    return { kind: 'raw', raw: value, source: value }
   }
 
   if (value.startsWith('var(--') || value.startsWith('--')) {
@@ -203,11 +264,15 @@ export function resolveStyleValue(
 
   const parsed = parseTokenReference(value)
 
-  if (parsed.kind === 'raw' && category) {
+  if (parsed.kind === 'raw' && category && looksLikeTokenPath(value)) {
+    const key = isDottedTokenCategory(category)
+      ? toStylexKey([value])
+      : toStylexKey(splitTokenPath(value))
+
     return {
       kind: 'token',
       category: category === 'colors' ? inferColorCategory(value) : category,
-      key: toStylexKey(value.split('.')),
+      key,
       source: value,
     }
   }
@@ -220,6 +285,10 @@ function isExplicitCssValue(value: string): boolean {
     return true
   }
 
+  if (value.includes(' ') || value.includes(',')) {
+    return true
+  }
+
   if (
     /^-?\d+(\.\d+)?(px|rem|em|%|vh|vw|dvh|svh|lvh|ch|ms|s|deg)$/.test(value)
   ) {
@@ -227,6 +296,30 @@ function isExplicitCssValue(value: string): boolean {
   }
 
   return CSS_KEYWORDS.has(value)
+}
+
+function isNumericString(value: string): boolean {
+  return /^-?\d+(\.\d+)?$/.test(value)
+}
+
+function isScaleCategory(category: TokenCategory): boolean {
+  return category === 'spacing' || category === 'sizes'
+}
+
+function isKnownScaleToken(value: string): boolean {
+  if (!value.includes('.')) {
+    return true
+  }
+
+  return /^(0|1|2|3|4)\.5$/.test(value)
+}
+
+function isDottedTokenCategory(category: TokenCategory): boolean {
+  return category === 'lineHeights' || category === 'letterSpacings'
+}
+
+function looksLikeTokenPath(value: string): boolean {
+  return /^[A-Za-z][\w./-]*$/.test(value) || isNumericString(value)
 }
 
 function inferColorCategory(value: string): TokenCategory | 'semanticColors' {
@@ -248,7 +341,9 @@ export function tokenRefToCode(
   const ident =
     ref.kind === 'colorPalette' || ref.category === undefined
       ? identifiers.colorPalette
-      : (identifiers[ref.category] ?? identifiers.colors)
+      : ref.category === 'radii' && ref.key && !isSemanticRadius(ref.key)
+        ? 'radii'
+        : (identifiers[ref.category] ?? identifiers.colors)
 
   const access = `${ident}.${ref.key}`
 
@@ -257,6 +352,10 @@ export function tokenRefToCode(
   }
 
   return access
+}
+
+function isSemanticRadius(key: string): boolean {
+  return /^(l\d|control|panel|indicator)/.test(key)
 }
 
 export const defaultIdentifiers: Record<string, string> = {

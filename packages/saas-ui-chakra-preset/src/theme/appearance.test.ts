@@ -51,3 +51,14 @@ describe('CSS appearance contract', () => {
     ).toBe(false)
   })
 })
+
+describe('shared scale tokens', () => {
+  it('exposes a control size track and role radii', () => {
+    expect(defaultSystem.token('sizes.control.sm')).toBeTruthy()
+    expect(defaultSystem.token('sizes.control.md')).toBeTruthy()
+    expect(defaultSystem.token('sizes.control.lg')).toBeTruthy()
+    expect(defaultSystem.token('radii.control')).toBeTruthy()
+    expect(defaultSystem.token('radii.panel')).toBeTruthy()
+    expect(defaultSystem.token('durations.motion.fast')).toBe('var(--motion-fast)')
+  })
+})

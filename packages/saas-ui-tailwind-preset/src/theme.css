@@ -302,13 +302,27 @@
   /* durations */
   --durations-fastest: 50ms;
   --durations-faster: 100ms;
-  --durations-fast: 150ms;
-  --durations-moderate: 200ms;
+  --durations-fast: var(--motion-fast);
+  --durations-moderate: var(--motion-medium);
   --durations-slow: 300ms;
-  --durations-slower: 400ms;
+  --durations-slower: var(--motion-slow);
   --durations-slowest: 500ms;
+  --durations-motion-fast-min: calc(var(--motion-fast) * var(--motion-ratio));
+  --durations-motion-fast: var(--motion-fast);
+  --durations-motion-fast-max: calc(var(--motion-fast) / var(--motion-ratio));
+  --durations-motion-medium-min: calc(
+    var(--motion-medium) * var(--motion-ratio)
+  );
+  --durations-motion-medium: var(--motion-medium);
+  --durations-motion-medium-max: calc(
+    var(--motion-medium) / var(--motion-ratio)
+  );
+  --durations-motion-slow-min: calc(var(--motion-slow) * var(--motion-ratio));
+  --durations-motion-slow: var(--motion-slow);
+  --durations-motion-slow-max: calc(var(--motion-slow) / var(--motion-ratio));
 
   /* easings */
+  --easings-standard: var(--ease-standard);
   --easings-ease-in: cubic-bezier(0.42, 0, 1, 1);
   --easings-ease-out: cubic-bezier(0, 0, 0.58, 1);
   --easings-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
@@ -501,6 +515,11 @@
   --sizes-lvw: 100lvw;
   --sizes-vw: 100vw;
   --sizes-vh: 100vh;
+  --sizes-control-xs: var(--sizes-6);
+  --sizes-control-sm: var(--sizes-7);
+  --sizes-control-md: var(--sizes-8);
+  --sizes-control-lg: var(--sizes-10);
+  --sizes-control-xl: var(--sizes-12);
 
   /* spacing */
   --spacing-1: calc(0.25rem * var(--scale-factor));
@@ -1532,32 +1551,53 @@
   --radius-l1: var(--radius-xs);
   --radius-l2: var(--radius-sm);
   --radius-l3: var(--radius-md);
+  --radius-control: calc(
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
+  );
   --radius-control-sm: calc(
-    var(--radius-xs) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--radius-xs) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
   );
   --radius-control-md: calc(
-    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
   );
   --radius-control-lg: calc(
-    var(--radius-md) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--radius-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
+  );
+  --radius-panel: calc(
+    var(--radius-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --radius-panel-sm: calc(
-    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --radius-panel-md: calc(
-    var(--radius-md) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--radius-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --radius-panel-lg: calc(
-    var(--radius-lg) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--radius-lg) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
+  );
+  --radius-indicator: calc(
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --radius-indicator-sm: calc(
-    var(--radius-xs) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--radius-xs) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --radius-indicator-md: calc(
-    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --radius-indicator-lg: calc(
-    var(--radius-md) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--radius-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --shadow-xs: var(--shadows-xs);
   --shadow-sm: var(--shadows-sm);
@@ -1737,6 +1777,25 @@
       h / 0.14
   );
   --sui-color-sidebar-accent-fg: var(--sui-color-sidebar-fg);
+}
+
+/* Theme knobs */
+:where(html, .sui-theme) {
+  --radius-full: 9999px;
+  --scale-factor: 1;
+  --radius-factor: 1;
+  --radius-control-factor: 1;
+  --radius-panel-factor: 1;
+  --radius-indicator-factor: 1;
+  --focus-ring-width: 2px;
+  --focus-ring-style: solid;
+  --focus-ring-offset: 3px;
+  --focus-ring-color: var(--color-accent-solid);
+  --motion-fast: 150ms;
+  --motion-medium: 200ms;
+  --motion-slow: 400ms;
+  --motion-ratio: 0.75;
+  --ease-standard: cubic-bezier(0.24, 1, 0.4, 1);
 }
 
 :root {
@@ -2685,32 +2744,53 @@
   --radii-l1: var(--radius-xs);
   --radii-l2: var(--radius-sm);
   --radii-l3: var(--radius-md);
+  --radii-control: calc(
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
+  );
   --radii-control-sm: calc(
-    var(--radius-xs) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--radius-xs) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
   );
   --radii-control-md: calc(
-    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
   );
   --radii-control-lg: calc(
-    var(--radius-md) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--radius-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
+  );
+  --radii-panel: calc(
+    var(--radius-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --radii-panel-sm: calc(
-    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --radii-panel-md: calc(
-    var(--radius-md) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--radius-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --radii-panel-lg: calc(
-    var(--radius-lg) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--radius-lg) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
+  );
+  --radii-indicator: calc(
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --radii-indicator-sm: calc(
-    var(--radius-xs) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--radius-xs) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --radii-indicator-md: calc(
-    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--radius-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --radii-indicator-lg: calc(
-    var(--radius-md) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--radius-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
 
   /* semantic shadows */

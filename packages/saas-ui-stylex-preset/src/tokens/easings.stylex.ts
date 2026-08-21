@@ -1,6 +1,7 @@
 import * as stylex from '@stylexjs/stylex'
 
 export const easings = stylex.defineVars({
+  standard: 'var(--ease-standard)',
   easeIn: 'cubic-bezier(0.42, 0, 1, 1)',
   easeOut: 'cubic-bezier(0, 0, 0.58, 1)',
   easeInOut: 'cubic-bezier(0.42, 0, 0.58, 1)',

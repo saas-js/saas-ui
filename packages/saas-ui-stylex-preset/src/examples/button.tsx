@@ -2,7 +2,16 @@ import type { ReactNode } from 'react'
 
 import * as stylex from '@stylexjs/stylex'
 
-import { buttonRecipeStyles } from '../recipes/button.ts'
+import {
+  buttonIcon,
+  buttonSizes,
+  buttonStyles,
+  buttonTextStyles,
+  buttonVariants,
+  buttonWhenVariantSurface,
+  type ButtonSize,
+  type ButtonVariant,
+} from '../recipes/button.ts'
 import { ThemeProvider } from '../theme.tsx'
 import { bluePalette, greenPalette, redPalette } from '../themes/palettes.ts'
 
@@ -15,23 +24,21 @@ const palettes = {
 
 export interface ButtonProps {
   children?: ReactNode
-  variant?:
-    | 'solid'
-    | 'subtle'
-    | 'surface'
-    | 'outline'
-    | 'ghost'
-    | 'plain'
-    | 'glass'
-  size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  icon?: ReactNode
+  variant?: ButtonVariant
+  size?: ButtonSize
   colorPalette?: keyof typeof palettes
 }
 
 /**
- * Minimal example of a Chakra button recipe compiled to StyleX.
+ * Example of the StyleX variants pattern: one `create()` per axis, then
+ * `styles.base`, `sizes[size]`, `variants[variant]`.
+ *
+ * @see https://stylexjs.com/docs/learn/recipes/variants
  */
 export function Button({
   children,
+  icon,
   variant = 'surface',
   size = 'md',
   colorPalette: palette = 'gray',
@@ -41,9 +48,15 @@ export function Button({
       type="button"
       {...stylex.props(
         palettes[palette],
-        ...buttonRecipeStyles({ variant, size }),
+        buttonStyles.base,
+        buttonTextStyles[size],
+        buttonSizes[size],
+        buttonVariants[variant],
+        variant === 'surface' &&
+          buttonWhenVariantSurface[size as keyof typeof buttonWhenVariantSurface],
       )}
     >
+      {icon ? <span {...stylex.props(buttonIcon.base)}>{icon}</span> : null}
       {children}
     </button>
   )

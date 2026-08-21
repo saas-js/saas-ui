@@ -11,6 +11,14 @@ import {
   isLightDarkValue,
   toStylexKey,
 } from '../src/flatten.ts'
+import {
+  type ChakraRecipe,
+  type ChakraSlotRecipe,
+  emitRecipe,
+  emitSlotRecipe,
+  stripSuiPrefix,
+  toKebabCase,
+} from '../src/generate-recipe.ts'
 
 const root = join(fileURLToPath(new URL('.', import.meta.url)), '..')
 const chakraTheme = join(root, '../saas-ui-chakra-preset/src/theme')
@@ -114,9 +122,15 @@ function rewriteTokenRefs(value: string): string {
       /\{spacing\.([0-9._]+)\}/g,
       (_, num) => `var(--sui-spacing-${num.replace('.', '_')})`,
     )
-    .replace(/\{radii\.(\w+)\}/g, 'var(--sui-radii-$1)')
+    .replace(
+      /\{radii\.([^}]+)\}/g,
+      (_, path) => `var(--sui-radii-${String(path).replace(/\./g, '-')})`,
+    )
     .replace(/\{blurs\.(\w+)\}/g, 'var(--sui-blurs-$1)')
-    .replace(/\{sizes\.([0-9._\w]+)\}/g, 'var(--sui-sizes-$1)')
+    .replace(
+      /\{sizes\.([^}]+)\}/g,
+      (_, path) => `var(--sui-sizes-${String(path).replace(/\./g, '-')})`,
+    )
     .replace(/\{shadows\.(\w+)\}/g, 'var(--sui-shadows-$1)')
 }
 
@@ -335,21 +349,36 @@ function cssLiteral(value: unknown): string {
   return rewriteTokenRefs(String(value))
 }
 
+function isThemeKnob(property: string) {
+  return (
+    property.startsWith('--scale-') ||
+    property.startsWith('--radius-') ||
+    property.startsWith('--focus-ring-') ||
+    property.startsWith('--motion-') ||
+    property === '--ease-standard'
+  )
+}
+
 async function generateGlobalCss() {
   const appearance = await import(join(chakraTheme, 'appearance.ts'))
+  const chakraGlobal = await import(join(chakraTheme, 'global-css.ts'))
   const globalCss = appearance.appearanceGlobalCss as Record<
     string,
     Record<string, unknown>
+  >
+  const rootVars = (chakraGlobal.globalCss?.['*'] ?? {}) as Record<
+    string,
+    unknown
   >
   const variables = await collectCssVariables()
 
   let css = `/* Generated from the Chakra appearance contract. */\n`
   css += `:where(html, .sui-theme) {\n`
-  css += `  --scale-factor: 1;\n`
-  css += `  --radius-factor: 1;\n`
-  css += `  --radius-control: 1;\n`
-  css += `  --radius-panel: 1;\n`
-  css += `  --radius-indicator: 1;\n`
+  for (const [property, value] of Object.entries(rootVars)) {
+    if (isThemeKnob(property)) {
+      css += `  ${property}: ${cssLiteral(value)};\n`
+    }
+  }
   for (const [name, value] of variables) {
     css += `  ${name}: ${value};\n`
   }
@@ -425,6 +454,60 @@ ${Object.entries(styles)
   await writeGenerated('text-styles.ts', code)
 }
 
+async function generateRecipes() {
+  const recipesModule = await import(join(chakraTheme, 'recipes.ts'))
+  const slotRecipesModule = await import(join(chakraTheme, 'slot-recipes.ts'))
+  const recipes = recipesModule.recipes as Record<string, ChakraRecipe>
+  const slotRecipes = slotRecipesModule.slotRecipes as Record<
+    string,
+    ChakraSlotRecipe
+  >
+
+  const recipeExports: string[] = []
+  const slotExports: string[] = []
+
+  for (const [rawName, recipe] of Object.entries(recipes)) {
+    const name = stripSuiPrefix(rawName)
+    const { code, skipped } = emitRecipe(name, recipe)
+    if (skipped.length > 0) {
+      console.log(`  recipe ${name}: skipped ${skipped.join(', ')}`)
+    }
+    await writeGenerated(`recipes/${toKebabCase(name)}.ts`, code)
+    recipeExports.push(`export * from './${toKebabCase(name)}.ts'`)
+  }
+
+  for (const [rawName, recipe] of Object.entries(slotRecipes)) {
+    const name = stripSuiPrefix(rawName)
+    const { code, skipped } = emitSlotRecipe(name, recipe)
+    if (skipped.length > 0) {
+      console.log(`  slot recipe ${name}: skipped ${uniquePreview(skipped)}`)
+    }
+    await writeGenerated(`slot-recipes/${toKebabCase(name)}.ts`, code)
+    slotExports.push(`export * from './${toKebabCase(name)}.ts'`)
+  }
+
+  await writeGenerated(
+    'recipes/index.ts',
+    `${generatedFileBanner()}\n${recipeExports.join('\n')}\n`,
+  )
+  await writeGenerated(
+    'slot-recipes/index.ts',
+    `${generatedFileBanner()}\n${slotExports.join('\n')}\n`,
+  )
+}
+
+function generatedFileBanner() {
+  return '/* Generated from @saas-ui/chakra-preset. Do not edit by hand. */'
+}
+
+function uniquePreview(values: string[]): string {
+  const unique = [...new Set(values)]
+  if (unique.length <= 8) {
+    return unique.join(', ')
+  }
+  return `${unique.slice(0, 8).join(', ')} (+${unique.length - 8} more)`
+}
+
 async function main() {
   console.log('Generating StyleX tokens from the Chakra preset...')
   await generateTokens()
@@ -434,6 +517,8 @@ async function main() {
   await generateGlobalCss()
   await generateKeyframes()
   await generateTextStyles()
+  console.log('Generating StyleX recipes...')
+  await generateRecipes()
   console.log('StyleX preset generated.')
 }
 

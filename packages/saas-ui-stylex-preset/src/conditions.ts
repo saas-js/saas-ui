@@ -37,7 +37,7 @@ export const conditions: Record<string, string | null> = {
   _ltr: ':dir(ltr)',
   // Saas UI / Chakra extensions that StyleX cannot express as descendants.
   _icon: null,
-  _popupExpanded: '[aria-expanded=true]',
+  _popupExpanded: null,
   _pressable: null,
   _groupHover: null,
   _groupFocus: null,

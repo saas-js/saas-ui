@@ -86,4 +86,9 @@ export const sizes = stylex.defineVars({
   lvw: '100lvw',
   vw: '100vw',
   vh: '100vh',
+  controlXs: 'var(--sui-sizes-6)',
+  controlSm: 'var(--sui-sizes-7)',
+  controlMd: 'var(--sui-sizes-8)',
+  controlLg: 'var(--sui-sizes-10)',
+  controlXl: 'var(--sui-sizes-12)',
 })

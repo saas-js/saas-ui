@@ -31,8 +31,12 @@ export interface PropertyMap {
 
 export const properties: Record<string, PropertyMap> = {
   bg: { css: 'backgroundColor', category: 'colors' },
-  background: { css: 'backgroundColor', category: 'colors' },
+  bgColor: { css: 'backgroundColor', category: 'colors' },
+  background: { css: 'background', category: 'colors' },
   backgroundColor: { css: 'backgroundColor', category: 'colors' },
+  backgroundImage: { css: 'backgroundImage' },
+  backgroundSize: { css: 'backgroundSize' },
+  backgroundClip: { css: 'backgroundClip' },
   color: { css: 'color', category: 'colors' },
   borderColor: { css: 'borderColor', category: 'colors' },
   borderTopColor: { css: 'borderTopColor', category: 'colors' },
@@ -46,7 +50,9 @@ export const properties: Record<string, PropertyMap> = {
 
   p: { css: 'padding', category: 'spacing' },
   px: { css: 'paddingInline', category: 'spacing' },
+  paddingX: { css: 'paddingInline', category: 'spacing' },
   py: { css: 'paddingBlock', category: 'spacing' },
+  paddingY: { css: 'paddingBlock', category: 'spacing' },
   pt: { css: 'paddingTop', category: 'spacing' },
   pr: { css: 'paddingRight', category: 'spacing' },
   pb: { css: 'paddingBottom', category: 'spacing' },
@@ -60,6 +66,7 @@ export const properties: Record<string, PropertyMap> = {
   paddingLeft: { css: 'paddingLeft', category: 'spacing' },
   m: { css: 'margin', category: 'spacing' },
   mx: { css: 'marginInline', category: 'spacing' },
+  marginX: { css: 'marginInline', category: 'spacing' },
   my: { css: 'marginBlock', category: 'spacing' },
   mt: { css: 'marginTop', category: 'spacing' },
   mr: { css: 'marginRight', category: 'spacing' },
@@ -169,6 +176,7 @@ export const cssOnlyProperties = new Set([
   'insetInlineEnd',
   'minWidth',
   'maxWidth',
+  'scale',
 ])
 
 export function getProperty(key: string): PropertyMap | undefined {

@@ -81,8 +81,8 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
     size: {
       xs: {
         root: {
-          '--segment-radius': 'radii.control.sm',
-          height: '6',
+          '--segment-radius': 'radii.control',
+          height: 'control.xs',
         },
         item: {
           textStyle: 'xs',
@@ -92,8 +92,8 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       },
       sm: {
         root: {
-          '--segment-radius': 'radii.control.md',
-          height: '7',
+          '--segment-radius': 'radii.control',
+          height: 'control.sm',
         },
         item: {
           textStyle: 'sm',
@@ -103,8 +103,8 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       },
       md: {
         root: {
-          '--segment-radius': 'radii.control.md',
-          height: '8',
+          '--segment-radius': 'radii.control',
+          height: 'control.md',
         },
         item: {
           textStyle: 'md',
@@ -114,8 +114,8 @@ export const segmentGroupSlotRecipe = defineSlotRecipe({
       },
       lg: {
         root: {
-          '--segment-radius': 'radii.control.lg',
-          height: '10',
+          '--segment-radius': 'radii.control',
+          height: 'control.lg',
         },
         item: {
           textStyle: 'md',

@@ -1,61 +1,68 @@
+/* Generated from @saas-ui/chakra-preset. Do not edit by hand. */
+
 import * as stylex from '@stylexjs/stylex'
 
 import { colorPalette } from '../color-palette.stylex.ts'
-import { type RecipeDefinition, recipeStyles } from '../recipe.ts'
 import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
-import { textStyles } from '../text-styles.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+import { textStyles } from '../text-styles.ts'
 
-const styles = stylex.create({
+export const inputStyles = stylex.create({
   base: {
     width: '100%',
-    minWidth: 0,
-    outline: '0',
+    minWidth: 'var(--input-height)',
+    outline: 0,
     position: 'relative',
     appearance: 'none',
     textAlign: 'start',
-    height: 'var(--input-height)',
-    '--focus-color': colorPalette.focusRing,
-    '--error-color': semanticColors.borderError,
     ':disabled': {
       opacity: 0.5,
       cursor: 'not-allowed',
     },
+    height: 'var(--input-height)',
+    '--focus-color': colorPalette.focusRing,
+    '--error-color': semanticColors.borderError,
     ':invalid': {
+      '--focus-ring-color': 'var(--error-color)',
       borderColor: 'var(--error-color)',
     },
   },
-  size_xs: {
-    borderRadius: semanticRadii.controlSm,
+})
+
+export const inputSizes = stylex.create({
+  xs: {
+    borderRadius: semanticRadii.control,
     paddingInline: spacing._2,
-    '--input-height': sizes._6,
+    '--input-height': sizes.controlXs,
   },
-  size_sm: {
-    borderRadius: semanticRadii.controlMd,
+  sm: {
+    borderRadius: semanticRadii.control,
     paddingInline: spacing._2_5,
-    '--input-height': sizes._7,
+    '--input-height': sizes.controlSm,
   },
-  size_md: {
-    borderRadius: semanticRadii.controlMd,
+  md: {
+    borderRadius: semanticRadii.control,
     paddingInline: spacing._3,
-    '--input-height': sizes._8,
+    '--input-height': sizes.controlMd,
   },
-  size_lg: {
-    borderRadius: semanticRadii.controlLg,
+  lg: {
+    borderRadius: semanticRadii.control,
     paddingInline: spacing._4_5,
-    '--input-height': sizes._10,
+    '--input-height': sizes.controlLg,
   },
-  size_xl: {
-    borderRadius: semanticRadii.controlLg,
+  xl: {
+    borderRadius: semanticRadii.control,
     paddingInline: spacing._6,
-    '--input-height': sizes._12,
+    '--input-height': sizes.controlXl,
   },
-  variant_outline: {
+})
+
+export const inputVariants = stylex.create({
+  outline: {
     backgroundColor: semanticColors.bg,
     borderWidth: '1px',
-    borderStyle: 'solid',
     borderColor: semanticColors.border,
     ':focus-visible': {
       outlineWidth: 'var(--focus-ring-width, 0)',
@@ -63,13 +70,16 @@ const styles = stylex.create({
       outlineStyle: 'solid',
       outlineColor: colorPalette.focusRing,
     },
+    focusRingWidth: 0,
     ':hover': {
       borderColor: semanticColors.borderEmphasized,
+      ':focus-visible': {
+        borderColor: 'var(--focus-ring-color)',
+      },
     },
   },
-  variant_subtle: {
+  subtle: {
     borderWidth: '1px',
-    borderStyle: 'solid',
     borderColor: 'transparent',
     backgroundColor: semanticColors.bgMuted,
     ':focus-visible': {
@@ -79,10 +89,9 @@ const styles = stylex.create({
       outlineColor: colorPalette.focusRing,
     },
   },
-  variant_flushed: {
+  flushed: {
     backgroundColor: 'transparent',
     borderBottomWidth: '1px',
-    borderBottomStyle: 'solid',
     borderBottomColor: semanticColors.border,
     borderRadius: 0,
     paddingInline: 0,
@@ -93,30 +102,43 @@ const styles = stylex.create({
   },
 })
 
+export const inputTextStyles = {
+  xs: textStyles.xs,
+  sm: textStyles.sm,
+  md: textStyles.sm,
+  lg: textStyles.md,
+  xl: textStyles.md,
+} as const
+
+export type InputSize = keyof typeof inputSizes
+
+export type InputVariant = keyof typeof inputVariants
+
 export const inputRecipe = {
-  styles,
+  styles: inputStyles,
+  sizes: inputSizes,
+  variants: inputVariants,
+  textStyles: inputTextStyles,
   defaultVariants: {
     size: 'md',
     variant: 'outline',
   },
-  variantKeys: ['size', 'variant'],
-} satisfies RecipeDefinition<{
-  size: Record<'xs' | 'sm' | 'md' | 'lg' | 'xl', unknown>
-  variant: Record<'outline' | 'subtle' | 'flushed', unknown>
-}>
+} as const
 
 export function inputRecipeStyles(variants?: {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  variant?: 'outline' | 'subtle' | 'flushed'
+  size?: InputSize
+  variant?: InputVariant
+  colorPalette?: string
 }) {
   const size = variants?.size ?? inputRecipe.defaultVariants.size
+  const variant = variants?.variant ?? inputRecipe.defaultVariants.variant
 
   return [
-    size === 'xs'
-      ? textStyles.xs
-      : size === 'lg' || size === 'xl'
-        ? textStyles.md
-        : textStyles.sm,
-    ...recipeStyles(inputRecipe, variants),
+    inputStyles.base,
+    inputTextStyles[size],
+    inputSizes[size],
+    inputVariants[variant],
   ]
 }
+
+export type InputVariantProps = Parameters<typeof inputRecipeStyles>[0]

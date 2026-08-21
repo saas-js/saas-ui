@@ -27,8 +27,8 @@ StyleX sits between those two, with stricter compile-time rules:
 | Token refs `{colors.blue.500}`            | `colors.blue500` or `var(--sui-colors-blue-500)` | Flattened keys, CSS vars for cross-token refs          |
 | `defineSemanticTokens` `_light` / `_dark` | `light-dark()`                                   | Same appearance contract as Tailwind                   |
 | `colorPalette`                            | `stylex.createTheme(colorPalette, …)`            | One theme per palette, scoped to a tree                |
-| `defineRecipe`                            | `stylex.create` + `recipeStyles()`               | Variants become static keys (`variant_solid`)          |
-| `defineSlotRecipe`                        | One `create()` per slot                          | Same variant key convention                            |
+| `defineRecipe`                            | One `stylex.create()` per axis                   | Index with `variants[variant]`, `sizes[size]`          |
+| `defineSlotRecipe`                        | One `create()` per slot axis                     | Same variants pattern per slot                         |
 | Conditions `_hover`                       | `:hover`                                         | Descendant conditions like `_icon` cannot be expressed |
 | Utilities `px`, `bg`, `focusVisibleRing`  | CSS properties + expanded helpers                | See `src/properties.ts`                                |
 | `textStyles` / `layerStyles`              | `stylex.create`                                  | Compiled, not token lookups                            |
@@ -51,6 +51,7 @@ or SWC plugin. Variables must be imported from their `.stylex.ts` files, not
 from the package root.
 
 ```css
+@import '@saas-ui/stylex-preset/reset.css';
 @import '@saas-ui/stylex-preset/theme.css';
 ```
 
@@ -68,7 +69,11 @@ See the
 ```tsx
 import * as stylex from '@stylexjs/stylex'
 import { ThemeProvider } from '@saas-ui/stylex-preset'
-import { buttonRecipeStyles } from '@saas-ui/stylex-preset'
+import {
+  buttonSizes,
+  buttonStyles,
+  buttonVariants,
+} from '@saas-ui/stylex-preset'
 import { bluePalette } from '@saas-ui/stylex-preset'
 
 export function SaveButton() {
@@ -78,10 +83,9 @@ export function SaveButton() {
         type="button"
         {...stylex.props(
           bluePalette,
-          ...buttonRecipeStyles({
-            variant: 'solid',
-            size: 'md',
-          }),
+          buttonStyles.base,
+          buttonSizes.md,
+          buttonVariants.solid,
         )}
       >
         Save
@@ -90,6 +94,10 @@ export function SaveButton() {
   )
 }
 ```
+
+Variants follow the StyleX pattern of one `create()` per axis, then
+`sizes[size]` / `variants[variant]`. See
+[StyleX variants](https://stylexjs.com/docs/learn/recipes/variants).
 
 `ThemeProvider` sets `color-scheme`, which is how `light-dark()` semantic tokens
 switch. Palette themes override the `colorPalette.*` vars used by recipes.
@@ -109,6 +117,12 @@ The generator:
 5. Converts `_light` / `_dark` pairs to `light-dark()`
 6. Emits color-palette themes via `createTheme`
 7. Emits breakpoints, keyframes, and text styles
+8. Reads `defineRecipe` / `defineSlotRecipe` configs and emits StyleX variant maps
+
+Recipes are generated in the same shape as the StyleX variants docs: one
+`stylex.create()` per axis (`buttonStyles`, `buttonSizes`, `buttonVariants`),
+`textStyle` lookups into `textStyles`, single-axis compounds folded into that
+variant, and two-axis compounds as a last-wins map (`buttonWhenVariantSurface`).
 
 Panda's `scripts/sync.ts` copies Chakra files and swaps the `define*` imports.
 This generator is closer to the Tailwind exporter: it materializes a
@@ -120,12 +134,24 @@ StyleX-native artifact instead of keeping Chakra objects.
 - Semantic colors, radii, and shadows
 - Color palette themes (`gray`, `blue`, `accent`, …)
 - Appearance CSS (`--sui-base`, `--sui-accent`, sidebar seeds)
-- Recipe translator (`transformStyleObject`) with tests
-- Representative recipes: `button`, `badge`, `input`
-- Representative slot recipe: `card`
+- Preflight reset (`reset.css`) so UA button/input chrome does not leak
+- Recipe translator (`transformStyleObject`) and recipe emitter (`generate-recipe.ts`)
+- Generated recipes from the Chakra preset (`src/recipes`, `src/slot-recipes`)
 
-Not ported yet: the remaining 70+ recipes, compound descendant conditions,
-`focusRing` utilities beyond the common cases, and a Storybook app.
+`_icon`, `& .dot`, and `& svg` become descendant variables on the parent plus
+a child map that reads them
+([StyleX descendant styles](https://stylexjs.com/docs/learn/recipes/descendant-styles)).
+
+Not ported yet: `_pressable`, some Chakra selectors StyleX cannot express, and
+a few token aliases.
+
+## Storybook
+
+```bash
+pnpm --filter @saas-ui/stylex-preset storybook
+```
+
+Opens on port 6008 with the button and card examples.
 
 ## Token keys
 

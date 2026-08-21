@@ -7,7 +7,7 @@ export const skeletonRecipe = defineRecipe({
   variants: {
     loading: {
       true: {
-        borderRadius: 'panel.md',
+        borderRadius: 'panel',
         boxShadow: 'none',
         backgroundClip: 'padding-box',
         cursor: 'default',

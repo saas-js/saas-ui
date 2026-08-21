@@ -1,0 +1,88 @@
+/**
+ * Preflight aligned with Chakra / Panda / Tailwind so UA form styles do not
+ * leak through StyleX recipes. Import before `theme.css`.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--sui-colors-border, currentColor);
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  font-family: var(--sui-fonts-body);
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background-color: transparent;
+  background-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  appearance: button;
+  -webkit-appearance: button;
+}
+
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}

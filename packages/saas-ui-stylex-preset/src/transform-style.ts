@@ -153,7 +153,7 @@ export function transformStyleObject(
     }
 
     if (cssOnlyProperties.has(key) || key in result || isCssProperty(key)) {
-      result[key] = typeof value === 'number' ? value : String(value)
+      result[key] = resolveCssOnlyValue(value)
       continue
     }
 
@@ -192,6 +192,10 @@ function resolveLiteral(
   value: unknown,
   category?: Parameters<typeof resolveStyleValue>[1],
 ): string | number {
+  if (value === 0) {
+    return 0
+  }
+
   const ref = resolveStyleValue(value, category)
 
   if (ref.kind === 'raw') {
@@ -217,6 +221,25 @@ function isLightDarkShorthand(
 
 function toArray<T>(value: T | T[]): T[] {
   return Array.isArray(value) ? value : [value]
+}
+
+function resolveCssOnlyValue(value: unknown): string | number {
+  if (typeof value === 'number') {
+    return value
+  }
+
+  if (typeof value === 'string' && /^-?\d+(\.\d+)?$/.test(value)) {
+    return Number(value)
+  }
+
+  if (typeof value === 'string') {
+    const ref = resolveStyleValue(value)
+    if (ref.kind !== 'raw' && ref.kind !== 'cssVar') {
+      return tokenRefToCode(ref)
+    }
+  }
+
+  return String(value)
 }
 
 function isCssProperty(key: string): boolean {
@@ -254,14 +277,7 @@ function serialize(value: unknown, indent: number): string {
   }
 
   if (typeof value === 'string') {
-    if (
-      value.includes('.') &&
-      !value.includes(' ') &&
-      !value.startsWith('light-dark(') &&
-      !value.startsWith('color-mix(') &&
-      !value.startsWith('`') &&
-      !value.startsWith('var(')
-    ) {
+    if (/^[A-Za-z_$][\w$]*\.[A-Za-z_$][\w$]*$/.test(value)) {
       return value
     }
 
@@ -276,5 +292,9 @@ function serialize(value: unknown, indent: number): string {
 }
 
 function needsQuotes(key: string): boolean {
+  if (key.startsWith('[') && key.endsWith(']')) {
+    return false
+  }
+
   return !/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(key)
 }

@@ -8,7 +8,7 @@ export const linkRecipe = defineRecipe({
     outline: 'none',
     gap: '1.5',
     cursor: 'pointer',
-    borderRadius: 'control.sm',
+    borderRadius: 'control',
     focusRing: 'outside',
   },
 

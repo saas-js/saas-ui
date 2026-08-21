@@ -9,8 +9,8 @@ describe('transformStyleObject', () => {
       bg: 'colorPalette.solid',
       color: 'colorPalette.contrast',
       px: '3',
-      h: '8',
-      borderRadius: 'control.md',
+      h: 'control.md',
+      borderRadius: 'control',
       fontWeight: 'medium',
       _hover: {
         bg: 'colorPalette.solid/90',
@@ -25,8 +25,8 @@ describe('transformStyleObject', () => {
       backgroundColor: 'colorPalette.solid',
       color: 'colorPalette.contrast',
       paddingInline: 'spacing._3',
-      height: 'sizes._8',
-      borderRadius: 'semanticRadii.controlMd',
+      height: 'sizes.controlMd',
+      borderRadius: 'semanticRadii.control',
       fontWeight: 'fontWeights.medium',
       ':hover': {
         backgroundColor:
@@ -51,6 +51,23 @@ describe('transformStyleObject', () => {
       outlineStyle: 'solid',
       outlineColor: 'colorPalette.focusRing',
     })
+  })
+
+  it('keeps decimal spacing tokens and raw CSS shadows', () => {
+    const result = transformStyleObject({
+      px: '2.5',
+      lineHeight: '1.2',
+      boxShadow: {
+        base: '0 0 0 1px rgba(0,0,0,0.25) inset, var(--btn-shadow)',
+        _dark: '0px 1px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow)',
+      },
+    })
+
+    expect(result.paddingInline).toBe('spacing._2_5')
+    expect(result.lineHeight).toBe(1.2)
+    expect(result.boxShadow).toBe(
+      'light-dark(0 0 0 1px rgba(0,0,0,0.25) inset, var(--btn-shadow), 0px 1px 0px 0px rgba(255,255,255,0.2) inset, var(--btn-shadow))',
+    )
   })
 
   it('skips descendant conditions StyleX cannot represent', () => {

@@ -11,6 +11,7 @@
       "import": "./dist/index.js"
     },
     "./theme.css": "./src/global-theme.css",
+    "./reset.css": "./src/reset.css",
     "./tokens/*.stylex": {
       "sui": "./src/tokens/*.stylex.ts",
       "types": "./dist/tokens/*.stylex.d.ts",
@@ -47,7 +48,9 @@
     "generate": "tsx scripts/generate.ts",
     "build": "pnpm generate && tsc",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run --config ../../vitest.config.ts --dir ."
+    "test": "vitest run --config ../../vitest.config.ts --dir .",
+    "storybook": "storybook dev -p 6008",
+    "build-storybook": "storybook build"
   },
   "files": [
     "dist",
@@ -86,12 +89,22 @@
   },
   "devDependencies": {
     "@chakra-ui/react": "^3.28.0",
+    "@storybook/addon-docs": "10.2.0",
+    "@storybook/react": "10.2.0",
+    "@storybook/react-vite": "10.2.0",
+    "@stylexjs/babel-plugin": "^0.16.2",
     "@stylexjs/stylex": "^0.16.2",
+    "@types/node": "^20.10.0",
     "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
     "fast-glob": "^3.3.2",
     "prettier": "^3.5.3",
     "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "storybook": "10.2.0",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^6.3.6"
   }
 }

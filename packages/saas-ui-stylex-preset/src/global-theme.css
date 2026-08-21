@@ -1,10 +1,20 @@
 /* Generated from the Chakra appearance contract. */
 :where(html, .sui-theme) {
+  --radius-full: 9999px;
   --scale-factor: 1;
   --radius-factor: 1;
-  --radius-control: 1;
-  --radius-panel: 1;
-  --radius-indicator: 1;
+  --radius-control-factor: 1;
+  --radius-panel-factor: 1;
+  --radius-indicator-factor: 1;
+  --focus-ring-width: 2px;
+  --focus-ring-style: solid;
+  --focus-ring-offset: 3px;
+  --focus-ring-color: var(--sui-colors-accent-solid);
+  --motion-fast: 150ms;
+  --motion-medium: 200ms;
+  --motion-slow: 400ms;
+  --motion-ratio: 0.75;
+  --ease-standard: cubic-bezier(0.24, 1, 0.4, 1);
   --sui-animations-spin: spin 1s linear infinite;
   --sui-animations-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
   --sui-animations-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -383,11 +393,33 @@
   --sui-cursor-swittch: pointer;
   --sui-durations-fastest: 50ms;
   --sui-durations-faster: 100ms;
-  --sui-durations-fast: 150ms;
-  --sui-durations-moderate: 200ms;
+  --sui-durations-fast: var(--motion-fast);
+  --sui-durations-moderate: var(--motion-medium);
   --sui-durations-slow: 300ms;
-  --sui-durations-slower: 400ms;
+  --sui-durations-slower: var(--motion-slow);
   --sui-durations-slowest: 500ms;
+  --sui-durations-motion-fast-min: calc(
+    var(--motion-fast) * var(--motion-ratio)
+  );
+  --sui-durations-motion-fast: var(--motion-fast);
+  --sui-durations-motion-fast-max: calc(
+    var(--motion-fast) / var(--motion-ratio)
+  );
+  --sui-durations-motion-medium-min: calc(
+    var(--motion-medium) * var(--motion-ratio)
+  );
+  --sui-durations-motion-medium: var(--motion-medium);
+  --sui-durations-motion-medium-max: calc(
+    var(--motion-medium) / var(--motion-ratio)
+  );
+  --sui-durations-motion-slow-min: calc(
+    var(--motion-slow) * var(--motion-ratio)
+  );
+  --sui-durations-motion-slow: var(--motion-slow);
+  --sui-durations-motion-slow-max: calc(
+    var(--motion-slow) / var(--motion-ratio)
+  );
+  --sui-easings-standard: var(--ease-standard);
   --sui-easings-ease-in: cubic-bezier(0.42, 0, 1, 1);
   --sui-easings-ease-out: cubic-bezier(0, 0, 0.58, 1);
   --sui-easings-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
@@ -566,6 +598,11 @@
   --sui-sizes-lvw: 100lvw;
   --sui-sizes-vw: 100vw;
   --sui-sizes-vh: 100vh;
+  --sui-sizes-control-xs: var(--sui-sizes-6);
+  --sui-sizes-control-sm: var(--sui-sizes-7);
+  --sui-sizes-control-md: var(--sui-sizes-8);
+  --sui-sizes-control-lg: var(--sui-sizes-10);
+  --sui-sizes-control-xl: var(--sui-sizes-12);
   --sui-spacing-1: calc(0.25rem * var(--scale-factor));
   --sui-spacing-2: calc(0.5rem * var(--scale-factor));
   --sui-spacing-3: calc(0.75rem * var(--scale-factor));
@@ -1540,32 +1577,53 @@
   --sui-radii-l1: var(--sui-radii-xs);
   --sui-radii-l2: var(--sui-radii-sm);
   --sui-radii-l3: var(--sui-radii-md);
+  --sui-radii-control: calc(
+    var(--sui-radii-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
+  );
   --sui-radii-control-sm: calc(
-    var(--sui-radii-xs) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--sui-radii-xs) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
   );
   --sui-radii-control-md: calc(
-    var(--sui-radii-sm) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--sui-radii-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
   );
   --sui-radii-control-lg: calc(
-    var(--sui-radii-md) * var(--scale-factor, 1) * var(--radius-control, 1)
+    var(--sui-radii-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-control-factor, 1)
+  );
+  --sui-radii-panel: calc(
+    var(--sui-radii-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --sui-radii-panel-sm: calc(
-    var(--sui-radii-sm) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--sui-radii-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --sui-radii-panel-md: calc(
-    var(--sui-radii-md) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--sui-radii-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
   );
   --sui-radii-panel-lg: calc(
-    var(--sui-radii-lg) * var(--scale-factor, 1) * var(--radius-panel, 1)
+    var(--sui-radii-lg) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-panel-factor, 1)
+  );
+  --sui-radii-indicator: calc(
+    var(--sui-radii-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --sui-radii-indicator-sm: calc(
-    var(--sui-radii-xs) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--sui-radii-xs) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --sui-radii-indicator-md: calc(
-    var(--sui-radii-sm) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--sui-radii-sm) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --sui-radii-indicator-lg: calc(
-    var(--sui-radii-md) * var(--scale-factor, 1) * var(--radius-indicator, 1)
+    var(--sui-radii-md) * var(--scale-factor, 1) * var(--radius-factor, 1) *
+      var(--radius-indicator-factor, 1)
   );
   --sui-shadows-xs: light-dark(
     0px 1px 2px color-mix(in oklch, var(--sui-colors-gray-900) 5%, transparent),

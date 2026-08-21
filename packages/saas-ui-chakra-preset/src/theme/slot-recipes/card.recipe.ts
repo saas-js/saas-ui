@@ -1,6 +1,8 @@
 import { cardAnatomy } from '@chakra-ui/react/anatomy'
 import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
+import { concentricRadius } from '../utils.ts'
+
 export const cardSlotRecipe = defineSlotRecipe({
   className: 'chakra-card',
   slots: cardAnatomy.keys(),
@@ -11,7 +13,12 @@ export const cardSlotRecipe = defineSlotRecipe({
       position: 'relative',
       minWidth: '0',
       wordWrap: 'break-word',
-      borderRadius: 'panel.lg',
+      borderRadius: 'panel',
+      '--card-radius': 'radii.panel',
+      '--card-concentric-radius': concentricRadius(
+        '--card-radius',
+        '--card-padding',
+      ),
       color: 'fg',
       textAlign: 'start',
     },

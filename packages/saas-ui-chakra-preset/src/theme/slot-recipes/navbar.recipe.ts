@@ -55,7 +55,7 @@ export const navbarSlotRecipe = defineSlotRecipe({
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       boxSizing: 'border-box',
-      borderRadius: 'control.md',
+      borderRadius: 'control',
       transitionProperty: 'common',
       transitionDuration: 'moderate',
       lineHeight: 1,

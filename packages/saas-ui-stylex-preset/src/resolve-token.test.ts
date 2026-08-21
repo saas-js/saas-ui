@@ -17,6 +17,23 @@ describe('parseTokenReference', () => {
     })
   })
 
+  it('keeps decimal size paths and colorPalette CSS vars', () => {
+    expect(parseTokenReference('sizes.3.5')).toMatchObject({
+      kind: 'token',
+      category: 'sizes',
+      key: '_3_5',
+    })
+    expect(parseTokenReference('colors.colorPalette.focusRing')).toMatchObject({
+      kind: 'colorPalette',
+      key: 'focusRing',
+    })
+    expect(parseTokenReference('colors.bg.emphasized')).toMatchObject({
+      kind: 'token',
+      category: 'semanticColors',
+      key: 'bgEmphasized',
+    })
+  })
+
   it('parses semantic color aliases', () => {
     expect(parseTokenReference('bg.muted')).toMatchObject({
       kind: 'token',
@@ -41,6 +58,32 @@ describe('resolveStyleValue', () => {
     expect(resolveStyleValue(4, 'spacing')).toMatchObject({
       kind: 'token',
       key: '_4',
+    })
+    expect(resolveStyleValue('2.5', 'spacing')).toMatchObject({
+      kind: 'token',
+      key: '_2_5',
+    })
+    expect(resolveStyleValue('3.75', 'sizes')).toMatchObject({
+      kind: 'raw',
+      raw: 'calc(3.75 * 0.25rem * var(--scale-factor, 1))',
+    })
+  })
+
+  it('maps dotted heading tokens to flattened keys', () => {
+    expect(resolveStyleValue('heading.xs', 'lineHeights')).toMatchObject({
+      kind: 'token',
+      key: 'heading_xs',
+    })
+  })
+
+  it('keeps unitless line-heights and zero as raw values', () => {
+    expect(resolveStyleValue('1.2', 'lineHeights')).toMatchObject({
+      kind: 'raw',
+      raw: '1.2',
+    })
+    expect(resolveStyleValue(0, 'spacing')).toMatchObject({
+      kind: 'raw',
+      raw: '0',
     })
   })
 

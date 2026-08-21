@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { selectIndicatorIconVars, selectItemIconVars } from './select.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { cursor } from '../tokens/cursor.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
@@ -12,6 +14,8 @@ import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
 import { zIndices } from '../tokens/z-indices.stylex.ts'
+
+export { selectIndicatorIconVars, selectItemIconVars }
 
 export const selectRoot = stylex.create({
   base: {
@@ -129,11 +133,6 @@ export const selectIndicatorGroup = stylex.create({
   },
 })
 
-export const selectIndicatorIconVars = stylex.defineVars({
-  width: sizes._3_5,
-  height: sizes._3_5,
-})
-
 export const selectIndicator = stylex.create({
   base: {
     display: 'flex',
@@ -204,11 +203,6 @@ export const selectContentSizes = stylex.create({
     fontSize: fontSizes.md,
     lineHeight: lineHeights.md,
   },
-})
-
-export const selectItemIconVars = stylex.defineVars({
-  width: sizes._4,
-  height: sizes._4,
 })
 
 export const selectItem = stylex.create({

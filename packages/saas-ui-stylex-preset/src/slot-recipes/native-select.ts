@@ -2,12 +2,16 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { nativeSelectIndicatorIconVars } from './native-select.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
 import { lineHeights } from '../tokens/line-heights.stylex.ts'
 import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
+
+export { nativeSelectIndicatorIconVars }
 
 export const nativeSelectRoot = stylex.create({
   base: {
@@ -96,11 +100,6 @@ export const nativeSelectFieldVariants = stylex.create({
     color: semanticColors.fg,
     focusRingWidth: '2px',
   },
-})
-
-export const nativeSelectIndicatorIconVars = stylex.defineVars({
-  width: '1em',
-  height: '1em',
 })
 
 export const nativeSelectIndicator = stylex.create({

@@ -66,7 +66,8 @@ const buttonLike = {
 
 describe('emitRecipe', () => {
   it('emits one create() per axis and StyleX variant lookups', () => {
-    const { code, skipped } = emitRecipe('button', buttonLike)
+    const result = emitRecipe('button', buttonLike)
+    const { code, skipped } = result
 
     expect(code).toContain('export const buttonStyles = stylex.create')
     expect(code).toContain('export const buttonSizes = stylex.create')
@@ -79,15 +80,19 @@ describe('emitRecipe', () => {
     expect(code).toContain('buttonSizes[size]')
     expect(code).toContain('variant === "surface" && buttonWhenVariantSurface')
     expect(code).not.toContain('colorPalette:')
-    expect(code).toContain('export const buttonIconVars = stylex.defineVars')
+    expect(code).toContain("from './button.stylex.ts'")
+    expect(code).toContain('export { buttonIconVars }')
     expect(code).toContain('export const buttonIcon = stylex.create')
     expect(code).toContain('[buttonIconVars.fontSize]')
     expect(code).toContain('fontSize: buttonIconVars.fontSize')
+    expect(result.varsCode).toContain(
+      'export const buttonIconVars = stylex.defineVars',
+    )
     expect(skipped).not.toContain('_icon')
   })
 
   it('assigns descendant vars on the parent variant that owned them', () => {
-    const { code } = emitRecipe('radiomark', {
+    const { code, varsCode } = emitRecipe('radiomark', {
       base: {
         display: 'inline-flex',
         '& .dot': {
@@ -112,8 +117,9 @@ describe('emitRecipe', () => {
       },
     })
 
-    expect(code).toContain('export const radiomarkDotVars = stylex.defineVars')
-    expect(code).toContain('scale: 0.4')
+    expect(varsCode).toContain('export const radiomarkDotVars = stylex.defineVars')
+    expect(varsCode).toContain('scale: 0.4')
+    expect(code).toContain("from './radiomark.stylex.ts'")
     expect(code).toContain('[radiomarkDotVars.scale]: 0.6')
     expect(code).toContain('scale: radiomarkDotVars.scale')
   })

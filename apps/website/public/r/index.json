@@ -2921,7 +2921,7 @@
         "client": true,
         "fileHashes": {
           "ui/theme/index.ts": "8d7b167ee168f323f6dc1ac07eaf5216efddbabdbdb09d6f530939d23a638885",
-          "ui/theme/theme.tsx": "0c987a6440695348c1ecbca0af21b2e55b60cff8d9fe99f01750a743af7a55b1"
+          "ui/theme/theme.tsx": "673164e3e4b7800e518a66b82f71d7d7cd3675ee735401d73a6f183f775967e4"
         },
         "iconDependencies": [],
         "presetImports": [
@@ -2930,7 +2930,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "b00e4c1b33f826fe886c0a3bfaf529459ce17222b7b89f9e9c9af45c4d2e0725"
+      "contentHash": "1c90581c543f04fceb7d9cabcb165142bd65a351715d978fe03d36f1a6ebe8b2"
     },
     "name": "theme",
     "schemaVersion": 1,

@@ -235,17 +235,6 @@ export const rosePalette = stylex.createTheme(colorPalette, {
   focusRing: semanticColors.roseFocusRing,
 })
 
-export const slatePalette = stylex.createTheme(colorPalette, {
-  solid: semanticColors.slateSolid,
-  contrast: semanticColors.slateContrast,
-  fg: semanticColors.slateFg,
-  muted: semanticColors.slateMuted,
-  subtle: semanticColors.slateSubtle,
-  emphasized: semanticColors.slateEmphasized,
-  border: semanticColors.slateBorder,
-  focusRing: semanticColors.slateFocusRing,
-})
-
 export const basePalette = stylex.createTheme(colorPalette, {
   solid: colors.baseSolid,
   contrast: colors.baseContrast,
@@ -290,7 +279,6 @@ export const paletteThemes = {
   fuchsia: fuchsiaPalette,
   pink: pinkPalette,
   rose: rosePalette,
-  slate: slatePalette,
   base: basePalette,
   accent: accentPalette,
 } as const

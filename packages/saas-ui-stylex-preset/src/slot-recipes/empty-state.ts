@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { emptyStateIndicatorIconVars } from './empty-state.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
 import { fontWeights } from '../tokens/font-weights.stylex.ts'
@@ -9,6 +11,8 @@ import { lineHeights } from '../tokens/line-heights.stylex.ts'
 import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { emptyStateIndicatorIconVars }
 
 export const emptyStateRoot = stylex.create({
   base: {
@@ -69,11 +73,6 @@ export const emptyStateContentAligns = stylex.create({
     alignItems: 'center',
     textAlign: 'center',
   },
-})
-
-export const emptyStateIndicatorIconVars = stylex.defineVars({
-  width: '1em',
-  height: '1em',
 })
 
 export const emptyStateIndicator = stylex.create({

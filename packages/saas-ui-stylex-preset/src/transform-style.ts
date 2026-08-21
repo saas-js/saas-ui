@@ -134,7 +134,8 @@ export function transformStyleObject(
         const light = resolveLiteral(value.base, mapped?.category)
         const dark = resolveLiteral(value._dark, mapped?.category)
         for (const cssKey of cssKeys) {
-          result[cssKey] = `light-dark(${light}, ${dark})`
+          result[toStylexCssKey(cssKey, value.base)] =
+            `light-dark(${light}, ${dark})`
         }
         continue
       }
@@ -147,13 +148,13 @@ export function transformStyleObject(
     if (mapped) {
       const resolved = resolveLiteral(value, mapped.category)
       for (const cssKey of toArray(mapped.css)) {
-        result[cssKey] = resolved
+        result[toStylexCssKey(cssKey, value)] = resolved
       }
       continue
     }
 
     if (cssOnlyProperties.has(key) || key in result || isCssProperty(key)) {
-      result[key] = resolveCssOnlyValue(value)
+      result[toStylexCssKey(key, value)] = resolveCssOnlyValue(value)
       continue
     }
 
@@ -221,6 +222,23 @@ function isLightDarkShorthand(
 
 function toArray<T>(value: T | T[]): T[] {
   return Array.isArray(value) ? value : [value]
+}
+
+function isBackgroundImageValue(value: unknown): boolean {
+  return (
+    typeof value === 'string' &&
+    /(?:repeating-)?(?:linear|radial|conic)-gradient\(|url\(|image-set\(/i.test(
+      value,
+    )
+  )
+}
+
+function toStylexCssKey(cssKey: string, value: unknown): string {
+  if (cssKey !== 'background') {
+    return cssKey
+  }
+
+  return isBackgroundImageValue(value) ? 'backgroundImage' : 'backgroundColor'
 }
 
 function resolveCssOnlyValue(value: unknown): string | number {

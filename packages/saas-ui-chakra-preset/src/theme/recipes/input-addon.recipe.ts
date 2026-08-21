@@ -23,7 +23,7 @@ export const inputAddonRecipe = defineRecipe({
       subtle: {
         border: '2px solid',
         borderColor: 'transparent',
-        bg: { _light: 'gray.100', _dark: 'white/10' },
+        bg: 'bg.muted',
       },
       flushed: {
         borderBottom: '1px solid',

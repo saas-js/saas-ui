@@ -2,6 +2,11 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import {
+  comboboxIndicatorGroupIconVars,
+  comboboxItemIconVars,
+} from './combobox.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { cursor } from '../tokens/cursor.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
@@ -13,6 +18,8 @@ import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
 import { zIndices } from '../tokens/z-indices.stylex.ts'
+
+export { comboboxIndicatorGroupIconVars, comboboxItemIconVars }
 
 export const comboboxRoot = stylex.create({
   base: {
@@ -64,7 +71,7 @@ export const comboboxInput = stylex.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    background: semanticColors.bgPanel,
+    backgroundColor: semanticColors.bgPanel,
     width: sizes.full,
     minHeight: 'var(--combobox-input-height)',
     paddingInline: 'var(--combobox-input-padding-x)',
@@ -195,11 +202,6 @@ export const comboboxControl = stylex.create({
   },
 })
 
-export const comboboxIndicatorGroupIconVars = stylex.defineVars({
-  width: 'var(--combobox-indicator-size)',
-  height: 'var(--combobox-indicator-size)',
-})
-
 export const comboboxIndicatorGroup = stylex.create({
   base: {
     display: 'flex',
@@ -278,11 +280,6 @@ export const comboboxContentSizes = stylex.create({
     fontSize: fontSizes.md,
     lineHeight: lineHeights.md,
   },
-})
-
-export const comboboxItemIconVars = stylex.defineVars({
-  width: 'var(--combobox-indicator-size)',
-  height: 'var(--combobox-indicator-size)',
 })
 
 export const comboboxItem = stylex.create({

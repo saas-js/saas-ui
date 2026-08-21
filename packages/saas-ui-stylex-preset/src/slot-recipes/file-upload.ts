@@ -31,7 +31,7 @@ export const fileUploadLabel = stylex.create({
 
 export const fileUploadDropzone = stylex.create({
   base: {
-    background: semanticColors.bg,
+    backgroundColor: semanticColors.bg,
     borderRadius: semanticRadii.panel,
     borderWidth: '1px',
     borderStyle: 'dashed',
@@ -69,7 +69,7 @@ export const fileUploadItem = stylex.create({
     lineHeight: lineHeights.sm,
     animationName: 'fade-in',
     animationDuration: 'moderate',
-    background: semanticColors.bg,
+    backgroundColor: semanticColors.bg,
     borderRadius: semanticRadii.panel,
     borderWidth: '1px',
     width: '100%',

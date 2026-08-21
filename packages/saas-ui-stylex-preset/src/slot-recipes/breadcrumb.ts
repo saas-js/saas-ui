@@ -2,12 +2,19 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import {
+  breadcrumbSeparatorIconVars,
+  breadcrumbEllipsisIconVars,
+} from './breadcrumb.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
 import { lineHeights } from '../tokens/line-heights.stylex.ts'
 import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { breadcrumbSeparatorIconVars, breadcrumbEllipsisIconVars }
 
 export const breadcrumbList = stylex.create({
   base: {
@@ -78,11 +85,6 @@ export const breadcrumbItem = stylex.create({
   },
 })
 
-export const breadcrumbSeparatorIconVars = stylex.defineVars({
-  width: '1em',
-  height: '1em',
-})
-
 export const breadcrumbSeparator = stylex.create({
   base: {
     color: semanticColors.fgMuted,
@@ -97,11 +99,6 @@ export const breadcrumbSeparatorIcon = stylex.create({
     width: breadcrumbSeparatorIconVars.width,
     height: breadcrumbSeparatorIconVars.height,
   },
-})
-
-export const breadcrumbEllipsisIconVars = stylex.defineVars({
-  width: '1em',
-  height: '1em',
 })
 
 export const breadcrumbEllipsis = stylex.create({

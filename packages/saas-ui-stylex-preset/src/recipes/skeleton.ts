@@ -22,14 +22,14 @@ export const skeletonLoadings = stylex.create({
     flexShrink: 0,
   },
   false: {
-    background: 'unset',
+    backgroundColor: 'unset',
     animation: 'fade-in var(--fade-duration, 0.1s) ease-out !important',
   },
 })
 
 export const skeletonVariants = stylex.create({
   pulse: {
-    background: semanticColors.bgEmphasized,
+    backgroundColor: semanticColors.bgEmphasized,
     animation: animations.pulse,
     animationDuration: 'var(--duration, 1.2s)',
   },
@@ -45,7 +45,7 @@ export const skeletonVariants = stylex.create({
   },
   none: {
     animation: 'none',
-    background: semanticColors.bgMuted,
+    backgroundColor: semanticColors.bgMuted,
   },
 })
 

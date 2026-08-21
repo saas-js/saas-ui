@@ -68,6 +68,7 @@ export interface ChakraSlotRecipe {
 
 export interface GeneratedRecipe {
   code: string
+  varsCode?: string
   skipped: string[]
 }
 
@@ -139,13 +140,14 @@ export function emitRecipe(name: string, recipe: ChakraRecipe): GeneratedRecipe 
     }
   }
 
-  const descendantBlocks = emitDescendantBlocks(name, descendants, used)
+  const descendantBlocks = emitDescendantBlocks(name, descendants)
 
   const parts = [
     generatedBanner(),
     "import * as stylex from '@stylexjs/stylex'",
+    emitVarsImport(toKebabCase(name), descendantBlocks.varNames),
     emitImports(used),
-    ...descendantBlocks.vars,
+    emitVarsReexport(descendantBlocks.varNames),
     emitCreate(`${name}Styles`, { base }),
     ...axes.map((axis) => emitCreate(axis.exportName, axis.styles)),
     ...(textAxis
@@ -171,6 +173,7 @@ export function emitRecipe(name: string, recipe: ChakraRecipe): GeneratedRecipe 
 
   return {
     code: `${parts.filter(Boolean).join('\n\n')}\n`,
+    varsCode: emitVarsFile(descendantBlocks.vars, descendantBlocks.varsUsed),
     skipped: unique(skipped),
   }
 }
@@ -185,6 +188,9 @@ export function emitSlotRecipe(
   const used = new Set<string>()
   const blocks: string[] = []
   const slotBag: string[] = []
+  const allVars: string[] = []
+  const allVarNames: string[] = []
+  const varsUsed = new Set<string>()
 
   for (const slot of slots) {
     const pascalSlot = pascalCase(slot)
@@ -277,8 +283,12 @@ export function emitSlotRecipe(
 
     base = applyDescendantAssignments(stylesName, descendants, base, slotAxes)
     collectIdents(base, used)
-    const descendantBlocks = emitDescendantBlocks(stylesName, descendants, used)
-    blocks.push(...descendantBlocks.vars)
+    const descendantBlocks = emitDescendantBlocks(stylesName, descendants)
+    allVars.push(...descendantBlocks.vars)
+    allVarNames.push(...descendantBlocks.varNames)
+    for (const ident of descendantBlocks.varsUsed) {
+      varsUsed.add(ident)
+    }
     blocks.push(emitCreate(stylesName, { base }))
 
     for (const axis of slotAxes) {
@@ -322,7 +332,9 @@ export function emitSlotRecipe(
   const parts = [
     generatedBanner(),
     "import * as stylex from '@stylexjs/stylex'",
+    emitVarsImport(toKebabCase(name), allVarNames),
     emitImports(used),
+    emitVarsReexport(allVarNames),
     ...blocks,
     ...axisTypes,
     `export const ${name}SlotRecipe = {
@@ -336,6 +348,7 @@ ${slotBag.join(',\n')}
 
   return {
     code: `${parts.filter(Boolean).join('\n\n')}\n`,
+    varsCode: emitVarsFile(allVars, varsUsed),
     skipped: unique(skipped),
   }
 }
@@ -580,14 +593,17 @@ function applyDescendantAssignments(
 function emitDescendantBlocks(
   prefix: string,
   store: Record<string, DescendantStore>,
-  used: Set<string>,
 ): {
   vars: string[]
+  varNames: string[]
+  varsUsed: Set<string>
   consumers: string[]
   bagFields: string[]
   helpers: string[]
 } {
   const vars: string[] = []
+  const varNames: string[] = []
+  const varsUsed = new Set<string>()
   const consumers: string[] = []
   const bagFields: string[] = []
   const helpers: string[] = []
@@ -600,7 +616,8 @@ function emitDescendantBlocks(
 
     const varsName = descendantVarsName(prefix, slot)
     const stylesName = descendantStylesName(prefix, slot)
-    collectIdents(entry.defaults, used)
+    collectIdents(entry.defaults, varsUsed)
+    varNames.push(varsName)
 
     const varBody = Object.entries(entry.defaults)
       .filter(([, value]) => typeof value !== 'object' || value == null)
@@ -629,7 +646,38 @@ function emitDescendantBlocks(
 }`)
   }
 
-  return { vars, consumers, bagFields, helpers }
+  return { vars, varNames, varsUsed, consumers, bagFields, helpers }
+}
+
+function emitVarsFile(vars: string[], used: Set<string>): string | undefined {
+  if (vars.length === 0) {
+    return undefined
+  }
+
+  return `${[
+    generatedBanner(),
+    "import * as stylex from '@stylexjs/stylex'",
+    emitImports(used),
+    ...vars,
+  ]
+    .filter(Boolean)
+    .join('\n\n')}\n`
+}
+
+function emitVarsImport(fileName: string, varNames: string[]): string {
+  if (varNames.length === 0) {
+    return ''
+  }
+
+  return `import { ${varNames.join(', ')} } from './${fileName}.stylex.ts'`
+}
+
+function emitVarsReexport(varNames: string[]): string {
+  if (varNames.length === 0) {
+    return ''
+  }
+
+  return `export { ${varNames.join(', ')} }`
 }
 
 function printStyleValue(value: string | number | TransformedStyle): string {

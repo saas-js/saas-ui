@@ -102,6 +102,36 @@ Variants follow the StyleX pattern of one `create()` per axis, then
 `ThemeProvider` sets `color-scheme`, which is how `light-dark()` semantic tokens
 switch. Palette themes override the `colorPalette.*` vars used by recipes.
 
+## Appearance CLI
+
+StyleX does not run `createAppearance()` in the browser. Generate a theme from
+the same seeds instead:
+
+```bash
+pnpm --filter @saas-ui/stylex-preset appearance -- \
+  --name ocean \
+  --base 225,0.01 \
+  --accent 0.53,0.18,235 \
+  --format css \
+  --out src/themes/ocean.css
+```
+
+`--format css` writes the `--sui-base` / `--sui-accent` knobs. Import that file
+next to `theme.css` and the existing StyleX tokens resolve from those seeds.
+
+`--format stylex` bakes `createAppearance()` into a static `createTheme()`
+module you can pass to `stylex.props()`:
+
+```bash
+pnpm --filter @saas-ui/stylex-preset appearance -- \
+  --in ocean.json \
+  --format stylex \
+  --out src/themes/ocean.stylex.ts
+```
+
+JSON input is the Chakra `AppearanceOptions` shape (`base`, `accent`,
+`sidebar`), plus an optional `name`.
+
 ## Generating from Chakra
 
 ```bash

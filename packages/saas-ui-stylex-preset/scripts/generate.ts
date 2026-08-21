@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import prettier, { type Options } from 'prettier'
 
+import { paletteNames } from '../../saas-ui-chakra-preset/src/theme/palette.ts'
 import {
   type FlattenedToken,
   type TokenTree,
@@ -60,32 +61,7 @@ const COLOR_PALETTE_SLOTS = [
   'focusRing',
 ] as const
 
-const COLOR_PALETTES = [
-  'gray',
-  'zinc',
-  'neutral',
-  'stone',
-  'red',
-  'orange',
-  'amber',
-  'yellow',
-  'lime',
-  'green',
-  'emerald',
-  'teal',
-  'cyan',
-  'sky',
-  'blue',
-  'indigo',
-  'violet',
-  'purple',
-  'fuchsia',
-  'pink',
-  'rose',
-  'slate',
-  'base',
-  'accent',
-] as const
+const COLOR_PALETTES = [...paletteNames, 'base', 'accent'] as const
 
 async function format(
   code: string,
@@ -355,7 +331,8 @@ function isThemeKnob(property: string) {
     property.startsWith('--radius-') ||
     property.startsWith('--focus-ring-') ||
     property.startsWith('--motion-') ||
-    property === '--ease-standard'
+    property === '--ease-standard' ||
+    property === '--color-shadow'
   )
 }
 
@@ -468,22 +445,30 @@ async function generateRecipes() {
 
   for (const [rawName, recipe] of Object.entries(recipes)) {
     const name = stripSuiPrefix(rawName)
-    const { code, skipped } = emitRecipe(name, recipe)
+    const { code, varsCode, skipped } = emitRecipe(name, recipe)
     if (skipped.length > 0) {
       console.log(`  recipe ${name}: skipped ${skipped.join(', ')}`)
     }
-    await writeGenerated(`recipes/${toKebabCase(name)}.ts`, code)
-    recipeExports.push(`export * from './${toKebabCase(name)}.ts'`)
+    const recipeFile = toKebabCase(name)
+    await writeGenerated(`recipes/${recipeFile}.ts`, code)
+    if (varsCode) {
+      await writeGenerated(`recipes/${recipeFile}.stylex.ts`, varsCode)
+    }
+    recipeExports.push(`export * from './${recipeFile}.ts'`)
   }
 
   for (const [rawName, recipe] of Object.entries(slotRecipes)) {
     const name = stripSuiPrefix(rawName)
-    const { code, skipped } = emitSlotRecipe(name, recipe)
+    const { code, varsCode, skipped } = emitSlotRecipe(name, recipe)
     if (skipped.length > 0) {
       console.log(`  slot recipe ${name}: skipped ${uniquePreview(skipped)}`)
     }
-    await writeGenerated(`slot-recipes/${toKebabCase(name)}.ts`, code)
-    slotExports.push(`export * from './${toKebabCase(name)}.ts'`)
+    const recipeFile = toKebabCase(name)
+    await writeGenerated(`slot-recipes/${recipeFile}.ts`, code)
+    if (varsCode) {
+      await writeGenerated(`slot-recipes/${recipeFile}.stylex.ts`, varsCode)
+    }
+    slotExports.push(`export * from './${recipeFile}.ts'`)
   }
 
   await writeGenerated(

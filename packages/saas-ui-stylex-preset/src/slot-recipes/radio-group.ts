@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { radioGroupItemControlDotVars } from './radio-group.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { colors } from '../tokens/colors.stylex.ts'
 import { cursor } from '../tokens/cursor.stylex.ts'
@@ -12,6 +14,8 @@ import { radii } from '../tokens/radii.stylex.ts'
 import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { radioGroupItemControlDotVars }
 
 export const radioGroupItem = stylex.create({
   base: {
@@ -48,14 +52,6 @@ export const radioGroupItemSizes = stylex.create({
   },
 })
 
-export const radioGroupItemControlDotVars = stylex.defineVars({
-  height: '100%',
-  width: '100%',
-  borderRadius: radii.full,
-  backgroundColor: 'currentColor',
-  scale: 0.4,
-})
-
 export const radioGroupItemControl = stylex.create({
   base: {
     display: 'inline-flex',
@@ -77,7 +73,7 @@ export const radioGroupItemControl = stylex.create({
       },
     },
     ':invalid': {
-      borderColor: colors.red500,
+      borderColor: semanticColors.borderDestructive,
     },
     ':disabled': {
       opacity: 0.5,

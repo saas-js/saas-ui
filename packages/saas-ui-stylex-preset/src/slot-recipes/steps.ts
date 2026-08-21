@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { stepsIndicatorIconVars } from './steps.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
 import { fontWeights } from '../tokens/font-weights.stylex.ts'
@@ -11,6 +13,8 @@ import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { stepsIndicatorIconVars }
 
 export const stepsRoot = stylex.create({
   base: {
@@ -150,12 +154,6 @@ export const stepsSeparatorOrientations = stylex.create({
     height: 'var(--steps-thickness)',
     marginInline: 'var(--steps-gutter)',
   },
-})
-
-export const stepsIndicatorIconVars = stylex.defineVars({
-  flexShrink: 0,
-  width: 'var(--steps-icon-size)',
-  height: 'var(--steps-icon-size)',
 })
 
 export const stepsIndicator = stylex.create({

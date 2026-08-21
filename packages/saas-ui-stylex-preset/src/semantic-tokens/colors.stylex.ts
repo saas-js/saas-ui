@@ -1,15 +1,16 @@
 import * as stylex from '@stylexjs/stylex'
 
 export const semanticColors = stylex.defineVars({
-  presenceOnline: 'var(--sui-colors-green-500)',
-  presenceOffline: 'var(--sui-colors-gray-400)',
-  presenceBusy: 'var(--sui-colors-orange-500)',
-  presenceDnd: 'var(--sui-colors-red-500)',
-  presenceAway: 'var(--sui-colors-gray-400)',
-  statusSuccess: 'var(--sui-colors-green-500)',
-  statusError: 'var(--sui-colors-red-500)',
-  statusWarning: 'var(--sui-colors-orange-500)',
-  statusInfo: 'var(--sui-colors-blue-500)',
+  presenceOnline: 'var(--sui-colors-success-solid)',
+  presenceOffline: 'var(--sui-colors-gray-solid)',
+  presenceBusy: 'var(--sui-colors-warning-solid)',
+  presenceDnd: 'var(--sui-colors-destructive-solid)',
+  presenceAway: 'var(--sui-colors-gray-solid)',
+  statusSuccess: 'var(--sui-colors-success-solid)',
+  statusError: 'var(--sui-colors-destructive-solid)',
+  statusWarning: 'var(--sui-colors-warning-solid)',
+  statusInfo: 'var(--sui-colors-info-solid)',
+  shadow: 'var(--sui-colors-black)',
   sidebarBg: 'var(--sui-color-sidebar-bg)',
   sidebarFg: 'var(--sui-color-sidebar-fg)',
   sidebarBorder: 'var(--sui-color-sidebar-border)',
@@ -32,12 +33,11 @@ export const semanticColors = stylex.defineVars({
   bgEmphasized: 'var(--sui-colors-interaction-pressed)',
   bgContent: 'var(--sui-colors-bg)',
   bgPanel: 'var(--sui-colors-bg-surface)',
-  bgError: 'light-dark(var(--sui-colors-red-50), var(--sui-colors-red-950))',
-  bgWarning:
-    'light-dark(var(--sui-colors-orange-50), var(--sui-colors-orange-950))',
-  bgSuccess:
-    'light-dark(var(--sui-colors-green-50), var(--sui-colors-green-950))',
-  bgInfo: 'light-dark(var(--sui-colors-blue-50), var(--sui-colors-blue-950))',
+  bgError: 'var(--sui-colors-destructive-muted)',
+  bgWarning: 'var(--sui-colors-warning-muted)',
+  bgSuccess: 'var(--sui-colors-success-muted)',
+  bgInfo: 'var(--sui-colors-info-muted)',
+  bgDestructive: 'var(--sui-colors-destructive-muted)',
   fg: 'light-dark(oklch(from var(--sui-base) calc(0.18 + 0.02 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / 1), oklch(from var(--sui-base) calc(0.94 - 0.02 * max(calc(-1 * var(--sui-contrast)), 0) + 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / 1))',
   fgMuted:
     'light-dark(oklch(from var(--sui-base) calc(0.42 + 0.02 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.55) h / 1), oklch(from var(--sui-base) calc(0.72 - 0.02 * max(calc(-1 * var(--sui-contrast)), 0) + 0.03 * max(var(--sui-contrast), 0)) calc(c * 0.55) h / 1))',
@@ -47,12 +47,11 @@ export const semanticColors = stylex.defineVars({
     'light-dark(oklch(from var(--sui-base) calc(0.26 + 0.02 * max(calc(-1 * var(--sui-contrast)), 0) - 0.03 * max(var(--sui-contrast), 0)) calc(c * 0.4) h / 1), oklch(from var(--sui-base) calc(0.84 - 0.02 * max(calc(-1 * var(--sui-contrast)), 0) + 0.03 * max(var(--sui-contrast), 0)) calc(c * 0.4) h / 1))',
   fgInverted:
     'light-dark(oklch(from var(--sui-base) 0.985 calc(c * 0.08) h / 1), oklch(from var(--sui-base) 0.16 calc(c * 0.4) h / 1))',
-  fgError: 'light-dark(var(--sui-colors-red-500), var(--sui-colors-red-400))',
-  fgWarning:
-    'light-dark(var(--sui-colors-orange-600), var(--sui-colors-orange-300))',
-  fgSuccess:
-    'light-dark(var(--sui-colors-green-600), var(--sui-colors-green-300))',
-  fgInfo: 'light-dark(var(--sui-colors-blue-600), var(--sui-colors-blue-300))',
+  fgError: 'var(--sui-colors-destructive-fg)',
+  fgWarning: 'var(--sui-colors-warning-fg)',
+  fgSuccess: 'var(--sui-colors-success-fg)',
+  fgInfo: 'var(--sui-colors-info-fg)',
+  fgDestructive: 'var(--sui-colors-destructive-fg)',
   border:
     'light-dark(oklch(from var(--sui-base) calc(0.18 + 0.02 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / calc(0.1 - 0.02 * max(calc(-1 * var(--sui-contrast)), 0) + 0.02 * max(var(--sui-contrast), 0))), oklch(from var(--sui-base) calc(0.94 - 0.02 * max(calc(-1 * var(--sui-contrast)), 0) + 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / calc(0.12 - 0.02 * max(calc(-1 * var(--sui-contrast)), 0) + 0.03 * max(var(--sui-contrast), 0))))',
   borderMuted:
@@ -63,14 +62,11 @@ export const semanticColors = stylex.defineVars({
     'light-dark(oklch(from var(--sui-base) calc(0.18 + 0.02 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / calc(0.17 - 0.03 * max(calc(-1 * var(--sui-contrast)), 0) + 0.05 * max(var(--sui-contrast), 0))), oklch(from var(--sui-base) calc(0.94 - 0.02 * max(calc(-1 * var(--sui-contrast)), 0) + 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / calc(0.21 - 0.04 * max(calc(-1 * var(--sui-contrast)), 0) + 0.05 * max(var(--sui-contrast), 0))))',
   borderInverted:
     'light-dark(oklch(from var(--sui-base) 0.985 calc(c * 0.2) h / 0.8), oklch(from var(--sui-base) 0.16 calc(c * 0.2) h / 0.8))',
-  borderError:
-    'light-dark(var(--sui-colors-red-500), var(--sui-colors-red-400))',
-  borderWarning:
-    'light-dark(var(--sui-colors-orange-500), var(--sui-colors-orange-400))',
-  borderSuccess:
-    'light-dark(var(--sui-colors-green-500), var(--sui-colors-green-400))',
-  borderInfo:
-    'light-dark(var(--sui-colors-blue-500), var(--sui-colors-blue-400))',
+  borderError: 'var(--sui-colors-destructive-border)',
+  borderWarning: 'var(--sui-colors-warning-border)',
+  borderSuccess: 'var(--sui-colors-success-border)',
+  borderInfo: 'var(--sui-colors-info-border)',
+  borderDestructive: 'var(--sui-colors-destructive-border)',
   interactionHover:
     'light-dark(oklch(from var(--sui-base) calc(0.18 + 0.02 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / calc(0.05 - 0.01 * max(calc(-1 * var(--sui-contrast)), 0) + 0.01 * max(var(--sui-contrast), 0))), oklch(from var(--sui-base) calc(0.94 - 0.02 * max(calc(-1 * var(--sui-contrast)), 0) + 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / calc(0.07 - 0.01 * max(calc(-1 * var(--sui-contrast)), 0) + 0.01 * max(var(--sui-contrast), 0))))',
   interactionPressed:
@@ -90,276 +86,312 @@ export const semanticColors = stylex.defineVars({
   accentFocusRing: 'var(--sui-colors-accent-solid)',
   accentBorder:
     'light-dark(oklch(from var(--sui-accent) l c h / 0.32), oklch(from var(--sui-accent) l c h / 0.44))',
+  infoContrast:
+    'oklch(from var(--sui-accent) calc(0.16 + 0.825 * var(--sui-accent-foreground-tone)) min(calc(c * calc(0.1 - 0.04 * var(--sui-accent-foreground-tone))), calc(0.025 - 0.01 * var(--sui-accent-foreground-tone))) 260 / 1)',
+  infoFg:
+    'light-dark(oklch(from var(--sui-accent) min(l, 0.44) min(calc(c * 0.65), 0.18) 260 / 1), oklch(from var(--sui-accent) max(l, 0.78) min(calc(c * 0.65), 0.18) 260 / 1))',
+  infoMuted:
+    'light-dark(oklch(from var(--sui-accent) l c 260 / 0.07), oklch(from var(--sui-accent) l c 260 / 0.1))',
+  infoSubtle:
+    'light-dark(oklch(from var(--sui-accent) l c 260 / 0.11), oklch(from var(--sui-accent) l c 260 / 0.16))',
+  infoEmphasized:
+    'light-dark(oklch(from var(--sui-accent) l c 260 / 0.18), oklch(from var(--sui-accent) l c 260 / 0.24))',
+  infoSolid: 'oklch(from var(--sui-accent) l c 260 / 1)',
+  infoFocusRing: 'oklch(from var(--sui-accent) l c 260 / 1)',
+  infoBorder:
+    'light-dark(oklch(from var(--sui-accent) l c 260 / 0.32), oklch(from var(--sui-accent) l c 260 / 0.44))',
+  successContrast:
+    'oklch(from var(--sui-accent) calc(0.16 + 0.825 * var(--sui-accent-foreground-tone)) min(calc(c * calc(0.1 - 0.04 * var(--sui-accent-foreground-tone))), calc(0.025 - 0.01 * var(--sui-accent-foreground-tone))) 150 / 1)',
+  successFg:
+    'light-dark(oklch(from var(--sui-accent) min(l, 0.44) min(calc(c * 0.65), 0.18) 150 / 1), oklch(from var(--sui-accent) max(l, 0.78) min(calc(c * 0.65), 0.18) 150 / 1))',
+  successMuted:
+    'light-dark(oklch(from var(--sui-accent) l c 150 / 0.07), oklch(from var(--sui-accent) l c 150 / 0.1))',
+  successSubtle:
+    'light-dark(oklch(from var(--sui-accent) l c 150 / 0.11), oklch(from var(--sui-accent) l c 150 / 0.16))',
+  successEmphasized:
+    'light-dark(oklch(from var(--sui-accent) l c 150 / 0.18), oklch(from var(--sui-accent) l c 150 / 0.24))',
+  successSolid: 'oklch(from var(--sui-accent) l c 150 / 1)',
+  successFocusRing: 'oklch(from var(--sui-accent) l c 150 / 1)',
+  successBorder:
+    'light-dark(oklch(from var(--sui-accent) l c 150 / 0.32), oklch(from var(--sui-accent) l c 150 / 0.44))',
+  warningContrast:
+    'oklch(from var(--sui-accent) calc(0.16 + 0.825 * var(--sui-accent-foreground-tone)) min(calc(c * calc(0.1 - 0.04 * var(--sui-accent-foreground-tone))), calc(0.025 - 0.01 * var(--sui-accent-foreground-tone))) 50 / 1)',
+  warningFg:
+    'light-dark(oklch(from var(--sui-accent) min(l, 0.44) min(calc(c * 0.65), 0.18) 50 / 1), oklch(from var(--sui-accent) max(l, 0.78) min(calc(c * 0.65), 0.18) 50 / 1))',
+  warningMuted:
+    'light-dark(oklch(from var(--sui-accent) l c 50 / 0.07), oklch(from var(--sui-accent) l c 50 / 0.1))',
+  warningSubtle:
+    'light-dark(oklch(from var(--sui-accent) l c 50 / 0.11), oklch(from var(--sui-accent) l c 50 / 0.16))',
+  warningEmphasized:
+    'light-dark(oklch(from var(--sui-accent) l c 50 / 0.18), oklch(from var(--sui-accent) l c 50 / 0.24))',
+  warningSolid: 'oklch(from var(--sui-accent) l c 50 / 1)',
+  warningFocusRing: 'oklch(from var(--sui-accent) l c 50 / 1)',
+  warningBorder:
+    'light-dark(oklch(from var(--sui-accent) l c 50 / 0.32), oklch(from var(--sui-accent) l c 50 / 0.44))',
+  destructiveContrast:
+    'oklch(from var(--sui-accent) calc(0.16 + 0.825 * var(--sui-accent-foreground-tone)) min(calc(c * calc(0.1 - 0.04 * var(--sui-accent-foreground-tone))), calc(0.025 - 0.01 * var(--sui-accent-foreground-tone))) 25 / 1)',
+  destructiveFg:
+    'light-dark(oklch(from var(--sui-accent) min(l, 0.44) min(calc(c * 0.65), 0.18) 25 / 1), oklch(from var(--sui-accent) max(l, 0.78) min(calc(c * 0.65), 0.18) 25 / 1))',
+  destructiveMuted:
+    'light-dark(oklch(from var(--sui-accent) l c 25 / 0.07), oklch(from var(--sui-accent) l c 25 / 0.1))',
+  destructiveSubtle:
+    'light-dark(oklch(from var(--sui-accent) l c 25 / 0.11), oklch(from var(--sui-accent) l c 25 / 0.16))',
+  destructiveEmphasized:
+    'light-dark(oklch(from var(--sui-accent) l c 25 / 0.18), oklch(from var(--sui-accent) l c 25 / 0.24))',
+  destructiveSolid: 'oklch(from var(--sui-accent) l c 25 / 1)',
+  destructiveFocusRing: 'oklch(from var(--sui-accent) l c 25 / 1)',
+  destructiveBorder:
+    'light-dark(oklch(from var(--sui-accent) l c 25 / 0.32), oklch(from var(--sui-accent) l c 25 / 0.44))',
+  grayContrast: 'oklch(0.985 0.001 260)',
+  grayFg: 'light-dark(oklch(0.44 0.008 260), oklch(0.78 0.008 260))',
+  grayMuted:
+    'light-dark(oklch(0.45 0.012 260 / 0.07), oklch(0.45 0.012 260 / 0.1))',
+  graySubtle:
+    'light-dark(oklch(0.45 0.012 260 / 0.11), oklch(0.45 0.012 260 / 0.16))',
+  grayEmphasized:
+    'light-dark(oklch(0.45 0.012 260 / 0.18), oklch(0.45 0.012 260 / 0.24))',
+  graySolid: 'oklch(0.45 0.012 260)',
+  grayFocusRing: 'oklch(0.45 0.012 260)',
+  grayBorder:
+    'light-dark(oklch(0.45 0.012 260 / 0.32), oklch(0.45 0.012 260 / 0.44))',
+  zincContrast: 'oklch(0.985 0.001 286)',
+  zincFg: 'light-dark(oklch(0.44 0.007 286), oklch(0.78 0.007 286))',
+  zincMuted:
+    'light-dark(oklch(0.45 0.01 286 / 0.07), oklch(0.45 0.01 286 / 0.1))',
+  zincSubtle:
+    'light-dark(oklch(0.45 0.01 286 / 0.11), oklch(0.45 0.01 286 / 0.16))',
+  zincEmphasized:
+    'light-dark(oklch(0.45 0.01 286 / 0.18), oklch(0.45 0.01 286 / 0.24))',
+  zincSolid: 'oklch(0.45 0.01 286)',
+  zincFocusRing: 'oklch(0.45 0.01 286)',
+  zincBorder:
+    'light-dark(oklch(0.45 0.01 286 / 0.32), oklch(0.45 0.01 286 / 0.44))',
   neutralContrast:
     'light-dark(var(--sui-colors-white), var(--sui-colors-black))',
-  neutralFg:
-    'light-dark(var(--sui-colors-neutral-800), var(--sui-colors-neutral-200))',
+  neutralFg: 'light-dark(var(--sui-colors-black), var(--sui-colors-white))',
   neutralMuted:
-    'light-dark(var(--sui-colors-neutral-100), var(--sui-colors-neutral-900))',
+    'light-dark(color-mix(in oklch, var(--sui-colors-black) 5%, transparent), color-mix(in oklch, var(--sui-colors-white) 8%, transparent))',
   neutralSubtle:
-    'light-dark(var(--sui-colors-neutral-200), var(--sui-colors-neutral-800))',
+    'light-dark(color-mix(in oklch, var(--sui-colors-black) 8%, transparent), color-mix(in oklch, var(--sui-colors-white) 13%, transparent))',
   neutralEmphasized:
-    'light-dark(var(--sui-colors-neutral-300), var(--sui-colors-neutral-700))',
-  neutralSolid:
-    'light-dark(var(--sui-colors-neutral-900), var(--sui-colors-white))',
-  neutralFocusRing: 'var(--sui-colors-neutral-600)',
+    'light-dark(color-mix(in oklch, var(--sui-colors-black) 14%, transparent), color-mix(in oklch, var(--sui-colors-white) 20%, transparent))',
+  neutralSolid: 'light-dark(var(--sui-colors-black), var(--sui-colors-white))',
+  neutralFocusRing:
+    'light-dark(var(--sui-colors-black), var(--sui-colors-white))',
   neutralBorder:
-    'light-dark(var(--sui-colors-neutral-300), var(--sui-colors-neutral-700))',
-  slateContrast: 'white',
-  slateFg:
-    'light-dark(var(--sui-colors-slate-800), var(--sui-colors-slate-200))',
-  slateMuted:
-    'light-dark(var(--sui-colors-slate-100), var(--sui-colors-slate-900))',
-  slateSubtle:
-    'light-dark(var(--sui-colors-slate-200), var(--sui-colors-slate-800))',
-  slateEmphasized:
-    'light-dark(var(--sui-colors-slate-300), var(--sui-colors-slate-700))',
-  slateSolid: 'var(--sui-colors-slate-500)',
-  slateFocusRing: 'var(--sui-colors-slate-600)',
-  slateBorder:
-    'light-dark(var(--sui-colors-slate-200), var(--sui-colors-slate-800))',
-  grayContrast: 'white',
-  grayFg: 'light-dark(var(--sui-colors-gray-800), var(--sui-colors-gray-200))',
-  grayMuted:
-    'light-dark(var(--sui-colors-gray-100), var(--sui-colors-gray-900))',
-  graySubtle:
-    'light-dark(var(--sui-colors-gray-200), var(--sui-colors-gray-800))',
-  grayEmphasized:
-    'light-dark(var(--sui-colors-gray-300), var(--sui-colors-gray-700))',
-  graySolid: 'var(--sui-colors-gray-500)',
-  grayFocusRing: 'var(--sui-colors-gray-600)',
-  grayBorder:
-    'light-dark(var(--sui-colors-gray-300), var(--sui-colors-gray-700))',
-  zincContrast: 'white',
-  zincFg: 'light-dark(var(--sui-colors-zinc-800), var(--sui-colors-zinc-200))',
-  zincMuted:
-    'light-dark(var(--sui-colors-zinc-100), var(--sui-colors-zinc-900))',
-  zincSubtle:
-    'light-dark(var(--sui-colors-zinc-200), var(--sui-colors-zinc-800))',
-  zincEmphasized:
-    'light-dark(var(--sui-colors-zinc-300), var(--sui-colors-zinc-700))',
-  zincSolid: 'var(--sui-colors-zinc-500)',
-  zincFocusRing: 'var(--sui-colors-zinc-600)',
-  zincBorder:
-    'light-dark(var(--sui-colors-zinc-300), var(--sui-colors-zinc-700))',
-  stoneContrast: 'white',
-  stoneFg:
-    'light-dark(var(--sui-colors-stone-800), var(--sui-colors-stone-200))',
+    'light-dark(color-mix(in oklch, var(--sui-colors-black) 12%, transparent), color-mix(in oklch, var(--sui-colors-white) 18%, transparent))',
+  stoneContrast: 'oklch(0.985 0.001 56)',
+  stoneFg: 'light-dark(oklch(0.44 0.007 56), oklch(0.78 0.007 56))',
   stoneMuted:
-    'light-dark(var(--sui-colors-stone-100), var(--sui-colors-stone-900))',
+    'light-dark(oklch(0.45 0.01 56 / 0.07), oklch(0.45 0.01 56 / 0.1))',
   stoneSubtle:
-    'light-dark(var(--sui-colors-stone-200), var(--sui-colors-stone-800))',
+    'light-dark(oklch(0.45 0.01 56 / 0.11), oklch(0.45 0.01 56 / 0.16))',
   stoneEmphasized:
-    'light-dark(var(--sui-colors-stone-300), var(--sui-colors-stone-700))',
-  stoneSolid: 'var(--sui-colors-stone-500)',
-  stoneFocusRing: 'var(--sui-colors-stone-600)',
+    'light-dark(oklch(0.45 0.01 56 / 0.18), oklch(0.45 0.01 56 / 0.24))',
+  stoneSolid: 'oklch(0.45 0.01 56)',
+  stoneFocusRing: 'oklch(0.45 0.01 56)',
   stoneBorder:
-    'light-dark(var(--sui-colors-stone-300), var(--sui-colors-stone-700))',
-  redContrast: 'white',
-  redFg: 'light-dark(var(--sui-colors-red-700), var(--sui-colors-red-300))',
-  redMuted: 'light-dark(var(--sui-colors-red-50), var(--sui-colors-red-950))',
-  redSubtle: 'light-dark(var(--sui-colors-red-100), var(--sui-colors-red-900))',
+    'light-dark(oklch(0.45 0.01 56 / 0.32), oklch(0.45 0.01 56 / 0.44))',
+  redContrast: 'oklch(0.985 0.013 25)',
+  redFg: 'light-dark(oklch(0.44 0.143 25), oklch(0.78 0.143 25))',
+  redMuted: 'light-dark(oklch(0.55 0.22 25 / 0.07), oklch(0.55 0.22 25 / 0.1))',
+  redSubtle:
+    'light-dark(oklch(0.55 0.22 25 / 0.11), oklch(0.55 0.22 25 / 0.16))',
   redEmphasized:
-    'light-dark(var(--sui-colors-red-200), var(--sui-colors-red-800))',
-  redSolid: 'var(--sui-colors-red-600)',
-  redFocusRing: 'var(--sui-colors-red-600)',
-  redBorder: 'light-dark(var(--sui-colors-red-300), var(--sui-colors-red-600))',
-  orangeContrast: 'light-dark(white, black)',
-  orangeFg:
-    'light-dark(var(--sui-colors-orange-700), var(--sui-colors-orange-300))',
+    'light-dark(oklch(0.55 0.22 25 / 0.18), oklch(0.55 0.22 25 / 0.24))',
+  redSolid: 'oklch(0.55 0.22 25)',
+  redFocusRing: 'oklch(0.55 0.22 25)',
+  redBorder:
+    'light-dark(oklch(0.55 0.22 25 / 0.32), oklch(0.55 0.22 25 / 0.44))',
+  orangeContrast: 'oklch(0.985 0.013 50)',
+  orangeFg: 'light-dark(oklch(0.44 0.143 50), oklch(0.78 0.143 50))',
   orangeMuted:
-    'light-dark(var(--sui-colors-orange-50), var(--sui-colors-orange-950))',
+    'light-dark(oklch(0.58 0.22 50 / 0.07), oklch(0.58 0.22 50 / 0.1))',
   orangeSubtle:
-    'light-dark(var(--sui-colors-orange-100), var(--sui-colors-orange-900))',
+    'light-dark(oklch(0.58 0.22 50 / 0.11), oklch(0.58 0.22 50 / 0.16))',
   orangeEmphasized:
-    'light-dark(var(--sui-colors-orange-200), var(--sui-colors-orange-800))',
-  orangeSolid: 'var(--sui-colors-orange-600)',
-  orangeFocusRing: 'var(--sui-colors-orange-600)',
+    'light-dark(oklch(0.58 0.22 50 / 0.18), oklch(0.58 0.22 50 / 0.24))',
+  orangeSolid: 'oklch(0.58 0.22 50)',
+  orangeFocusRing: 'oklch(0.58 0.22 50)',
   orangeBorder:
-    'light-dark(var(--sui-colors-orange-300), var(--sui-colors-orange-600))',
-  amberContrast: 'black',
-  amberFg:
-    'light-dark(var(--sui-colors-amber-700), var(--sui-colors-amber-300))',
-  amberMuted:
-    'light-dark(var(--sui-colors-amber-50), var(--sui-colors-amber-950))',
+    'light-dark(oklch(0.58 0.22 50 / 0.32), oklch(0.58 0.22 50 / 0.44))',
+  amberContrast: 'oklch(0.16 0.022 80)',
+  amberFg: 'light-dark(oklch(0.44 0.143 80), oklch(0.8 0.143 80))',
+  amberMuted: 'light-dark(oklch(0.8 0.22 80 / 0.07), oklch(0.8 0.22 80 / 0.1))',
   amberSubtle:
-    'light-dark(var(--sui-colors-amber-100), var(--sui-colors-amber-900))',
+    'light-dark(oklch(0.8 0.22 80 / 0.11), oklch(0.8 0.22 80 / 0.16))',
   amberEmphasized:
-    'light-dark(var(--sui-colors-amber-200), var(--sui-colors-amber-800))',
-  amberSolid: 'var(--sui-colors-amber-400)',
-  amberFocusRing: 'var(--sui-colors-amber-400)',
+    'light-dark(oklch(0.8 0.22 80 / 0.18), oklch(0.8 0.22 80 / 0.24))',
+  amberSolid: 'oklch(0.8 0.22 80)',
+  amberFocusRing: 'oklch(0.8 0.22 80)',
   amberBorder:
-    'light-dark(var(--sui-colors-amber-300), var(--sui-colors-amber-600))',
-  yellowContrast: 'black',
-  yellowFg:
-    'light-dark(var(--sui-colors-yellow-700), var(--sui-colors-yellow-300))',
+    'light-dark(oklch(0.8 0.22 80 / 0.32), oklch(0.8 0.22 80 / 0.44))',
+  yellowContrast: 'oklch(0.16 0.022 95)',
+  yellowFg: 'light-dark(oklch(0.44 0.143 95), oklch(0.84 0.143 95))',
   yellowMuted:
-    'light-dark(var(--sui-colors-yellow-50), var(--sui-colors-yellow-950))',
+    'light-dark(oklch(0.84 0.22 95 / 0.07), oklch(0.84 0.22 95 / 0.1))',
   yellowSubtle:
-    'light-dark(var(--sui-colors-yellow-100), var(--sui-colors-yellow-900))',
+    'light-dark(oklch(0.84 0.22 95 / 0.11), oklch(0.84 0.22 95 / 0.16))',
   yellowEmphasized:
-    'light-dark(var(--sui-colors-yellow-200), var(--sui-colors-yellow-800))',
-  yellowSolid: 'var(--sui-colors-yellow-400)',
-  yellowFocusRing: 'var(--sui-colors-yellow-400)',
+    'light-dark(oklch(0.84 0.22 95 / 0.18), oklch(0.84 0.22 95 / 0.24))',
+  yellowSolid: 'oklch(0.84 0.22 95)',
+  yellowFocusRing: 'oklch(0.84 0.22 95)',
   yellowBorder:
-    'light-dark(var(--sui-colors-yellow-300), var(--sui-colors-yellow-600))',
-  limeContrast: 'black',
-  limeFg: 'light-dark(var(--sui-colors-lime-700), var(--sui-colors-lime-300))',
+    'light-dark(oklch(0.84 0.22 95 / 0.32), oklch(0.84 0.22 95 / 0.44))',
+  limeContrast: 'oklch(0.16 0.022 128)',
+  limeFg: 'light-dark(oklch(0.44 0.143 128), oklch(0.8 0.143 128))',
   limeMuted:
-    'light-dark(var(--sui-colors-lime-50), var(--sui-colors-lime-950))',
+    'light-dark(oklch(0.8 0.22 128 / 0.07), oklch(0.8 0.22 128 / 0.1))',
   limeSubtle:
-    'light-dark(var(--sui-colors-lime-100), var(--sui-colors-lime-900))',
+    'light-dark(oklch(0.8 0.22 128 / 0.11), oklch(0.8 0.22 128 / 0.16))',
   limeEmphasized:
-    'light-dark(var(--sui-colors-lime-200), var(--sui-colors-lime-800))',
-  limeSolid: 'var(--sui-colors-lime-400)',
-  limeFocusRing: 'var(--sui-colors-lime-400)',
+    'light-dark(oklch(0.8 0.22 128 / 0.18), oklch(0.8 0.22 128 / 0.24))',
+  limeSolid: 'oklch(0.8 0.22 128)',
+  limeFocusRing: 'oklch(0.8 0.22 128)',
   limeBorder:
-    'light-dark(var(--sui-colors-lime-300), var(--sui-colors-lime-600))',
-  greenContrast: 'white',
-  greenFg:
-    'light-dark(var(--sui-colors-green-700), var(--sui-colors-green-300))',
+    'light-dark(oklch(0.8 0.22 128 / 0.32), oklch(0.8 0.22 128 / 0.44))',
+  greenContrast: 'oklch(0.985 0.013 150)',
+  greenFg: 'light-dark(oklch(0.44 0.143 150), oklch(0.78 0.143 150))',
   greenMuted:
-    'light-dark(var(--sui-colors-green-50), var(--sui-colors-green-950))',
+    'light-dark(oklch(0.55 0.22 150 / 0.07), oklch(0.55 0.22 150 / 0.1))',
   greenSubtle:
-    'light-dark(var(--sui-colors-green-100), var(--sui-colors-green-900))',
+    'light-dark(oklch(0.55 0.22 150 / 0.11), oklch(0.55 0.22 150 / 0.16))',
   greenEmphasized:
-    'light-dark(var(--sui-colors-green-200), var(--sui-colors-green-800))',
-  greenSolid: 'var(--sui-colors-green-600)',
-  greenFocusRing: 'var(--sui-colors-green-600)',
+    'light-dark(oklch(0.55 0.22 150 / 0.18), oklch(0.55 0.22 150 / 0.24))',
+  greenSolid: 'oklch(0.55 0.22 150)',
+  greenFocusRing: 'oklch(0.55 0.22 150)',
   greenBorder:
-    'light-dark(var(--sui-colors-green-300), var(--sui-colors-green-600))',
-  emeraldContrast: 'white',
-  emeraldFg:
-    'light-dark(var(--sui-colors-emerald-700), var(--sui-colors-emerald-300))',
+    'light-dark(oklch(0.55 0.22 150 / 0.32), oklch(0.55 0.22 150 / 0.44))',
+  emeraldContrast: 'oklch(0.985 0.013 163)',
+  emeraldFg: 'light-dark(oklch(0.44 0.143 163), oklch(0.78 0.143 163))',
   emeraldMuted:
-    'light-dark(var(--sui-colors-emerald-50), var(--sui-colors-emerald-950))',
+    'light-dark(oklch(0.55 0.22 163 / 0.07), oklch(0.55 0.22 163 / 0.1))',
   emeraldSubtle:
-    'light-dark(var(--sui-colors-emerald-100), var(--sui-colors-emerald-900))',
+    'light-dark(oklch(0.55 0.22 163 / 0.11), oklch(0.55 0.22 163 / 0.16))',
   emeraldEmphasized:
-    'light-dark(var(--sui-colors-emerald-200), var(--sui-colors-emerald-800))',
-  emeraldSolid: 'var(--sui-colors-emerald-600)',
-  emeraldFocusRing: 'var(--sui-colors-emerald-600)',
+    'light-dark(oklch(0.55 0.22 163 / 0.18), oklch(0.55 0.22 163 / 0.24))',
+  emeraldSolid: 'oklch(0.55 0.22 163)',
+  emeraldFocusRing: 'oklch(0.55 0.22 163)',
   emeraldBorder:
-    'light-dark(var(--sui-colors-emerald-300), var(--sui-colors-emerald-600))',
-  tealContrast: 'white',
-  tealFg: 'light-dark(var(--sui-colors-teal-700), var(--sui-colors-teal-300))',
+    'light-dark(oklch(0.55 0.22 163 / 0.32), oklch(0.55 0.22 163 / 0.44))',
+  tealContrast: 'oklch(0.985 0.013 182)',
+  tealFg: 'light-dark(oklch(0.44 0.143 182), oklch(0.78 0.143 182))',
   tealMuted:
-    'light-dark(var(--sui-colors-teal-50), var(--sui-colors-teal-950))',
+    'light-dark(oklch(0.55 0.22 182 / 0.07), oklch(0.55 0.22 182 / 0.1))',
   tealSubtle:
-    'light-dark(var(--sui-colors-teal-100), var(--sui-colors-teal-900))',
+    'light-dark(oklch(0.55 0.22 182 / 0.11), oklch(0.55 0.22 182 / 0.16))',
   tealEmphasized:
-    'light-dark(var(--sui-colors-teal-200), var(--sui-colors-teal-800))',
-  tealSolid: 'var(--sui-colors-teal-600)',
-  tealFocusRing: 'var(--sui-colors-teal-600)',
+    'light-dark(oklch(0.55 0.22 182 / 0.18), oklch(0.55 0.22 182 / 0.24))',
+  tealSolid: 'oklch(0.55 0.22 182)',
+  tealFocusRing: 'oklch(0.55 0.22 182)',
   tealBorder:
-    'light-dark(var(--sui-colors-teal-300), var(--sui-colors-teal-600))',
-  cyanContrast: 'white',
-  cyanFg: 'light-dark(var(--sui-colors-cyan-700), var(--sui-colors-cyan-300))',
+    'light-dark(oklch(0.55 0.22 182 / 0.32), oklch(0.55 0.22 182 / 0.44))',
+  cyanContrast: 'oklch(0.985 0.013 215)',
+  cyanFg: 'light-dark(oklch(0.44 0.143 215), oklch(0.78 0.143 215))',
   cyanMuted:
-    'light-dark(var(--sui-colors-cyan-50), var(--sui-colors-cyan-950))',
+    'light-dark(oklch(0.56 0.22 215 / 0.07), oklch(0.56 0.22 215 / 0.1))',
   cyanSubtle:
-    'light-dark(var(--sui-colors-cyan-100), var(--sui-colors-cyan-900))',
+    'light-dark(oklch(0.56 0.22 215 / 0.11), oklch(0.56 0.22 215 / 0.16))',
   cyanEmphasized:
-    'light-dark(var(--sui-colors-cyan-200), var(--sui-colors-cyan-800))',
-  cyanSolid: 'var(--sui-colors-cyan-600)',
-  cyanFocusRing: 'var(--sui-colors-cyan-600)',
+    'light-dark(oklch(0.56 0.22 215 / 0.18), oklch(0.56 0.22 215 / 0.24))',
+  cyanSolid: 'oklch(0.56 0.22 215)',
+  cyanFocusRing: 'oklch(0.56 0.22 215)',
   cyanBorder:
-    'light-dark(var(--sui-colors-cyan-300), var(--sui-colors-cyan-600))',
-  skyContrast: 'white',
-  skyFg: 'light-dark(var(--sui-colors-sky-700), var(--sui-colors-sky-300))',
-  skyMuted: 'light-dark(var(--sui-colors-sky-50), var(--sui-colors-sky-950))',
-  skySubtle: 'light-dark(var(--sui-colors-sky-100), var(--sui-colors-sky-900))',
+    'light-dark(oklch(0.56 0.22 215 / 0.32), oklch(0.56 0.22 215 / 0.44))',
+  skyContrast: 'oklch(0.985 0.013 237)',
+  skyFg: 'light-dark(oklch(0.44 0.143 237), oklch(0.78 0.143 237))',
+  skyMuted:
+    'light-dark(oklch(0.56 0.22 237 / 0.07), oklch(0.56 0.22 237 / 0.1))',
+  skySubtle:
+    'light-dark(oklch(0.56 0.22 237 / 0.11), oklch(0.56 0.22 237 / 0.16))',
   skyEmphasized:
-    'light-dark(var(--sui-colors-sky-200), var(--sui-colors-sky-800))',
-  skySolid: 'var(--sui-colors-sky-600)',
-  skyFocusRing: 'var(--sui-colors-sky-600)',
-  skyBorder: 'light-dark(var(--sui-colors-sky-300), var(--sui-colors-sky-600))',
-  blueContrast: 'white',
-  blueFg: 'light-dark(var(--sui-colors-blue-700), var(--sui-colors-blue-300))',
+    'light-dark(oklch(0.56 0.22 237 / 0.18), oklch(0.56 0.22 237 / 0.24))',
+  skySolid: 'oklch(0.56 0.22 237)',
+  skyFocusRing: 'oklch(0.56 0.22 237)',
+  skyBorder:
+    'light-dark(oklch(0.56 0.22 237 / 0.32), oklch(0.56 0.22 237 / 0.44))',
+  blueContrast: 'oklch(0.985 0.013 260)',
+  blueFg: 'light-dark(oklch(0.44 0.143 260), oklch(0.78 0.143 260))',
   blueMuted:
-    'light-dark(var(--sui-colors-blue-50), var(--sui-colors-blue-950))',
+    'light-dark(oklch(0.54 0.22 260 / 0.07), oklch(0.54 0.22 260 / 0.1))',
   blueSubtle:
-    'light-dark(var(--sui-colors-blue-100), var(--sui-colors-blue-900))',
+    'light-dark(oklch(0.54 0.22 260 / 0.11), oklch(0.54 0.22 260 / 0.16))',
   blueEmphasized:
-    'light-dark(var(--sui-colors-blue-200), var(--sui-colors-blue-800))',
-  blueSolid: 'var(--sui-colors-blue-600)',
-  blueFocusRing: 'var(--sui-colors-blue-600)',
+    'light-dark(oklch(0.54 0.22 260 / 0.18), oklch(0.54 0.22 260 / 0.24))',
+  blueSolid: 'oklch(0.54 0.22 260)',
+  blueFocusRing: 'oklch(0.54 0.22 260)',
   blueBorder:
-    'light-dark(var(--sui-colors-blue-300), var(--sui-colors-blue-600))',
-  indigoContrast: 'white',
-  indigoFg:
-    'light-dark(var(--sui-colors-indigo-700), var(--sui-colors-indigo-300))',
+    'light-dark(oklch(0.54 0.22 260 / 0.32), oklch(0.54 0.22 260 / 0.44))',
+  indigoContrast: 'oklch(0.985 0.013 277)',
+  indigoFg: 'light-dark(oklch(0.44 0.143 277), oklch(0.78 0.143 277))',
   indigoMuted:
-    'light-dark(var(--sui-colors-indigo-50), var(--sui-colors-indigo-950))',
+    'light-dark(oklch(0.52 0.22 277 / 0.07), oklch(0.52 0.22 277 / 0.1))',
   indigoSubtle:
-    'light-dark(var(--sui-colors-indigo-100), var(--sui-colors-indigo-900))',
+    'light-dark(oklch(0.52 0.22 277 / 0.11), oklch(0.52 0.22 277 / 0.16))',
   indigoEmphasized:
-    'light-dark(var(--sui-colors-indigo-200), var(--sui-colors-indigo-800))',
-  indigoSolid: 'var(--sui-colors-indigo-600)',
-  indigoFocusRing: 'var(--sui-colors-indigo-600)',
+    'light-dark(oklch(0.52 0.22 277 / 0.18), oklch(0.52 0.22 277 / 0.24))',
+  indigoSolid: 'oklch(0.52 0.22 277)',
+  indigoFocusRing: 'oklch(0.52 0.22 277)',
   indigoBorder:
-    'light-dark(var(--sui-colors-indigo-300), var(--sui-colors-indigo-600))',
-  violetContrast: 'white',
-  violetFg:
-    'light-dark(var(--sui-colors-violet-700), var(--sui-colors-violet-300))',
+    'light-dark(oklch(0.52 0.22 277 / 0.32), oklch(0.52 0.22 277 / 0.44))',
+  violetContrast: 'oklch(0.985 0.013 293)',
+  violetFg: 'light-dark(oklch(0.44 0.143 293), oklch(0.78 0.143 293))',
   violetMuted:
-    'light-dark(var(--sui-colors-violet-50), var(--sui-colors-violet-950))',
+    'light-dark(oklch(0.52 0.22 293 / 0.07), oklch(0.52 0.22 293 / 0.1))',
   violetSubtle:
-    'light-dark(var(--sui-colors-violet-100), var(--sui-colors-violet-900))',
+    'light-dark(oklch(0.52 0.22 293 / 0.11), oklch(0.52 0.22 293 / 0.16))',
   violetEmphasized:
-    'light-dark(var(--sui-colors-violet-200), var(--sui-colors-violet-800))',
-  violetSolid: 'var(--sui-colors-violet-600)',
-  violetFocusRing: 'var(--sui-colors-violet-600)',
+    'light-dark(oklch(0.52 0.22 293 / 0.18), oklch(0.52 0.22 293 / 0.24))',
+  violetSolid: 'oklch(0.52 0.22 293)',
+  violetFocusRing: 'oklch(0.52 0.22 293)',
   violetBorder:
-    'light-dark(var(--sui-colors-violet-300), var(--sui-colors-violet-600))',
-  purpleContrast: 'white',
-  purpleFg:
-    'light-dark(var(--sui-colors-purple-700), var(--sui-colors-purple-300))',
+    'light-dark(oklch(0.52 0.22 293 / 0.32), oklch(0.52 0.22 293 / 0.44))',
+  purpleContrast: 'oklch(0.985 0.013 304)',
+  purpleFg: 'light-dark(oklch(0.44 0.143 304), oklch(0.78 0.143 304))',
   purpleMuted:
-    'light-dark(var(--sui-colors-purple-50), var(--sui-colors-purple-950))',
+    'light-dark(oklch(0.54 0.22 304 / 0.07), oklch(0.54 0.22 304 / 0.1))',
   purpleSubtle:
-    'light-dark(var(--sui-colors-purple-100), var(--sui-colors-purple-900))',
+    'light-dark(oklch(0.54 0.22 304 / 0.11), oklch(0.54 0.22 304 / 0.16))',
   purpleEmphasized:
-    'light-dark(var(--sui-colors-purple-200), var(--sui-colors-purple-800))',
-  purpleSolid: 'var(--sui-colors-purple-600)',
-  purpleFocusRing: 'var(--sui-colors-purple-600)',
+    'light-dark(oklch(0.54 0.22 304 / 0.18), oklch(0.54 0.22 304 / 0.24))',
+  purpleSolid: 'oklch(0.54 0.22 304)',
+  purpleFocusRing: 'oklch(0.54 0.22 304)',
   purpleBorder:
-    'light-dark(var(--sui-colors-purple-300), var(--sui-colors-purple-600))',
-  fuchsiaContrast: 'white',
-  fuchsiaFg:
-    'light-dark(var(--sui-colors-fuchsia-700), var(--sui-colors-fuchsia-300))',
+    'light-dark(oklch(0.54 0.22 304 / 0.32), oklch(0.54 0.22 304 / 0.44))',
+  fuchsiaContrast: 'oklch(0.985 0.013 322)',
+  fuchsiaFg: 'light-dark(oklch(0.44 0.143 322), oklch(0.78 0.143 322))',
   fuchsiaMuted:
-    'light-dark(var(--sui-colors-fuchsia-50), var(--sui-colors-fuchsia-950))',
+    'light-dark(oklch(0.55 0.22 322 / 0.07), oklch(0.55 0.22 322 / 0.1))',
   fuchsiaSubtle:
-    'light-dark(var(--sui-colors-fuchsia-100), var(--sui-colors-fuchsia-900))',
+    'light-dark(oklch(0.55 0.22 322 / 0.11), oklch(0.55 0.22 322 / 0.16))',
   fuchsiaEmphasized:
-    'light-dark(var(--sui-colors-fuchsia-200), var(--sui-colors-fuchsia-800))',
-  fuchsiaSolid: 'var(--sui-colors-fuchsia-600)',
-  fuchsiaFocusRing: 'var(--sui-colors-fuchsia-600)',
+    'light-dark(oklch(0.55 0.22 322 / 0.18), oklch(0.55 0.22 322 / 0.24))',
+  fuchsiaSolid: 'oklch(0.55 0.22 322)',
+  fuchsiaFocusRing: 'oklch(0.55 0.22 322)',
   fuchsiaBorder:
-    'light-dark(var(--sui-colors-fuchsia-300), var(--sui-colors-fuchsia-600))',
-  pinkContrast: 'white',
-  pinkFg: 'light-dark(var(--sui-colors-pink-700), var(--sui-colors-pink-300))',
+    'light-dark(oklch(0.55 0.22 322 / 0.32), oklch(0.55 0.22 322 / 0.44))',
+  pinkContrast: 'oklch(0.985 0.013 350)',
+  pinkFg: 'light-dark(oklch(0.44 0.143 350), oklch(0.78 0.143 350))',
   pinkMuted:
-    'light-dark(var(--sui-colors-pink-50), var(--sui-colors-pink-950))',
+    'light-dark(oklch(0.56 0.22 350 / 0.07), oklch(0.56 0.22 350 / 0.1))',
   pinkSubtle:
-    'light-dark(var(--sui-colors-pink-100), var(--sui-colors-pink-900))',
+    'light-dark(oklch(0.56 0.22 350 / 0.11), oklch(0.56 0.22 350 / 0.16))',
   pinkEmphasized:
-    'light-dark(var(--sui-colors-pink-200), var(--sui-colors-pink-800))',
-  pinkSolid: 'var(--sui-colors-pink-600)',
-  pinkFocusRing: 'var(--sui-colors-pink-600)',
+    'light-dark(oklch(0.56 0.22 350 / 0.18), oklch(0.56 0.22 350 / 0.24))',
+  pinkSolid: 'oklch(0.56 0.22 350)',
+  pinkFocusRing: 'oklch(0.56 0.22 350)',
   pinkBorder:
-    'light-dark(var(--sui-colors-pink-300), var(--sui-colors-pink-600))',
-  roseContrast: 'white',
-  roseFg: 'light-dark(var(--sui-colors-rose-700), var(--sui-colors-rose-300))',
+    'light-dark(oklch(0.56 0.22 350 / 0.32), oklch(0.56 0.22 350 / 0.44))',
+  roseContrast: 'oklch(0.985 0.013 16)',
+  roseFg: 'light-dark(oklch(0.44 0.143 16), oklch(0.78 0.143 16))',
   roseMuted:
-    'light-dark(var(--sui-colors-rose-50), var(--sui-colors-rose-950))',
+    'light-dark(oklch(0.55 0.22 16 / 0.07), oklch(0.55 0.22 16 / 0.1))',
   roseSubtle:
-    'light-dark(var(--sui-colors-rose-100), var(--sui-colors-rose-900))',
+    'light-dark(oklch(0.55 0.22 16 / 0.11), oklch(0.55 0.22 16 / 0.16))',
   roseEmphasized:
-    'light-dark(var(--sui-colors-rose-200), var(--sui-colors-rose-800))',
-  roseSolid: 'var(--sui-colors-rose-600)',
-  roseFocusRing: 'var(--sui-colors-rose-600)',
+    'light-dark(oklch(0.55 0.22 16 / 0.18), oklch(0.55 0.22 16 / 0.24))',
+  roseSolid: 'oklch(0.55 0.22 16)',
+  roseFocusRing: 'oklch(0.55 0.22 16)',
   roseBorder:
-    'light-dark(var(--sui-colors-rose-300), var(--sui-colors-rose-600))',
+    'light-dark(oklch(0.55 0.22 16 / 0.32), oklch(0.55 0.22 16 / 0.44))',
 })

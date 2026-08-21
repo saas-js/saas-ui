@@ -13,7 +13,7 @@ export const checkmarkRecipe = defineRecipe({
     borderRadius: 'control',
     focusVisibleRing: 'outside',
     _invalid: {
-      colorPalette: 'red',
+      colorPalette: 'destructive',
       borderColor: 'border.error',
     },
     _disabled: {

@@ -11,9 +11,9 @@ const cx = (...classNames: Array<string | undefined>) =>
 type ThemeVariables = React.CSSProperties & {
   '--scale-factor'?: number
   '--overlay-effect'?: string
-  '--radius-control'?: number
-  '--radius-panel'?: number
-  '--radius-indicator'?: number
+  '--radius-control-factor'?: number
+  '--radius-panel-factor'?: number
+  '--radius-indicator-factor'?: number
 }
 
 export interface ThemeProps extends HTMLChakraProps<'div'> {
@@ -53,9 +53,9 @@ export const Theme = React.forwardRef<HTMLDivElement, ThemeProps>(
     const variables: ThemeVariables = {
       '--scale-factor': scaleFactor,
       '--overlay-effect': overlayEffect,
-      '--radius-control': controlRadius,
-      '--radius-panel': panelRadius,
-      '--radius-indicator': indicatorRadius,
+      '--radius-control-factor': controlRadius,
+      '--radius-panel-factor': panelRadius,
+      '--radius-indicator-factor': indicatorRadius,
     }
 
     return (

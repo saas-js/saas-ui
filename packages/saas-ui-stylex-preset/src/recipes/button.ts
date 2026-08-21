@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { buttonIconVars } from './button.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { durations } from '../tokens/durations.stylex.ts'
 import { fontWeights } from '../tokens/font-weights.stylex.ts'
@@ -12,10 +14,7 @@ import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
 import { textStyles } from '../text-styles.ts'
 
-export const buttonIconVars = stylex.defineVars({
-  fontSize: '1em',
-  flexShrink: 0,
-})
+export { buttonIconVars }
 
 export const buttonStyles = stylex.create({
   base: {
@@ -127,7 +126,7 @@ export const buttonVariants = stylex.create({
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'linear-gradient(180deg, white 40%, rgba(0,0,0,0.2))',
+      backgroundImage: 'linear-gradient(180deg, white 40%, rgba(0,0,0,0.2))',
       opacity: 0.2,
       transitionProperty: 'opacity',
       transitionDuration: durations.moderate,
@@ -136,7 +135,7 @@ export const buttonVariants = stylex.create({
     ':hover': {
       backgroundColor: colorPalette.solid,
       '::after': {
-        background:
+        backgroundImage:
           'linear-gradient(180deg, rgba(255,255,255,0.8) 40%, rgba(0,0,0,0.6))',
       },
     },

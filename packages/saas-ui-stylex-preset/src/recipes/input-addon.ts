@@ -56,6 +56,7 @@ export const inputAddonVariants = stylex.create({
   subtle: {
     border: '2px solid',
     borderColor: 'transparent',
+    backgroundColor: semanticColors.bgMuted,
   },
   flushed: {
     borderBottom: '1px solid',

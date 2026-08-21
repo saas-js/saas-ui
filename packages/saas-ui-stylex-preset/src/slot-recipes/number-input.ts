@@ -2,6 +2,11 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import {
+  numberInputIncrementTriggerIconVars,
+  numberInputDecrementTriggerIconVars,
+} from './number-input.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { cursor } from '../tokens/cursor.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
@@ -12,6 +17,11 @@ import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export {
+  numberInputIncrementTriggerIconVars,
+  numberInputDecrementTriggerIconVars,
+}
 
 export const numberInputRoot = stylex.create({
   base: {
@@ -154,11 +164,6 @@ export const numberInputControlSizes = stylex.create({
   },
 })
 
-export const numberInputIncrementTriggerIconVars = stylex.defineVars({
-  width: '1em',
-  height: '1em',
-})
-
 export const numberInputIncrementTrigger = stylex.create({
   base: {
     display: 'flex',
@@ -191,11 +196,6 @@ export const numberInputIncrementTriggerIcon = stylex.create({
     width: numberInputIncrementTriggerIconVars.width,
     height: numberInputIncrementTriggerIconVars.height,
   },
-})
-
-export const numberInputDecrementTriggerIconVars = stylex.defineVars({
-  width: '1em',
-  height: '1em',
 })
 
 export const numberInputDecrementTrigger = stylex.create({

@@ -6,6 +6,19 @@ export { transformStyleObject } from './transform-style.ts'
 export { recipeClassNames } from './recipe.ts'
 export { ThemeProvider } from './theme.tsx'
 export type { ThemeProviderProps } from './theme.tsx'
+export {
+  createAppearanceArtifact,
+  createAppearanceCss,
+  createAppearanceKnobs,
+  createAppearanceStylex,
+  createAppearanceThemeVars,
+  resolveAppearanceSeeds,
+} from './create-appearance.ts'
+export type {
+  AppearanceCssOptions,
+  AppearanceFormat,
+  AppearanceThemeInput,
+} from './create-appearance.ts'
 export { paletteThemes } from './themes/palettes.ts'
 export type { ColorPaletteName } from './themes/palettes.ts'
 export * from './recipes/index.ts'

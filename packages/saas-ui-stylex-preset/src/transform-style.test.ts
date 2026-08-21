@@ -70,6 +70,23 @@ describe('transformStyleObject', () => {
     )
   })
 
+  it('rewrites background shorthand to StyleX longhands', () => {
+    const result = transformStyleObject({
+      background: 'linear-gradient(180deg, white 40%, rgba(0,0,0,0.2))',
+      _hover: {
+        background: 'bg.emphasized',
+      },
+    })
+
+    expect(result.backgroundImage).toBe(
+      'linear-gradient(180deg, white 40%, rgba(0,0,0,0.2))',
+    )
+    expect(result.background).toBeUndefined()
+    expect(result[':hover']).toMatchObject({
+      backgroundColor: 'semanticColors.bgEmphasized',
+    })
+  })
+
   it('skips descendant conditions StyleX cannot represent', () => {
     const meta = { skipped: [] as string[] }
     transformStyleObject(

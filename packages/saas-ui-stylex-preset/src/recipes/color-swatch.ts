@@ -15,7 +15,7 @@ export const colorSwatchStyles = stylex.create({
     '--checker-size': '8px',
     '--checker-bg': semanticColors.bg,
     '--checker-fg': semanticColors.bgEmphasized,
-    background:
+    backgroundImage:
       'linear-gradient(var(--color), var(--color)), repeating-conic-gradient(var(--checker-fg) 0%, var(--checker-fg) 25%, var(--checker-bg) 0%, var(--checker-bg) 50%) 0% 50% / var(--checker-size) var(--checker-size) !important',
     display: 'inline-flex',
     alignItems: 'center',

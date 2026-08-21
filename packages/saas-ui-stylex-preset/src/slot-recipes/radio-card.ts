@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { radioCardItemIndicatorDotVars } from './radio-card.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { colors } from '../tokens/colors.stylex.ts'
 import { cursor } from '../tokens/cursor.stylex.ts'
@@ -13,6 +15,8 @@ import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { radioCardItemIndicatorDotVars }
 
 export const radioCardRoot = stylex.create({
   base: {
@@ -198,14 +202,6 @@ export const radioCardItemControlOrientations = stylex.create({
   },
 })
 
-export const radioCardItemIndicatorDotVars = stylex.defineVars({
-  height: '100%',
-  width: '100%',
-  borderRadius: radii.full,
-  backgroundColor: 'currentColor',
-  scale: 0.4,
-})
-
 export const radioCardItemIndicator = stylex.create({
   base: {
     display: 'inline-flex',
@@ -227,7 +223,7 @@ export const radioCardItemIndicator = stylex.create({
       },
     },
     ':invalid': {
-      borderColor: colors.red500,
+      borderColor: semanticColors.borderDestructive,
     },
     ':disabled': {
       opacity: 0.5,

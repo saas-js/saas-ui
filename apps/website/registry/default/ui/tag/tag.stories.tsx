@@ -41,7 +41,6 @@ export const Variants = () => {
 
 const colors = [
   'neutral',
-  'slate',
   'gray',
   'zinc',
   'stone',

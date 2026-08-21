@@ -16,6 +16,21 @@ export type ColorValue = OklchColor | string
 export type ContrastLevel = 'soft' | 'normal' | 'strong'
 export type ForegroundTone = 'light' | 'dark'
 
+import { statusHues } from './theme/palette.ts'
+
+export {
+  createPalette,
+  createScale,
+  paletteSeeds,
+  statusHues,
+} from './theme/palette.ts'
+export type {
+  ColorPalette,
+  NamedColorPalette,
+  PaletteSeed,
+  StatusColorPalette,
+} from './theme/palette.ts'
+
 export interface BaseSeed {
   /** @default 260 */
   h?: number
@@ -174,6 +189,10 @@ interface AppearanceModeColors {
   }
   base: ResolvedPaletteValues
   accent: ResolvedPaletteValues
+  info: ResolvedPaletteValues
+  success: ResolvedPaletteValues
+  warning: ResolvedPaletteValues
+  destructive: ResolvedPaletteValues
   sidebar: {
     bg: string
     fg: string
@@ -428,7 +447,10 @@ function createBase(
   seed: Required<BaseSeed>,
   accent: AccentSeed,
   mode: Mode,
-): Omit<AppearanceModeColors, 'accent' | 'sidebar'> {
+): Omit<
+  AppearanceModeColors,
+  'accent' | 'sidebar' | 'info' | 'success' | 'warning' | 'destructive'
+> {
   const profile = baseProfiles[seed.contrast][mode]
   const dark = mode === 'dark'
   const fgSeed: OklchColor = {
@@ -567,6 +589,10 @@ function applyOverrides(
       ...colors.accent,
       ...resolveOverrideGroup(overrides?.accent),
     },
+    info: colors.info,
+    success: colors.success,
+    warning: colors.warning,
+    destructive: colors.destructive,
     sidebar: {
       ...colors.sidebar,
       ...resolveOverrideGroup({
@@ -641,6 +667,13 @@ export function createAppearance(
     const colors: AppearanceModeColors = {
       ...base,
       accent: createAccent(resolved.accent, mode),
+      info: createAccent({ ...resolved.accent, h: statusHues.info }, mode),
+      success: createAccent({ ...resolved.accent, h: statusHues.success }, mode),
+      warning: createAccent({ ...resolved.accent, h: statusHues.warning }, mode),
+      destructive: createAccent(
+        { ...resolved.accent, h: statusHues.destructive },
+        mode,
+      ),
       sidebar: createSidebar(resolved.sidebar, mode),
     }
 
@@ -656,6 +689,10 @@ export function createAppearance(
     interaction: toSemanticGroup(light.interaction, dark.interaction),
     base: toSemanticGroup(light.base, dark.base),
     accent: toSemanticGroup(light.accent, dark.accent),
+    info: toSemanticGroup(light.info, dark.info),
+    success: toSemanticGroup(light.success, dark.success),
+    warning: toSemanticGroup(light.warning, dark.warning),
+    destructive: toSemanticGroup(light.destructive, dark.destructive),
     sidebar: {
       bg: {
         value: { _light: light.sidebar.bg, _dark: dark.sidebar.bg },

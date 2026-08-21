@@ -4,6 +4,12 @@ import { defaultThemeConfig } from './theme/index.ts'
 import { utilities } from './theme/utilities.ts'
 
 export { createAppearance } from './appearance.ts'
+export {
+  createPalette,
+  createScale,
+  paletteSeeds,
+  statusHues,
+} from './theme/palette.ts'
 export type {
   AccentSeed,
   AppearanceOptions,
@@ -20,6 +26,12 @@ export type {
   SolidSidebarSeed,
   TonalSidebarSeed,
 } from './appearance.ts'
+export type {
+  ColorPalette,
+  NamedColorPalette,
+  PaletteSeed,
+  StatusColorPalette,
+} from './theme/palette.ts'
 
 const defaultConfig = mergeConfigs(defaultBaseConfig, defaultThemeConfig)
 

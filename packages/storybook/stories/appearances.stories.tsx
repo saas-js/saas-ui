@@ -24,12 +24,17 @@ import {
   type AppearanceOptions,
   createAppearance,
 } from '@saas-ui/chakra-preset/appearance'
+import { Alert } from '../../../apps/website/components/ui/alert'
 import { AppShell } from '../../../apps/website/components/ui/app-shell'
 import { Button } from '../../../apps/website/components/ui/button'
+import { Checkbox } from '../../../apps/website/components/ui/checkbox'
 import { IconBadge } from '../../../apps/website/components/ui/icon-badge'
 import { Page } from '../../../apps/website/components/ui/page'
+import { Radio, RadioGroup } from '../../../apps/website/components/ui/radio/radio'
 import { Section } from '../../../apps/website/components/ui/section'
 import { Sidebar } from '../../../apps/website/components/ui/sidebar'
+import { Status } from '../../../apps/website/components/ui/status'
+import { Tag } from '../../../apps/website/components/ui/tag'
 import {
   Theme,
   type ThemeProps,
@@ -40,15 +45,19 @@ import {
   LuBoxes,
   LuCheck,
   LuChevronRight,
+  LuCircleAlert,
+  LuCircleCheck,
   LuClock3,
   LuEllipsis,
   LuGitPullRequest,
+  LuInfo,
   LuLayoutDashboard,
   LuPlus,
   LuRocket,
   LuSearch,
   LuSettings,
   LuShuffle,
+  LuTriangleAlert,
   LuUsers,
 } from 'react-icons/lu'
 
@@ -230,7 +239,12 @@ function SidebarNav() {
 
       <Sidebar.Footer>
         <HStack>
-          <Avatar size="xs" name="Avery Stone" />
+          <Avatar.Root size="xs">
+            <Avatar.Fallback>
+              <Text>AS</Text>
+            </Avatar.Fallback>
+            <Avatar.Image src="https://bit.ly/tioluwani-kola-1" />
+          </Avatar.Root>
           <Stack gap="0" flex="1" minW="0">
             <Text textStyle="sm" fontWeight="medium">
               Avery Stone
@@ -358,11 +372,15 @@ function SchedulePanel() {
                 Start at 10% and increase after health checks.
               </Text>
             </Stack>
-            <Switch
+            <Switch.Root
               defaultChecked
-              colorPalette="accent"
-              aria-label="Gradual rollout"
-            />
+                colorPalette="accent"
+                aria-label="Gradual rollout"
+              >
+                <Switch.Control>
+                  <Switch.Thumb />
+                </Switch.Control>
+              </Switch.Root>
           </HStack>
         </Stack>
       </Card.Body>
@@ -386,7 +404,374 @@ const tokenSamples = [
   { label: 'Base', value: 'base.solid' },
   { label: 'Neutral', value: 'neutral.solid' },
   { label: 'Accent', value: 'accent.solid' },
+  { label: 'Destructive', value: 'destructive.solid' },
 ] as const
+
+const harmonyPalettes = [
+  { label: 'Accent', value: 'accent' },
+  { label: 'Gray', value: 'gray' },
+  { label: 'Neutral', value: 'neutral' },
+  { label: 'Destructive', value: 'destructive' },
+  { label: 'Success', value: 'success' },
+  { label: 'Warning', value: 'warning' },
+  { label: 'Info', value: 'info' },
+] as const
+
+const buttonVariants = [
+  'solid',
+  'subtle',
+  'surface',
+  'outline',
+  'ghost',
+  'glass',
+] as const
+
+const badgeVariants = ['solid', 'subtle', 'surface', 'outline'] as const
+
+const harmonyAlerts = [
+  {
+    status: 'info',
+    title: 'Deploy window opens at 14:30 UTC',
+    description: 'Staging is healthy. Review the changelog before promoting.',
+    icon: <LuInfo />,
+  },
+  {
+    status: 'success',
+    title: 'v3.18.0 passed health checks',
+    description: 'Error rate is 0.02% across the canary cohort.',
+    icon: <LuCircleCheck />,
+  },
+  {
+    status: 'warning',
+    title: 'Billing sync is delayed',
+    description: 'Stripe webhooks are retrying. No customer action needed.',
+    icon: <LuTriangleAlert />,
+  },
+  {
+    status: 'error',
+    title: 'Cannot promote this release',
+    description: 'Two required checks are still failing on main.',
+    icon: <LuCircleAlert />,
+  },
+] as const
+
+const presenceItems = [
+  { value: 'success', label: 'Online' },
+  { value: 'warning', label: 'Away' },
+  { value: 'error', label: 'Do not disturb' },
+  { value: 'info', label: 'In review' },
+] as const
+
+function HarmonySwatches() {
+  const slots = [
+    { label: 'Solid', value: 'solid' },
+    { label: 'Muted', value: 'muted' },
+    { label: 'Subtle', value: 'subtle' },
+    { label: 'Emphasized', value: 'emphasized' },
+    { label: 'Fg', value: 'fg' },
+    { label: 'Contrast', value: 'contrast' },
+    { label: 'Border', value: 'border' },
+  ] as const
+
+  return (
+    <Stack gap="3">
+      {harmonyPalettes.map((palette) => (
+        <HStack key={palette.value} gap="3" align="center">
+          <Text
+            textStyle="sm"
+            fontWeight="medium"
+            width="28"
+            flexShrink="0"
+            color="fg.muted"
+          >
+            {palette.label}
+          </Text>
+          <HStack gap="2" flex="1" flexWrap="wrap">
+            {slots.map((slot) => (
+              <Stack key={slot.value} gap="1" align="center" minW="12">
+                <Flex
+                  boxSize="8"
+                  bg={`${palette.value}.${slot.value}`}
+                  color={`${palette.value}.contrast`}
+                  borderWidth="1px"
+                  borderColor="border"
+                  borderRadius="control.sm"
+                  align="center"
+                  justify="center"
+                  textStyle="2xs"
+                  fontWeight="semibold"
+                >
+                  {slot.value === 'contrast' ? 'Aa' : null}
+                </Flex>
+                <Text textStyle="2xs" color="fg.muted">
+                  {slot.label}
+                </Text>
+              </Stack>
+            ))}
+          </HStack>
+        </HStack>
+      ))}
+    </Stack>
+  )
+}
+
+function HarmonyActions() {
+  return (
+    <Stack gap="4">
+      {harmonyPalettes.map((palette) => (
+        <HStack key={palette.value} gap="3" align="center">
+          <Text
+            textStyle="sm"
+            fontWeight="medium"
+            width="28"
+            flexShrink="0"
+            color="fg.muted"
+          >
+            {palette.label}
+          </Text>
+          <HStack gap="2" flexWrap="wrap">
+            {buttonVariants.map((variant) => (
+              <Button
+                key={variant}
+                size="sm"
+                variant={variant}
+                colorPalette={palette.value}
+              >
+                {variant}
+              </Button>
+            ))}
+            <Button
+              size="sm"
+              variant="solid"
+              colorPalette={palette.value}
+              disabled
+            >
+              Disabled
+            </Button>
+          </HStack>
+        </HStack>
+      ))}
+    </Stack>
+  )
+}
+
+function HarmonyIndicators() {
+  return (
+    <Stack gap="5">
+      {harmonyPalettes.map((palette) => (
+        <HStack key={palette.value} gap="3" align="center">
+          <Text
+            textStyle="sm"
+            fontWeight="medium"
+            width="28"
+            flexShrink="0"
+            color="fg.muted"
+          >
+            {palette.label}
+          </Text>
+          <HStack gap="2" flexWrap="wrap">
+            {badgeVariants.map((variant) => (
+              <Badge
+                key={variant}
+                variant={variant}
+                colorPalette={palette.value}
+              >
+                {variant}
+              </Badge>
+            ))}
+            <Tag colorPalette={palette.value} closable>
+              {palette.label}
+            </Tag>
+            <IconBadge colorPalette={palette.value}>
+              <LuCheck />
+            </IconBadge>
+          </HStack>
+        </HStack>
+      ))}
+    </Stack>
+  )
+}
+
+function HarmonyForms() {
+  return (
+    <Grid
+      templateColumns={{ base: '1fr', xl: 'minmax(0, 1fr) 320px' }}
+      gap="5"
+      alignItems="start"
+    >
+      <Card.Root>
+        <Card.Header>
+          <Stack gap="0.5">
+            <Card.Title>Invite teammate</Card.Title>
+            <Card.Description>
+              Accent on healthy controls, destructive on the invalid field.
+            </Card.Description>
+          </Stack>
+        </Card.Header>
+        <Card.Body>
+          <Stack gap="4">
+            <Field.Root>
+              <Field.Label>Work email</Field.Label>
+              <Input defaultValue="avery@northstar.dev" />
+            </Field.Root>
+
+            <Field.Root invalid>
+              <Field.Label>Workspace URL</Field.Label>
+              <Input defaultValue="not a hostname" />
+              <Field.ErrorText>
+                Use a valid hostname, like northstar.dev.
+              </Field.ErrorText>
+            </Field.Root>
+
+            <RadioGroup defaultValue="admin" colorPalette="accent">
+              <HStack gap="4">
+                <Radio value="admin">Admin</Radio>
+                <Radio value="member">Member</Radio>
+                <Radio value="guest" disabled>
+                  Guest
+                </Radio>
+              </HStack>
+            </RadioGroup>
+
+            <HStack gap="6" flexWrap="wrap">
+              <Checkbox defaultChecked colorPalette="accent">
+                Can deploy
+              </Checkbox>
+              <Checkbox invalid>Needs billing access</Checkbox>
+              <HStack gap="2">
+                <Switch.Root
+                  defaultChecked
+                  colorPalette="accent"
+                  aria-label="Notify on merge"
+                >
+                  <Switch.Control>
+                    <Switch.Thumb />
+                  </Switch.Control>
+                </Switch.Root>
+                <Text textStyle="sm">Notify on merge</Text>
+              </HStack>
+            </HStack>
+          </Stack>
+        </Card.Body>
+        <Card.Footer>
+          <HStack justify="space-between" width="full">
+            <Button variant="ghost" colorPalette="gray">
+              Cancel
+            </Button>
+            <HStack>
+              <Button variant="outline" colorPalette="destructive">
+                Revoke invite
+              </Button>
+              <Button colorPalette="accent" variant="solid">
+                Send invite
+              </Button>
+            </HStack>
+          </HStack>
+        </Card.Footer>
+      </Card.Root>
+
+      <Stack gap="5">
+        <Card.Root>
+          <Card.Header>
+            <Stack gap="0.5">
+              <Card.Title>Presence</Card.Title>
+              <Card.Description>Status tokens on live people.</Card.Description>
+            </Stack>
+          </Card.Header>
+          <Card.Body>
+            <Stack gap="3">
+              {presenceItems.map((item) => (
+                <HStack key={item.value} justify="space-between">
+                  <HStack gap="3">
+                    <Avatar.Root size="xs">
+                      <Avatar.Fallback>
+                        <Text>NS</Text>
+                      </Avatar.Fallback>
+                    </Avatar.Root>
+                    <Text textStyle="sm">{item.label}</Text>
+                  </HStack>
+                  <Status value={item.value} />
+                </HStack>
+              ))}
+            </Stack>
+          </Card.Body>
+        </Card.Root>
+
+        <Card.Root shadow="lg">
+          <Card.Header>
+            <Stack gap="0.5">
+              <Card.Title>Elevated panel</Card.Title>
+              <Card.Description>
+                Shadow token on a panel-radius surface.
+              </Card.Description>
+            </Stack>
+          </Card.Header>
+          <Card.Body>
+            <HStack>
+              <Button size="sm" colorPalette="accent" variant="solid">
+                Focus me
+              </Button>
+              <Button size="sm" variant="surface" colorPalette="gray">
+                Surface
+              </Button>
+            </HStack>
+          </Card.Body>
+        </Card.Root>
+      </Stack>
+    </Grid>
+  )
+}
+
+function HarmonyBoard() {
+  return (
+    <Stack gap="8">
+      <Grid gap="3">
+        {harmonyAlerts.map((alert) => (
+          <Alert
+            key={alert.status}
+            status={alert.status}
+            title={alert.title}
+            icon={alert.icon}
+          >
+            {alert.description}
+          </Alert>
+        ))}
+      </Grid>
+
+      <Section.Root>
+        <Section.Header
+          title="Palette slots"
+          description="Solid, muted, and contrast should stay in the same family as accent."
+        />
+        <Section.Body>
+          <HarmonySwatches />
+        </Section.Body>
+      </Section.Root>
+
+      <Section.Root>
+        <Section.Header
+          title="Actions"
+          description="Accent should lead. Neutral is ink. Destructive is the only alarm."
+        />
+        <Section.Body>
+          <HarmonyActions />
+        </Section.Body>
+      </Section.Root>
+
+      <Section.Root>
+        <Section.Header
+          title="Indicators"
+          description="Badges, tags, and icon badges on the same palettes."
+        />
+        <Section.Body>
+          <HarmonyIndicators />
+        </Section.Body>
+      </Section.Root>
+
+      <HarmonyForms />
+    </Stack>
+  )
+}
 
 function TokenCards() {
   return (
@@ -518,6 +903,74 @@ function AppearancePreview(props: AppearancePreviewProps) {
                   <TokenCards />
                 </Section.Body>
               </Section.Root>
+            </Stack>
+          </Page.Body>
+        </Page.Root>
+      </AppShell>
+    </Sidebar.Provider>
+  )
+}
+
+function HarmonyPreview(props: AppearancePreviewProps) {
+  return (
+    <Sidebar.Provider>
+      <AppShell
+        sidebar={
+          <>
+            <SidebarNav />
+            <Sidebar.Backdrop />
+          </>
+        }
+      >
+        <Page.Root>
+          <Page.Header
+            nav={
+              <Sidebar.Trigger asChild>
+                <IconButton
+                  display={{ base: 'inline-flex', md: 'none' }}
+                  aria-label="Open navigation"
+                  size="sm"
+                  variant="ghost"
+                  colorPalette="base"
+                >
+                  <LuLayoutDashboard />
+                </IconButton>
+              </Sidebar.Trigger>
+            }
+            title="Color harmony"
+            actions={
+              <HStack gap="1" justify="flex-end">
+                <IconButton
+                  aria-label="Search"
+                  size="sm"
+                  variant="ghost"
+                  colorPalette="base"
+                  display={{ base: 'none', md: 'inline-flex' }}
+                >
+                  <LuSearch />
+                </IconButton>
+                <Separator
+                  orientation="vertical"
+                  height="5"
+                  mx="2"
+                  display={{ base: 'none', md: 'block' }}
+                />
+                <Badge variant="outline" colorPalette="base">
+                  {props.name}
+                </Badge>
+                {props.action ?? (
+                  <Button size="sm" colorPalette="accent" variant="solid">
+                    <LuPlus />
+                    New release
+                  </Button>
+                )}
+              </HStack>
+            }
+          />
+          <Page.Body>
+            <Stack gap="6">
+              {props.details}
+              <HarmonyBoard />
             </Stack>
           </Page.Body>
         </Page.Root>
@@ -833,4 +1286,102 @@ export const SolidSidebar = appearanceStory(systems.violet, 'Solid sidebar')
 
 export const ThemeRandomizer: Story = {
   render: () => <ThemeRandomizerPreview />,
+}
+
+type AppearanceName = keyof typeof systems
+
+interface ColorHarmonyArgs {
+  appearance: AppearanceName
+  mode: 'light' | 'dark'
+  controlRadius: number
+  panelRadius: number
+  indicatorRadius: number
+}
+
+function ColorHarmonyPreview(props: ColorHarmonyArgs) {
+  const [randomTheme, setRandomTheme] = React.useState<RandomThemeConfig | null>(
+    null,
+  )
+  const system = React.useMemo(
+    () =>
+      randomTheme
+        ? createAppearanceSystem(getAppearanceOptions(randomTheme))
+        : systems[props.appearance],
+    [props.appearance, randomTheme],
+  )
+
+  return (
+    <ChakraProvider value={system}>
+      <Theme
+        appearance={randomTheme?.appearance ?? props.mode}
+        hasBackground={randomTheme?.hasBackground ?? true}
+        colorPalette={randomTheme?.colorPalette}
+        scaleFactor={randomTheme?.scaleFactor}
+        controlRadius={randomTheme?.controlRadius ?? props.controlRadius}
+        panelRadius={randomTheme?.panelRadius ?? props.panelRadius}
+        indicatorRadius={randomTheme?.indicatorRadius ?? props.indicatorRadius}
+        overlayEffect={randomTheme?.overlayEffect}
+        minH="100dvh"
+      >
+        <HarmonyPreview
+          name={
+            randomTheme ? `Random ${randomTheme.iteration}` : props.appearance
+          }
+          action={
+            <Button
+              size="sm"
+              colorPalette="accent"
+              variant="solid"
+              onClick={() =>
+                setRandomTheme((current) =>
+                  createRandomTheme((current?.iteration ?? 0) + 1),
+                )
+              }
+            >
+              <LuShuffle />
+              Randomize theme
+            </Button>
+          }
+          details={
+            randomTheme ? <ThemeDetails theme={randomTheme} /> : undefined
+          }
+        />
+      </Theme>
+    </ChakraProvider>
+  )
+}
+
+export const ColorHarmony: StoryObj<ColorHarmonyArgs> = {
+  args: {
+    appearance: 'graphite',
+    mode: 'light',
+    controlRadius: 1,
+    panelRadius: 1,
+    indicatorRadius: 1,
+  },
+  argTypes: {
+    appearance: {
+      options: Object.keys(systems) as AppearanceName[],
+      control: 'select',
+    },
+    mode: {
+      options: ['light', 'dark'],
+      control: 'inline-radio',
+    },
+    controlRadius: {
+      control: { type: 'range', min: 0, max: 4, step: 0.25 },
+    },
+    panelRadius: {
+      control: { type: 'range', min: 0, max: 4, step: 0.25 },
+    },
+    indicatorRadius: {
+      control: { type: 'range', min: 0, max: 4, step: 0.25 },
+    },
+  },
+  render: (args) => (
+    <ColorHarmonyPreview
+      key={`${args.appearance}-${args.mode}-${args.controlRadius}-${args.panelRadius}-${args.indicatorRadius}`}
+      {...args}
+    />
+  ),
 }

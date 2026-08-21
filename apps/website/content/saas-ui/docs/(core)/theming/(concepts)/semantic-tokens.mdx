@@ -1,130 +1,102 @@
 ---
-title: Semantic Tokens
-description: Leveraging semantic tokens for design decisions in your app.
+title: Semantic tokens
+description: The roles the preset expects you to paint with.
 ---
 
-## Overview
+Semantic tokens name a job, not a swatch. Use them in product UI. Reach for a
+palette slot when a component is explicitly accent, status, or catalog-colored.
 
-Semantic tokens are tokens that are designed to be used in a specific context. A
-semantic token consists of the following properties:
+## Color roles
 
-- `value`: The value of the token or a reference to an existing token.
-- `description`: An optional description of what the token can be used for.
+### Surfaces
 
-## Defining Semantic Tokens
+| Token | Use |
+| ----- | --- |
+| `bg` | Page canvas |
+| `bg.surface` / `bg.panel` | Cards, sheets |
+| `bg.elevated` | Raised panels |
+| `bg.inset` / `bg.muted` | Recessed wells |
+| `bg.overlay` | Floating overlay fill |
+| `bg.backdrop` | Dim behind a dialog |
+| `bg.inverted` | Inverse canvas |
 
-In most cases, the value of a semantic token references to an existing token.
+`bg.error`, `bg.warning`, `bg.success`, `bg.info`, and `bg.destructive` are
+the muted slots of those palettes.
 
-> To reference a value in a semantic token, use the token reference `{}` syntax.
+### Foreground
 
-```js title="theme.ts"
-import { createSystem, defineConfig } from "@chakra-ui/react"
+| Token | Use |
+| ----- | --- |
+| `fg` | Body text |
+| `fg.muted` | Secondary text |
+| `fg.subtle` | Placeholder, hints |
+| `fg.emphasized` | Stronger than body |
+| `fg.inverted` | Text on `bg.inverted` |
 
-const config = defineConfig({
-  theme: {
-    tokens: {
-      colors: {
-        red: { value: "#EE0F0F" },
-      },
-    },
-    semanticTokens: {
-      colors: {
-        danger: { value: "{colors.red}" },
-      },
-    },
-  },
-})
+Status aliases: `fg.error`, `fg.warning`, `fg.success`, `fg.info`,
+`fg.destructive`.
 
-export default createSystem(config)
+### Border and interaction
+
+| Token | Use |
+| ----- | --- |
+| `border` | Default hairline |
+| `border.muted` / `border.subtle` / `border.emphasized` | Ramp |
+| `border.inverted` | On inverse surfaces |
+| `interaction.hover` | Hover wash |
+| `interaction.pressed` | Pressed wash |
+| `interaction.selected` | `accent.subtle` |
+
+`bg.subtle` and `bg.emphasized` alias hover and pressed.
+
+### Sidebar
+
+| Token | Use |
+| ----- | --- |
+| `sidebar.bg` | Sidebar canvas |
+| `sidebar.fg` | Sidebar text |
+| `sidebar.border` | Sidebar rules |
+| `sidebar.accent.bg` / `sidebar.accent.fg` | Active nav |
+
+These follow the sidebar seed. A solid sidebar uses `--sui-sidebar-solid`.
+
+### Status, presence, shadow
+
+| Token | Resolves to |
+| ----- | ----------- |
+| `status.*` | Palette solids. See [Color system](/docs/theming/color-system) |
+| `presence.*` | Online / busy / dnd / away |
+| `shadow` | Pigment for elevation. Default `{colors.black}` in both modes |
+
+Shadows (`shadows.sm`, `shadows.overlay`, …) reference `{colors.shadow}`. Set
+`--color-shadow` or the `shadow` token to retint elevation.
+
+The token tables are on [Colors](/docs/theming/colors).
+
+## Radii
+
+Role radii wrap the primitive scale and the factor knobs:
+
+```
+radii.control = radii.sm × --scale-factor × --radius-factor × --radius-control-factor
 ```
 
-## Using Semantic Tokens
+| Role | Default primitive | Used for |
+| ---- | ----------------- | -------- |
+| `control` / `control.sm\|md\|lg` | `xs`–`md` | Button, input, select |
+| `panel` / `panel.sm\|md\|lg` | `sm`–`lg` | Card, dialog, popover |
+| `indicator` / `indicator.sm\|md\|lg` | `xs`–`md` | Badge, tag, avatar |
 
-After defining semantic tokens, we recommend using the Chakra CLI to generate
-theme typings for your tokens.
+`l1`, `l2`, `l3` still exist as aliases of `radii.xs|sm|md`. Prefer the role
+tokens so [Theme](/docs/theming/theme) radius props have an effect.
 
-```bash
-npx @chakra-ui/cli@next typegen ./src/theme.ts
-```
+See [Radii](/docs/theming/radii).
 
-This will provide autocompletion for your tokens in your editor.
+## Shadows and motion
 
-```tsx
-<Box color="danger">Hello World</Box>
-```
+[Shadows](/docs/theming/shadows) are semantic. They use `{colors.shadow}` and a
+slight inset highlight in dark mode.
 
-## Conditional Token
-
-Semantic tokens can also be changed based on the conditions like light and dark
-modes.
-
-For example, if you want a color to change automatically based on light or dark
-mode.
-
-```js title="theme.ts"
-import { createSystem, defineConfig } from "@chakra-ui/react"
-
-const config = defineConfig({
-  theme: {
-    semanticTokens: {
-      colors: {
-        danger: {
-          value: { base: "{colors.red}", _dark: "{colors.darkred}" },
-        },
-        success: {
-          value: { base: "{colors.green}", _dark: "{colors.darkgreen}" },
-        },
-      },
-    },
-  },
-})
-
-export default createSystem(config)
-```
-
-:::info
-
-The conditions used in semantic tokens must be an at-rule or parent selector
-[condition](/docs/styling/conditional-styles#reference).
-
-:::
-
-## Semantic Token Nesting
-
-Semantic tokens can be nested to create a hierarchy of tokens. This is useful
-when you want to group tokens together.
-
-:::info
-
-Use the `DEFAULT` key to define the default value of a nested token.
-
-:::
-
-```js title="theme.ts"
-import { createSystem, defineConfig } from "@chakra-ui/react"
-
-const config = defineConfig({
-  theme: {
-    semanticTokens: {
-      colors: {
-        bg: {
-          DEFAULT: { value: "{colors.gray.100}" },
-          primary: { value: "{colors.teal.100}" },
-          secondary: { value: "{colors.gray.100}" },
-        },
-      },
-    },
-  },
-})
-
-export default createSystem(config)
-```
-
-This allows the use of the `bg` token in the following ways:
-
-```tsx
-<Box bg="bg">
-  <Box bg="bg.primary">Hello World</Box>
-  <Box bg="bg.secondary">Hello World</Box>
-</Box>
-```
+[Motion](/docs/theming/animations) exposes `durations.motion.fast|medium|slow`
+(plus `.min` / `.max`) and `easings.standard`. Those read `--motion-*` and
+`--ease-standard`.

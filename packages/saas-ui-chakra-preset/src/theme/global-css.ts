@@ -52,6 +52,7 @@ export const globalCss = defineGlobalStyles({
     '--focus-ring-style': 'solid',
     '--focus-ring-offset': '3px',
     '--focus-ring-color': '{colors.accent.solid}',
+    '--color-shadow': '{colors.shadow}',
     '--motion-fast': '150ms',
     '--motion-medium': '200ms',
     '--motion-slow': '400ms',

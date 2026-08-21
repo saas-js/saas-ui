@@ -46,6 +46,7 @@
   "scripts": {
     "clean": "rimraf --no-glob ./dist",
     "generate": "tsx scripts/generate.ts",
+    "appearance": "tsx scripts/appearance.ts",
     "build": "pnpm generate && tsc",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --config ../../vitest.config.ts --dir .",

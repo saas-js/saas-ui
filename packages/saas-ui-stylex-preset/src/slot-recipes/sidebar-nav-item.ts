@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { sidebarNavItemButtonSvgVars } from './sidebar-nav-item.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { cursor } from '../tokens/cursor.stylex.ts'
 import { durations } from '../tokens/durations.stylex.ts'
@@ -11,6 +13,8 @@ import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { sidebarNavItemButtonSvgVars }
 
 export const sidebarNavItemItem = stylex.create({
   base: {
@@ -33,12 +37,6 @@ export const sidebarNavItemItemSizes = stylex.create({
     fontSize: fontSizes.sm,
     lineHeight: lineHeights.sm,
   },
-})
-
-export const sidebarNavItemButtonSvgVars = stylex.defineVars({
-  width: sizes._4,
-  height: sizes._4,
-  color: 'var(--sidebar-item-icon-color)',
 })
 
 export const sidebarNavItemButton = stylex.create({

@@ -5,9 +5,11 @@ import { AspectRatioTokenDoc } from 'compositions/lib/aspect-ratio-token-doc'
 import { BorderRadiusTokenDoc } from 'compositions/lib/border-radius-token-doc'
 import { BreakpointDoc } from 'compositions/lib/breakpoint-doc'
 import {
+  ColorPaletteTokenDoc,
   ColorSemanticTokenDoc,
   ColorTokenDoc,
 } from 'compositions/lib/color-token-doc'
+import { EasingTokenDoc } from 'compositions/lib/easing-token-doc'
 import { DurationTokenDoc, KeyframeDoc } from 'compositions/lib/keyframe-doc'
 import { ShadowTokenDoc } from 'compositions/lib/shadow-token-doc'
 import { SizesTokenDoc } from 'compositions/lib/sizes-token-doc'
@@ -73,6 +75,7 @@ const sharedComponents = {
   'code-block': CodeBlock,
   ColorTokenDoc,
   ColorSemanticTokenDoc,
+  ColorPaletteTokenDoc,
   ShadowTokenDoc,
   BorderRadiusTokenDoc,
   ...TypographyDocs,
@@ -80,6 +83,7 @@ const sharedComponents = {
   KeyframeDoc,
   BreakpointDoc,
   DurationTokenDoc,
+  EasingTokenDoc,
   AspectRatioTokenDoc,
   SizesTokenDoc,
   ZIndexTokenDoc,

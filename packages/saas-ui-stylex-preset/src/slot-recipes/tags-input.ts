@@ -2,6 +2,11 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import {
+  tagsInputItemDeleteTriggerIconVars,
+  tagsInputClearTriggerIconVars,
+} from './tags-input.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { durations } from '../tokens/durations.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
@@ -11,6 +16,8 @@ import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { tagsInputItemDeleteTriggerIconVars, tagsInputClearTriggerIconVars }
 
 export const tagsInputRoot = stylex.create({
   base: {
@@ -200,11 +207,6 @@ export const tagsInputItemPreviewVariants = stylex.create({
   },
 })
 
-export const tagsInputItemDeleteTriggerIconVars = stylex.defineVars({
-  width: '80%',
-  height: '80%',
-})
-
 export const tagsInputItemDeleteTrigger = stylex.create({
   base: {
     display: 'flex',
@@ -227,11 +229,6 @@ export const tagsInputItemDeleteTriggerIcon = stylex.create({
     width: tagsInputItemDeleteTriggerIconVars.width,
     height: tagsInputItemDeleteTriggerIconVars.height,
   },
-})
-
-export const tagsInputClearTriggerIconVars = stylex.defineVars({
-  width: sizes._5,
-  height: sizes._5,
 })
 
 export const tagsInputClearTrigger = stylex.create({

@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { radiomarkDotVars } from './radiomark.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { colors } from '../tokens/colors.stylex.ts'
 import { cursor } from '../tokens/cursor.stylex.ts'
@@ -9,13 +11,7 @@ import { radii } from '../tokens/radii.stylex.ts'
 import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 
-export const radiomarkDotVars = stylex.defineVars({
-  height: '100%',
-  width: '100%',
-  borderRadius: radii.full,
-  backgroundColor: 'currentColor',
-  scale: 0.4,
-})
+export { radiomarkDotVars }
 
 export const radiomarkStyles = stylex.create({
   base: {
@@ -38,7 +34,7 @@ export const radiomarkStyles = stylex.create({
       },
     },
     ':invalid': {
-      borderColor: colors.red500,
+      borderColor: semanticColors.borderDestructive,
     },
     ':disabled': {
       opacity: 0.5,

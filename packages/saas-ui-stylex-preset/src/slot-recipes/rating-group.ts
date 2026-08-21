@@ -2,8 +2,12 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { ratingGroupItemIndicatorIconVars } from './rating-group.stylex.ts'
+
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
 import { lineHeights } from '../tokens/line-heights.stylex.ts'
+
+export { ratingGroupItemIndicatorIconVars }
 
 export const ratingGroupRoot = stylex.create({
   base: {
@@ -44,17 +48,6 @@ export const ratingGroupItemSizes = stylex.create({
     fontSize: fontSizes._2xl,
     lineHeight: lineHeights._2xl,
   },
-})
-
-export const ratingGroupItemIndicatorIconVars = stylex.defineVars({
-  stroke: 'currentColor',
-  width: '100%',
-  height: '100%',
-  display: 'inline-block',
-  flexShrink: 0,
-  position: 'absolute',
-  left: 0,
-  top: 0,
 })
 
 export const ratingGroupItemIndicator = stylex.create({

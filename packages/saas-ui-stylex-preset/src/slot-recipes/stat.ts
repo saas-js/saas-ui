@@ -2,12 +2,16 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { statIndicatorSvgVars } from './stat.stylex.ts'
+
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
 import { fontWeights } from '../tokens/font-weights.stylex.ts'
 import { letterSpacings } from '../tokens/letter-spacings.stylex.ts'
 import { lineHeights } from '../tokens/line-heights.stylex.ts'
 import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { statIndicatorSvgVars }
 
 export const statRoot = stylex.create({
   base: {
@@ -67,11 +71,6 @@ export const statValueTextSizes = stylex.create({
     lineHeight: lineHeights._2xl,
   },
   lg: {},
-})
-
-export const statIndicatorSvgVars = stylex.defineVars({
-  width: '1em',
-  height: '1em',
 })
 
 export const statIndicator = stylex.create({

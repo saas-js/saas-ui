@@ -2,6 +2,8 @@
 
 import * as stylex from '@stylexjs/stylex'
 
+import { accordionItemIndicatorIconVars } from './accordion.stylex.ts'
+
 import { colorPalette } from '../color-palette.stylex.ts'
 import { fontSizes } from '../tokens/font-sizes.stylex.ts'
 import { fontWeights } from '../tokens/font-weights.stylex.ts'
@@ -10,6 +12,8 @@ import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { semanticRadii } from '../semantic-tokens/radii.stylex.ts'
 import { sizes } from '../tokens/sizes.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
+
+export { accordionItemIndicatorIconVars }
 
 export const accordionRoot = stylex.create({
   base: {
@@ -140,11 +144,6 @@ export const accordionItemContentVariants = stylex.create({
   enclosed: {
     paddingInline: 'var(--accordion-padding-x)',
   },
-})
-
-export const accordionItemIndicatorIconVars = stylex.defineVars({
-  width: '1.2em',
-  height: '1.2em',
 })
 
 export const accordionItemIndicator = stylex.create({

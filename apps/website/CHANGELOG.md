@@ -1,5 +1,17 @@
 # @saas-ui/web-v3
 
+## 0.1.1-rc.1
+
+### Patch Changes
+
+- Updated dependencies [d4ea493]
+- Updated dependencies [70f5c45]
+- Updated dependencies [80a1d79]
+- Updated dependencies [d4ea493]
+  - @saas-ui/chakra-preset@3.0.0-rc.1
+  - @saas-ui/cli@0.1.0-rc.1
+  - @saas-ui/charts@3.0.0-rc.1
+
 ## 0.1.1-rc.0
 
 ### Patch Changes

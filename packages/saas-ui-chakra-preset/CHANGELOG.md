@@ -1,5 +1,19 @@
 # @saas-ui/chakra-preset
 
+## 3.0.0-rc.1
+
+### Minor Changes
+
+- d4ea493: Added `suiAside` and `suiSplitPage` slot recipes for the Aside and
+  SplitPage application layouts.
+- 70f5c45: Added slot recipes for 10 new Chakra UI components: Carousel, Code
+  Block, Color Picker, Date Picker, Floating Panel, Listbox, Marquee, QR Code,
+  Scroll Area and Tree View. Requires @chakra-ui/react 3.36 or later to use the
+  new components.
+
+  Also fixes two invalid token references in the Tags Input recipe (`sizes.11`
+  and `durations.normal` do not exist in the preset scale).
+
 ## 3.0.0-rc.0
 
 ### Minor Changes

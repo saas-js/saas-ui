@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/storybook-addon",
-  "version": "7.0.0-rc.0",
+  "version": "7.0.0-rc.1",
   "description": "The official Storybook Addon for Saas UI",
   "type": "module",
   "main": "dist/index.js",
@@ -81,7 +81,7 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": "^3.36.1",
-    "@saas-ui/chakra-preset": "^3.0.0-rc.0",
+    "@saas-ui/chakra-preset": "^3.0.0-rc.1",
     "storybook": ">=9.0.0 <10.0.0",
     "react": ">=19.0.0",
     "react-dom": ">=19.0.0"

@@ -1,4 +1,9 @@
-import { Chart, useChart } from '@chakra-ui/charts'
+'use client'
+
+import { barY } from '@tanstack/charts'
+import { pie, polar, radialArc } from '@tanstack/charts/polar'
+import { scaleBand } from '@tanstack/charts/scales/band'
+import { scaleLinear } from '@tanstack/charts/scales/linear'
 import {
   Badge,
   ButtonGroup,
@@ -14,7 +19,9 @@ import {
   Spacer,
   Text,
 } from '@chakra-ui/react'
+import { useMemo } from 'react'
 import { SaasUIIcon } from '@saas-ui/assets'
+import { Chart, useChart } from '@saas-ui/charts'
 import {
   LuActivity,
   LuBuilding2,
@@ -29,17 +36,6 @@ import {
   LuWorkflow,
   LuX,
 } from 'react-icons/lu'
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  Pie,
-  PieChart,
-  XAxis,
-  YAxis,
-} from 'recharts'
-
 import { AppShell } from '#components/ui/app-shell'
 import { IconButton } from '#components/ui/icon-button'
 import { Menu } from '#components/ui/menu'
@@ -374,10 +370,14 @@ function ReportsPage() {
                 </DataList.Item>
                 <DataList.Item fontSize="xs" gridColumn="span 2">
                   <DataList.ItemLabel>Churn by tier</DataList.ItemLabel>
-                  <DataList.ItemValue alignItems="center" gap="4">
+                  <DataList.ItemValue
+                    alignItems="center"
+                    gap="4"
+                    flexWrap="wrap"
+                  >
                     <ChurnRateByTierChart />
 
-                    <List.Root variant="plain">
+                    <List.Root variant="plain" flexShrink="0">
                       <List.Item alignItems="center">
                         <List.Indicator
                           bg="indigo.solid"
@@ -417,79 +417,151 @@ function ReportsPage() {
   )
 }
 
+const compactCurrency = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  notation: 'compact',
+  maximumFractionDigits: 1,
+})
+
+const currency = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})
+
+const percent = new Intl.NumberFormat('en-US', {
+  style: 'percent',
+  maximumFractionDigits: 1,
+})
+
+const revenue = [
+  { date: 'Jan', revenue: 12500 },
+  { date: 'Feb', revenue: 15800 },
+  { date: 'Mar', revenue: 14200 },
+  { date: 'Apr', revenue: 16900 },
+  { date: 'May', revenue: 13600 },
+  { date: 'Jun', revenue: 11200 },
+  { date: 'Jul', revenue: 17500 },
+  { date: 'Aug', revenue: 19200 },
+  { date: 'Sep', revenue: 18100 },
+  { date: 'Oct', revenue: 21500 },
+]
+
+const churnByTier = [
+  { name: 'Starter', value: 7 },
+  { name: 'Pro', value: 4 },
+  { name: 'Enterprise', value: 2.5 },
+]
+
 function RevenueChart() {
   const chart = useChart({
-    data: [
-      { date: 'Jan', Revenue: 12500 },
-      { date: 'Feb', Revenue: 15800 },
-      { date: 'Mar', Revenue: 14200 },
-      { date: 'Apr', Revenue: 16900 },
-      { date: 'May', Revenue: 13600 },
-      { date: 'Jun', Revenue: 11200 },
-      { date: 'Jul', Revenue: 17500 },
-      { date: 'Aug', Revenue: 19200 },
-      { date: 'Sep', Revenue: 18100 },
-      { date: 'Oct', Revenue: 21500 },
-    ],
-    series: [{ name: 'Revenue', color: 'indigo.solid' }],
+    data: revenue,
+    series: [{ name: 'revenue', label: 'Revenue', color: 'indigo.solid' }],
   })
 
+  const definition = useMemo(
+    () =>
+      chart.define({
+        marks: [
+          barY(chart.data, {
+            x: 'date',
+            y: 'revenue',
+            fill: chart.color('indigo.solid'),
+            maxThickness: 20,
+            radius: 2,
+          }),
+        ],
+        x: {
+          scale: () => scaleBand<string>().padding(0.28),
+          grid: false,
+          axis: {
+            line: false,
+            ticks: { size: 0 },
+          },
+        },
+        y: {
+          scale: scaleLinear,
+          nice: true,
+          grid: true,
+          axis: {
+            line: false,
+            ticks: {
+              size: 0,
+              format: (value: number) => compactCurrency.format(value),
+            },
+          },
+        },
+      }),
+    [chart],
+  )
+
   return (
-    <Chart.Root chart={chart} height={240}>
-      <BarChart data={chart.data} barSize={20}>
-        <CartesianGrid stroke={chart.color('border.subtle')} vertical={false} />
-        <XAxis axisLine={false} tickLine={false} dataKey={chart.key('date')} />
-        <YAxis
-          axisLine={false}
-          tickLine={false}
-          domain={[0, 100]}
-          tickFormatter={(value) =>
-            Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: 'USD',
-            }).format(value)
-          }
+    <Chart.Root
+      chart={chart}
+      definition={definition}
+      height={240}
+      ariaLabel="Monthly revenue"
+      renderTooltipBody={({ points }) => (
+        <Chart.Tooltip
+          points={points}
+          formatter={(value) => currency.format(Number(value))}
         />
-        {chart.series.map((item) => (
-          <Bar
-            key={item.name}
-            isAnimationActive={false}
-            dataKey={chart.key(item.name)}
-            fill={chart.color(item.color)}
-            radius={2}
-          />
-        ))}
-      </BarChart>
-    </Chart.Root>
+      )}
+    />
   )
 }
 
 function ChurnRateByTierChart() {
   const chart = useChart({
-    data: [
-      { name: 'Starter', value: 70, color: 'indigo.solid' },
-      { name: 'Pro', value: 40, color: 'pink.solid' },
-      { name: 'Enterprise', value: 25, color: 'neutral.solid' },
+    data: churnByTier,
+    series: [
+      { name: 'Starter', color: 'indigo.solid' },
+      { name: 'Pro', color: 'pink.solid' },
+      { name: 'Enterprise', color: 'fg' },
     ],
   })
 
+  const definition = useMemo(() => {
+    const slices = pie(chart.data, {
+      value: 'value',
+      gapAngle: (2 * Math.PI) / 180,
+    })
+
+    return chart.define({
+      marks: [
+        polar({
+          marks: [
+            radialArc(slices, {
+              key: 'name',
+              color: 'name',
+              innerRadius: ({ radius }) => radius * 0.7,
+              stroke: 'none',
+            }),
+          ],
+        }),
+      ],
+      color: {
+        domain: chart.data.map((item) => item.name),
+        range: chart.palette,
+      },
+      margin: 0,
+    })
+  }, [chart])
+
   return (
-    <Chart.Root chart={chart} boxSize="100px">
-      <PieChart>
-        <Pie
-          dataKey={chart.key('value')}
-          data={chart.data}
-          innerRadius={35}
-          outerRadius={50}
-          stroke="none"
-          paddingAngle={2}
-          isAnimationActive={false}
-        >
-          {chart.data.map((item) => (
-            <Cell key={item.name} fill={chart.color(item.color)} />
-          ))}
-        </Pie>
-      </PieChart>
-    </Chart.Root>
+    <Chart.Root
+      chart={chart}
+      definition={definition}
+      width={100}
+      height={100}
+      ariaLabel="Churn by subscription tier"
+      renderTooltipBody={({ points }) => (
+        <Chart.Tooltip
+          points={points}
+          hideSeriesLabel
+          formatter={(value) => percent.format(Number(value) / 100)}
+        />
+      )}
+    />
   )
 }

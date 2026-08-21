@@ -3727,17 +3727,18 @@
       "compiler": {
         "client": true,
         "fileHashes": {
-          "ui/theme/index.ts": "8d7b167ee168f323f6dc1ac07eaf5216efddbabdbdb09d6f530939d23a638885",
-          "ui/theme/theme.tsx": "0c987a6440695348c1ecbca0af21b2e55b60cff8d9fe99f01750a743af7a55b1"
+          "ui/theme/index.ts": "225ca65fa37db5a32440b301c5e449f01392889ca2b1fc6be5d33bb95e7e3945",
+          "ui/theme/theme.tsx": "691c5f3e527f79fb7e11a791db7f28c8817c24c46dff1cf1b6ed741141fbf598"
         },
         "iconDependencies": [],
         "presetImports": [
+          "@saas-ui/chakra-preset/appearance",
           "@saas-ui/chakra-preset/colors"
         ],
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "b00e4c1b33f826fe886c0a3bfaf529459ce17222b7b89f9e9c9af45c4d2e0725"
+      "contentHash": "851aa2d3f1a434b8133e0278a3e0c10eb72d0b6945ba4bc28be188534bce301b"
     },
     "name": "theme",
     "schemaVersion": 1,

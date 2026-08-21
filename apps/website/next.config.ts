@@ -97,6 +97,7 @@ const nextConfig = {
   turbopack: {
     resolveAlias: {
       '@saas-ui/assets': '../../packages/saas-ui-assets/src/index.ts',
+      '@saas-ui/charts': '../../packages/saas-ui-charts/src/index.ts',
       '@saas-ui/chakra-preset':
         '../../packages/saas-ui-chakra-preset/src/index.ts',
       '@saas-ui/hooks': '../../packages/saas-ui-hooks/src/index.ts',

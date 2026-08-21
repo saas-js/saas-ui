@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "2d181a19bfb8f88b61d3f443ed6d29893b4bfbbae6ea3204f1904f966dc391f0"
+    "contentHash": "320ce8e3cc90d56d6b9156e644e976d43ac60d333dbe51d0fcda12183f74015f"
   },
   "name": "hover-card",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

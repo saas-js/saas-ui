@@ -32,7 +32,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "f0806b0893b4ba1f855cb78924c024824aab8233951ba141b87cee04fe816637"
+    "contentHash": "34684a5bd5b6bfdacac2397790df80e9884c213dbf6c3090ff7b6f336fc0d95a"
   },
   "name": "select",
   "registryDependencies": [
@@ -40,5 +40,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

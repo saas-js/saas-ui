@@ -141,12 +141,18 @@ importers:
       '@saas-ui/chakra-preset':
         specifier: workspace:*
         version: link:../../packages/saas-ui-chakra-preset
+      '@saas-ui/charts':
+        specifier: workspace:*
+        version: link:../../packages/saas-ui-charts
       '@saas-ui/hooks':
         specifier: workspace:*
         version: link:../../packages/saas-ui-hooks
       '@saas-ui/react':
         specifier: workspace:*
         version: link:../../packages/saas-ui-react
+      '@tanstack/charts':
+        specifier: ^0.14.0
+        version: 0.14.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(solid-js@1.9.7)
       '@tanstack/react-form':
         specifier: ^1.33.2
         version: 1.33.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)

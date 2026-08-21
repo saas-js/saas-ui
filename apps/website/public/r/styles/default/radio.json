@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "83956628671b660dbe8032a44f390bbce0b64e88f8c16c610e81a537116d1112"
+    "contentHash": "55d9735c51ed78a8f8723d034a3ae740f054700b733cb5d9e07ed43a46171dc9"
   },
   "name": "radio",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

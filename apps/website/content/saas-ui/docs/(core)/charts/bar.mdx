@@ -1,0 +1,58 @@
+---
+title: Bar
+description: Vertical bars with theme tokens and a band scale.
+---
+
+Use TanStack's `barY` mark inside `chart.define()`. Resolve fills with
+`chart.color()` so bars follow the active appearance.
+
+<ExampleTabs name="chart-bar" />
+
+## Usage
+
+```tsx
+import { Chart, useChart } from '@saas-ui/charts'
+import { barY } from '@tanstack/charts'
+import { scaleBand } from '@tanstack/charts/scales/band'
+import { scaleLinear } from '@tanstack/charts/scales/linear'
+```
+
+```tsx
+const definition = chart.define({
+  marks: [
+    barY(chart.data, {
+      x: 'date',
+      y: 'revenue',
+      fill: chart.color('indigo.solid'),
+      maxThickness: 20,
+      radius: 2,
+    }),
+  ],
+  x: {
+    scale: () => scaleBand<string>().padding(0.28),
+    grid: false,
+    axis: { line: false, ticks: { size: 0 } },
+  },
+  y: {
+    scale: scaleLinear,
+    nice: true,
+    grid: true,
+  },
+})
+```
+
+Categorical x values use `scaleBand`. Numeric y values use `scaleLinear`.
+`maxThickness` keeps bars from stretching on wide charts; `radius` rounds
+the corners.
+
+Use `barX` from `@tanstack/charts` for horizontal bars, and flip the scales
+so `y` is the band axis.
+
+## Tooltip
+
+Pass `renderTooltipBody` on `Chart.Root` to format values.
+
+<ExampleTabs name="chart-tooltip" />
+
+See [bar and rect marks](https://tanstack.com/charts/latest/docs/reference/marks/bar-and-rect)
+for stacking, grouping, `y1` / `y2` baselines and the rest of the mark API.

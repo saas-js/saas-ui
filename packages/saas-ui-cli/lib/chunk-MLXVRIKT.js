@@ -1,0 +1,2 @@
+import{d as i}from"./chunk-A2X64PLV.js";function s(n,o){return n.localeCompare(o,"en")}function f(n){let{resolvedPaths:o,...e}=n;return i.parse(e)}function l(n,o,e=[]){let a="resolvedPaths"in n?f(n):n,t=new Set(a.installed??[]);for(let r of e)t.delete(r);for(let r of o)t.add(r);return i.parse({...a,installed:[...t].sort(s)})}function C(n){return`${JSON.stringify(n,null,2)}
+`}export{l as a,C as b};

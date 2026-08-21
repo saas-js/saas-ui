@@ -28,7 +28,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "85101914ea3666d53452c331cb0b064435906dc642062c6fd2e50ed015081431"
+    "contentHash": "c1742d3bbf80c85975d8c2e3f5bfd807c86231bfc60f9e86a6b8220bcf047503"
   },
   "name": "steps",
   "registryDependencies": [
@@ -36,5 +36,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

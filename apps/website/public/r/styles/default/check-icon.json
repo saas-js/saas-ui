@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "CheckIcon",
-    "contentHash": "4c74dabcadaa816792b0928a41aeded43933aa338dc4e13c6227e0448b6d7722",
+    "contentHash": "24d52d35f43e95c9cef236d21397fa3d344cf4fa62248eda8492f8fd4875ef6d",
     "iconName": "Check",
     "iconSet": "lucide"
   },
   "name": "check-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

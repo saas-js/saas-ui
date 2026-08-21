@@ -1,0 +1,108 @@
+---
+title: Charts
+sidebarTitle: Overview
+description: Theme-aware charts for SaaS dashboards, built on TanStack Charts.
+---
+
+`@saas-ui/charts` is a Chakra token layer for
+[TanStack Charts](https://tanstack.com/charts). It resolves colors, spacing and
+typography from your theme, then you compose chart geometry with TanStack
+marks.
+
+The package ships the pieces you reuse on every chart, not a catalog of
+one-off chart components:
+
+- `useChart` — data, series, token helpers and `define()`
+- `Chart` — themed root, tooltip, legend and center overlay
+- `BarList` and `BarSegment` — HTML compositions for ranked and part-to-whole
+  data
+
+## Installation
+
+:::code-group
+
+```bash [npm]
+npm i @saas-ui/charts @tanstack/charts
+```
+
+```bash [yarn]
+yarn add @saas-ui/charts @tanstack/charts
+```
+
+```bash [pnpm]
+pnpm add @saas-ui/charts @tanstack/charts
+```
+
+```bash [bun]
+bun add @saas-ui/charts @tanstack/charts
+```
+
+:::
+
+`@saas-ui/charts` and `@tanstack/charts` are peer dependencies. Charts also
+expect a Chakra / Saas UI provider so token lookups resolve.
+
+## Usage
+
+Create a chart instance with `useChart`, build a TanStack definition with
+`chart.define()`, and render it through `Chart.Root`.
+
+```tsx
+import { Chart, useChart } from '@saas-ui/charts'
+import { barY } from '@tanstack/charts'
+import { scaleBand } from '@tanstack/charts/scales/band'
+import { scaleLinear } from '@tanstack/charts/scales/linear'
+
+const chart = useChart({
+  data,
+  series: [{ name: 'revenue', label: 'Revenue', color: 'indigo.solid' }],
+})
+
+const definition = chart.define({
+  marks: [
+    barY(chart.data, {
+      x: 'date',
+      y: 'revenue',
+      fill: chart.color('indigo.solid'),
+    }),
+  ],
+  x: { scale: () => scaleBand<string>().padding(0.28) },
+  y: { scale: scaleLinear, nice: true, grid: true },
+})
+
+return (
+  <Chart.Root
+    chart={chart}
+    definition={definition}
+    height={240}
+    ariaLabel="Monthly revenue"
+  />
+)
+```
+
+<ExampleTabs name="chart-bar" />
+
+`chart.color()`, `chart.size()` and `chart.spacing()` resolve Saas UI tokens
+to CSS values TanStack can paint. Pass token paths such as `indigo.solid` or
+`fg.muted`.
+
+## Mental model
+
+TanStack Charts is a grammar of graphics: you pick marks (`barY`, `lineY`,
+`areaY`, polar arcs) and map your fields onto channels. `@saas-ui/charts`
+does not wrap those marks. It gives you a theme-aware `define()` so the
+same chart follows light and dark mode, and Chakra components for tooltip,
+legend and HTML chart layouts.
+
+See the [TanStack Charts docs](https://tanstack.com/charts) for the full mark
+and scale catalog.
+
+## What's included
+
+| Export | Use it for |
+| --- | --- |
+| [useChart](/docs/charts/use-chart) | Data, series, formatting, token helpers, `define()` |
+| [Chart](/docs/charts/chart) | SVG charts: root, tooltip, legend, center |
+| [Bar](/docs/charts/bar), [Line](/docs/charts/line), [Area](/docs/charts/area), [Pie](/docs/charts/pie) | Common mark compositions |
+| [Bar List](/docs/charts/bar-list) | Ranked HTML bars |
+| [Bar Segment](/docs/charts/bar-segment) | Part-to-whole HTML bars |

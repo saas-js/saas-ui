@@ -30,7 +30,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "9a86c2bf874e7301785dbb02ca916cabe58c644fe240fb51fa8c5b03132364dd"
+    "contentHash": "ed18d12b5dd1eb61ca04a4ddc3fe65df3ba6b8489b6a2493013fd76ffa2d0c01"
   },
   "name": "pagination",
   "registryDependencies": [
@@ -40,5 +40,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

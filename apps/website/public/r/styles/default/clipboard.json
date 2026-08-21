@@ -29,7 +29,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "407fd2be93fe25ab23c56473f593ab0fb4e6b1bd32d12f97912df5114ebbaeee"
+    "contentHash": "f138a08bc20d0b78a39905cbeb47a49688ce2aed6581b1681287c5ddc7a3992f"
   },
   "name": "clipboard",
   "registryDependencies": [
@@ -41,5 +41,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

@@ -1,0 +1,54 @@
+---
+title: Line
+description: Connected series with optional points and a themed stroke.
+---
+
+Use TanStack's `lineY` mark. Map the category to `x` and the metric to `y`,
+and stroke with a resolved token.
+
+<ExampleTabs name="chart-line" />
+
+## Usage
+
+```tsx
+import { Chart, useChart } from '@saas-ui/charts'
+import { lineY } from '@tanstack/charts'
+import { scaleBand } from '@tanstack/charts/scales/band'
+import { scaleLinear } from '@tanstack/charts/scales/linear'
+```
+
+```tsx
+const definition = chart.define({
+  marks: [
+    lineY(chart.data, {
+      x: 'date',
+      y: 'active',
+      stroke: chart.color('indigo.solid'),
+      strokeWidth: 2,
+      points: true,
+    }),
+  ],
+  x: { scale: () => scaleBand<string>().padding(0.12) },
+  y: { scale: scaleLinear, nice: true, grid: true },
+})
+```
+
+`points: true` draws a dot at each observation. For time series, swap the x
+scale for `scaleUtc` from `d3-scale` and pass `Date` values.
+
+## Multiple series
+
+Add one `lineY` mark per series, or partition a long table with `z`. Declare
+matching `series` entries so the tooltip and legend can name each line.
+
+<ExampleTabs name="chart-line-multiple" />
+
+```tsx
+const chart = useChart({
+  data,
+  series: [
+    { name: 'desktop', label: 'Desktop', color: 'indigo.solid' },
+    { name: 'mobile', label: 'Mobile', color: 'pink.solid' },
+  ],
+})
+```

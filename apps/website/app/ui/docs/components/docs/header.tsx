@@ -199,6 +199,7 @@ const HeaderDesktopNavbar = () => {
                   [
                     '/docs/getting-started',
                     '/docs/components',
+                    '/docs/charts',
                     '/docs/theming',
                     '/docs/styling',
                   ].some((route) => path.startsWith(route))
@@ -217,6 +218,9 @@ const HeaderDesktopNavbar = () => {
             </Menu.Item>
             <Menu.Item value="components" asChild>
               <Link href="/docs/components/overview">Components</Link>
+            </Menu.Item>
+            <Menu.Item value="charts" asChild>
+              <Link href="/docs/charts/overview">Charts</Link>
             </Menu.Item>
             <Menu.Item value="theming" asChild>
               <Link href="/docs/theming/overview">Theming</Link>

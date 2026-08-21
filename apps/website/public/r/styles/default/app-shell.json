@@ -31,10 +31,10 @@
       ],
       "recipeReferences": []
     },
-    "contentHash": "b4f941ca4fea45180586609faa12a9393433928157c1aee5cb832fc82c6899fc"
+    "contentHash": "c9040ba7b1579ebaed858587e29f97d409e4ac284d0838387946c260afdd9625"
   },
   "name": "app-shell",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "FilterIcon",
-    "contentHash": "1e63ab7765f462593cbc68fa312b32b11e2bc1d60853f0a48706c9a31e3a132b",
+    "contentHash": "5cdcf2f0b3060050bbee812037fb0930da5bdc7c52d835ac765fd819c0108462",
     "iconName": "Filter",
     "iconSet": "lucide"
   },
   "name": "filter-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

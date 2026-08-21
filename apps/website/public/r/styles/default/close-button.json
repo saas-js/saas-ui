@@ -25,7 +25,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "1f527b72338bdb15d6b373b0f3cc2190f60983fea8ccf0f3b84801412e386129"
+    "contentHash": "4be9beeb58c3e3a204321684d68c5570123743626e191724713ab29f37803e5f"
   },
   "name": "close-button",
   "registryDependencies": [
@@ -34,5 +34,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

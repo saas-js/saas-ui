@@ -156,6 +156,37 @@ const docsLinks: NavItem = {
     },
 
     {
+      title: 'Charts',
+      url: 'charts',
+      items: [
+        {
+          title: 'Overview',
+          items: [
+            { title: 'Introduction', url: 'overview' },
+            { title: 'useChart', url: 'use-chart' },
+          ],
+        },
+        {
+          title: 'Chart types',
+          items: [
+            { title: 'Chart', url: 'chart' },
+            { title: 'Bar', url: 'bar' },
+            { title: 'Line', url: 'line' },
+            { title: 'Area', url: 'area' },
+            { title: 'Pie', url: 'pie' },
+          ],
+        },
+        {
+          title: 'Compositions',
+          items: [
+            { title: 'Bar List', url: 'bar-list' },
+            { title: 'Bar Segment', url: 'bar-segment' },
+          ],
+        },
+      ],
+    },
+
+    {
       title: 'Theming',
       url: 'theming',
       items: [

@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "PlusIcon",
-    "contentHash": "e8748054213d6bbb5394396d08fa4d0880997b20d211a4db05e2ba1f88750613",
+    "contentHash": "ca7947be44f237c31ff9d829a6778e40f2e480f0db88ef4c801326500775b507",
     "iconName": "Plus",
     "iconSet": "lucide"
   },
   "name": "plus-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "cb2a0320c49cfc4e4090a23a12cdac7cb7b986ee9d9c3f5c358022874a4ba3f0"
+    "contentHash": "69f82249603e59bdcb8cfbcec9b8db52000e28732a1e8ad0f0a4059b5faa5fb7"
   },
   "name": "checkbox-card",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

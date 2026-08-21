@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "CloseIcon",
-    "contentHash": "9f5d668544edfc2b20b44daa41d0313641eecade4e73d959664f058cf8d2f1f0",
+    "contentHash": "abf25a68c315b75de0ae32c8275c0806cb0a274dc97e9bde6d3e9704cb3e1f0c",
     "iconName": "X",
     "iconSet": "lucide"
   },
   "name": "close-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

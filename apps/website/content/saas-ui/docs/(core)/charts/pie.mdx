@@ -1,0 +1,70 @@
+---
+title: Pie
+description: Polar arcs themed with the chart palette.
+---
+
+Pie and donut charts use TanStack's polar marks. `pie()` computes the
+angles, `polar()` establishes the layout, and `radialArc()` paints the
+slices.
+
+<ExampleTabs name="chart-pie" />
+
+## Usage
+
+```tsx
+import { Chart, useChart } from '@saas-ui/charts'
+import { pie, polar, radialArc } from '@tanstack/charts/polar'
+```
+
+```tsx
+const chart = useChart({
+  data,
+  series: [
+    { name: 'Starter', color: 'indigo.solid' },
+    { name: 'Pro', color: 'pink.solid' },
+    { name: 'Enterprise', color: 'fg' },
+  ],
+})
+
+const slices = pie(chart.data, {
+  value: 'value',
+  gapAngle: (2 * Math.PI) / 180,
+})
+
+const definition = chart.define({
+  marks: [
+    polar({
+      marks: [
+        radialArc(slices, {
+          key: 'name',
+          color: 'name',
+          stroke: 'none',
+        }),
+      ],
+    }),
+  ],
+  color: {
+    domain: chart.data.map((item) => item.name),
+    range: chart.palette,
+  },
+  margin: 0,
+})
+```
+
+Series colors become `chart.palette`. Point the categorical color scale at
+that palette so slices stay in sync with the legend.
+
+## Donut
+
+Set `innerRadius` on `radialArc` and overlay `Chart.Center` for a total.
+
+<ExampleTabs name="chart-pie-with-center" />
+
+```tsx
+radialArc(slices, {
+  key: 'name',
+  color: 'name',
+  innerRadius: ({ radius }) => radius * 0.68,
+  stroke: 'none',
+})
+```

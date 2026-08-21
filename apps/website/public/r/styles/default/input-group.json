@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "1bfeb3513dca24490f7c5249d3485a2a94d3bfd1784ad61428f4987617546666"
+    "contentHash": "6e6b67d4b6ea74a28aa84ade1fc044606a63aae77824236b841ffd744681bfab"
   },
   "name": "input-group",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

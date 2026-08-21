@@ -203,6 +203,14 @@ const HeaderDesktopNavbar = () => {
             Components
           </PrimaryNavLink>
           <PrimaryNavLink
+            href="/docs/charts/overview"
+            aria-current={
+              path.startsWith('/docs/charts') ? 'page' : undefined
+            }
+          >
+            Charts
+          </PrimaryNavLink>
+          <PrimaryNavLink
             href="/docs/theming/overview"
             aria-current={
               ['/docs/theming', '/docs/styling'].some((route) =>

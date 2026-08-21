@@ -40,6 +40,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/docs/charts',
+        destination: '/docs/charts/overview',
+        permanent: true,
+      },
+      {
         source: '/docs/iconify-cli',
         destination: '/packages/iconx/docs',
         permanent: true,

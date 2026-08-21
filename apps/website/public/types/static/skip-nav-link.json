@@ -1,0 +1,23 @@
+{
+  "SkipNavLink": {
+    "props": {
+      "id": {
+        "type": "string",
+        "defaultValue": "chakra-skip-nav",
+        "isRequired": false,
+        "description": "The id of the `SkipNavContent` to link to. Must match the id used on `SkipNavContent`."
+      },
+      "children": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "The label of the link, for example \"Skip to content\"."
+      },
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLAnchorElement"
+  }
+}

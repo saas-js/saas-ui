@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "f344267e5426bc0454bd760cbfad46827ee4bd9123e4c7200d43197017af8ea0"
+    "contentHash": "a2724c3c3de580e46d3983ec9e5859f666ab74ba8433236351aff39c2ed26a78"
   },
   "name": "avatar",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

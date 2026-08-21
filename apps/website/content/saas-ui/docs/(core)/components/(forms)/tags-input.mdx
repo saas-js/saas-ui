@@ -1,0 +1,106 @@
+---
+title: Tags Input
+description:
+  Used to enter multiple values as tags with features like tag creation,
+  deletion, and keyboard navigation.
+links:
+  recipe: tags-input
+---
+
+<ExampleTabs name="tags-input-basic" />
+
+## Anatomy
+
+```jsx
+import { TagsInput } from '@chakra-ui/react'
+```
+
+```jsx
+<TagsInput.Root>
+  <TagsInput.Label />
+  <TagsInput.Control>
+    <TagsInput.Item>
+      <TagsInput.ItemPreview>
+        <TagsInput.ItemText />
+        <TagsInput.ItemDeleteTrigger />
+      </TagsInput.ItemPreview>
+      <TagsInput.ItemInput />
+    </TagsInput.Item>
+    <TagsInput.Input />
+  </TagsInput.Control>
+</TagsInput.Root>
+```
+
+If you don't need to customize the individual tags, use the `TagsInput.Items`
+shortcut. It renders all tag items automatically based on the current value.
+
+```jsx
+<TagsInput.Root>
+  <TagsInput.Label />
+  <TagsInput.Control>
+    <TagsInput.Items />
+    <TagsInput.Input />
+  </TagsInput.Control>
+</TagsInput.Root>
+```
+
+## Examples
+
+### Basic
+
+Tags are created when the user presses `Enter` or `Return`, and removed with
+`Backspace` or the delete trigger on each tag.
+
+<ExampleTabs name="tags-input-basic" />
+
+### Sizes
+
+Use the `size` prop to adjust the size of the tags input.
+
+<ExampleTabs name="tags-input-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the tags input.
+
+<ExampleTabs name="tags-input-with-variants" />
+
+### Controlled
+
+Use the `value` and `onValueChange` props to programmatically control the tags.
+
+<ExampleTabs name="tags-input-controlled" />
+
+### Max Tags
+
+Pass the `max` prop to the `TagsInput.Root` component to limit the number of
+tags that can be added. Combine it with the `validate` prop to only accept tags
+that pass your own validation rules.
+
+<ExampleTabs name="tags-input-with-max" />
+
+### Editable Tags
+
+Use the `editable` prop to enable inline editing of existing tags by double
+clicking or pressing `Enter` when highlighted, allowing users to quickly update
+tag values.
+
+<ExampleTabs name="tags-input-editable" />
+
+### Field
+
+Compose the `TagsInput` component with the `Field` component to add helper text
+and error messages. This example also uses the `delimiter` and `addOnPaste`
+props so users can paste a comma separated list of emails.
+
+<ExampleTabs name="tags-input-with-field" />
+
+## Props
+
+### Root
+
+<PropTable component="TagsInput" part="Root" />
+
+### Item
+
+<PropTable component="TagsInput" part="Item" />

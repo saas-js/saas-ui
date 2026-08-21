@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "85aae7d760d8a7ff918cb21effe4b57594d4e5b39eee23e645be5ee61b7f9f21"
+    "contentHash": "b9f3f954eb03c19764d22c73a8a9a7c138a3e5b78f28802f47377e072e852b80"
   },
   "name": "switch",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

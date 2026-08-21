@@ -32,10 +32,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "66febc84dd479b2a5b16399bc571647c95757b2e10f07ad707cbcddb76520935"
+    "contentHash": "e4e3cbb9ecb3e148b9c517cda0a13b9d31ef3cac7bcd1285b86bce19cab26c16"
   },
   "name": "icons",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

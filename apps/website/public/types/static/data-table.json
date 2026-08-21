@@ -1,0 +1,87 @@
+{
+  "Root": {
+    "props": {
+      "variant": {
+        "type": "'line' | 'outline'",
+        "description": "The visual style of the table.",
+        "defaultValue": "line"
+      },
+      "size": {
+        "type": "'sm' | 'md' | 'lg'",
+        "description": "The size of the table.",
+        "defaultValue": "md"
+      },
+      "layout": {
+        "type": "'grow' | 'fixed'",
+        "description": "`grow` stretches columns to fill the available width, `fixed` keeps columns at their configured sizes. Column virtualization always behaves as `fixed`.",
+        "defaultValue": "grow"
+      },
+      "striped": {
+        "type": "boolean",
+        "description": "Whether to add zebra-stripes to the rows.",
+        "defaultValue": "false"
+      },
+      "stickyHeader": {
+        "type": "boolean",
+        "description": "Keeps the header visible while the body scrolls.",
+        "defaultValue": "true"
+      }
+    }
+  },
+  "Body": {
+    "props": {
+      "children": {
+        "type": "(row: Row<TData>, rowProps: DataTableRowRenderProps) => React.ReactNode",
+        "description": "Custom row renderer. The body keeps owning the loop, empty state and virtualization, the callback only decides what each row looks like. Spread `rowProps` into `table.Row`."
+      },
+      "onRowClick": {
+        "type": "(row: Row<TData>, event: React.MouseEvent | React.KeyboardEvent) => void",
+        "description": "Rows become clickable and keyboard-interactive when set. Applies to the default row rendering, custom `children` handle their own interaction."
+      },
+      "renderExpandedRow": {
+        "type": "(row: Row<TData>) => React.ReactNode",
+        "description": "Renders an extra full-width row below rows where `getIsExpanded()` is true. Not supported in combination with row virtualization."
+      },
+      "emptyState": {
+        "type": "React.ReactNode",
+        "description": "Rendered when the row model is empty."
+      }
+    }
+  },
+  "Virtualizer": {
+    "props": {
+      "children": {
+        "type": "React.ReactNode",
+        "isRequired": true,
+        "description": "The `table.Table` part to virtualize."
+      },
+      "rows": {
+        "type": "boolean",
+        "description": "Whether to virtualize the rows (vertical).",
+        "defaultValue": "true"
+      },
+      "columns": {
+        "type": "boolean",
+        "description": "Whether to virtualize the center (unpinned) columns (horizontal). Pinned columns always render.",
+        "defaultValue": "false"
+      },
+      "rowOptions": {
+        "type": "Partial<VirtualizerOptions<HTMLDivElement, HTMLTableRowElement>>",
+        "description": "Options passed to the row virtualizer, for example `overscan` or `estimateSize`."
+      },
+      "columnOptions": {
+        "type": "Partial<VirtualizerOptions<HTMLDivElement, HTMLTableCellElement>>",
+        "description": "Options passed to the column virtualizer."
+      }
+    }
+  },
+  "Footer": {
+    "props": {
+      "sticky": {
+        "type": "boolean",
+        "description": "Keeps the footer visible while the body scrolls.",
+        "defaultValue": "true"
+      }
+    }
+  }
+}

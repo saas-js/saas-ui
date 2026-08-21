@@ -1,0 +1,57 @@
+{
+  "name": "@saas-ui/charts",
+  "version": "3.0.0-rc.1",
+  "description": "Chakra UI theming for TanStack Charts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "sui": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "build": "tsc --project tsconfig.json",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-charts"
+  },
+  "keywords": [
+    "react",
+    "charts",
+    "tanstack",
+    "chakra-ui",
+    "saas-ui"
+  ],
+  "peerDependencies": {
+    "@chakra-ui/react": ">=3",
+    "@tanstack/charts": ">=0.14.0",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@chakra-ui/react": "^3.36.1",
+    "@tanstack/charts": "^0.14.0",
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "typescript": "5.9.3"
+  }
+}

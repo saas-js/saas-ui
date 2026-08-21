@@ -89,6 +89,19 @@ const mdxConfig = {
   ],
 } satisfies Options
 
+const presetThemeDir = 'packages/saas-ui-chakra-preset/src/theme'
+
+// Recipes live in the chakra-preset package, split between single recipes
+// and slot recipes — resolve which folder holds the file at build time.
+const getRecipeUrl = (recipe: string) => {
+  const subDir = fs.existsSync(
+    `../../${presetThemeDir}/recipes/${recipe}.recipe.ts`,
+  )
+    ? 'recipes'
+    : 'slot-recipes'
+  return `${docsConfig.repoUrl}/tree/${docsConfig.repoBranch}/${presetThemeDir}/${subDir}/${recipe}.recipe.ts`
+}
+
 const slugify = (str: string) => {
   return str
     .replace(/.*\/content\//, '')
@@ -133,9 +146,7 @@ const docs = defineCollection({
         storybook: links.storybook
           ? `${docsConfig.storybookUrl}/?path=/story/${links.storybook}`
           : undefined,
-        recipe: links.recipe
-          ? `${docsConfig.repoUrl}/tree/${docsConfig.repoBranch}/packages/react/src/theme/recipes/${links.recipe}.ts`
-          : undefined,
+        recipe: links.recipe ? getRecipeUrl(links.recipe) : undefined,
         pro: links.pro ? `/pro/pricing` : undefined,
       },
       category: doc._meta.path

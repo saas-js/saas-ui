@@ -6,7 +6,6 @@ import { ScrollToTop } from '@/components/scroll-to-top'
 import { Toc } from '@/components/toc'
 import { source } from '@/lib/source'
 import { Box, Show, Stack } from '@chakra-ui/react'
-import { allDocs } from 'content-collections'
 import { getTableOfContents } from 'fumadocs-core/content/toc'
 import { notFound } from 'next/navigation'
 
@@ -65,44 +64,47 @@ export default async function Page(props: Props) {
   )
 }
 
-// export const generateMetadata = async (props: Props) => {
-//   const params = await props.params
-
-//   const page = getPageBySlug(params.slug)
-
-//   const category = page?.slug
-//     .replace('docs/', '')
-//     .split('/')
-//     .slice(0, -1)
-//     .join(' > ')
-//     ?.replace('-', ' ')
-//     .replace(/\b\w/g, (l) => l.toUpperCase())
-
-//   return {
-//     title: page?.title,
-//     description: page?.description,
-//     openGraph: {
-//       images: `/og?title=${page?.title}&category=${category}`,
-//     },
-//   }
-// }
-
 export async function generateMetadata(props: {
   params: Promise<{ slug?: string[] }>
 }) {
   const params = await props.params
   const page = source.getPage(params.slug)
   if (!page) notFound()
+
+  const ogSearchParams = new URLSearchParams({
+    site: 'sui',
+    title: page.data.title,
+    label: 'Documentation',
+  })
+  if (page.data.description) {
+    ogSearchParams.set('description', page.data.description)
+  }
+  const ogImage = `/og?${ogSearchParams.toString()}`
+
   return {
     title: page.data.title,
     description: page.data.description,
+    openGraph: {
+      title: page.data.title,
+      description: page.data.description,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: page.data.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.data.title,
+      description: page.data.description,
+      images: [ogImage],
+    },
   }
 }
 
 export async function generateStaticParams() {
   return source.generateParams()
-}
-
-function getPageBySlug(slug: string[]) {
-  return allDocs.find((doc) => doc.slug === ['docs', ...slug].join('/'))
 }

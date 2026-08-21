@@ -1,0 +1,11 @@
+{
+  "title": "Getting started",
+  "defaultOpen": true,
+  "pages": [
+    "installation",
+    "basic-usage",
+    "the-query",
+    "validate-evaluate",
+    "operators"
+  ]
+}

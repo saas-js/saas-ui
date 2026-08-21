@@ -1,4 +1,20 @@
 {
+  "AutoplayIndicator": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      },
+      "fallback": {
+        "type": "string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>",
+        "isRequired": false,
+        "description": "The fallback content to render when autoplay is paused."
+      }
+    },
+    "element": "HTMLSpanElement",
+    "tag": "span"
+  },
   "AutoplayTrigger": {
     "props": {
       "asChild": {
@@ -7,7 +23,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Control": {
     "props": {
@@ -17,7 +34,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "IndicatorGroup": {
     "props": {
@@ -27,7 +45,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Indicator": {
     "props": {
@@ -48,7 +67,8 @@
         "description": "Whether the indicator is read only."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "ItemGroup": {
     "props": {
@@ -58,7 +78,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Item": {
     "props": {
@@ -73,13 +94,14 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       },
       "snapAlign": {
-        "type": "'center' | 'end' | 'start'",
+        "type": "'center' | 'start' | 'end'",
         "isRequired": false,
         "defaultValue": "\"start\"",
         "description": "The snap alignment of the item."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "NextTrigger": {
     "props": {
@@ -89,7 +111,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "PrevTrigger": {
     "props": {
@@ -99,7 +122,19 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
+  },
+  "ProgressText": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLSpanElement",
+    "tag": "span"
   },
   "Root": {
     "props": {
@@ -125,6 +160,12 @@
         "defaultValue": "false",
         "description": "Whether to scroll automatically. The default delay is 4000ms."
       },
+      "autoSize": {
+        "type": "boolean",
+        "isRequired": false,
+        "defaultValue": "false",
+        "description": "Whether to enable variable width slides."
+      },
       "defaultPage": {
         "type": "number",
         "isRequired": false,
@@ -132,7 +173,7 @@
         "description": "The initial page to scroll to when rendered.\nUse when you don't need to control the page of the carousel."
       },
       "ids": {
-        "type": "Partial<{\n  root: string\n  item(index: number): string\n  itemGroup: string\n  nextTrigger: string\n  prevTrigger: string\n  indicatorGroup: string\n  indicator(index: number): string\n}>",
+        "type": "Partial<{\n  root: string\n  item: (index: number) => string\n  itemGroup: string\n  nextTrigger: string\n  prevTrigger: string\n  indicatorGroup: string\n  indicator: (index: number) => string\n}>",
         "isRequired": false,
         "description": "The ids of the elements in the carousel. Useful for composition."
       },
@@ -209,7 +250,8 @@
         "description": "The localized messages to use."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -223,6 +265,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   }
 }

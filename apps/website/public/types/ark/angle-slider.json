@@ -7,7 +7,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "HiddenInput": {
     "props": {
@@ -17,7 +18,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLInputElement"
+    "element": "HTMLInputElement",
+    "tag": "input"
   },
   "Label": {
     "props": {
@@ -27,7 +29,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLLabelElement"
+    "element": "HTMLLabelElement",
+    "tag": "label"
   },
   "MarkerGroup": {
     "props": {
@@ -37,7 +40,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Marker": {
     "props": {
@@ -52,10 +56,21 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Root": {
     "props": {
+      "aria-label": {
+        "type": "string",
+        "isRequired": false,
+        "description": "The accessible label for the slider thumb."
+      },
+      "aria-labelledby": {
+        "type": "string",
+        "isRequired": false,
+        "description": "The id of the element that labels the slider thumb."
+      },
       "asChild": {
         "type": "boolean",
         "isRequired": false,
@@ -78,7 +93,7 @@
         "description": "The unique identifier of the machine."
       },
       "ids": {
-        "type": "Partial<{ root: string; thumb: string; hiddenInput: string; control: string; valueText: string }>",
+        "type": "Partial<{\n  root: string\n  thumb: string\n  hiddenInput: string\n  control: string\n  valueText: string\n  label: string\n}>",
         "isRequired": false,
         "description": "The ids of the elements in the machine.\nUseful for composition."
       },
@@ -119,7 +134,8 @@
         "description": "The value of the slider."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -133,7 +149,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Thumb": {
     "props": {
@@ -143,7 +160,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "ValueText": {
     "props": {
@@ -153,6 +171,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   }
 }

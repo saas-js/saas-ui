@@ -15,7 +15,8 @@
         "isRequired": false
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Root": {
     "props": {
@@ -46,7 +47,7 @@
         "description": "The unique identifier of the machine."
       },
       "ids": {
-        "type": "Partial<{ root: string; item(value: string): string }>",
+        "type": "Partial<{ root: string; item: (value: string) => string }>",
         "isRequired": false,
         "description": "The ids of the elements in the toggle. Useful for composition."
       },
@@ -84,7 +85,8 @@
         "description": "The controlled selected value of the toggle group."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -98,6 +100,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   }
 }

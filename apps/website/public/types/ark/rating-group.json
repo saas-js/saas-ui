@@ -7,7 +7,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "HiddenInput": {
     "props": {
@@ -17,7 +18,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLInputElement"
+    "element": "HTMLInputElement",
+    "tag": "input"
   },
   "Item": {
     "props": {
@@ -31,7 +33,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLSpanElement"
+    "element": "HTMLSpanElement",
+    "tag": "span"
   },
   "Label": {
     "props": {
@@ -41,7 +44,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLLabelElement"
+    "element": "HTMLLabelElement",
+    "tag": "label"
   },
   "Root": {
     "props": {
@@ -87,7 +91,7 @@
         "description": "The unique identifier of the machine."
       },
       "ids": {
-        "type": "Partial<{\n  root: string\n  label: string\n  hiddenInput: string\n  control: string\n  item(id: string): string\n}>",
+        "type": "Partial<{\n  root: string\n  label: string\n  hiddenInput: string\n  control: string\n  item: (id: string) => string\n}>",
         "isRequired": false,
         "description": "The ids of the elements in the rating. Useful for composition."
       },
@@ -127,7 +131,8 @@
         "description": "The controlled value of the rating"
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -141,6 +146,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   }
 }

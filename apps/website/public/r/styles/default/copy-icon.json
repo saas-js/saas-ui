@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "content": "import React from 'react';\n\nexport interface CopyIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * copy\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const CopyIcon: React.FC<CopyIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/></g>\n    </svg>\n  );\n};\n",
+      "content": "import React from 'react'\n\nexport interface CopyIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * copy\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const CopyIcon: React.FC<CopyIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n      >\n        <rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\" />\n        <path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\" />\n      </g>\n    </svg>\n  )\n}\n",
       "path": "icons/copy-icon.tsx",
       "type": "registry:icon"
     }
@@ -10,7 +10,7 @@
     "compiler": {
       "client": false,
       "fileHashes": {
-        "icons/copy-icon.tsx": "2c1e821c885e9cc977fb9ed237d420003b1b18180eb4ef62eec78e71737618e6"
+        "icons/copy-icon.tsx": "754814f99322799240f91b13bf3a898226a107f1978677af4f6e7b67bc51ad4f"
       },
       "iconDependencies": [],
       "presetImports": [],
@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "CopyIcon",
-    "contentHash": "063108176c6c3d0289afb06843c5c1f17872799ef40538c7ccf279d21d42e3c9",
+    "contentHash": "59d7d28667dc3e6a3da24cf0f696f8548e1b6d9a42734158ffa7f9a0976fa2ce",
     "iconName": "Copy",
     "iconSet": "lucide"
   },
   "name": "copy-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

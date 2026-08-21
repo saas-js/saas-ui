@@ -1,0 +1,61 @@
+---
+title: Radiomark
+description: A visual indicator used to show selected and unselected states.
+links:
+  recipe: radiomark
+---
+
+<ExampleTabs name="radiomark-basic" />
+
+## Anatomy
+
+```tsx
+import { Radiomark } from '@chakra-ui/react'
+```
+
+```tsx
+<Radiomark checked />
+```
+
+## Usage
+
+`Radiomark` is the presentational dot used inside
+[Radio](/docs/components/radio) and [Radio Card](/docs/components/radio-card).
+It renders a `span` and has no behavior of its own — it does not select, and it
+is not focusable.
+
+Reach for it when you need the look of a radio without the interaction, for
+example to show the chosen option in a summary or inside a custom control where
+you manage state yourself. For anything a user can select, use `Radio` instead,
+so you get the input, label association and keyboard handling.
+
+## Examples
+
+### States
+
+The component supports `checked` and unchecked states, each of which can be
+combined with `disabled`.
+
+<ExampleTabs name="radiomark-states" />
+
+### Variants
+
+Use the `variant` prop to change the visual style.
+
+<ExampleTabs name="radiomark-variants" />
+
+### Sizes
+
+Use the `size` prop to change the size.
+
+<ExampleTabs name="radiomark-with-sizes" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color scheme.
+
+<ExampleTabs name="radiomark-with-colors" />
+
+## Props
+
+<PropTable component="Radiomark" part="Radiomark" />

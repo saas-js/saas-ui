@@ -1,0 +1,193 @@
+---
+title: Rich Text Editor
+description: Used to write formatted text with a composable toolbar
+links:
+  source: components/rich-text-editor
+---
+
+<ExampleTabs name="rich-text-editor-basic" />
+
+## Usage
+
+The Rich Text Editor is built on [Tiptap](https://tiptap.dev), a headless editor
+on top of ProseMirror. Install the component with the CLI, then add Tiptap and
+the extensions you want to use.
+
+```bash
+pnpm dlx @saas-ui/cli@rc add rich-text-editor
+```
+
+```bash
+pnpm add @tiptap/react @tiptap/starter-kit
+```
+
+```jsx
+import { Control, RichTextEditor } from '#components/ui/rich-text-editor'
+```
+
+Create the editor with Tiptap's `useEditor` hook and pass it to
+`RichTextEditor.Root`. Everything below the root reads the editor from context,
+so the toolbar controls need no props.
+
+```tsx
+import { useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
+
+function Editor() {
+  const editor = useEditor({
+    extensions: [StarterKit],
+    content: '<p>Hello</p>',
+    shouldRerenderOnTransaction: true,
+    immediatelyRender: false,
+  })
+
+  if (!editor) return null
+
+  return (
+    <RichTextEditor.Root editor={editor}>
+      <RichTextEditor.Toolbar>
+        <RichTextEditor.ControlGroup>
+          <Control.Bold />
+          <Control.Italic />
+        </RichTextEditor.ControlGroup>
+      </RichTextEditor.Toolbar>
+
+      <RichTextEditor.Content />
+    </RichTextEditor.Root>
+  )
+}
+```
+
+:::info
+
+Set `shouldRerenderOnTransaction` so the controls follow the selection, and
+`immediatelyRender: false` to avoid a hydration mismatch in server rendered
+apps.
+
+:::
+
+### Anatomy
+
+```tsx
+<RichTextEditor.Root>
+  <RichTextEditor.Toolbar>
+    <RichTextEditor.ControlGroup />
+  </RichTextEditor.Toolbar>
+
+  <RichTextEditor.Content />
+
+  <RichTextEditor.Footer />
+</RichTextEditor.Root>
+```
+
+`ControlGroup` groups related controls, and the toolbar draws a separator
+between the groups.
+
+### Controls
+
+`Control` is a namespace of ready-made controls. Each one maps to a Tiptap
+command and reflects the current selection, so `Control.Bold` renders as active
+while the cursor sits inside bold text.
+
+| Control                                                                      | Requires                       |
+| ---------------------------------------------------------------------------- | ------------------------------ |
+| `Bold` `Italic` `Underline` `Strikethrough` `Code`                           | `@tiptap/starter-kit`          |
+| `H1` `H2` `H3` `H4` `TextStyle` `BulletList` `OrderedList` `Blockquote` `Hr` | `@tiptap/starter-kit`          |
+| `Link` `Unlink`                                                              | `@tiptap/starter-kit`          |
+| `Undo` `Redo`                                                                | `@tiptap/starter-kit`          |
+| `AlignLeft` `AlignCenter` `AlignRight` `AlignJustify`                        | `@tiptap/extension-text-align` |
+| `Highlight`                                                                  | `@tiptap/extension-highlight`  |
+
+A control only works when its extension is registered on the editor. The base
+set comes from `StarterKit`, the rest are opt-in.
+
+### Custom controls
+
+Use the control factories to add your own. They take care of the tooltip, the
+icon button and reading the editor from context.
+
+```tsx
+import { LuListChecks } from 'react-icons/lu'
+
+import { createBooleanControl } from '#components/ui/rich-text-editor'
+
+const ToggleTaskList = createBooleanControl({
+  label: 'Toggle Task List',
+  icon: LuListChecks,
+  command: (editor) => editor.chain().focus().toggleTaskList().run(),
+  getVariant: (editor) => (editor.isActive('taskList') ? 'subtle' : 'ghost'),
+})
+```
+
+`createSelectControl` builds a dropdown for mutually exclusive states like the
+block type, and `createSwatchControl` builds a color picker popover. For a
+one-off button, render `Control.ButtonControl` directly and read the editor with
+`useRichTextEditorContext`.
+
+## Examples
+
+### Controlled
+
+Pass `onUpdate` to keep the document in React state. `editor.getHTML()` returns
+the serialized document, `editor.getJSON()` returns the ProseMirror node.
+
+<ExampleTabs name="rich-text-editor-controlled" />
+
+### Placeholder
+
+Add the `Placeholder` extension from `@tiptap/extensions` to show a hint while
+the document is empty.
+
+<ExampleTabs name="rich-text-editor-with-placeholder" />
+
+### Task list
+
+The editor styles task lists out of the box. Add `@tiptap/extension-task-list`
+and `@tiptap/extension-task-item`, then build the controls with
+`createBooleanControl`.
+
+<ExampleTabs name="rich-text-editor-with-task" />
+
+### Images
+
+Add `@tiptap/extension-image` and insert images with `setImage`. This example
+combines a URL field and a file upload in a dialog.
+
+<ExampleTabs name="rich-text-editor-with-image" />
+
+### Bubble menu
+
+Wrap a toolbar in Tiptap's `BubbleMenu` to float the controls above the
+selection. Use the `floating` toolbar variant so it renders as a panel.
+
+<ExampleTabs name="rich-text-editor-with-bubble-menu" />
+
+## Props
+
+### Root
+
+<PropTable component="RichTextEditor" part="Root" />
+
+### Toolbar
+
+<PropTable component="RichTextEditor" part="Toolbar" />
+
+### Content
+
+<PropTable component="RichTextEditor" part="Content" />
+
+### ButtonControl
+
+<PropTable component="RichTextEditor" part="ButtonControl" />
+
+### createBooleanControl
+
+<PropTable component="RichTextEditor" part="createBooleanControl" />
+
+### createSelectControl
+
+<PropTable component="RichTextEditor" part="createSelectControl" />
+
+### createSwatchControl
+
+<PropTable component="RichTextEditor" part="createSwatchControl" />

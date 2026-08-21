@@ -1,4 +1,5 @@
-import { Button, Stack, Theme } from "@chakra-ui/react"
+import { Button, Stack } from '@chakra-ui/react'
+import { Theme } from 'compositions/ui/theme'
 
 export const ThemeBasic = () => {
   return (

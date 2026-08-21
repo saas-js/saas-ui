@@ -1,0 +1,249 @@
+---
+title: shadcn
+description: Build a filter-chip conditions UI with shadcn and Tailwind.
+---
+
+`@saas-js/conditions-react` has no styles. Pair it with shadcn the same way
+you would any other headless state: bind the definition, register shadcn
+value editors and tree components, and let `useConditionChip` own the
+interaction flow.
+
+A complete shadcn adapter — locally generated components, Radix primitives,
+Tailwind, Command, and Popover — lives in the
+[conditions-react-storybook](https://github.com/saas-js/saas-js/tree/main/examples/conditions-react-storybook/src/shadcn)
+workspace. Chakra, Radix, Tailwind, and shadcn dependencies stay in that
+private example workspace and are not published with the package.
+
+## Bind the definition
+
+```ts
+import { createConditionsHook } from '@saas-js/conditions-react'
+
+import { contactConditions } from './conditions'
+
+export const base = createConditionsHook({
+  definition: contactConditions,
+})
+```
+
+Extend the hook with shadcn editors and components. The same definition and
+sample contacts drive both the [Chakra](/packages/conditions/docs/react/chakra-ui)
+and shadcn adapters.
+
+```tsx
+import { base } from './conditions-hook'
+import { FilterChip } from './filter-chip'
+import { ClearButton, ConditionTree, GroupNode } from './filter-bar'
+import { CurrencyEditor, DateEditor, StringEditor } from './value-editors'
+
+export const shadcnConditions = base.extendConditions({
+  valueEditors: {
+    string: StringEditor,
+    date: DateEditor,
+  },
+  fieldValueEditors: { arr: CurrencyEditor },
+  conditionComponents: { FilterChip },
+  groupComponents: { GroupNode },
+  conditionsComponents: { ConditionTree, ClearButton },
+})
+```
+
+## Mount the builder
+
+```tsx
+function ContactFilters() {
+  const conditions = shadcnConditions.useConditions({
+    defaultValue,
+    onValueChange({ value }) {
+      console.log(value)
+    },
+  })
+
+  return (
+    <conditions.Root>
+      <conditions.ConditionTree />
+      <conditions.ClearButton />
+    </conditions.Root>
+  )
+}
+```
+
+`ConditionTree` recursively renders groups through `ConditionGroupScope` and
+committed conditions through `ConditionScope`. Memoized chips subscribe to
+their own node. Draft keystrokes rerender only the chip being edited.
+
+## Value editors
+
+Editors receive normalized `ValueEditorProps`. Read `operator.valueMode` to
+handle `single` and `range` with the same component.
+
+```tsx
+import type { ValueEditorProps } from '@saas-js/conditions-react'
+
+import { Input } from '@/components/ui/input'
+
+export function StringEditor({
+  value,
+  onValueChange,
+  error,
+}: ValueEditorProps<string>) {
+  return (
+    <Input
+      value={value ?? ''}
+      aria-invalid={Boolean(error)}
+      onChange={(event) => onValueChange(event.target.value)}
+    />
+  )
+}
+
+export function CurrencyEditor({
+  value,
+  onValueChange,
+  operator,
+  error,
+}: ValueEditorProps) {
+  const values = Array.isArray(value) ? value : [value]
+  const update = (index: number, next: string) => {
+    const parsed = next === '' ? undefined : Number(next)
+    if (operator.valueMode === 'range') {
+      const range = [values[0], values[1]]
+      range[index] = parsed
+      onValueChange(range as readonly [number, number])
+    } else {
+      onValueChange(parsed as number)
+    }
+  }
+
+  return (
+    <div className="flex gap-2">
+      {(operator.valueMode === 'range' ? [0, 1] : [0]).map((index) => (
+        <div key={index} className="relative">
+          <span className="text-muted-foreground pointer-events-none absolute inset-y-0 left-2 flex items-center text-xs">
+            $
+          </span>
+          <Input
+            type="number"
+            className="pl-5"
+            value={values[index] ?? ''}
+            aria-invalid={Boolean(error)}
+            onChange={(event) => update(index, event.target.value)}
+          />
+        </div>
+      ))}
+    </div>
+  )
+}
+```
+
+## Filter chips
+
+`useConditionChip` decides which panel is open and when a selection commits.
+shadcn / Radix own the popover, command menu, and labels.
+
+```tsx
+import { memo } from 'react'
+
+import { Button } from '@/components/ui/button'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+
+import { base } from './conditions-hook'
+
+export const FilterChip = memo(function FilterChip() {
+  const { conditions, id } = base.useConditionContext()
+  const condition = conditions.useCondition(id)
+  const draft = conditions.useEditDraft(id)
+  const chip = base.useConditionChip(conditions, { condition, draft })
+
+  if (!condition) return null
+
+  return (
+    <Popover
+      open={chip.panel !== null}
+      onOpenChange={(open) => {
+        if (!open) chip.close()
+      }}
+    >
+      <PopoverTrigger asChild>
+        <div className="inline-flex overflow-hidden rounded-md border">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => chip.openPanel('field')}
+          >
+            {chip.field}
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => chip.openPanel('operator')}
+          >
+            {chip.operator}
+          </Button>
+          {chip.operator ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => chip.openPanel('value')}
+            >
+              {String(chip.value ?? 'Choose value…')}
+            </Button>
+          ) : null}
+        </div>
+      </PopoverTrigger>
+      <PopoverContent className="w-72 p-0" align="start">
+        {chip.panel === 'value' ? (
+          <div className="p-3">
+            <conditions.ValueEditor
+              field={chip.field}
+              operator={chip.operator}
+              value={chip.value}
+              error={chip.error}
+              onValueChange={chip.setValue}
+            />
+          </div>
+        ) : null}
+      </PopoverContent>
+    </Popover>
+  )
+})
+```
+
+Opening a panel on a committed condition cancels any other active draft and
+begins an edit draft. `chip.selectField` / `chip.selectOperator` commit
+immediately when the operator's value mode is `none`; otherwise they advance
+to the value panel. `chip.apply()` closes the panel on success.
+
+Field and operator menus typically use `Command` + `CommandItem`. For async
+enum fields, call `useConditionOptions` inside the value panel so nothing
+fetches until the editor is open:
+
+```tsx
+const { options, setQuery, loading } = base.useConditionOptions(conditions, {
+  field: chip.field,
+  value: chip.value,
+  debounceMs: 150,
+})
+```
+
+## Filter a TanStack Table
+
+The storybook shadcn workspace includes a "TanStack Table" story: a sortable
+v9 table under the same filter bar, refiltering as chips change. See
+[TanStack Table](/packages/conditions/docs/integrations/tanstack-table).
+
+```tsx
+const conditions = shadcnConditions.useConditionsContext()
+const query = conditions.useValue()
+
+const table = useTable({
+  features,
+  columns,
+  data: contacts,
+  ...conditionsGlobalFilter(contactConditions),
+  state: { globalFilter: query },
+})
+```

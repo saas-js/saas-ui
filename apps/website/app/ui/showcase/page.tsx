@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: 'Showcase',
   description: 'A collection of SaaS products powered by Saas UI',
   openGraph: {
-    images: `/og?title=Showcase`,
+    images: `/og?site=sui&title=Showcase`,
   },
 }
 

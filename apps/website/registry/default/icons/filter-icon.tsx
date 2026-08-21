@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 export interface FilterIconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
+  size?: number | string
 }
 
 /**
@@ -10,9 +10,9 @@ export interface FilterIconProps extends React.SVGProps<SVGSVGElement> {
  * @url https://icon-sets.iconify.design/lucide
  * @license ISC
  */
-export const FilterIcon: React.FC<FilterIconProps> = ({ 
-  size = "1em", 
-  ...props 
+export const FilterIcon: React.FC<FilterIconProps> = ({
+  size = '1em',
+  ...props
 }) => {
   return (
     <svg
@@ -23,7 +23,14 @@ export const FilterIcon: React.FC<FilterIconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 3H2l8 9.46V19l4 2v-8.54z"/>
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M22 3H2l8 9.46V19l4 2v-8.54z"
+      />
     </svg>
-  );
-};
+  )
+}

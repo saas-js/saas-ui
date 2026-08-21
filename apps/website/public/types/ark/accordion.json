@@ -17,7 +17,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Item": {
     "props": {
@@ -47,7 +48,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Root": {
     "props": {
@@ -72,13 +74,19 @@
         "isRequired": false,
         "description": "Whether the accordion items are disabled"
       },
+      "hideMode": {
+        "type": "HideMode",
+        "isRequired": false,
+        "defaultValue": "'display-none'",
+        "description": "How to hide content when mounted but not present.\n- `'display-none'`: HTML `hidden` attribute. Effects stay alive.\n- `'activity'`: React 19 `<Activity mode=\"hidden\">`. Effects pause. Requires React 19+."
+      },
       "id": {
         "type": "string",
         "isRequired": false,
         "description": "The unique identifier of the machine."
       },
       "ids": {
-        "type": "Partial<{\n  root: string\n  item(value: string): string\n  itemContent(value: string): string\n  itemTrigger(value: string): string\n}>",
+        "type": "Partial<{\n  root: string\n  item: (value: string) => string\n  itemContent: (value: string) => string\n  itemTrigger: (value: string) => string\n}>",
         "isRequired": false,
         "description": "The ids of the elements in the accordion. Useful for composition."
       },
@@ -122,7 +130,8 @@
         "description": "The controlled value of the expanded accordion items."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -134,6 +143,12 @@
         "type": "boolean",
         "isRequired": false,
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      },
+      "hideMode": {
+        "type": "HideMode",
+        "isRequired": false,
+        "defaultValue": "'display-none'",
+        "description": "How to hide content when mounted but not present.\n- `'display-none'`: HTML `hidden` attribute. Effects stay alive.\n- `'activity'`: React 19 `<Activity mode=\"hidden\">`. Effects pause. Requires React 19+."
       },
       "lazyMount": {
         "type": "boolean",
@@ -148,6 +163,7 @@
         "description": "Whether to unmount on exit."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   }
 }

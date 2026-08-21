@@ -41,7 +41,7 @@
         "suiNavbar"
       ]
     },
-    "contentHash": "53f28e478d8724a03871d2f1e36d3a0574296a33ad67f426777f41e15203ef4b"
+    "contentHash": "520dde7f87cc55f54e933a39716ee1bf646dc6f80c3cec51ef59dfebce529bc6"
   },
   "name": "navbar",
   "registryDependencies": [
@@ -49,5 +49,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

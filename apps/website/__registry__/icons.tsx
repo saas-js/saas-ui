@@ -4,9 +4,29 @@
 import * as React from 'react'
 
 export const Icons = {
+  "AlignCenter": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["AlignCenter"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconAlignCenter"] }))),
+  },
+  "AlignJustify": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["AlignJustify"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconAlignJustified"] }))),
+  },
+  "AlignLeft": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["AlignLeft"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconAlignLeft"] }))),
+  },
+  "AlignRight": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["AlignRight"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconAlignRight"] }))),
+  },
   "ArrowLeft": {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["ArrowLeft"] }))),
     "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconArrowLeft"] }))),
+  },
+  "Bold": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Bold"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconBold"] }))),
   },
   "Calendar": {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Calendar"] }))),
@@ -36,6 +56,10 @@ export const Icons = {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["X"] }))),
     "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconX"] }))),
   },
+  "Code": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Code"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconCode"] }))),
+  },
   "Copy": {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Copy"] }))),
     "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconCopy"] }))),
@@ -60,9 +84,45 @@ export const Icons = {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Menu"] }))),
     "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconMenu2"] }))),
   },
+  "Heading1": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Heading1"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconH1"] }))),
+  },
+  "Heading2": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Heading2"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconH2"] }))),
+  },
+  "Heading3": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Heading3"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconH3"] }))),
+  },
+  "Heading4": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Heading4"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconH4"] }))),
+  },
+  "Highlighter": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Highlighter"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconHighlight"] }))),
+  },
   "Info": {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Info"] }))),
     "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconInfoCircle"] }))),
+  },
+  "Italic": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Italic"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconItalic"] }))),
+  },
+  "Link": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Link"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconLink"] }))),
+  },
+  "List": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["List"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconList"] }))),
+  },
+  "ListOrdered": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["ListOrdered"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconListNumbers"] }))),
   },
   "Minus": {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Minus"] }))),
@@ -72,9 +132,33 @@ export const Icons = {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Plus"] }))),
     "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconPlus"] }))),
   },
+  "Quote": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Quote"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconQuote"] }))),
+  },
+  "Redo": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Redo"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconArrowForwardUp"] }))),
+  },
   "Search": {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Search"] }))),
     "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconSearch"] }))),
+  },
+  "Strikethrough": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Strikethrough"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconStrikethrough"] }))),
+  },
+  "Underline": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Underline"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconUnderline"] }))),
+  },
+  "Undo": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Undo"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconArrowBackUp"] }))),
+  },
+  "Unlink": {
+    "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Unlink"] }))),
+    "tabler": React.lazy(() => import("@tabler/icons-react").then((module) => ({ default: module["IconUnlink"] }))),
   },
   "View": {
     "lucide": React.lazy(() => import("lucide-react").then((module) => ({ default: module["Eye"] }))),

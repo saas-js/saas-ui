@@ -7,7 +7,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Content": {
     "props": {
@@ -21,7 +22,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Indicator": {
     "props": {
@@ -31,7 +33,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Item": {
     "props": {
@@ -45,7 +48,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "List": {
     "props": {
@@ -55,7 +59,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "NextTrigger": {
     "props": {
@@ -65,7 +70,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "PrevTrigger": {
     "props": {
@@ -75,7 +81,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Progress": {
     "props": {
@@ -85,7 +92,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Root": {
     "props": {
@@ -109,6 +117,18 @@
         "isRequired": false,
         "description": "The custom ids for the stepper elements"
       },
+      "isStepSkippable": {
+        "type": "(index: number) => boolean",
+        "isRequired": false,
+        "defaultValue": "() => false",
+        "description": "Whether a step can be skipped during navigation.\nSkippable steps are bypassed when using next/prev."
+      },
+      "isStepValid": {
+        "type": "(index: number) => boolean",
+        "isRequired": false,
+        "defaultValue": "() => true",
+        "description": "Whether a step is valid. Invalid steps block forward navigation in linear mode."
+      },
       "linear": {
         "type": "boolean",
         "isRequired": false,
@@ -124,6 +144,11 @@
         "isRequired": false,
         "description": "Callback to be called when a step is completed"
       },
+      "onStepInvalid": {
+        "type": "(details: StepInvalidDetails) => void",
+        "isRequired": false,
+        "description": "Called when navigation is blocked due to an invalid step."
+      },
       "orientation": {
         "type": "'horizontal' | 'vertical'",
         "isRequired": false,
@@ -136,7 +161,8 @@
         "description": "The controlled value of the stepper"
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "RootProvider": {
     "props": {
@@ -150,7 +176,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Separator": {
     "props": {
@@ -160,7 +187,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
   },
   "Trigger": {
     "props": {
@@ -170,6 +198,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   }
 }

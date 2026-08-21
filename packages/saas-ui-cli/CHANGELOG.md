@@ -1,5 +1,11 @@
 # @saas-ui/cli
 
+## 0.1.0-rc.1
+
+### Patch Changes
+
+- 80a1d79: Emit the CLI bin at `lib/cli.js` so `npx @saas-ui/cli` can start.
+
 ## 0.1.0-rc.0
 
 ### Patch Changes

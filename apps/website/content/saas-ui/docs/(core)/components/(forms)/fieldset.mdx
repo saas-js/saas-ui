@@ -1,0 +1,53 @@
+---
+title: Fieldset
+description: A set of form controls optionally grouped under a common name.
+links:
+  recipe: fieldset
+---
+
+<ExampleTabs name="fieldset-basic" />
+
+## Anatomy
+
+```jsx
+import { Fieldset } from '@chakra-ui/react'
+```
+
+```jsx
+<Fieldset.Root>
+  <Fieldset.Legend />
+  <Fieldset.HelperText />
+  <Fieldset.Content />
+  <Fieldset.ErrorText />
+</Fieldset.Root>
+```
+
+## Examples
+
+### Basic
+
+Group related fields under a common `Fieldset.Legend`. Use the `size` prop on
+the `Fieldset.Root` to change the spacing and typography of the group.
+
+<ExampleTabs name="fieldset-basic" />
+
+### Disabled
+
+Use the `disabled` prop to disable the fieldset to disable all input elements
+within the fieldset.
+
+<ExampleTabs name="fieldset-with-disabled" />
+
+### Invalid
+
+Use the `invalid` prop to mark the fieldset as invalid. This will show the error
+text.
+
+> Note: You need to pass the `invalid` prop to the `Field` component within the
+> fieldset to make each input element invalid.
+
+<ExampleTabs name="fieldset-with-invalid" />
+
+## Props
+
+<PropTable component="Fieldset" part="Root" />

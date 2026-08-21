@@ -1,6 +1,7 @@
 'use client'
 
-import { Button, ButtonGroup, Text } from '@chakra-ui/react'
+import { ButtonGroup, Text } from '@chakra-ui/react'
+import { Button } from 'compositions/ui/button'
 import { Page } from 'compositions/ui/page'
 
 export const PageWithActions = () => {
@@ -8,10 +9,12 @@ export const PageWithActions = () => {
     <Page.Root height="320px" borderWidth="1px" rounded="l3">
       <Page.Header
         title="Users"
-        description="Manage your team members"
         actions={
           <ButtonGroup justifyContent="flex-end">
-            <Button variant="glass" colorPalette="accent" size="sm">
+            <Button variant="outline" size="xs">
+              Export
+            </Button>
+            <Button variant="glass" colorPalette="accent" size="xs">
               Invite
             </Button>
           </ButtonGroup>

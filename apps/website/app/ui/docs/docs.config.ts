@@ -89,12 +89,14 @@ const docsLinks: NavItem = {
             { title: 'Close Button', url: 'close-button' },
             { title: 'Collapsible', url: 'collapsible' },
             { title: 'Data List', url: 'data-list' },
+            { title: 'Data Table', url: 'data-table' },
             { title: 'Dialog', url: 'dialog' },
             { title: 'Drawer', url: 'drawer' },
             { title: 'Editable', url: 'editable' },
             { title: 'Empty State', url: 'empty-state' },
             { title: 'Field', url: 'field' },
             { title: 'File Upload', url: 'file-upload' },
+            { title: 'Filters', url: 'filters' },
             { title: 'GridList', url: 'grid-list' },
             { title: 'Hover Card', url: 'hover-card' },
             { title: 'Icon', url: 'icon' },
@@ -143,10 +145,42 @@ const docsLinks: NavItem = {
             { title: 'For', url: 'for' },
             { title: 'FormatNumber', url: 'format-number' },
             { title: 'FormatByte', url: 'format-byte' },
+            { title: 'FormatDate', url: 'format-date' },
             { title: 'LocaleProvider', url: 'locale-provider' },
             { title: 'Portal', url: 'portal' },
             { title: 'Show', url: 'show' },
             { title: 'Visually Hidden', url: 'visually-hidden' },
+          ],
+        },
+      ],
+    },
+
+    {
+      title: 'Charts',
+      url: 'charts',
+      items: [
+        {
+          title: 'Overview',
+          items: [
+            { title: 'Introduction', url: 'overview' },
+            { title: 'useChart', url: 'use-chart' },
+          ],
+        },
+        {
+          title: 'Chart types',
+          items: [
+            { title: 'Chart', url: 'chart' },
+            { title: 'Bar', url: 'bar' },
+            { title: 'Line', url: 'line' },
+            { title: 'Area', url: 'area' },
+            { title: 'Pie', url: 'pie' },
+          ],
+        },
+        {
+          title: 'Compositions',
+          items: [
+            { title: 'Bar List', url: 'bar-list' },
+            { title: 'Bar Segment', url: 'bar-segment' },
           ],
         },
       ],

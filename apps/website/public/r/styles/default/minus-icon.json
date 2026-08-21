@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "content": "import React from 'react';\n\nexport interface MinusIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * minus\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const MinusIcon: React.FC<MinusIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 12h14\"/>\n    </svg>\n  );\n};\n",
+      "content": "import React from 'react'\n\nexport interface MinusIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * minus\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const MinusIcon: React.FC<MinusIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"M5 12h14\"\n      />\n    </svg>\n  )\n}\n",
       "path": "icons/minus-icon.tsx",
       "type": "registry:icon"
     }
@@ -10,7 +10,7 @@
     "compiler": {
       "client": false,
       "fileHashes": {
-        "icons/minus-icon.tsx": "dddfcd9073235e272aeccf11607ac08e859701fce377da743b88c8ecd69d2741"
+        "icons/minus-icon.tsx": "d95432cdc953ef7fb836cf7346679053abb1fea6e3a33baabe71408ae3236899"
       },
       "iconDependencies": [],
       "presetImports": [],
@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "MinusIcon",
-    "contentHash": "10aa6ddd272ea0e12eb13ef5b22587b43d84b162da423b544b50e8703c8bbfcf",
+    "contentHash": "6f73cdb6dba73d1c99a84dc68ba2cf6b81091f4bde008ce5076af4ebace9433e",
     "iconName": "Minus",
     "iconSet": "lucide"
   },
   "name": "minus-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

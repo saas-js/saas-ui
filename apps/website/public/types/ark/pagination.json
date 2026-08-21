@@ -11,7 +11,19 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLDivElement"
+    "element": "HTMLDivElement",
+    "tag": "div"
+  },
+  "FirstTrigger": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Item": {
     "props": {
@@ -29,7 +41,19 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
+  },
+  "LastTrigger": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "NextTrigger": {
     "props": {
@@ -39,7 +63,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "PrevTrigger": {
     "props": {
@@ -49,7 +74,8 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLButtonElement"
+    "element": "HTMLButtonElement",
+    "tag": "button"
   },
   "Root": {
     "props": {
@@ -57,6 +83,12 @@
         "type": "boolean",
         "isRequired": false,
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      },
+      "boundaryCount": {
+        "type": "number",
+        "isRequired": false,
+        "defaultValue": "1",
+        "description": "Number of pages to show at the beginning and end"
       },
       "count": {
         "type": "number",
@@ -75,8 +107,13 @@
         "defaultValue": "10",
         "description": "The initial number of data items per page when rendered.\nUse when you don't need to control the page size of the pagination."
       },
+      "getPageUrl": {
+        "type": "(details: PageUrlDetails) => string",
+        "isRequired": false,
+        "description": "Function to generate href attributes for pagination links.\nOnly used when `type` is set to \"link\"."
+      },
       "ids": {
-        "type": "Partial<{\n  root: string\n  ellipsis(index: number): string\n  prevTrigger: string\n  nextTrigger: string\n  item(page: number): string\n}>",
+        "type": "Partial<{\n  root: string\n  ellipsis: (index: number) => string\n  firstTrigger: string\n  prevTrigger: string\n  nextTrigger: string\n  lastTrigger: string\n  item: (page: number) => string\n}>",
         "isRequired": false,
         "description": "The ids of the elements in the accordion. Useful for composition."
       },
@@ -118,7 +155,8 @@
         "description": "The type of the trigger element"
       }
     },
-    "element": "HTMLElement"
+    "element": "HTMLElement",
+    "tag": "nav"
   },
   "RootProvider": {
     "props": {
@@ -132,6 +170,7 @@
         "description": "Use the provided child element as the default rendered element, combining their props and behavior."
       }
     },
-    "element": "HTMLElement"
+    "element": "HTMLElement",
+    "tag": "nav"
   }
 }

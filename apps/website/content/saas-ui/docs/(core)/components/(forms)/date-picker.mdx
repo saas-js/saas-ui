@@ -1,0 +1,154 @@
+---
+title: Date Picker
+description: Used to select dates or date ranges from a calendar.
+links:
+  recipe: date-picker
+---
+
+<ExampleTabs name="date-picker-basic" />
+
+## Anatomy
+
+```jsx
+import { DatePicker } from '@chakra-ui/react'
+```
+
+```jsx
+<DatePicker.Root>
+  <DatePicker.Label />
+  <DatePicker.Control>
+    <DatePicker.Input />
+    <DatePicker.IndicatorGroup>
+      <DatePicker.Trigger />
+    </DatePicker.IndicatorGroup>
+  </DatePicker.Control>
+  <Portal>
+    <DatePicker.Positioner>
+      <DatePicker.Content>
+        <DatePicker.View view="day">
+          <DatePicker.Header />
+          <DatePicker.DayTable />
+        </DatePicker.View>
+        <DatePicker.View view="month">
+          <DatePicker.Header />
+          <DatePicker.MonthTable />
+        </DatePicker.View>
+        <DatePicker.View view="year">
+          <DatePicker.Header />
+          <DatePicker.YearTable />
+        </DatePicker.View>
+      </DatePicker.Content>
+    </DatePicker.Positioner>
+  </Portal>
+</DatePicker.Root>
+```
+
+Date values are represented by objects from
+[`@internationalized/date`](https://react-aria.adobe.com/internationalized/date/),
+which handle timezone-safe, locale-aware date math. The `parseDate` helper and
+the `DateValue` type are re-exported from `@chakra-ui/react`, so you don't need
+to install the package yourself.
+
+```tsx
+import { parseDate } from '@chakra-ui/react'
+import type { DateValue } from '@chakra-ui/react'
+```
+
+## Examples
+
+### Basic
+
+Compose `DatePicker.Input` with a `DatePicker.Trigger` to render a text input
+that opens a calendar popover.
+
+<ExampleTabs name="date-picker-basic" />
+
+### Sizes
+
+Use the `size` prop to change the size of the date picker.
+
+<ExampleTabs name="date-picker-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the date picker.
+
+<ExampleTabs name="date-picker-with-variants" />
+
+### Controlled
+
+Use the `value` and `onValueChange` props to control the selected date. The
+value is always an array of `DateValue` objects, even in single selection mode.
+
+<ExampleTabs name="date-picker-controlled" />
+
+### Range Selection
+
+Set the `selectionMode` prop to `"range"` to allow selecting a start and end
+date. Render two `DatePicker.Input` components and pass the `index` prop to bind
+each one to a side of the range.
+
+<ExampleTabs name="date-picker-range-selection" />
+
+### Min and Max
+
+Use the `min` and `max` props to restrict date selection to a specific range.
+
+<ExampleTabs name="date-picker-min-max" />
+
+### Clear Trigger
+
+Use `DatePicker.Context` to swap the trigger for a `DatePicker.ClearTrigger`
+once a date has been selected.
+
+<ExampleTabs name="date-picker-with-clear" />
+
+### Presets
+
+Render the `DatePicker.PresetTrigger` component to provide quick date selection
+options like "Last 7 days" or "This month" next to the calendar.
+
+<ExampleTabs name="date-picker-presets" />
+
+### Calendar
+
+Set the `inline` prop on `DatePicker.Root` to render the calendar directly on
+the page, without the input, positioner and popup content. Use this when the
+calendar is the main interface, like a booking or scheduling view.
+
+<ExampleTabs name="date-picker-calendar-basic" />
+
+Inline calendars support every selection mode. Set `selectionMode` to `"range"`
+to let people pick a start and end date without opening a popup.
+
+<ExampleTabs name="date-picker-calendar-range-selection" />
+
+### Date Input
+
+Render only `DatePicker.Control` with a `DatePicker.Input` to get a date field
+without a calendar popup. Use this when people already know the date they want
+and typing it is faster than picking it, for example a date of birth.
+
+<ExampleTabs name="date-picker-input-only" />
+
+## Props
+
+### Root
+
+<PropTable component="DatePicker" part="Root" />
+
+### Input
+
+<PropTable component="DatePicker" part="Input" />
+
+### View
+
+<PropTable component="DatePicker" part="View" />
+
+### TableCell
+
+<PropTable component="DatePicker" part="TableCell" />
+
+### PresetTrigger
+
+<PropTable component="DatePicker" part="PresetTrigger" />

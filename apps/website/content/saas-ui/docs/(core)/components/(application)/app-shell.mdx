@@ -1,0 +1,79 @@
+---
+title: App Shell
+description: The App Shell defines the main structure of your app.
+links:
+  source: components/app-shell
+  storybook: components-app-shell--basic
+  recipe: app-shell
+---
+
+<ExampleTabs name="app-shell-basic" padding="0" />
+
+## Anatomy
+
+```ts
+import { AppShell } from '#components/ui/app-shell'
+```
+
+```tsx
+<AppShell
+  header={<Navbar.Root />}
+  sidebar={<Sidebar.Root />}
+  aside={<Aside.Root />}
+  footer={<Footer />}
+>
+  {/* Main content */}
+</AppShell>
+```
+
+## Usage
+
+The AppShell component provides a structured layout container that helps you
+build consistent application interfaces. It manages the composition and
+positioning of key UI elements like navbars and sidebars.
+
+The `header` and `footer` slots span the full width of the shell. The
+`sidebar` (left) and `aside` (right) slots are rendered next to the main
+content area, which contains the children and scrolls independently.
+
+AppShell fits itself into the viewport by default, using `height="100dvh"`.
+Set the `height` prop to constrain it, or use the `fullscreen` prop to fix it
+to the viewport instead.
+
+### Navbar layout
+
+Use the `header` slot to render a [Navbar](/docs/components/navbar) above the
+main content.
+
+<ExampleTabs name="app-shell-navbar" padding="0" />
+
+### Sidebar layout
+
+Use the `sidebar` slot to render a [Sidebar](/docs/components/sidebar) next to
+the main content. The sidebar requires a `Sidebar.Provider` around the shell
+to manage its state.
+
+<ExampleTabs name="app-shell-sidebar" padding="0" />
+
+### Aside
+
+Use the `aside` slot to render a secondary [Aside](/docs/components/aside)
+panel on the right side of the main content, for example to show details of a
+selected item.
+
+<ExampleTabs name="app-shell-aside" padding="0" />
+
+### Fullscreen
+
+Use the `fullscreen` prop to fix the shell to the viewport. This prevents
+scroll bouncing of the entire page, giving your app a native feel.
+
+```tsx
+<AppShell fullscreen>{/* Main content */}</AppShell>
+```
+
+## Props
+
+### AppShell
+
+<PropTable component="AppShell" part="AppShell" />

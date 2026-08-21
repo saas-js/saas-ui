@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "38bf6d2b8fdb56260cb1a95a40ab37d36ac8a416aea4cb8479e3d386d9540cd2"
+    "contentHash": "0e57183e359ce505d1e2be10c8994ec709d80dacacd1155582791c90774d818a"
   },
   "name": "portal",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

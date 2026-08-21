@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "content": "import React from 'react';\n\nexport interface ViewIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * view\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ViewIcon: React.FC<ViewIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></g>\n    </svg>\n  );\n};\n",
+      "content": "import React from 'react'\n\nexport interface ViewIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * view\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ViewIcon: React.FC<ViewIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n      >\n        <path d=\"M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0\" />\n        <circle cx=\"12\" cy=\"12\" r=\"3\" />\n      </g>\n    </svg>\n  )\n}\n",
       "path": "icons/view-icon.tsx",
       "type": "registry:icon"
     }
@@ -10,7 +10,7 @@
     "compiler": {
       "client": false,
       "fileHashes": {
-        "icons/view-icon.tsx": "3e2357726346e52a0471f062e61edbcc40eb1d9db0967f5bd06fe2c01a47702c"
+        "icons/view-icon.tsx": "0732d58134421965148c714384a1d8d9acb43ffb2a43edc83bffad5badbf01ff"
       },
       "iconDependencies": [],
       "presetImports": [],
@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "ViewIcon",
-    "contentHash": "26ed9c02c5d8c78912ab99a35bdbaea272313fcc0524d82488a9d433393a29f9",
+    "contentHash": "ab0dbe4069b7cb50dbe028cef5d243e3024c7c3b9ca518a4d87971df3b1d85ed",
     "iconName": "Eye",
     "iconSet": "lucide"
   },
   "name": "view-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

@@ -1,4 +1,5 @@
-'use client';
+'use client'
+
 import { Field, Fieldset, Input, Textarea } from '@chakra-ui/react'
 import { NativeSelect } from 'compositions/ui/native-select'
 
@@ -11,15 +12,15 @@ export const FieldsetWithInvalid = () => {
           <Field.Label>Street address</Field.Label>
           <Input name="address" />
         </Field.Root>
-        <Field.Root>
+        <Field.Root invalid>
           <Field.Label>Country</Field.Label>
-          <NativeSelect>
+          <NativeSelect name="country">
             <option value="United Kingdom (UK)">United Kingdom (UK)</option>
-            name="country" items=
-            {['United Kingdom (UK)', 'Canada (CA)', 'United States (US)']}
+            <option value="Canada (CA)">Canada (CA)</option>
+            <option value="United States (US)">United States (US)</option>
           </NativeSelect>
         </Field.Root>
-        <Field.Root>
+        <Field.Root invalid>
           <Field.Label>Notes</Field.Label>
           <Textarea name="notes" />
         </Field.Root>

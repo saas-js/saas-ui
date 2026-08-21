@@ -1,14 +1,12 @@
 ---
-title: Overview
-description:
-  A CLI tool for fetching and generating type-safe React icon components from
-  the extensive Iconify icon library.
+title: Iconx
+description: An agent-friendly CLI to manage and install icons in React projects.
 ---
 
-# Iconx
-
-A CLI tool for fetching and generating type-safe React icon components from the
-extensive [Iconify](https://iconify.design) icon library.
+An agent-friendly CLI to manage and install icons in React projects. You or
+your agent can add, search, and list icons from the terminal — or through the
+MCP server. Components are generated from [Iconify](https://iconify.design)
+into your repo.
 
 ## About
 
@@ -26,35 +24,10 @@ This package wouldn't be possible without the great work of
 
 ## Why does this exist?
 
-**Problems with existing solutions:**
-
-- **Iconify web components** require an internet connection and don't work
-  offline
-- **react-icons** is heavy (~2MB+), has poor tree-shaking, and causes
-  performance issues in Next.js
-- **Icon fonts** are outdated, not accessible, and hard to customize
-- **Manual SVG copying or sprites** is tedious and hard to maintain
-
-**Our approach:**
-
-Similar to [shadcn/ui](https://ui.shadcn.com/) or
-[sly-cli](https://sly-cli.fly.dev/), we generate the actual source code that you
-own and control. But instead of a limited set of components, you get access to
-**200,000+ icons** from the entire Iconify ecosystem.
-
-**Benefits:**
-
-- ✅ **RSC** - Works with React Server Components
-- ✅ **Offline-first** - Icons work without internet connection
-- ✅ **Perfect tree-shaking** - Only bundle the icons you actually use
-- ✅ **Full ownership** - Generated code lives in your codebase
-- ✅ **Type-safe** - Complete TypeScript support with proper interfaces
-- ✅ **Massive library** - 150+ icon sets vs limited selection in other tools
-
-While there are definitely downsides to using
-[SVG-in-JS](https://kurtextrem.de/posts/svg-in-js), we feel like the benefits
-outweigh the cons when building React apps and only use a dozen of icons on any
-screen.
+**react-icons** is heavy and tree-shakes poorly. Icon fonts are inaccessible.
+Copying SVGs does not scale — and agents should not paste them. Iconx is the
+CLI (and MCP server) they can call instead. See the
+[docs](/packages/iconx/docs) to get started.
 
 ## Quick Start
 
@@ -157,7 +130,7 @@ All generated components are fully typed with:
 
 ## Next Steps
 
-- [Installation & Setup](/docs/iconx/getting-started/installation)
-- [Basic Usage](/docs/iconx/getting-started/basic-usage)
-- [CLI Reference](/docs/iconx/reference/cli)
-- [Configuration](/docs/iconx/reference/configuration)
+- [Installation & Setup](/packages/iconx/docs/getting-started/installation)
+- [Basic Usage](/packages/iconx/docs/getting-started/basic-usage)
+- [CLI Reference](/packages/iconx/docs/reference/cli)
+- [Configuration](/packages/iconx/docs/reference/configuration)

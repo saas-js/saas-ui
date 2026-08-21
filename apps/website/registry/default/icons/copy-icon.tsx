@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 export interface CopyIconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
+  size?: number | string
 }
 
 /**
@@ -10,9 +10,9 @@ export interface CopyIconProps extends React.SVGProps<SVGSVGElement> {
  * @url https://icon-sets.iconify.design/lucide
  * @license ISC
  */
-export const CopyIcon: React.FC<CopyIconProps> = ({ 
-  size = "1em", 
-  ...props 
+export const CopyIcon: React.FC<CopyIconProps> = ({
+  size = '1em',
+  ...props
 }) => {
   return (
     <svg
@@ -23,7 +23,16 @@ export const CopyIcon: React.FC<CopyIconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></g>
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+      </g>
     </svg>
-  );
-};
+  )
+}

@@ -1,3 +1,5 @@
 {
+  "title": "Styling",
+  "root": true,
   "pages": ["(concepts)", "(compositions)", "style-props"]
 }

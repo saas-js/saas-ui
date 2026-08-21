@@ -1,0 +1,43 @@
+---
+title: Area
+description: Filled trend with an optional stroke on top.
+---
+
+Compose `areaY` for the fill and `lineY` for the edge. Keep both marks on
+the same fields so they share scales.
+
+<ExampleTabs name="chart-area" />
+
+## Usage
+
+```tsx
+import { Chart, useChart } from '@saas-ui/charts'
+import { areaY, lineY } from '@tanstack/charts'
+import { scaleBand } from '@tanstack/charts/scales/band'
+import { scaleLinear } from '@tanstack/charts/scales/linear'
+```
+
+```tsx
+const definition = chart.define({
+  marks: [
+    areaY(chart.data, {
+      x: 'date',
+      y: 'mrr',
+      fill: chart.color('indigo.solid'),
+      fillOpacity: 0.16,
+    }),
+    lineY(chart.data, {
+      x: 'date',
+      y: 'mrr',
+      stroke: chart.color('indigo.solid'),
+      strokeWidth: 2,
+    }),
+  ],
+  x: { scale: () => scaleBand<string>().padding(0.12) },
+  y: { scale: scaleLinear, nice: true, grid: true },
+})
+```
+
+Use `y1` and `y2` on `areaY` for a range or forecast band. `chart.gradient()`
+builds token-aware linear gradients when you need a fade instead of a flat
+fill.

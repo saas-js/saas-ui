@@ -9,6 +9,25 @@ const nextConfig = {
     externalDir: true,
   },
   async redirects() {
+    const packageRedirects = [
+      'drizzle-crud',
+      'conditions',
+      'iconx',
+      'slingshot',
+      'better-auth-react-query',
+    ].flatMap((pkg) => [
+      {
+        source: `/docs/${pkg}`,
+        destination: `/packages/${pkg}/docs`,
+        permanent: true,
+      },
+      {
+        source: `/docs/${pkg}/:path*`,
+        destination: `/packages/${pkg}/docs/:path*`,
+        permanent: true,
+      },
+    ])
+
     return [
       {
         source: '/discord',
@@ -21,8 +40,44 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/docs/charts',
+        destination: '/docs/charts/overview',
+        permanent: true,
+      },
+      {
         source: '/docs/iconify-cli',
-        destination: '/docs/iconx',
+        destination: '/packages/iconx/docs',
+        permanent: true,
+      },
+      ...packageRedirects,
+      {
+        source: '/drizzle-orm-pagination',
+        destination: '/packages/drizzle-crud/docs/reference/core-operations',
+        permanent: true,
+      },
+      {
+        source: '/drizzle-soft-delete',
+        destination: '/packages/drizzle-crud/docs/reference/core-operations',
+        permanent: true,
+      },
+      {
+        source: '/drizzle-crud-generator',
+        destination: '/packages/drizzle-crud/docs/getting-started/basic-usage',
+        permanent: true,
+      },
+      {
+        source: '/drizzle-filtering',
+        destination: '/packages/drizzle-crud/docs/advanced/filtering',
+        permanent: true,
+      },
+      {
+        source: '/react-icons-alternative',
+        destination: '/packages/iconx/docs',
+        permanent: true,
+      },
+      {
+        source: '/s3-direct-upload-react',
+        destination: '/packages/slingshot/docs/getting-started/basic-usage',
         permanent: true,
       },
     ]
@@ -47,6 +102,7 @@ const nextConfig = {
   turbopack: {
     resolveAlias: {
       '@saas-ui/assets': '../../packages/saas-ui-assets/src/index.ts',
+      '@saas-ui/charts': '../../packages/saas-ui-charts/src/index.ts',
       '@saas-ui/chakra-preset':
         '../../packages/saas-ui-chakra-preset/src/index.ts',
       '@saas-ui/hooks': '../../packages/saas-ui-hooks/src/index.ts',

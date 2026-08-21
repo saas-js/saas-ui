@@ -1,0 +1,23 @@
+{
+  "SkipNavContent": {
+    "props": {
+      "id": {
+        "type": "string",
+        "defaultValue": "chakra-skip-nav",
+        "isRequired": false,
+        "description": "The id used as the anchor target. Must match the id used on `SkipNavLink`."
+      },
+      "children": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Optional main content to wrap. When omitted the component renders an empty div that acts as the focus target."
+      },
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLDivElement"
+  }
+}

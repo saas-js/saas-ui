@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "content": "import React from 'react';\n\nexport interface CheckIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string;\n}\n\n/**\n * check\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const CheckIcon: React.FC<CheckIconProps> = ({ \n  size = \"1em\", \n  ...props \n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20 6L9 17l-5-5\"/>\n    </svg>\n  );\n};\n",
+      "content": "import React from 'react'\n\nexport interface CheckIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * check\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const CheckIcon: React.FC<CheckIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"M20 6L9 17l-5-5\"\n      />\n    </svg>\n  )\n}\n",
       "path": "icons/check-icon.tsx",
       "type": "registry:icon"
     }
@@ -10,7 +10,7 @@
     "compiler": {
       "client": false,
       "fileHashes": {
-        "icons/check-icon.tsx": "d336100260eeb35940b4b91f56e969d8329b5148e5aa3b33789affc1559e5e65"
+        "icons/check-icon.tsx": "831e74a62e559b59dfa669b7b9379e4318a69fbc462c0c2a75dc2d64036766b5"
       },
       "iconDependencies": [],
       "presetImports": [],
@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "CheckIcon",
-    "contentHash": "f55821308151125ea9714a39cad660ef8f10d610fbe01948051026f8ad2a908e",
+    "contentHash": "24d52d35f43e95c9cef236d21397fa3d344cf4fa62248eda8492f8fd4875ef6d",
     "iconName": "Check",
     "iconSet": "lucide"
   },
   "name": "check-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

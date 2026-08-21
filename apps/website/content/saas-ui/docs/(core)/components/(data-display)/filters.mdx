@@ -1,0 +1,188 @@
+---
+title: Filters
+description: Used to filter data with typed fields, operators and value editors
+links:
+  source: components/filters
+---
+
+<ExampleTabs name="filters-basic" />
+
+## Usage
+
+The Filters component is built on
+[Saas.js Conditions](https://www.saas-js.com/packages/conditions): a headless
+engine for typed condition queries with validation, evaluation and
+serialization. You describe your fields once with `defineConditions`, and the
+same definition drives the filter bar, the query state and the filtering
+itself.
+
+```jsx
+import { createFilters } from '#components/ui/filters'
+```
+
+Define the fields, then create the filters hook at module scope. Every
+instance returned by `useConditions` carries the filter parts alongside the
+full conditions API.
+
+```tsx
+import { z } from 'zod'
+
+const accountFilters = createFilters({
+  fields: {
+    status: {
+      type: 'enum',
+      label: 'Status',
+      schema: z.enum(['Active', 'Trial', 'Paused']),
+      operators: ['equals', 'not', 'in'],
+      defaultOperator: 'equals',
+      options: [
+        { value: 'Active', label: 'Active' },
+        { value: 'Trial', label: 'Trial' },
+        { value: 'Paused', label: 'Paused' },
+      ],
+    },
+    mrr: {
+      type: 'number',
+      label: 'MRR',
+      schema: z.coerce.number().min(0),
+      operators: ['equals', 'gte', 'lte', 'between'],
+    },
+  },
+})
+```
+
+The built definition is available as `accountFilters.definition`, for
+adapters and server-side evaluation. When the definition is shared with
+non-UI code — a Drizzle query on the server, a serialized saved view — define
+it separately with `defineConditions` and pass it as `definition` instead:
+
+```tsx
+import { defineConditions } from '@saas-js/conditions'
+
+import { accountConditions } from '~/shared/account-conditions'
+
+const accountFilters = createFilters({ definition: accountConditions })
+```
+
+Fields with options (like `enum` and `boolean` fields) open a searchable
+submenu straight from the add-filter menu. Clicking an option commits it
+with the field's default operator ("Status is Active") and closes the menu;
+when the field supports a multi-select operator like `in`, each option also
+carries a checkbox that toggles values while the menu stays open, and the
+operator follows the selection ("is" for one value, "is any of" for
+several). Other field types open their value editor after picking the
+field.
+
+Add icons through `meta` on a field or option: a field icon shows in the
+add-filter menu and on the chip's label, an option icon shows in the option
+lists and on the chip's value. When two or more values are selected the chip
+collapses to the value icons plus a count — set `pluralLabel` on the field's
+`meta` to name it ("2 statuses" instead of "2 selected").
+
+```tsx
+status: {
+  type: 'enum',
+  label: 'Status',
+  meta: { icon: <StatusIcon />, pluralLabel: 'statuses' },
+  options: [
+    { value: 'active', label: 'Active', meta: { icon: <ActiveDot /> } },
+  ],
+  // ...
+}
+```
+
+Render the bar inside `conditions.Root` and filter your rows with
+`useFilter`.
+
+```tsx
+function Accounts() {
+  const conditions = accountFilters.useConditions()
+  const matches = conditions.useFilter(accounts)
+
+  return (
+    <conditions.Root>
+      <conditions.FilterBar />
+      <AccountList accounts={matches} />
+    </conditions.Root>
+  )
+}
+```
+
+:::info
+
+`useConditions` supports uncontrolled (`defaultValue`), controlled (`value` +
+`onValueChange`) and external store usage. The committed query is a plain
+serializable tree — see the
+[Conditions documentation](https://www.saas-js.com/packages/conditions) for
+validation, serialization and server-side evaluation.
+
+:::
+
+## Examples
+
+### Async Options
+
+Pass a function as a field's `options` to load them on demand. The value
+editor gets a search input, debounced queries and a loading state without
+extra wiring.
+
+<ExampleTabs name="filters-async-options" />
+
+### Composed Bar
+
+Pass children to `FilterBar` to compose the bar yourself from
+`conditions.FilterChips`, `conditions.AddFilterButton` and
+`conditions.ClearFiltersButton`, or your own components. Use
+`conditions.draft.beginAddCondition` to build a fully custom add button.
+
+<ExampleTabs name="filters-composed-bar" />
+
+### Data Table
+
+Pair the filter bar with the [Data Table](/docs/components/data-table) through
+`@saas-js/conditions-tanstack-table`: the committed query becomes the table's
+global filter, and every row is evaluated against it. Pass `undefined` while
+the query is empty so the empty state doesn't count it as an active filter,
+and wire `table.NoResults` to clear the conditions.
+
+<ExampleTabs name="filters-data-table" />
+
+### Value Formatting
+
+Use `formatValue` to control how committed values appear in the chips, and
+`operatorLabels` to override the compact operator labels. Register custom
+value editors per field type, field or operator with the editor registries.
+
+```tsx
+const accountFilters = createFilters({
+  fields: accountFields,
+  formatValue: ({ fieldId, value }) => {
+    if (fieldId === 'mrr' && typeof value === 'number') {
+      return currencyFormat.format(value)
+    }
+    return undefined
+  },
+  operatorLabels: {
+    gte: 'at least',
+    lte: 'at most',
+  },
+})
+```
+
+## Props
+
+### createFilters
+
+<PropTable component="Filters" part="createFilters" />
+
+### FilterBar
+
+<PropTable component="Filters" part="FilterBar" />
+
+### AddFilterButton
+
+<PropTable component="Filters" part="AddFilterButton" />
+
+### ClearFiltersButton
+
+<PropTable component="Filters" part="ClearFiltersButton" />

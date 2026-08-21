@@ -1,12 +1,10 @@
-import { Radiomark, Stack } from "@chakra-ui/react"
+import { HStack, Radiomark } from '@chakra-ui/react'
 
 export const RadiomarkBasic = () => {
   return (
-    <Stack>
+    <HStack gap="4">
       <Radiomark />
       <Radiomark checked />
-      <Radiomark disabled />
-      <Radiomark checked disabled />
-    </Stack>
+    </HStack>
   )
 }

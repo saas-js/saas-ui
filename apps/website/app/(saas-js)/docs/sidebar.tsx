@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { SideNav } from '@/components/sidenav'
-import { useRoute } from '@/lib/use-route'
 import {
   Box,
   BoxProps,
@@ -255,29 +254,24 @@ const MobileMenuButton = chakra('button', {
   },
 })
 
-export const MobileMenuBreadcrumbs = () => {
-  const route = useRoute()
-
-  const crumbs = route
-    .getSidebarNavItems()
-    .map((group) => {
-      const item = group.items.find((item) => item.url === route.currentUrl)
-      return item ? [group.title, item.title] : null
-    })
-    .filter(Boolean)[0]
+export const MobileMenuBreadcrumbs = ({ tree }: { tree: PageTree }) => {
+  const pathname = usePathname()
+  const path = useMemo(() => searchPath(tree.children, pathname) ?? [], [tree, pathname])
+  const crumbs = path
+    .filter((item) => item.type === 'folder' || item.type === 'page')
+    .map((item) => String(item.name))
 
   return (
     <Breadcrumb.Root separator={<AiOutlineRight />}>
-      {crumbs?.map((crumb, index) => (
-        <Text key={index}>{crumb}</Text>
+      {crumbs.map((crumb, index) => (
+        <Text key={`${crumb}-${index}`}>{crumb}</Text>
       ))}
     </Breadcrumb.Root>
   )
 }
 
-export const MobileSidebarNav = () => {
+export const MobileSidebarNav = ({ tree }: { tree: PageTree }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const route = useRoute()
   const pathname = usePathname()
   const pathnameRef = useRef(pathname)
 
@@ -290,6 +284,12 @@ export const MobileSidebarNav = () => {
     pathnameRef.current = pathname
   }, [pathname, setIsOpen])
 
+  const path = useMemo(() => searchPath(tree.children, pathname) ?? [], [tree, pathname])
+  const root =
+    (path.findLast(
+      (item) => item.type === 'folder' && item.root,
+    ) as PageTree) ?? tree
+
   return (
     <Drawer.Root
       open={isOpen}
@@ -301,7 +301,7 @@ export const MobileSidebarNav = () => {
       <Drawer.Trigger asChild>
         <MobileMenuButton aria-label="Open menu">
           <AiOutlineMenu />
-          <MobileMenuBreadcrumbs />
+          <MobileMenuBreadcrumbs tree={tree} />
         </MobileMenuButton>
       </Drawer.Trigger>
       <Portal>
@@ -310,17 +310,51 @@ export const MobileSidebarNav = () => {
         <Drawer.Content borderTopRadius="md" maxH="var(--content-height)">
           <Drawer.CloseButton />
           <Drawer.Body display="flex" flexDir="column" gap="6" py="5" flex="1">
-            {route.getSidebarNavItems()?.map((group) => (
-              <SideNav
-                key={group.title}
-                currentUrl={route.currentUrl}
-                title={group.title}
-                items={group.items.filter(
-                  (item): item is typeof item & { url: string } =>
-                    typeof item.url === 'string',
-                )}
-              />
-            ))}
+            {root.children?.map((item) => {
+              if (item.type === 'separator') return null
+
+              if (item.type === 'folder') {
+                const items =
+                  item.children
+                    ?.filter(
+                      (child): child is Extract<PageTreeNode, { type: 'page' }> =>
+                        child.type === 'page' && typeof child.url === 'string',
+                    )
+                    .map((child) => ({
+                      title: String(child.name),
+                      url: child.url,
+                    })) ?? []
+
+                if (item.index?.url) {
+                  items.unshift({
+                    title: String(item.index.name),
+                    url: item.index.url,
+                  })
+                }
+
+                return (
+                  <SideNav
+                    key={item.$id}
+                    currentUrl={pathname}
+                    title={String(item.name)}
+                    items={items}
+                  />
+                )
+              }
+
+              if (item.type === 'page' && item.url) {
+                return (
+                  <SideNav
+                    key={item.$id}
+                    currentUrl={pathname}
+                    title=""
+                    items={[{ title: String(item.name), url: item.url }]}
+                  />
+                )
+              }
+
+              return null
+            })}
           </Drawer.Body>
         </Drawer.Content>
       </Portal>

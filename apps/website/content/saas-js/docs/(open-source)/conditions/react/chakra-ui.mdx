@@ -1,0 +1,136 @@
+---
+title: Chakra UI
+description: Build a filter-chip conditions UI with Chakra UI.
+---
+
+`@saas-js/conditions-react` has no styles. Pair it with Chakra UI the same way
+you would any other headless state: bind the definition, register Chakra
+value editors, and let `useConditionChip` own the interaction flow.
+
+The demo below is a real composition running in this page — add, edit, and
+clear filters and the contact list updates from the same query.
+
+<ConditionsChakraExample />
+
+Try `Status is any of`, `ARR is between`, or `Company contains`. Opening a
+chip begins an edit draft; only that chip rerenders while you type.
+
+## Bind the definition
+
+```ts
+import { createConditionsHook } from '@saas-js/conditions-react'
+
+import { contactConditions } from './conditions'
+import { DateEditor, NumberEditor, OptionEditor, StringEditor } from './editors'
+
+export const contactUI = createConditionsHook({
+  definition: contactConditions,
+  valueEditors: {
+    string: StringEditor,
+    number: NumberEditor,
+    date: DateEditor,
+    enum: OptionEditor,
+    boolean: OptionEditor,
+  },
+})
+```
+
+Registered editors are resolved by field type. Override a single field with
+`fieldValueEditors` when ARR should use a currency input but other numbers
+should not.
+
+## Mount the builder
+
+```tsx
+function ContactFilters() {
+  const conditions = contactUI.useConditions({
+    defaultValue,
+    onValueChange({ value }) {
+      console.log(value)
+    },
+  })
+
+  const matches = conditions.useFilter(contacts)
+
+  return (
+    <conditions.Root>
+      <ConditionTree />
+      <ContactTable contacts={matches} />
+    </conditions.Root>
+  )
+}
+```
+
+`ConditionTree` renders each committed condition through `ConditionScope`.
+Memoized chips subscribe to their own node. Draft keystrokes rerender only
+the chip being edited.
+
+## Filter chips
+
+`useConditionChip` decides which panel is open and when a selection commits.
+Chakra owns the popover, buttons, and labels.
+
+```tsx
+const { conditions, id } = contactUI.useConditionContext()
+const condition = conditions.useCondition(id)
+const draft = conditions.useEditDraft(id)
+const chip = contactUI.useConditionChip(conditions, { condition, draft })
+
+chip.openPanel('field' | 'operator' | 'value')
+chip.selectField('status')
+chip.selectOperator('in')
+chip.setValue(['lead', 'customer'])
+chip.apply()
+chip.remove()
+```
+
+`selectField` / `selectOperator` commit immediately when the operator's value
+mode is `none`; otherwise they advance to the value panel. `apply` closes the
+panel on success.
+
+Render the resolved editor with the bound component:
+
+```tsx
+<conditions.ValueEditor
+  field={chip.field}
+  operator={chip.operator}
+  value={chip.value}
+  error={chip.error}
+  onValueChange={chip.setValue}
+/>
+```
+
+## Value editors
+
+Editors receive normalized `ValueEditorProps`. Read `operator.valueMode` to
+handle `single` and `range` with the same component.
+
+```tsx
+import { Input } from '@chakra-ui/react'
+import type { ValueEditorProps } from '@saas-js/conditions-react'
+
+export function StringEditor({
+  value,
+  onValueChange,
+  error,
+}: ValueEditorProps<string>) {
+  return (
+    <Input
+      size="sm"
+      value={value ?? ''}
+      aria-invalid={Boolean(error)}
+      onChange={(event) => onValueChange(event.target.value)}
+    />
+  )
+}
+```
+
+A complete Chakra adapter — chips, nested groups, async option sources, and
+demo chrome — also lives in the
+[conditions-react-storybook](https://github.com/saas-js/saas-js/tree/main/examples/conditions-react-storybook/src/chakra)
+workspace.
+
+For tables, databases, or a sync replica, pass `conditions.useValue()` to
+[TanStack Table](/packages/conditions/docs/integrations/tanstack-table),
+[Drizzle](/packages/conditions/docs/integrations/drizzle), or
+[Zero](/packages/conditions/docs/integrations/zero).

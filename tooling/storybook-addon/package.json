@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/storybook-addon",
-  "version": "7.0.0-rc.0",
+  "version": "7.0.0-rc.1",
   "description": "The official Storybook Addon for Saas UI",
   "type": "module",
   "main": "dist/index.js",
@@ -64,7 +64,7 @@
   },
   "homepage": "https://github.com/saas-ui/saas-ui#readme",
   "devDependencies": {
-    "@chakra-ui/react": "^3.28.0",
+    "@chakra-ui/react": "^3.36.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@saas-ui/chakra-preset": "workspace:*",
@@ -80,8 +80,8 @@
     "@storybook/icons": "^1.6.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.28.0",
-    "@saas-ui/chakra-preset": "^3.0.0-rc.0",
+    "@chakra-ui/react": "^3.36.1",
+    "@saas-ui/chakra-preset": "^3.0.0-rc.1",
     "storybook": ">=9.0.0 <10.0.0",
     "react": ">=19.0.0",
     "react-dom": ">=19.0.0"

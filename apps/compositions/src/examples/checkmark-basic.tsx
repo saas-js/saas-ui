@@ -1,14 +1,11 @@
-import { Checkmark, Stack } from "@chakra-ui/react"
+import { Checkmark, HStack } from '@chakra-ui/react'
 
 export const CheckmarkBasic = () => {
   return (
-    <Stack>
+    <HStack gap="4">
       <Checkmark />
       <Checkmark checked />
       <Checkmark indeterminate />
-      <Checkmark disabled />
-      <Checkmark checked disabled />
-      <Checkmark indeterminate disabled />
-    </Stack>
+    </HStack>
   )
 }

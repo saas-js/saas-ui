@@ -1,0 +1,147 @@
+---
+title: Overlay Manager
+description:
+  Used to open dialogs and drawers programmatically, without wiring up local
+  open state.
+---
+
+<ExampleTabs name="overlay-basic" />
+
+## Anatomy
+
+```tsx
+import { createOverlay } from '@chakra-ui/react'
+```
+
+`createOverlay` takes a component and returns a controller for it. Every prop
+you pass to `open` is forwarded to the component, plus `open`, `onOpenChange`
+and `onExitComplete`, which drive its lifecycle.
+
+```tsx
+import { createOverlay } from '@chakra-ui/react'
+
+import { Dialog } from '#components/ui/dialog'
+
+type DialogProps = {
+  title: string
+  description?: string
+}
+
+const dialog = createOverlay<DialogProps>((props) => {
+  const { title, description, ...rest } = props
+  return (
+    <Dialog.Root {...rest}>
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title>{title}</Dialog.Title>
+          <Dialog.CloseButton />
+        </Dialog.Header>
+        <Dialog.Body>
+          <Dialog.Description>{description}</Dialog.Description>
+        </Dialog.Body>
+      </Dialog.Content>
+    </Dialog.Root>
+  )
+})
+```
+
+Render the `Viewport` once, somewhere in your tree, and open the overlay from
+anywhere.
+
+```tsx
+<dialog.Viewport />
+```
+
+```tsx
+dialog.open('welcome', { title: 'Welcome' })
+```
+
+## Usage
+
+The key things to note:
+
+- Overlays are keyed by an `id`. Calling `open` with an id that already exists
+  updates that overlay instead of stacking a second one.
+- The controller lives outside React, so you can trigger it from event handlers,
+  data mutations, or non-component code.
+- `Viewport` must be mounted for anything to render. Mount it once per
+  controller.
+- Because the overlay is rendered by the viewport rather than by the element
+  that triggered it, this pattern avoids the event bubbling and portal issues
+  you get when nesting a dialog inside a menu item.
+
+## Examples
+
+### Dialog
+
+Open a dialog by calling `open` with an id and the props your component expects.
+
+<ExampleTabs name="overlay-basic" />
+
+### Drawer
+
+The same pattern works for any overlay component, including a drawer.
+
+<ExampleTabs name="overlay-with-drawer" />
+
+### Update
+
+Use `update` to change the props of an overlay that is already open.
+
+<ExampleTabs name="overlay-with-update" />
+
+### Return value
+
+`open` returns a promise that resolves with the value passed to `close`, which
+makes confirmation flows read top to bottom.
+
+Use `waitForExit` to let the exit animation finish before opening the next
+overlay.
+
+<ExampleTabs name="overlay-with-return-value" />
+
+### Closing from inside
+
+To close an overlay from within the component itself, call the injected
+`onOpenChange` prop. This is useful after a form submission or a successful
+action.
+
+```tsx
+const dialog = createOverlay<DialogProps>((props) => {
+  const { onOpenChange, ...rest } = props
+
+  const handleSubmit = async () => {
+    await save()
+    onOpenChange?.({ open: false })
+  }
+
+  return <Dialog.Root {...rest}>{/* ... */}</Dialog.Root>
+})
+```
+
+## API
+
+### Injected props
+
+These props are passed to your component by `createOverlay`.
+
+| Prop             | Type                             | Description                                       |
+| ---------------- | -------------------------------- | ------------------------------------------------- |
+| `open`           | `boolean`                        | Whether the overlay is currently open             |
+| `onOpenChange`   | `(e: { open: boolean }) => void` | Fired when the overlay's open state changes       |
+| `onExitComplete` | `() => void`                     | Fired when the overlay's exit animation completes |
+
+### Methods
+
+| Method              | Description                                                            |
+| ------------------- | ---------------------------------------------------------------------- |
+| `Viewport`          | The component that renders all active overlays                         |
+| `open(id, props)`   | Opens an overlay. Returns a promise that resolves with the close value |
+| `close(id, value)`  | Closes the overlay with the given id, resolving `open` with `value`    |
+| `update(id, props)` | Updates the props of the overlay with the given id                     |
+| `remove(id)`        | Removes the overlay with the given id                                  |
+| `removeAll()`       | Removes all overlays                                                   |
+| `get(id)`           | Returns the props of the overlay with the given id                     |
+| `has(id)`           | Returns whether an overlay with the given id exists                    |
+| `getSnapshot()`     | Returns the current list of overlays                                   |
+| `waitForExit(id)`   | Resolves when the exit animation of the given overlay completes        |

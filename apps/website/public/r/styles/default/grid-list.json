@@ -41,10 +41,10 @@
         "suiGridList"
       ]
     },
-    "contentHash": "b90ccdcc10880c4ba7746370ef58ca8cdd326234912f8d4876fde38e65fec52b"
+    "contentHash": "22fb6948a0e1e369465381bb8e44954dc81b5cd58445b61ac2d1a55e3dfc3890"
   },
   "name": "grid-list",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.0"
+  "version": "3.0.0-rc.1"
 }

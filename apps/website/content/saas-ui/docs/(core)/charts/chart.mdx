@@ -1,0 +1,89 @@
+---
+title: Chart
+description: Theme-aware root, tooltip, legend and center overlay for TanStack charts.
+---
+
+`Chart` is the SVG host. Pass it the instance from `useChart` and a
+definition from `chart.define()`.
+
+<ExampleTabs name="chart-bar" />
+
+## Usage
+
+```tsx
+import { Chart, useChart } from '@saas-ui/charts'
+```
+
+```tsx
+<Chart.Root
+  chart={chart}
+  definition={definition}
+  height={240}
+  ariaLabel="Monthly revenue"
+>
+  <Chart.Legend />
+</Chart.Root>
+```
+
+`Chart.Root` applies the chart CSS variables, sets a landscape aspect ratio
+unless you pass `width` and `height`, and renders the default
+`Chart.Tooltip` unless you replace it with `renderTooltipBody`.
+
+Always pass `ariaLabel`. TanStack Charts uses it for the accessible name of
+the graphic.
+
+## Tooltip
+
+The default tooltip lists the focused points with a color swatch, series
+label and formatted value. Override it when you need custom formatting,
+totals or a different layout.
+
+<ExampleTabs name="chart-tooltip" />
+
+```tsx
+<Chart.Root
+  chart={chart}
+  definition={definition}
+  height={240}
+  ariaLabel="Monthly revenue"
+  renderTooltipBody={({ points }) => (
+    <Chart.Tooltip
+      points={points}
+      formatter={(value) => currency.format(Number(value))}
+    />
+  )}
+/>
+```
+
+`Chart.Tooltip` accepts `title`, `hideLabel`, `hideIndicator`,
+`hideSeriesLabel`, `showTotal`, `nameKey` and a `render` function for full
+control of each point.
+
+## Legend
+
+Render `Chart.Legend` as a child of `Chart.Root`. It reads `chart.series`
+and highlights a series on hover. Set `interaction="click"` to toggle the
+highlight instead.
+
+<ExampleTabs name="chart-line-multiple" />
+
+```tsx
+<Chart.Root
+  chart={chart}
+  definition={definition}
+  height={240}
+  ariaLabel="Sessions by device"
+>
+  <Chart.Legend />
+</Chart.Root>
+```
+
+Use `align`, `orientation` and `spacing` to change the layout. The legend
+only renders when at least one series has a `name`.
+
+## Center
+
+`Chart.Center` absolutely positions children over the chart. Use it for a
+total or KPI in the middle of a donut.
+
+<ExampleTabs name="chart-pie-with-center" />

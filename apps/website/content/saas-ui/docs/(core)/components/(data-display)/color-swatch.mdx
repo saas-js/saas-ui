@@ -1,0 +1,56 @@
+---
+title: Color Swatch
+description: Used to preview a color
+links:
+  recipe: color-swatch
+---
+
+<ExampleTabs name="color-swatch-basic" />
+
+## Anatomy
+
+```jsx
+import { ColorSwatch, ColorSwatchMix } from '@chakra-ui/react'
+```
+
+```jsx
+<ColorSwatch value="#bada55" />
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the color swatch.
+
+<ExampleTabs name="color-swatch-with-sizes" />
+
+### Alpha
+
+The `value` prop accepts any valid CSS color, including colors with an alpha
+channel.
+
+<ExampleTabs name="color-swatch-with-alpha" />
+
+### With Badge
+
+Here's an example of how to compose the `ColorSwatch` with a `Badge`.
+
+<ExampleTabs name="color-swatch-with-badge" />
+
+### Mixed Colors
+
+Use the `ColorSwatchMix` to create a color swatch that contains multiple colors,
+but retains the size of a single color swatch.
+
+<ExampleTabs name="color-swatch-mixed" />
+
+### Palette
+
+Here's an example of composing multiple swatches to create a palette.
+
+<ExampleTabs name="color-swatch-palette" />
+
+## Props
+
+<PropTable component="ColorSwatch" part="ColorSwatch" />

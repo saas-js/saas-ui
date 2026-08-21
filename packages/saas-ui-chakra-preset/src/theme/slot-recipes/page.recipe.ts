@@ -41,6 +41,14 @@ export const pageSlotRecipe = defineSlotRecipe({
       minW: 0,
     },
     headerFooter: {
+      /**
+       * The footer row is full bleed, so content like filter bars and toolbars
+       * can span the entire width of the header, including their borders.
+       * Column flex makes intrinsically sized content, eg a `Group`, stretch.
+       * Use `--page-header-padding-x` to align content with the header above.
+       */
+      display: 'flex',
+      flexDirection: 'column',
       width: 'full',
     },
     title: {
@@ -65,11 +73,12 @@ export const pageSlotRecipe = defineSlotRecipe({
         },
         header: {
           '--page-header-row-height': '40px',
+          '--page-header-padding-x': 'spacing.4',
           borderBottomWidth: '1px',
-          px: 4,
         },
         headerContent: {
           minH: 'var(--page-header-row-height)',
+          px: 'var(--page-header-padding-x)',
         },
         title: {
           me: 4,

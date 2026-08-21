@@ -10,12 +10,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { Button } from '#components/ui/button'
+import { createSjsMetadata } from '@/lib/saas-js/metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createSjsMetadata({
   title: 'AI-native SaaS starter kit for Next.js',
   description:
     'Next.js starter kit built for AI-assisted development. Auth, billing, dashboards, and strict types that keep your AI agents on track.',
-}
+  path: '/nextjs',
+})
 
 export default function Page() {
   return (

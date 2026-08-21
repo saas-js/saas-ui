@@ -1,0 +1,74 @@
+---
+title: Skip Nav
+description:
+  Allows keyboard and screen reader users to skip repeated content and jump
+  straight to the main content of the page.
+links:
+  recipe: skip-nav-link
+---
+
+<ExampleTabs name="skip-nav-basic" />
+
+## Anatomy
+
+```jsx
+import { SkipNavContent, SkipNavLink } from '@chakra-ui/react'
+```
+
+```jsx
+<SkipNavLink>Skip to content</SkipNavLink>
+<SkipNavContent />
+```
+
+## Usage
+
+Per
+[WCAG 2.4.1 (Bypass Blocks — Level A)](https://webaim.org/standards/wcag/checklist#sc2.4.1),
+a page that repeats the same navigation across pages should offer a way to
+bypass it. A screen reader user can jump between headings or landmarks, but a
+sighted keyboard user cannot — they have to tab through every navigation link
+before reaching the content.
+
+The key things to note:
+
+- `SkipNavLink` renders an `a` tag that is visually hidden until it receives
+  keyboard focus. Place it as high in the tree as possible, so it is the first
+  thing a user tabs to.
+- `SkipNavContent` renders a `div` that acts as the target. It can be
+  self-closing or wrap your main content.
+- Both components share a default `id`, so they link up without any
+  configuration.
+
+## Examples
+
+### Basic
+
+Render `SkipNavLink` before your navigation and `SkipNavContent` right before
+the main content. Tab into the example below to reveal the link.
+
+<ExampleTabs name="skip-nav-basic" />
+
+### Custom ID
+
+Pass a custom `id` to change the anchor. The value must be set on **both**
+components, otherwise the link has nothing to point at.
+
+<ExampleTabs name="skip-nav-custom-id" />
+
+### Wrapping the content
+
+`SkipNavContent` can wrap the main content area instead of being self-closing.
+This makes the whole region the focus target, which reads better in screen
+readers.
+
+<ExampleTabs name="skip-nav-with-content" />
+
+## Props
+
+### Link
+
+<PropTable component="SkipNavLink" part="SkipNavLink" />
+
+### Content
+
+<PropTable component="SkipNavContent" part="SkipNavContent" />

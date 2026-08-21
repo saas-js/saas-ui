@@ -1,11 +1,11 @@
-import { For, Radiomark, Stack } from "@chakra-ui/react"
+import { For, HStack, Radiomark } from '@chakra-ui/react'
 
 export const RadiomarkVariants = () => {
   return (
-    <Stack>
-      <For each={["outline", "subtle", "solid", "inverted"]}>
+    <HStack gap="4">
+      <For each={['solid', 'subtle', 'outline', 'inverted'] as const}>
         {(variant) => <Radiomark checked key={variant} variant={variant} />}
       </For>
-    </Stack>
+    </HStack>
   )
 }

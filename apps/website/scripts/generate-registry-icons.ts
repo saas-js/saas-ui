@@ -14,9 +14,11 @@ const websiteRoot = path.resolve(
   '..',
 )
 const entries = Object.entries(icons).map(([componentName, variants]) => ({
+  // Iconify separates a trailing digit ("Heading1" is published as "heading-1").
   sourceName: variants.lucide
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/([a-z])([A-Z0-9])/g, '$1-$2')
     .toLowerCase(),
+  // Registry item names come from the compiler's kebab-case, which does not.
   outputName: componentName
     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
     .toLowerCase(),
@@ -33,18 +35,29 @@ const [iconSet, iconData] = await Promise.all([
 ])
 await mkdir(outputDir, { recursive: true })
 
+// generateIconComponent embeds the raw Iconify SVG body, whose kebab-case
+// presentation attributes are invalid in JSX and make React log errors.
+const toJsxAttributes = (source: string) =>
+  source.replace(
+    /\b(?!data-|aria-)([a-z]+(?:-[a-z]+)+)=/g,
+    (_, attr: string) =>
+      `${attr.replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase())}=`,
+  )
+
 for (const { outputName, sourceName } of entries) {
   const icon = iconData.icons[sourceName]
   if (!icon) throw new Error(`Icon ${sourceName} was not returned by Iconify.`)
 
   await writeFile(
     path.join(outputDir, `${outputName}-icon.tsx`),
-    generateIconComponent(
-      outputName,
-      icon,
-      iconSet,
-      iconData.width,
-      iconData.height,
+    toJsxAttributes(
+      generateIconComponent(
+        outputName,
+        icon,
+        iconSet,
+        iconData.width,
+        iconData.height,
+      ),
     ),
   )
   console.log(`Updated ${outputName}-icon.tsx from lucide:${sourceName}.`)

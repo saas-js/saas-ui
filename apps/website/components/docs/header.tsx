@@ -1,22 +1,20 @@
 'use client';
-import { useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { ColorModeButton } from '@/components/docs/color-mode-button'
 import { MobileSearchButton, SearchButton } from '@/components/search-button'
 import { SocialLinks } from '@/components/social-links'
 import { useRoute } from '@/lib/use-route'
 import { websiteConfig } from '@/website.config'
-import { HoverCard } from '@ark-ui/react'
 import { SaasUIIcon } from '@saas-ui/assets'
 import { Box, HStack, Portal, Separator, Spacer, Span, VStack } from '@chakra-ui/react'
 import { Drawer } from '#components/ui/drawer'
 import { IconButton } from '#components/ui/icon-button'
-import { Menu } from '#components/ui/menu'
 import { chakra } from '@chakra-ui/react/styled-system'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { BsGithub } from 'react-icons/bs'
-import { LuChevronDown, LuMenu } from 'react-icons/lu'
+import { LuMenu } from 'react-icons/lu'
 
 import { LinkButton } from '../link-button'
 import { HeaderVersionMenu } from '../site/version-menu'
@@ -188,69 +186,42 @@ const HeaderDesktopNavbar = () => {
         </HStack>
 
         <HStack gap="4">
-          <HoverMenu
-            trigger={
-              <PrimaryNavLink
-                onClick={(e) => {
-                  e.preventDefault()
-                }}
-                href="/docs/getting-started/introduction"
-                aria-current={
-                  [
-                    '/docs/getting-started',
-                    '/docs/components',
-                    '/docs/theming',
-                    '/docs/styling',
-                  ].some((route) => path.startsWith(route))
-                    ? 'page'
-                    : undefined
-                }
-              >
-                Saas UI <LuChevronDown />
-              </PrimaryNavLink>
+          <PrimaryNavLink
+            href="/docs/getting-started/introduction"
+            aria-current={
+              path.startsWith('/docs/getting-started') ? 'page' : undefined
             }
           >
-            <Menu.Item value="getting-started" asChild>
-              <Link href="/docs/getting-started/introduction">
-                Getting started
-              </Link>
-            </Menu.Item>
-            <Menu.Item value="components" asChild>
-              <Link href="/docs/components/overview">Components</Link>
-            </Menu.Item>
-            <Menu.Item value="theming" asChild>
-              <Link href="/docs/theming/overview">Theming</Link>
-            </Menu.Item>
-            <Menu.Item value="styling" asChild>
-              <Link href="/docs/styling/overview">Styling</Link>
-            </Menu.Item>
-          </HoverMenu>
-
-          <HoverMenu
-            trigger={
-              <PrimaryNavLink
-                href="/docs/pro/getting-started/introduction"
-                onClick={(e) => {
-                  e.preventDefault()
-                }}
-                aria-current={path.startsWith('/docs/pro') ? 'page' : undefined}
-              >
-                Saas UI Pro <LuChevronDown />
-              </PrimaryNavLink>
+            Getting started
+          </PrimaryNavLink>
+          <PrimaryNavLink
+            href="/docs/components/overview"
+            aria-current={
+              path.startsWith('/docs/components') ? 'page' : undefined
             }
           >
-            <Menu.Item value="pro-components" asChild>
-              <Link href="/docs/pro/getting-started/introduction">
-                Getting started
-              </Link>
-            </Menu.Item>
-            <Menu.Item value="data-grid" asChild>
-              <Link href="/docs/pro/components/data-grid">Data grid</Link>
-            </Menu.Item>
-            <Menu.Item value="kanban" asChild>
-              <Link href="/docs/pro/components/kanban">Kanban</Link>
-            </Menu.Item>
-          </HoverMenu>
+            Components
+          </PrimaryNavLink>
+          <PrimaryNavLink
+            href="/docs/charts/overview"
+            aria-current={
+              path.startsWith('/docs/charts') ? 'page' : undefined
+            }
+          >
+            Charts
+          </PrimaryNavLink>
+          <PrimaryNavLink
+            href="/docs/theming/overview"
+            aria-current={
+              ['/docs/theming', '/docs/styling'].some((route) =>
+                path.startsWith(route),
+              )
+                ? 'page'
+                : undefined
+            }
+          >
+            Theming
+          </PrimaryNavLink>
         </HStack>
 
         <Spacer />
@@ -301,47 +272,3 @@ export const Header = () => {
   )
 }
 
-function HoverMenu({
-  trigger,
-  children,
-}: {
-  trigger: React.ReactNode
-  children: React.ReactNode
-}) {
-  const triggerId = useId()
-  const contentId = useId()
-
-  return (
-    <HoverCard.Root
-      ids={{ trigger: triggerId, content: contentId }}
-      openDelay={100}
-      closeDelay={100}
-    >
-      <HoverCard.Context>
-        {({ open }) => (
-          <Menu.Root
-            ids={{
-              trigger: triggerId,
-              content: contentId,
-            }}
-            composite
-            open={open}
-            closeOnSelect={false}
-          >
-            <HoverCard.Trigger asChild>
-              <Menu.Trigger asChild>
-                <div>{trigger}</div>
-              </Menu.Trigger>
-            </HoverCard.Trigger>
-
-            <HoverCard.Positioner>
-              <HoverCard.Content asChild id={contentId}>
-                <Menu.Content id={contentId}>{children}</Menu.Content>
-              </HoverCard.Content>
-            </HoverCard.Positioner>
-          </Menu.Root>
-        )}
-      </HoverCard.Context>
-    </HoverCard.Root>
-  )
-}

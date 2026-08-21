@@ -65,9 +65,38 @@ function RecipeProvider(
 interface SidebarRootProps
   extends HTMLChakraProps<'div'>, Sidebar.RootBaseProps {}
 
-const SidebarRoot = withContext<HTMLDivElement, SidebarRootProps>(
+const SidebarRootBase = withContext<HTMLDivElement, SidebarRootProps>(
   Sidebar.Root,
   'root',
+)
+
+const toSidebarWidth = (value: SidebarRootProps['width']) =>
+  typeof value === 'number' ? `sizes.${value}` : value
+
+/**
+ * The recipe sizes the sidebar and its open/close animation with the
+ * `--sidebar-width` variables, so the width props are mapped to those
+ * variables to keep them in sync.
+ */
+const SidebarRoot = React.forwardRef<HTMLDivElement, SidebarRootProps>(
+  function SidebarRoot(props, ref) {
+    const { width, minWidth, maxWidth, css, ...rest } = props
+
+    return (
+      <SidebarRootBase
+        ref={ref}
+        css={[
+          {
+            '--sidebar-width': toSidebarWidth(width),
+            '--sidebar-min-width': toSidebarWidth(minWidth ?? width),
+            '--sidebar-max-width': toSidebarWidth(maxWidth ?? width),
+          },
+          css,
+        ]}
+        {...rest}
+      />
+    )
+  },
 )
 
 interface SidebarTriggerProps extends HTMLChakraProps<'button'> {}

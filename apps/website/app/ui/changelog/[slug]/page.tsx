@@ -24,7 +24,7 @@ export const generateMetadata = async ({
     title: blog?.title,
     description: blog?.description,
     openGraph: {
-      images: `/og?title=${blog?.title}&category=${blog?.type}`,
+      images: `/og?site=sui&title=${blog?.title}&category=${blog?.type}`,
     },
   }
 }

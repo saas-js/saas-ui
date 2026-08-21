@@ -1,0 +1,145 @@
+---
+title: Sidebar
+description:
+  Collapsible side navigation, typically used as the primary navigation of
+  SaaS applications.
+links:
+  source: components/sidebar
+  storybook: components-sidebar--basic
+  recipe: sidebar
+---
+
+<ExampleTabs name="sidebar-basic" />
+
+## Anatomy
+
+```ts
+import { Sidebar } from '@/components/ui/sidebar'
+```
+
+```tsx
+<Sidebar.Provider>
+  <Sidebar.FlyoutTrigger />
+  <Sidebar.Root>
+    <Sidebar.Header></Sidebar.Header>
+    <Sidebar.Body>
+      <Sidebar.Group>
+        <Sidebar.GroupHeader>
+          <Sidebar.GroupTitle>Navigation</Sidebar.GroupTitle>
+        </Sidebar.GroupHeader>
+        <Sidebar.GroupContent>
+          <Sidebar.NavItem>
+            <Sidebar.NavButton>Home</Sidebar.NavButton>
+          </Sidebar.NavItem>
+        </Sidebar.GroupContent>
+      </Sidebar.Group>
+    </Sidebar.Body>
+    <Sidebar.Footer></Sidebar.Footer>
+  </Sidebar.Root>
+  <Sidebar.Backdrop />
+</Sidebar.Provider>
+```
+
+## Usage
+
+### App shell
+
+Combine the sidebar with the `AppShell` component to create a typical
+application layout. The sidebar collapses automatically on mobile and renders
+a backdrop overlay.
+
+<ExampleTabs name="app-shell-sidebar" padding="0" />
+
+### Inset variant
+
+Set `variant="inset"` on `Sidebar.Provider` and wrap your main content in
+`Sidebar.Inset` to render it as a raised panel on top of the sidebar
+background.
+
+<ExampleTabs name="sidebar-inset" padding="0" />
+
+### Grouped navigation
+
+Use `Sidebar.Group` with a `GroupTitle` to organize navigation into sections,
+for example workspace navigation and settings. Combine `Spacer` and `Badge`
+to show counts next to an item.
+
+<ExampleTabs name="sidebar-grouped" padding="0" />
+
+### Collapsible groups
+
+Wrap a group with the `Collapsible` component to let users collapse sections
+they use less often. Use `Sidebar.GroupEndElement` for contextual actions like
+creating a new project, shown on hover.
+
+<ExampleTabs name="sidebar-collapsible-group" padding="0" />
+
+### Nested navigation
+
+Nav items can be nested one level deep, for example to show pages inside a
+project. Wrap the parent `NavItem` with `Collapsible` and indent the nested
+`GroupContent`.
+
+<ExampleTabs name="sidebar-nested" padding="0" />
+
+### Hover actions
+
+Use `Sidebar.NavButtonEndElement` to add secondary actions to a nav item,
+like removing an item from favourites. Reveal them on hover with the
+`_parentHover` condition to keep the sidebar clean.
+
+<ExampleTabs name="sidebar-hover-actions" padding="0" />
+
+### User menu
+
+Use `Sidebar.Footer` for content that sticks to the bottom of the sidebar,
+like an account menu with profile and sign out actions.
+
+<ExampleTabs name="sidebar-user-menu" padding="0" />
+
+### Toggling the sidebar
+
+`Sidebar.Trigger` toggles the sidebar open and closed. Render one in the
+sidebar header to collapse it and one in your page header to re-open it. The
+`_open` condition can be used to hide the trigger while the sidebar is open.
+
+<ExampleTabs name="sidebar-toggle" padding="0" />
+
+### Flyout mode
+
+In `flyout` mode the sidebar stays hidden and flies out over your content
+when the cursor reaches the edge of the screen, similar to Notion or Linear.
+Render a `Sidebar.FlyoutTrigger` to activate it and a `Sidebar.Backdrop` to
+close it when the cursor leaves. Flyout mode is only available on desktop, on
+mobile the sidebar falls back to `collapsible` mode.
+
+<ExampleTabs name="sidebar-flyout" padding="0" />
+
+### Controlled
+
+Control the open state yourself with the `open` and `onOpenChange` props on
+`Sidebar.Provider`, for example to persist the state or toggle the sidebar
+from elsewhere in your app. Alternatively you can use the `useSidebar` hook
+inside the provider to access `open`, `setOpen` and `toggle`.
+
+<ExampleTabs name="sidebar-controlled" padding="0" />
+
+## Props
+
+### Provider
+
+| Prop           | Default         | Description                                                                        |
+| -------------- | --------------- | ---------------------------------------------------------------------------------- |
+| `mode`         | `'collapsible'` | `'collapsible' \| 'flyout'` — Flyout mode is only available on desktop.            |
+| `variant`      | `'sidebar'`     | `'sidebar' \| 'inset'` — Inset renders the main content as a raised panel.         |
+| `defaultOpen`  | `true`          | The initial visibility of the sidebar.                                             |
+| `open`         |                 | Controlled visibility of the sidebar.                                              |
+| `onOpenChange` |                 | Callback invoked when the visibility changes.                                      |
+| `onModeChange` |                 | Callback invoked when the mode changes.                                            |
+
+### NavItem
+
+| Prop     | Default | Description                                        |
+| -------- | ------- | -------------------------------------------------- |
+| `size`   | `'md'`  | `'sm' \| 'md' \| 'lg'` — The size of the nav item. |
+| `active` | `false` | Set on `NavButton` to mark the current page.       |

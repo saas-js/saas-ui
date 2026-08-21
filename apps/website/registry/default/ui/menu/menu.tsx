@@ -113,7 +113,7 @@ const MenuTriggerItem = forwardRef<HTMLDivElement, MenuTriggerItemProps>(
     return (
       <ChakraMenu.TriggerItem ref={ref} {...rest}>
         {startIcon}
-        {children}
+        <ChakraMenu.ItemText>{children}</ChakraMenu.ItemText>
         <ChevronRightIcon />
       </ChakraMenu.TriggerItem>
     )

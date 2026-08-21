@@ -5,8 +5,8 @@ export const themeConfig = {
   theme: {
     tokens: {
       fonts: {
-        heading: { value: 'var(--font-inter)' },
-        body: { value: 'var(--font-inter)' },
+        heading: { value: 'var(--font-heading, var(--font-inter))' },
+        body: { value: 'var(--font-body, var(--font-inter))' },
       },
     },
   },

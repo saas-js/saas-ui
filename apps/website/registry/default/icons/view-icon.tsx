@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 export interface ViewIconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
+  size?: number | string
 }
 
 /**
@@ -10,9 +10,9 @@ export interface ViewIconProps extends React.SVGProps<SVGSVGElement> {
  * @url https://icon-sets.iconify.design/lucide
  * @license ISC
  */
-export const ViewIcon: React.FC<ViewIconProps> = ({ 
-  size = "1em", 
-  ...props 
+export const ViewIcon: React.FC<ViewIconProps> = ({
+  size = '1em',
+  ...props
 }) => {
   return (
     <svg
@@ -23,7 +23,16 @@ export const ViewIcon: React.FC<ViewIconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></g>
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <path d="M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0" />
+        <circle cx="12" cy="12" r="3" />
+      </g>
     </svg>
-  );
-};
+  )
+}

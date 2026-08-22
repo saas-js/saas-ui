@@ -23,6 +23,14 @@ import {
 } from '#utils/migrations/react-to-registry-packages'
 
 const LEGACY_MODULE = '@saas-ui/react'
+const PRIMITIVE_SUBPATHS = new Set([
+  'error-boundary',
+  'grid-list',
+  'navbar',
+  'sidebar',
+  'steps',
+  'utils',
+])
 const CHAKRA_MODULE = '@chakra-ui/react'
 const CHAKRA_STYLED_SYSTEM_MODULE = '@chakra-ui/react/styled-system'
 const PRESET_MODULE = '@saas-ui/chakra-preset'
@@ -835,7 +843,7 @@ export function transformReactToRegistrySource(
       .replace(/^(\s*import\b[^\n]*);$/gm, '$1')
       .replace(/^(\s*}\s+from\s+['"][^'"]+['"]);$/gm, '$1')
   }
-  if (output.includes(LEGACY_MODULE)) {
+  if (sourceHasLegacyReference(output)) {
     diagnostics.push({
       code: 'unsupported-static-legacy-reference',
       severity: 'error',
@@ -1291,10 +1299,27 @@ function hash(value: string) {
   return createHash('sha256').update(value).digest('hex')
 }
 
+function isPrimitiveModule(specifier: string) {
+  if (!specifier.startsWith(`${LEGACY_MODULE}/`)) return false
+  return PRIMITIVE_SUBPATHS.has(specifier.slice(LEGACY_MODULE.length + 1))
+}
+
 function sourceHasLegacyReference(source: string) {
   // Conservative by design: type-reference directives and JSDoc import types
   // live in comments and are not represented as normal module AST nodes.
-  return source.includes(LEGACY_MODULE)
+  // Current primitive entry points such as @saas-ui/react/sidebar are kept.
+  if (/@saas-ui\/react(?!\/)/.test(source)) return true
+  for (const match of source.matchAll(/['"](@saas-ui\/react\/[^'"]+)['"]/g)) {
+    if (!isPrimitiveModule(match[1]!)) return true
+  }
+  return false
+}
+
+function sourceHasPrimitiveReference(source: string) {
+  for (const match of source.matchAll(/['"](@saas-ui\/react\/[^'"]+)['"]/g)) {
+    if (isPrimitiveModule(match[1]!)) return true
+  }
+  return false
 }
 
 function manifestHasNonDependencyLegacyReference(value: unknown): boolean {
@@ -1324,6 +1349,7 @@ async function collectRemainingLegacyReferences(
     plannedFiles.map((file) => [file.absolutePath, file.output]),
   )
   const references: string[] = []
+  const primitiveReferences: string[] = []
   for (const absolutePath of await collectInputFiles(
     cwd,
     ['.'],
@@ -1331,11 +1357,9 @@ async function collectRemainingLegacyReferences(
   )) {
     const source =
       planned.get(absolutePath) ?? (await fs.readFile(absolutePath, 'utf8'))
-    if (sourceHasLegacyReference(source)) {
-      references.push(
-        path.relative(cwd, absolutePath).replaceAll(path.sep, '/'),
-      )
-    }
+    const relative = path.relative(cwd, absolutePath).replaceAll(path.sep, '/')
+    if (sourceHasLegacyReference(source)) references.push(relative)
+    if (sourceHasPrimitiveReference(source)) primitiveReferences.push(relative)
   }
 
   const manifestPath = path.join(cwd, 'package.json')
@@ -1347,7 +1371,10 @@ async function collectRemainingLegacyReferences(
   } catch {
     // The package adapter reports a precise missing/invalid manifest error.
   }
-  return [...new Set(references)].sort()
+  return {
+    legacyReferences: [...new Set(references)].sort(),
+    primitiveReferences: [...new Set(primitiveReferences)].sort(),
+  }
 }
 
 function makeReport(
@@ -1547,12 +1574,13 @@ export async function migrateReactToRegistry(
   const packageAdapter = options.packageAdapter ?? fileMigrationPackageAdapter
   let packagePlan: MigrationPackagePlan | undefined
   try {
-    const legacyReferences = await collectRemainingLegacyReferences(cwd, files)
+    const remaining = await collectRemainingLegacyReferences(cwd, files)
     packagePlan = await packageAdapter.plan({
       cwd,
       requiredPackages,
       removeLegacyPackage: true,
-      legacyReferences,
+      legacyReferences: remaining.legacyReferences,
+      primitiveReferences: remaining.primitiveReferences,
     })
     for (const action of packagePlan.manualActions) {
       planningDiagnostics.push({

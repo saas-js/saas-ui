@@ -419,6 +419,35 @@ describe('react-to-registry project migration', () => {
     expect(manifest.dependencies).not.toHaveProperty('@saas-ui/react')
   })
 
+  it('keeps @saas-ui/react when installed templates still import primitives', async () => {
+    const cwd = await fixture({
+      'src/app.tsx': `import { Box } from '@saas-ui/react'\n`,
+      'src/sidebar.tsx': `import { Sidebar } from '@saas-ui/react/sidebar'\n`,
+    })
+    const report = await migrateReactToRegistry({ config, cwd, write: true })
+
+    expect(report.success).toBe(true)
+    expect(report.packageActions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          action: 'retain',
+          package: '@saas-ui/react',
+          status: 'unchanged',
+        }),
+      ]),
+    )
+    expect(await fs.readFile(path.join(cwd, 'src/app.tsx'), 'utf8')).toContain(
+      '@chakra-ui/react',
+    )
+    expect(
+      await fs.readFile(path.join(cwd, 'src/sidebar.tsx'), 'utf8'),
+    ).toContain('@saas-ui/react/sidebar')
+    const manifest = JSON.parse(
+      await fs.readFile(path.join(cwd, 'package.json'), 'utf8'),
+    )
+    expect(manifest.dependencies).toHaveProperty('@saas-ui/react')
+  })
+
   it('plans next-themes for provider and color-mode migration', async () => {
     const cwd = await fixture({
       'src/provider.tsx': `import { SuiProvider, useColorMode } from '@saas-ui/react'\n`,

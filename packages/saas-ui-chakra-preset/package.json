@@ -76,6 +76,7 @@
   "devDependencies": {
     "@chakra-ui/react": "^3.36.1",
     "@chakra-ui/cli": "^3.36.1",
+    "@types/node": "^24.0.4",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "react": "^19.2.0",

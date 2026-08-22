@@ -84,6 +84,7 @@ const installedRoots = [
   path.join(repositoryRoot, 'apps', 'website'),
   path.join(repositoryRoot, 'apps', 'compositions'),
   path.join(repositoryRoot, 'packages', 'saas-ui-cli'),
+  path.join(repositoryRoot, 'packages', 'saas-ui-registry'),
   path.join(repositoryRoot, 'packages', 'saas-ui-chakra-preset'),
 ]
 

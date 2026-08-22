@@ -96,7 +96,7 @@
     "@tanstack/react-form": "^1.33.2",
     "@types/fs-extra": "^11.0.4",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^22.13.13",
+    "@types/node": "^24.0.4",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
     "@types/three": "^0.180.0",

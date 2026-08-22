@@ -60,7 +60,7 @@ export const tagsInputRootSizes = stylex.create({
     lineHeight: lineHeights.sm,
   },
   lg: {
-    '--tags-input-height': sizes._11,
+    '--tags-input-height': sizes._10,
     '--tags-input-px': spacing._1_5,
     '--tags-input-py': spacing._1,
     '--tags-input-gap': spacing._1,
@@ -97,7 +97,7 @@ export const tagsInputControl = stylex.create({
     borderRadius: semanticRadii.l2,
     pos: 'relative',
     transitionProperty: 'border-color, box-shadow',
-    transitionDuration: durations.normal,
+    transitionDuration: durations.moderate,
     ':disabled': {
       opacity: 0.5,
     },

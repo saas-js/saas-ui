@@ -93,6 +93,7 @@ export const expectedInstallAllDependencies = [
   '@tanstack/react-table@9.0.0-beta.80',
   '@tanstack/react-virtual@^3.13.12',
   '@tiptap/react@^3.30.2',
+  '@tiptap/starter-kit@^3.30.2',
 ] as const
 
 const expectedInstallation = {

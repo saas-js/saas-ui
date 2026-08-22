@@ -1335,6 +1335,8 @@ function manifestHasNonDependencyLegacyReference(value: unknown): boolean {
         'devDependencies',
         'optionalDependencies',
         'peerDependencies',
+        'packageManager',
+        'pnpm',
       ].includes(key) &&
       (key.includes(LEGACY_MODULE) ||
         manifestHasNonDependencyLegacyReference(child)),

@@ -283,3 +283,21 @@ export const scaleOut = stylex.keyframes({
     scale: '0.95',
   },
 })
+
+export const marqueeX = stylex.keyframes({
+  from: {
+    transform: 'translateX(0%)',
+  },
+  to: {
+    transform: 'translateX(var(--marquee-translate))',
+  },
+})
+
+export const marqueeY = stylex.keyframes({
+  from: {
+    transform: 'translateY(0%)',
+  },
+  to: {
+    transform: 'translateY(var(--marquee-translate))',
+  },
+})

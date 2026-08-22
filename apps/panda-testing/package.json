@@ -21,7 +21,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@pandacss/dev": "^1.4.3",
-    "@types/node": "^20",
+    "@types/node": "^24.0.4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

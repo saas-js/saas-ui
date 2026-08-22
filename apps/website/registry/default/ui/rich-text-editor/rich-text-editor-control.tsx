@@ -10,6 +10,7 @@ import {
   createListCollection,
 } from '@chakra-ui/react'
 import type { Editor } from '@tiptap/react'
+import '@tiptap/starter-kit'
 
 import {
   AlignCenterIcon,

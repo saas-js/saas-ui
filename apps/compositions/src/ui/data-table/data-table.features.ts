@@ -75,6 +75,9 @@ export const dataTableFeatures = tableFeatures({
 export type DataTableFeatures = typeof dataTableFeatures
 
 declare module '@tanstack/react-table' {
+  // The type parameters have to match TanStack's own `ColumnMeta` declaration
+  // for the interface to merge, even though this augmentation doesn't use them.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface ColumnMeta<TFeatures, TData, TValue> {
     /**
      * Right-aligns the column's header and cells.

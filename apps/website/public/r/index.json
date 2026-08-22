@@ -2281,7 +2281,7 @@
         "client": true,
         "fileHashes": {
           "ui/menu/index.ts": "8cb05e036b6f00da84813ebbd5928e21ee538b5bfef6def7e1597eb599d609d0",
-          "ui/menu/menu.tsx": "0b13368d82dc49fc96679465770abcb99b9277b2ed128e33bdb78a6c3f6d71c7"
+          "ui/menu/menu.tsx": "c89d2a85df60cd46199cdc2cc54498e3a84cbc2c114309343a1bf6d3ebf0a7ed"
         },
         "iconDependencies": [
           "check-icon",
@@ -2291,7 +2291,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "2df668434b1e350ac3e2c529ecea30faba2e9665b664f1b7df308999e7d394dd"
+      "contentHash": "fbe1dfc837a864cc9261ad917c4f3452b35fd16d2bf6399b57242440bcebc8c0"
     },
     "name": "menu",
     "registryDependencies": [
@@ -3030,7 +3030,8 @@
     "category": "Forms",
     "dependencies": [
       "@chakra-ui/react",
-      "@tiptap/react@^3.30.2"
+      "@tiptap/react@^3.30.2",
+      "@tiptap/starter-kit@^3.30.2"
     ],
     "description": "Composable rich text editor built on Tiptap, with a toolbar of ready-made controls and factories for custom ones",
     "files": [
@@ -3062,7 +3063,7 @@
           "ui/rich-text-editor/index.ts": "b7074bcc819d2ea474aa897d69d667edc85fabc920c89ff393af1bf2a8ff9b88",
           "ui/rich-text-editor/namespace.ts": "45204028083fec2c4b8c15ea080d33107a2e177282e52d6670882affbeb5e6cb",
           "ui/rich-text-editor/rich-text-editor-context.tsx": "ad7ed6360c9a4b48b9ec9335e9cfa1432044bbfb825445af7550bb9a6dc0a770",
-          "ui/rich-text-editor/rich-text-editor-control.tsx": "dff148cae03f88bc2839505c2e7216df13dd7d4586f8994e1b28f1fd58ef2a75",
+          "ui/rich-text-editor/rich-text-editor-control.tsx": "f75de10e85c1227cac6494530e6157db11b0bced139840d7c274e9e42bf4618d",
           "ui/rich-text-editor/rich-text-editor.tsx": "6d3f881bd9283d9d55fa29f4b8e0f110cd2e0d2dd3dc139a8f8abb106238e9fa"
         },
         "iconDependencies": [
@@ -3093,7 +3094,7 @@
         "presetRecipeBindings": [],
         "recipeReferences": []
       },
-      "contentHash": "0f1f442308c07bd36e990875ba3ef6f4088791e232c79362fedec63d0c386cf5"
+      "contentHash": "409fad3ff5dd064c7e2db700763cfbcd152995283879b0efd4ba696ca03101d1"
     },
     "name": "rich-text-editor",
     "registryDependencies": [

@@ -98,7 +98,7 @@
     "@storybook/react-vite": "10.2.0",
     "@stylexjs/babel-plugin": "^0.16.2",
     "@stylexjs/stylex": "^0.16.2",
-    "@types/node": "^20.10.0",
+    "@types/node": "^24.0.4",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",

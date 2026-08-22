@@ -20,7 +20,11 @@ function packageDeclaration(value: string) {
     : { name: value.slice(0, separator), specifier: value.slice(separator + 1) }
 }
 
-const packedWorkspacePackages = ['@saas-ui/react', '@saas-ui/hooks'] as const
+const packedWorkspacePackages = [
+  '@saas-ui/appearance',
+  '@saas-ui/react',
+  '@saas-ui/hooks',
+] as const
 
 async function run(
   command: string,
@@ -78,6 +82,7 @@ async function singleTarball(directory: string, prefix: string) {
 const installedRoots = [
   repositoryRoot,
   path.join(repositoryRoot, 'apps', 'website'),
+  path.join(repositoryRoot, 'apps', 'compositions'),
   path.join(repositoryRoot, 'packages', 'saas-ui-cli'),
   path.join(repositoryRoot, 'packages', 'saas-ui-chakra-preset'),
 ]
@@ -182,10 +187,11 @@ async function main() {
         ),
       ),
     )
-    const [presetTarball, cliTarball, reactTarball, hooksTarball] =
+    const [presetTarball, cliTarball, appearanceTarball, reactTarball, hooksTarball] =
       await Promise.all([
         singleTarball(packagesDir, 'saas-ui-chakra-preset-'),
         singleTarball(packagesDir, 'saas-ui-cli-'),
+        singleTarball(packagesDir, 'saas-ui-appearance-'),
         singleTarball(packagesDir, 'saas-ui-react-'),
         singleTarball(packagesDir, 'saas-ui-hooks-'),
       ])
@@ -198,17 +204,20 @@ async function main() {
       packageManager?: string
       pnpm?: { overrides?: Record<string, string> }
     }
+    manifest.dependencies['@saas-ui/appearance'] = `file:${appearanceTarball}`
     manifest.dependencies['@saas-ui/chakra-preset'] = `file:${presetTarball}`
     manifest.dependencies['@saas-ui/react'] = `file:${reactTarball}`
     manifest.dependencies['@saas-ui/hooks'] = `file:${hooksTarball}`
     manifest.dependencies['next-themes'] = '^0.4.6'
     manifest.devDependencies['@saas-ui/cli'] = `file:${cliTarball}`
-    const extraRuntimeSpecifiers = new Set<string>()
+    const restoreSpecifiers = new Map<string, string>()
     for (const declaration of expectedInstallAllDependencies) {
       const parsed = packageDeclaration(declaration)
       if (parsed.name.startsWith('@saas-ui/')) continue
-      extraRuntimeSpecifiers.add(parsed.name)
       manifest.dependencies[parsed.name] = parsed.specifier ?? declaration
+    }
+    for (const [name, specifier] of Object.entries(manifest.dependencies)) {
+      if (!specifier.startsWith('file:')) restoreSpecifiers.set(name, specifier)
     }
     manifest.packageManager = 'pnpm@10.26.2'
     for (const dependencies of [
@@ -216,10 +225,7 @@ async function main() {
       manifest.devDependencies,
     ]) {
       for (const [name, specifier] of Object.entries(dependencies)) {
-        if (
-          !specifier.startsWith('file:') &&
-          !extraRuntimeSpecifiers.has(name)
-        ) {
+        if (!specifier.startsWith('file:')) {
           dependencies[name] = await installedVersion(name)
         }
       }
@@ -252,7 +258,13 @@ async function main() {
       )
     }
     manifest.pnpm = {
-      overrides,
+      overrides: {
+        ...overrides,
+        '@saas-ui/appearance': `file:${appearanceTarball}`,
+        '@saas-ui/chakra-preset': `file:${presetTarball}`,
+        '@saas-ui/hooks': `file:${hooksTarball}`,
+        '@saas-ui/react': `file:${reactTarball}`,
+      },
     }
     await fs.writeFile(
       manifestPath,
@@ -281,6 +293,9 @@ async function main() {
     const installedCli = await fs.realpath(
       path.join(projectDir, 'node_modules', '@saas-ui', 'cli'),
     )
+    const installedAppearance = await fs.realpath(
+      path.join(projectDir, 'node_modules', '@saas-ui', 'appearance'),
+    )
     const installedReact = await fs.realpath(
       path.join(projectDir, 'node_modules', '@saas-ui', 'react'),
     )
@@ -289,14 +304,19 @@ async function main() {
     )
     const canonicalRoot = await fs.realpath(root)
     assert(
-      [installedPreset, installedCli, installedReact, installedHooks].every(
-        (directory) => directory.startsWith(canonicalRoot + path.sep),
-      ),
+      [
+        installedPreset,
+        installedCli,
+        installedAppearance,
+        installedReact,
+        installedHooks,
+      ].every((directory) => directory.startsWith(canonicalRoot + path.sep)),
       'Packed consumer resolved a Saas UI package back to the workspace.',
     )
     const packedVersions = await Promise.all(
       [
         ['@saas-ui/chakra-preset', installedPreset],
+        ['@saas-ui/appearance', installedAppearance],
         ['@saas-ui/react', installedReact],
         ['@saas-ui/hooks', installedHooks],
       ] as const,
@@ -312,6 +332,14 @@ async function main() {
     )
     for (const [name, version] of packedVersions) {
       manifest.dependencies[name] = version
+    }
+    for (const [name, specifier] of restoreSpecifiers) {
+      manifest.dependencies[name] = specifier
+    }
+    if (manifest.pnpm?.overrides) {
+      for (const name of Object.keys(manifest.pnpm.overrides)) {
+        if (name.startsWith('@saas-ui/')) delete manifest.pnpm.overrides[name]
+      }
     }
     await fs.writeFile(
       manifestPath,
@@ -385,7 +413,6 @@ async function main() {
         'sidebar',
         '--cwd',
         projectDir,
-        '--force',
         '--silent',
       ],
       projectDir,
@@ -393,7 +420,7 @@ async function main() {
     )
     assert(
       (await fs.readFile(sidebarPath, 'utf8')) === installedSidebar,
-      'Packed CLI update --force did not restore registry content.',
+      'Packed CLI update did not restore registry content.',
     )
 
     const legacyPath = path.join(projectDir, 'src', 'legacy.tsx')

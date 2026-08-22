@@ -95,7 +95,7 @@
     "@tsconfig/node20": "^20.1.4",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash.template": "^4.5.3",
-    "@types/node": "^22.13.11",
+    "@types/node": "^24.0.4",
     "@types/prompts": "^2.4.9",
     "@types/stringify-object": "^4.0.5",
     "tsup": "^8.5.0",

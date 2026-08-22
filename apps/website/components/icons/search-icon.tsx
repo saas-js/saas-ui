@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 export interface SearchIconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
+  size?: number | string
 }
 
 /**
@@ -10,9 +10,9 @@ export interface SearchIconProps extends React.SVGProps<SVGSVGElement> {
  * @url https://icon-sets.iconify.design/lucide
  * @license ISC
  */
-export const SearchIcon: React.FC<SearchIconProps> = ({ 
-  size = "1em", 
-  ...props 
+export const SearchIcon: React.FC<SearchIconProps> = ({
+  size = '1em',
+  ...props
 }) => {
   return (
     <svg
@@ -23,7 +23,16 @@ export const SearchIcon: React.FC<SearchIconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m21 21l-4.34-4.34"/><circle cx="11" cy="11" r="8"/></g>
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <path d="m21 21l-4.34-4.34" />
+        <circle cx="11" cy="11" r="8" />
+      </g>
     </svg>
-  );
-};
+  )
+}

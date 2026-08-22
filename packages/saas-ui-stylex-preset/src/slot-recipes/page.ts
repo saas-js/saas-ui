@@ -41,8 +41,8 @@ export const pageHeader = stylex.create({
 export const pageHeaderVariants = stylex.create({
   panel: {
     '--page-header-row-height': '40px',
+    '--page-header-padding-x': spacing._4,
     borderBottomWidth: '1px',
-    paddingInline: spacing._4,
   },
   settings: {},
 })
@@ -60,6 +60,7 @@ export const pageHeaderContent = stylex.create({
 export const pageHeaderContentVariants = stylex.create({
   panel: {
     minHeight: 'var(--page-header-row-height)',
+    paddingInline: 'var(--page-header-padding-x)',
   },
   settings: {
     minHeight: sizes._24,
@@ -79,6 +80,8 @@ export const pageHeadingVariants = stylex.create({
 
 export const pageHeaderFooter = stylex.create({
   base: {
+    display: 'flex',
+    flexDirection: 'column',
     width: sizes.full,
   },
 })

@@ -96,9 +96,7 @@ describe('Theme', () => {
     )
     expect(theme.hasAttribute('appearance')).toBe(false)
     expect(theme.hasAttribute('scaleFactor')).toBe(false)
-    expect(transparent.style.getPropertyValue('--scale-factor')).toBe('1')
-    expect(transparent.style.getPropertyValue('--overlay-effect')).toBe(
-      'blur(10px)',
-    )
+    expect(transparent.style.getPropertyValue('--scale-factor')).toBe('')
+    expect(transparent.style.getPropertyValue('--overlay-effect')).toBe('')
   })
 })

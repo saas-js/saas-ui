@@ -16,6 +16,18 @@ const config: StorybookConfig = {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
+  async viteFinal(viteConfig) {
+    return {
+      ...viteConfig,
+      resolve: {
+        ...viteConfig.resolve,
+        conditions: [
+          'sui',
+          ...(viteConfig.resolve?.conditions ?? ['import', 'module', 'browser', 'default']),
+        ],
+      },
+    }
+  },
 }
 
 export default config

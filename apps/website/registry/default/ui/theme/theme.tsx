@@ -15,11 +15,11 @@ const cx = (...classNames: Array<string | undefined>) =>
   classNames.filter(Boolean).join(' ')
 
 type ThemeVariables = React.CSSProperties & {
-  '--scale-factor'?: number
+  '--scale-factor'?: string
   '--overlay-effect'?: string
-  '--radius-control-factor'?: number
-  '--radius-panel-factor'?: number
-  '--radius-indicator-factor'?: number
+  '--radius-control-factor'?: string
+  '--radius-panel-factor'?: string
+  '--radius-indicator-factor'?: string
   '--sui-base'?: string
   '--sui-accent'?: string
   '--sui-sidebar'?: string
@@ -54,23 +54,28 @@ export const Theme = React.forwardRef<HTMLDivElement, ThemeProps>(
       style,
       className,
       hasBackground = true,
-      scaleFactor = 1,
-      controlRadius = 1,
-      panelRadius = 1,
-      indicatorRadius = 1,
-      overlayEffect = 'blur(10px)',
+      scaleFactor,
+      controlRadius,
+      panelRadius,
+      indicatorRadius,
+      overlayEffect,
       seeds,
       ...rest
     } = props
 
     const { base, accent, sidebar } = seeds ?? {}
 
-    const variables: ThemeVariables = {
-      '--scale-factor': scaleFactor,
-      '--overlay-effect': overlayEffect,
-      '--radius-control-factor': controlRadius,
-      '--radius-panel-factor': panelRadius,
-      '--radius-indicator-factor': indicatorRadius,
+    const variables: ThemeVariables = {}
+    if (scaleFactor != null) variables['--scale-factor'] = String(scaleFactor)
+    if (overlayEffect != null) variables['--overlay-effect'] = overlayEffect
+    if (controlRadius != null) {
+      variables['--radius-control-factor'] = String(controlRadius)
+    }
+    if (panelRadius != null) {
+      variables['--radius-panel-factor'] = String(panelRadius)
+    }
+    if (indicatorRadius != null) {
+      variables['--radius-indicator-factor'] = String(indicatorRadius)
     }
 
     const sidebarSeed = sidebar === 'base' ? undefined : sidebar
@@ -113,8 +118,17 @@ export const Theme = React.forwardRef<HTMLDivElement, ThemeProps>(
           solidSidebar?.foreground === 'dark' ? 'dark' : undefined
         }
         data-sidebar-contrast={contrastAttribute(tonalSidebar?.contrast)}
-        className={cx('chakra-theme', 'sui-theme', appearance, className)}
-        style={{ ...style, colorScheme: appearance, ...variables }}
+        className={cx(
+          'chakra-theme',
+          seeds ? 'sui-theme' : undefined,
+          appearance,
+          className,
+        )}
+        style={{
+          ...style,
+          ...(appearance ? { colorScheme: appearance } : {}),
+          ...variables,
+        }}
         ref={ref}
       />
     )

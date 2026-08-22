@@ -31,16 +31,15 @@ import { remarkCard } from './lib/remark-card'
 import { remarkCodeTitle } from './lib/remark-code-title'
 import { remarkCodeGroup } from './lib/remark-codegroup'
 import { remarkSteps } from './lib/remark-steps'
-import { indigoDarkTheme } from './lib/shiki-theme-indigo-dark'
-import { indigoLightTheme } from './lib/shiki-theme-indigo-light'
+import { suiDarkTheme, suiLightTheme } from './lib/shiki-theme'
 
 const highlighter = await getSingletonHighlighter({
   themes: [],
   langs: Object.keys(bundledLanguages),
 })
 
-await highlighter.loadTheme(indigoLightTheme)
-await highlighter.loadTheme(indigoDarkTheme)
+await highlighter.loadTheme(suiLightTheme)
+await highlighter.loadTheme(suiDarkTheme)
 
 const cwd = process.cwd()
 
@@ -71,8 +70,8 @@ const mdxConfig = {
           transformerMetaWordHighlight(),
         ],
         themes: {
-          light: 'indigo-light',
-          dark: 'indigo-dark',
+          light: 'sui-light',
+          dark: 'sui-dark',
         },
       },
     ],

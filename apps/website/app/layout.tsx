@@ -2,8 +2,18 @@ import { websiteConfig } from '@/website.config'
 import type { Metadata } from 'next'
 import { Figtree, Inter, Outfit, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
-import { headers } from 'next/headers'
+import { cookies, headers } from 'next/headers'
 import Script from 'next/script'
+import type { CSSProperties } from 'react'
+
+import { googleFontHref, selectedFontOptions } from '#components/theme/fonts'
+import {
+  THEME_COOKIE,
+  THEME_INIT_SCRIPT,
+  parseThemeCookie,
+  themeStateToCssVars,
+  themeStateToHtmlAttributes,
+} from '#components/theme/theme-state'
 
 import { Provider } from './provider'
 import './scrollbar.css'
@@ -75,11 +85,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const head = await headers()
+  const [head, cookieStore] = await Promise.all([headers(), cookies()])
 
   const host = head.get('host')
 
   const site = host?.includes('saas-ui') ? 'sui' : 'sjs'
+  const theme = parseThemeCookie(cookieStore.get(THEME_COOKIE)?.value)
+  const themeFonts = theme
+    ? selectedFontOptions({
+        heading: theme.headingFont,
+        body: theme.bodyFont,
+      })
+    : []
 
   const pirschCode =
     site === 'sui'
@@ -89,11 +106,27 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${figTree.variable} ${roboto.variable} ${outfit.variable} ${guton.variable}`}
+      className={`sui-theme ${inter.variable} ${figTree.variable} ${roboto.variable} ${outfit.variable} ${guton.variable}`}
+      style={
+        theme ? (themeStateToCssVars(theme) as CSSProperties) : undefined
+      }
+      {...(theme ? themeStateToHtmlAttributes(theme) : {})}
       suppressHydrationWarning
     >
+      <head>
+        {themeFonts.map((font) => (
+          <link key={font.id} rel="stylesheet" href={googleFontHref(font)} />
+        ))}
+      </head>
       <body>
-        <Provider site={site}>{children}</Provider>
+        <Script
+          id="sui-theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        />
+        <Provider site={site} theme={theme}>
+          {children}
+        </Provider>
 
         <Script
           id="productlane-script"

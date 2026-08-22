@@ -1,14 +1,12 @@
+'use client'
+
 import * as React from 'react'
 
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { createJSONStorage, persist } from 'zustand/middleware'
 
 import { useColorMode } from '#components/setup/color-mode/color-mode'
-import {
-  type AppearanceSeeds,
-  Theme,
-  type ThemeProps,
-} from '#components/ui/theme'
+import { type AppearanceSeeds, Theme } from '#components/ui/theme'
 
 import {
   type AccentAppearance,
@@ -19,45 +17,19 @@ import {
   type SidebarAppearance,
   accentFromPalette,
   appearancePresets,
-  applyAppearance,
   createRandomAppearance,
-  defaultAppearance,
 } from './appearance'
-import { applyFonts, createRandomFonts } from './fonts'
-
-type ThemeStoreProps = Required<
-  Pick<
-    ThemeProps,
-    | 'scaleFactor'
-    | 'overlayEffect'
-    | 'controlRadius'
-    | 'panelRadius'
-    | 'indicatorRadius'
-  >
-> &
-  Appearance & {
-    /** Active preset id, cleared when the appearance is tweaked manually. */
-    preset: string | null
-    /** Named palette that seeded the accent, for swatch highlighting. */
-    accentPalette: AccentPalette | null
-    /** Selected heading font id, null for the site default. */
-    headingFont: string | null
-    /** Selected body font id, null for the site default. */
-    bodyFont: string | null
-  }
-
-const defaultValue: ThemeStoreProps = {
-  scaleFactor: 1,
-  overlayEffect: 'blur(10px)',
-  controlRadius: 1,
-  panelRadius: 1,
-  indicatorRadius: 1,
-  ...defaultAppearance,
-  preset: 'default',
-  accentPalette: 'indigo',
-  headingFont: null,
-  bodyFont: null,
-}
+import { createRandomFonts } from './fonts'
+import {
+  THEME_STORAGE_KEY,
+  type ThemeState,
+  applyThemeState,
+  clearThemeCookie,
+  defaultThemeState,
+  pickThemeState,
+  syncThemeCookieFromPersistValue,
+  writeThemeCookie,
+} from './theme-state'
 
 const scaleFactors = [0.9, 0.95, 1, 1.05, 1.1] as const
 const controlRadii = [0, 0.75, 1, 1.5, 9999] as const
@@ -68,7 +40,7 @@ function randomValue<T>(values: readonly T[]) {
   return values[Math.floor(Math.random() * values.length)]!
 }
 
-interface ThemeStore extends ThemeStoreProps {
+interface ThemeStore extends ThemeState {
   setScaleFactor: (scaleFactor: number) => void
   setOverlayEffect: (overlayEffect: string) => void
   setControlRadius: (controlRadius: number) => void
@@ -85,10 +57,25 @@ interface ThemeStore extends ThemeStoreProps {
   reset: () => void
 }
 
+const themeStorage = createJSONStorage(() => ({
+  getItem: (name) => {
+    if (typeof window === 'undefined') return null
+    return localStorage.getItem(name)
+  },
+  setItem: (name, value) => {
+    localStorage.setItem(name, value)
+    syncThemeCookieFromPersistValue(value)
+  },
+  removeItem: (name) => {
+    localStorage.removeItem(name)
+    clearThemeCookie()
+  },
+}))
+
 const useStore = create<ThemeStore>()(
   persist(
     (set) => ({
-      ...defaultValue,
+      ...defaultThemeState,
       setScaleFactor: (scaleFactor) => set({ scaleFactor }),
       setOverlayEffect: (overlayEffect) => set({ overlayEffect }),
       setControlRadius: (controlRadius) => set({ controlRadius }),
@@ -125,17 +112,16 @@ const useStore = create<ThemeStore>()(
           accentPalette: null,
         })
       },
-      reset: () => set(defaultValue),
+      reset: () => set(defaultThemeState),
     }),
     {
-      name: 'sui-theme',
+      name: THEME_STORAGE_KEY,
       version: 1,
-      partialize: (state) =>
-        Object.fromEntries(
-          Object.entries(state).filter(
-            ([, value]) => typeof value !== 'function',
-          ),
-        ),
+      storage: themeStorage,
+      partialize: (state) => pickThemeState(state),
+      onRehydrateStorage: () => (state) => {
+        if (state) writeThemeCookie(pickThemeState(state))
+      },
     },
   ),
 )
@@ -163,70 +149,131 @@ function toSeeds(appearance: Appearance): AppearanceSeeds {
   }
 }
 
+function usePersistedThemeHydrated() {
+  const [hydrated, setHydrated] = React.useState(false)
+
+  React.useEffect(() => {
+    const finish = () => setHydrated(true)
+    const unsubscribe = useStore.persist.onFinishHydration(finish)
+    if (useStore.persist.hasHydrated()) finish()
+    return unsubscribe
+  }, [])
+
+  return hydrated
+}
+
+const ServerThemeContext = React.createContext<ThemeState | null>(null)
+
+/**
+ * Seeds the client store from the cookie the server already rendered, so the
+ * first React tree matches SSR. Must not run on the server — the zustand
+ * store is a module singleton and would leak across requests.
+ *
+ * The cookie value is also provided as context so landing `Theme` can paint
+ * the same inline vars the server rendered. A nested `.sui-theme` otherwise
+ * reapplies the preset defaults and ignores `<html>` cookie styles.
+ */
+export function ThemeStoreHydrator({
+  initial,
+  children,
+}: {
+  initial?: ThemeState | null
+  children: React.ReactNode
+}) {
+  React.useEffect(() => {
+    if (initial) useStore.setState(initial)
+  }, [initial])
+
+  return (
+    <ServerThemeContext.Provider value={initial ?? null}>
+      {children}
+    </ServerThemeContext.Provider>
+  )
+}
+
 /**
  * Applies the selected appearance seeds to the root element so the whole
  * site, including portalled overlays and docs examples, picks them up.
  * Mounted once in the root provider.
+ *
+ * Waits for persist rehydration so a default store does not overwrite the
+ * cookie/script values already painted on `documentElement`.
  */
 export const GlobalAppearance = () => {
+  const hydrated = usePersistedThemeHydrated()
   const {
     base,
     accent,
     sidebar,
-    scaleFactor,
-    controlRadius,
-    panelRadius,
-    indicatorRadius,
-    headingFont,
-    bodyFont,
-  } = useStore()
-
-  React.useEffect(() => {
-    applyAppearance(document.documentElement, { base, accent, sidebar })
-  }, [base, accent, sidebar])
-
-  React.useEffect(() => {
-    applyFonts(document.documentElement, {
-      heading: headingFont,
-      body: bodyFont,
-    })
-  }, [headingFont, bodyFont])
-
-  React.useEffect(() => {
-    const style = document.documentElement.style
-    style.setProperty('--scale-factor', String(scaleFactor))
-    style.setProperty('--radius-control', String(controlRadius))
-    style.setProperty('--radius-panel', String(panelRadius))
-    style.setProperty('--radius-indicator', String(indicatorRadius))
-  }, [scaleFactor, controlRadius, panelRadius, indicatorRadius])
-
-  return null
-}
-
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const {
     scaleFactor,
     overlayEffect,
     controlRadius,
     panelRadius,
     indicatorRadius,
+    headingFont,
+    bodyFont,
+    preset,
+    accentPalette,
+  } = useStore()
+
+  React.useEffect(() => {
+    if (!hydrated) return
+    applyThemeState(document.documentElement, {
+      base,
+      accent,
+      sidebar,
+      scaleFactor,
+      overlayEffect,
+      controlRadius,
+      panelRadius,
+      indicatorRadius,
+      headingFont,
+      bodyFont,
+      preset,
+      accentPalette,
+    })
+  }, [
+    hydrated,
     base,
     accent,
     sidebar,
-  } = useStore()
+    scaleFactor,
+    overlayEffect,
+    controlRadius,
+    panelRadius,
+    indicatorRadius,
+    headingFont,
+    bodyFont,
+    preset,
+    accentPalette,
+  ])
 
+  return null
+}
+
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  const serverTheme = React.useContext(ServerThemeContext)
+  const hydrated = usePersistedThemeHydrated()
+  const store = useStore()
   const { colorMode } = useColorMode()
+
+  const theme = hydrated ? store : serverTheme
 
   return (
     <Theme
-      appearance={colorMode}
+      appearance={hydrated ? colorMode : undefined}
       colorPalette="accent"
-      scaleFactor={scaleFactor}
-      overlayEffect={overlayEffect}
-      controlRadius={controlRadius}
-      panelRadius={panelRadius}
-      indicatorRadius={indicatorRadius}
-      seeds={toSeeds({ base, accent, sidebar })}
+      hasBackground={false}
+      {...(theme
+        ? {
+            scaleFactor: theme.scaleFactor,
+            overlayEffect: theme.overlayEffect,
+            controlRadius: theme.controlRadius,
+            panelRadius: theme.panelRadius,
+            indicatorRadius: theme.indicatorRadius,
+            seeds: toSeeds(theme),
+          }
+        : {})}
     >
       {children}
     </Theme>

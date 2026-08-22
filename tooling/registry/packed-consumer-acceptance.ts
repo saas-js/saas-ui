@@ -4,7 +4,23 @@ import os from 'node:os'
 import path from 'node:path'
 
 import { startLocalRegistryServer } from '../../packages/saas-ui-cli/scripts/run-local-registry'
+import { expectedInstallAllDependencies } from '../../packages/saas-ui-cli/test/consumer/fixture'
 import { repositoryRoot } from './public-registry'
+
+function packageDeclaration(value: string) {
+  const scopeSeparator = value.indexOf('/')
+  const separator =
+    value.startsWith('@') && scopeSeparator !== -1
+      ? value.indexOf('@', scopeSeparator + 1)
+      : value.startsWith('@')
+        ? -1
+        : value.indexOf('@')
+  return separator === -1
+    ? { name: value }
+    : { name: value.slice(0, separator), specifier: value.slice(separator + 1) }
+}
+
+const packedWorkspacePackages = ['@saas-ui/react', '@saas-ui/hooks'] as const
 
 async function run(
   command: string,
@@ -153,28 +169,26 @@ async function main() {
 
   try {
     await fs.mkdir(packagesDir, { recursive: true })
-    await Promise.all([
-      run(
-        'pnpm',
-        [
-          '--filter',
-          '@saas-ui/chakra-preset',
-          'pack',
-          '--pack-destination',
-          packagesDir,
-        ],
-        repositoryRoot,
+    await Promise.all(
+      [
+        '@saas-ui/chakra-preset',
+        '@saas-ui/cli',
+        ...packedWorkspacePackages,
+      ].map((name) =>
+        run(
+          'pnpm',
+          ['--filter', name, 'pack', '--pack-destination', packagesDir],
+          repositoryRoot,
+        ),
       ),
-      run(
-        'pnpm',
-        ['--filter', '@saas-ui/cli', 'pack', '--pack-destination', packagesDir],
-        repositoryRoot,
-      ),
-    ])
-    const [presetTarball, cliTarball] = await Promise.all([
-      singleTarball(packagesDir, 'saas-ui-chakra-preset-'),
-      singleTarball(packagesDir, 'saas-ui-cli-'),
-    ])
+    )
+    const [presetTarball, cliTarball, reactTarball, hooksTarball] =
+      await Promise.all([
+        singleTarball(packagesDir, 'saas-ui-chakra-preset-'),
+        singleTarball(packagesDir, 'saas-ui-cli-'),
+        singleTarball(packagesDir, 'saas-ui-react-'),
+        singleTarball(packagesDir, 'saas-ui-hooks-'),
+      ])
 
     await fs.cp(fixtureTemplate, projectDir, { recursive: true })
     const manifestPath = path.join(projectDir, 'package.json')
@@ -185,15 +199,27 @@ async function main() {
       pnpm?: { overrides?: Record<string, string> }
     }
     manifest.dependencies['@saas-ui/chakra-preset'] = `file:${presetTarball}`
+    manifest.dependencies['@saas-ui/react'] = `file:${reactTarball}`
+    manifest.dependencies['@saas-ui/hooks'] = `file:${hooksTarball}`
     manifest.dependencies['next-themes'] = '^0.4.6'
     manifest.devDependencies['@saas-ui/cli'] = `file:${cliTarball}`
+    const extraRuntimeSpecifiers = new Set<string>()
+    for (const declaration of expectedInstallAllDependencies) {
+      const parsed = packageDeclaration(declaration)
+      if (parsed.name.startsWith('@saas-ui/')) continue
+      extraRuntimeSpecifiers.add(parsed.name)
+      manifest.dependencies[parsed.name] = parsed.specifier ?? declaration
+    }
     manifest.packageManager = 'pnpm@10.26.2'
     for (const dependencies of [
       manifest.dependencies,
       manifest.devDependencies,
     ]) {
       for (const [name, specifier] of Object.entries(dependencies)) {
-        if (!specifier.startsWith('file:')) {
+        if (
+          !specifier.startsWith('file:') &&
+          !extraRuntimeSpecifiers.has(name)
+        ) {
           dependencies[name] = await installedVersion(name)
         }
       }
@@ -255,17 +281,38 @@ async function main() {
     const installedCli = await fs.realpath(
       path.join(projectDir, 'node_modules', '@saas-ui', 'cli'),
     )
+    const installedReact = await fs.realpath(
+      path.join(projectDir, 'node_modules', '@saas-ui', 'react'),
+    )
+    const installedHooks = await fs.realpath(
+      path.join(projectDir, 'node_modules', '@saas-ui', 'hooks'),
+    )
     const canonicalRoot = await fs.realpath(root)
     assert(
-      installedPreset.startsWith(canonicalRoot + path.sep) &&
-        installedCli.startsWith(canonicalRoot + path.sep),
+      [installedPreset, installedCli, installedReact, installedHooks].every(
+        (directory) => directory.startsWith(canonicalRoot + path.sep),
+      ),
       'Packed consumer resolved a Saas UI package back to the workspace.',
     )
-    const installedPresetManifest = JSON.parse(
-      await fs.readFile(path.join(installedPreset, 'package.json'), 'utf8'),
-    ) as { version: string }
-    manifest.dependencies['@saas-ui/chakra-preset'] =
-      installedPresetManifest.version
+    const packedVersions = await Promise.all(
+      [
+        ['@saas-ui/chakra-preset', installedPreset],
+        ['@saas-ui/react', installedReact],
+        ['@saas-ui/hooks', installedHooks],
+      ] as const,
+    ).then((entries) =>
+      Promise.all(
+        entries.map(async ([name, directory]) => {
+          const packedManifest = JSON.parse(
+            await fs.readFile(path.join(directory, 'package.json'), 'utf8'),
+          ) as { version: string }
+          return [name, packedManifest.version] as const
+        }),
+      ),
+    )
+    for (const [name, version] of packedVersions) {
+      manifest.dependencies[name] = version
+    }
     await fs.writeFile(
       manifestPath,
       `${JSON.stringify(manifest, null, 2)}\n`,

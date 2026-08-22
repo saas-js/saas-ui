@@ -73,7 +73,7 @@
     "registry:consumer:install-all:acceptance": "pnpm registry:generate && pnpm registry:consumer:install-all:acceptance:prepared",
     "registry:consumer:install-all:acceptance:prepared": "pnpm --filter @saas-ui/cli test:consumer:install-all:acceptance:prepared",
     "registry:consumer:packed:acceptance": "pnpm registry:generate && pnpm registry:consumer:packed:acceptance:prepared",
-    "registry:consumer:packed:acceptance:prepared": "pnpm --filter @saas-ui/chakra-preset build && pnpm --filter @saas-ui/cli build && tsx --conditions=sui tooling/registry/packed-consumer-acceptance.ts",
+    "registry:consumer:packed:acceptance:prepared": "pnpm --filter @saas-ui/chakra-preset --filter @saas-ui/react --filter @saas-ui/hooks --filter @saas-ui/cli build && tsx --conditions=sui tooling/registry/packed-consumer-acceptance.ts",
     "registry:cli:local": "pnpm registry:generate && pnpm registry:cli:local:prepared",
     "registry:cli:local:prepared": "tsx --conditions=sui packages/saas-ui-cli/scripts/run-local-registry.ts",
     "test:e2e": "pnpx playwright test",

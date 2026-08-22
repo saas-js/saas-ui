@@ -85,7 +85,7 @@ const expectedDependencies = {
   off: [[expectedPrimitiveDeclaration]],
 } as const satisfies Record<ColorModeVariant, readonly (readonly string[])[]>
 
-const expectedInstallAllDependencies = [
+export const expectedInstallAllDependencies = [
   '@saas-js/conditions@^0.1.0',
   '@saas-js/conditions-react@^0.1.0',
   '@saas-ui/hooks',

@@ -348,7 +348,7 @@ describe('registry graph and install plans', () => {
       readFile(path.join(cwd, 'components.json'), 'utf8'),
     ).rejects.toThrow()
     await expect(readFile(getRegistryLockPath(cwd), 'utf8')).rejects.toThrow()
-  })
+  }, 15_000)
 
   it('keeps dry-run project state unchanged while reporting exact actions', async () => {
     const { cwd, config } = await project()

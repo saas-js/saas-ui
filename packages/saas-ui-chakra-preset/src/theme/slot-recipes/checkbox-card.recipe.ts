@@ -13,7 +13,7 @@ export const checkboxCardSlotRecipe = defineSlotRecipe({
       flexDirection: 'column',
       userSelect: 'none',
       position: 'relative',
-      borderRadius: 'panel.md',
+      borderRadius: 'panel',
       flex: '1',
       focusVisibleRing: 'outside',
       _disabled: {
@@ -29,7 +29,7 @@ export const checkboxCardSlotRecipe = defineSlotRecipe({
       display: 'inline-flex',
       flex: '1',
       position: 'relative',
-      borderRadius: 'panel.md',
+      borderRadius: 'panel',
       justifyContent: 'var(--checkbox-card-justify)',
       alignItems: 'var(--checkbox-card-align)',
     },

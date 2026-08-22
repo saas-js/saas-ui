@@ -1,3 +1,11 @@
 {
-  "pages": ["overview", "tokens", "semantic-tokens", "recipes", "slot-recipes"]
+  "pages": [
+    "overview",
+    "appearance",
+    "color-system",
+    "semantic-tokens",
+    "theme",
+    "utilities",
+    "recipes"
+  ]
 }

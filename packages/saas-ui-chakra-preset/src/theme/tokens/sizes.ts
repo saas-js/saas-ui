@@ -63,9 +63,20 @@ const fractionalSizes = defineTokens.sizes({
   '11/12': { value: '91.666667%' },
 })
 
+const controlSizes = defineTokens.sizes({
+  control: {
+    xs: { value: '{sizes.6}' },
+    sm: { value: '{sizes.7}' },
+    md: { value: '{sizes.8}' },
+    lg: { value: '{sizes.10}' },
+    xl: { value: '{sizes.12}' },
+  },
+})
+
 export const sizes = defineTokens.sizes({
   ...largeSizes,
   ...spacing,
   ...fractionalSizes,
   ...namedSizes,
+  ...controlSizes,
 })

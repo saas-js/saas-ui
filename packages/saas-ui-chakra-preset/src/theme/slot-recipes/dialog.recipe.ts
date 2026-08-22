@@ -1,6 +1,8 @@
 import { dialogAnatomy } from '@chakra-ui/react/anatomy'
 import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
+import { concentricRadius } from '../utils.ts'
+
 export const dialogSlotRecipe = defineSlotRecipe({
   slots: dialogAnatomy.keys(),
   className: 'chakra-dialog',
@@ -44,6 +46,12 @@ export const dialogSlotRecipe = defineSlotRecipe({
       my: 'var(--dialog-margin, var(--dialog-base-margin))',
       zIndex: 'calc(var(--dialog-z-index) + var(--layer-index, 0))',
       layerStyle: 'overlay',
+      '--dialog-padding': 'spacing.6',
+      '--dialog-radius': 'radii.panel',
+      '--dialog-concentric-radius': concentricRadius(
+        '--dialog-radius',
+        '--dialog-padding',
+      ),
       _open: {
         animationDuration: 'moderate',
       },
@@ -202,6 +210,7 @@ export const dialogSlotRecipe = defineSlotRecipe({
           maxW: '100vw',
           minH: '100vh',
           '--dialog-margin': '0',
+          '--dialog-radius': '0px',
           borderRadius: '0',
         },
       },

@@ -1,6 +1,8 @@
 import { popoverAnatomy } from '@chakra-ui/react/anatomy'
 import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
+import { concentricRadius } from '../utils.ts'
+
 export const popoverSlotRecipe = defineSlotRecipe({
   className: 'chakra-popover',
   slots: popoverAnatomy.keys(),
@@ -22,6 +24,11 @@ export const popoverSlotRecipe = defineSlotRecipe({
       '--popover-z-index': 'zIndex.layer-2',
       zIndex: 'calc(var(--popover-z-index) + var(--layer-index, 0))',
       outline: '0',
+      '--popover-radius': 'radii.panel',
+      '--popover-concentric-radius': concentricRadius(
+        '--popover-radius',
+        '--popover-padding',
+      ),
       transformOrigin: 'var(--transform-origin)',
       _open: {
         animationStyle: 'scale-fade-in',

@@ -1,6 +1,8 @@
 import { hoverCardAnatomy } from '@chakra-ui/react/anatomy'
 import { defineSlotRecipe } from '@chakra-ui/react/styled-system'
 
+import { concentricRadius } from '../utils.ts'
+
 export const hoverCardSlotRecipe = defineSlotRecipe({
   className: 'chakra-hover-card',
   slots: hoverCardAnatomy.keys(),
@@ -18,6 +20,11 @@ export const hoverCardSlotRecipe = defineSlotRecipe({
       zIndex: 'calc(var(--hover-card-z-index) + var(--layer-index, 0))',
       transformOrigin: 'var(--transform-origin)',
       outline: '0',
+      '--hover-card-radius': 'radii.panel',
+      '--hover-card-concentric-radius': concentricRadius(
+        '--hover-card-radius',
+        '--hover-card-padding',
+      ),
       _open: {
         animationStyle: 'slide-fade-in',
         animationDuration: 'fast',
@@ -41,26 +48,26 @@ export const hoverCardSlotRecipe = defineSlotRecipe({
     size: {
       xs: {
         content: {
-          padding: '3',
-          borderRadius: 'panel.sm',
+          '--hover-card-padding': 'spacing.3',
+          padding: 'var(--hover-card-padding)',
         },
       },
       sm: {
         content: {
-          padding: '4',
-          borderRadius: 'panel.md',
+          '--hover-card-padding': 'spacing.4',
+          padding: 'var(--hover-card-padding)',
         },
       },
       md: {
         content: {
-          padding: '5',
-          borderRadius: 'panel.md',
+          '--hover-card-padding': 'spacing.5',
+          padding: 'var(--hover-card-padding)',
         },
       },
       lg: {
         content: {
-          padding: '6',
-          borderRadius: 'panel.lg',
+          '--hover-card-padding': 'spacing.6',
+          padding: 'var(--hover-card-padding)',
         },
       },
     },

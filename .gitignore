@@ -10,6 +10,7 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.pnpm-store
 
 # testing
 coverage

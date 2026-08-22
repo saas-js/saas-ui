@@ -2,10 +2,7 @@
 
 import React, { forwardRef } from 'react'
 
-import {
-  type HTMLChakraProps,
-  chakra,
-} from '@chakra-ui/react'
+import { type HTMLChakraProps, chakra } from '@chakra-ui/react'
 import type { SlotRecipeProps } from '@saas-ui/chakra-preset'
 import type { PageVariantProps } from '@saas-ui/chakra-preset/slot-recipes/page'
 
@@ -26,7 +23,8 @@ interface PageOptions {
 }
 
 interface PageRootProps
-  extends PageOptions,
+  extends
+    PageOptions,
     HTMLChakraProps<'main'>,
     SlotRecipeProps<'suiPage', PageVariantProps> {}
 
@@ -50,8 +48,10 @@ const PageRoot = withProvider<HTMLDivElement, PageRootProps>(
   'root',
 )
 
-interface PageHeaderProps
-  extends Omit<HTMLChakraProps<'header'>, 'title' | 'children'> {
+interface PageHeaderProps extends Omit<
+  HTMLChakraProps<'header'>,
+  'title' | 'children'
+> {
   /**
    * Page header navigation
    * Typically breadcrumbs or backbutton.
@@ -125,7 +125,7 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
 
 const PageHeaderSection = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(
   'div',
-  'section',
+  'headerContent',
 )
 
 const PageTitle = withContext<HTMLDivElement, HTMLChakraProps<'h2'>>(

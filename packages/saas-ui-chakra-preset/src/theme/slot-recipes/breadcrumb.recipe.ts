@@ -14,7 +14,7 @@ export const breadcrumbSlotRecipe = defineSlotRecipe({
     link: {
       outline: '0',
       textDecoration: 'none',
-      borderRadius: 'control.sm',
+      borderRadius: 'control',
       focusRing: 'outside',
       display: 'inline-flex',
       alignItems: 'center',

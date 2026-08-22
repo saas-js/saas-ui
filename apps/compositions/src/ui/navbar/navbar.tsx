@@ -2,11 +2,11 @@
 
 import { forwardRef } from 'react'
 
+import { useLink } from 'compositions/lib/use-link/use-link'
 import type { HTMLChakraProps } from '@chakra-ui/react'
 import type { SlotRecipeProps } from '@saas-ui/chakra-preset'
 import type { NavbarVariantProps } from '@saas-ui/chakra-preset/slot-recipes/navbar'
 import { Navbar } from '@saas-ui/react/navbar'
-import { useLink } from 'compositions/lib/use-link/use-link'
 
 import { withContext, withProvider } from './navbar.context'
 

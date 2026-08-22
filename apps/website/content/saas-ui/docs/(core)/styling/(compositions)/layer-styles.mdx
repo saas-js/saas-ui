@@ -1,71 +1,38 @@
 ---
 title: Layer Styles
-description: Learn how to use layer styles to define visual properties.
+description: Apply named surface treatments from the Saas UI preset.
 ---
 
-## Overview
+Use the `layerStyle` prop to apply a named treatment. Palette styles follow
+`colorPalette`. Surface styles use semantic tokens.
 
-Layer styles allows you to define visual properties. The common properties are:
-
-- Color or text color
-- Background color
-- Border width and border color
-- Box shadow
-- Opacity
-
-## Defining layer styles
-
-Layer styles are defined using the `defineLayerStyles` function.
-
-```js title="layer-styles.ts"
-import { defineLayerStyles } from "@chakra-ui/react"
-
-const layerStyles = defineLayerStyles({
-  container: {
-    description: "container styles",
-    value: {
-      bg: "gray.50",
-      border: "2px solid",
-      borderColor: "gray.500",
-    },
-  },
-})
+```tsx
+<Box layerStyle="fill.subtle" colorPalette="destructive">Warning</Box>
+<Box layerStyle="overlay">Dialog panel</Box>
 ```
 
-## Built-in layer styles
-
-Chakra UI provides a set of built-in layer styles.
+The full list — fill, outline, indicator, overlay, backdrop, disabled, and
+none — is on [Layer styles](/docs/theming/layer-styles).
 
 <ExamplePreview name="tokens/layer-style" />
 
-## Updating the theme
+To add your own, merge onto `defaultConfig`:
 
-To use the layer styles, update the `theme` object with the `layerStyles`
-property.
+```tsx
+import { createSystem, defineConfig, defineLayerStyles } from '@chakra-ui/react'
+import { defaultConfig } from '@saas-ui/chakra-preset'
 
-```js title="theme.ts"
-import { createSystem, defineConfig } from "@chakra-ui/react"
-import { layerStyles } from "./layer-styles"
-
-const config = defineConfig({
-  theme: {
-    layerStyles,
+const layerStyles = defineLayerStyles({
+  hero: {
+    value: {
+      bg: 'bg.inverted',
+      color: 'fg.inverted',
+    },
   },
 })
 
-export default createSystem(defaultConfig, config)
-```
-
-After updating the theme, run this command to generate the typings.
-
-```bash
-npx @chakra-ui/cli@next typegen
-```
-
-## Using layer styles
-
-Now you can use `layerStyle` property in your components.
-
-```jsx
-<Box layerStyle="container">This is inside a container style</Box>
+export const system = createSystem(
+  defaultConfig,
+  defineConfig({ theme: { layerStyles } }),
+)
 ```

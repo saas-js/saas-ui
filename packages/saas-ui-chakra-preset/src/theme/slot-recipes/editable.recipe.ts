@@ -6,7 +6,7 @@ const sharedStyles = defineStyle({
   fontWeight: 'inherit',
   textAlign: 'inherit',
   bg: 'transparent',
-  borderRadius: 'control.md',
+  borderRadius: 'control',
 })
 
 export const editableSlotRecipe = defineSlotRecipe({

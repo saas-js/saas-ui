@@ -1,6 +1,7 @@
 "use client"
 
-import { Box, Flex, For, Stack, Text, defaultSystem } from "@chakra-ui/react"
+import { Box, Flex, For, Stack, Text } from "@chakra-ui/react"
+import { defaultSystem } from "./preset-system"
 import { TokenDoc } from "./token-doc"
 
 const { tokens } = defaultSystem
@@ -8,6 +9,9 @@ const { tokens } = defaultSystem
 const allSizes = tokens.categoryMap.get("sizes")!.values()
 export const defaultSizes = Array.from(allSizes)
 
+const controlSizes = defaultSizes.filter((token) =>
+  token.name.startsWith("sizes.control"),
+)
 const fractionalSizes = defaultSizes.filter((token) => token.name.includes("/"))
 const namedSizes = defaultSizes.filter((token) =>
   token.name.match(/v(h|w)|min|max|fit|prose|full/),
@@ -17,7 +21,9 @@ const breakpointSizes = defaultSizes.filter((token) =>
 )
 const largeSizes = defaultSizes.filter(
   (token) =>
-    token.name.match(/sm|xl|xs|lg|md/) && !breakpointSizes.includes(token),
+    token.name.match(/\.(3xs|2xs|xs|sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl)$/) &&
+    !breakpointSizes.includes(token) &&
+    !controlSizes.includes(token),
 )
 
 const tokenSizes = defaultSizes
@@ -26,7 +32,8 @@ const tokenSizes = defaultSizes
       !fractionalSizes.includes(token) &&
       !namedSizes.includes(token) &&
       !breakpointSizes.includes(token) &&
-      !largeSizes.includes(token),
+      !largeSizes.includes(token) &&
+      !controlSizes.includes(token),
   )
   .sort(
     (a, b) =>
@@ -38,6 +45,7 @@ export const SizesTokenDoc = () => {
     <Stack mt="8" gap="8">
       <For
         each={[
+          { name: "control", tokens: controlSizes },
           { name: "tokenSizes", tokens: tokenSizes },
           { name: "namedSizes", tokens: namedSizes },
           { name: "fractionalSizes", tokens: fractionalSizes },
@@ -75,7 +83,7 @@ export const SizesTokenDoc = () => {
                   )}
                   {item.name === "tokenSizes" && (
                     <Box
-                      bg="pink.200"
+                      bg="accent.muted"
                       height="4"
                       width={`min(${token.originalValue}, 60%)`}
                     />

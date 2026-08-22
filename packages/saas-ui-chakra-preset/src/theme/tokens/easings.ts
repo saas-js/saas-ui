@@ -1,6 +1,7 @@
 import { defineTokens } from '@chakra-ui/react'
 
 export const easings = defineTokens.easings({
+  standard: { value: 'var(--ease-standard)' },
   'ease-in': { value: 'cubic-bezier(0.42, 0, 1, 1)' },
   'ease-out': { value: 'cubic-bezier(0, 0, 0.58, 1)' },
   'ease-in-out': { value: 'cubic-bezier(0.42, 0, 0.58, 1)' },

@@ -96,6 +96,9 @@ const nextConfig = {
       'main',
       ...config.resolve.mainFields,
     ]
+    // Prefer the workspace `sui` export condition so packages resolve to
+    // source. `'...'` keeps webpack's default conditions.
+    config.resolve.conditionNames = ['sui', 'sui-pro', '...']
 
     return config
   },

@@ -7,6 +7,8 @@
  * avoiding a parallel set of light, dark, and semantic output variables.
  */
 
+import { statusHues } from './palette.ts'
+
 const baseSeed = 'var(--sui-base)'
 const accentSeed = 'var(--sui-accent)'
 const sidebarSeed = 'var(--sui-sidebar)'
@@ -40,15 +42,21 @@ function relativeColor(
   lightness: string | number,
   chroma: string | number,
   alpha: string | number = 1,
+  hue: string | number = 'h',
 ) {
-  return `oklch(from ${seed} ${lightness} ${chroma} h / ${alpha})`
+  return `oklch(from ${seed} ${lightness} ${chroma} ${hue} / ${alpha})`
 }
 
 function lightDark(light: string, dark: string) {
   return light === dark ? light : `light-dark(${light}, ${dark})`
 }
 
-function contrastForeground(seed: string, tone: string, alpha = 1) {
+function contrastForeground(
+  seed: string,
+  tone: string,
+  alpha = 1,
+  hue: string | number = 'h',
+) {
   const lightness = `calc(0.16 + 0.825 * ${tone})`
   const chromaScale = `calc(0.1 - 0.04 * ${tone})`
   const chromaMax = `calc(0.025 - 0.01 * ${tone})`
@@ -58,7 +66,39 @@ function contrastForeground(seed: string, tone: string, alpha = 1) {
     lightness,
     `min(calc(c * ${chromaScale}), ${chromaMax})`,
     alpha,
+    hue,
   )
+}
+
+function chromaticPalette(
+  seed: string,
+  tone: string,
+  hue: string | number = 'h',
+) {
+  return {
+    contrast: contrastForeground(seed, tone, 1, hue),
+    fg: lightDark(
+      relativeColor(seed, 'min(l, 0.44)', 'min(calc(c * 0.65), 0.18)', 1, hue),
+      relativeColor(seed, 'max(l, 0.78)', 'min(calc(c * 0.65), 0.18)', 1, hue),
+    ),
+    muted: lightDark(
+      relativeColor(seed, 'l', 'c', 0.07, hue),
+      relativeColor(seed, 'l', 'c', 0.1, hue),
+    ),
+    subtle: lightDark(
+      relativeColor(seed, 'l', 'c', 0.11, hue),
+      relativeColor(seed, 'l', 'c', 0.16, hue),
+    ),
+    emphasized: lightDark(
+      relativeColor(seed, 'l', 'c', 0.18, hue),
+      relativeColor(seed, 'l', 'c', 0.24, hue),
+    ),
+    solid: relativeColor(seed, 'l', 'c', 1, hue),
+    border: lightDark(
+      relativeColor(seed, 'l', 'c', 0.32, hue),
+      relativeColor(seed, 'l', 'c', 0.44, hue),
+    ),
+  }
 }
 
 const baseForegroundLightness = {
@@ -268,29 +308,42 @@ const appearanceValues = {
       0.18,
     ),
   ),
-  accentContrast: contrastForeground(accentSeed, accentForegroundTone),
-  accentFg: lightDark(
-    relativeColor(accentSeed, 'min(l, 0.44)', 'min(calc(c * 0.65), 0.18)'),
-    relativeColor(accentSeed, 'max(l, 0.78)', 'min(calc(c * 0.65), 0.18)'),
-  ),
-  accentMuted: lightDark(
-    relativeColor(accentSeed, 'l', 'c', 0.07),
-    relativeColor(accentSeed, 'l', 'c', 0.1),
-  ),
-  accentSubtle: lightDark(
-    relativeColor(accentSeed, 'l', 'c', 0.11),
-    relativeColor(accentSeed, 'l', 'c', 0.16),
-  ),
-  accentEmphasized: lightDark(
-    relativeColor(accentSeed, 'l', 'c', 0.18),
-    relativeColor(accentSeed, 'l', 'c', 0.24),
-  ),
-  accentSolid: relativeColor(accentSeed, 'l', 'c'),
-  accentBorder: lightDark(
-    relativeColor(accentSeed, 'l', 'c', 0.32),
-    relativeColor(accentSeed, 'l', 'c', 0.44),
-  ),
 } as const
+
+const accentValues = chromaticPalette(accentSeed, accentForegroundTone)
+const infoValues = chromaticPalette(
+  accentSeed,
+  accentForegroundTone,
+  statusHues.info,
+)
+const successValues = chromaticPalette(
+  accentSeed,
+  accentForegroundTone,
+  statusHues.success,
+)
+const warningValues = chromaticPalette(
+  accentSeed,
+  accentForegroundTone,
+  statusHues.warning,
+)
+const destructiveValues = chromaticPalette(
+  accentSeed,
+  accentForegroundTone,
+  statusHues.destructive,
+)
+
+function paletteFromValues(values: ReturnType<typeof chromaticPalette>) {
+  return {
+    contrast: { value: values.contrast },
+    fg: { value: values.fg },
+    muted: { value: values.muted },
+    subtle: { value: values.subtle },
+    emphasized: { value: values.emphasized },
+    solid: { value: values.solid },
+    focusRing: { value: values.solid },
+    border: { value: values.border },
+  }
+}
 
 const sidebarValues = {
   bg: lightDark(
@@ -452,15 +505,13 @@ export const appearanceColors = {
     border: { value: appearanceValues.baseBorder },
   },
   accent: {
-    contrast: { value: appearanceValues.accentContrast },
-    fg: { value: appearanceValues.accentFg },
-    muted: { value: appearanceValues.accentMuted },
-    subtle: { value: appearanceValues.accentSubtle },
-    emphasized: { value: appearanceValues.accentEmphasized },
-    solid: { value: appearanceValues.accentSolid },
+    ...paletteFromValues(accentValues),
     focusRing: { value: '{colors.accent.solid}' },
-    border: { value: appearanceValues.accentBorder },
   },
+  info: paletteFromValues(infoValues),
+  success: paletteFromValues(successValues),
+  warning: paletteFromValues(warningValues),
+  destructive: paletteFromValues(destructiveValues),
   sidebar: {
     bg: { value: 'var(--sui-color-sidebar-bg)' },
     fg: { value: 'var(--sui-color-sidebar-fg)' },

@@ -23,6 +23,18 @@ describe('CSS appearance contract', () => {
     expect(appearanceColors.accent.solid.value).toBe(
       'oklch(from var(--sui-accent) l c h / 1)',
     )
+    expect(appearanceColors.success.solid.value).toBe(
+      'oklch(from var(--sui-accent) l c 150 / 1)',
+    )
+    expect(appearanceColors.warning.solid.value).toBe(
+      'oklch(from var(--sui-accent) l c 50 / 1)',
+    )
+    expect(appearanceColors.info.solid.value).toBe(
+      'oklch(from var(--sui-accent) l c 260 / 1)',
+    )
+    expect(appearanceColors.destructive.solid.value).toBe(
+      'oklch(from var(--sui-accent) l c 25 / 1)',
+    )
     expect(appearanceColors.interaction.selected.value).toBe(
       '{colors.accent.subtle}',
     )
@@ -49,5 +61,17 @@ describe('CSS appearance contract', () => {
           /-(light|dark)$/.test(variable),
       ),
     ).toBe(false)
+  })
+})
+
+describe('shared scale tokens', () => {
+  it('exposes a control size track and role radii', () => {
+    expect(defaultSystem.token('sizes.control.sm')).toBeTruthy()
+    expect(defaultSystem.token('sizes.control.md')).toBeTruthy()
+    expect(defaultSystem.token('sizes.control.lg')).toBeTruthy()
+    expect(defaultSystem.token('radii.control')).toBeTruthy()
+    expect(defaultSystem.token('radii.panel')).toBeTruthy()
+    expect(defaultSystem.token('durations.motion.fast')).toBe('var(--motion-fast)')
+    expect(defaultSystem.token('colors.shadow')).toBeTruthy()
   })
 })

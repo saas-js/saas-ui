@@ -1,6 +1,7 @@
 "use client"
 
-import { Box, SimpleGrid, Stack, Text, defaultSystem } from "@chakra-ui/react"
+import { Box, SimpleGrid, Stack, Text } from "@chakra-ui/react"
+import { defaultSystem } from "./preset-system"
 import { TokenDoc } from "./token-doc"
 
 const { tokens } = defaultSystem
@@ -17,14 +18,14 @@ export const EasingTokenDoc = () => {
             <Stack key={token.name}>
               <Box
                 boxSize="200px"
-                bg="pink.200"
+                bg="accent.muted"
                 animationName="slide-to-right-full"
                 animationTimingFunction={token.value}
                 animationDuration="1s"
                 animationIterationCount="infinite"
                 animationDirection="alternate"
               />
-              <Text fontWeight="medium">{token.name}</Text>
+              <Text fontWeight="medium">{token.name.replace("easings.", "")}</Text>
             </Stack>
           )
         })}

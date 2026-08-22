@@ -1,0 +1,114 @@
+{
+  "name": "@saas-ui/stylex-preset",
+  "version": "0.0.1",
+  "description": "Proof-of-concept StyleX preset generated from the Saas UI Chakra preset",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": {
+      "sui": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./theme.css": "./src/global-theme.css",
+    "./reset.css": "./src/reset.css",
+    "./tokens/*.stylex": {
+      "sui": "./src/tokens/*.stylex.ts",
+      "types": "./dist/tokens/*.stylex.d.ts",
+      "import": "./src/tokens/*.stylex.ts"
+    },
+    "./semantic-tokens/*.stylex": {
+      "sui": "./src/semantic-tokens/*.stylex.ts",
+      "types": "./dist/semantic-tokens/*.stylex.d.ts",
+      "import": "./src/semantic-tokens/*.stylex.ts"
+    },
+    "./color-palette.stylex": {
+      "sui": "./src/color-palette.stylex.ts",
+      "types": "./dist/color-palette.stylex.d.ts",
+      "import": "./src/color-palette.stylex.ts"
+    },
+    "./breakpoints.stylex": {
+      "sui": "./src/breakpoints.stylex.ts",
+      "types": "./dist/breakpoints.stylex.d.ts",
+      "import": "./src/breakpoints.stylex.ts"
+    },
+    "./recipes/*": {
+      "sui": "./src/recipes/*.ts",
+      "types": "./dist/recipes/*.d.ts",
+      "import": "./dist/recipes/*.js"
+    },
+    "./slot-recipes/*": {
+      "sui": "./src/slot-recipes/*.ts",
+      "types": "./dist/slot-recipes/*.d.ts",
+      "import": "./dist/slot-recipes/*.js"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "generate": "tsx scripts/generate.ts",
+    "appearance": "tsx scripts/appearance.ts",
+    "build": "pnpm generate && tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --config ../../vitest.config.ts --dir .",
+    "storybook": "storybook dev -p 6008",
+    "build-storybook": "storybook build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "*.stylex.ts",
+    "*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-stylex-preset"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "stylex",
+    "design-system",
+    "saas-ui"
+  ],
+  "dependencies": {
+    "@saas-ui/appearance": "workspace:*"
+  },
+  "peerDependencies": {
+    "@stylexjs/stylex": "^0.16.0",
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@chakra-ui/react": "^3.28.0",
+    "@storybook/addon-docs": "10.2.0",
+    "@storybook/react": "10.2.0",
+    "@storybook/react-vite": "10.2.0",
+    "@stylexjs/babel-plugin": "^0.16.2",
+    "@stylexjs/stylex": "^0.16.2",
+    "@types/node": "^24.0.4",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "fast-glob": "^3.3.2",
+    "prettier": "^3.5.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "storybook": "10.2.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^6.3.6"
+  }
+}

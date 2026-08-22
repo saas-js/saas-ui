@@ -28,6 +28,10 @@ describe('createAppearance', () => {
 
     expect(appearance.bg.DEFAULT.value._dark).toContain('225')
     expect(appearance.accent.solid.value._light).toBe('oklch(0.6 0.18 235)')
+    expect(appearance.success.solid.value._light).toBe('oklch(0.6 0.18 150)')
+    expect(appearance.warning.solid.value._light).toBe('oklch(0.6 0.18 50)')
+    expect(appearance.info.solid.value._light).toBe('oklch(0.6 0.18 260)')
+    expect(appearance.destructive.solid.value._light).toBe('oklch(0.6 0.18 25)')
     expect(appearance.sidebar.bg.value).toEqual({
       _light: 'oklch(0.95 0.007 215)',
       _dark: 'oklch(0.1 0.01 215)',
@@ -42,7 +46,7 @@ describe('createAppearance', () => {
       _dark: 'oklch(0.92 0.003 260)',
     })
     expect(semanticColors.neutral.solid.value).toEqual({
-      _light: '{colors.neutral.900}',
+      _light: '{colors.black}',
       _dark: '{colors.white}',
     })
   })

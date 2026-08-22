@@ -9,23 +9,24 @@ import { ThemeProvider } from '#components/theme/theme-provider'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <Stack
-      gap="8"
-      bg="bg.muted"
-      _dark={{ bg: 'bg' }}
-      css={{
-        paddingTop: '64px',
-        '&:has([data-announcement])': {
-          paddingTop: '105px',
-        },
-      }}
-    >
-      <ThemeProvider>
+    <ThemeProvider>
+      <Stack
+        gap="8"
+        minH="100dvh"
+        bg="bg.muted"
+        _dark={{ bg: 'bg' }}
+        css={{
+          paddingTop: '64px',
+          '&:has([data-announcement])': {
+            paddingTop: '105px',
+          },
+        }}
+      >
         <ThemePanel />
         <HeaderSection />
         {children}
         <FooterSection />
-      </ThemeProvider>
-    </Stack>
+      </Stack>
+    </ThemeProvider>
   )
 }

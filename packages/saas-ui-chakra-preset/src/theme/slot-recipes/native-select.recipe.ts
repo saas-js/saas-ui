@@ -19,7 +19,7 @@ export const nativeSelectSlotRecipe = defineSlotRecipe({
       minWidth: '0',
       outline: '0',
       appearance: 'none',
-      borderRadius: 'control.md',
+      borderRadius: 'control',
       _disabled: {
         layerStyle: 'disabled',
       },
@@ -78,7 +78,7 @@ export const nativeSelectSlotRecipe = defineSlotRecipe({
           textStyle: 'xs',
           ps: '2',
           pe: '6',
-          height: '6',
+          height: 'control.xs',
         },
         indicator: {
           textStyle: 'sm',
@@ -90,7 +90,7 @@ export const nativeSelectSlotRecipe = defineSlotRecipe({
           textStyle: 'sm',
           ps: '2.5',
           pe: '8',
-          height: '8',
+          height: 'control.sm',
         },
         indicator: {
           textStyle: 'md',
@@ -102,7 +102,7 @@ export const nativeSelectSlotRecipe = defineSlotRecipe({
           textStyle: 'sm',
           ps: '3',
           pe: '8',
-          height: '10',
+          height: 'control.md',
         },
         indicator: {
           textStyle: 'lg',
@@ -114,7 +114,7 @@ export const nativeSelectSlotRecipe = defineSlotRecipe({
           textStyle: 'md',
           ps: '4',
           pe: '8',
-          height: '11',
+          height: 'control.lg',
         },
         indicator: {
           textStyle: 'xl',
@@ -126,7 +126,7 @@ export const nativeSelectSlotRecipe = defineSlotRecipe({
           textStyle: 'md',
           ps: '4.5',
           pe: '10',
-          height: '12',
+          height: 'control.xl',
         },
         indicator: {
           textStyle: 'xl',

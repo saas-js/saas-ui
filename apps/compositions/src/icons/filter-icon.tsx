@@ -26,9 +26,9 @@ export const FilterIcon: React.FC<FilterIconProps> = ({
       <path
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M22 3H2l8 9.46V19l4 2v-8.54z"
       />
     </svg>

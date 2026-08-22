@@ -10,10 +10,10 @@ export const checkmarkRecipe = defineRecipe({
     color: 'white',
     borderWidth: '1px',
     borderColor: 'transparent',
-    borderRadius: 'control.md',
+    borderRadius: 'control',
     focusVisibleRing: 'outside',
     _invalid: {
-      colorPalette: 'red',
+      colorPalette: 'destructive',
       borderColor: 'border.error',
     },
     _disabled: {

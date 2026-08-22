@@ -23,7 +23,7 @@ code .diff {
 }
 
 code .diff.remove {
-  background-color: rgba(244, 63, 94, 0.16) !important;
+  background-color: var(--chakra-colors-bg-error) !important;
   opacity: 0.7;
   & span {
     background-color: transparent !important;
@@ -32,11 +32,11 @@ code .diff.remove {
 
 code .diff.remove:before {
   content: '-';
-  color: #f14158;
+  color: var(--chakra-colors-fg-error);
 }
 
 code .diff.add {
-  background-color: rgba(16, 185, 129, 0.16) !important;
+  background-color: var(--chakra-colors-bg-success) !important;
   & span {
     background-color: transparent !important;
   }
@@ -44,15 +44,15 @@ code .diff.add {
 
 code .diff.add:before {
   content: '+';
-  color: #3dd68c;
+  color: var(--chakra-colors-fg-success);
 }
 
 code .highlighted {
-  background-color: rgb(255 255 255 / 0.1) !important;
+  background-color: var(--chakra-colors-bg-subtle) !important;
   transition: background-color 0.5s;
   margin: 0 -12px;
   padding: 0 12px;
-  box-shadow: 2px 0 0px 0px rgb(162, 162, 162) inset;
+  box-shadow: 2px 0 0 0 var(--chakra-colors-accent-solid) inset;
   width: calc(100% + 24px);
   display: inline-block;
 
@@ -62,9 +62,9 @@ code .highlighted {
 }
 
 code .highlighted-word {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: var(--chakra-colors-accent-subtle) !important;
   border-width: 1px;
-  border-color: #4c4c4c;
+  border-color: var(--chakra-colors-accent-border);
   padding: 1px 2px;
   margin: -1px -3px;
   border-radius: 4px;

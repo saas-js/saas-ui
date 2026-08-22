@@ -27,7 +27,7 @@ export const menuSlotRecipe = defineSlotRecipe({
       textDecoration: 'none',
       color: 'fg',
       userSelect: 'none',
-      borderRadius: 'control.md',
+      borderRadius: 'control',
       width: '100%',
       display: 'flex',
       cursor: 'menuitem',
@@ -94,7 +94,7 @@ export const menuSlotRecipe = defineSlotRecipe({
         content: {
           minW: '8rem',
           padding: '1',
-          borderRadius: 'panel.md',
+          borderRadius: 'panel',
         },
         item: {
           gap: '1',

@@ -1,0 +1,54 @@
+---
+title: Utilities
+description: Focus rings and conditions the Saas UI preset adds.
+---
+
+The preset extends Chakra’s utility and condition maps. These are the additions.
+
+## Focus ring
+
+`focusRing` and `focusVisibleRing` paint an outline from the active
+`colorPalette.focusRing` (usually the palette solid, or `accent.solid` on the
+theme root).
+
+```tsx
+<Box focusVisibleRing="outside" colorPalette="accent" />
+```
+
+| Value | Behavior |
+| ----- | -------- |
+| `outside` | Outline, offset `1px`, width `1px` |
+| `inside` | Outline flush with the border |
+| `mixed` | Soft outer ring plus a matching border |
+| `none` | No outline |
+
+CSS variables (set on `.sui-theme` or `Theme`):
+
+| Variable | Default |
+| -------- | ------- |
+| `--focus-ring-width` | `1px` |
+| `--focus-ring-style` | `solid` |
+| `--focus-ring-offset` | `1px` |
+| `--focus-ring-color` | `{colors.accent.solid}` |
+
+`focusRing` reacts to `:focus` / `[data-focus]`. `focusVisibleRing` reacts to
+`:focus-visible` / `[data-focus-visible]`. Recipes use the visible variant.
+
+## Conditions
+
+Use these as style-prop prefixes (`_popupExpanded`, `_pressable`, …).
+
+| Condition | Selector |
+| --------- | -------- |
+| `pressable` | `a`, `button`, `[role=button]` |
+| `popupExpanded` | Trigger with `aria-haspopup` that is expanded |
+| `parentHover` | Hovered parent button or link |
+| `rowHover` | Hovered table row |
+| `collapsible` | `[data-scope=collapsible]` |
+| `groupCollapsible` | Collapsible group ancestor |
+| `groupOpen` | Open group ancestor |
+| `groupHover` / `groupFocus` / `groupActive` / `groupFocusVisible` / `groupFocusWithin` | Group interaction |
+| `groupDisabled` / `groupChecked` / `groupExpanded` / `groupInvalid` | Group state |
+
+`popupExpanded` is what solid buttons use to stay in the hover fill while a
+menu or popover is open.

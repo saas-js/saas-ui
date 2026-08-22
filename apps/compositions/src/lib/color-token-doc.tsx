@@ -8,8 +8,8 @@ import {
   Text,
   type TokenInterface,
   VStack,
-  defaultSystem,
 } from "@chakra-ui/react"
+import { defaultSystem } from "./preset-system"
 import { TokenDoc } from "./token-doc"
 
 const { tokens } = defaultSystem
@@ -17,33 +17,65 @@ const { tokens } = defaultSystem
 const colors = tokens.categoryMap.get("colors")!
 const allColors = Array.from(colors.values())
 
-const keys = [
-  "gray",
-  "red",
-  "pink",
-  "purple",
-  "cyan",
-  "blue",
-  "teal",
-  "green",
-  "yellow",
-  "orange",
+const primitiveKeys = ["black", "white", "whiteAlpha", "blackAlpha"]
+
+const appearanceKeys = [
+  "base",
+  "accent",
+  "info",
+  "success",
+  "warning",
+  "destructive",
 ]
+
+const catalogKeys = [
+  "gray",
+  "zinc",
+  "neutral",
+  "stone",
+  "red",
+  "orange",
+  "amber",
+  "yellow",
+  "lime",
+  "green",
+  "emerald",
+  "teal",
+  "cyan",
+  "sky",
+  "blue",
+  "indigo",
+  "violet",
+  "purple",
+  "fuchsia",
+  "pink",
+  "rose",
+]
+
+const paletteKeys = [...appearanceKeys, ...catalogKeys]
+
+function tokensFor(key: string, kind: "primitive" | "semantic") {
+  return allColors.filter((token) => {
+    const matches =
+      token.name === `colors.${key}` || token.name.startsWith(`colors.${key}.`)
+    if (!matches) return false
+    const hasConditions = Boolean(token.extensions.conditions)
+    return kind === "semantic" ? hasConditions : !hasConditions
+  })
+}
 
 export const ColorTokenDoc = () => {
   return (
     <Stack gap="8" my="8">
-      {keys.map((key) => (
-        <TokenDoc key={key} title={key}>
-          <ColorGrid
-            tokens={allColors.filter(
-              (token) =>
-                token.name.startsWith(`colors.${key}`) &&
-                !token.extensions.conditions,
-            )}
-          />
-        </TokenDoc>
-      ))}
+      {primitiveKeys.map((key) => {
+        const tokens = tokensFor(key, "primitive")
+        if (!tokens.length) return null
+        return (
+          <TokenDoc key={key} title={key}>
+            <ColorGrid tokens={tokens} />
+          </TokenDoc>
+        )
+      })}
     </Stack>
   )
 }
@@ -77,17 +109,47 @@ export const ColorSemanticTokenDoc = () => {
         />
       </TokenDoc>
 
-      {keys.map((key) => (
-        <TokenDoc key={key} title={key}>
-          <ColorGrid
-            tokens={allColors.filter(
-              (token) =>
-                token.name.startsWith(`colors.${key}`) &&
-                token.extensions.conditions,
-            )}
-          />
-        </TokenDoc>
-      ))}
+      <TokenDoc title="sidebar">
+        <ColorGrid
+          tokens={allColors.filter((token) =>
+            token.name.startsWith("colors.sidebar"),
+          )}
+        />
+      </TokenDoc>
+
+      <TokenDoc title="status">
+        <ColorGrid
+          tokens={allColors.filter((token) =>
+            token.name.startsWith("colors.status"),
+          )}
+        />
+      </TokenDoc>
+
+      <TokenDoc title="presence">
+        <ColorGrid
+          tokens={allColors.filter((token) =>
+            token.name.startsWith("colors.presence"),
+          )}
+        />
+      </TokenDoc>
+    </Stack>
+  )
+}
+
+export const ColorPaletteTokenDoc = () => {
+  return (
+    <Stack gap="8" my="8">
+      {paletteKeys.map((key) => {
+        const semantic = tokensFor(key, "semantic")
+        const primitive = tokensFor(key, "primitive")
+        const tokens = semantic.length ? semantic : primitive
+        if (!tokens.length) return null
+        return (
+          <TokenDoc key={key} title={key}>
+            <ColorGrid tokens={tokens} />
+          </TokenDoc>
+        )
+      })}
     </Stack>
   )
 }

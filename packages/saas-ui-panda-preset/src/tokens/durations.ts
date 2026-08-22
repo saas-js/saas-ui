@@ -1,11 +1,22 @@
 import { defineTokens } from '../def'
 
+const motionBand = (axis: 'fast' | 'medium' | 'slow') => ({
+  min: { value: `calc(var(--motion-${axis}) * var(--motion-ratio))` },
+  DEFAULT: { value: `var(--motion-${axis})` },
+  max: { value: `calc(var(--motion-${axis}) / var(--motion-ratio))` },
+})
+
 export const durations = defineTokens.durations({
   fastest: { value: '50ms' },
   faster: { value: '100ms' },
-  fast: { value: '150ms' },
-  moderate: { value: '200ms' },
+  fast: { value: 'var(--motion-fast)' },
+  moderate: { value: 'var(--motion-medium)' },
   slow: { value: '300ms' },
-  slower: { value: '400ms' },
+  slower: { value: 'var(--motion-slow)' },
   slowest: { value: '500ms' },
+  motion: {
+    fast: motionBand('fast'),
+    medium: motionBand('medium'),
+    slow: motionBand('slow'),
+  },
 })

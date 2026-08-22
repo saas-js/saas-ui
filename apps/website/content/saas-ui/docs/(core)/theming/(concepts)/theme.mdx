@@ -1,0 +1,80 @@
+---
+title: Theme
+description: Scope light/dark, palette, scale, and radii to a subtree.
+---
+
+`Theme` is a local composition (installed by the CLI) that sets
+`color-scheme`, optional canvas colors, and the CSS variables the preset reads.
+
+```tsx
+import { Theme } from '#components/ui/theme'
+
+export function Preview() {
+  return (
+    <Theme
+      appearance="dark"
+      colorPalette="accent"
+      scaleFactor={1}
+      controlRadius={1}
+      panelRadius={1}
+      indicatorRadius={1}
+      overlayEffect="blur(12px)"
+      minH="100dvh"
+    >
+      {children}
+    </Theme>
+  )
+}
+```
+
+It renders a `div` with `chakra-theme` and `sui-theme`. Appearance CSS and
+token variables resolve against that node.
+
+## Props
+
+| Prop | Default | Writes |
+| ---- | ------- | ------ |
+| `appearance` | — | `color-scheme` and `light` / `dark` class |
+| `hasBackground` | `true` | `bg` + `color: fg` when true |
+| `colorPalette` | `gray` on the node | Default palette for slots that inherit |
+| `scaleFactor` | `1` | `--scale-factor` |
+| `controlRadius` | `1` | `--radius-control-factor` |
+| `panelRadius` | `1` | `--radius-panel-factor` |
+| `indicatorRadius` | `1` | `--radius-indicator-factor` |
+| `overlayEffect` | `blur(10px)` | `--overlay-effect` |
+
+`controlRadius={0}` squares controls. `controlRadius={9999}` pills them. The
+value is a **factor**, not a pixel radius. It multiplies the role token:
+
+```
+radii.control = radii.sm × scale × radius-factor × control-factor
+```
+
+Pass `style` for appearance seeds when you are not using `createAppearance()`:
+
+```tsx
+<Theme
+  appearance="light"
+  style={
+    {
+      '--sui-base': 'oklch(0.5 0.01 225)',
+      '--sui-accent': 'oklch(0.53 0.18 235)',
+    } as React.CSSProperties
+  }
+>
+  {children}
+</Theme>
+```
+
+## Light and dark
+
+`appearance` sets `color-scheme`. Semantic tokens that use `light-dark()` or
+`_light` / `_dark` follow that, not the OS, for the subtree.
+
+The document can still use `next-themes` (`class="dark"` on `html`). `Theme`
+overrides that locally when you pass `appearance`.
+
+## Nested themes
+
+Each `Theme` creates a new CSS variable scope. A dark preview inside a light app is a
+nested `Theme`, not a second `createSystem()`.

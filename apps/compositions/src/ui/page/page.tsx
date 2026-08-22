@@ -77,7 +77,7 @@ interface PageHeaderProps extends Omit<
 
 const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
   forwardRef<HTMLDivElement, PageHeaderProps>(function PageHeader(props, ref) {
-    const { nav, title, description, actions, footer, ...rest } = props
+    const { nav, title, description, actions, footer, css, ...rest } = props
 
     const styles = usePageStyles()
     const classNames = useClassNames()
@@ -97,21 +97,22 @@ const PageHeader = withContext<HTMLDivElement, PageHeaderProps>(
     }
 
     return (
-      <chakra.header ref={ref} {...rest}>
+      <chakra.header ref={ref} css={css} {...rest} className={props.className}>
         {nav != null || heading != null || actions != null ? (
           <chakra.div
-            className={classNames.headerContent}
             css={styles.headerContent}
+            className={classNames.headerContent}
           >
             {nav}
             {heading}
             {actions}
           </chakra.div>
         ) : null}
+
         {footer != null ? (
           <chakra.div
-            className={classNames.headerFooter}
             css={styles.headerFooter}
+            className={classNames.headerFooter}
           >
             {footer}
           </chakra.div>

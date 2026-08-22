@@ -36,16 +36,16 @@ export const alertSlotRecipe = defineSlotRecipe({
   variants: {
     status: {
       info: {
-        root: { colorPalette: 'blue' },
+        root: { colorPalette: 'info' },
       },
       warning: {
-        root: { colorPalette: 'orange' },
+        root: { colorPalette: 'warning' },
       },
       success: {
-        root: { colorPalette: 'green' },
+        root: { colorPalette: 'success' },
       },
       error: {
-        root: { colorPalette: 'red' },
+        root: { colorPalette: 'destructive' },
       },
       neutral: {
         root: { colorPalette: 'gray' },
@@ -117,7 +117,7 @@ export const alertSlotRecipe = defineSlotRecipe({
           px: '3',
           py: '3',
           textStyle: 'xs',
-          borderRadius: 'panel.sm',
+          borderRadius: 'panel',
         },
         indicator: {
           textStyle: 'lg',
@@ -129,7 +129,7 @@ export const alertSlotRecipe = defineSlotRecipe({
           px: '4',
           py: '4',
           textStyle: 'sm',
-          borderRadius: 'panel.md',
+          borderRadius: 'panel',
         },
         indicator: {
           textStyle: 'xl',
@@ -141,7 +141,7 @@ export const alertSlotRecipe = defineSlotRecipe({
           px: '4',
           py: '4',
           textStyle: 'md',
-          borderRadius: 'panel.lg',
+          borderRadius: 'panel',
         },
         indicator: {
           textStyle: '2xl',

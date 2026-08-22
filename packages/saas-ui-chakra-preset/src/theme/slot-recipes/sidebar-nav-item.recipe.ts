@@ -76,9 +76,9 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
           textStyle: 'sm',
         },
         button: {
-          borderRadius: 'control.md',
+          borderRadius: 'control',
           px: 2,
-          height: 6,
+          height: 'control.xs',
         },
         endElement: {
           pe: '1',
@@ -89,9 +89,9 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
           textStyle: 'sm',
         },
         button: {
-          borderRadius: 'control.md',
+          borderRadius: 'control',
           px: 2.5,
-          height: 7,
+          height: 'control.sm',
         },
         endElement: {
           pe: '1',
@@ -102,9 +102,9 @@ export const sidebarNavItemSlotRecipe = defineSlotRecipe({
           textStyle: 'sm',
         },
         button: {
-          borderRadius: 'control.lg',
+          borderRadius: 'control',
           px: 3,
-          height: 9,
+          height: 'control.md',
         },
         endElement: {
           pe: '1',

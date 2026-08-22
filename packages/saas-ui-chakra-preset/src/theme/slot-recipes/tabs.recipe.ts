@@ -7,7 +7,7 @@ export const tabsSlotRecipe = defineSlotRecipe({
   base: {
     root: {
       colorPalette: 'gray',
-      '--tabs-trigger-radius': 'radii.control.md',
+      '--tabs-trigger-radius': 'radii.control',
       position: 'relative',
       _horizontal: {
         display: 'block',
@@ -105,9 +105,8 @@ export const tabsSlotRecipe = defineSlotRecipe({
     size: {
       xs: {
         root: {
-          '--tabs-height': 'sizes.6',
+          '--tabs-height': 'sizes.control.xs',
           '--tabs-content-padding': 'spacing.2',
-          '--tabs-trigger-radius': 'radii.control.sm',
         },
         trigger: {
           py: '1',
@@ -117,9 +116,8 @@ export const tabsSlotRecipe = defineSlotRecipe({
       },
       sm: {
         root: {
-          '--tabs-height': 'sizes.7',
+          '--tabs-height': 'sizes.control.sm',
           '--tabs-content-padding': 'spacing.3',
-          '--tabs-trigger-radius': 'radii.control.md',
         },
         trigger: {
           py: '1',
@@ -129,9 +127,8 @@ export const tabsSlotRecipe = defineSlotRecipe({
       },
       md: {
         root: {
-          '--tabs-height': 'sizes.8',
+          '--tabs-height': 'sizes.control.md',
           '--tabs-content-padding': 'spacing.4',
-          '--tabs-trigger-radius': 'radii.control.md',
         },
         trigger: {
           py: '2',
@@ -141,9 +138,8 @@ export const tabsSlotRecipe = defineSlotRecipe({
       },
       lg: {
         root: {
-          '--tabs-height': 'sizes.10',
+          '--tabs-height': 'sizes.control.lg',
           '--tabs-content-padding': 'spacing.4.5',
-          '--tabs-trigger-radius': 'radii.control.lg',
         },
         trigger: {
           py: '2',

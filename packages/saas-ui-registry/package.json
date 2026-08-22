@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.53.3",
+    "@types/node": "^24.0.4",
     "tsup": "^8.5.0",
     "typescript": "5.9.3",
     "vitest": "^3.2.2"

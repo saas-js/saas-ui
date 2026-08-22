@@ -90,7 +90,7 @@ export const cardSlotRecipe = defineSlotRecipe({
           bg: 'bg.panel',
           boxShadow: 'md',
           borderWidth: '0.5px',
-          borderColor: 'border',
+          borderColor: 'border.emphasized',
           _pressable: {
             transitionProperty: 'common',
             transitionDuration: 'fast',

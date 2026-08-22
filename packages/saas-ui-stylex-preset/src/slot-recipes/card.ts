@@ -43,7 +43,7 @@ export const cardRootVariants = stylex.create({
     backgroundColor: semanticColors.bgPanel,
     boxShadow: semanticShadows.md,
     borderWidth: '0.5px',
-    borderColor: semanticColors.border,
+    borderColor: semanticColors.borderEmphasized,
   },
   outline: {
     backgroundColor: semanticColors.bgPanel,

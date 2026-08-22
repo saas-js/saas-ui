@@ -1,6 +1,10 @@
 import { LogoIcon } from '@/components/logo'
-import { Chart, useChart } from '@chakra-ui/charts'
+import { Chart, useChart } from '@saas-ui/charts'
+import { areaY, lineY } from '@tanstack/charts'
+import { scaleBand } from '@tanstack/charts/scales/band'
+import { scaleLinear } from '@tanstack/charts/scales/linear'
 import {
+  Badge,
   Box,
   Button,
   Card,
@@ -11,23 +15,23 @@ import {
   HStack,
   Heading,
   Icon,
+  Progress,
   ProgressCircle,
   Separator,
   Span,
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { Dialog } from '@chakra-ui/react/dialog'
 import { Form, useAppForm } from 'compositions/components/forms'
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
+import { useMemo } from 'react'
 import {
   FaFilePdf,
   FaFilePowerpoint,
   FaFileWord,
   FaGoogle,
 } from 'react-icons/fa'
-import { LuDownload } from 'react-icons/lu'
-import { Area, AreaChart, Tooltip } from 'recharts'
+import { LuCheck, LuDownload, LuUserPlus } from 'react-icons/lu'
 
 import { Avatar, AvatarGroup } from '#components/ui/avatar'
 import { GridList } from '#components/ui/grid-list'
@@ -44,7 +48,7 @@ export const ComponentsDemo = () => {
     <Box overflow="clip" height="100%" position="relative">
       <Grid templateColumns="1fr 1fr 1.5fr" gap="8">
         <Stack gap="8">
-          <ConfirmDialog />
+          <SetupCard />
           <ErrorBoundary errorComponent={(props) => <div>Error</div>}>
             <MetricsCard />
           </ErrorBoundary>
@@ -58,6 +62,7 @@ export const ComponentsDemo = () => {
         <Stack gap="8">
           <FilesCard />
           <NotificationsCard />
+          <TeamCard />
         </Stack>
       </Grid>
     </Box>
@@ -81,11 +86,10 @@ function AuthCard(props: {
     <Card.Root
       size="lg"
       variant="elevated"
-      bg="bg.subtle"
-      _dark={{ bg: 'whiteAlpha.100' }}
+      overflow="hidden"
       textStyle="sm"
     >
-      <Card.Body borderRadius="lg" borderBottomWidth="1px" bg="bg.panel" p="6">
+      <Card.Body borderBottomWidth="1px" p="6">
         <Flex mx="auto" mb="6">
           <LogoIcon color="var(--chakra-colors-accent-solid)" height="32px" />
         </Flex>
@@ -97,8 +101,8 @@ function AuthCard(props: {
         {props.children}
       </Card.Body>
       <Card.Footer
+        bg="bg.muted"
         pb="3"
-        borderBottomRadius="md"
         textAlign="center"
         justifyContent="center"
       >
@@ -280,39 +284,122 @@ export const FilesCard = () => {
   )
 }
 
-function ConfirmDialog() {
+function SetupCard() {
+  const steps = [
+    { label: 'Create workspace', done: true },
+    { label: 'Invite a teammate', done: true },
+    { label: 'Connect billing', done: false },
+    { label: 'Import customers', done: false },
+  ]
+  const completed = steps.filter((step) => step.done).length
+
   return (
-    <Dialog.Root
-      modal={false}
-      skipAnimationOnMount
-      open
-      preventScroll={false}
-      trapFocus={false}
-    >
-      <Dialog.Content
-        my="0"
-        borderWidth="1px"
-        boxShadow="md"
-        transition="none"
-        animationDuration="0ms"
-      >
-        <Dialog.Header>
-          <Dialog.Title>Confirm</Dialog.Title>
-        </Dialog.Header>
-        <Dialog.Body>
-          <Text>
-            Are you sure you want to delete this file? This action cannot be
-            undone.
-          </Text>
-        </Dialog.Body>
-        <Dialog.Footer>
-          <Button variant="outline">Cancel</Button>
-          <Button variant="solid" colorPalette="red">
-            Confirm
+    <DemoCard>
+      <Card.Header>
+        <Card.Title>Get started</Card.Title>
+        <Text color="fg.muted" textStyle="sm">
+          {completed} of {steps.length} complete
+        </Text>
+      </Card.Header>
+      <Card.Body gap="3">
+        <Progress.Root
+          value={(completed / steps.length) * 100}
+          size="xs"
+          colorPalette="accent"
+        >
+          <Progress.Track>
+            <Progress.Range />
+          </Progress.Track>
+        </Progress.Root>
+        <Stack gap="2">
+          {steps.map((step) => (
+            <HStack key={step.label} gap="2.5">
+              <Flex
+                boxSize="5"
+                rounded="full"
+                align="center"
+                justify="center"
+                bg={step.done ? 'accent.solid' : 'bg.muted'}
+                color={step.done ? 'accent.fg' : 'fg.muted'}
+                borderWidth={step.done ? '0' : '1px'}
+                borderColor="border"
+              >
+                {step.done ? <LuCheck size="12" /> : null}
+              </Flex>
+              <Text
+                textStyle="sm"
+                color={step.done ? 'fg.muted' : 'fg'}
+                textDecoration={step.done ? 'line-through' : undefined}
+              >
+                {step.label}
+              </Text>
+            </HStack>
+          ))}
+        </Stack>
+      </Card.Body>
+      <Card.Footer>
+        <Button size="sm" colorPalette="neutral" width="full">
+          Continue setup
+        </Button>
+      </Card.Footer>
+    </DemoCard>
+  )
+}
+
+function TeamCard() {
+  const members = [
+    { name: 'Eelco Wiersma', email: 'eelco@saas-ui.dev', role: 'Owner' },
+    { name: 'Sarah Chen', email: 'sarah@acme.com', role: 'Admin' },
+    { name: 'Marcus Webb', email: 'marcus@acme.com', role: 'Member' },
+    { name: 'Priya Shah', email: 'priya@acme.com', role: 'Member' },
+  ]
+
+  return (
+    <DemoCard>
+      <Card.Header>
+        <HStack justify="space-between" align="center">
+          <Card.Title>
+            Team{' '}
+            <Span ms="2" fontSize="xs" fontWeight="normal" color="fg.muted">
+              {members.length} / 8 seats
+            </Span>
+          </Card.Title>
+          <Button size="xs" variant="ghost" colorPalette="accent">
+            <LuUserPlus /> Invite
           </Button>
-        </Dialog.Footer>
-      </Dialog.Content>
-    </Dialog.Root>
+        </HStack>
+      </Card.Header>
+      <GridList.Root>
+        {members.map((member) => (
+          <GridList.Item
+            key={member.email}
+            borderBottomWidth="1px"
+            _last={{ borderWidth: 0 }}
+          >
+            <GridList.Cell>
+              <Avatar name={member.name} size="sm" />
+            </GridList.Cell>
+            <GridList.Cell flex="1">
+              <Text textStyle="sm" fontWeight="medium">
+                {member.name}
+              </Text>
+              <Text color="fg.muted" textStyle="xs">
+                {member.email}
+              </Text>
+            </GridList.Cell>
+            <GridList.Cell>
+              <Badge
+                size="sm"
+                variant="subtle"
+                colorPalette={member.role === 'Member' ? 'gray' : 'accent'}
+              >
+                {member.role}
+              </Badge>
+            </GridList.Cell>
+          </GridList.Item>
+        ))}
+      </GridList.Root>
+    </DemoCard>
   )
 }
 
@@ -410,47 +497,50 @@ const NotificationItem: React.FC<NotificationItemProps> = (props) => {
 function MetricsCard() {
   const chart = useChart({
     data: [
-      {
-        name: 'Jan',
-        value: 12450,
-      },
-      {
-        name: 'Feb',
-        value: 14280,
-      },
-      {
-        name: 'Mar',
-        value: 15920,
-      },
-      {
-        name: 'Apr',
-        value: 18750,
-      },
-      {
-        name: 'May',
-        value: 22340,
-      },
-      {
-        name: 'Jun',
-        value: 24890,
-      },
-      {
-        name: 'Jul',
-        value: 28670,
-      },
-      {
-        name: 'Aug',
-        value: 32450,
-      },
+      { name: 'Jan', value: 12450 },
+      { name: 'Feb', value: 14280 },
+      { name: 'Mar', value: 15920 },
+      { name: 'Apr', value: 18750 },
+      { name: 'May', value: 22340 },
+      { name: 'Jun', value: 24890 },
+      { name: 'Jul', value: 28670 },
+      { name: 'Aug', value: 32450 },
     ],
-    series: [
-      {
-        name: 'value',
-        label: 'Revenue',
-        color: 'accent.solid',
-      },
-    ],
+    series: [{ name: 'value', label: 'Revenue', color: 'accent.solid' }],
   })
+
+  const definition = useMemo(
+    () =>
+      chart.define({
+        marks: [
+          areaY(chart.data, {
+            x: 'name',
+            y: 'value',
+            fill: chart.color('accent.solid'),
+            fillOpacity: 0.16,
+          }),
+          lineY(chart.data, {
+            x: 'name',
+            y: 'value',
+            stroke: chart.color('accent.solid'),
+            strokeWidth: 2,
+          }),
+        ],
+        x: {
+          scale: () => scaleBand<string>().padding(0),
+          grid: false,
+          axis: false,
+        },
+        y: {
+          scale: scaleLinear,
+          nice: true,
+          grid: false,
+          axis: false,
+        },
+      }),
+    [chart],
+  )
+
   return (
     <DemoCard>
       <Card.Header>
@@ -463,28 +553,12 @@ function MetricsCard() {
         </Stat.Root>
       </Card.Header>
       <Card.Body p="0" overflow="hidden">
-        <Chart.Root chart={chart} height="100px">
-          <AreaChart
-            data={chart.data}
-            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
-          >
-            <Tooltip
-              cursor={false}
-              animationDuration={100}
-              content={<Chart.Tooltip />}
-            />
-            {chart.series.map((item) => (
-              <Area
-                key={item.name}
-                isAnimationActive={false}
-                dataKey={chart.key(item.name)}
-                fill={chart.color(item.color)}
-                fillOpacity={0.05}
-                stroke={chart.color(item.color)}
-              />
-            ))}
-          </AreaChart>
-        </Chart.Root>
+        <Chart.Root
+          chart={chart}
+          definition={definition}
+          height={100}
+          ariaLabel="Monthly revenue"
+        />
       </Card.Body>
     </DemoCard>
   )
@@ -556,6 +630,14 @@ function DetailsCard() {
                 </ProgressCircle.Circle>
               </ProgressCircle.Root>
               <Span>Positive</Span>
+            </DataList.ItemValue>
+          </DataList.Item>
+          <DataList.Item>
+            <DataList.ItemLabel>Priority</DataList.ItemLabel>
+            <DataList.ItemValue>
+              <Badge size="sm" variant="subtle" colorPalette="orange">
+                High
+              </Badge>
             </DataList.ItemValue>
           </DataList.Item>
         </DataList.Root>

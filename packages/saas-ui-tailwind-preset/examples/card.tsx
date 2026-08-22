@@ -20,7 +20,7 @@ const card = tv({
   variants: {
     variant: {
       elevated: {
-        root: 'bg-bg-panel border-[0.5px] border-border shadow-md',
+        root: 'bg-bg-panel border-[0.5px] border-border-emphasized shadow-md',
       },
       outline: {
         root: 'bg-bg-panel border border-border',

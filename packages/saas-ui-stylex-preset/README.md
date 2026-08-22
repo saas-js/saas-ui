@@ -116,7 +116,7 @@ pnpm --filter @saas-ui/stylex-preset appearance -- \
   --out src/themes/ocean.css
 ```
 
-`--format css` writes the `--sui-base` / `--sui-accent` knobs. Import that file
+`--format css` writes the `--sui-base` / `--sui-accent` CSS variables. Import that file
 next to `theme.css` and the existing StyleX tokens resolve from those seeds.
 
 `--format stylex` bakes `createAppearance()` into a static `createTheme()`

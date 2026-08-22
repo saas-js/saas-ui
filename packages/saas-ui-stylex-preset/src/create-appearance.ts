@@ -1,10 +1,9 @@
 import {
   type AppearanceOptions,
-  type ContrastLevel,
-  type ForegroundTone,
-  type SemanticColorToken,
   createAppearance,
-} from '../../saas-ui-chakra-preset/src/appearance.ts'
+  createAppearanceCssVars,
+  resolveAppearanceSeeds,
+} from '@saas-ui/appearance'
 
 import { isLightDarkValue, toStylexKey } from './flatten.ts'
 
@@ -20,37 +19,19 @@ export interface AppearanceCssOptions {
   selector?: string
 }
 
-const DEFAULT_BASE = { h: 260, c: 0.012, contrast: 'normal' as ContrastLevel }
-const DEFAULT_ACCENT = {
-  l: 0.511,
-  c: 0.262,
-  h: 276.966,
-  foreground: 'light' as ForegroundTone,
-}
-
-function contrastAxis(contrast: ContrastLevel | undefined) {
-  if (contrast === 'soft') return '-1'
-  if (contrast === 'strong') return '1'
-  return '0'
-}
-
-function foregroundTone(foreground: ForegroundTone | undefined) {
-  return foreground === 'dark' ? '0' : '1'
-}
-
-function oklch(l: number, c: number, h: number) {
-  return `oklch(${l} ${c} ${h})`
-}
+export { createAppearanceCssVars, resolveAppearanceSeeds }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return value != null && typeof value === 'object' && !Array.isArray(value)
 }
 
-function isSemanticToken(value: unknown): value is SemanticColorToken {
+function isSemanticToken(
+  value: unknown,
+): value is { value: { _light: string; _dark: string } } {
   return isRecord(value) && isLightDarkValue(value.value)
 }
 
-function toLightDark(token: SemanticColorToken) {
+function toLightDark(token: { value: { _light: string; _dark: string } }) {
   const { _light, _dark } = token.value
   return _light === _dark ? _light : `light-dark(${_light}, ${_dark})`
 }
@@ -96,57 +77,6 @@ function toClassName(name: string) {
     .toLowerCase()
 }
 
-export function resolveAppearanceSeeds(options: AppearanceOptions = {}) {
-  const base = {
-    h: options.base?.h ?? DEFAULT_BASE.h,
-    c: options.base?.c ?? DEFAULT_BASE.c,
-    contrast: options.base?.contrast ?? DEFAULT_BASE.contrast,
-  }
-  const accent = options.accent ?? DEFAULT_ACCENT
-  const sidebar = options.sidebar ?? 'base'
-  const solidSidebar = sidebar !== 'base' && sidebar.solid !== undefined
-  const tonalSidebar =
-    sidebar === 'base'
-      ? base
-      : solidSidebar
-        ? undefined
-        : {
-            h: sidebar.h ?? base.h,
-            c: sidebar.c ?? base.c,
-            contrast: sidebar.contrast ?? base.contrast,
-          }
-
-  return {
-    base,
-    accent,
-    sidebar,
-    solidSidebar,
-    tonalSidebar,
-    knobs: {
-      '--sui-base': oklch(0.5, base.c, base.h),
-      '--sui-accent': oklch(accent.l, accent.c, accent.h),
-      '--sui-sidebar': tonalSidebar
-        ? oklch(0.5, tonalSidebar.c, tonalSidebar.h)
-        : 'var(--sui-base)',
-      '--sui-sidebar-solid': solidSidebar
-        ? oklch(sidebar.solid.l, sidebar.solid.c, sidebar.solid.h)
-        : 'var(--sui-accent)',
-      '--sui-contrast': contrastAxis(base.contrast),
-      '--sui-sidebar-contrast': tonalSidebar
-        ? contrastAxis(tonalSidebar.contrast)
-        : 'var(--sui-contrast)',
-      '--sui-accent-foreground-tone': foregroundTone(accent.foreground),
-      '--sui-sidebar-foreground-tone': solidSidebar
-        ? foregroundTone(sidebar.foreground)
-        : '1',
-    },
-  }
-}
-
-export function createAppearanceKnobs(options: AppearanceOptions = {}) {
-  return resolveAppearanceSeeds(options).knobs
-}
-
 export function createAppearanceThemeVars(options: AppearanceOptions = {}) {
   return flattenAppearanceTokens(createAppearance(options))
 }
@@ -161,7 +91,7 @@ export function createAppearanceCss(
     cssOptions.selector ??
     (className ? `.sui-theme.${className}` : '.sui-theme')
 
-  const declarations = Object.entries(resolved.knobs)
+  const declarations = Object.entries(resolved.cssVars)
     .map(([property, value]) => `  ${property}: ${value};`)
     .join('\n')
 

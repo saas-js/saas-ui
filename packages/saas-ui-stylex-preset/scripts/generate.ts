@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import prettier, { type Options } from 'prettier'
 
-import { paletteNames } from '../../saas-ui-chakra-preset/src/theme/palette.ts'
+import { paletteNames } from '@saas-ui/appearance'
 import {
   type FlattenedToken,
   type TokenTree,
@@ -325,7 +325,7 @@ function cssLiteral(value: unknown): string {
   return rewriteTokenRefs(String(value))
 }
 
-function isThemeKnob(property: string) {
+function isThemeCssVar(property: string) {
   return (
     property.startsWith('--scale-') ||
     property.startsWith('--radius-') ||
@@ -352,7 +352,7 @@ async function generateGlobalCss() {
   let css = `/* Generated from the Chakra appearance contract. */\n`
   css += `:where(html, .sui-theme) {\n`
   for (const [property, value] of Object.entries(rootVars)) {
-    if (isThemeKnob(property)) {
+    if (isThemeCssVar(property)) {
       css += `  ${property}: ${cssLiteral(value)};\n`
     }
   }

@@ -96,7 +96,7 @@ export async function exportTokens() {
   semanticContent += '}\n'
 
   const appearanceContent = await exportAppearanceGlobalCss()
-  const themeKnobs = await exportThemeKnobs()
+  const themeCssVars = await exportThemeCssVars()
 
   // Add dark variant section if there's content
   let darkSection = ''
@@ -116,7 +116,7 @@ export async function exportTokens() {
     themeContent +
     inlineThemeContent +
     appearanceContent +
-    themeKnobs +
+    themeCssVars +
     semanticContent +
     darkSection +
     keyframesContent
@@ -130,7 +130,7 @@ export async function exportTokens() {
   console.log('✅ Tailwind theme exported to src/theme.css')
 }
 
-function isThemeKnob(property: string) {
+function isThemeCssVar(property: string) {
   return (
     property.startsWith('--scale-') ||
     property.startsWith('--radius-') ||
@@ -140,14 +140,14 @@ function isThemeKnob(property: string) {
   )
 }
 
-async function exportThemeKnobs(): Promise<string> {
+async function exportThemeCssVars(): Promise<string> {
   const modulePath = '../../saas-ui-chakra-preset/src/theme/global-css.ts'
   const module = await import(modulePath)
   const rootVars = (module.globalCss?.['*'] ?? {}) as CSSObject
-  let css = '/* Theme knobs */\n:where(html, .sui-theme) {\n'
+  let css = '/* Theme CSS variables */\n:where(html, .sui-theme) {\n'
 
   for (const [property, value] of Object.entries(rootVars)) {
-    if (isThemeKnob(property) && typeof value !== 'object') {
+    if (isThemeCssVar(property) && typeof value !== 'object') {
       css += `  ${property}: ${extractValue(String(value))};\n`
     }
   }

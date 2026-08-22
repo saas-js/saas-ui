@@ -1,12 +1,15 @@
 export {
   createAppearance,
   createAppearanceCssVars,
-  createPalette,
-  createScale,
-  paletteSeeds,
   resolveAppearanceSeeds,
+  createPalette,
+  createPalettes,
+  createScale,
+  createScales,
+  paletteNames,
+  paletteSeeds,
   statusHues,
-} from '@saas-ui/appearance'
+} from './appearance.ts'
 export type {
   AccentSeed,
   AppearanceCssVars,
@@ -29,4 +32,11 @@ export type {
   SolidSidebarSeed,
   StatusColorPalette,
   TonalSidebarSeed,
-} from '@saas-ui/appearance'
+} from './appearance.ts'
+export type {
+  PaletteKind,
+  PaletteScale,
+  PaletteTokens,
+  ScaleStep,
+} from './palette.ts'
+export { scaleSteps } from './palette.ts'

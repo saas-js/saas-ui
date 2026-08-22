@@ -79,6 +79,9 @@
     "design-system",
     "saas-ui"
   ],
+  "dependencies": {
+    "@saas-ui/appearance": "workspace:*"
+  },
   "peerDependencies": {
     "@stylexjs/stylex": "^0.16.0",
     "react": ">=18"

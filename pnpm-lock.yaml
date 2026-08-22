@@ -789,6 +789,12 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
 
+  packages/saas-ui-appearance:
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   packages/saas-ui-assets:
     devDependencies:
       '@types/react':
@@ -811,6 +817,10 @@ importers:
         version: 5.9.3
 
   packages/saas-ui-chakra-preset:
+    dependencies:
+      '@saas-ui/appearance':
+        specifier: workspace:*
+        version: link:../saas-ui-appearance
     devDependencies:
       '@chakra-ui/cli':
         specifier: ^3.36.1
@@ -1029,6 +1039,9 @@ importers:
       '@pandacss/dev':
         specifier: ^1.4.3
         version: 1.4.3(jsdom@27.0.1(postcss@8.5.6))(typescript@5.9.3)
+      '@saas-ui/appearance':
+        specifier: workspace:*
+        version: link:../saas-ui-appearance
       globby:
         specifier: ^14.1.0
         version: 14.1.0
@@ -1112,6 +1125,10 @@ importers:
         version: 3.2.4(@types/debug@4.1.12)(@types/node@24.9.1)(jiti@2.6.1)(jsdom@27.0.1(postcss@8.5.23))(lightningcss@1.30.2)(terser@5.43.1)(tsx@4.20.6)(yaml@2.8.1)
 
   packages/saas-ui-stylex-preset:
+    dependencies:
+      '@saas-ui/appearance':
+        specifier: workspace:*
+        version: link:../saas-ui-appearance
     devDependencies:
       '@chakra-ui/react':
         specifier: ^3.36.1

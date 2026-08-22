@@ -67,6 +67,9 @@
     "emotion",
     "library"
   ],
+  "dependencies": {
+    "@saas-ui/appearance": "workspace:*"
+  },
   "peerDependencies": {
     "@chakra-ui/react": "^3.28.0"
   },

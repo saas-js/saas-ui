@@ -1702,7 +1702,7 @@
   --sui-color-sidebar-accent-fg: var(--sui-color-sidebar-fg);
 }
 
-/* Theme knobs */
+/* Theme CSS variables */
 :where(html, .sui-theme) {
   --radius-full: 9999px;
   --scale-factor: 1;

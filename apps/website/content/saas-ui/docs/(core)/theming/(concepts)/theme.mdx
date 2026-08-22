@@ -4,7 +4,7 @@ description: Scope light/dark, palette, scale, and radii to a subtree.
 ---
 
 `Theme` is a local composition (installed by the CLI) that sets
-`color-scheme`, optional canvas colors, and the CSS knobs the preset reads.
+`color-scheme`, optional canvas colors, and the CSS variables the preset reads.
 
 ```tsx
 import { Theme } from '#components/ui/theme'
@@ -76,5 +76,5 @@ overrides that locally when you pass `appearance`.
 
 ## Nested themes
 
-Each `Theme` creates a new knob scope. A dark preview inside a light app is a
+Each `Theme` creates a new CSS variable scope. A dark preview inside a light app is a
 nested `Theme`, not a second `createSystem()`.

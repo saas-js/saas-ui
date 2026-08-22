@@ -2,34 +2,34 @@ import { describe, expect, it } from 'vitest'
 
 import {
   createAppearanceCss,
-  createAppearanceKnobs,
+  createAppearanceCssVars,
   createAppearanceStylex,
   createAppearanceThemeVars,
 } from './create-appearance.ts'
 
-describe('createAppearanceKnobs', () => {
+describe('createAppearanceCssVars', () => {
   it('writes seed variables from the appearance inputs', () => {
-    const knobs = createAppearanceKnobs({
+    const cssVars = createAppearanceCssVars({
       base: { h: 225, c: 0.01, contrast: 'soft' },
       accent: { l: 0.6, c: 0.18, h: 235, foreground: 'dark' },
     })
 
-    expect(knobs['--sui-base']).toBe('oklch(0.5 0.01 225)')
-    expect(knobs['--sui-accent']).toBe('oklch(0.6 0.18 235)')
-    expect(knobs['--sui-contrast']).toBe('-1')
-    expect(knobs['--sui-accent-foreground-tone']).toBe('0')
+    expect(cssVars['--sui-base']).toBe('oklch(0.5 0.01 225)')
+    expect(cssVars['--sui-accent']).toBe('oklch(0.6 0.18 235)')
+    expect(cssVars['--sui-contrast']).toBe('-1')
+    expect(cssVars['--sui-accent-foreground-tone']).toBe('0')
   })
 
-  it('bakes a solid sidebar into the seed knobs', () => {
-    const knobs = createAppearanceKnobs({
+  it('bakes a solid sidebar into the seed variables', () => {
+    const cssVars = createAppearanceCssVars({
       sidebar: {
         solid: { l: 0.55, c: 0.24, h: 292 },
         foreground: 'light',
       },
     })
 
-    expect(knobs['--sui-sidebar-solid']).toBe('oklch(0.55 0.24 292)')
-    expect(knobs['--sui-sidebar-foreground-tone']).toBe('1')
+    expect(cssVars['--sui-sidebar-solid']).toBe('oklch(0.55 0.24 292)')
+    expect(cssVars['--sui-sidebar-foreground-tone']).toBe('1')
   })
 })
 

@@ -9,7 +9,7 @@ export type { ThemeProviderProps } from './theme.tsx'
 export {
   createAppearanceArtifact,
   createAppearanceCss,
-  createAppearanceKnobs,
+  createAppearanceCssVars,
   createAppearanceStylex,
   createAppearanceThemeVars,
   resolveAppearanceSeeds,

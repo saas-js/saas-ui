@@ -9,12 +9,12 @@ palettes are derived from those seeds.
 
 There are two ways to apply an appearance:
 
-1. **CSS knobs** on `.sui-theme` — the browser resolves
+1. **CSS variables** on `.sui-theme` — the browser resolves
    `oklch(from var(--sui-accent) …)` at computed-style time
 2. **`createAppearance()`** — bakes the same math into semantic token values
    when you create a Chakra system
 
-Use knobs for runtime theming (white-label, Storybook). Use
+Use CSS variables for runtime theming (white-label, Storybook). Use
 `createAppearance()` when you want a compiled system for one brand.
 
 ## Seeds
@@ -43,7 +43,7 @@ chroma. See [Color system](/docs/theming/color-system).
 These variables sit next to the seeds. The preset also maps them to data
 attributes on `.sui-theme`.
 
-| Knob | Values | Attribute |
+| Variable | Values | Attribute |
 | ---- | ------ | --------- |
 | `--sui-contrast` | `0` normal, `-1` soft, `1` strong | `data-base-contrast="soft\|strong"` |
 | `--sui-sidebar-contrast` | same | `data-sidebar-contrast="soft\|strong"` |
@@ -109,7 +109,7 @@ export const system = createSystem(
 after the math runs.
 
 `createAppearance()` writes baked `oklch(…)` strings. It does not update
-`--sui-base` / `--sui-accent`. If you also set those knobs, the baked tokens
+`--sui-base` / `--sui-accent`. If you also set those variables, the baked tokens
 win for any path `createAppearance` returned (`bg`, `fg`, `accent`, `info`,
 `success`, `warning`, `destructive`, `sidebar`).
 
@@ -126,7 +126,7 @@ From the seeds the contract fills:
 Named catalog hues (`green`, `blue`, …) stay as static palettes. They do not
 follow the accent unless you use the status roles instead.
 
-## Other knobs
+## Other CSS variables
 
 Appearance is color. Scale, radii, motion, and overlay are separate CSS
 variables, usually set through the [Theme](/docs/theming/theme) component.

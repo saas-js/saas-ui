@@ -3,7 +3,11 @@ import { createSystem, defaultBaseConfig, mergeConfigs } from '@chakra-ui/react'
 import { defaultThemeConfig } from './theme/index.ts'
 import { utilities } from './theme/utilities.ts'
 
-export { createAppearance } from './appearance.ts'
+export {
+  createAppearance,
+  createAppearanceCssVars,
+  resolveAppearanceSeeds,
+} from './appearance.ts'
 export {
   createPalette,
   createScale,
@@ -12,6 +16,7 @@ export {
 } from './theme/palette.ts'
 export type {
   AccentSeed,
+  AppearanceCssVars,
   AppearanceOptions,
   AppearanceOverrides,
   AppearanceSemanticTokens,
@@ -22,6 +27,7 @@ export type {
   ForegroundTone,
   OklchColor,
   OklchSeed,
+  ResolvedAppearanceSeeds,
   SidebarSeed,
   SolidSidebarSeed,
   TonalSidebarSeed,

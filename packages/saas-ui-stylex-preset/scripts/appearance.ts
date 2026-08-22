@@ -21,7 +21,7 @@ Options:
   --name <id>              Export / class name (default: appearance)
   --in <file>              JSON AppearanceOptions (+ optional name)
   --out <file>             Write the artifact instead of printing it
-  --format <css|stylex>    css writes seed knobs, stylex writes createTheme
+  --format <css|stylex>    css writes seed CSS variables, stylex writes createTheme
   --selector <css>         CSS selector (css format only)
   --base <h,c>             Base hue and chroma, e.g. 260,0.012
   --base-contrast <level>  soft | normal | strong

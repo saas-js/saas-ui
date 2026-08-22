@@ -27,8 +27,8 @@ Run these commands from the repository root:
   real process boundary through `init`, `add`, `diff`, `update`, and migration
   against a temporary project and the canonical local registry.
 - `pnpm registry:consumer:packed:acceptance` packs the preset and CLI, installs
-  those tarballs with pnpm offline outside the workspace, runs the built CLI,
-  and type-checks and builds the resulting Next.js consumer.
+  those tarballs outside the workspace, runs the built CLI without a package
+  manager, and type-checks and builds the resulting Next.js consumer.
 - `pnpm registry:release` compiles and validates the complete public artifact
   set, then assembles one deterministic release candidate under
   `.artifacts/registry-release`. The candidate contains both JSON catalogs and

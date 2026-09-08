@@ -15,7 +15,7 @@ export const WhySection = () => {
           alignItems="flex-start"
         >
           <Heading as="h3" textStyle="4xl" minW={{ base: 'auto', lg: '400px' }}>
-            Why choose Saas UI?
+            Why choose SaaS.js?
           </Heading>
 
           <Grid
@@ -41,7 +41,7 @@ export const WhySection = () => {
                 Built on 20 Years of Experience
               </Heading>
               <Text color="fg.subtle" textStyle="md" textWrap="pretty">
-                Saas UI is built on two decades of building, scaling, and
+                SaaS.js is built on two decades of building, scaling, and
                 maintaining real B2B applications. Architecture that scales.
                 Code patterns proven in production.
               </Text>
@@ -60,7 +60,7 @@ export const WhySection = () => {
 
             <Box>
               <Heading as="h4" textStyle="lg">
-                Saas UI has been founded in 2021
+                SaaS.js has been building SaaS tooling since 2021
               </Heading>
               <Text color="fg.subtle" textStyle="md" textWrap="pretty">
                 We don't plan to go anywhere and are in it for the long term,

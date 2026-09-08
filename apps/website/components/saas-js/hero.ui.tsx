@@ -19,9 +19,11 @@ import { Button } from '#components/ui/button'
 import { Link } from '#components/ui/link'
 
 const StarterKitHeroUI = ({
+  title = 'Your AI agents are only as good as your codebase',
   description,
   latestChangelog,
 }: {
+  title?: string
   description: string
   latestChangelog: { title: string; link: string } | null
 }) => {
@@ -42,7 +44,7 @@ const StarterKitHeroUI = ({
               textWrap="balance"
               maxW="4xl"
             >
-              Your AI agents are only as good as your codebase
+              {title}
             </Heading>
             <Flex
               direction={{ base: 'column', md: 'row' }}
@@ -128,6 +130,10 @@ export const NextjsHeroUI = ({
   latestChangelog: { title: string; link: string } | null
 }) => (
   <StarterKitHeroUI
+    // Leads with the phrase people search. The AI-native angle is the
+    // differentiator, but it belongs in the subhead — someone searching
+    // "nextjs saas starter kit" needs to see that they landed on one.
+    title="Next.js SaaS starter kit built for AI-assisted development"
     description="Production ready Next.js SaaS starter kit for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
     latestChangelog={latestChangelog}
   />

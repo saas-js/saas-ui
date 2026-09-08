@@ -25,7 +25,7 @@ export default function Page() {
       <NextjsSection />
       <DemoSection />
       <CustomersSection />
-      <FeaturesSection />
+      <FeaturesSection framework="nextjs" />
       <WhySection />
       <FounderSection />
       <TestimonialsSection />

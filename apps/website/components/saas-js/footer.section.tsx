@@ -6,7 +6,10 @@ const linkTree = [
   {
     title: 'Resources',
     items: [
-      { label: 'TanStack Start kit', href: '/' },
+      // Each kit needs a sitewide link to its own page. "TanStack Start kit"
+      // pointed at the homepage and the Next.js kit had no footer link at all.
+      { label: 'Next.js kit', href: '/nextjs' },
+      { label: 'TanStack Start kit', href: '/tanstack-start' },
       { label: 'Documentation', href: '/docs' },
       { label: 'Blog', href: '/blog' },
       { label: 'Changelog', href: '/changelog' },

@@ -23,18 +23,38 @@ import { TbCheck } from 'react-icons/tb'
 import { ActionArrow } from '../action-arrow'
 import { ProBadge } from '../pro/pro-badge'
 
-export function FeaturesSection() {
+// This section renders on the homepage and on both starter-kit pages. It was
+// hardcoded to TanStack Start, so /nextjs told visitors the Next.js kit was
+// built on a different framework.
+const frameworkCopy = {
+  'tanstack-start': {
+    heading: 'Built on TanStack Start',
+    description:
+      'The fastest full-stack React framework for building dashboard-heavy SaaS products. Type-safe routing, built-in caching, and SSR when you need it.',
+  },
+  nextjs: {
+    heading: 'Built on Next.js',
+    description:
+      'The React framework your team already knows. App Router, server components and streaming, typed end to end, and deployable anywhere you like.',
+  },
+} as const
+
+export function FeaturesSection({
+  framework = 'tanstack-start',
+}: {
+  framework?: keyof typeof frameworkCopy
+}) {
+  const { heading, description } = frameworkCopy[framework]
+
   return (
     <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
       <Container maxW="8xl">
         <Stack mb="16" gap="4">
           <Heading as="h3" textStyle="4xl">
-            Built on TanStack Start
+            {heading}
           </Heading>
           <Text textStyle="lg" color="fg.subtle" fontWeight="medium" maxW="xl">
-            The fastest full-stack React framework for building dashboard-heavy
-            SaaS products. Type-safe routing, built-in caching, and SSR when you
-            need it.
+            {description}
           </Text>
         </Stack>
 

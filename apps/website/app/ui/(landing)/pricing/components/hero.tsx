@@ -39,7 +39,7 @@ export function Hero() {
       >
         <Text>
           Our starter kits have moved to the{' '}
-          <Link href="https://saas-js.com" fontWeight="medium">
+          <Link href="https://www.saas-js.com" fontWeight="medium">
             saas-js.com
           </Link>
           .

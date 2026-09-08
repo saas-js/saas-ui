@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { ColorModeButton } from '@/components/docs/color-mode-button'
 import {
   Alert,
@@ -40,7 +40,7 @@ const HeaderRoot = chakra(Container, {
 
 const LogoLink = () => (
   <HStack asChild focusRing="outside">
-    <Link href="/" aria-label="Saas.js, Back to homepage">
+    <Link href="/" aria-label="SaaS.js, back to homepage">
       <Logo color="fg" />
     </Link>
   </HStack>
@@ -95,7 +95,7 @@ const DesktopNav = () => (
         size="sm"
         flexShrink={0}
       >
-        Buy now
+        View pricing
       </LinkButton>
     </HStack>
   </HStack>
@@ -154,7 +154,7 @@ const MobileNav = () => {
               size="sm"
               width="100%"
             >
-              Buy now
+              View pricing
             </LinkButton>
           </Drawer.Footer>
         </Drawer.Content>
@@ -174,6 +174,8 @@ export const HeaderSection = () => {
         zIndex="3"
         backdropFilter="blur(10px)"
         bg="bg.muted/90"
+        borderBottomWidth="1px"
+        borderColor="border/60"
       >
         <Container>
           <DesktopNav />

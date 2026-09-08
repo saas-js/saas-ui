@@ -1,337 +1,294 @@
+import { Section } from '#components/ui/section'
 import {
-  Badge,
   Box,
-  ButtonGroup,
-  Card,
   Container,
-  Flex,
   Grid,
-  HStack,
   Heading,
-  List,
-  Separator,
-  Span,
+  HStack,
+  Image,
   Stack,
   Text,
-  Button,
 } from '@chakra-ui/react'
-import { Section } from '#components/ui/section'
-import Image from 'next/image'
-import Link from 'next/link'
-import { TbCheck } from 'react-icons/tb'
 
-import { ActionArrow } from '../action-arrow'
-import { ProBadge } from '../pro/pro-badge'
+const featureGroups = [
+  {
+    title: 'Architecture agents can follow',
+    visual: 'structure',
+    span: 6,
+    description:
+      'A repeatable path from route to query gives agents clear boundaries and fewer ways to invent the wrong architecture.',
+  },
+  {
+    title: 'SaaS foundations already connected',
+    visual: 'foundations',
+    span: 6,
+    description:
+      'Auth, workspaces, billing, data, UI, and email arrive connected, so agents extend proven systems instead of rebuilding them.',
+  },
+  {
+    title: 'Feedback that catches drift',
+    visual: 'backpressure',
+    span: 6,
+    description:
+      'Types, validation, tests, and CI reject weak changes early and turn drift into feedback agents can act on.',
+  },
+  {
+    title: 'Support when the codebase changes',
+    visual: 'guidance',
+    span: 6,
+    description:
+      'Focused docs, ongoing updates, and direct support preserve the codebase’s intent as your product and agents evolve.',
+  },
+] as const
 
 export function FeaturesSection() {
   return (
-    <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
+    <Section.Root
+      id="agent-mechanisms"
+      bg="transparent"
+      color="fg"
+      borderTopWidth="1px"
+      borderBottomWidth="1px"
+      borderColor="border"
+      py={{ base: '20', md: '28' }}
+    >
       <Container maxW="8xl">
-        <Stack mb="16" gap="4">
-          <Heading as="h3" textStyle="4xl">
-            Built on TanStack Start
-          </Heading>
-          <Text textStyle="lg" color="fg.subtle" fontWeight="medium" maxW="xl">
-            The fastest full-stack React framework for building dashboard-heavy
-            SaaS products. Type-safe routing, built-in caching, and SSR when you
-            need it.
-          </Text>
-        </Stack>
-
-        <Grid
-          templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
-          borderTopWidth="1px"
-          borderStyle="dashed"
-          position="relative"
-          gap="0"
-          _after={{
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            height: '100%',
-            borderLeftWidth: '1px',
-            borderStyle: 'dashed',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 1,
-            display: { base: 'none', md: 'block' },
-          }}
+        <Heading
+          as="h2"
+          textStyle={{ base: '4xl', md: '5xl' }}
+          lineHeight="1.08"
+          letterSpacing="-0.035em"
+          fontWeight="medium"
+          textWrap="balance"
+          maxW="6xl"
+          mb={{ base: '14', md: '24' }}
         >
-          <FeatureCard
-            title="Auth"
-            description="Customizable auth system built on Better Auth, or use your own auth provider."
-            logos={['/img/frameworks/better-auth.svg']}
-            features={[
-              'Email & password',
-              'Social login',
-              'Magic links',
-              '2FA',
-              'RBAC',
-              'Email verification',
-              'Passkeys',
-              'SSO',
-            ]}
-          />
-
-          <FeatureCard
-            title="Workspaces"
-            description="Allow users to create, manage, and invite other users to their own workspaces."
-            features={[
-              'RBAC',
-              'Multi-tenancy',
-              'Block workspaces',
-              'Invite users',
-              'Manage roles',
-            ]}
-          />
-
-          <FeatureCard
-            title="Billing"
-            description="Built-in billing with Stripe, or use your own billing provider. Automatically sync your billing configuration with Stripe."
-            logos={['/img/frameworks/stripe.svg']}
-            features={[
-              'Subscriptions',
-              'Automatic Stripe setup',
-              'Tiered pricing',
-              'Metered pricing',
-              'Usage-based pricing',
-              'Entitlements',
-              'Pricing tables',
-              'Grandfathering',
-            ]}
-          />
-
-          <FeatureCard
-            title="Database"
-            description="Built on the world's most proven database. PostgreSQL managed by Drizzle ORM. Run it locally, use Supabase, or on the edge with Neon.."
-            logos={['/img/frameworks/drizzle.svg']}
-            featureColumns={2}
-            features={[
-              'PostgreSQL',
-              'Migrations & seeding',
-              'Optimized queries',
-              'Edge-ready',
-            ]}
-          />
-
-          <FeatureCard
-            title="API"
-            description="End-to-end typesafe API with tRPC. Built fast without breaking anything. Fully portable, run it in a route function or fully standalone as your backend grows."
-            logos={['/img/frameworks/trpc.svg']}
-            features={[
-              'Type-safe',
-              'React Query integration',
-              'Permissions & roles',
-              'Subscriptions (Live data)',
-              'SSR & RSC support',
-            ]}
-          />
-
-          <FeatureCard
-            title="Beautiful UI"
-            description="Meticulously crafted theme that works with Chakra UI and Panda CSS. Built-in components, hooks, and utilities that work together seamlessly."
-            logos={[
-              '/img/frameworks/chakra-ui.svg',
-              '/img/frameworks/pandacss.svg',
-            ]}
-            features={[
-              'Customizable token system',
-              'Pre-built components',
-              'Storybooks',
-              'Accessible',
-            ]}
-          />
-
-          <FeatureCard
-            title="Transactional Emails"
-            description="Beautiful, easily customisable transactional emails. Integrate with Resend, or use your own SMTP provider."
-            logos={[
-              '/img/frameworks/resend.svg',
-              '/img/frameworks/react-email.png',
-            ]}
-            features={[
-              'Built-in templates',
-              'Template editor',
-              'Custom SMTP support',
-            ]}
-          />
-
-          <FeatureCard
-            title="Testing &amp; Linting"
-            description="End-to-end and unit testing setup for agent back pressure, ship with confidence."
-            logos={[
-              '/img/frameworks/playwright.svg',
-              '/img/frameworks/vitest.svg',
-              '/img/frameworks/github.svg',
-            ]}
-            features={['Playwright', 'Vitest', 'Github Actions']}
-          />
-        </Grid>
+          Give agents a codebase that pushes back.{' '}
+          <Text
+            as="span"
+            color="fg.muted"
+            font="inherit"
+            letterSpacing="inherit"
+          >
+            Clear paths, working foundations, and fast feedback make reliable
+            agent work repeatable.
+          </Text>
+        </Heading>
       </Container>
+
+      <Box position="relative">
+        <Box
+          position="absolute"
+          insetInline="0"
+          top="0"
+          borderTopWidth="1px"
+          borderColor="border"
+          pointerEvents="none"
+        />
+        <Box
+          position="absolute"
+          insetInline="0"
+          top="25%"
+          borderTopWidth="1px"
+          borderColor="border"
+          pointerEvents="none"
+          display={{ base: 'block', lg: 'none' }}
+        />
+        <Box
+          position="absolute"
+          insetInline="0"
+          top="50%"
+          borderTopWidth="1px"
+          borderColor="border"
+          pointerEvents="none"
+        />
+        <Box
+          position="absolute"
+          insetInline="0"
+          top="75%"
+          borderTopWidth="1px"
+          borderColor="border"
+          pointerEvents="none"
+          display={{ base: 'block', lg: 'none' }}
+        />
+        <Box
+          position="absolute"
+          insetInline="0"
+          bottom="0"
+          borderBottomWidth="1px"
+          borderColor="border"
+          pointerEvents="none"
+        />
+
+        <Container maxW="8xl">
+          <Grid
+            templateColumns={{ base: '1fr', lg: 'repeat(12, 1fr)' }}
+            borderLeftWidth="1px"
+            borderColor="border"
+          >
+            {featureGroups.map((group) => (
+              <Box
+                key={group.title}
+                gridColumn={{ base: '1 / -1', lg: `span ${group.span}` }}
+                borderRightWidth="1px"
+                borderColor="border"
+                overflow="hidden"
+                bg="transparent"
+                minH={{ base: '560px', md: '640px' }}
+                display="flex"
+                flexDirection="column"
+                position="relative"
+              >
+                <MechanismVisual type={group.visual} />
+
+                <Stack
+                  mt="auto"
+                  p={{ base: '6', md: '8' }}
+                >
+                  <Stack
+                    gap="3"
+                    align="flex-start"
+                    maxW="md"
+                  >
+                    <Heading
+                      as="h3"
+                      textStyle={{ base: 'xl', md: '2xl' }}
+                      fontWeight="medium"
+                      letterSpacing="-0.025em"
+                    >
+                      {group.title}
+                    </Heading>
+                    <Text
+                      color="fg.muted"
+                      textStyle="md"
+                      lineHeight="1.6"
+                      maxW="md"
+                    >
+                      {group.description}
+                    </Text>
+                  </Stack>
+                </Stack>
+              </Box>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
     </Section.Root>
   )
 }
 
-function FeatureCard(props: {
-  title: string
-  description: string
-  logos?: string[]
-  featureColumns?: number
-  features: string[]
+function MechanismVisual(props: {
+  type: (typeof featureGroups)[number]['visual']
 }) {
-  return (
-    <Card.Root
-      variant="outline"
-      border="0"
-      bg="none"
-      borderBottomWidth="1px"
-      borderStyle="dashed"
-      borderColor="border"
-      rounded="0"
-      py="16"
-      css={{
-        '&:nth-child(even)': {
-          ps: { base: '0', md: '16' },
-        },
-        '&:nth-child(odd)': {
-          pe: { base: '0', md: '16' },
-        },
-      }}
-    >
-      <Card.Header p="0">
-        <Card.Title textStyle="2xl">{props.title}</Card.Title>
-        <Card.Description fontSize="lg" color="fg.subtle" textWrap="pretty">
-          {props.description}
-        </Card.Description>
-      </Card.Header>
-      <Card.Body p="0" pt="4">
-        <Flex mb="4" gap="2">
-          {props.logos?.map((logo) => (
-            <Image
-              key={logo}
-              src={logo}
-              alt={props.title}
-              width={32}
-              height={32}
-            />
-          ))}
-        </Flex>
-
-        <List.Root
-          variant="plain"
-          textStyle="md"
-          color="fg.muted"
-          display="grid"
-          gridTemplateColumns={{
-            base: `repeat(${Math.min(props.featureColumns ?? 3, 2)}, 1fr)`,
-            md: `repeat(${props.featureColumns ?? 3}, 1fr)`,
-          }}
-          gap="2"
-          fontSize="sm"
-        >
-          {props.features.map((feature) => (
-            <List.Item key={feature}>
-              <List.Indicator color="fg" asChild>
-                <TbCheck />
-              </List.Indicator>
-              {feature}
-            </List.Item>
-          ))}
-        </List.Root>
-      </Card.Body>
-    </Card.Root>
-  )
+  if (props.type === 'structure') return <StructureVisual />
+  if (props.type === 'foundations') return <FoundationsVisual />
+  if (props.type === 'backpressure') return <BackpressureVisual />
+  return <GuidanceVisual />
 }
 
-function PrimaryFeatureCard(props: {
-  title: string
-  description: string
-  featureColumns?: number
-  features?: string[]
-  children?: React.ReactNode
+function Figure(props: {
+  label: string
+  number: string
+  children: React.ReactNode
 }) {
   return (
-    <Card.Root
+    <Box
+      minH={{ base: '300px', md: '380px' }}
       position="relative"
-      zIndex={2}
-      variant="outline"
-      border="0"
-      borderBottomWidth="1px"
-      borderStyle="dashed"
-      borderColor="border"
-      rounded="0"
-      py="16"
-      gridColumn={{ base: 'span 1', md: 'span 2' }}
-      bg="bg.muted"
+      color="fg.muted"
     >
-      <Card.Header p="0">
-        <Card.Title textStyle="4xl">{props.title}</Card.Title>
-        <Card.Description fontSize="lg" color="fg.subtle" textWrap="pretty">
-          {props.description}
-        </Card.Description>
-      </Card.Header>
-      <Card.Body
-        p="0"
-        pt="4"
-        display="flex"
-        flexDirection="column"
-        alignItems="flex-start"
-        gap="4"
+      <HStack
+        position="absolute"
+        top={{ base: '5', md: '7' }}
+        insetInline={{ base: '6', md: '8' }}
+        justify="space-between"
+        zIndex="1"
       >
-        <List.Root
-          variant="plain"
-          textStyle="md"
-          color="fg.muted"
-          display="grid"
-          gridTemplateColumns={{
-            base: `repeat(${Math.min(props.featureColumns ?? 3, 2)}, 1fr)`,
-            md: `repeat(${props.featureColumns ?? 3}, 1fr)`,
-          }}
-          gap="2"
-          fontSize="sm"
+        <Text
+          fontFamily="mono"
+          fontSize="2xs"
+          color="fg.subtle"
+          textTransform="uppercase"
+          letterSpacing="0.12em"
         >
-          {props.features?.map((feature) => (
-            <List.Item key={feature}>
-              <List.Indicator color="fg" asChild>
-                <TbCheck />
-              </List.Indicator>
-              {feature}
-            </List.Item>
-          ))}
-        </List.Root>
-
+          Fig {props.number}
+        </Text>
+        <Text
+          fontFamily="mono"
+          fontSize="2xs"
+          color="fg.subtle"
+          textTransform="uppercase"
+          letterSpacing="0.12em"
+        >
+          {props.label}
+        </Text>
+      </HStack>
+      <Box
+        position="absolute"
+        inset="0"
+        display="grid"
+        placeItems="center"
+        px={{ base: '8', md: '14' }}
+        pt="12"
+      >
         {props.children}
-      </Card.Body>
-    </Card.Root>
+      </Box>
+    </Box>
   )
 }
 
-function TertiaryFeatureCard(props: {
-  title: string
-  description: string
-  featureColumns?: number
-  features?: string[]
-  children?: React.ReactNode
-}) {
+function StructureVisual() {
   return (
-    <Card.Root
-      variant="outline"
-      bg={{
-        _light: 'white/40',
-        _dark: 'white/5',
-      }}
-      width="260px"
-    >
-      <Box height="200px"></Box>
-      <Card.Header>
-        <Card.Title textStyle="md" color="fg.muted" fontWeight="medium">
-          {props.title}
-        </Card.Title>
-        <Card.Description fontSize="md" color="fg" fontWeight="semibold">
-          {props.description}
-        </Card.Description>
-      </Card.Header>
-    </Card.Root>
+    <Figure label="Structure" number="01">
+      <Image
+        src="/img/saas-js-mechanism-structure.svg"
+        alt=""
+        width="full"
+        maxW="620px"
+        loading="lazy"
+      />
+    </Figure>
+  )
+}
+
+function FoundationsVisual() {
+  return (
+    <Figure label="Foundations" number="02">
+      <Image
+        src="/img/saas-js-mechanism-foundations.svg"
+        alt=""
+        width="full"
+        maxW="500px"
+        loading="lazy"
+      />
+    </Figure>
+  )
+}
+
+function BackpressureVisual() {
+  return (
+    <Figure label="Backpressure" number="03">
+      <Image
+        src="/img/saas-js-mechanism-backpressure.svg"
+        alt=""
+        width="full"
+        maxW="500px"
+        loading="lazy"
+      />
+    </Figure>
+  )
+}
+
+function GuidanceVisual() {
+  return (
+    <Figure label="Guidance" number="04">
+      <Image
+        src="/img/saas-js-mechanism-guidance.svg"
+        alt=""
+        width="full"
+        maxW="620px"
+        loading="lazy"
+      />
+    </Figure>
   )
 }

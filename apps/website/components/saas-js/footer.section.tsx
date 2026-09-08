@@ -1,4 +1,4 @@
-import { Logo } from '@/components/logo'
+import { Logo } from '@/components/saas-js/logo'
 import { Box, Container, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
@@ -37,7 +37,7 @@ const linkTree = [
 
 export const FooterSection = () => {
   return (
-    <footer role="contentinfo">
+    <footer>
       <Container py="8" fontSize="sm">
         <Stack
           direction={{ base: 'column-reverse', md: 'row' }}
@@ -45,10 +45,14 @@ export const FooterSection = () => {
           align="flex-start"
           gap="8"
         >
-          <Stack align="flex-start" gap="4">
+          <Stack align="flex-start" gap="4" maxW="sm">
             <Logo />
-            <Text color="fg.subtle">
-              Crafted by Saas UI B.V. in the Netherlands &copy;{' '}
+            <Text color="fg.subtle" textWrap="pretty">
+              SaaS.js is built by{' '}
+              <Box asChild color="fg" _hover={{ textDecoration: 'underline' }}>
+                <Link href="https://saas-ui.dev">Saas UI B.V.</Link>
+              </Box>
+              {' '}in the Netherlands &copy;{' '}
               {new Date().getFullYear()}
             </Text>
           </Stack>
@@ -61,7 +65,7 @@ export const FooterSection = () => {
           >
             {linkTree.map((column) => (
               <Stack key={column.title} direction="column" gap="2.5">
-                <Heading as="h5" size="md" fontWeight="medium">
+                <Heading as="h2" size="md" fontWeight="medium">
                   {column.title}
                 </Heading>
                 {column.items.map((item) => (

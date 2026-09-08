@@ -255,7 +255,7 @@ function WorkspaceMenu() {
             >
               <SaasUIIcon color="white" />
             </Flex>
-            Saas.js
+            SaaS.js
           </Sidebar.NavButton>
         </Menu.Trigger>
         <Menu.Content>
@@ -267,7 +267,7 @@ function WorkspaceMenu() {
 
             <Portal>
               <Menu.Content>
-                <Menu.Item value="saasjs">Saas.js</Menu.Item>
+                <Menu.Item value="saasjs">SaaS.js</Menu.Item>
                 <Menu.Item value="acme">ACME</Menu.Item>
                 <Menu.Separator />
                 <Menu.Item value="create">Create new workspace</Menu.Item>

@@ -27,7 +27,7 @@ export function GetStartedSection(props: { children?: React.ReactNode }) {
             fontWeight="medium"
             fontSize={{ base: '2xl', md: '4xl' }}
           >
-            Start shipping features today.
+            Give your agents a foundation they can build on.
           </Text>
 
           {props.children ? (
@@ -35,10 +35,10 @@ export function GetStartedSection(props: { children?: React.ReactNode }) {
           ) : (
             <ButtonGroup>
               <Button variant="glass" colorPalette="accent" asChild>
-                <Link href="/pricing">Buy now</Link>
+                <Link href="/pricing">View pricing</Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link href="/docs">Documentation</Link>
+                <Link href="/docs">Read the documentation</Link>
               </Button>
             </ButtonGroup>
           )}

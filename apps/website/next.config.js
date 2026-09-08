@@ -32,6 +32,18 @@ let config = {
     '@saas-ui-pro/react',
     '@saas-ui-pro/react/theme',
   ],
+  // v2.saas-ui.dev is an archive: still served so anyone on v2 can read their
+  // docs, but kept out of search so it cannot compete with saas-ui.dev.
+  // `follow` is deliberate — links out to the current site stay crawlable.
+  // Set as a header rather than a meta tag so non-HTML responses are covered too.
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
+      },
+    ]
+  },
   async redirects() {
     return [
       {

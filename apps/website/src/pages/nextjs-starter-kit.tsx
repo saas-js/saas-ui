@@ -55,7 +55,6 @@ const NextjsStarterKit = () => {
         title="Next.js SaaS Starter Kit"
         description="Production-ready Next.js starter kit for building intuitive SaaS products"
         titleTemplate="%s - Saas UI"
-        canonical="https://saas-ui.dev/nextjs-starter-kit"
         openGraph={{
           images: [
             {

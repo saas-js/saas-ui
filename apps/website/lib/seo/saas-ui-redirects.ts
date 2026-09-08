@@ -118,12 +118,13 @@ export const saasUiRedirects: Record<string, string> = {
   // --- starter kits and auth guides now live on saas-js.com ---
   '/nextjs-starter-kit': `${SAAS_JS}/nextjs`,
   '/docs/nextjs-starter-kit': `${SAAS_JS}/docs/starter-kits/nextjs`,
-  '/docs/tanstack-router-starter-kit': `${SAAS_JS}/docs/starter-kits/nextjs`,
-  '/docs/guides/auth/clerk': `${SAAS_JS}/docs/starter-kits/nextjs/authentication`,
-  '/docs/guides/auth/supabase': `${SAAS_JS}/docs/starter-kits/nextjs/authentication`,
-  '/docs/guides/auth/magic': `${SAAS_JS}/docs/starter-kits/nextjs/authentication`,
-  '/docs/components/authentication/auth': `${SAAS_JS}/docs/starter-kits/nextjs/authentication`,
-  '/docs/components/authentication/auth-provider': `${SAAS_JS}/docs/starter-kits/nextjs/authentication`,
+  '/docs/tanstack-router-starter-kit': `${SAAS_JS}/docs/starter-kits/tanstack-start`,
+  // There is no /authentication index page — better-auth is the auth doc now.
+  '/docs/guides/auth/clerk': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
+  '/docs/guides/auth/supabase': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
+  '/docs/guides/auth/magic': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
+  '/docs/components/authentication/auth': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
+  '/docs/components/authentication/auth-provider': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/pricing/figma': '/pricing',
 }
 
@@ -133,7 +134,10 @@ export const saasUiRedirects: Record<string, string> = {
  */
 const prefixRedirects: Array<[string, string]> = [
   ['/docs/nextjs-starter-kit', `${SAAS_JS}/docs/starter-kits/nextjs`],
-  ['/docs/tanstack-router-starter-kit', `${SAAS_JS}/docs/starter-kits/nextjs`],
+  [
+    '/docs/tanstack-router-starter-kit',
+    `${SAAS_JS}/docs/starter-kits/tanstack-start`,
+  ],
   ['/blog', `${SAAS_JS}/blog`],
 ]
 

@@ -159,13 +159,13 @@ export const HeaderSection = () => {
         <Text fontWeight="medium">Looking for our SaaS starter kits?</Text>
         <Text>
           They're now available at{' '}
-          <Link href="https://saas-js.com">saas-js.com</Link>
+          <Link href="https://www.saas-js.com">saas-js.com</Link>
         </Text>
 
         <LinkButton
           variant="outline"
           colorPalette="accent"
-          href="https://saas-js.com"
+          href="https://www.saas-js.com"
           size="xs"
         >
           Learn more <ActionArrow />

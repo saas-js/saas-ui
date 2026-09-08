@@ -23,10 +23,13 @@ const linkTree = [
       { label: 'Blocks', href: '/pro/blocks' },
       { label: 'Figma UI kit', href: '/pro/figma' },
 
-      { label: 'Next.js starter kit', href: 'https://saas-js.com' },
+      // Point each kit at its own page rather than the saas-js.com homepage.
+      // These are sitewide links with exact-match anchor text, so they are the
+      // main way saas-ui.dev's authority reaches the pages that need it.
+      { label: 'Next.js starter kit', href: 'https://www.saas-js.com/nextjs' },
       {
         label: 'Tanstack Start starter kit',
-        href: 'https://saas-js.com/tanstack-start',
+        href: 'https://www.saas-js.com/tanstack-start',
       },
     ],
   },

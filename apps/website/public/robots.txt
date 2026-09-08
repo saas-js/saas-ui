@@ -1,4 +1,6 @@
-Sitemap: https://saas-ui.dev/sitemap.xml
+# Archived version of the site. Crawling stays allowed so the
+# X-Robots-Tag: noindex header (see next.config.js) is actually seen —
+# a Disallow here would hide the directive and leave URLs indexable from links.
 
 User-agent: *
 Allow: /*

@@ -119,6 +119,10 @@ export const HeroUI = ({
   latestChangelog: { title: string; link: string } | null
 }) => (
   <StarterKitHeroUI
+    // The homepage is the TanStack Start kit and the page meant to own that
+    // term, so the h1 has to say it. "tanstack start" is ~4,400 searches a
+    // month; every starter-kit phrasing is under 100.
+    title="TanStack Start SaaS starter kit built for AI-assisted development"
     description="Production ready TanStack Start SaaS starter kit for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
     latestChangelog={latestChangelog}
   />

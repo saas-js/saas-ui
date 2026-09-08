@@ -17,7 +17,7 @@ const linkTree = [
     ],
   },
   {
-    title: 'Packages',
+    title: 'Open source',
     items: [
       { label: 'All packages', href: '/packages' },
       { label: 'Drizzle CRUD', href: '/packages/drizzle-crud' },

@@ -21,6 +21,32 @@ export const Navigation = () => {
     <NavigationMenuRoot>
       <NavigationMenuList display={{ base: 'none', md: 'flex' }} gap="1px">
         <NavigationMenuItem>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+
+          <NavigationMenuContent>
+            <List
+              css={{
+                '@media only screen and (min-width: 600px)': {
+                  width: '600px',
+                  maxWidth: '80vw',
+                  gap: '1px',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                },
+              }}
+            >
+              <ListItem title="TanStack Start kit" href="/">
+                The flagship SaaS starter kit.
+              </ListItem>
+              <ListItem title="Next.js kit" href="/nextjs">
+                The same foundations, on Next.js.
+              </ListItem>
+              <ListItem title="Open source" href="/packages">
+                The libraries behind both kits.
+              </ListItem>
+            </List>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <NavigationMenuLink href="/docs">Documentation</NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -66,10 +92,10 @@ export const Navigation = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="/packages">Packages</NavigationMenuLink>
+          <NavigationMenuLink href="/showcase">Showcase</NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="/showcase">Showcase</NavigationMenuLink>
+          <NavigationMenuLink href="/pricing">Pricing</NavigationMenuLink>
         </NavigationMenuItem>
 
         <NavigationMenuIndicator />

@@ -126,6 +126,18 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/components/authentication/auth': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/docs/components/authentication/auth-provider': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/pricing/figma': '/pricing',
+
+  // Legacy sitemap URLs still registered in Search Console, submitted between
+  // 2022 and 2024 and reporting "Couldn't fetch" since the July restructure.
+  // They cannot be removed from the report — the entries were submitted against
+  // the old URL-prefix properties — and deleting a sitemap there is cosmetic
+  // anyway, since Google keeps the URLs it already knows. Pointing them at the
+  // current sitemap turns four standing errors into a sitemap Google already
+  // re-checks on a schedule. (www.saas-ui.dev/sitemap.xml already resolves via
+  // the www → apex redirect.)
+  '/pages.xml': '/sitemap.xml',
+  '/docs.xml': '/sitemap.xml',
+  '/blog.xml': '/sitemap.xml',
 }
 
 /**

@@ -3,11 +3,26 @@ import { DemoSection } from '@/components/site/demo.section'
 import { GetStartedSection } from '@/components/site/get-started.section'
 import { TestimonialsSection } from '@/components/site/testimonials.section'
 import { Box, Container, Grid, HStack, Heading, List, Text } from '@chakra-ui/react'
+import type { Metadata } from 'next'
 import { TbCheck } from 'react-icons/tb'
 
 import { ComponentsSection } from '../components/components.section'
 import { DesignSystemSection } from '../components/design-system.section'
 import { HeroSection } from '../components/hero.section'
+
+// The site title alone ("Saas UI") carries no terms for the non-brand queries
+// this page already ranks for — saas ui design, saas ui kit, saas ui components.
+export const metadata = {
+  // absolute, otherwise the "%s | Saas UI" template appends the brand twice
+  title: {
+    absolute: 'Saas UI — React components & design system for SaaS',
+  },
+  description:
+    'Open source React components, blocks and a design system for building SaaS applications. Built on Chakra UI, with a Figma kit and themeable primitives.',
+  alternates: {
+    canonical: '/',
+  },
+}
 
 export default function Page() {
   return (

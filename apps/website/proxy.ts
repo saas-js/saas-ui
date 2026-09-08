@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+import { resolveSaasUiRedirect } from '@/lib/seo/saas-ui-redirects'
+
 export function proxy(request: NextRequest) {
   const host = request.headers.get('host') || ''
   const pathname = request.nextUrl.pathname
@@ -14,6 +16,10 @@ export function proxy(request: NextRequest) {
     host.includes('saas-ui') ||
     host === 'saas-ui.dev' ||
     host === 'www.saas-ui.dev'
+
+  // Legal pages live outside `app/ui`, so rewriting them into `/ui` 404s them
+  // on saas-ui.dev. They are host-neutral — serve the shared route as-is.
+  const isSharedRoute = ['/license', '/privacy', '/terms'].includes(pathname)
 
   // Handle /ui routes on saas-js (proxy to saas-ui content)
   if (isSaasJs && pathname.startsWith('/ui')) {
@@ -39,7 +45,19 @@ export function proxy(request: NextRequest) {
   }
 
   // Handle saas-ui requests - rewrite to /ui path
-  if (isSaasUi) {
+  if (isSaasUi && !isSharedRoute) {
+    // Legacy URLs from before the v3 docs restructure. Middleware runs ahead of
+    // next.config redirects, and by the time the rewrite below has run the
+    // original path is gone, so these have to be resolved here.
+    const redirect = resolveSaasUiRedirect(pathname)
+    if (redirect) {
+      const destination = redirect.startsWith('http')
+        ? new URL(redirect)
+        : new URL(redirect, request.nextUrl.origin)
+      destination.search = request.nextUrl.search
+      return NextResponse.redirect(destination, 308)
+    }
+
     const url = request.nextUrl.clone()
     url.pathname = `/ui${pathname}`
 

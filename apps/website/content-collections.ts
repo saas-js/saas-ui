@@ -223,7 +223,7 @@ const sjsMetas = defineCollection({
 
 const blogs = defineCollection({
   name: 'Blog',
-  directory: 'content/blog',
+  directory: 'content/saas-ui/blog',
   include: ['**/*.mdx'],
   schema: z.object({
     title: z.string(),

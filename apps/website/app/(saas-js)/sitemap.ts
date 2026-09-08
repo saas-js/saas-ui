@@ -3,7 +3,9 @@ import { allChangelogs } from 'content-collections'
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://saas-js.com'
+  // The apex 308s to www, so listing apex URLs points crawlers at a redirect
+  // chain instead of the canonical page.
+  const baseUrl = 'https://www.saas-js.com'
 
   const docUrls = source.getPages().map(
     (page) =>
@@ -26,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const changelogUrls = changelogs.map(
     (changelog) =>
       ({
-        url: `${baseUrl}/${changelog.slug}`,
+        url: `${baseUrl}/changelog/${changelog.slug}`,
         lastModified: new Date(changelog.publishedAt),
         changeFrequency: 'monthly' as const,
         priority: 1,

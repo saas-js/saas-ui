@@ -110,7 +110,6 @@ const Home = () => {
         title="Saas UI"
         description="React component library and Next.js starter kit for SaaS, B2B and internal tools."
         titleTemplate="%s - The React toolkit for startups"
-        canonical="https://saas-ui.dev"
       />
 
       <Box mb={8} w="full" position="relative" overflow="hidden">

@@ -3,7 +3,8 @@ export const docsConfig: DocsConfig = {
   title: 'SAAS.JS',
   titleTemplate: '%s | SAAS.JS',
   description: 'Building blocks for SaaS products.',
-  url: 'https://saas-js.com',
+  // The apex 308s to www; canonicals and OG urls must name the served host.
+  url: 'https://www.saas-js.com',
   xHandle: '@saas-ui',
   repoUrl: 'https://github.com/saas-js/saas-js',
   repoBranch: 'main',

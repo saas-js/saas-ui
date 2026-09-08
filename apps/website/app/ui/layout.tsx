@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     template: websiteConfig.titleTemplate,
   },
   description: websiteConfig.description,
+  // Self-referencing canonical per route. saas-ui.dev and saas-js.com serve
+  // overlapping content from one app, so every page needs to name its own home.
+  alternates: {
+    canonical: './',
+  },
   openGraph: {
     siteName: websiteConfig.title,
     images: [

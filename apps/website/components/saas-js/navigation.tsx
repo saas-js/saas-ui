@@ -27,10 +27,10 @@ export const Navigation = () => {
             <List
               css={{
                 '@media only screen and (min-width: 600px)': {
-                  width: '600px',
+                  width: '320px',
                   maxWidth: '80vw',
                   gap: '1px',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gridTemplateColumns: '1fr',
                 },
               }}
             >

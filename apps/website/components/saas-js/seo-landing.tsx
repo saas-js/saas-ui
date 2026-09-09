@@ -1,5 +1,4 @@
 import {
-  Badge,
   Box,
   Container,
   Grid,
@@ -20,8 +19,8 @@ import { TestimonialsSection } from './testimonials.section'
 
 /**
  * Long-form landing page for a framework keyword. Deliberately answers the
- * research query — stack, contents, build-vs-buy, why this framework — rather
- * than repeating the product pitch on `/` and `/nextjs`.
+ * research query (stack, contents, build-vs-buy, why this framework) instead
+ * of repeating the product pitch on `/` and `/nextjs`.
  */
 export function SeoLanding({ content }: { content: SeoLandingContent }) {
   return (
@@ -47,9 +46,6 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
       <Box as="section" pt={{ base: '24', md: '36' }} pb="16">
         <Container maxW="5xl">
           <Stack gap="6">
-            <Badge colorPalette="accent" alignSelf="flex-start">
-              {content.framework}
-            </Badge>
             <Heading
               as="h1"
               fontSize={{ base: '4xl', md: '6xl' }}
@@ -64,7 +60,7 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
             </Text>
             <HStack gap="3" pt="2" flexWrap="wrap">
               <Button size="lg" asChild variant="glass" colorPalette="accent">
-                <Link href="/pricing">Buy now — $200</Link>
+                <Link href="/pricing">Buy now, $200</Link>
               </Button>
               <Button size="lg" asChild variant="outline" colorPalette="neutral">
                 <Link href={content.docsHref}>Read the docs</Link>
@@ -83,8 +79,7 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
               What tech stack does it use?
             </Heading>
             <Text textStyle="lg" color="fg.subtle" maxW="2xl">
-              Opinionated where it saves you time, replaceable where you are
-              likely to disagree.
+              These are the defaults. Every one of them is swappable.
             </Text>
           </Stack>
 
@@ -138,8 +133,8 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
             </Heading>
             <Text textStyle="lg" color="fg.subtle" maxW="2xl">
               An agent will scaffold sign-in this afternoon. The question is
-              what the tenth feature looks like, and whether you can tell when
-              it got something wrong.
+              what your tenth feature looks like, and whether you would notice
+              it getting something wrong.
             </Text>
           </Stack>
 
@@ -211,10 +206,10 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
         <Container maxW="3xl">
           <Stack gap="6" alignItems="flex-start">
             <Heading as="h2" textStyle="4xl" letterSpacing="tight">
-              Start with the foundations already built
+              Start with the boring parts done
             </Heading>
             <Text textStyle="lg" color="fg.subtle">
-              One-time purchase, lifetime access, unlimited self-hosted
+              One-time purchase with lifetime access. Unlimited self-hosted
               projects.
             </Text>
             <HStack gap="3" flexWrap="wrap">

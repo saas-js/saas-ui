@@ -3,8 +3,8 @@
  *
  * These are deliberately kept separate from the product pages at `/` and
  * `/nextjs`. Those are short brand and conversion pages; these answer the
- * research query — what is in the box, what would it cost to build, why this
- * framework — so the two do not compete for the same result.
+ * research query (what is in the box, why not just generate it, why this
+ * framework) so the two do not compete for the same result.
  *
  * Framework-specific copy lives here rather than in the components, because
  * hardcoding it is how /nextjs ended up telling visitors it was built on
@@ -62,26 +62,26 @@ const sharedStack = [
   {
     layer: 'Testing',
     choice: 'Playwright + Vitest',
-    note: 'End-to-end and unit setup wired into GitHub Actions from the first commit.',
+    note: 'End-to-end and unit tests, running in GitHub Actions.',
   },
 ]
 
 const sharedIncluded = [
   {
     title: 'Multi-tenant workspaces',
-    body: 'Users create workspaces, invite teammates and manage roles. Role-based access control and scope filters run through the data layer, so tenant isolation is enforced in the query rather than remembered in each route.',
+    body: 'Users create workspaces, invite teammates and manage roles. Scope filters run in the data layer, so every query is tenant-scoped by default. You do not have to remember it in each new route.',
   },
   {
     title: 'Billing that matches your pricing',
-    body: 'Subscriptions, tiered plans, metered and usage-based pricing, and entitlements. Your pricing configuration syncs to Stripe automatically instead of being maintained twice.',
+    body: 'Subscriptions, tiered plans, metered and usage-based pricing, entitlements. Your pricing config syncs to Stripe, so you maintain it in one place.',
   },
   {
     title: 'An admin and dashboard shell',
-    body: 'Navigation, data tables, filters, forms and empty states already assembled — the parts that are tedious to build well and easy to build inconsistently.',
+    body: 'Navigation, data tables, filters, forms and empty states. The parts that take a week to build properly and drift out of sync when you do not.',
   },
   {
     title: 'Types strict enough for agents',
-    body: 'Consistent patterns and full type coverage give an AI agent the constraints it needs to change code safely. Tests provide the back-pressure that catches it when it does not.',
+    body: 'Full type coverage and one set of patterns give an agent something to conform to. The tests catch it when it does not.',
   },
 ]
 
@@ -90,38 +90,38 @@ const sharedGenerateVsKit = [
     area: 'Auth',
     generated: 'A working email and password flow.',
     withKit:
-      'Social login, magic links, 2FA, passkeys, SSO, email verification and session handling — with tenant scoping enforced in the data layer rather than remembered per route.',
+      'Social login, magic links, 2FA, passkeys, SSO, email verification, session handling. Tenant scoping runs in the data layer.',
   },
   {
     area: 'Billing',
     generated: 'A Stripe checkout link.',
     withKit:
-      'Subscriptions, tiered, metered and usage-based pricing, entitlements, grandfathering and webhooks — the parts that surface later as revenue bugs.',
+      'Subscriptions, tiered, metered and usage-based pricing, entitlements, grandfathering, webhooks. This is where billing bugs cost you money.',
   },
   {
     area: 'Multi-tenancy',
     generated: 'A workspaces table and a foreign key.',
     withKit:
-      'Actor-based access control and scope filters that run through every query, so isolation is a property of the data layer instead of a thing each new feature has to remember.',
+      'Actor-based access control and scope filters on every query. Tenant isolation holds even when someone forgets.',
   },
   {
     area: 'Conventions',
     generated: 'Whatever it picked this session.',
     withKit:
-      'One set of patterns the agent extends rather than reinvents, so the tenth feature looks like the first.',
+      'One set of patterns. Your tenth feature looks like your first.',
   },
   {
     area: 'Knowing it works',
-    generated: 'Code that reads as though it is correct.',
+    generated: 'Code that looks right.',
     withKit:
-      'Types and an end-to-end test suite in CI — the back-pressure that catches an agent when it is confidently wrong.',
+      'Types and end-to-end tests in CI that fail when it is not.',
   },
 ]
 
 const sharedFaq = [
   {
     q: 'Is this a subscription?',
-    a: 'No. It is a one-time purchase with lifetime access to the repository and its updates. Individual licences are $200 and team licences $400 for up to 10 developers and unlimited projects.',
+    a: 'No. One-time purchase, lifetime access to the repo and its updates. $200 for an individual licence, $400 for a team of up to 10 developers. Unlimited projects either way.',
   },
   {
     q: 'Can I use it for client work?',
@@ -129,11 +129,11 @@ const sharedFaq = [
   },
   {
     q: 'Do I have to use every part of it?',
-    a: 'No. The pieces are separable — the packages behind the kit, such as Drizzle CRUD and the Better Auth React Query bindings, are open source and usable on their own.',
+    a: 'No. The packages behind it, like Drizzle CRUD and the Better Auth React Query bindings, are open source and work on their own.',
   },
   {
     q: 'How do updates work?',
-    a: 'You pull them from the repository. Because the kit is a starting point rather than a dependency you install, you choose what to take and when.',
+    a: 'You pull them from the repo. It is a starting point, not a dependency, so you take what you want when you want it.',
   },
 ]
 
@@ -146,33 +146,33 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
       'A production-ready TanStack Start SaaS boilerplate with authentication, Stripe billing, multi-tenant workspaces and a typed tRPC API. One-time purchase, lifetime access.',
     h1: 'TanStack Start SaaS boilerplate',
     intro:
-      'Everything a SaaS needs before it has a single customer — auth, billing, workspaces, a typed API and a dashboard shell — assembled on TanStack Start and ready to build on.',
+      'Auth, billing, workspaces, a typed API and a dashboard shell, already wired together on TanStack Start. Clone it and start building the part that is actually yours.',
     docsHref: '/docs/starter-kits/tanstack-start',
     productHref: '/',
     whyFramework: [
       {
         title: 'Search params are typed state',
-        body: 'A dashboard is filters, sort orders, page numbers and date ranges. TanStack Router validates and types search params as first-class state instead of strings you parse by hand — so the filter panel and the shareable URL are the same thing, and a renamed filter fails at build time.',
+        body: 'A dashboard is filters, sorting, pagination and date ranges. Router validates and types search params, so your filter state and your URL are the same object. Rename a filter and the build fails.',
       },
       {
         title: 'Isomorphic functions',
-        body: 'createIsomorphicFn gives one helper a .server() and a .client() implementation, and each is stripped from the other bundle at build time. Analytics, logging and config read naturally in shared code — and createServerOnlyFn means a secret cannot be shipped to the browser and guarded at runtime, because that branch never reaches the client build.',
+        body: 'createIsomorphicFn takes a .server() and a .client() branch, and each one is stripped from the other bundle. Analytics, logging and config live in shared code. createServerOnlyFn keeps secrets out of the client build entirely, so there is nothing to guard at runtime.',
       },
       {
         title: 'Nested routing that matches how a SaaS is shaped',
-        body: 'Workspace to project to settings is a nesting, not a flat list of pages. Each level loads its own data and the router understands the dependencies, so opening a settings tab does not refetch the workspace around it.',
+        body: 'Workspace, project, settings: that is a tree, not a list of pages. Each level loads its own data and the router knows what depends on what. Opening a settings tab does not refetch the workspace.',
       },
       {
         title: 'Deploy where the deal requires',
-        body: 'Universal deployment across hosting providers and runtimes. When an enterprise customer needs it self-hosted, that is a configuration change rather than an argument with your framework.',
+        body: 'Universal deployment across providers and runtimes. When an enterprise customer wants it self-hosted, that is a config change.',
       },
       {
         title: 'SSR on the pages that need it',
-        body: 'Full-document SSR and streaming for marketing, onboarding and anything that has to render fast for a stranger — while the authenticated app stays the client-side experience users actually want.',
+        body: 'Full-document SSR and streaming for marketing and onboarding. The authenticated app stays client-side, where it belongs.',
       },
       {
         title: 'Vite underneath',
-        body: 'The dev server, the plugin ecosystem and the build behaviour are the ones you already know, rather than a bundler you only encounter inside one framework.',
+        body: 'The same dev server and plugins you already use. No framework-specific bundler to learn.',
       },
     ],
     stack: sharedStack,
@@ -181,7 +181,7 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
     faq: [
       {
         q: 'Is TanStack Start ready for production?',
-        a: 'It is younger than Next.js, and that is the honest trade. What you get for it is a router and cache that were designed together, and typed routing that holds up as a dashboard grows. If your product is mostly marketing pages, the trade is not worth it. If it is an application, it usually is.',
+        a: 'It is younger than Next.js. What you get for that is a router and cache built together, and typed routing that holds up as a dashboard grows. Building mostly marketing pages? Use Next.js. Building an application? TanStack Start is the better fit.',
       },
       ...sharedFaq,
     ],
@@ -195,21 +195,21 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
       'A production-ready Next.js SaaS boilerplate with authentication, Stripe billing, multi-tenant workspaces and a typed tRPC API. One-time purchase, lifetime access.',
     h1: 'Next.js SaaS boilerplate',
     intro:
-      'Everything a SaaS needs before it has a single customer — auth, billing, workspaces, a typed API and a dashboard shell — assembled on the Next.js App Router and ready to build on.',
+      'Auth, billing, workspaces, a typed API and a dashboard shell, already wired together on the Next.js App Router. Clone it and start building the part that is actually yours.',
     docsHref: '/docs/starter-kits/nextjs',
     productHref: '/nextjs',
     whyFramework: [
       {
         title: 'The framework your team already knows',
-        body: 'Hiring, documentation and answers to obscure questions are all easier on Next.js. For a team that has to onboard people, that is a real operational advantage.',
+        body: 'Every obscure question has already been asked and answered somewhere. If you are hiring, that is worth more than any single feature.',
       },
       {
         title: 'Server components and streaming',
-        body: 'The App Router lets you keep data fetching on the server and stream the parts of a page that are slow, without shipping the query layer to the browser.',
+        body: 'Keep data fetching on the server and stream the slow parts of a page. The query layer never ships to the browser.',
       },
       {
         title: 'Deploy anywhere',
-        body: 'Vercel is the smooth path, but the kit ships with Netlify and self-hosted configurations so the choice stays yours.',
+        body: 'Vercel is the easy path. Netlify and self-hosted configs ship with the kit if you need them.',
       },
     ],
     stack: sharedStack,
@@ -218,7 +218,7 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
     faq: [
       {
         q: 'Which Next.js version does it use?',
-        a: 'The App Router, with server components and streaming. The kit is kept current with the framework rather than pinned to the version it shipped on.',
+        a: 'The App Router, with server components and streaming. The kit tracks the framework instead of pinning to whatever version it shipped on.',
       },
       ...sharedFaq,
     ],

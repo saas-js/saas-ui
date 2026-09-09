@@ -120,17 +120,11 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
           </Heading>
           <Grid
             templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
+            gridAutoRows={{ md: 'auto' }}
             gap={{ base: '8', md: '10' }}
           >
             {content.included.map((item) => (
-              <Stack key={item.title} gap="2">
-                <Heading as="h3" textStyle="lg">
-                  {item.title}
-                </Heading>
-                <Text color="fg.subtle" textWrap="pretty">
-                  {item.body}
-                </Text>
-              </Stack>
+              <CardCell key={item.title} title={item.title} body={item.body} />
             ))}
           </Grid>
         </Container>
@@ -177,21 +171,15 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
       <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
         <Container maxW="5xl">
           <Heading as="h2" textStyle="4xl" letterSpacing="tight" mb="10">
-            Why {content.framework} for a SaaS?
+            Why {content.framework} for a SaaS with agents?
           </Heading>
           <Grid
             templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}
+            gridAutoRows={{ md: 'auto' }}
             gap={{ base: '8', md: '10' }}
           >
             {content.whyFramework.map((item) => (
-              <Stack key={item.title} gap="2">
-                <Heading as="h3" textStyle="lg">
-                  {item.title}
-                </Heading>
-                <Text color="fg.subtle" textWrap="pretty">
-                  {item.body}
-                </Text>
-              </Stack>
+              <CardCell key={item.title} title={item.title} body={item.body} />
             ))}
           </Grid>
         </Container>
@@ -243,5 +231,28 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
         </Container>
       </Section.Root>
     </>
+  )
+}
+
+/**
+ * A heading-plus-body cell that inherits the parent grid's rows, so headings
+ * of different lengths still leave every body text starting on the same line.
+ */
+function CardCell({ title, body }: { title: string; body: string }) {
+  return (
+    <Box
+      display="grid"
+      gridTemplateRows={{ md: 'subgrid' }}
+      gridRow={{ md: 'span 2' }}
+      gap="2"
+      alignContent="start"
+    >
+      <Heading as="h3" textStyle="lg" textWrap="balance">
+        {title}
+      </Heading>
+      <Text color="fg.subtle" textWrap="pretty">
+        {body}
+      </Text>
+    </Box>
   )
 }

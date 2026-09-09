@@ -5,7 +5,6 @@ import { FounderSection } from '@/components/saas-js/founder.section'
 import { GetStartedSection } from '@/components/saas-js/get-started.section'
 import { NextjsSection } from '@/components/saas-js/hero.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
-import { WhySection } from '@/components/saas-js/why.section'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -26,7 +25,6 @@ export default function Page() {
       <DemoSection />
       <CustomersSection />
       <FeaturesSection framework="nextjs" />
-      <WhySection />
       <FounderSection />
       <TestimonialsSection />
       <GetStartedSection>

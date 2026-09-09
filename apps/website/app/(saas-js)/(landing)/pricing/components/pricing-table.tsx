@@ -24,7 +24,7 @@ export function PricingTable(props: { lastUpdated?: string | null }) {
       <Tabs.Root variant="enclosed" defaultValue="all-access" position="static">
         <Tabs.List>
           <Tabs.Trigger value="all-access">
-            All access <Badge colorPalette="accent">40%+ off</Badge>
+            All access <Badge colorPalette="accent">20% off</Badge>
           </Tabs.Trigger>
           <Tabs.Trigger value="tanstack-start">Tanstack Start</Tabs.Trigger>
           <Tabs.Trigger value="nextjs">Next.js</Tabs.Trigger>
@@ -187,10 +187,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $320 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $457
-            </Span>
+            $320
           </Text>
 
           <Box my="8" pt="8">
@@ -252,10 +249,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $640 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $897
-            </Span>
+            $640
           </Text>
 
           <Box my="8" pt="8">
@@ -401,10 +395,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $200 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $297
-            </Span>
+            $200
           </Text>
 
           <Box my="8" pt="8">
@@ -463,10 +454,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $400 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $747
-            </Span>
+            $400
           </Text>
 
           <Box my="8" pt="8">
@@ -610,10 +598,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $200 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $297
-            </Span>
+            $200
           </Text>
 
           <Box my="8" pt="8">
@@ -671,10 +656,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $400 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $747
-            </Span>
+            $400
           </Text>
 
           <Box my="8" pt="8">

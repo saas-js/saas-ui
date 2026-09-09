@@ -140,11 +140,12 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
         <Container maxW="5xl">
           <Stack gap="4" mb="10">
             <Heading as="h2" textStyle="4xl" letterSpacing="tight">
-              How does it compare to building from scratch?
+              Why not just generate it?
             </Heading>
             <Text textStyle="lg" color="fg.subtle" maxW="2xl">
-              Rough estimates for a competent developer building each piece
-              properly — with the edge cases, not just the happy path.
+              An agent will scaffold sign-in this afternoon. The question is
+              what the tenth feature looks like, and whether you can tell when
+              it got something wrong.
             </Text>
           </Stack>
 
@@ -152,21 +153,19 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
             <Table.Root size="md" variant="outline" minW="3xl">
               <Table.Header>
                 <Table.Row>
-                  <Table.ColumnHeader>Task</Table.ColumnHeader>
-                  <Table.ColumnHeader>From scratch</Table.ColumnHeader>
-                  <Table.ColumnHeader>With the kit</Table.ColumnHeader>
+                  <Table.ColumnHeader>Area</Table.ColumnHeader>
+                  <Table.ColumnHeader>Generated from a prompt</Table.ColumnHeader>
+                  <Table.ColumnHeader>In the kit</Table.ColumnHeader>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {content.buildVsBuy.map((row) => (
-                  <Table.Row key={row.task}>
-                    <Table.Cell>{row.task}</Table.Cell>
-                    <Table.Cell color="fg.subtle" whiteSpace="nowrap">
-                      {row.scratch}
-                    </Table.Cell>
+                {content.generateVsKit.map((row) => (
+                  <Table.Row key={row.area}>
                     <Table.Cell fontWeight="medium" whiteSpace="nowrap">
-                      {row.withKit}
+                      {row.area}
                     </Table.Cell>
+                    <Table.Cell color="fg.subtle">{row.generated}</Table.Cell>
+                    <Table.Cell>{row.withKit}</Table.Cell>
                   </Table.Row>
                 ))}
               </Table.Body>

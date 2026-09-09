@@ -151,16 +151,28 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
     productHref: '/',
     whyFramework: [
       {
-        title: 'Type-safe routing end to end',
-        body: 'Routes, params and loaders are typed, so a rename surfaces at build time rather than in production. For dashboard-heavy products with deeply nested views, that matters more than it does for content sites.',
+        title: 'Search params are typed state',
+        body: 'A dashboard is filters, sort orders, page numbers and date ranges. TanStack Router validates and types search params as first-class state instead of strings you parse by hand — so the filter panel and the shareable URL are the same thing, and a renamed filter fails at build time.',
       },
       {
-        title: 'Caching built into the router',
-        body: 'TanStack Start builds on TanStack Query, so loaders, caching and invalidation are one system rather than two that need reconciling.',
+        title: 'Server Functions instead of an API layer',
+        body: 'Type-safe RPCs between client and server. You write a function, call it from a component, and the boundary is checked at compile time — no hand-written route handlers and no client types drifting from the server.',
       },
       {
-        title: 'SSR where it helps, not everywhere',
-        body: 'You can render on the server where it earns something and stay on the client where it does not, without opting into a whole-app rendering model.',
+        title: 'Nested routing that matches how a SaaS is shaped',
+        body: 'Workspace to project to settings is a nesting, not a flat list of pages. Each level loads its own data and the router understands the dependencies, so opening a settings tab does not refetch the workspace around it.',
+      },
+      {
+        title: 'Deploy where the deal requires',
+        body: 'Universal deployment across hosting providers and runtimes. When an enterprise customer needs it self-hosted, that is a configuration change rather than an argument with your framework.',
+      },
+      {
+        title: 'SSR on the pages that need it',
+        body: 'Full-document SSR and streaming for marketing, onboarding and anything that has to render fast for a stranger — while the authenticated app stays the client-side experience users actually want.',
+      },
+      {
+        title: 'Vite underneath',
+        body: 'The dev server, the plugin ecosystem and the build behaviour are the ones you already know, rather than a bundler you only encounter inside one framework.',
       },
     ],
     stack: sharedStack,

@@ -24,7 +24,7 @@ export function PricingTable(props: { lastUpdated?: string | null }) {
       <Tabs.Root variant="enclosed" defaultValue="all-access" position="static">
         <Tabs.List>
           <Tabs.Trigger value="all-access">
-            All access <Badge colorPalette="accent">40%+ off</Badge>
+            All access <Badge colorPalette="accent">20% off</Badge>
           </Tabs.Trigger>
           <Tabs.Trigger value="tanstack-start">Tanstack Start</Tabs.Trigger>
           <Tabs.Trigger value="nextjs">Next.js</Tabs.Trigger>
@@ -124,8 +124,6 @@ function buildUrl(productId: string) {
     query.set('metadata', metadata)
   }
 
-  query.set('discountId', '33cd49c1-d823-4648-9516-cb8281ab8f87')
-
   const url = new URL(
     '/checkout',
     process.env.NEXT_PUBLIC_URL ?? process.env.VERCEL_URL,
@@ -187,10 +185,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $320 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $457
-            </Span>
+            $320
           </Text>
 
           <Box my="8" pt="8">
@@ -252,10 +247,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $628 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $897
-            </Span>
+            $640
           </Text>
 
           <Box my="8" pt="8">
@@ -319,7 +311,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
 
           <Box my="8" pt="8">
             <Text color="fg.subtle" mb="4" fontSize="lg">
-              Customized plans for organizations who want to move fast.
+              We help you build your product at record speed.
             </Text>
 
             <Text fontWeight="medium" mb="2">
@@ -401,10 +393,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $208 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $297
-            </Span>
+            $200
           </Text>
 
           <Box my="8" pt="8">
@@ -463,10 +452,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $523 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $747
-            </Span>
+            $400
           </Text>
 
           <Box my="8" pt="8">
@@ -521,7 +507,7 @@ export function PricingTableTanstackStart(props: {
             Custom
           </Text>
           <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Enterprise
+            Startup
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
@@ -530,7 +516,7 @@ export function PricingTableTanstackStart(props: {
 
           <Box my="8" pt="8">
             <Text color="fg.subtle" mb="4" fontSize="lg">
-              Customized plans for organizations who want to move fast.
+              We help you build your product at record speed.
             </Text>
 
             <Text fontWeight="medium" mb="2">
@@ -610,10 +596,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $208 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $297
-            </Span>
+            $200
           </Text>
 
           <Box my="8" pt="8">
@@ -671,10 +654,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $523 {` `}
-            <Span as="sup" textDecoration="line-through" textStyle="sm">
-              $747
-            </Span>
+            $400
           </Text>
 
           <Box my="8" pt="8">
@@ -729,7 +709,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
             Custom
           </Text>
           <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Enterprise
+            Startup
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
@@ -738,7 +718,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
 
           <Box my="8" pt="8">
             <Text color="fg.subtle" mb="4" fontSize="lg">
-              Customized plans for organizations who want to move fast.
+              We help you build your product at record speed.
             </Text>
 
             <Text fontWeight="medium" mb="2">

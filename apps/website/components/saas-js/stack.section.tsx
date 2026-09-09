@@ -51,7 +51,7 @@ export const StackSection = () => {
                 gap="4"
               >
                 <Image
-                  src="/img/logos/tanstack.png"
+                  src="/img/logos/tanstack.svg"
                   alt="TanStack Start"
                   width={40}
                   height={40}
@@ -141,7 +141,7 @@ export function TansStackStartSection() {
       <Container maxW="6xl">
         <Stack p={{ base: '6', md: '16' }} alignItems="flex-start" gap="4">
           <Image
-            src="/img/logos/tanstack.png"
+            src="/img/logos/tanstack.svg"
             alt="TanStack"
             width={40}
             height={40}

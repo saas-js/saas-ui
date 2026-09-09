@@ -46,12 +46,17 @@ const LogoLink = () => (
   </HStack>
 )
 
+// Mirrors the desktop nav, flattened — the mobile menu has no submenus.
+// "Resources" pointed at /resources, which has never been a route.
 const NAV_LINKS = [
+  { title: 'TanStack Start kit', url: '/' },
+  { title: 'Next.js kit', url: '/nextjs' },
   { title: 'Packages', url: '/packages' },
   { title: 'Docs', url: '/docs' },
-  { title: 'Pricing', url: '/pricing' },
-  { title: 'Resources', url: '/resources' },
   { title: 'Showcase', url: '/showcase' },
+  { title: 'Blog', url: '/blog' },
+  { title: 'Changelog', url: '/changelog' },
+  { title: 'Pricing', url: '/pricing' },
 ]
 
 const DesktopNav = () => (

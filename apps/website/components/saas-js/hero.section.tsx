@@ -1,6 +1,6 @@
 import { getLatestChangelog } from '@/lib/get-latest-changelog'
 
-import { HeroTanStackSection, HeroUI, NextjsHeroUI } from './hero.ui'
+import { HeroUI, NextjsHeroUI } from './hero.ui'
 
 const starterKitProducts = ['tanstack', 'tanstack-start', 'nextjs']
 
@@ -26,5 +26,3 @@ export const NextjsSection = () => {
 
   return <NextjsHeroUI latestChangelog={latestChangelog} />
 }
-
-export { HeroTanStackSection }

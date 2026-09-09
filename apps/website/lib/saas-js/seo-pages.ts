@@ -146,7 +146,7 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
       'A production-ready TanStack Start SaaS boilerplate with authentication, Stripe billing, multi-tenant workspaces and a typed tRPC API. One-time purchase, lifetime access.',
     h1: 'TanStack Start SaaS boilerplate',
     intro:
-      'Auth, billing, workspaces, a typed API and a dashboard shell, already wired together on TanStack Start. Clone it and start building the part that is actually yours.',
+      'Everything a SaaS needs before it has a single customer: auth, billing, workspaces, a typed API and a dashboard shell, assembled on TanStack Start and ready to build on.',
     docsHref: '/docs/starter-kits/tanstack-start',
     productHref: '/',
     whyFramework: [
@@ -195,21 +195,33 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
       'A production-ready Next.js SaaS boilerplate with authentication, Stripe billing, multi-tenant workspaces and a typed tRPC API. One-time purchase, lifetime access.',
     h1: 'Next.js SaaS boilerplate',
     intro:
-      'Auth, billing, workspaces, a typed API and a dashboard shell, already wired together on the Next.js App Router. Clone it and start building the part that is actually yours.',
+      'Everything a SaaS needs before it has a single customer: auth, billing, workspaces, a typed API and a dashboard shell, assembled on the Next.js App Router and ready to build on.',
     docsHref: '/docs/starter-kits/nextjs',
     productHref: '/nextjs',
     whyFramework: [
       {
-        title: 'The framework your team already knows',
-        body: 'Every obscure question has already been asked and answered somewhere. If you are hiring, that is worth more than any single feature.',
+        title: 'Agents have seen more Next.js than anything else',
+        body: 'Models are trained on far more Next.js than any other React framework. An agent writing App Router code works from patterns it has seen thousands of times, so it invents fewer APIs and needs correcting less often.',
       },
       {
-        title: 'Server components and streaming',
-        body: 'Keep data fetching on the server and stream the slow parts of a page. The query layer never ships to the browser.',
+        title: 'Server by default',
+        body: 'Components run on the server until someone writes use client. An agent has to opt in before code reaches the browser, so a database call does not drift into a client bundle while nobody is looking.',
       },
       {
-        title: 'Deploy anywhere',
-        body: 'Vercel is the easy path. Netlify and self-hosted configs ship with the kit if you need them.',
+        title: 'Conventions leave less to invent',
+        body: 'Where a route lives, where its layout goes, where loading and error states belong: all of it is convention. An agent adding a page has one correct answer to find instead of a decision to make.',
+      },
+      {
+        title: 'Typed routes',
+        body: 'Route types are generated from the file tree. A link to a page that does not exist fails type checking instead of 404ing in production after an agent renamed a folder.',
+      },
+      {
+        title: 'Suspense boundaries are structural',
+        body: 'Loading states are positions in the tree, not flags in component state. A slow query degrades one section of the dashboard instead of blanking the page.',
+      },
+      {
+        title: 'Every integration targets it first',
+        body: 'Auth providers, analytics, CMSes and payment SDKs ship a Next.js adapter before anything else. Whatever you bolt on next, the documented path already exists.',
       },
     ],
     stack: sharedStack,

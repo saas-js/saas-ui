@@ -124,8 +124,6 @@ function buildUrl(productId: string) {
     query.set('metadata', metadata)
   }
 
-  query.set('discountId', '33cd49c1-d823-4648-9516-cb8281ab8f87')
-
   const url = new URL(
     '/checkout',
     process.env.NEXT_PUBLIC_URL ?? process.env.VERCEL_URL,

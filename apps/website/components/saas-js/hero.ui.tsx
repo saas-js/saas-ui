@@ -21,10 +21,13 @@ import { Link } from '#components/ui/link'
 const StarterKitHeroUI = ({
   title = 'Your AI agents are only as good as your codebase',
   description,
+  docsHref,
   latestChangelog,
 }: {
   title?: string
   description: string
+  /** Docs entry point for this kit. */
+  docsHref: string
   latestChangelog: { title: string; link: string } | null
 }) => {
   return (
@@ -52,13 +55,37 @@ const StarterKitHeroUI = ({
               align={{ base: 'start', md: 'end' }}
               gap={{ base: '6', md: '8' }}
             >
-              <Text
-                textStyle={{ base: 'md', md: 'lg' }}
-                color="fg.subtle"
-                maxW="xl"
-              >
-                {description}
-              </Text>
+              <Stack gap={{ base: '6', md: '8' }} maxW="xl">
+                <Text textStyle={{ base: 'md', md: 'lg' }} color="fg.subtle">
+                  {description}
+                </Text>
+
+                {/* The hero had no call to action at all. */}
+                <Stack
+                  direction={{ base: 'column', sm: 'row' }}
+                  gap="3"
+                  width={{ base: 'full', sm: 'auto' }}
+                >
+                  <Button
+                    size="lg"
+                    minW={{ sm: '160px' }}
+                    asChild
+                    variant="glass"
+                    colorPalette="accent"
+                  >
+                    <Link href="/pricing">Buy now</Link>
+                  </Button>
+                  <Button
+                    size="lg"
+                    minW={{ sm: '160px' }}
+                    asChild
+                    variant="outline"
+                    colorPalette="neutral"
+                  >
+                    <Link href={docsHref}>Read the docs</Link>
+                  </Button>
+                </Stack>
+              </Stack>
               <Flex
                 align="center"
                 gap={{ base: '4', md: '8' }}
@@ -122,8 +149,9 @@ export const HeroUI = ({
     // The homepage is the TanStack Start kit and the page meant to own that
     // term, so the h1 has to say it. "tanstack start" is ~4,400 searches a
     // month; every starter-kit phrasing is under 100.
-    title="TanStack Start SaaS starter kit built for AI-assisted development"
-    description="Production ready TanStack Start SaaS starter kit for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
+    title="Production ready TanStack Start SaaS starter kit"
+    docsHref="/docs/starter-kits/tanstack-start"
+    description="Built for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
     latestChangelog={latestChangelog}
   />
 )
@@ -137,8 +165,9 @@ export const NextjsHeroUI = ({
     // Leads with the phrase people search. The AI-native angle is the
     // differentiator, but it belongs in the subhead — someone searching
     // "nextjs saas starter kit" needs to see that they landed on one.
-    title="Next.js SaaS starter kit built for AI-assisted development"
-    description="Production ready Next.js SaaS starter kit for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
+    title="Production ready Next.js SaaS starter kit"
+    docsHref="/docs/starter-kits/nextjs"
+    description="Built for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
     latestChangelog={latestChangelog}
   />
 )

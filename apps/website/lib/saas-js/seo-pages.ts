@@ -24,7 +24,7 @@ export interface SeoLandingContent {
   whyFramework: { title: string; body: string }[]
   stack: { layer: string; choice: string; note: string }[]
   included: { title: string; body: string }[]
-  buildVsBuy: { task: string; scratch: string; withKit: string }[]
+  generateVsKit: { area: string; generated: string; withKit: string }[]
   faq: { q: string; a: string }[]
 }
 
@@ -85,6 +85,39 @@ const sharedIncluded = [
   },
 ]
 
+const sharedGenerateVsKit = [
+  {
+    area: 'Auth',
+    generated: 'A working email and password flow.',
+    withKit:
+      'Social login, magic links, 2FA, passkeys, SSO, email verification and session handling — with tenant scoping enforced in the data layer rather than remembered per route.',
+  },
+  {
+    area: 'Billing',
+    generated: 'A Stripe checkout link.',
+    withKit:
+      'Subscriptions, tiered, metered and usage-based pricing, entitlements, grandfathering and webhooks — the parts that surface later as revenue bugs.',
+  },
+  {
+    area: 'Multi-tenancy',
+    generated: 'A workspaces table and a foreign key.',
+    withKit:
+      'Actor-based access control and scope filters that run through every query, so isolation is a property of the data layer instead of a thing each new feature has to remember.',
+  },
+  {
+    area: 'Conventions',
+    generated: 'Whatever it picked this session.',
+    withKit:
+      'One set of patterns the agent extends rather than reinvents, so the tenth feature looks like the first.',
+  },
+  {
+    area: 'Knowing it works',
+    generated: 'Code that reads as though it is correct.',
+    withKit:
+      'Types and an end-to-end test suite in CI — the back-pressure that catches an agent when it is confidently wrong.',
+  },
+]
+
 const sharedFaq = [
   {
     q: 'Is this a subscription?',
@@ -132,38 +165,7 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
     ],
     stack: sharedStack,
     included: sharedIncluded,
-    buildVsBuy: [
-      {
-        task: 'Auth with social, magic links, 2FA and SSO',
-        scratch: '2–4 weeks',
-        withKit: 'Configured',
-      },
-      {
-        task: 'Stripe subscriptions, tiers and usage billing',
-        scratch: '2–3 weeks',
-        withKit: 'Configured',
-      },
-      {
-        task: 'Multi-tenant workspaces with roles',
-        scratch: '2–4 weeks',
-        withKit: 'Configured',
-      },
-      {
-        task: 'Transactional email templates',
-        scratch: '3–5 days',
-        withKit: 'Included',
-      },
-      {
-        task: 'Dashboard shell, tables, forms and filters',
-        scratch: '2–4 weeks',
-        withKit: 'Included',
-      },
-      {
-        task: 'E2E and unit test setup in CI',
-        scratch: '3–5 days',
-        withKit: 'Included',
-      },
-    ],
+    generateVsKit: sharedGenerateVsKit,
     faq: [
       {
         q: 'Is TanStack Start ready for production?',
@@ -200,38 +202,7 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
     ],
     stack: sharedStack,
     included: sharedIncluded,
-    buildVsBuy: [
-      {
-        task: 'Auth with social, magic links, 2FA and SSO',
-        scratch: '2–4 weeks',
-        withKit: 'Configured',
-      },
-      {
-        task: 'Stripe subscriptions, tiers and usage billing',
-        scratch: '2–3 weeks',
-        withKit: 'Configured',
-      },
-      {
-        task: 'Multi-tenant workspaces with roles',
-        scratch: '2–4 weeks',
-        withKit: 'Configured',
-      },
-      {
-        task: 'Transactional email templates',
-        scratch: '3–5 days',
-        withKit: 'Included',
-      },
-      {
-        task: 'Dashboard shell, tables, forms and filters',
-        scratch: '2–4 weeks',
-        withKit: 'Included',
-      },
-      {
-        task: 'E2E and unit test setup in CI',
-        scratch: '3–5 days',
-        withKit: 'Included',
-      },
-    ],
+    generateVsKit: sharedGenerateVsKit,
     faq: [
       {
         q: 'Which Next.js version does it use?',

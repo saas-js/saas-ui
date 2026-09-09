@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Stack } from '@chakra-ui/react'
+import { Box, Stack, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 
 import {
@@ -17,13 +17,47 @@ import {
   ViewportPosition,
 } from '../navigation-menu'
 
+const KITS = [
+  {
+    title: 'TanStack Start kit',
+    href: '/',
+    mark: '/img/frameworks/tanstack.svg',
+  },
+  {
+    title: 'Next.js kit',
+    href: '/nextjs',
+    mark: '/img/frameworks/nextjs.svg',
+    invert: true,
+  },
+]
+
+// Mirrors PACKAGE_IDS in lib/saas-js/packages.ts. Kept local so the nav does
+// not pull that module's descriptions and code samples into the client bundle.
 const PACKAGES = [
   { name: 'Drizzle CRUD', href: '/packages/drizzle-crud' },
   { name: 'Conditions', href: '/packages/conditions' },
   { name: 'Slingshot', href: '/packages/slingshot' },
   { name: 'Better Auth React Query', href: '/packages/better-auth-react-query' },
   { name: 'Iconx', href: '/packages/iconx' },
+  { name: 'All packages', href: '/packages' },
 ]
+
+const PACKAGE_COLUMNS = 2
+const PACKAGE_ROWS = Math.ceil(PACKAGES.length / PACKAGE_COLUMNS)
+// Two grid rows per package row, so the two kits can each span exactly half
+// the column whatever the package count is.
+const MENU_ROWS = PACKAGE_ROWS * 2
+
+const GroupLabel = ({
+  children,
+  ...rest
+}: { children: React.ReactNode } & React.ComponentProps<typeof Box>) => (
+  <Box as="li" role="presentation" px="3" pb="1" {...rest}>
+    <Text fontSize="2xs" fontWeight="medium" color="fg.muted">
+      {children}
+    </Text>
+  </Box>
+)
 
 // The TanStack mark is a colour tile that reads on either theme. The Next.js
 // mark is solid black on transparent, so it needs inverting on dark panels.
@@ -48,45 +82,60 @@ export const Navigation = () => {
             <List
               css={{
                 '@media only screen and (min-width: 600px)': {
-                  width: '560px',
-                  maxWidth: '90vw',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  // One row per package. The two kits span half each, so the
-                  // starter-kit column matches the packages column in height.
-                  gridTemplateRows: `repeat(${PACKAGES.length + 1}, 1fr)`,
+                  width: '720px',
+                  maxWidth: '92vw',
+                  gridTemplateColumns: `1fr 1px repeat(${PACKAGE_COLUMNS}, 1fr)`,
+                  gridTemplateRows: `auto repeat(${MENU_ROWS}, auto)`,
                 },
               }}
             >
-              <ListItem
-                title="TanStack Start kit"
-                align="center"
-                href="/"
-                icon={<Mark src="/img/frameworks/tanstack.svg" />}
-                gridColumn={{ md: 1 }}
-                gridRow={{ md: `span ${(PACKAGES.length + 1) / 2}` }}
-              />
-              <ListItem
-                title="Next.js kit"
-                align="center"
-                href="/nextjs"
-                icon={<Mark src="/img/frameworks/nextjs.svg" invert />}
-                gridColumn={{ md: 1 }}
-                gridRow={{ md: `span ${(PACKAGES.length + 1) / 2}` }}
+              <GroupLabel gridColumn={{ md: 1 }} gridRow={{ md: 1 }}>
+                Starter kits
+              </GroupLabel>
+              <GroupLabel
+                gridColumn={{ md: `3 / span ${PACKAGE_COLUMNS}` }}
+                gridRow={{ md: 1 }}
+              >
+                Open Source
+              </GroupLabel>
+
+              <Box
+                as="li"
+                role="presentation"
+                aria-hidden
+                bg="border"
+                display={{ base: 'none', md: 'block' }}
+                gridColumn={{ md: 2 }}
+                gridRow={{ md: '1 / -1' }}
               />
 
-              {PACKAGES.map((pkg) => (
+              {KITS.map((kit, i) => (
+                <ListItem
+                  key={kit.href}
+                  title={kit.title}
+                  href={kit.href}
+                  align="center"
+                  icon={<Mark src={kit.mark} invert={kit.invert} />}
+                  gridColumn={{ md: 1 }}
+                  // Every item is placed explicitly. Auto placement walks past
+                  // the spanning kits and offsets the whole package block.
+                  gridRow={{
+                    md: `${i * (MENU_ROWS / 2) + 2} / span ${MENU_ROWS / 2}`,
+                  }}
+                />
+              ))}
+
+              {PACKAGES.map((pkg, i) => (
                 <ListItem
                   key={pkg.href}
                   title={pkg.name}
                   href={pkg.href}
-                  gridColumn={{ md: 2 }}
+                  gridColumn={{ md: (i % PACKAGE_COLUMNS) + 3 }}
+                  gridRow={{
+                    md: `${Math.floor(i / PACKAGE_COLUMNS) * 2 + 2} / span 2`,
+                  }}
                 />
               ))}
-              <ListItem
-                title="All packages"
-                href="/packages"
-                gridColumn={{ md: 2 }}
-              />
             </List>
           </NavigationMenuContent>
         </NavigationMenuItem>

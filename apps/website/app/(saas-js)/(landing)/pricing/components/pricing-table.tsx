@@ -252,7 +252,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $628 {` `}
+            $640 {` `}
             <Span as="sup" textDecoration="line-through" textStyle="sm">
               $897
             </Span>
@@ -319,7 +319,7 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
 
           <Box my="8" pt="8">
             <Text color="fg.subtle" mb="4" fontSize="lg">
-              Customized plans for organizations who want to move fast.
+              We help you build your product at record speed.
             </Text>
 
             <Text fontWeight="medium" mb="2">
@@ -401,7 +401,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $208 {` `}
+            $200 {` `}
             <Span as="sup" textDecoration="line-through" textStyle="sm">
               $297
             </Span>
@@ -463,7 +463,7 @@ export function PricingTableTanstackStart(props: {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $523 {` `}
+            $400 {` `}
             <Span as="sup" textDecoration="line-through" textStyle="sm">
               $747
             </Span>
@@ -521,7 +521,7 @@ export function PricingTableTanstackStart(props: {
             Custom
           </Text>
           <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Enterprise
+            Startup
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
@@ -530,7 +530,7 @@ export function PricingTableTanstackStart(props: {
 
           <Box my="8" pt="8">
             <Text color="fg.subtle" mb="4" fontSize="lg">
-              Customized plans for organizations who want to move fast.
+              We help you build your product at record speed.
             </Text>
 
             <Text fontWeight="medium" mb="2">
@@ -610,7 +610,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $208 {` `}
+            $200 {` `}
             <Span as="sup" textDecoration="line-through" textStyle="sm">
               $297
             </Span>
@@ -671,7 +671,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
-            $523 {` `}
+            $400 {` `}
             <Span as="sup" textDecoration="line-through" textStyle="sm">
               $747
             </Span>
@@ -729,7 +729,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
             Custom
           </Text>
           <Heading as="h2" fontSize="2xl" fontWeight="medium">
-            Enterprise
+            Startup
           </Heading>
 
           <Text fontSize="2xl" fontWeight="medium" color="fg.subtle">
@@ -738,7 +738,7 @@ export function PricingTableNextjs(props: { lastUpdated?: string | null }) {
 
           <Box my="8" pt="8">
             <Text color="fg.subtle" mb="4" fontSize="lg">
-              Customized plans for organizations who want to move fast.
+              We help you build your product at record speed.
             </Text>
 
             <Text fontWeight="medium" mb="2">

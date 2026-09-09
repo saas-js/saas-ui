@@ -40,7 +40,7 @@ export default async function Page() {
           </Heading>
 
           <Text textStyle="xl" color="fg.subtle">
-            Trusted by 600+ developers and teams worldwide.
+            Trusted by 1000+ developers and teams worldwide.
           </Text>
         </Stack>
 

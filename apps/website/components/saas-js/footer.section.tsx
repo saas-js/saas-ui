@@ -9,7 +9,7 @@ const linkTree = [
       // Each kit needs a sitewide link to its own page. "TanStack Start kit"
       // pointed at the homepage and the Next.js kit had no footer link at all.
       { label: 'Next.js kit', href: '/nextjs' },
-      { label: 'TanStack Start kit', href: '/tanstack-start' },
+      { label: 'TanStack Start kit', href: '/' },
       { label: 'Documentation', href: '/docs' },
       { label: 'Blog', href: '/blog' },
       { label: 'Changelog', href: '/changelog' },
@@ -17,7 +17,7 @@ const linkTree = [
     ],
   },
   {
-    title: 'Open source',
+    title: 'Packages',
     items: [
       { label: 'All packages', href: '/packages' },
       { label: 'Drizzle CRUD', href: '/packages/drizzle-crud' },

@@ -51,7 +51,7 @@ const LogoLink = () => (
 const NAV_LINKS = [
   { title: 'TanStack Start kit', url: '/' },
   { title: 'Next.js kit', url: '/nextjs' },
-  { title: 'Open source', url: '/packages' },
+  { title: 'Packages', url: '/packages' },
   { title: 'Docs', url: '/docs' },
   { title: 'Showcase', url: '/showcase' },
   { title: 'Blog', url: '/blog' },

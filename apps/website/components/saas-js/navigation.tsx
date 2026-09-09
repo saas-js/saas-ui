@@ -1,6 +1,7 @@
 'use client'
 
-import { Stack } from '@chakra-ui/react'
+import { Box, Stack } from '@chakra-ui/react'
+import Image from 'next/image'
 
 import {
   List,
@@ -15,6 +16,18 @@ import {
   NavigationMenuViewport,
   ViewportPosition,
 } from '../navigation-menu'
+
+// The TanStack mark is a colour tile that reads on either theme. The Next.js
+// mark is solid black on transparent, so it needs inverting on dark panels.
+const Mark = ({ src, invert }: { src: string; invert?: boolean }) => (
+  <Box
+    display="flex"
+    flexShrink="0"
+    {...(invert ? { _dark: { filter: 'invert(1)' } } : {})}
+  >
+    <Image src={src} alt="" width={20} height={20} />
+  </Box>
+)
 
 export const Navigation = () => {
   return (
@@ -34,15 +47,22 @@ export const Navigation = () => {
                 },
               }}
             >
-              <ListItem title="TanStack Start kit" href="/">
-                The flagship SaaS starter kit.
-              </ListItem>
-              <ListItem title="Next.js kit" href="/nextjs">
-                The same foundations, on Next.js.
-              </ListItem>
-              <ListItem title="Open source" href="/packages">
-                The libraries behind both kits.
-              </ListItem>
+              <ListItem
+                title="TanStack Start kit"
+                href="/"
+                icon={<Mark src="/img/frameworks/tanstack.svg" />}
+              />
+              <ListItem
+                title="Next.js kit"
+                href="/nextjs"
+                icon={<Mark src="/img/frameworks/nextjs.svg" invert />}
+              />
+              <ListItem
+                title="Packages"
+                href="/packages"
+                // spacer keeps the label aligned with the two that have marks
+                icon={<Box width="20px" flexShrink="0" />}
+              />
             </List>
           </NavigationMenuContent>
         </NavigationMenuItem>

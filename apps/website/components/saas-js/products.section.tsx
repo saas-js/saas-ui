@@ -183,11 +183,11 @@ const starterKitTech = [
   },
   {
     label: 'Tanstack React Start',
-    img: '/img/logos/tanstack.png',
+    img: '/img/logos/tanstack.svg',
   },
   {
     label: 'Tanstack React Query',
-    img: '/img/logos/tanstack.png',
+    img: '/img/logos/tanstack.svg',
   },
   {
     label: 'tRPC',

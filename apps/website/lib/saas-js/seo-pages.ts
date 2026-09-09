@@ -155,8 +155,8 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
         body: 'A dashboard is filters, sort orders, page numbers and date ranges. TanStack Router validates and types search params as first-class state instead of strings you parse by hand — so the filter panel and the shareable URL are the same thing, and a renamed filter fails at build time.',
       },
       {
-        title: 'Server Functions instead of an API layer',
-        body: 'Type-safe RPCs between client and server. You write a function, call it from a component, and the boundary is checked at compile time — no hand-written route handlers and no client types drifting from the server.',
+        title: 'Isomorphic functions',
+        body: 'createIsomorphicFn gives one helper a .server() and a .client() implementation, and each is stripped from the other bundle at build time. Analytics, logging and config read naturally in shared code — and createServerOnlyFn means a secret cannot be shipped to the browser and guarded at runtime, because that branch never reaches the client build.',
       },
       {
         title: 'Nested routing that matches how a SaaS is shaped',

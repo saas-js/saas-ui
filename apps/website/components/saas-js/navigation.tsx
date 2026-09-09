@@ -17,6 +17,14 @@ import {
   ViewportPosition,
 } from '../navigation-menu'
 
+const PACKAGES = [
+  { name: 'Drizzle CRUD', href: '/packages/drizzle-crud' },
+  { name: 'Conditions', href: '/packages/conditions' },
+  { name: 'Slingshot', href: '/packages/slingshot' },
+  { name: 'Better Auth React Query', href: '/packages/better-auth-react-query' },
+  { name: 'Iconx', href: '/packages/iconx' },
+]
+
 // The TanStack mark is a colour tile that reads on either theme. The Next.js
 // mark is solid black on transparent, so it needs inverting on dark panels.
 const Mark = ({ src, invert }: { src: string; invert?: boolean }) => (
@@ -40,28 +48,44 @@ export const Navigation = () => {
             <List
               css={{
                 '@media only screen and (min-width: 600px)': {
-                  width: '320px',
-                  maxWidth: '80vw',
-                  gap: '1px',
-                  gridTemplateColumns: '1fr',
+                  width: '560px',
+                  maxWidth: '90vw',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  // One row per package. The two kits span half each, so the
+                  // starter-kit column matches the packages column in height.
+                  gridTemplateRows: `repeat(${PACKAGES.length + 1}, 1fr)`,
                 },
               }}
             >
               <ListItem
                 title="TanStack Start kit"
+                align="center"
                 href="/"
                 icon={<Mark src="/img/frameworks/tanstack.svg" />}
+                gridColumn={{ md: 1 }}
+                gridRow={{ md: `span ${(PACKAGES.length + 1) / 2}` }}
               />
               <ListItem
                 title="Next.js kit"
+                align="center"
                 href="/nextjs"
                 icon={<Mark src="/img/frameworks/nextjs.svg" invert />}
+                gridColumn={{ md: 1 }}
+                gridRow={{ md: `span ${(PACKAGES.length + 1) / 2}` }}
               />
+
+              {PACKAGES.map((pkg) => (
+                <ListItem
+                  key={pkg.href}
+                  title={pkg.name}
+                  href={pkg.href}
+                  gridColumn={{ md: 2 }}
+                />
+              ))}
               <ListItem
-                title="Packages"
+                title="All packages"
                 href="/packages"
-                // spacer keeps the label aligned with the two that have marks
-                icon={<Box width="20px" flexShrink="0" />}
+                gridColumn={{ md: 2 }}
               />
             </List>
           </NavigationMenuContent>

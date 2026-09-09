@@ -201,13 +201,26 @@ export const ListItem = forwardRef<
     rel?: ComponentPropsWithoutRef<'a'>['rel']
     icon?: React.ReactNode
     title: React.ReactNode
+    /** Centre the content in the cell. Useful when the item spans extra rows. */
+    align?: 'start' | 'center'
     children?: React.ReactNode
     gridRow?: HTMLChakraProps<'li'>['gridRow']
     gridColumn?: HTMLChakraProps<'li'>['gridColumn']
     gridArea?: HTMLChakraProps<'li'>['gridArea']
   }
 >(function ListItem(
-  { children, title, icon, gridRow, gridColumn, gridArea, href, target, rel },
+  {
+    children,
+    title,
+    icon,
+    align = 'start',
+    gridRow,
+    gridColumn,
+    gridArea,
+    href,
+    target,
+    rel,
+  },
   forwardedRef,
 ) {
   return (
@@ -219,7 +232,10 @@ export const ListItem = forwardRef<
     >
       <NavigationMenu.Link asChild>
         <ListItemLink href={href} target={target} rel={rel} ref={forwardedRef}>
-          <HStack alignItems="flex-start">
+          <HStack
+            alignItems={align === 'center' ? 'center' : 'flex-start'}
+            height={align === 'center' ? '100%' : undefined}
+          >
             {icon}
             <Box>
               <ListItemHeading>{title}</ListItemHeading>

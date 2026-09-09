@@ -44,6 +44,7 @@ const StarterKitHeroUI = ({
                 lg: '7xl',
               }}
               lineHeight="1.05"
+              letterSpacing="tight"
               textWrap="balance"
               maxW="4xl"
             >
@@ -149,9 +150,9 @@ export const HeroUI = ({
     // The homepage is the TanStack Start kit and the page meant to own that
     // term, so the h1 has to say it. "tanstack start" is ~4,400 searches a
     // month; every starter-kit phrasing is under 100.
-    title="Production ready TanStack Start SaaS starter kit"
+    title="The TanStack Start starter kit for developers and agents."
     docsHref="/docs/starter-kits/tanstack-start"
-    description="Built for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
+    description="Production ready SaaS starter kit with strict types, consistent patterns, and test coverage that keep your agents on track."
     latestChangelog={latestChangelog}
   />
 )
@@ -165,9 +166,9 @@ export const NextjsHeroUI = ({
     // Leads with the phrase people search. The AI-native angle is the
     // differentiator, but it belongs in the subhead — someone searching
     // "nextjs saas starter kit" needs to see that they landed on one.
-    title="Production ready Next.js SaaS starter kit"
+    title="The Next.js starter kit for developers and agents."
     docsHref="/docs/starter-kits/nextjs"
-    description="Built for developers and agents. Strict types, consistent patterns, and test coverage that keep your agents on track — one-shot new features, without hand-holding."
+    description="Production ready SaaS starter kit with strict types, consistent patterns, and test coverage that keep your agents on track."
     latestChangelog={latestChangelog}
   />
 )

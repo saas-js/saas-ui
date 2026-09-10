@@ -70,7 +70,7 @@ function Highlight({
                     </chakra.span>
                   )}
                   {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
+                    <span {...getTokenProps({ token, key })} key={key} />
                   ))}
                 </chakra.div>
               )

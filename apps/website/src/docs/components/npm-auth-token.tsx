@@ -48,18 +48,18 @@ export const NpmAuthToken = () => {
             <FormLabel>Your token</FormLabel>
             <InputGroup>
               <Input value={token} onChange={(e) => setToken(e.target.value)} />
-              <InputRightButton onClick={copyToken.onCopy}>
+              {/* <InputRightButton onClick={copyToken.onCopy}>
                 {copyToken.hasCopied ? <FiCheck /> : <FiClipboard />}
-              </InputRightButton>
+              </InputRightButton> */}
             </InputGroup>
           </FormControl>
           <FormControl>
             <FormLabel>Encoded token</FormLabel>
             <InputGroup>
               <Input value={encodedToken} readOnly />
-              <InputRightButton onClick={copyEncoded.onCopy}>
+              {/* <InputRightButton onClick={copyEncoded.onCopy}>
                 {copyEncoded.hasCopied ? <FiCheck /> : <FiClipboard />}
-              </InputRightButton>
+              </InputRightButton> */}
             </InputGroup>
           </FormControl>
         </FormLayout>

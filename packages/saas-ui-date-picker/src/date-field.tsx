@@ -159,6 +159,7 @@ export const DatePickerTimeField: React.FC<DatePickerTimeFieldProps> = (
       hourCycle={hourCycle}
       value={timeValue}
       onChange={(value) => {
+        /* @ts-ignore */
         setTimeValue(value)
       }}
     />

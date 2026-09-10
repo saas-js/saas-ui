@@ -1,0 +1,178 @@
+---
+title: Contacts router
+description: An overview of the Contacts router
+---
+
+## Procedures
+
+The contacts router has the following procedures:
+
+### Get contact by id
+
+Returns a contact by id.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = api.contacts.byId.useQuery({
+  id: '',
+  workspaceId: '',
+})
+
+// Server components
+const data = await api.contacts.byId({
+  id: '',
+  workspaceId: '',
+})
+```
+
+### List contacts by type
+
+List all contacts by type.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = api.contacts.listByType.useQuery({
+  type: '',
+  workspaceId: '',
+})
+
+// Server components
+const data = await api.contacts.listByType({
+  type: '',
+  workspaceId: '',
+})
+```
+
+### Create a contact
+
+Create a new contact in the workspace.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = api.contacts.create.useMutation()
+
+// Server components
+const data = await api.contacts.create()
+```
+
+### Update a contact
+
+Update a contact.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = api.contacts.update.useMutation()
+
+// Server components
+const data = await api.contacts.update()
+```
+
+### List contact activity
+
+Returns the latest activity of a contact.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = api.contacts.activitiesById.useQuery({
+  id: '',
+  workspaceId: '',
+})
+
+// Server components
+const data = await api.contacts.activitiesById({
+  id: '',
+  workspaceId: '',
+})
+```
+
+### Add a comment to a contact
+
+Add a comment to a contact.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { mutate } = api.contacts.addComment.useMutation()
+
+mutate({
+  input: {
+    id: '',
+    workspaceId: '',
+    comment: '',
+  },
+})
+
+// Server components
+const data = await api.contacts.addComment({
+  input: {
+    id: '',
+    workspaceId: '',
+    comment: '',
+  },
+})
+```
+
+### Remove a comment
+
+Remove a comment from a contact.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { mutate } = api.contacts.removeComment.useMutation()
+
+mutate({
+  input: {
+    workspaceId: '',
+    commentId: '',
+  },
+})
+
+// Server components
+const data = await api.contacts.removeComment({
+  input: {
+    workspaceId: '',
+    commentId: '',
+  },
+})
+```
+
+### Update tags
+
+Update the tags of a contact. Removes any tags not included in the list.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { mutate } = api.contacts.updateTags.useMutation()
+
+mutate({
+  input: {
+    id: '',
+    workspaceId: '',
+    tags: [],
+  },
+})
+
+// Server components
+const data = await api.contacts.updateTags({
+  input: {
+    id: '',
+    workspaceId: '',
+    tags: [],
+  },
+})
+```

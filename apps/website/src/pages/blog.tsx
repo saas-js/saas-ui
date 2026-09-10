@@ -17,13 +17,14 @@ import SEO from '@/components/seo'
 
 import { allBlogs } from '.contentlayer/generated'
 
-import Link from '@/components/link'
 import { compareDesc } from 'date-fns'
 import {
   StructuredList,
+  StructuredListButton,
   StructuredListCell,
   StructuredListItem,
 } from '@saas-ui/react'
+import Link from 'next/link'
 
 const Post = (props) => {
   const { title, description, slug, image, status, author, avatar, size } =
@@ -114,12 +115,10 @@ const BlogPage = ({ blogs }) => {
           <StructuredList mx="-4">
             {older.map((post, i) => {
               return (
-                <StructuredListItem
-                  key={post.slug}
-                  href={post.slug}
-                  rounded="md"
-                >
-                  <StructuredListCell>{post.title}</StructuredListCell>
+                <StructuredListItem key={post.slug} p="0">
+                  <StructuredListButton as={Link} href={post.slug} rounded="md">
+                    <StructuredListCell>{post.title}</StructuredListCell>
+                  </StructuredListButton>
                 </StructuredListItem>
               )
             })}

@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   Center,
+  Code,
   Container,
   Icon,
   IconButton,
@@ -40,7 +41,15 @@ import { Faq } from '@/components/faq'
 import { Testimonials } from '@/components/testimonials'
 
 import { BackgroundGradientRadial } from '@/components/background-gradient-radial'
-import { Br, CheckIcon } from '@saas-ui/react'
+import {
+  Banner,
+  BannerContent,
+  BannerDescription,
+  BannerIcon,
+  BannerTitle,
+  Br,
+  CheckIcon,
+} from '@saas-ui/react'
 import CodePanel from '@/components/code-panel/code-panel'
 import { FiCheck, FiCopy } from 'react-icons/fi'
 
@@ -249,62 +258,69 @@ const Pricing = () => {
               team.
             </Text>
           </Box>
-        </VStack>
 
-        <Stack mb="14" align="center">
-          <Tabs variant="segments" maxW="lg">
-            <TabList justifyContent="stretch">
-              <Tab
-                as={Link}
-                href="/pricing"
-                alignItems="flex-start"
-                height="auto"
-                py="3"
-                px="3"
-                flex="1"
-              >
-                <Icon as={FaReact} boxSize="6" me="2" />
-                <VStack alignItems="flex-start" spacing="1">
-                  <Text>React</Text>
-                  <Text size="xs" color="muted" fontWeight="normal">
-                    React component library and Next.js starter kit
-                  </Text>
-                </VStack>
-              </Tab>
-              <Tab
-                as={Link}
-                href="/pricing/figma"
-                alignItems="flex-start"
-                height="auto"
-                py="3"
-                px="3"
-                flex="1"
-              >
-                <Icon as={FaFigma} boxSize="6" me="2" />
-                <VStack alignItems="flex-start" spacing="1">
-                  <Text>Figma</Text>
-                  <Text size="xs" color="muted" fontWeight="normal">
-                    Official Figma design system &amp; UI Kit
-                  </Text>
-                </VStack>
-              </Tab>
-            </TabList>
-          </Tabs>
-        </Stack>
+          <Box
+            display="flex"
+            flex="1"
+            p={[0, null, 10]}
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="2xl"
+          >
+            <Banner
+              display="flex"
+              bg={useColorModeValue('white', 'gray.900')}
+              colorScheme="purple"
+              backgroundClip="padding-box"
+              borderRadius="full"
+              borderWidth="2px"
+              borderColor="transparent"
+              position="relative"
+              py="2"
+              px="3"
+              overflow="visible"
+              transitionProperty="common"
+              transitionDuration="normal"
+              boxShadow="lg"
+              _before={{
+                content: `""`,
+                position: 'absolute',
+                zIndex: -1,
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                borderRadius: 'inherit',
+                margin: '-2px',
+                bgGradient: 'linear(to-r, purple.500, cyan.500)',
+              }}
+              _hover={{
+                boxShadow: 'sm',
+              }}
+            >
+              <BannerIcon boxSize="14px" />
+              <BannerContent fontSize="sm">
+                <BannerTitle>30% off while v3 is in beta</BannerTitle>
+                <BannerDescription display={{ base: 'none', md: 'block' }}>
+                  Use code <strong>V3BETA</strong>
+                </BannerDescription>
+              </BannerContent>
+            </Banner>
+          </Box>
+        </VStack>
 
         <SimpleGrid columns={[1, null, 2, 4]} spacing={4}>
           <PricingBox
             title="Open Source"
-            description="Basic components, perfect to get started."
+            description="Free components and templates."
             price="Free forever"
           >
             <PricingFeatures>
               <PricingFeature title="MIT License" />
-              <PricingFeature title="Authentication (Clerk/Supabase/Magic)" />
+              <PricingFeature title="Free blocks" />
               <PricingFeature title="Forms (react-hook-form)" />
               <PricingFeature title="Modals manager" />
               <PricingFeature title="Hotkeys" />
-              <PricingFeature title="Web3 components" />
               <Text fontSize="sm">And much more...</Text>
             </PricingFeatures>
             <ButtonLink href="/docs" variant="outline" mt="10">
@@ -312,7 +328,7 @@ const Pricing = () => {
             </ButtonLink>
           </PricingBox>
           <PricingBox
-            title="Bootstrap"
+            title="Single license"
             price={
               <HStack>
                 <Text
@@ -320,12 +336,12 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €247,-
+                  $397,-
                 </Text>
-                <Text>€197,-</Text>
+                <Text>$347,-</Text>
               </HStack>
             }
-            description="Single license for developers and small teams."
+            description="For one developer."
           >
             <PricingFeatures>
               <PricingFeature
@@ -340,10 +356,7 @@ const Pricing = () => {
               <PricingFeature
                 title={
                   <HStack as="span">
-                    <Text as="span">Next.js starter kit</Text>{' '}
-                    <Tag colorScheme="green" size="sm">
-                      Updated
-                    </Tag>
+                    <Text as="span">Next + Tanstack starter kits</Text>
                   </HStack>
                 }
               />
@@ -383,7 +396,7 @@ const Pricing = () => {
             </ButtonLink>
           </PricingBox>
           <PricingBox
-            title="Startup"
+            title="Team license"
             highlight="primary.500"
             price={
               <HStack>
@@ -392,12 +405,12 @@ const Pricing = () => {
                   fontSize="sm"
                   color="gray.400"
                 >
-                  €997,-
+                  $1125,-
                 </Text>
-                <Text>€797,-</Text>
+                <Text>$897,-</Text>
               </HStack>
             }
-            description="Unlimited license for growing teams or agencies."
+            description="For growing teams or agencies."
           >
             <PricingFeatures>
               <PricingFeature
@@ -461,13 +474,7 @@ const Pricing = () => {
 
 const PricingFeatures = ({ children }) => {
   return (
-    <VStack
-      align="stretch"
-      justifyContent="stretch"
-      spacing="4"
-      mb="8"
-      flex="1"
-    >
+    <VStack align="stretch" spacing="4" mb="8" flex="1">
       {children}
     </VStack>
   )
@@ -541,7 +548,7 @@ const PricingBox = ({
       }}
       {...props}
     >
-      <Heading as="h3" size="md" fontWeight="bold" fontSize="lg" mb="2">
+      <Heading as="h3" size="md" fontWeight="bold" fontSize="lg">
         {title}
       </Heading>
       <Box color={useColorModeValue('gray.500', 'gray.400')} fontSize="md">
@@ -565,15 +572,15 @@ const MemberShip = () => {
           <Text>Enterprise</Text>
         </HStack>
       }
-      description="Our experts join your team to help you move faster."
+      description="Get expert support."
       price={
         <Stack spacing="0" mt="-4">
-          <Text fontSize="sm" color="gray.400" fontWeight="medium">
+          <Text fontSize="sm" color="muted" fontWeight="medium">
             Starting at
           </Text>
           <HStack>
-            <Text>€4750,-</Text>
-            <Text fontSize="sm" color="gray.400" fontWeight="medium">
+            <Text>$1000,-</Text>
+            <Text fontSize="sm" color="muted" fontWeight="medium">
               / month
             </Text>
           </HStack>
@@ -582,8 +589,9 @@ const MemberShip = () => {
     >
       <PricingFeatures>
         <PricingFeature
-          title={<strong>1 spot available</strong>}
-          iconColor="green.400"
+          title="Custom license pricing"
+          iconColor="cyan.500"
+          help="Customized pricing based on your needs."
         />
         <PricingFeature
           title="One request at a time"
@@ -596,7 +604,7 @@ const MemberShip = () => {
           help="Setup a boilerplate project according to your needs."
         />
         <PricingFeature
-          title="Design-system setup"
+          title="Design system setup"
           iconColor="cyan.500"
           help="Set up you theme based on your brand and design."
         />

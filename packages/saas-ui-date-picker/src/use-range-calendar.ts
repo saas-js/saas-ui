@@ -1,3 +1,5 @@
+import type {} from '@react-types/button'
+
 import { AriaRangeCalendarProps } from '@react-aria/calendar'
 import { useRangeCalendar as useAriaRangeCalendar } from '@react-aria/calendar'
 import { useRangeCalendarState } from '@react-stately/calendar'
@@ -10,6 +12,8 @@ import { defaultCreateCalendar } from './use-calendar'
 export const useRangeCalendar = (props: AriaRangeCalendarProps<DateValue>) => {
   const {
     locale,
+    firstDayOfWeek,
+    timeZone,
     calendarProps: contextCalendarProps,
     createCalendar = defaultCreateCalendar,
   } = useDateRangePickerContext()
@@ -20,6 +24,8 @@ export const useRangeCalendar = (props: AriaRangeCalendarProps<DateValue>) => {
     ...contextCalendarProps,
     visibleDuration: { months: 2 },
     locale,
+    firstDayOfWeek,
+
     createCalendar,
   })
 
@@ -30,7 +36,14 @@ export const useRangeCalendar = (props: AriaRangeCalendarProps<DateValue>) => {
     nextButtonProps,
     errorMessageProps,
     title,
-  } = useAriaRangeCalendar(props, state, ref)
+  } = useAriaRangeCalendar(
+    {
+      firstDayOfWeek,
+      ...props,
+    },
+    state,
+    ref
+  )
 
   const titleProps = useMemo(() => {
     return {
@@ -43,6 +56,7 @@ export const useRangeCalendar = (props: AriaRangeCalendarProps<DateValue>) => {
   return {
     state,
     locale,
+    firstDayOfWeek,
     calendarProps,
     prevButtonProps,
     nextButtonProps,

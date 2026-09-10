@@ -1,22 +1,22 @@
 import * as React from 'react'
 
-import { Box, useColorModeValue, useTheme } from '@chakra-ui/react'
+import { Box, useTheme } from '@chakra-ui/react'
 import {
-  BarChart as ReBarChart,
   Bar,
+  CartesianGrid,
+  Legend,
+  BarChart as ReBarChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
 } from 'recharts'
 import type { AxisDomain } from 'recharts/types/util/types'
 
 import { ChartLegend } from './legend'
 import { ChartTooltip } from './tooltip'
-import { createCategoryColors } from './utils'
 import { BaseChartProps } from './types'
+import { createCategoryColors } from './utils'
 
 export interface BarChartProps extends BaseChartProps {
   /**
@@ -140,10 +140,12 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
           '--chart-cursor-bg': 'var(--chakra-colors-blackAlpha-100)',
           '--chart-gradient-start-opacity': '0.8',
           '--chart-gradient-end-opacity': '80',
+          '--chart-grid-stroke-opacity': '0.8',
           _dark: {
             '--chart-cursor-bg': 'var(--chakra-colors-whiteAlpha-100)',
             '--chart-gradient-start-opacity': '80',
             '--chart-gradient-end-opacity': '0.8',
+            '--chart-grid-stroke-opacity': '0.3',
           },
         }}
       >
@@ -159,7 +161,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
               <CartesianGrid
                 strokeDasharray=" 1 1 1"
                 vertical={false}
-                strokeOpacity={useColorModeValue(0.8, 0.3)}
+                strokeOpacity="var(--chart-grid-stroke-opacity)"
               />
             )}
 

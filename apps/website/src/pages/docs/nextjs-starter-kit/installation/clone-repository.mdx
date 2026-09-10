@@ -19,6 +19,12 @@ This will clone the repository into the `my-project` folder, without the commit 
 
 Now that you have cloned the repository, you can setup your Git configuration.
 
+Rename the `saas-ui-pro-nextjs-starter-kit` repository to `upstream`.
+
+```bash
+git remote rename origin upstream
+```
+
 The `saas-ui-pro-nextjs-starter-kit` repository is configured as the `upstream` by default.
 To add your own repository as the `origin`, use the following command:
 
@@ -34,21 +40,6 @@ git pull upstream main --allow-unrelated-histories
 
 As your codebase diverges from `saas-ui-pro-nextjs-starter-kit` you will run into merge conflicts eventually,
 so at some point it might be easier to manually copy over any changes that you want to implement.
-
-## Login to the private package registry
-
-The Saas UI Pro packages are hosted on a private package registry (https://npm.saas-ui.dev).
-
-After cloning the repository, log in to the private NPM registry with your license key.
-
-- The `username` is the Github username you used to activate the license.
-- The `password` is your license key that you received from Lemonsqueezy or Gumroad.
-
-```bash
-yarn npm login --scope saas-ui-pro --always-auth
-```
-
-[Learn more about the private package registry](/docs/pro/installation/private-npm/overview)
 
 ## Install dependencies
 

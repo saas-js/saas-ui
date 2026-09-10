@@ -1,10 +1,11 @@
 {
   "name": "@saas-ui/date-picker",
-  "version": "0.15.4",
+  "version": "0.17.1",
   "description": "Chakra UI - Date Picker Component",
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
@@ -59,28 +60,31 @@
     "@chakra-ui/styled-system": "^2.12.1",
     "@chakra-ui/theme-tools": "^2.2.7",
     "@chakra-ui/utils": "^2.2.3",
-    "@internationalized/date": "3.5.6",
-    "@react-aria/calendar": "^3.5.12",
-    "@react-aria/datepicker": "^3.11.3",
-    "@react-aria/i18n": "^3.12.3",
-    "@react-aria/interactions": "^3.22.3",
-    "@react-stately/calendar": "^3.5.5",
-    "@react-stately/datepicker": "^3.10.3",
+    "@internationalized/date": "3.9.0",
+    "@react-aria/calendar": "3.9.1",
+    "@react-aria/datepicker": "3.15.1",
+    "@react-aria/i18n": "3.12.12",
+    "@react-aria/interactions": "3.25.5",
+    "@react-stately/calendar": "3.8.4",
+    "@react-stately/datepicker": "3.15.1",
     "@saas-ui/core": "workspace:*",
     "@saas-ui/modals": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "2.10.9",
     "@emotion/react": ">=11.0.0",
     "@emotion/styled": ">=11.0.0",
     "framer-motion": ">=6.0.0",
-    "react": ">=18.0.0",
+    "react": "18.3.1",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@react-types/datepicker": "^3.8.3",
-    "@react-types/shared": "^3.25.0",
+    "@react-types/button": "3.14.0",
+    "@react-types/datepicker": "3.13.1",
+    "@react-types/shared": "3.32.0",
     "@saas-ui/forms": "workspace:*",
+    "@types/react": "18.3.23",
+    "@types/react-dom": "^18.3.2",
     "date-fns": "^3.6.0"
   }
 }

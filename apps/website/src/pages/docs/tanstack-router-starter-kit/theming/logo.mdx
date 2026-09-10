@@ -1,0 +1,52 @@
+---
+title: Logo
+description: How to change the logo in the TanStack Router starter kit.
+---
+
+The logo is located in `packages/ui/src/logo/logo.tsx`.
+
+This file contains the full `Logo` including text and logomark.
+And also includes a `LogoIcon` component for the logomark.
+
+Both components render a `svg` wrapped with a Chakra UI `Box`.
+
+To change the logo, you can either modify the existing components or create your own.
+
+It's recommended to use `svg` images for the logo, so it can scale properly on any device and also be styled easily with Chakra UI props.
+Make sure to set `fill` or `stroke` to `currentColor` so the logo picks up the color from the `color` prop and can support both light and dark themes.
+
+```tsx
+import { Box, type BoxProps } from '@chakra-ui/react'
+
+export function Logo(props: BoxProps) {
+  return (
+    <Box as="svg" viewBox="0 0 100 100" {...props}>
+      <path d="M 0 0 L 100 0 L 100 100 L 0 100 Z" fill="currentColor" />
+    </Box>
+  )
+}
+```
+
+## Favicons
+
+Favicons are located in `public/favicons` and can be generated using services like [favicon.io](https://favicon.io/favicon-converter/).
+
+Icons can be configured in `apps/web/index.html` in the `<head>` section.
+
+```tsx
+<link rel="icon" href="/favicons/favicon.ico" />
+```
+
+## Usage
+
+To use the logo in your application, you can import the `Logo` component from the `@acme/ui/logo`.
+
+```tsx
+import { Logo, LogoIcon } from '@acme/ui/logo'
+```
+
+Since the component renders a `Box` component, you can pass any valid `Box` props to the component.
+
+```tsx
+<Logo color="red" width="100px" />
+```

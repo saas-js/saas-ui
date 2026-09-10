@@ -1,5 +1,27 @@
 # @saas-ui/date-picker
 
+## 0.17.1
+
+### Patch Changes
+
+- cb3af64: Fixed issue where amount of weeks was calculated incorrectly in calendar
+
+## 0.17.0
+
+### Minor Changes
+
+- e318bc0: Update deps
+
+## 0.16.0
+
+### Minor Changes
+
+- 61c9256: Added firstDayOfWeek prop
+
+### Patch Changes
+
+- 61c9256: Fixed issue where not all days would render if start of week is sunday
+
 ## 0.15.4
 
 ### Patch Changes

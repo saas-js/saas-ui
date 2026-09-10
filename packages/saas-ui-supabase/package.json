@@ -1,10 +1,11 @@
 {
   "name": "@saas-ui/supabase",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "Saas UI Supabase Auth integration",
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
@@ -63,7 +64,7 @@
   },
   "peerDependencies": {
     "@supabase/supabase-js": "^2.45.4",
-    "react": ">=18.0.0",
+    "react": "18.3.1",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {

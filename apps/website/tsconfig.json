@@ -42,6 +42,7 @@
       ],
       "@saas-ui-pro/kanban": ["../../packages/pro/packages/kanban/src"]
     },
+    "customConditions": ["sui-pro"],
     "incremental": true,
     "plugins": [
       {

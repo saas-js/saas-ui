@@ -1,0 +1,19 @@
+packages:
+  - apps/*
+  - packages/storybook
+  - packages/pro/packages/*
+  - packages/saas-ui-*
+  - tooling/next-workspaces
+  - tooling/test-utils
+  - tooling/props-docs
+  - tooling/storybook-addon
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+overrides:
+  '@react-types/button': '3.12.2'
+  '@internationalized/date': '3.8.2'
+  '@types/react': '18.3.23'
+  '@chakra-ui/react': '2.10.9'
+  'react': '18.3.1'
+  'react-icons': '5.5.0'
+  'kleur': '3.0.3'

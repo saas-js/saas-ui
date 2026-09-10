@@ -56,9 +56,15 @@ export function getFontOption(id: string | null) {
   return fontOptions.find((font) => font.id === id) ?? null
 }
 
-function fontFamily(font: FontOption) {
+export function fontFamilyValue(font: FontOption) {
   const fallback = font.category === 'serif' ? 'serif' : 'sans-serif'
   return `'${font.label}', ${fallback}`
+}
+
+export function googleFontHref(font: FontOption) {
+  const family = font.label.replaceAll(' ', '+')
+  const weights = font.weights ?? '400;500;600;700'
+  return `https://fonts.googleapis.com/css2?family=${family}:wght@${weights}&display=swap`
 }
 
 /** Inject a Google Fonts stylesheet for the font, once. */
@@ -66,13 +72,10 @@ export function loadFont(font: FontOption) {
   const id = `sui-font-${font.id}`
   if (document.getElementById(id)) return
 
-  const family = font.label.replaceAll(' ', '+')
-  const weights = font.weights ?? '400;500;600;700'
-
   const link = document.createElement('link')
   link.id = id
   link.rel = 'stylesheet'
-  link.href = `https://fonts.googleapis.com/css2?family=${family}:wght@${weights}&display=swap`
+  link.href = googleFontHref(font)
   document.head.appendChild(link)
 }
 
@@ -92,14 +95,14 @@ export function applyFonts(el: HTMLElement, selection: FontSelection) {
 
   if (heading) {
     loadFont(heading)
-    el.style.setProperty('--font-heading', fontFamily(heading))
+    el.style.setProperty('--font-heading', fontFamilyValue(heading))
   } else {
     el.style.removeProperty('--font-heading')
   }
 
   if (body) {
     loadFont(body)
-    el.style.setProperty('--font-body', fontFamily(body))
+    el.style.setProperty('--font-body', fontFamilyValue(body))
   } else {
     el.style.removeProperty('--font-body')
   }
@@ -114,4 +117,16 @@ export function createRandomFonts(): FontSelection {
     heading: randomValue(headingFontOptions).id,
     body: randomValue(bodyFontOptions).id,
   }
+}
+
+export function selectedFontOptions(selection: FontSelection) {
+  const seen = new Set<string>()
+  const fonts: FontOption[] = []
+  for (const id of [selection.heading, selection.body]) {
+    const font = getFontOption(id)
+    if (!font || seen.has(font.id)) continue
+    seen.add(font.id)
+    fonts.push(font)
+  }
+  return fonts
 }

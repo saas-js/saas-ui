@@ -58,6 +58,7 @@
   "author": "ImExoOdeex <odeex722@gmail.com>",
   "dependencies": {
     "@pandacss/dev": "^1.4.3",
+    "@saas-ui/appearance": "workspace:*",
     "globby": "^14.1.0"
   },
   "devDependencies": {

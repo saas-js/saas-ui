@@ -47,6 +47,7 @@ export interface MigrationPackagePlanRequest {
   requiredPackages: readonly string[]
   removeLegacyPackage: boolean
   legacyReferences: readonly string[]
+  primitiveReferences?: readonly string[]
 }
 
 /** Injectable boundary for package manifest/dependency mutations. */
@@ -223,11 +224,41 @@ export const fileMigrationPackageAdapter: MigrationPackageAdapter = {
     }
 
     const legacyDeclarations = packageDeclarations(manifest, '@saas-ui/react')
+    const primitiveReferences = request.primitiveReferences ?? []
     if (legacyDeclarations.length) {
-      if (
-        request.removeLegacyPackage &&
-        request.legacyReferences.length === 0
-      ) {
+      if (request.legacyReferences.length > 0) {
+        actions.push({
+          package: '@saas-ui/react',
+          action: 'retain',
+          status: 'manual',
+          section:
+            legacyDeclarations.length === 1
+              ? legacyDeclarations[0]!.section
+              : 'multiple',
+          required: true,
+          reason: `Manual migration is required while legacy references remain: ${
+            request.legacyReferences.join(', ') ||
+            'the complete project was not verified'
+          }.`,
+        })
+      } else if (primitiveReferences.length > 0) {
+        const runtime = legacyDeclarations.find(
+          (entry) => entry.section === 'dependencies',
+        )
+        actions.push({
+          package: '@saas-ui/react',
+          action: 'retain',
+          status: 'unchanged',
+          section:
+            legacyDeclarations.length === 1
+              ? legacyDeclarations[0]!.section
+              : 'multiple',
+          specifier: runtime?.specifier,
+          required: true,
+          reason:
+            'Installed templates still import unstyled primitives from @saas-ui/react.',
+        })
+      } else if (request.removeLegacyPackage) {
         for (const declaration of legacyDeclarations) {
           const section = manifest[declaration.section] as Record<
             string,
@@ -247,21 +278,6 @@ export const fileMigrationPackageAdapter: MigrationPackageAdapter = {
               : 'multiple',
           required: false,
           reason: 'No static project references remain after migration.',
-        })
-      } else {
-        actions.push({
-          package: '@saas-ui/react',
-          action: 'retain',
-          status: 'manual',
-          section:
-            legacyDeclarations.length === 1
-              ? legacyDeclarations[0]!.section
-              : 'multiple',
-          required: true,
-          reason: `Manual migration is required while legacy references remain: ${
-            request.legacyReferences.join(', ') ||
-            'the complete project was not verified'
-          }.`,
         })
       }
     } else if (request.legacyReferences.length > 0) {

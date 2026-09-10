@@ -1,13 +1,7 @@
 "use client"
 
-import {
-  Center,
-  SimpleGrid,
-  Stack,
-  Text,
-  VStack,
-  defaultSystem,
-} from "@chakra-ui/react"
+import { Center, SimpleGrid, Stack, Text, VStack } from "@chakra-ui/react"
+import { defaultSystem } from "./preset-system"
 import { TokenDoc } from "./token-doc"
 
 const { tokens } = defaultSystem

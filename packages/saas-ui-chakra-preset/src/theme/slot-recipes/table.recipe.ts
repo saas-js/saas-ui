@@ -135,6 +135,7 @@ export const tableSlotRecipe = defineSlotRecipe({
       sm: {
         root: {
           '--table-cell-padding-x': 'spacing.1',
+          '--control-height': 'sizes.control.sm',
           textStyle: 'sm',
         },
         columnHeader: {
@@ -150,6 +151,7 @@ export const tableSlotRecipe = defineSlotRecipe({
       md: {
         root: {
           '--table-cell-padding-x': 'spacing.2',
+          '--control-height': 'sizes.control.md',
           textStyle: 'sm',
         },
         columnHeader: {
@@ -165,6 +167,7 @@ export const tableSlotRecipe = defineSlotRecipe({
       lg: {
         root: {
           '--table-cell-padding-x': 'spacing.4',
+          '--control-height': 'sizes.control.lg',
           textStyle: 'md',
         },
         columnHeader: {

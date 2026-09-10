@@ -4,6 +4,8 @@ import os from 'node:os'
 import path from 'node:path'
 
 import { startLocalRegistryServer } from '../../packages/saas-ui-cli/scripts/run-local-registry'
+import { SUPPORTED_PRESET_VERSION } from '../../packages/saas-ui-cli/src/utils/package-compatibility'
+import { version as reactVersion } from '../../packages/saas-ui-react/package.json'
 import { repositoryRoot } from './public-registry'
 
 const cliEntry = path.join(
@@ -98,6 +100,17 @@ async function main() {
 
   try {
     await fs.cp(fixtureTemplate, cwd, { recursive: true })
+    const packagePath = path.join(cwd, 'package.json')
+    const packageJson = JSON.parse(await fs.readFile(packagePath, 'utf8')) as {
+      dependencies: Record<string, string>
+    }
+    packageJson.dependencies['@saas-ui/chakra-preset'] = SUPPORTED_PRESET_VERSION
+    packageJson.dependencies['@saas-ui/react'] = reactVersion
+    await fs.writeFile(
+      packagePath,
+      `${JSON.stringify(packageJson, null, 2)}\n`,
+      'utf8',
+    )
     await runCli(server.registryUrl, [
       'init',
       '--cwd',

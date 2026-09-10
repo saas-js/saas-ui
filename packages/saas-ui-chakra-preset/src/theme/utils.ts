@@ -18,6 +18,13 @@ export function radiusToken(value: string | number) {
   return `calc(${value} * var(--scale-factor) * var(--radius-factor))`
 }
 
+export function concentricRadius(
+  outerVar = '--overlay-radius',
+  paddingVar = '--overlay-padding',
+) {
+  return `max(0px, calc(var(${outerVar}) - var(${paddingVar})))`
+}
+
 const BASE_GRID_SIZE = 4
 const BASE_FONT_SIZE = 16
 

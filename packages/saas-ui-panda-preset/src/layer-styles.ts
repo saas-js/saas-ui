@@ -126,7 +126,8 @@ export const layerStyles: any = defineLayerStyles({
     value: {
       bg: 'bg.overlay',
       backdropFilter: 'var(--overlay-effect)',
-      borderRadius: 'panel.lg',
+      borderRadius: 'panel',
+      '--overlay-radius': 'radii.panel',
       boxShadow: 'overlay',
     },
   },

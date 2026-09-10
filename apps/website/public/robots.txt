@@ -1,2 +1,4 @@
 User-Agent: *
 Allow: /
+
+Sitemap: https://www.saas-js.com/sitemap.xml

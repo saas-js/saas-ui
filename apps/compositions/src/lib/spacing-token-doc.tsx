@@ -1,6 +1,7 @@
 "use client"
 
-import { Box, Flex, Stack, Text, defaultSystem } from "@chakra-ui/react"
+import { Box, Flex, Stack, Text } from "@chakra-ui/react"
+import { defaultSystem } from "./preset-system"
 import { TokenDoc } from "./token-doc"
 
 const { tokens } = defaultSystem
@@ -42,7 +43,7 @@ export const SpacingTokenDoc = () => {
             </Text>
             <Box flex="1">
               <Box
-                bg="pink.200"
+                bg="accent.muted"
                 height="4"
                 width={token.extensions.cssVar!.ref}
               />

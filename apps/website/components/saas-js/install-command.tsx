@@ -1,7 +1,7 @@
 'use client'
 
 import { Clipboard } from '@ark-ui/react/clipboard'
-import { Box, HStack, Text } from '@chakra-ui/react'
+import { Box, Text, chakra } from '@chakra-ui/react'
 import { LuCheck, LuClipboard } from 'react-icons/lu'
 
 export function InstallCommand({
@@ -14,10 +14,13 @@ export function InstallCommand({
   return (
     <Clipboard.Root value={command}>
       <Clipboard.Trigger asChild>
-        <HStack
-          as="button"
+        <chakra.button
           type="button"
+          bg="transparent"
           cursor="pointer"
+          display="flex"
+          alignItems="center"
+          textAlign="start"
           gap="2"
           px={size === 'sm' ? '2.5' : '3'}
           py={size === 'sm' ? '1.5' : '2'}
@@ -44,7 +47,7 @@ export function InstallCommand({
               <LuClipboard />
             </Clipboard.Indicator>
           </Box>
-        </HStack>
+        </chakra.button>
       </Clipboard.Trigger>
     </Clipboard.Root>
   )

@@ -1,17 +1,29 @@
 ---
-title: Animations
-description: The list of available animation tokens
-hideToc: true
+title: Motion
+description: Durations, easings, and keyframes in the Saas UI preset
 ---
 
-## Keyframes
+Prefer the motion bands over ad-hoc milliseconds. Each band is a CSS variable
+on `.sui-theme`, with a `.min` / `.max` range from `--motion-ratio`
+(default `0.75`).
 
-Chakra UI supports the following keyframes out of the box.
+| Token | CSS variable | Default |
+| ----- | ------------ | ------- |
+| `durations.motion.fast` | `--motion-fast` | `150ms` |
+| `durations.motion.medium` | `--motion-medium` | `200ms` |
+| `durations.motion.slow` | `--motion-slow` | `400ms` |
 
-<KeyframeDoc />
+`durations.fast`, `moderate`, and `slower` alias the same axes.
+`easings.standard` is `--ease-standard`.
 
 ## Durations
 
-Chakra UI supports the following durations out of the box.
-
 <DurationTokenDoc />
+
+## Easings
+
+<EasingTokenDoc />
+
+## Keyframes
+
+<KeyframeDoc />

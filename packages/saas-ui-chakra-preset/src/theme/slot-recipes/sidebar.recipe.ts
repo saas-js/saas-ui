@@ -170,7 +170,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
         inset: {
           borderColor: 'sidebar.border',
           borderWidth: '1px',
-          borderRadius: 'panel.md',
+          borderRadius: 'panel',
           marginBlock: 'var(--inset-gap, {spacing.2})',
           marginEnd: 'var(--inset-gap, {spacing.2})',
           overflow: 'clip',

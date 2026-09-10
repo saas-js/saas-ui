@@ -18,7 +18,7 @@ const createFocusRing = (selector: string) => {
           '--focus-ring-color': focusRingColor,
           [selector]: {
             outlineWidth: 'var(--focus-ring-width, 1px)',
-            outlineOffset: 'var(--focus-ring-offset, 2px)',
+            outlineOffset: 'var(--focus-ring-offset, 1px)',
             outlineStyle: 'var(--focus-ring-style, solid)',
             outlineColor: 'var(--focus-ring-color)',
           },

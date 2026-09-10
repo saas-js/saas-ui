@@ -68,7 +68,7 @@ export const progressSlotRecipe = defineSlotRecipe({
       square: {},
       rounded: {
         track: {
-          borderRadius: 'control.sm',
+          borderRadius: 'control',
         },
       },
       full: {

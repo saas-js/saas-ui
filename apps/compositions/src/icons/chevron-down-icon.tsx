@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 export interface ChevronDownIconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
+  size?: number | string
 }
 
 /**
@@ -10,9 +10,9 @@ export interface ChevronDownIconProps extends React.SVGProps<SVGSVGElement> {
  * @url https://icon-sets.iconify.design/lucide
  * @license ISC
  */
-export const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({ 
-  size = "1em", 
-  ...props 
+export const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({
+  size = '1em',
+  ...props
 }) => {
   return (
     <svg
@@ -23,7 +23,14 @@ export const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/>
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="m6 9l6 6l6-6"
+      />
     </svg>
-  );
-};
+  )
+}

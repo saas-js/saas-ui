@@ -1,0 +1,145 @@
+---
+title: Appearance
+description: Generate a product theme from a few OKLCH seeds.
+---
+
+Appearance is the Saas UI color contract. You set a base hue, an accent, and
+optionally a sidebar. Surfaces, text, borders, accent slots, and status
+palettes are derived from those seeds.
+
+There are two ways to apply an appearance:
+
+1. **CSS variables** on `.sui-theme` — the browser resolves
+   `oklch(from var(--sui-accent) …)` at computed-style time
+2. **`createAppearance()`** — bakes the same math into semantic token values
+   when you create a Chakra system
+
+Use CSS variables for runtime theming (white-label, Storybook). Use
+`createAppearance()` when you want a compiled system for one brand.
+
+## Seeds
+
+| Seed | CSS variable | Role |
+| ---- | ------------ | ---- |
+| Base | `--sui-base` | Canvas, text, borders. Lightness is fixed at `0.5`; you set hue and chroma |
+| Accent | `--sui-accent` | Brand solid and every chromatic slot that inherits its L/C |
+| Sidebar | `--sui-sidebar` | Tonal sidebar. Defaults to the base seed |
+| Solid sidebar | `--sui-sidebar-solid` | Optional solid sidebar fill |
+
+Default seeds match Graphite:
+
+```css
+.sui-theme {
+  --sui-base: oklch(0.5 0.012 260);
+  --sui-accent: oklch(0.511 0.262 276.966);
+}
+```
+
+Status palettes keep their own hues and reuse the accent’s lightness and
+chroma. See [Color system](/docs/theming/color-system).
+
+## Tuning axes
+
+These variables sit next to the seeds. The preset also maps them to data
+attributes on `.sui-theme`.
+
+| Variable | Values | Attribute |
+| ---- | ------ | --------- |
+| `--sui-contrast` | `0` normal, `-1` soft, `1` strong | `data-base-contrast="soft\|strong"` |
+| `--sui-sidebar-contrast` | same | `data-sidebar-contrast="soft\|strong"` |
+| `--sui-accent-foreground-tone` | `1` light text, `0` dark text | `data-accent-foreground="dark"` |
+| `--sui-sidebar-foreground-tone` | same | `data-sidebar-foreground="dark"` |
+
+A solid sidebar swaps the sidebar formulas:
+
+```html
+<div class="sui-theme" data-sidebar="solid"></div>
+```
+
+## `createAppearance`
+
+```tsx
+import { createSystem, defineConfig } from '@chakra-ui/react'
+import {
+  createAppearance,
+  defaultConfig,
+} from '@saas-ui/chakra-preset'
+
+export const system = createSystem(
+  defaultConfig,
+  defineConfig({
+    theme: {
+      semanticTokens: {
+        colors: createAppearance({
+          base: { h: 225, c: 0.01, contrast: 'soft' },
+          accent: {
+            l: 0.53,
+            c: 0.18,
+            h: 235,
+            foreground: 'light',
+          },
+          sidebar: { h: 215, c: 0.018 },
+        }),
+      },
+    },
+  }),
+)
+```
+
+### Options
+
+**`base`**
+
+- `h` — hue. Default `260`
+- `c` — chroma. Default `0.012`
+- `contrast` — `'soft' | 'normal' | 'strong'`
+
+**`accent`**
+
+- `l`, `c`, `h` — solid OKLCH
+- `foreground` — `'light' | 'dark'` text on that solid
+
+**`sidebar`**
+
+- `'base'` — inherit the base seed
+- `{ h, c, contrast }` — tonal sidebar
+- `{ solid: { l, c, h }, foreground }` — solid sidebar in both modes
+
+`light` and `dark` override objects can replace individual generated values
+after the math runs.
+
+`createAppearance()` writes baked `oklch(…)` strings. It does not update
+`--sui-base` / `--sui-accent`. If you also set those variables, the baked tokens
+win for any path `createAppearance` returned (`bg`, `fg`, `accent`, `info`,
+`success`, `warning`, `destructive`, `sidebar`).
+
+## What gets generated
+
+From the seeds the contract fills:
+
+- Canvas roles: `bg`, `bg.surface`, `bg.elevated`, `bg.inset`, `bg.overlay`
+- Foreground and border ramps
+- Interaction: `hover`, `pressed`, `selected`
+- Palettes: `base`, `accent`, `info`, `success`, `warning`, `destructive`
+- Sidebar: `sidebar.bg`, `sidebar.fg`, `sidebar.accent`
+
+Named catalog hues (`green`, `blue`, …) stay as static palettes. They do not
+follow the accent unless you use the status roles instead.
+
+## Other CSS variables
+
+Appearance is color. Scale, radii, motion, and overlay are separate CSS
+variables, usually set through the [Theme](/docs/theming/theme) component.
+
+| Variable | Default | Purpose |
+| -------- | ------- | ------- |
+| `--scale-factor` | `1` | Multiplies role radii |
+| `--radius-factor` | `1` | Global radius multiplier |
+| `--radius-control-factor` | `1` | Buttons, inputs, selects |
+| `--radius-panel-factor` | `1` | Cards, dialogs, popovers |
+| `--radius-indicator-factor` | `1` | Badges, tags, avatars |
+| `--motion-fast` / `--motion-medium` / `--motion-slow` | `150ms` / `200ms` / `400ms` | Motion bands |
+| `--motion-ratio` | `0.75` | `motion.*.min` and `motion.*.max` |
+| `--ease-standard` | `cubic-bezier(0.24, 1, 0.4, 1)` | Default easing |
+| `--overlay-effect` | `blur({blurs.lg})` | Overlay backdrops |
+| `--color-shadow` | `{colors.shadow}` | Shadow pigment |

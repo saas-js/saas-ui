@@ -88,17 +88,15 @@ describe('Theme', () => {
     )
     expect(theme.style.colorScheme).toBe('dark')
     expect(theme.style.getPropertyValue('--scale-factor')).toBe('1.25')
-    expect(theme.style.getPropertyValue('--radius-control')).toBe('0.75')
-    expect(theme.style.getPropertyValue('--radius-panel')).toBe('1.5')
-    expect(theme.style.getPropertyValue('--radius-indicator')).toBe('2')
+    expect(theme.style.getPropertyValue('--radius-control-factor')).toBe('0.75')
+    expect(theme.style.getPropertyValue('--radius-panel-factor')).toBe('1.5')
+    expect(theme.style.getPropertyValue('--radius-indicator-factor')).toBe('2')
     expect(theme.style.getPropertyValue('--overlay-effect')).toBe(
       'saturate(120%) blur(12px)',
     )
     expect(theme.hasAttribute('appearance')).toBe(false)
     expect(theme.hasAttribute('scaleFactor')).toBe(false)
-    expect(transparent.style.getPropertyValue('--scale-factor')).toBe('1')
-    expect(transparent.style.getPropertyValue('--overlay-effect')).toBe(
-      'blur(10px)',
-    )
+    expect(transparent.style.getPropertyValue('--scale-factor')).toBe('')
+    expect(transparent.style.getPropertyValue('--overlay-effect')).toBe('')
   })
 })

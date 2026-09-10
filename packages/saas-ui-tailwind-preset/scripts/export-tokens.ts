@@ -96,6 +96,7 @@ export async function exportTokens() {
   semanticContent += '}\n'
 
   const appearanceContent = await exportAppearanceGlobalCss()
+  const themeCssVars = await exportThemeCssVars()
 
   // Add dark variant section if there's content
   let darkSection = ''
@@ -115,6 +116,7 @@ export async function exportTokens() {
     themeContent +
     inlineThemeContent +
     appearanceContent +
+    themeCssVars +
     semanticContent +
     darkSection +
     keyframesContent
@@ -126,6 +128,31 @@ export async function exportTokens() {
   await writeFile('src/theme.css', formattedCSS)
 
   console.log('✅ Tailwind theme exported to src/theme.css')
+}
+
+function isThemeCssVar(property: string) {
+  return (
+    property.startsWith('--scale-') ||
+    property.startsWith('--radius-') ||
+    property.startsWith('--focus-ring-') ||
+    property.startsWith('--motion-') ||
+    property === '--ease-standard'
+  )
+}
+
+async function exportThemeCssVars(): Promise<string> {
+  const modulePath = '../../saas-ui-chakra-preset/src/theme/global-css.ts'
+  const module = await import(modulePath)
+  const rootVars = (module.globalCss?.['*'] ?? {}) as CSSObject
+  let css = '/* Theme CSS variables */\n:where(html, .sui-theme) {\n'
+
+  for (const [property, value] of Object.entries(rootVars)) {
+    if (isThemeCssVar(property) && typeof value !== 'object') {
+      css += `  ${property}: ${extractValue(String(value))};\n`
+    }
+  }
+
+  return `${css}}\n\n`
 }
 
 async function exportAppearanceGlobalCss(): Promise<string> {
@@ -378,7 +405,15 @@ function extractValue(value: string | number | string[]): string {
         /\{spacing\.([0-9._]+)\}/g,
         (_, num) => `var(--spacing-${num.replace('.', '_')})`,
       )
-      .replace(/\{radii\.(\w+)\}/g, 'var(--radius-$1)')
+      .replace(
+        /\{radii\.([^}]+)\}/g,
+        (_, path) => `var(--radius-${String(path).replace(/\./g, '-')})`,
+      )
+      .replace(
+        /\{sizes\.([^}]+)\}/g,
+        (_, path) =>
+          `var(--sizes-${String(path).replace(/\./g, '-').replace(/(\d)_(\d)/, '$1_$2')})`,
+      )
       .replace(/\{blurs\.(\w+)\}/g, 'var(--blurs-$1)')
   )
 }

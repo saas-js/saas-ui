@@ -7,8 +7,8 @@ import {
   Stack,
   Text,
   VStack,
-  defaultSystem,
 } from "@chakra-ui/react"
+import { defaultSystem } from "./preset-system"
 import { TokenDoc } from "./token-doc"
 
 const { _config: config, tokens } = defaultSystem
@@ -26,7 +26,7 @@ export const KeyframeDoc = () => {
             <Stack key={animationName}>
               <Box
                 boxSize="12"
-                bg="pink.200"
+                bg="accent.muted"
                 animation={`${animationName} 1s ease-in-out infinite alternate`}
               />
               <Text fontWeight="medium">{animationName}</Text>
@@ -38,36 +38,55 @@ export const KeyframeDoc = () => {
   )
 }
 
-const allDurations = Array.from(tokens.categoryMap.get("durations")!.entries())
-  .sort(
-    ([, a], [, b]) => parseFloat(b.originalValue) - parseFloat(a.originalValue),
-  )
-  .map(([key]) => key)
+const durationTokens = Array.from(
+  tokens.categoryMap.get("durations")!.values(),
+)
+
+const motionDurations = durationTokens.filter((token) =>
+  token.name.startsWith("durations.motion"),
+)
+const namedDurations = durationTokens.filter(
+  (token) => !token.name.startsWith("durations.motion"),
+)
+
+const DurationGrid = ({
+  items,
+}: {
+  items: typeof durationTokens
+}) => (
+  <SimpleGrid minChildWidth="160px" gap="20" fontSize="sm">
+    {items.map((token) => {
+      const name = token.extensions.prop
+      return (
+        <VStack key={token.name}>
+          <Center h="20">
+            <Box
+              bg="accent.muted"
+              height="1"
+              width="20"
+              animationName="spin"
+              animationDuration={name}
+              animationTimingFunction="ease-in-out"
+              animationIterationCount="infinite"
+              animationDirection="alternate"
+            />
+          </Center>
+          <Text fontWeight="medium">{name}</Text>
+        </VStack>
+      )
+    })}
+  </SimpleGrid>
+)
 
 export const DurationTokenDoc = () => {
   return (
-    <TokenDoc title="theme.tokens.durations" mt="8">
-      <SimpleGrid minChildWidth="160px" gap="20" fontSize="sm">
-        {allDurations.map((durationName) => {
-          return (
-            <VStack key={durationName}>
-              <Center h="20">
-                <Box
-                  bg="pink.200"
-                  height="1"
-                  width="20"
-                  animationName="spin"
-                  animationDuration={durationName}
-                  animationTimingFunction="ease-in-out"
-                  animationIterationCount="infinite"
-                  animationDirection="alternate"
-                />
-              </Center>
-              <Text fontWeight="medium">{durationName}</Text>
-            </VStack>
-          )
-        })}
-      </SimpleGrid>
-    </TokenDoc>
+    <Stack gap="8" mt="8">
+      <TokenDoc title="motion bands">
+        <DurationGrid items={motionDurations} />
+      </TokenDoc>
+      <TokenDoc title="named durations">
+        <DurationGrid items={namedDurations} />
+      </TokenDoc>
+    </Stack>
   )
 }

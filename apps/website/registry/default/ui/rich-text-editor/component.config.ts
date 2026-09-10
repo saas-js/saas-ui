@@ -5,5 +5,6 @@ export default {
   subcategory: 'Rich Text Editor',
   dependencyVersions: {
     '@tiptap/react': '^3.30.2',
+    '@tiptap/starter-kit': '^3.30.2',
   },
 }

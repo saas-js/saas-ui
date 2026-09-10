@@ -34,7 +34,7 @@ export function CTA() {
               <LinkButton
                 variant="glass"
                 colorPalette="cyan"
-                href="https://saas-js.com"
+                href="https://www.saas-js.com"
                 alignSelf="flex-start"
               >
                 View starter kits <ActionArrow />

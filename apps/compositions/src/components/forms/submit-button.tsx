@@ -6,11 +6,7 @@ import { Button, type ButtonProps } from 'compositions/ui/button/index'
 
 import { useFormContext } from './form-context'
 
-const FormButton = Button as React.ForwardRefExoticComponent<any>
-
 export interface SubmitButtonProps extends ButtonProps {
-  children?: React.ReactNode
-  disabled?: boolean
   loadingText?: React.ReactNode
   /**
    * Disable the button while the form is invalid/pristine. Defaults to `true`.
@@ -46,7 +42,7 @@ export const SubmitButton = React.forwardRef<
       })}
     >
       {({ isSubmitting, canSubmit }) => (
-        <FormButton
+        <Button
           ref={ref}
           type="submit"
           variant="solid"
@@ -57,7 +53,7 @@ export const SubmitButton = React.forwardRef<
           {...rest}
         >
           {children}
-        </FormButton>
+        </Button>
       )}
     </form.Subscribe>
   )

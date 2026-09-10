@@ -7,6 +7,8 @@ const items = [
     "Indicator",
     ["indicator.top", "indicator.bottom", "indicator.start", "indicator.end"],
   ],
+  ["Surface", ["overlay", "backdrop"]],
+  ["State", ["disabled", "none"]],
 ] as const
 
 export const TokensLayerStyle = () => {
@@ -16,22 +18,27 @@ export const TokensLayerStyle = () => {
         {([title, styles]) => (
           <Stack gap="4">
             <Text fontWeight="medium" color="fg.muted">
-              layerStyle: {title.toLowerCase()}.*
+              layerStyle: {title.toLowerCase()}
             </Text>
             <HStack wrap="wrap" gap="10">
               <For each={styles}>
-                {(layerStyle) => (
-                  <Center
-                    colorPalette="teal"
-                    key={layerStyle}
-                    layerStyle={layerStyle}
-                    height="10"
-                    flex="1"
-                    fontWeight="medium"
-                  >
-                    {layerStyle}
-                  </Center>
-                )}
+                {(layerStyle) => {
+                  const isSurface =
+                    layerStyle === "overlay" || layerStyle === "backdrop"
+                  return (
+                    <Center
+                      colorPalette="accent"
+                      key={layerStyle}
+                      layerStyle={layerStyle}
+                      minH={isSurface ? "24" : "10"}
+                      px="4"
+                      flex="1"
+                      fontWeight="medium"
+                    >
+                      {layerStyle}
+                    </Center>
+                  )
+                }}
               </For>
             </HStack>
           </Stack>

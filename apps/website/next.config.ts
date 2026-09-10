@@ -35,6 +35,15 @@ const nextConfig = {
         permanent: false,
       },
       {
+        // The homepage is the TanStack Start kit, so /tanstack-start was a
+        // second page targeting the same query on the same domain. Two pages
+        // competing for one term is what split the starter-kit rankings in the
+        // first place — consolidate onto the stronger URL.
+        source: '/tanstack-start',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/docs/getting-started',
         destination: '/docs/getting-started/introduction',
         permanent: true,
@@ -96,6 +105,9 @@ const nextConfig = {
       'main',
       ...config.resolve.mainFields,
     ]
+    // Prefer the workspace `sui` export condition so packages resolve to
+    // source. `'...'` keeps webpack's default conditions.
+    config.resolve.conditionNames = ['sui', 'sui-pro', '...']
 
     return config
   },

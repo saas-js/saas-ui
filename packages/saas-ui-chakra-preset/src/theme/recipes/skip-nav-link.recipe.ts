@@ -6,7 +6,7 @@ export const skipNavLinkRecipe = defineRecipe({
     display: 'inline-flex',
     bg: 'bg.panel',
     padding: '2.5',
-    borderRadius: 'control.md',
+    borderRadius: 'control',
     fontWeight: 'semibold',
     focusVisibleRing: 'outside',
     textStyle: 'sm',

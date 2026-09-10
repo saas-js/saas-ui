@@ -24,20 +24,25 @@ interface Props {
 }
 
 export const generateStaticParams = async () => {
-  return allBlogs.map((blog) => ({ slug: blog.slug.replace('blog/', '') }))
+  return allBlogs.map((blog) => ({ slug: blog.slug }))
 }
 
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   const { slug } = await params
-  const blog = allBlogs.find((blog) => blog.slug === `blog/${slug}`)
+  const blog = allBlogs.find((blog) => blog.slug === slug)
+
+  if (!blog) return {}
 
   return {
-    title: blog?.title,
-    description: blog?.description,
+    title: blog.title,
+    description: blog.description,
+    alternates: {
+      canonical: `/blog/${blog.slug}`,
+    },
     openGraph: {
-      images: `/og?title=${blog?.title}&category=${blog?.type}`,
+      images: `/og?title=${blog.title}&category=${blog.type}`,
     },
   }
 }

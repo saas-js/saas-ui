@@ -18,8 +18,8 @@ export const radiomarkRecipe = defineRecipe({
       focusVisibleRing: 'outside',
     },
     _invalid: {
-      colorPalette: 'red',
-      borderColor: 'red.500',
+      colorPalette: 'destructive',
+      borderColor: 'border.destructive',
     },
     _disabled: {
       opacity: '0.5',

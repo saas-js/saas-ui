@@ -9,7 +9,10 @@ import {
 } from '../../src/commands/init/impl'
 import { installRegistryItems } from '../../src/utils/add-components'
 import type { Config } from '../../src/utils/get-config'
-import { SUPPORTED_PRESET_VERSION } from '../../src/utils/package-compatibility'
+import {
+  SUPPORTED_PRESET_VERSION,
+  supportedPackageDeclaration,
+} from '../../src/utils/package-compatibility'
 import { hashContent } from '../../src/utils/registry-content-hash'
 import type { RegistryClient } from '../../src/utils/registry/client'
 import {
@@ -71,12 +74,27 @@ const expectedTargets = {
   },
 } as const satisfies Record<ColorModeVariant, Record<string, readonly string[]>>
 
+const expectedPrimitiveDeclaration = supportedPackageDeclaration(
+  '@saas-ui/react',
+)
+
 const expectedDependencies = {
-  // The fixture manifest already declares these compatible dependencies, so
-  // installer preflight treats them as satisfied without package mutation.
-  on: [],
-  off: [],
+  // Init packages are already in the fixture manifest. Navbar and Sidebar wrap
+  // unstyled primitives, so add installs the current @saas-ui/react pin.
+  on: [[expectedPrimitiveDeclaration]],
+  off: [[expectedPrimitiveDeclaration]],
 } as const satisfies Record<ColorModeVariant, readonly (readonly string[])[]>
+
+export const expectedInstallAllDependencies = [
+  '@saas-js/conditions@^0.1.0',
+  '@saas-js/conditions-react@^0.1.0',
+  '@saas-ui/hooks',
+  expectedPrimitiveDeclaration,
+  '@tanstack/react-table@9.0.0-beta.80',
+  '@tanstack/react-virtual@^3.13.12',
+  '@tiptap/react@^3.30.2',
+  '@tiptap/starter-kit@^3.30.2',
+] as const
 
 const expectedInstallation = {
   on: {
@@ -471,7 +489,7 @@ async function assertSourceBoundary(cwd: string) {
       developmentSourcePattern,
       `The CLI installed development-only source ${relative}.`,
     )
-    assert.doesNotMatch(source, /@saas-ui\/(?:core|react)(?:\/|['"])/)
+    assert.doesNotMatch(source, /@saas-ui\/core(?:\/|['"])/)
     assert.doesNotMatch(source, /(?:@\/|#)registry\//)
     assert.doesNotMatch(source, /(?:^|['"])(?:\.\.\/)+(?:apps|packages)\//m)
     assert.doesNotMatch(source, /workspace:/)
@@ -485,7 +503,7 @@ async function assertSourceBoundary(cwd: string) {
       if (specifier.startsWith('@saas-ui/')) {
         assert.match(
           specifier,
-          /^@saas-ui\/chakra-preset(?:\/|$)/,
+          /^@saas-ui\/(?:chakra-preset|hooks|react)(?:\/|$)/,
           `${relative} imports a workspace-only Saas UI package: ${specifier}.`,
         )
       }
@@ -696,7 +714,13 @@ export async function assertInstallAllConsumerFixture(
     )
     assert.doesNotMatch(packageJson.dependencies[dependency]!, /^workspace:/)
   }
-  assert.deepEqual(result.dependencyRequests, [])
+  assert.deepEqual(result.dependencyRequests, [
+    {
+      cwd: result.cwd,
+      dependencies: [...expectedInstallAllDependencies],
+      devDependencies: [],
+    },
+  ])
 
   await assertSourceBoundary(result.cwd)
 }

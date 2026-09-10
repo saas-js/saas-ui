@@ -32,7 +32,7 @@ export const CodeBlock = (props: CodeBlockProps) => {
       marginY="1.6em"
       borderWidth="1px"
       rounded="10px"
-      borderColor="gray.800"
+      borderColor="border"
       css={{
         '& pre.shiki': {
           roundedTop: '0!',
@@ -42,13 +42,13 @@ export const CodeBlock = (props: CodeBlockProps) => {
       }}
     >
       <HStack
-        bg="#1E1E1E"
+        bg="bg.subtle"
         px="4"
         py="2"
-        color="gray.300"
+        color="fg.muted"
         roundedTop="lg"
         borderBottomWidth="1px"
-        borderBottomColor="gray.800"
+        borderBottomColor="border"
       >
         {lang && <CodeLangIcon type={lang} />}
         <Text fontSize="xs" fontFamily="mono" fontWeight="semibold">
@@ -59,8 +59,8 @@ export const CodeBlock = (props: CodeBlockProps) => {
           <CopyButton
             value={value}
             size="xs"
-            color="gray.300"
-            _hover={{ bg: 'whiteAlpha.100' }}
+            color="fg.muted"
+            _hover={{ bg: 'bg.emphasized' }}
           />
         ) : null}
       </HStack>

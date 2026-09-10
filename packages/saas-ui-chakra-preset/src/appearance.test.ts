@@ -6,12 +6,12 @@ describe('createAppearance', () => {
     const appearance = createAppearance()
 
     expect(appearance.bg.DEFAULT.value).toEqual({
-      _light: 'oklch(0.985 0.002 260)',
-      _dark: 'oklch(0.14 0.002 260)',
+      _light: 'oklch(0.985 0.0024 260)',
+      _dark: 'oklch(0.14 0.0024 260)',
     })
     expect(appearance.bg.surface.value).toEqual({
-      _light: 'oklch(1 0 260)',
-      _dark: 'oklch(0.17 0 260)',
+      _light: 'oklch(0.995 0.0024 260)',
+      _dark: 'oklch(0.17 0.0036 260)',
     })
     expect(appearance.interaction.selected.value).toEqual({
       _light: 'oklch(0.511 0.262 276.966 / 0.11)',
@@ -28,6 +28,10 @@ describe('createAppearance', () => {
 
     expect(appearance.bg.DEFAULT.value._dark).toContain('225')
     expect(appearance.accent.solid.value._light).toBe('oklch(0.6 0.18 235)')
+    expect(appearance.success.solid.value._light).toBe('oklch(0.6 0.18 150)')
+    expect(appearance.warning.solid.value._light).toBe('oklch(0.6 0.18 50)')
+    expect(appearance.info.solid.value._light).toBe('oklch(0.6 0.18 260)')
+    expect(appearance.destructive.solid.value._light).toBe('oklch(0.6 0.18 25)')
     expect(appearance.sidebar.bg.value).toEqual({
       _light: 'oklch(0.95 0.007 215)',
       _dark: 'oklch(0.1 0.01 215)',
@@ -42,7 +46,7 @@ describe('createAppearance', () => {
       _dark: 'oklch(0.92 0.003 260)',
     })
     expect(semanticColors.neutral.solid.value).toEqual({
-      _light: '{colors.neutral.900}',
+      _light: '{colors.black}',
       _dark: '{colors.white}',
     })
   })
@@ -68,14 +72,14 @@ describe('createAppearance', () => {
       _dark: 'oklch(0.55 0.24 292)',
     })
     expect(appearance.sidebar.fg.value).toEqual({
-      _light: 'oklch(0.985 0.014 292)',
-      _dark: 'oklch(0.985 0.014 292)',
+      _light: 'oklch(0.985 0.0144 292)',
+      _dark: 'oklch(0.985 0.0144 292)',
     })
     expect(appearance.sidebar.border.value._light).toBe(
-      'oklch(0.985 0.014 292 / 0.22)',
+      'oklch(0.985 0.0144 292 / 0.22)',
     )
     expect(appearance.sidebar.accent.bg.value._dark).toBe(
-      'oklch(0.985 0.014 292 / 0.14)',
+      'oklch(0.985 0.0144 292 / 0.14)',
     )
     expect(appearance.sidebar.accent.fg.value).toEqual(
       appearance.sidebar.fg.value,

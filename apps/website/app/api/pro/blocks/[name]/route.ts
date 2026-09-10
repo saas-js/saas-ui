@@ -1,4 +1,5 @@
 import { getProRegistryIndex, getProRegistryItem } from '@/blocks/components'
+import { prepareBlockSource } from '@/lib/composition'
 import { highlightCode } from '@/lib/highlight-code'
 import { getProAccess } from '@/lib/pro-access'
 
@@ -59,7 +60,7 @@ export async function GET(
       .filter((file) => typeof file !== 'string' && file.content)
       .map(async (file) => {
         if (typeof file === 'string' || !file.content) return null
-        const content = removeReact(file.content)
+        const content = prepareBlockSource(removeReact(file.content))
         return {
           fileName: file.path.split('/').pop() ?? file.path,
           language: file.path.endsWith('.css') ? 'css' : 'tsx',

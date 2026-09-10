@@ -12,12 +12,28 @@ const exampleImportAliases = {
 const exampleImportPattern =
   /(['"])compositions\/(components|hooks|icons|lib|ui)(?=\/|['"])/g
 
+const registryFolderPattern =
+  /(['"])(?:@\/|#)registry\/[^/'"]+\/(components|hooks|icons|lib|ui)(?=\/|['"])/g
+
+const registryPrefixPattern = /(['"])(?:@\/|#)registry\/[^/'"]+/g
+
 export const prepareExampleSource = (source: string) => {
   return source.replace(
     exampleImportPattern,
     (_, quote: string, alias: keyof typeof exampleImportAliases) =>
       `${quote}${exampleImportAliases[alias]}`,
   )
+}
+
+/** Rewrite registry aliases to the same consumer paths the CLI writes. */
+export const prepareBlockSource = (source: string) => {
+  return source
+    .replace(
+      registryFolderPattern,
+      (_, quote: string, alias: keyof typeof exampleImportAliases) =>
+        `${quote}${exampleImportAliases[alias]}`,
+    )
+    .replace(registryPrefixPattern, `$1${exampleImportAliases.components}`)
 }
 
 export const readExampleFile = async (name: string, ext = 'tsx') => {

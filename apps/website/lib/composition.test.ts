@@ -2,7 +2,7 @@ import { readFile, readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-import { prepareExampleSource } from './composition'
+import { prepareBlockSource, prepareExampleSource } from './composition'
 
 describe('prepareExampleSource', () => {
   it('shows composition UI imports with the documented consumer alias', () => {
@@ -63,5 +63,44 @@ describe('prepareExampleSource', () => {
     ).filter(Boolean)
 
     expect(remainingInternalImports).toEqual([])
+  })
+})
+
+describe('prepareBlockSource', () => {
+  it('rewrites registry UI imports to #components/ui', () => {
+    const source =
+      "import * as Sidebar from '#registry/default/ui/sidebar/sidebar'\n"
+
+    expect(prepareBlockSource(source)).toBe(
+      "import * as Sidebar from '#components/ui/sidebar/sidebar'\n",
+    )
+  })
+
+  it('rewrites every registry alias used by installable blocks', () => {
+    const source = [
+      "import { Button } from '#registry/default/ui/button/button'",
+      'import { useExample } from "#registry/default/hooks/use-example"',
+      "import { ExampleIcon } from '@/registry/default/icons/example-icon'",
+      "import { helper } from '#registry/default/lib/helper'",
+      "import { Form } from '#registry/default/forms/index.ts'",
+      "import { ColorMode } from '#registry/default/setup/color-mode/color-mode'",
+    ].join('\n')
+
+    expect(prepareBlockSource(source)).toBe(
+      [
+        "import { Button } from '#components/ui/button/button'",
+        'import { useExample } from "#hooks/use-example"',
+        "import { ExampleIcon } from '#components/icons/example-icon'",
+        "import { helper } from '#lib/helper'",
+        "import { Form } from '#components/forms/index.ts'",
+        "import { ColorMode } from '#components/setup/color-mode/color-mode'",
+      ].join('\n'),
+    )
+  })
+
+  it('does not rewrite unrelated text', () => {
+    const source = "const path = 'other/#registry/default/ui/button'\n"
+
+    expect(prepareBlockSource(source)).toBe(source)
   })
 })

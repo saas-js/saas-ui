@@ -371,14 +371,17 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max)
 }
 
-function round(value: number) {
-  const rounded = Math.round(value * 1000) / 1000
+function round(value: number, decimals = 3) {
+  const factor = 10 ** decimals
+  const rounded = Math.round(value * factor) / factor
   return Object.is(rounded, -0) ? 0 : rounded
 }
 
 function formatOklch(color: OklchColor) {
   const l = round(clamp(color.l, 0, 1))
-  const c = round(Math.max(color.c, 0))
+  // Neutrals scale the base chroma down to a few thousandths, so three
+  // decimals would collapse the whole ramp onto one or two values.
+  const c = round(Math.max(color.c, 0), 5)
   const h = round(((color.h % 360) + 360) % 360)
   const alpha = color.a === undefined ? '' : ` / ${round(clamp(color.a, 0, 1))}`
 

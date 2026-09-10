@@ -18,13 +18,13 @@ export const semanticColors = stylex.defineVars({
   sidebarAccentFg: 'var(--sui-colors-sidebar-fg)',
   bg: 'light-dark(oklch(from var(--sui-base) calc(0.985 + 0.005 * max(calc(-1 * var(--sui-contrast)), 0) - 0.005 * max(var(--sui-contrast), 0)) calc(c * 0.2) h / 1), oklch(from var(--sui-base) calc(0.14 + 0.005 * max(calc(-1 * var(--sui-contrast)), 0) - 0.015 * max(var(--sui-contrast), 0)) calc(c * 0.2) h / 1))',
   bgSurface:
-    'light-dark(oklch(from var(--sui-base) 1 0 h / 1), oklch(from var(--sui-base) calc(0.17 - 0.005 * max(calc(-1 * var(--sui-contrast)), 0) + 0.005 * max(var(--sui-contrast), 0)) 0 h / 1))',
+    'light-dark(oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 1), oklch(from var(--sui-base) calc(0.17 - 0.005 * max(calc(-1 * var(--sui-contrast)), 0) + 0.005 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / 1))',
   bgElevated:
-    'light-dark(oklch(from var(--sui-base) 1 0 h / 1), oklch(from var(--sui-base) calc(0.2 - 0.015 * max(calc(-1 * var(--sui-contrast)), 0) + 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.45) h / 1))',
+    'light-dark(oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 1), oklch(from var(--sui-base) calc(0.2 - 0.015 * max(calc(-1 * var(--sui-contrast)), 0) + 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.45) h / 1))',
   bgInset:
     'light-dark(oklch(from var(--sui-base) calc(0.965 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.35) h / 1), oklch(from var(--sui-base) calc(0.11 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / 1))',
   bgOverlay:
-    'light-dark(oklch(from var(--sui-base) 1 0 h / 0.95), oklch(from var(--sui-base) calc(0.2 - 0.015 * max(calc(-1 * var(--sui-contrast)), 0) + 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.45) h / 0.9))',
+    'light-dark(oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 0.95), oklch(from var(--sui-base) calc(0.2 - 0.015 * max(calc(-1 * var(--sui-contrast)), 0) + 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.45) h / 0.9))',
   bgBackdrop: 'oklch(0 0 0 / 0.3)',
   bgInverted:
     'light-dark(oklch(from var(--sui-base) 0.16 calc(c * 0.4) h / 1), oklch(from var(--sui-base) 0.985 calc(c * 0.08) h / 1))',

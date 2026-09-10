@@ -11,8 +11,8 @@ describe('createAppearance', () => {
     const appearance = createAppearance()
 
     expect(appearance.bg.DEFAULT.value).toEqual({
-      _light: 'oklch(0.985 0.002 260)',
-      _dark: 'oklch(0.14 0.002 260)',
+      _light: 'oklch(0.985 0.0024 260)',
+      _dark: 'oklch(0.14 0.0024 260)',
     })
     expect(appearance.accent.solid.value._light).toBe(
       'oklch(0.511 0.262 276.966)',

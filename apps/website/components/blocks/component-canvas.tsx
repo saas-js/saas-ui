@@ -67,7 +67,7 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
                     title={props.attributes.title}
                     src={preview}
                     loading="lazy"
-                    sandbox="allow-forms allow-modals allow-popups allow-scripts"
+                    sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts"
                     style={{
                       border: 0,
                       display: 'block',

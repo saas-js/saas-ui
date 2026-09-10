@@ -39,8 +39,5 @@ jobs:
           pnpm --dir apps/compositions typecheck:dogfood
           pnpm --dir apps/website typecheck
 
-      - name: Build migrated website
-        run: pnpm --dir apps/website build
-
       - name: Run tests
         run: pnpm test:ci

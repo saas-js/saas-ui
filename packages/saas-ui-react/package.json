@@ -4,6 +4,7 @@
   "description": "Saas UI - The React component library for startups.",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
@@ -67,11 +68,11 @@
     "@saas-ui/theme": "workspace:*"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "2.10.9",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": ">=5.5.0",
-    "react": ">=18",
+    "react": "18.3.1",
     "react-dom": ">=18"
   }
 }

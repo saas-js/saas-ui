@@ -7,9 +7,19 @@
       <language>en_US</language>
       <managingEditor>hello@saas-ui.dev (Eelco Wiersma)</managingEditor>
       <webMaster>hello@saas-ui.dev (Eelco Wiersma)</webMaster>
-      <lastBuildDate>Sat, 02 Dec 2023 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 18 Jan 2025 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://saas-ui.dev/blog.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://saas-ui.dev/blog/better-auth-authentication-provider</guid>
+    <title>New Better Auth authentication integration</title>
+    <link>https://saas-ui.dev/blog/better-auth-authentication-provider</link>
+    <description>A new authentication provider for our Next.js starter kit with better defaults and more customization options.</description>
+    <pubDate>Sat, 18 Jan 2025 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
   <item>
     <guid>https://saas-ui.dev/blog/building-a-modern-saas-dashboard-with-saas-ui-and-next-js-app-router</guid>
     <title>Building a Modern SaaS Dashboard with Saas UI and Next.js App Router</title>
@@ -96,6 +106,16 @@
     <link>https://saas-ui.dev/blog/saas-ui-2-4</link>
     <description>We got some nifty new components and improvements for you in this release.</description>
     <pubDate>Fri, 24 Nov 2023 00:00:00 GMT</pubDate>
+    <author>hello@saas-ui.dev (Eelco Wiersma)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://saas-ui.dev/blog/tanstack-router-saas-starter-kit</guid>
+    <title>TanStack Router SaaS Starter Kit</title>
+    <link>https://saas-ui.dev/blog/tanstack-router-saas-starter-kit</link>
+    <description>TanStack Router SaaS starter kit is now available.</description>
+    <pubDate>Fri, 21 Mar 2025 00:00:00 GMT</pubDate>
     <author>hello@saas-ui.dev (Eelco Wiersma)</author>
     
   </item>

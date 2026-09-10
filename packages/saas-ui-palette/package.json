@@ -5,6 +5,7 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
@@ -65,6 +66,6 @@
     "@types/chroma-js": "^2.4.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3"
+    "@chakra-ui/react": "2.10.9"
   }
 }

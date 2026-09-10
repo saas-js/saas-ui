@@ -50,6 +50,7 @@ export const DateRangePickerContainer: React.FC<
   const {
     locale: localeProp,
     hourCycle = 12,
+    firstDayOfWeek,
     minValue,
     maxValue,
     timeZone = getLocalTimeZone(),
@@ -74,6 +75,7 @@ export const DateRangePickerContainer: React.FC<
     defaultValue,
     minValue,
     maxValue,
+    /* @ts-ignore */
     onChange,
     shouldCloseOnSelect: closeOnSelect || granularity === 'day',
   })
@@ -107,6 +109,7 @@ export const DateRangePickerContainer: React.FC<
     locale: localeProp || locale,
     hourCycle,
     timeZone,
+    firstDayOfWeek,
     groupProps,
     labelProps,
     startFieldProps,

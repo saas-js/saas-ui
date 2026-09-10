@@ -84,7 +84,15 @@ const getComponentFromRepo = async (
   ])
 
   if (!codeResponse.ok) {
-    throw new Error('Component not found')
+    throw new Error(
+      `Component not found: ${templateRoot}/${categoryName}/${componentName}/${componentName}.tsx`,
+      {
+        cause: {
+          status: codeResponse.status,
+          statusText: codeResponse.statusText,
+        },
+      }
+    )
   }
 
   const code = await codeResponse.text()

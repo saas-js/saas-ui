@@ -41,7 +41,12 @@ const Template: Story = (args) => {
   })
 
   return (
-    <DateRangePicker value={value} {...rest} onChange={setValue}>
+    <DateRangePicker
+      value={value}
+      {...rest}
+      onChange={setValue}
+      firstDayOfWeek="sun"
+    >
       <DatePickerTrigger>
         <Button>
           {value
@@ -71,4 +76,9 @@ export const WithTime24H = Template.bind({})
 WithTime24H.args = {
   hourCycle: 24,
   children: <DateRangePickerTimeField />,
+}
+
+export const StartOfWeek = Template.bind({})
+StartOfWeek.args = {
+  firstDayOfWeek: 'sun',
 }

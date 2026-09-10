@@ -19,6 +19,8 @@ import {
   Flex,
   Text,
   HStack,
+  Image,
+  MenuGroup,
 } from '@chakra-ui/react'
 import { Routes, RouteItem } from '@/docs/utils/get-route-context'
 import { convertBackticksToInlineCode } from '@/docs/utils/convert-backticks-to-inline-code'
@@ -391,6 +393,20 @@ function SidebarSwitch() {
       href: '/docs/nextjs-starter-kit',
       icon: NextjsIcon,
     },
+    {
+      label: 'Tanstack Router (SPA) starter kit',
+      description: 'SPA starter kit using Tanstack Router.',
+      href: '/docs/tanstack-router-starter-kit',
+      icon: () => (
+        <Image
+          src="/img/frameworks/tanstack.png"
+          alt="Tanstack Router"
+          boxSize="4"
+          mt="1"
+          alignSelf="start"
+        />
+      ),
+    },
   ]
 
   const activeItem = items
@@ -416,7 +432,7 @@ function SidebarSwitch() {
           borderColor: 'whiteAlpha.200',
         }}
       >
-        <HStack as="span" minW="0">
+        <HStack as="span" minW="0" alignItems="center">
           <Icon as={activeItem?.icon} alignSelf="start" boxSize="4" />
           <Stack as="span" spacing="1" flex="1" minW="0">
             <Text as="span" flex="1">
@@ -440,7 +456,7 @@ function SidebarSwitch() {
           <Link key={item.href} href={item.href} legacyBehavior>
             <MenuItem fontSize="xs">
               <HStack flex="1">
-                <Icon as={item.icon} alignSelf="start" boxSize="4" />
+                <Icon as={item.icon} alignSelf="start" mt="1" boxSize="4" />
                 <Stack spacing="0" flex="1">
                   <Text as="span" flex="1" fontWeight="semibold">
                     {item?.label}

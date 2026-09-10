@@ -5,6 +5,7 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
@@ -58,7 +59,11 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
-    "react": ">=18.0.0",
+    "react": "18.3.1",
     "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.23",
+    "@types/react-dom": "^18.3.2"
   }
 }

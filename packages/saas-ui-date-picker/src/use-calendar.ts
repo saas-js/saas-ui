@@ -1,3 +1,5 @@
+import type {} from '@react-types/button'
+
 import { AriaCalendarProps } from '@react-aria/calendar'
 import { useCalendar as useAriaCalendar } from '@react-aria/calendar'
 import { useCalendarState } from '@react-stately/calendar'
@@ -20,6 +22,7 @@ export const defaultCreateCalendar = (name: string) => {
 export const useCalendar = (props: AriaCalendarProps<DateValue>) => {
   const {
     locale,
+    firstDayOfWeek,
     calendarProps: contextCalendarProps,
     createCalendar = defaultCreateCalendar,
   } = useDatePickerContext()
@@ -38,6 +41,7 @@ export const useCalendar = (props: AriaCalendarProps<DateValue>) => {
     focusedValue: focusedValue ?? undefined,
     onFocusChange: setFocusedValue,
     locale,
+    firstDayOfWeek,
     createCalendar,
   })
 
@@ -54,7 +58,13 @@ export const useCalendar = (props: AriaCalendarProps<DateValue>) => {
     nextButtonProps,
     errorMessageProps,
     title,
-  } = useAriaCalendar(props, state)
+  } = useAriaCalendar(
+    {
+      firstDayOfWeek,
+      ...props,
+    },
+    state
+  )
 
   const titleProps = useMemo(() => {
     return {
@@ -67,6 +77,7 @@ export const useCalendar = (props: AriaCalendarProps<DateValue>) => {
   return {
     state,
     locale,
+    firstDayOfWeek,
     calendarProps,
     prevButtonProps,
     nextButtonProps,

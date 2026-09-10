@@ -18,7 +18,7 @@ const sidebar = {
       title: 'Quickstarts',
       path: '/docs/core/installation',
       heading: true,
-      open: false,
+      open: true,
       routes: [
         {
           title: 'Overview',
@@ -40,20 +40,12 @@ const sidebar = {
           title: 'Vite',
           path: '/docs/core/installation/vite-guide',
         },
-        {
-          title: 'RedwoodJS',
-          path: '/docs/core/installation/redwoodjs-guide',
-        },
-        {
-          title: 'Create React App',
-          path: '/docs/core/installation/cra-guide',
-        },
       ],
     },
     {
       title: 'Theming',
       path: '/docs/core/theming',
-      open: false,
+      open: true,
       heading: true,
       routes: [
         {
@@ -73,7 +65,7 @@ const sidebar = {
     {
       title: 'Components',
       path: '/docs/components',
-      open: false,
+      open: true,
       heading: true,
       routes: [
         {

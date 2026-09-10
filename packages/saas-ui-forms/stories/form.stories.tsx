@@ -576,3 +576,33 @@ export const WithCustomSubmit = () => (
     </Form>
   </>
 )
+
+const discriminateUnionSchema = z.discriminatedUnion('type', [
+  z.object({
+    type: z.literal('a'),
+    a: z.string(),
+  }),
+  z.object({
+    type: z.literal('b'),
+    b: z.string(),
+  }),
+])
+
+export const DiscriminateUnion = () => {
+  return (
+    <Form
+      schema={discriminateUnionSchema}
+      defaultValues={{ type: 'b', b: 'Hello' }}
+      onSubmit={onSubmit}
+    >
+      {({ Field }) => (
+        <FormLayout>
+          <Field name="type" label="Type" />
+          {/* @ts-expect-error */}
+          <Field name="a" label="A" />
+          <Field name="b" label="B" />
+        </FormLayout>
+      )}
+    </Form>
+  )
+}

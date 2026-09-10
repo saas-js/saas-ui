@@ -4,16 +4,19 @@
   "description": "Saas UI - The React component library for startups.",
   "exports": {
     ".": {
+      "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
     "./icons": {
+      "sui": "./src/icons/index.ts",
       "require": "./dist/icons/index.js",
       "types": "./dist/icons/index.d.ts",
       "import": "./dist/icons/index.mjs"
     },
     "./utils": {
+      "sui": "./src/utils/index.ts",
       "require": "./dist/utils/index.js",
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.mjs"
@@ -86,20 +89,23 @@
     "@chakra-ui/utils": "^2.2.3",
     "@react-aria/interactions": "^3.22.3",
     "@react-aria/utils": "^3.25.3",
+    "@saas-ui/hooks": "workspace:*",
     "@saas-ui/react-utils": "workspace:*",
     "@saas-ui/theme": "workspace:*",
     "@zag-js/dom-event": "^0.73.1",
     "@zag-js/dom-utils": "^0.2.4"
   },
   "peerDependencies": {
-    "@chakra-ui/react": ">=2.9.0 <3",
+    "@chakra-ui/react": "2.10.9",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": ">=5.5.0",
-    "react": ">=18",
+    "react": "18.3.1",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "tsup": "^8.3.0"
+    "@types/react": "18.3.23",
+    "@types/react-dom": "^18.3.2",
+    "tsup": "^8.5.0"
   }
 }

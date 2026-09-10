@@ -1,0 +1,185 @@
+---
+title: Workspace members router
+description: An overview of the workspace members router
+---
+
+## Procedures
+
+The workspace members router has the following procedures:
+
+### Get invitation
+
+Used to check if a workspace invitation token is valid.
+
+```typescript
+// Client components
+const { data } = api.workspaceMembers.invitation.useQuery({
+  input: {
+    token: '',
+  },
+})
+
+// Server components
+const data = await api.workspaceMembers.invitation({
+  input: {
+    token: '',
+  },
+})
+```
+
+### List workspace members
+
+List all members of a workspace.
+
+```typescript
+// Client components
+const { data } = api.workspaceMembers.list.useQuery({
+  input: {
+    workspaceId: '',
+  },
+})
+
+// Server components
+const data = await api.workspaceMembers.list({
+  input: {
+    workspaceId: '',
+  },
+})
+```
+
+### Invite users
+
+Invite people to join a workspace.
+
+```typescript
+// Client components
+const { data } = api.workspaceMembers.invite.useMutation({
+  input: {
+    workspaceId: '',
+    emails: [],
+    role: 'member',
+  },
+})
+
+// Server components
+const data = await api.workspaceMembers.invite({
+  input: {
+    workspaceId: '',
+    emails: [],
+    role: 'member',
+  },
+})
+```
+
+### Accept invitation
+
+Accept a workspace invitation.
+
+```typescript
+// Client components
+const { data } = api.workspaceMembers.accept.useMutation({
+  input: {
+    token: '',
+  },
+})
+
+// Server components
+const data = await api.workspaceMembers.accept({
+  input: {
+    token: '',
+  },
+})
+```
+
+### Remove member
+
+Remove a member from a workspace.
+
+```typescript
+// Client components
+const { data } = api.workspaceMembers.remove.useMutation({
+  input: {
+    workspaceId: '',
+    userId: '',
+  },
+})
+
+// Server components
+const data = await api.workspaceMembers.remove({
+  input: {
+    workspaceId: '',
+    userId: '',
+  },
+})
+```
+
+### Update member roles
+
+Update the roles of a member in a workspace.
+
+```typescript
+// Client components
+const { data } = api.workspaceMembers.updateRoles.useMutation({
+  input: {
+    workspaceId: '',
+    userId: '',
+    roles: ['admin'],
+  },
+})
+
+// Server components
+const data = await api.workspaceMembers.updateRoles({
+  input: {
+    workspaceId: '',
+    userId: '',
+    roles: ['admin'],
+  },
+})
+```
+
+### Get notification settings
+
+Get the notification settings of a member in a workspace.
+
+```typescript
+// Client components
+const { data } = api.workspaceMembers.getNotificationSettings.useQuery({
+  input: {
+    workspaceId: '',
+  },
+})
+
+// Server components
+const data = await api.workspaceMembers.getNotificationSettings({
+  input: {
+    workspaceId: '',
+  },
+})
+```
+
+### Update notification settings
+
+Update the notification settings of a member in a workspace.
+
+```typescript
+// Client components
+const { data } = api.workspaceMembers.updateNotificationSettings.useMutation({
+  input: {
+    workspaceId: '',
+    channels: {
+      email: true,
+      desktop: false,
+    },
+    topics: {
+      contacts_new_lead: true,
+      contacts_account_upgraded: true,
+      inbox_assigned_to_me: true,
+      inbox_mentioned: true,
+    },
+    newsletters: {
+      product_updates: true,
+      important_updates: true,
+    },
+  },
+})
+```

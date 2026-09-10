@@ -1,0 +1,20 @@
+---
+title: Users router
+description: An overview of the Users router
+---
+
+## Procedures
+
+The users router has the following procedures:
+
+### Update the user profile
+
+Updates the user's profile. The user can update their name, email, and avatar.
+
+```typescript
+// Client components
+const { data } = api.users.updateProfile.useMutation()
+
+// Server components
+const data = await api.users.updateProfile()
+```

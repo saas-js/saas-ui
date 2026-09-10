@@ -244,12 +244,14 @@ interface BaseProfile {
   emphasizedBorderAlpha: number
 }
 
+// Light panels stop just short of lightness 1: sRGB cannot represent any
+// chroma at 1, so the base tint would be gamut clipped into a cyan cast.
 const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
   soft: {
     light: {
       bg: 0.99,
-      surface: 1,
-      elevated: 1,
+      surface: 0.995,
+      elevated: 0.995,
       inset: 0.975,
       fg: 0.2,
       fgMuted: 0.44,
@@ -278,8 +280,8 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
   normal: {
     light: {
       bg: 0.985,
-      surface: 1,
-      elevated: 1,
+      surface: 0.995,
+      elevated: 0.995,
       inset: 0.965,
       fg: 0.18,
       fgMuted: 0.42,
@@ -308,8 +310,8 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
   strong: {
     light: {
       bg: 0.98,
-      surface: 1,
-      elevated: 1,
+      surface: 0.995,
+      elevated: 0.995,
       inset: 0.945,
       fg: 0.16,
       fgMuted: 0.4,
@@ -465,8 +467,8 @@ function createBase(
     h: seed.h,
   }
   const bg = tone(seed, profile.bg, 0.2)
-  const surface = tone(seed, profile.surface, 0)
-  const elevated = tone(seed, profile.elevated, dark ? 0.45 : 0)
+  const surface = tone(seed, profile.surface, dark ? 0.3 : 0.2)
+  const elevated = tone(seed, profile.elevated, dark ? 0.45 : 0.2)
   const inset = tone(seed, profile.inset, dark ? 0.3 : 0.35)
   const hover = withAlpha(fgSeed, profile.hoverAlpha)
   const pressed = withAlpha(fgSeed, profile.pressedAlpha)
@@ -479,7 +481,7 @@ function createBase(
       surface,
       elevated,
       inset,
-      overlay: tone(seed, profile.elevated, dark ? 0.45 : 0, {
+      overlay: tone(seed, profile.elevated, dark ? 0.45 : 0.2, {
         alpha: dark ? 0.9 : 0.95,
       }),
       backdrop: formatOklch({ l: 0, c: 0, h: 0, a: 0.3 }),

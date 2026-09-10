@@ -10,8 +10,8 @@ describe('createAppearance', () => {
       _dark: 'oklch(0.14 0.002 260)',
     })
     expect(appearance.bg.surface.value).toEqual({
-      _light: 'oklch(1 0 260)',
-      _dark: 'oklch(0.17 0 260)',
+      _light: 'oklch(0.995 0.002 260)',
+      _dark: 'oklch(0.17 0.004 260)',
     })
     expect(appearance.interaction.selected.value).toEqual({
       _light: 'oklch(0.511 0.262 276.966 / 0.11)',

@@ -106,17 +106,23 @@ const baseForegroundLightness = {
   dark: contrast(0.94, -0.02, 0.02),
 }
 
+// Light panels stop just short of 1: sRGB cannot represent any chroma at
+// lightness 1, so the base tint would be gamut clipped into a cyan cast.
+const surfaceLightness = {
+  light: 0.995,
+}
+
 const appearanceValues = {
   bg: lightDark(
     relativeColor(baseSeed, contrast(0.985, 0.005, -0.005), 'calc(c * 0.2)'),
     relativeColor(baseSeed, contrast(0.14, 0.005, -0.015), 'calc(c * 0.2)'),
   ),
   surface: lightDark(
-    relativeColor(baseSeed, 1, 0),
-    relativeColor(baseSeed, contrast(0.17, -0.005, 0.005), 0),
+    relativeColor(baseSeed, surfaceLightness.light, 'calc(c * 0.2)'),
+    relativeColor(baseSeed, contrast(0.17, -0.005, 0.005), 'calc(c * 0.3)'),
   ),
   elevated: lightDark(
-    relativeColor(baseSeed, 1, 0),
+    relativeColor(baseSeed, surfaceLightness.light, 'calc(c * 0.2)'),
     relativeColor(baseSeed, contrast(0.2, -0.015, 0.025), 'calc(c * 0.45)'),
   ),
   inset: lightDark(
@@ -124,7 +130,7 @@ const appearanceValues = {
     relativeColor(baseSeed, contrast(0.11, 0.01, -0.025), 'calc(c * 0.3)'),
   ),
   overlay: lightDark(
-    relativeColor(baseSeed, 1, 0, 0.95),
+    relativeColor(baseSeed, surfaceLightness.light, 'calc(c * 0.2)', 0.95),
     relativeColor(
       baseSeed,
       contrast(0.2, -0.015, 0.025),

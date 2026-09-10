@@ -40,6 +40,31 @@ describe('CSS appearance contract', () => {
     )
   })
 
+  it('keeps every base-relative neutral on the base hue', () => {
+    const neutrals = [
+      ...Object.values(appearanceColors.bg),
+      ...Object.values(appearanceColors.fg),
+      ...Object.values(appearanceColors.border),
+    ]
+      .map((token) => token.value)
+      .filter((value) => value.includes('var(--sui-base)'))
+
+    // A zero chroma discards the base tint, so anything layered on the token
+    // composites to a neutral grey that clashes with the rest of the ramp.
+    for (const value of neutrals) {
+      expect(value).not.toMatch(/var\(--sui-base\)[^)]*\s0 h/)
+    }
+
+    // sRGB cannot represent chroma at lightness 1, so a light surface pinned
+    // to 1 gets gamut clipped back to an achromatic (or cyan) white.
+    expect(appearanceColors.bg.surface.value).not.toMatch(
+      /var\(--sui-base\) 1 /,
+    )
+    expect(appearanceColors.bg.surface.value).toContain(
+      'oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 1)',
+    )
+  })
+
   it('registers base as a color palette despite Chakra reserving the name', () => {
     expect(defaultSystem.token('colors.base.solid')).toContain('light-dark(')
     expect(defaultSystem.token('colors.base.contrast')).toContain('light-dark(')

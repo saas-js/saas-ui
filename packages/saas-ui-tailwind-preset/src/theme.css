@@ -469,18 +469,18 @@
     )
   );
   --color-bg-surface: light-dark(
-    oklch(from var(--sui-base) 1 0 h / 1),
+    oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 1),
     oklch(
       from var(--sui-base)
         calc(
           0.17 - 0.005 * max(calc(-1 * var(--sui-contrast)), 0) + 0.005 *
             max(var(--sui-contrast), 0)
         )
-        0 h / 1
+        calc(c * 0.3) h / 1
     )
   );
   --color-bg-elevated: light-dark(
-    oklch(from var(--sui-base) 1 0 h / 1),
+    oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 1),
     oklch(
       from var(--sui-base)
         calc(
@@ -509,7 +509,7 @@
     )
   );
   --color-bg-overlay: light-dark(
-    oklch(from var(--sui-base) 1 0 h / 0.95),
+    oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 0.95),
     oklch(
       from var(--sui-base)
         calc(
@@ -1757,18 +1757,18 @@
     )
   );
   --colors-bg-surface: light-dark(
-    oklch(from var(--sui-base) 1 0 h / 1),
+    oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 1),
     oklch(
       from var(--sui-base)
         calc(
           0.17 - 0.005 * max(calc(-1 * var(--sui-contrast)), 0) + 0.005 *
             max(var(--sui-contrast), 0)
         )
-        0 h / 1
+        calc(c * 0.3) h / 1
     )
   );
   --colors-bg-elevated: light-dark(
-    oklch(from var(--sui-base) 1 0 h / 1),
+    oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 1),
     oklch(
       from var(--sui-base)
         calc(
@@ -1797,7 +1797,7 @@
     )
   );
   --colors-bg-overlay: light-dark(
-    oklch(from var(--sui-base) 1 0 h / 0.95),
+    oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 0.95),
     oklch(
       from var(--sui-base)
         calc(

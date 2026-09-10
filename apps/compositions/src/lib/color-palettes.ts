@@ -1,0 +1,25 @@
+import type { ColorPalette } from '@saas-ui/chakra-preset/colors'
+
+export const colorPalettes: ColorPalette[] = [
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
+]

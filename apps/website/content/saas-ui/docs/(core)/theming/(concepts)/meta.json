@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "overview",
+    "appearance",
+    "color-system",
+    "semantic-tokens",
+    "theme",
+    "utilities",
+    "recipes"
+  ]
+}

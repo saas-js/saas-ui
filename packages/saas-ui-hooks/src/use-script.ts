@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 
 export type Status = 'idle' | 'loading' | 'ready' | 'error'
@@ -31,7 +33,7 @@ export const useScript = (src: string): Status => {
         const setAttributeFromEvent = (event: Event) => {
           script?.setAttribute(
             'data-status',
-            event.type === 'load' ? 'ready' : 'error'
+            event.type === 'load' ? 'ready' : 'error',
           )
         }
 
@@ -61,7 +63,7 @@ export const useScript = (src: string): Status => {
         }
       }
     },
-    [src] // Only re-run effect if script src changes
+    [src], // Only re-run effect if script src changes
   )
 
   return status

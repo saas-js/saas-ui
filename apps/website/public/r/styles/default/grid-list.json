@@ -1,0 +1,50 @@
+{
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset",
+    "@saas-ui/react"
+  ],
+  "files": [
+    {
+      "content": "'use client'\n\nimport { createSlotRecipeContext } from '@chakra-ui/react/styled-system'\nimport { gridListSlotRecipe } from '@saas-ui/chakra-preset/slot-recipes/grid-list'\n\nexport const {\n  withProvider,\n  withContext,\n  useStyles: useGridListStyles,\n} = createSlotRecipeContext({\n  key: 'suiGridList',\n  recipe: gridListSlotRecipe,\n})\n",
+      "path": "ui/grid-list/grid-list.context.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport type { HTMLChakraProps } from '@chakra-ui/react/styled-system'\nimport type { SlotRecipeProps } from '@saas-ui/chakra-preset'\nimport type { GridListVariantProps } from '@saas-ui/chakra-preset/slot-recipes/grid-list'\nimport { GridList } from '@saas-ui/react/grid-list'\n\nimport { withContext, withProvider } from './grid-list.context.ts'\n\ninterface GridListRootProps\n  extends\n    HTMLChakraProps<'div'>,\n    SlotRecipeProps<'suiGridList', GridListVariantProps> {}\n\nconst GridListRoot = withProvider<HTMLDivElement, GridListRootProps>(\n  GridList.Root,\n  'root',\n)\n\ninterface GridListItemProps extends HTMLChakraProps<'div'> {\n  disabled?: boolean\n}\n\nconst GridListItem = withContext<HTMLDivElement, GridListItemProps>(\n  GridList.Item,\n  'item',\n)\n\ninterface GridListHeaderProps extends HTMLChakraProps<'header'> {}\n\nconst GridListHeader = withContext<HTMLDivElement, GridListHeaderProps>(\n  GridList.Header,\n  'header',\n)\n\ninterface GridListCellProps extends HTMLChakraProps<'div'> {}\n\nconst GridListCell = withContext<HTMLDivElement, GridListCellProps>(\n  GridList.Cell,\n  'cell',\n)\n\nexport {\n  GridListRoot as Root,\n  GridListItem as Item,\n  GridListHeader as Header,\n  GridListCell as Cell,\n}\n\nexport type {\n  GridListRootProps as RootProps,\n  GridListHeaderProps as HeaderProps,\n  GridListItemProps as ItemProps,\n  GridListCellProps as CellProps,\n}\n",
+      "path": "ui/grid-list/grid-list.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export * as GridList from './grid-list.tsx'\n",
+      "path": "ui/grid-list/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/grid-list/grid-list.context.ts": "3a307afffd968cb1bf3da8555ee929f1ee21646af0682dfb4af50f56b5c684a3",
+        "ui/grid-list/grid-list.tsx": "e921975d69130af69eabb9289de2541c9fd4f5a4a3b38eb0fde5217598e44032",
+        "ui/grid-list/index.ts": "7305b9853083ad3a42fa305dd3f0ecc20d40c9279ee7d03b17d394ea25d2907e"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset",
+        "@saas-ui/chakra-preset/slot-recipes/grid-list"
+      ],
+      "presetRecipeBindings": [
+        "gridList"
+      ],
+      "recipeReferences": [
+        "suiGridList"
+      ]
+    },
+    "contentHash": "22fb6948a0e1e369465381bb8e44954dc81b5cd58445b61ac2d1a55e3dfc3890"
+  },
+  "name": "grid-list",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

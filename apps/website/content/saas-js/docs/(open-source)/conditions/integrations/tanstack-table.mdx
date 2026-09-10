@@ -1,0 +1,127 @@
+---
+title: TanStack Table
+description: Filter TanStack Table rows with a condition query.
+---
+
+`@saas-js/conditions-tanstack-table` turns a condition query into TanStack
+Table's global filter. Every row is evaluated against the query through the
+definition.
+
+`@tanstack/table-core` v9 is a peer dependency. Use it through any adapter
+(`@tanstack/react-table`, Solid, Vue, …).
+
+```bash
+npm install @saas-js/conditions @saas-js/conditions-tanstack-table
+```
+
+## Why the global filter
+
+Condition queries are nested AND/OR trees. TanStack Table's `columnFilters`
+state is flat — one value per column — so a tree cannot round-trip through
+it. Instead of decomposing queries, this package filters at the row level:
+`definition.evaluate(query, row.original)` as the table's `globalFilterFn`.
+
+Sorting, pagination, grouping, and column filters stay plain TanStack Table.
+
+## Usage (React)
+
+```tsx
+import {
+  columnFilteringFeature,
+  createColumnHelper,
+  createFilteredRowModel,
+  globalFilteringFeature,
+  tableFeatures,
+  useTable,
+} from '@tanstack/react-table'
+
+import { conditionsGlobalFilter } from '@saas-js/conditions-tanstack-table'
+
+import { contactConditions } from './conditions'
+
+const features = tableFeatures({
+  columnFilteringFeature,
+  globalFilteringFeature,
+  filteredRowModel: createFilteredRowModel(),
+})
+
+const helper = createColumnHelper<typeof features, Contact>()
+const columns = helper.columns([
+  helper.accessor('name', { header: 'Contact' }),
+  helper.accessor('arr', { header: 'ARR' }),
+])
+
+const filterOptions = conditionsGlobalFilter<typeof features, Contact>(
+  contactConditions,
+)
+
+function ContactTable({ query }: { query: ContactsQuery }) {
+  const table = useTable({
+    features,
+    columns,
+    data: contacts,
+    ...filterOptions,
+    state: { globalFilter: query },
+  })
+
+  return (
+    <table>
+      {/* render table.getHeaderGroups() / table.getRowModel() as usual */}
+    </table>
+  )
+}
+```
+
+Keep `filterOptions` at module scope so the filter function is stable across
+renders.
+
+An empty query (or `undefined`) keeps every row.
+
+## With the React builder
+
+The query comes straight from the builder UI and the table refilters live as
+chips change:
+
+```tsx
+const conditions = contactUI.useConditionsContext()
+const query = conditions.useValue()
+
+const table = useTable({
+  features,
+  columns,
+  data: contacts,
+  ...filterOptions,
+  state: { globalFilter: query },
+})
+```
+
+The
+[conditions-react-storybook](https://github.com/saas-js/saas-js/tree/main/examples/conditions-react-storybook/src/shadcn)
+workspace includes a "TanStack Table" story: a sortable v9 table under the
+shadcn filter bar.
+
+## API
+
+`conditionsGlobalFilter(definition, options?)` returns table options to spread
+into `useTable`:
+
+- a `globalFilterFn` that evaluates rows against the query
+- a `getColumnCanGlobalFilter` that restricts eligibility to the first leaf
+  column
+
+The filter function judges the whole row, so one eligible column means each
+row is evaluated exactly once — and global filtering is never skipped for
+lack of eligible columns.
+
+`createConditionsFilterFn(definition, options?)` returns just the `FilterFn`,
+when you manage eligibility yourself.
+
+`options.subject` derives the evaluation subject from a row (defaults to
+`row.original`) for rows that wrap the domain object.
+
+## Server-side filtering
+
+For manual / server filtering, skip this package on the client: set
+`manualFiltering: true`, send the serialized query
+(`definition.stringify(query)`) with the request, and convert it to SQL on
+the server — see [Drizzle](/packages/conditions/docs/integrations/drizzle).

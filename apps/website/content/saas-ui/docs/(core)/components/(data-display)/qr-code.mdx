@@ -1,0 +1,86 @@
+---
+title: QR Code
+description: Used to generate a QR code based on the provided data
+links:
+  recipe: qr-code
+---
+
+<ExampleTabs name="qr-code-basic" />
+
+## Anatomy
+
+```jsx
+import { QrCode } from '@chakra-ui/react'
+```
+
+```jsx
+<QrCode.Root value="...">
+  <QrCode.Frame>
+    <QrCode.Pattern />
+  </QrCode.Frame>
+  <QrCode.Overlay />
+  <QrCode.DownloadTrigger fileName="..." mimeType="image/png" />
+</QrCode.Root>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to set the size of the QR code.
+
+<ExampleTabs name="qr-code-with-sizes" />
+
+### Logo Overlay
+
+Pass the children prop to the `QrCode.Overlay` component to add a logo or
+overlay to the QR code.
+
+<ExampleTabs name="qr-code-with-overlay" />
+
+### Fill
+
+Set the `fill` style on the `QrCode.Frame` component to change the color of the
+QR code pattern.
+
+<ExampleTabs name="qr-code-with-fill" />
+
+### Download
+
+Use the `QrCode.DownloadTrigger` to download the QR code.
+
+> The `fileName` and the `mimeType` props are required.
+
+<ExampleTabs name="qr-code-with-export" />
+
+### Error Correction
+
+In cases where the link is too long or the logo overlay covers a significant
+area, the error correction level can be increased.
+
+Use the `encoding.ecc` or `encoding.boostEcc` property to set the error
+correction level:
+
+- `L`: Allows recovery of up to 7% data loss (default)
+- `M`: Allows recovery of up to 15% data loss
+- `Q`: Allows recovery of up to 25% data loss
+- `H`: Allows recovery of up to 30% data loss
+
+<ExampleTabs name="qr-code-with-error-level" />
+
+### Input
+
+Here's an example of how to use the `QrCode` component with an `Input`
+component.
+
+<ExampleTabs name="qr-code-with-input" />
+
+## Props
+
+### Root
+
+<PropTable component="QrCode" part="Root" />
+
+### DownloadTrigger
+
+<PropTable component="QrCode" part="DownloadTrigger" />

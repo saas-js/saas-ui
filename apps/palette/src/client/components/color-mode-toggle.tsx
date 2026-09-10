@@ -1,17 +1,19 @@
-import { useColorMode, IconButton } from '@chakra-ui/react'
-
-import { FiSun, FiMoon } from 'react-icons/fi'
+import { IconButton } from '@chakra-ui/react'
+import { useTheme } from 'next-themes'
+import { FiMoon, FiSun } from 'react-icons/fi'
 
 export const ColorModeToggle = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { resolvedTheme, setTheme } = useTheme()
+  const colorMode = resolvedTheme === 'dark' ? 'dark' : 'light'
   return (
     <IconButton
-      onClick={toggleColorMode}
+      onClick={() => setTheme(colorMode === 'light' ? 'dark' : 'light')}
       variant="ghost"
       aria-label={
         colorMode === 'light' ? 'Enable DarkMode' : 'Enable LightMode'
       }
-      icon={colorMode === 'light' ? <FiMoon /> : <FiSun />}
-    />
+    >
+      {colorMode === 'light' ? <FiMoon /> : <FiSun />}
+    </IconButton>
   )
 }

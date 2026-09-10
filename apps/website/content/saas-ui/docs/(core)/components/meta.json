@@ -1,0 +1,20 @@
+{
+  "title": "Components",
+  "root": true,
+  "pages": [
+    "[Overview](/docs/components/overview)",
+    "concepts",
+    "(application)",
+    "(buttons)",
+    "(data-display)",
+    "(disclosure)",
+    "(feedback)",
+    "(forms)",
+    "(layout)",
+    "(media)",
+    "(navigation)",
+    "(overlay)",
+    "(typography)",
+    "(utilities)"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface ArrowLeftIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * arrow-left\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ArrowLeftIcon: React.FC<ArrowLeftIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"m12 19l-7-7l7-7m7 7H5\"\n      />\n    </svg>\n  )\n}\n",
+      "path": "icons/arrow-left-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/arrow-left-icon.tsx": "f23ce89191787c6766143ee7c425c6382983567e141ffaddb6c7f8743c37bed6"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "ArrowLeftIcon",
+    "contentHash": "c0bb132689c75bd2e963bf4d195ade3739779f5a83097e225952ad252482d97b",
+    "iconName": "ArrowLeft",
+    "iconSet": "lucide"
+  },
+  "name": "arrow-left-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

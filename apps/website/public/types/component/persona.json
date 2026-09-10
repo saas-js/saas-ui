@@ -1,0 +1,116 @@
+{
+  "Persona": {
+    "props": {
+      "name": {
+        "type": "string",
+        "isRequired": false,
+        "description": "The name of the person in the avatar.\n\n- if `src` has loaded, the name will be used as the `alt` attribute of the `img`\n- If `src` is not loaded, the name will be used to create the initials"
+      },
+      "presence": {
+        "type": "PersonaPresence",
+        "isRequired": false,
+        "description": "The presence status of the person\n\nIf set will add an AvatarBadge with color configured in `Presence`\nDefault presence options:\n- online\n- offline\n- busy\n- dnd\n- away"
+      },
+      "presenceIcon": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "The icon shown in the AvatarBadge"
+      },
+      "isOutOfOffice": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Indicates that a person is out of office. Changes the presence badge style."
+      },
+      "label": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Primary label of the persona, defaults to the name"
+      },
+      "secondaryLabel": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Secondary label, usually the role of the person\nOnly visible from md size and up."
+      },
+      "tertiaryLabel": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Tertiary label, usually the status of the person.\nOnly visible from lg size and up."
+      },
+      "hideDetails": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Hide the persona details next to the avatar."
+      },
+      "fallback": {
+        "isRequired": false
+      },
+      "loading": {
+        "isRequired": false
+      },
+      "src": {
+        "isRequired": false
+      },
+      "srcSet": {
+        "isRequired": false
+      },
+      "icon": {
+        "isRequired": false
+      },
+      "getInitials": {
+        "isRequired": false
+      },
+      "size": {
+        "isRequired": false
+      },
+      "outOfOffice": {
+        "isRequired": false,
+        "description": "Indicates that a person is out of office. Changes the presence badge style."
+      }
+    }
+  },
+  "PersonaAvatar": {
+    "props": {
+      "size": {
+        "isRequired": false
+      },
+      "fallback": {
+        "isRequired": false
+      },
+      "loading": {
+        "isRequired": false
+      },
+      "src": {
+        "isRequired": false
+      },
+      "srcSet": {
+        "isRequired": false
+      },
+      "icon": {
+        "isRequired": false
+      },
+      "getInitials": {
+        "isRequired": false
+      },
+      "name": {
+        "isRequired": false,
+        "description": "The name of the person in the avatar.\n\n- if `src` has loaded, the name will be used as the `alt` attribute of the `img`\n- If `src` is not loaded, the name will be used to create the initials"
+      },
+      "presence": {
+        "isRequired": false,
+        "description": "The presence status of the person\n\nIf set will add an AvatarBadge with color configured in `Presence`\nDefault presence options:\n- online\n- offline\n- busy\n- dnd\n- away"
+      },
+      "outOfOffice": {
+        "isRequired": false,
+        "description": "Indicates that a person is out of office. Changes the presence badge style."
+      },
+      "presenceIcon": {
+        "isRequired": false,
+        "description": "The icon shown in the AvatarBadge"
+      },
+      "isOutOfOffice": {
+        "isRequired": false,
+        "description": "Indicates that a person is out of office. Changes the presence badge style."
+      }
+    }
+  }
+}

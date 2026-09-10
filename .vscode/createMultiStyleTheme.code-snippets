@@ -22,7 +22,12 @@
     "body": [
       "import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'",
       "const { definePartsStyle, defineMultiStyleConfig } = createMultiStyleConfigHelpers($1)",
-      "export const $2 = defineMultiStyleConfig({$0})"
-    ]
-  }
+      "export const $2 = defineMultiStyleConfig({$0})",
+    ],
+  },
+  "import": {
+    "scope": "javascript,typescript",
+    "prefix": "from",
+    "body": ["import { $2 } from '$1'"],
+  },
 }

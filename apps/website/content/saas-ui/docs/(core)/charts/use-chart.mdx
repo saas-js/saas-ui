@@ -1,0 +1,107 @@
+---
+title: useChart
+description: Create a theme-aware chart instance from your data and series.
+---
+
+`useChart` is the single hook for every chart in `@saas-ui/charts`. It stores
+the data, resolves Chakra tokens, and returns helpers used by `Chart.Root`,
+`BarList` and `BarSegment`.
+
+```tsx
+import { useChart } from '@saas-ui/charts'
+
+const chart = useChart({
+  data,
+  series: [{ name: 'revenue', label: 'Revenue', color: 'indigo.solid' }],
+})
+```
+
+## Options
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `data` | `T[]` | Rows the marks and compositions read from. |
+| `series` | `SeriesItem<T>[]` | Named series for color, label, icon and tooltip matching. |
+| `sort` | `{ by, direction }` | Sort a copy of `data` by a numeric field. |
+
+### Series
+
+```tsx
+interface SeriesItem<T> {
+  name?: keyof T | string
+  color?: ChartColor
+  icon?: React.ReactNode
+  label?: React.ReactNode
+}
+```
+
+`name` is matched against mark and tooltip payloads. `color` accepts a token
+path (`indigo.solid`) or any CSS color. When series omit colors, `useChart`
+falls back to `indigo.solid`, `pink.solid`, `teal.solid`, `orange.solid`,
+`purple.solid` and `fg`.
+
+## Return value
+
+### Data
+
+- `data` — the original rows, or a sorted copy when `sort` is set
+- `series` — the series you passed in
+- `groupBy(dataKey)` — group rows by a field
+- `getSeries(item)` — resolve the series for a tooltip point or datum
+- `getTotal(dataKey)`, `getMin(dataKey)`, `getMax(dataKey)`
+- `getValuePercent(dataKey, value, domain?)` — percent of the total, or of a
+  custom `[min, max]` domain
+- `getPayloadTotal(payload)` — sum tooltip point values
+
+### Tokens
+
+- `color(token)`, `size(token)`, `spacing(token)` — resolve theme tokens
+- `theme` — TanStack theme (`foreground`, `muted`, `grid`, `background`,
+  `palette`)
+- `palette` — resolved series colors, used by pie and categorical scales
+- `cssVars` — CSS variables applied by `Chart.Root` for tooltip chrome and
+  series colors
+- `gradient({ id, stops })` — build a linear gradient with token colors
+
+### Definition
+
+`chart.define(spec)` wraps TanStack's `defineChart`. It injects the theme,
+disables SVG animation by default, and portals tooltips so they are not
+clipped by overflow.
+
+```tsx
+const definition = chart.define({
+  marks: [
+    barY(chart.data, {
+      x: 'date',
+      y: 'revenue',
+      fill: chart.color('indigo.solid'),
+    }),
+  ],
+  x: { scale: () => scaleBand<string>().padding(0.28) },
+  y: { scale: scaleLinear, nice: true, grid: true },
+})
+```
+
+Pass any TanStack chart spec: marks, scales, axes, `color`, `margin`,
+`gradients` or a responsive `chart({ width })` builder. See
+[chart definitions](https://tanstack.com/charts/latest/docs/concepts/chart-definitions)
+in the TanStack docs.
+
+### Formatting
+
+- `formatNumber(options?)` — `Intl.NumberFormat` bound to the Chakra locale
+- `formatDate(options?)` — `Intl.DateTimeFormat` bound to the Chakra locale
+
+### Highlighting
+
+- `highlightedSeries` / `setHighlightedSeries(name)`
+- `isHighlightedSeries(name)`
+- `getSeriesOpacity(name, fallback?)` — `1` for the highlighted series,
+  `fallback` (default `0.2`) for the others
+
+`Chart.Legend` uses these to dim sibling series on hover or click. HTML
+compositions such as `BarList` and `BarSegment` use the same state for
+tooltips.
+
+<ExampleTabs name="chart-line-multiple" />

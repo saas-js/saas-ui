@@ -1,0 +1,64 @@
+---
+title: Billing router
+description: An overview of the Billing router
+---
+
+## Procedures
+
+The billing router has the following procedures:
+
+### Get available billing plans
+
+Returns the available billing plans that can be subscribed to.
+
+- Access: `@public`
+
+```typescript
+// Client components
+const { data } = useQuery(trpc.billing.plans.queryOptions())
+
+// Server components
+const data = await caller.billing.plans()
+```
+
+### Get the billing account
+
+Returns the billing account, containing the billing email and current
+subscription.
+
+- Access: `@admin`
+
+```typescript
+// Client components
+const { data } = useQuery(trpc.billing.account.queryOptions())
+
+// Server components
+const data = await caller.billing.account()
+```
+
+### Update the billing account
+
+Updates the billing email of the account and syncs the data with the billing
+provider (Stripe).
+
+- Access: `@admin`
+
+```typescript
+// Client components
+const { mutate } = useMutation(
+  trpc.billing.updateBillingDetails.mutationOptions(),
+)
+
+mutate({
+  input: {
+    email: '',
+  },
+})
+
+// Server components
+const data = await caller.billing.updateBillingDetails({
+  input: {
+    email: '',
+  },
+})
+```

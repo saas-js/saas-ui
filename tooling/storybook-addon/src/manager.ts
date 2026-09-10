@@ -1,4 +1,4 @@
-import { addons, types } from '@storybook/manager-api'
+import { addons, types } from 'storybook/manager-api'
 import {
   ADDON_ID,
   COLOR_MODE_TOOL_ID,
@@ -9,7 +9,7 @@ import { ColorModeTool } from './color-mode/ColorModeTool'
 import { DirectionTool } from './direction/DirectionTool'
 import { ThemeTool } from './theme/ThemeTool'
 
-addons.register(ADDON_ID, (api) => {
+addons.register(ADDON_ID, () => {
   const match = ({ viewMode }: { viewMode?: string }) =>
     Boolean(viewMode && viewMode.match(/^(story|docs)$/))
 

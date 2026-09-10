@@ -1,0 +1,4027 @@
+[
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/accordion/accordion.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/accordion/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/accordion/accordion.tsx": "588c4b6ee3edab0ebc125fcad6d40011cced5d6ca383bb7732c95dd20d120475",
+          "ui/accordion/index.ts": "a0d0ea4c72e8fbfefe0b6b7fb03d81987c6921f7b32a8521193a2b938a55c66c"
+        },
+        "iconDependencies": [
+          "chevron-right-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "478e807bacf71ba878cef649b3b1f5702fe046d95d1ea238624adb08a1495650"
+    },
+    "name": "accordion",
+    "registryDependencies": [
+      "chevron-right-icon"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/action-bar/action-bar.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/action-bar/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/action-bar/action-bar.tsx": "10364f3621c09cfe54fcc52b21285e67b83260c5433e1e8b91e3461df1c01929",
+          "ui/action-bar/index.ts": "e7b0e8c4bd2b735b570f7984f0756d889e3edb966a324b85f71d4e4a13312024"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "a37e6f91eeccbde9f05624e7f97b6eeb3a6b35dc4fca90542326f029aa0edf6b"
+    },
+    "name": "action-bar",
+    "registryDependencies": [
+      "close-button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/alert/alert.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/alert/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/alert/alert.tsx": "814acc97136c640821f91990433306b714540c456f9f451a43aae9b559e00486",
+          "ui/alert/index.ts": "4f2eae36e58e2a9c78a3755c002b831e16f3663890c1cfd503013f9e9ebf5feb"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "202ff1a91290b916ad9ff9913c15a4ab635fe5b9178f8ae036d4102bcd7531a3"
+    },
+    "name": "alert",
+    "registryDependencies": [
+      "close-button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/align-center-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/align-center-icon.tsx": "162e272619dba50198638f41bb7251973322b9a2b031e8b3e49e8655e6d8f0a9"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "AlignCenterIcon",
+      "contentHash": "9328a877930ad83fd6b01712a4e3f67172e09aa2aabc94442bf2b48e0710439a",
+      "iconName": "AlignCenter",
+      "iconSet": "lucide"
+    },
+    "name": "align-center-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/align-justify-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/align-justify-icon.tsx": "a412d54a63df9f8fccf1ea2c6f2889ae81558dd8822db242f1f04619c242b9bf"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "AlignJustifyIcon",
+      "contentHash": "1a1e82ae06b02f4cb3eb22a0f1009db3f7fd4f7fcfd75029da9c76a1ac4e7d50",
+      "iconName": "AlignJustify",
+      "iconSet": "lucide"
+    },
+    "name": "align-justify-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/align-left-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/align-left-icon.tsx": "960533c3f09608a67729216e42ae2cfd9f2592d80dd3dc55fff6c4c7c157ee2a"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "AlignLeftIcon",
+      "contentHash": "6152d8a24de0ca4ec571cde3dd4f0cb5e6bbf7247f8f28d05613228161c3b3eb",
+      "iconName": "AlignLeft",
+      "iconSet": "lucide"
+    },
+    "name": "align-left-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/align-right-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/align-right-icon.tsx": "96289a2c6862a47126d8b55cd349b2d0bb83af3117b5173f3931037edb79c678"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "AlignRightIcon",
+      "contentHash": "60f3d63978908a7189f7c9847875558227f10d745c2fc47471a163168c070541",
+      "iconName": "AlignRight",
+      "iconSet": "lucide"
+    },
+    "name": "align-right-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/app-shell/app-shell.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/app-shell/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/app-shell/app-shell.tsx": "0160b1a21ccd8b389dbc325feb4ed1a1e897aa90af10df746f82e4d8c6bcf44b",
+          "ui/app-shell/index.ts": "bc9f91ed27f5250b6e720184c578c54fa7743e815bf1a58903f0e0b6bc66e4fc"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset/slot-recipes/app-shell"
+        ],
+        "presetRecipeBindings": [
+          "appShell"
+        ],
+        "recipeReferences": []
+      },
+      "contentHash": "c9040ba7b1579ebaed858587e29f97d409e4ac284d0838387946c260afdd9625"
+    },
+    "name": "app-shell",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/arrow-left-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/arrow-left-icon.tsx": "f23ce89191787c6766143ee7c425c6382983567e141ffaddb6c7f8743c37bed6"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ArrowLeftIcon",
+      "contentHash": "c0bb132689c75bd2e963bf4d195ade3739779f5a83097e225952ad252482d97b",
+      "iconName": "ArrowLeft",
+      "iconSet": "lucide"
+    },
+    "name": "arrow-left-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset",
+      "@saas-ui/hooks"
+    ],
+    "files": [
+      {
+        "path": "ui/aside/aside.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/aside/aside.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/aside/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/aside/aside.context.ts": "697ec8a11b406d4b91831b6d9515a2a4d0b7189566387088fce2aa4ecd4337f1",
+          "ui/aside/aside.tsx": "4b60fad4f97f5e3ebd116fc4a7d6ff8622854ed67cce5d5b1c6e41976a114ed5",
+          "ui/aside/index.ts": "dc44c96ebbc7acdd73a789efbed3a3bb8df5ce4433ed95c0432e9aced4afaed7"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/aside"
+        ],
+        "presetRecipeBindings": [
+          "aside"
+        ],
+        "recipeReferences": [
+          "suiAside"
+        ]
+      },
+      "contentHash": "f09b6e117a04d47c8a231d86335533f8b01a865bbe5fb40c394365313284939d"
+    },
+    "name": "aside",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/avatar/avatar.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/avatar/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/avatar/avatar.tsx": "d5e84587f6d68892c475db2e04985f2fa3461f1796636342eea99b4ce35d6129",
+          "ui/avatar/index.ts": "774742729b80a11409e46bf64cb8d0b4f5ca6da5fe73db56735739388111d9fa"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "a2724c3c3de580e46d3983ec9e5859f666ab74ba8433236351aff39c2ed26a78"
+    },
+    "name": "avatar",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/back-button/back-button.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/back-button/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/back-button/back-button.tsx": "414b66f3448a0a2c37075e7c10e2283e0d4265ae33a10c35fe4c2b40b9e40d81",
+          "ui/back-button/index.ts": "4df866418ac411d2a4ec841d70a99896450efd345832dcca3e3e940f5793694d"
+        },
+        "iconDependencies": [
+          "arrow-left-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "ee65099d7d376eaa1060816280aa78670d58c21234f14a9c8144f17d9bd95c7d"
+    },
+    "name": "back-button",
+    "registryDependencies": [
+      "arrow-left-icon"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/blockquote/blockquote.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/blockquote/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/blockquote/blockquote.tsx": "d1de93fe5446b4609285c6f5b7e4bae17b4493af4e3ebdc9414bcede06e1bae8",
+          "ui/blockquote/index.ts": "cf8f6a66ebdeaa18e4ae6ce310d30fd42cb0f4b3129217e4c14aea06b3205f4d"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "28997d82497f895742c968108b4080a8522c29b6c9ba02c3328aa1a5999e9afd"
+    },
+    "name": "blockquote",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/bold-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/bold-icon.tsx": "e96ffb77c25efcd73953a18b656e38dfd2c4991fd6470678209ead3f3c0f979c"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "BoldIcon",
+      "contentHash": "d41847d47698359b13341884a9a34fa3c8d54b17b341fd8482f62b9d990afa0a",
+      "iconName": "Bold",
+      "iconSet": "lucide"
+    },
+    "name": "bold-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/breadcrumb/breadcrumb.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/breadcrumb/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/breadcrumb/breadcrumb.tsx": "151d10a654a09c94f7cbf3419ebd115787b36bcad8dc41630a295502daaa398c",
+          "ui/breadcrumb/index.ts": "258376a414c6ffdaf646bd7a9bd47b5cb526f5bef794aeaaedfad71042dfa8bd"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "93b8e297c47f6f510175fea401ec39a69d102ce0c891b7ae096980f69999971a"
+    },
+    "name": "breadcrumb",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/button/button.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/button/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "ui/button/button.ts": "23f8d71e2a769b77ff3670e8c20b5a0387dfb7c43cf43369070efd8a0db89742",
+          "ui/button/index.ts": "2955ca04e0f38f2785b8fb9f28535ca7cf986d8f8b3993a8af8dedccc4d39328"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset/recipes/button"
+        ],
+        "presetRecipeBindings": [
+          "button"
+        ],
+        "recipeReferences": []
+      },
+      "contentHash": "fd74347c0b4faa02e8eceab7ba7701c4cf8dda16b318fa17d1ee025eb9fc6e97"
+    },
+    "name": "button",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/calendar-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/calendar-icon.tsx": "65b249a4a467d2e1310157d50da87ecd473fd9710351e11c840fbd716b200df0"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "CalendarIcon",
+      "contentHash": "e8ed1168147cd7fae4556fbd94cd54de75311e669c6d1e936761cc3fb4dffcbe",
+      "iconName": "Calendar",
+      "iconSet": "lucide"
+    },
+    "name": "calendar-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/check-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/check-icon.tsx": "831e74a62e559b59dfa669b7b9379e4318a69fbc462c0c2a75dc2d64036766b5"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "CheckIcon",
+      "contentHash": "24d52d35f43e95c9cef236d21397fa3d344cf4fa62248eda8492f8fd4875ef6d",
+      "iconName": "Check",
+      "iconSet": "lucide"
+    },
+    "name": "check-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/checkbox/checkbox.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/checkbox/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/checkbox/checkbox.tsx": "3008de99365d18f4add6e505066675d47426645442ff131e8e2bb377136dab38",
+          "ui/checkbox/index.ts": "103bc5692e22e3cff34822df1a873fb1b70c1897b38f06771eab9b9fd9fe8e27"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "e39a11787f2e33bd0ff940c63305e9333d78ed162ab9b0352f18ef10c43d2581"
+    },
+    "name": "checkbox",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/checkbox-card/checkbox-card.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/checkbox-card/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/checkbox-card/checkbox-card.tsx": "601aa075d44eb4cd9f7cf3b1c097c7841a8570218f8c11caa86a2a134414a081",
+          "ui/checkbox-card/index.ts": "fbc3cf53c7f24148028b10d965342dc81e684c902094e7c5217ca50247c3e185"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "69f82249603e59bdcb8cfbcec9b8db52000e28732a1e8ad0f0a4059b5faa5fb7"
+    },
+    "name": "checkbox-card",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/chevron-down-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/chevron-down-icon.tsx": "50000e4b39ac955f43b7949400b38c40191333c77441737003152c8a7151c99e"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ChevronDownIcon",
+      "contentHash": "a0db5d6cf6d369870276339d666e6ec0ea752415d53bb3bc797f4a0fc2464cb1",
+      "iconName": "ChevronDown",
+      "iconSet": "lucide"
+    },
+    "name": "chevron-down-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/chevron-left-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/chevron-left-icon.tsx": "663b9e42d58122d7aa62b0acfcf21795a933fc848f00a1271bc74e5cb4bf3974"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ChevronLeftIcon",
+      "contentHash": "84b2095132e0288c8c50837147e2694874f2958d5533f46186febcedbf39ebdd",
+      "iconName": "ChevronLeft",
+      "iconSet": "lucide"
+    },
+    "name": "chevron-left-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/chevron-right-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/chevron-right-icon.tsx": "3a54c1563bda8af9d8ad52c7d762678047318c10c703d985181dd37f3eae9aa4"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ChevronRightIcon",
+      "contentHash": "6a7f378aa44ef9ae7c51a00fea18cae608311816be9d17728eaafa06308de7bf",
+      "iconName": "ChevronRight",
+      "iconSet": "lucide"
+    },
+    "name": "chevron-right-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/chevron-up-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/chevron-up-icon.tsx": "c85a1c5b4f597345f4e188fcafa2f59ab6d61713f73c6d4d54c4e4a278cd08b9"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ChevronUpIcon",
+      "contentHash": "709d0dcd124507005a1e625de05e08a7e9403c0f1e5e02989c745c07250646c3",
+      "iconName": "ChevronUp",
+      "iconSet": "lucide"
+    },
+    "name": "chevron-up-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/clipboard/clipboard.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/clipboard/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/clipboard/clipboard.tsx": "00bb9dcf8beb7d3a4c362186d25e83c7721caff5e46ba6473d69ed8b014397b4",
+          "ui/clipboard/index.ts": "6fcb36d4c28dbea7b9a83a0d6ab32e358ad13467bbaf29e75cf01b7b8668c885"
+        },
+        "iconDependencies": [
+          "check-icon",
+          "copy-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "f138a08bc20d0b78a39905cbeb47a49688ce2aed6581b1681287c5ddc7a3992f"
+    },
+    "name": "clipboard",
+    "registryDependencies": [
+      "button",
+      "check-icon",
+      "copy-icon",
+      "icon-button",
+      "input"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "ui/close-button/close-button.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/close-button/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/close-button/close-button.tsx": "2f7632684c03269c4ec7a93c04e53de4bdd51ebd861e095cacf5a6a35f05b2ee",
+          "ui/close-button/index.ts": "e452baf885eada9a593a293e6efd6eac52e8abef2f6f9d43d249110399ccbcc2"
+        },
+        "iconDependencies": [
+          "close-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "4be9beeb58c3e3a204321684d68c5570123743626e191724713ab29f37803e5f"
+    },
+    "name": "close-button",
+    "registryDependencies": [
+      "close-icon",
+      "icon-button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/close-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/close-icon.tsx": "fcb991660e199ec54af9801579acbd5a6f60735203e0e56ecefad6fc045cad6d"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "CloseIcon",
+      "contentHash": "abf25a68c315b75de0ae32c8275c0806cb0a274dc97e9bde6d3e9704cb3e1f0c",
+      "iconName": "X",
+      "iconSet": "lucide"
+    },
+    "name": "close-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/code-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/code-icon.tsx": "791cdd785b3a819b4ae027e5603ae9bffc4fabd9e94ac33247617bd7532e0cb5"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "CodeIcon",
+      "contentHash": "eb0c22ff31528539c60b573bc13bd11572b785e0712cadcd156250c34987826f",
+      "iconName": "Code",
+      "iconSet": "lucide"
+    },
+    "name": "code-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "next-themes"
+    ],
+    "description": "Color mode support powered by next-themes",
+    "files": [
+      {
+        "path": "setup/color-mode/color-mode.tsx",
+        "target": "components/setup/color-mode/color-mode.tsx",
+        "type": "registry:setup"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "setup/color-mode/color-mode.tsx": "940d4a095ff9cc114e65948db863dd8504e5ae55509d992bf6f7e1afcf5d7e4f"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "af341a4020dd5dbcbf126e74f4062ab32cd2705b2911a69ab82c81c485b544e3"
+    },
+    "name": "color-mode",
+    "schemaVersion": 1,
+    "type": "registry:setup",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/command/command.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/command/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/command/command.tsx": "cfffa7b796cfaca326a26b65f1d89c307ab13d4c5e44da6f1233955ceac4a81c",
+          "ui/command/index.ts": "47b46bd5922a7d8dec0a72dbdd4b4a3cd2007de7c1cdd4035d159c126ab6298f"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/recipes/command"
+        ],
+        "presetRecipeBindings": [
+          "command"
+        ],
+        "recipeReferences": [
+          "suiCommand"
+        ]
+      },
+      "contentHash": "11ea2ad466c48fc61eed20e7a599c2daf109211952498a6f86096a47bbbb28fe"
+    },
+    "name": "command",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/copy-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/copy-icon.tsx": "754814f99322799240f91b13bf3a898226a107f1978677af4f6e7b67bc51ad4f"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "CopyIcon",
+      "contentHash": "59d7d28667dc3e6a3da24cf0f696f8548e1b6d9a42734158ffa7f9a0976fa2ce",
+      "iconName": "Copy",
+      "iconSet": "lucide"
+    },
+    "name": "copy-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "category": "Data Display",
+    "dependencies": [
+      "@chakra-ui/react",
+      "@tanstack/react-table@9.0.0-beta.80",
+      "@tanstack/react-virtual@^3.13.12"
+    ],
+    "description": "Composable data table built on TanStack Table v9 with opt-in row and column virtualization, pinning, grouping and cell selection",
+    "files": [
+      {
+        "path": "ui/data-table/data-table-cells.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table-no-results.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table-pagination.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table-virtual.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table.features.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table.primitives.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table.recipe.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/data-table.utils.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/data-table/use-data-table.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/data-table/data-table-cells.tsx": "d49dd27b40f5cdb905159d1cc3cd711ba3bc7bd4b422773e46f1298d11938fa5",
+          "ui/data-table/data-table-no-results.tsx": "dc0ad2ab22f18175a0a914551026ac9031f41d242ebc99596bee7c2a9285c762",
+          "ui/data-table/data-table-pagination.tsx": "da01a2720f55bc3019022b9ae19613602657330d247f98bc7b4f65577457cac6",
+          "ui/data-table/data-table-virtual.tsx": "7fcef8809ca37c8e85817396010d17711dab2a43c7e2e6a3a299d4309c5b8ba0",
+          "ui/data-table/data-table.context.ts": "74bede00fcf3bfda9f5e39e7750a29677c87be347b1a850fce402638bbe10ddf",
+          "ui/data-table/data-table.features.ts": "264a41973e82132f700ddd1a88ef03048d84eb10f1db5df6e2e34ef0a23ee16c",
+          "ui/data-table/data-table.primitives.tsx": "11165b2759e71ebea6af00173600003ec2e8271f31914c3811b007327dbb13bb",
+          "ui/data-table/data-table.recipe.ts": "36559d093d3c9d5106522d4555e12e478b137443bb84e50bbb4904ee18b19601",
+          "ui/data-table/data-table.tsx": "7368e257b8d7c047a570bf84602ff919fb1192b1d34d84670f7de66a221b2346",
+          "ui/data-table/data-table.utils.ts": "2629fb8954e1340de71e4054dce036d5f1a5eff19c6ba1da93fc92cf8c35454d",
+          "ui/data-table/index.ts": "d379cf399b3bcd379c5ea666396ca0d2028b22a8edb9f96c6bab3535c38083fa",
+          "ui/data-table/use-data-table.ts": "e593624c1fa69728652cf2651d1c85d92b83cf5b4f540242dbf220fa3c4c57b3"
+        },
+        "iconDependencies": [
+          "chevron-down-icon",
+          "chevron-left-icon",
+          "chevron-right-icon",
+          "chevron-up-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "f6d125ddc0df3067132e262a3abf54ef233e607795e1a1c8f578996565dfe384"
+    },
+    "name": "data-table",
+    "registryDependencies": [
+      "checkbox",
+      "chevron-down-icon",
+      "chevron-left-icon",
+      "chevron-right-icon",
+      "chevron-up-icon",
+      "format-date",
+      "pagination"
+    ],
+    "schemaVersion": 1,
+    "subcategory": "Data Table",
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/dialog/dialog.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/dialog/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/dialog/dialog.tsx": "31691f741dc36de83ebb5f0fd81136ae0929d900b87c2c5dd275bd7f9e09116b",
+          "ui/dialog/index.ts": "975119d5a4f9100ccba1b7c68d230f1a19aec7093fe889f7c7abbc8eedca0e41"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "28c644c3e4b4cd8e27fbb19babe1b8624f5287397af1cdfbeb55e61f070dc8b6"
+    },
+    "name": "dialog",
+    "registryDependencies": [
+      "close-button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@ark-ui/react",
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/drawer/drawer.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/drawer/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/drawer/drawer.tsx": "dcbfbb4cd3ce81e995487fa5d23ba1b1adcc2d547a4f556b89e471db2b87370a",
+          "ui/drawer/index.ts": "6b897d314f551eb2abcc72919512edba81c6dfb468b53a5f2eaff8a9b4911273"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset/slot-recipes/drawer"
+        ],
+        "presetRecipeBindings": [
+          "drawer"
+        ],
+        "recipeReferences": []
+      },
+      "contentHash": "0ee63f6f9d1a768f61e15414da05e3ca597388499556fd2d44a8a3770cb44b91"
+    },
+    "name": "drawer",
+    "registryDependencies": [
+      "close-button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/ellipsis-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/ellipsis-icon.tsx": "ec3d6e0c01a415eec523c32d69c017cad40f7bdfcca20ce451b319e5d182893b"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "EllipsisIcon",
+      "contentHash": "183b0a0486ea420287c3fb99681a7b1ce7c5d64a9e062d6d98cf628e27be5a41",
+      "iconName": "Ellipsis",
+      "iconSet": "lucide"
+    },
+    "name": "ellipsis-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/empty-state/empty-state.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/empty-state/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/empty-state/empty-state.tsx": "7380f40b06266fccb5f04f97434c04e735ca58f8bbb431de7d046ffc93ffe9c0",
+          "ui/empty-state/index.ts": "c38465e4738de8d1a0b575bba786b96aefb3940e4de61f928ad0f47961fb4b4a"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "d5357edbfdc1bf0e97b5a177ff895b02a01a5c515af982ab64cf829ba85f982d"
+    },
+    "name": "empty-state",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/eye-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/eye-icon.tsx": "e458408a5a38ee79818a07bd2898a39c1c8e8617c414009f559cb13a58a08303"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "EyeIcon",
+      "contentHash": "f0e98e49f01996af99637cc2652c1b0c044e6bae408c8ada7488f097a46473b6",
+      "iconName": "Eye",
+      "iconSet": "lucide"
+    },
+    "name": "eye-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/eye-off-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/eye-off-icon.tsx": "31afdfef34fc18c462336fdf5cd3e9bcd6d414ab08a0c97e5718506f01243721"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "EyeOffIcon",
+      "contentHash": "a01d523bf9861e73caa514b4041c770c45e95f23ff0d1fdabf79db4aaa8be1ad",
+      "iconName": "EyeOff",
+      "iconSet": "lucide"
+    },
+    "name": "eye-off-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/file-upload/file-upload.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/file-upload/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/file-upload/file-upload.tsx": "4c0e8a2f2710b002084eb177950ae9a1a629aa5de31e787912f2b528c60b1790",
+          "ui/file-upload/index.ts": "84217c1ec45acc62999d09e5b4a0e8377697fbcb9374d0cffd77befba0a6dcd1"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "fac8b0fd03adff7115575331bbfb1232382929d43870993928d7437aee859f47"
+    },
+    "name": "file-upload",
+    "registryDependencies": [
+      "button",
+      "close-button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/filter-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/filter-icon.tsx": "8523fa4b7cd416c9cd9fbec31b7b46d1b57fe2ad833178e9bc37f3bf641f6ad3"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "FilterIcon",
+      "contentHash": "5cdcf2f0b3060050bbee812037fb0930da5bdc7c52d835ac765fd819c0108462",
+      "iconName": "Filter",
+      "iconSet": "lucide"
+    },
+    "name": "filter-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "category": "Data Display",
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-js/conditions-react@^0.1.0",
+      "@saas-js/conditions@^0.1.0"
+    ],
+    "description": "Composable filter bar with typed fields, operators and value editors, built on Saas.js Conditions",
+    "files": [
+      {
+        "path": "ui/filters/filters-value-editors.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/filters/filters.recipe.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/filters/filters.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/filters/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/filters/filters-value-editors.tsx": "b91f98704ebe69719a05dde4f1d7fedeb4055c8547b45d74f8b3bba23fb2ea15",
+          "ui/filters/filters.recipe.ts": "798e0539108de51d95035f8883a5392af68c49f8e06c1cedf9169fefb6a4cbc5",
+          "ui/filters/filters.tsx": "0d72484da4ccf6112f2c3845a7947a03e43b1eb9646788a3b3e5c5b65df35a42",
+          "ui/filters/index.ts": "c4f5156dad92fe4c762ccb75c4e1ad2060c1141e1dd2f061c543e752d7b42db5"
+        },
+        "iconDependencies": [
+          "check-icon",
+          "close-icon",
+          "filter-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "7821a029905d3f08e8d6e381a240b8bc37fc71e3c5280290b254ee0df305fe09"
+    },
+    "name": "filters",
+    "registryDependencies": [
+      "button",
+      "check-icon",
+      "close-icon",
+      "filter-icon",
+      "icon-button",
+      "input",
+      "menu"
+    ],
+    "schemaVersion": 1,
+    "subcategory": "Filters",
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "category": "Utilities",
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "description": "Locale-aware date formatting component, following the Ark UI Format conventions",
+    "files": [
+      {
+        "path": "ui/format-date/format-date.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/format-date/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/format-date/format-date.tsx": "cf33d39404413bf2c0d02f84c6fea8a9ebb3be05c24b0339cdefd28f0b9365dc",
+          "ui/format-date/index.ts": "79debd64f406e0996a43f732983477314aec58f4fae8c2b971a21ff3a216c4ec"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "812b9a1b72f4645e0f48e6d02eeda8fccdd933fc38632b0c05decd0696b5914c"
+    },
+    "name": "format-date",
+    "schemaVersion": 1,
+    "subcategory": "Format",
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@tanstack/react-form@^1.33.2"
+    ],
+    "description": "Typed TanStack Form components built with Chakra UI and Saas UI controls",
+    "files": [
+      {
+        "path": "forms/app-form.ts",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/create-form.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/field-root.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/select-field.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/switch-field.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/text-field.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/textarea-field.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/fields/types.ts",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/footer.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/form-context.ts",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/form.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/index.ts",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/layout.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/submit-button.tsx",
+        "type": "registry:component"
+      },
+      {
+        "path": "forms/utils.ts",
+        "type": "registry:component"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "forms/app-form.ts": "38fc85925598caa3077407202d00d9730d2f13d9b05d9d9f9820381841f05576",
+          "forms/create-form.tsx": "4541a86b3df28cb8258c55da992d03014db18447d7e0c5523bf5c69a8204f680",
+          "forms/fields/field-root.tsx": "304de0730ce66c484cc0478670eae1a820c8f57d708dafb9c4943d63ef45cfd9",
+          "forms/fields/select-field.tsx": "1927b5104c1c2d5866cb5575e6ca91ad515a4163e4373a0baffa7efa742f9b9b",
+          "forms/fields/switch-field.tsx": "3626ee2a8fcc17c0bc629837342ac2a2fbc6e5ef5bae5afa3a7a183d9e17d848",
+          "forms/fields/text-field.tsx": "9b3f41d93cebfd57b4d065b13f393ff021a2deddd2e2dafaf4f55d9a0a48b471",
+          "forms/fields/textarea-field.tsx": "183fcf9e9433483b548cf3953b12424475e3466f2a20e8decdaa190684d4cd88",
+          "forms/fields/types.ts": "aaf7cb7fdc65b24d9e14b9502a683795454d9fd1bddc8c8926a544d0361bb591",
+          "forms/footer.tsx": "9075fc41bf7aac7e4fb2a5e74707d50e966b5383a7861ba21769bc4704c79b9e",
+          "forms/form-context.ts": "bfce5b567ba09018df2fe599c3abc54611871e2baeda54b17e6cbfc7946e499b",
+          "forms/form.tsx": "d88ce181a220968890ebc62d80ec1153f3de133f6207b3d122e771a56f0d09a4",
+          "forms/index.ts": "30836d49662aadef3c7eef2b5140b23d891dba01fc7cfc7f035c4c370dda6542",
+          "forms/layout.tsx": "aa7efb027ce7581bc9e1dc5c94d7ba901e5394693c14a8eff7c9cd801cbcc4dc",
+          "forms/submit-button.tsx": "96e91d9d0660fb7eea990502bff3cf54717dcd83abaa971b50ed63c0bff95e33",
+          "forms/utils.ts": "adbda241b4e5bba447b66fb4e684cdb34ad6be45258cda8782001d1991fc0e84"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "04684becaf8b37ec664f94c222d78c3d25993c64ec68fa49c9cc7e75bee1f79f"
+    },
+    "name": "forms",
+    "registryDependencies": [
+      "button",
+      "input",
+      "input-group",
+      "password-input",
+      "select",
+      "switch"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:component",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset",
+      "@saas-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/grid-list/grid-list.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/grid-list/grid-list.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/grid-list/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/grid-list/grid-list.context.ts": "3a307afffd968cb1bf3da8555ee929f1ee21646af0682dfb4af50f56b5c684a3",
+          "ui/grid-list/grid-list.tsx": "e921975d69130af69eabb9289de2541c9fd4f5a4a3b38eb0fde5217598e44032",
+          "ui/grid-list/index.ts": "7305b9853083ad3a42fa305dd3f0ecc20d40c9279ee7d03b17d394ea25d2907e"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/grid-list"
+        ],
+        "presetRecipeBindings": [
+          "gridList"
+        ],
+        "recipeReferences": [
+          "suiGridList"
+        ]
+      },
+      "contentHash": "22fb6948a0e1e369465381bb8e44954dc81b5cd58445b61ac2d1a55e3dfc3890"
+    },
+    "name": "grid-list",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/hamburger-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/hamburger-icon.tsx": "a6f3892a3e730b70c69bed6676d45c40de096c867a4a618578ee5841cd09be98"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "HamburgerIcon",
+      "contentHash": "b401a12394bb2e7ed5264d751c64bc6d229996c9b0f8d62ea058ec7ecaafe49e",
+      "iconName": "Menu",
+      "iconSet": "lucide"
+    },
+    "name": "hamburger-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/heading1-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/heading1-icon.tsx": "61500e6c7e0e7f5dea1e7c4e2462c442853a6f2312ef76859a1ff94812ff6679"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "Heading1Icon",
+      "contentHash": "76cca40404adde7d05d929346b1e317b4bdd57146ac8d36bc4634b4179f3c4ba",
+      "iconName": "Heading1",
+      "iconSet": "lucide"
+    },
+    "name": "heading1-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/heading2-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/heading2-icon.tsx": "1b2ea02db14aa64f81db0fecaf246742e51b20e8322cdff3d06b8b78259034a1"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "Heading2Icon",
+      "contentHash": "d4990038ea48870f0fe46fe09a7279e11b2fb3e613f8f8bd756e5a8ce647da29",
+      "iconName": "Heading2",
+      "iconSet": "lucide"
+    },
+    "name": "heading2-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/heading3-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/heading3-icon.tsx": "265415f2d340ae43b20fd816b0fdf52d73198db91a423618e4ea470120640b29"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "Heading3Icon",
+      "contentHash": "f0332d5a0591d3058da1515c44df35d3bad3f782b71d4614523d704cd1e99fac",
+      "iconName": "Heading3",
+      "iconSet": "lucide"
+    },
+    "name": "heading3-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/heading4-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/heading4-icon.tsx": "c10303e9337266b885eda2c458057db0c29502dc60e76809d3dac8ebfc489d5a"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "Heading4Icon",
+      "contentHash": "9573759f98b29304041cfd1de86974148526624423ed7c8814dc85ea429636e3",
+      "iconName": "Heading4",
+      "iconSet": "lucide"
+    },
+    "name": "heading4-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/highlighter-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/highlighter-icon.tsx": "e997d79417a3a787b9571563a49e65d744a9bd3627462d0e288be001877b6d58"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "HighlighterIcon",
+      "contentHash": "5a796b7bf8aae5ac53d309a92b03e83dc2e1d89d32171077ca065ae7c2e4f422",
+      "iconName": "Highlighter",
+      "iconSet": "lucide"
+    },
+    "name": "highlighter-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/hover-card/hover-card.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/hover-card/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/hover-card/hover-card.tsx": "4f499b86be910b055091e8a71a7b8c950c46736254c30b678cf77d6c682e6e3e",
+          "ui/hover-card/index.ts": "6ef36d83f78ce13902b7701e0c56cbeabbc58b18de920af20177232f0b2b833e"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "320ce8e3cc90d56d6b9156e644e976d43ac60d333dbe51d0fcda12183f74015f"
+    },
+    "name": "hover-card",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/icon-badge/icon-badge.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/icon-badge/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/icon-badge/icon-badge.tsx": "34eaeed78606e4ec13b6ac7af519fcf86bc661c49ee410bcb8294a0b9e94e4d2",
+          "ui/icon-badge/index.ts": "6ebf09281c0369142b3ae548c2ca6ec4ac29f11a3f89feda9a23ab8a681b7f20"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/recipes/icon-badge"
+        ],
+        "presetRecipeBindings": [
+          "iconBadge"
+        ],
+        "recipeReferences": [
+          "suiIconBadge"
+        ]
+      },
+      "contentHash": "7fc9fcd5d7150e1dc6c7510a6212d305779add3f4b6b16271a76df2b24a9f7e9"
+    },
+    "name": "icon-badge",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "ui/icon-button/icon-button.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/icon-button/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/icon-button/icon-button.tsx": "0274f6a306f59b96c8c41ff58c653428ab2b3b548e4cc0cb158aa745ce76a657",
+          "ui/icon-button/index.ts": "41a03906b84db3b38e0c1bce2cd2c3c9afaa65813dd8fe1bef5957ee948c0b10"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "f772c48a8961ee14e72837930078da5274c8d531d4a1fa97febef5d394b81f5c"
+    },
+    "name": "icon-button",
+    "registryDependencies": [
+      "button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/icons/create-icon.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/icons/icons.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/icons/index.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/icons/create-icon.tsx": "17efa50081b7eb0e55cf9fa16f6684f8eb66b3ee8e3d0eddb4fe1b4a1ad6d044",
+          "ui/icons/icons.tsx": "7194f6aa26fcc21b31e09cae497c04e852dcbae5f9d1ae88b86cd620aa469b2e",
+          "ui/icons/index.ts": "aff09000f0919f18859ab89b78359afcee7d38f1ed179305075930550d9c18c6"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "e4e3cbb9ecb3e148b9c517cda0a13b9d31ef3cac7bcd1285b86bce19cab26c16"
+    },
+    "name": "icons",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/info-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/info-icon.tsx": "ddbceda9cd45cea133d0e4dff5fba28fae509ab7a977a3aee428b5409d640667"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "InfoIcon",
+      "contentHash": "6eb0ca5da226396a81264bf79f3b7a9ddfcf6f8f4035636e029dd4fd6803682f",
+      "iconName": "Info",
+      "iconSet": "lucide"
+    },
+    "name": "info-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "ui/info-tip/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/info-tip/info-tip.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/info-tip/index.ts": "212ee255af57d395ce43c3dba6ee7bf0ab307bd98e911a86dc97441d29e0b165",
+          "ui/info-tip/info-tip.tsx": "8643a4116c1da2887457f04b39f2f380632088f2c392c08b73a42623d10aea80"
+        },
+        "iconDependencies": [
+          "info-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "b3094827a877bd026eb997af5da63e1d6ca6fce6300a6f574f242391ea234f1f"
+    },
+    "name": "info-tip",
+    "registryDependencies": [
+      "icon-button",
+      "info-icon",
+      "toggle-tip"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/input/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/input/input.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "ui/input/index.ts": "2c8447edebde8afd7a1b11636bd14a29f6b0163529ad4bdab74837038b39653c",
+          "ui/input/input.ts": "4518024ad9ea60344d62b36474ec5d25b7337750c237bcc81e0fd1d01aa8b084"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "230b8e9f78d75d8797a82d87b28c0050f51c984155835ad1a1ae15e34fd43ac8"
+    },
+    "name": "input",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/input-group/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/input-group/input-group.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "ui/input-group/index.ts": "d0852027823b3d97a0b6a1c5471781b148d16380d2488d1aa360c8d15f210c2b",
+          "ui/input-group/input-group.ts": "7db11b684dc5ef6d30196847b990409bcf06dc0bda795b177034de054c7a4899"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "6e6b67d4b6ea74a28aa84ade1fc044606a63aae77824236b841ffd744681bfab"
+    },
+    "name": "input-group",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/italic-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/italic-icon.tsx": "39cbdb1a7f6228a7371a2ee306e70ee0eb8c5fc701142db073925ebe60dbaef0"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ItalicIcon",
+      "contentHash": "87e43db4c582048ba9c0e454c1f93cc2679a1570117b8b813e81056c9a24554b",
+      "iconName": "Italic",
+      "iconSet": "lucide"
+    },
+    "name": "italic-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/link/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/link/link.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/link/index.ts": "e0b5fe8544694787432d901cf10f892198e7e86c144fa20ce5a292e73c984428",
+          "ui/link/link.tsx": "6bffc515a1e9d3f1e8ff56866975314ad1d16952828bf08478c649ee1bff8d97"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "7d06633c8131686ef0db651c3dad405f203aad8ac18595c628a912770b506f68"
+    },
+    "name": "link",
+    "registryDependencies": [
+      "use-link"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/link-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/link-icon.tsx": "198bedb8f16d8ba2fae1e6acf601d3da0f891c76a387d05ffbb2f7307f472203"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "LinkIcon",
+      "contentHash": "82000951ad8ce61268668b157843565c893a70891503b9445f7c66573f3ffeb4",
+      "iconName": "Link",
+      "iconSet": "lucide"
+    },
+    "name": "link-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/list-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/list-icon.tsx": "c6ca7cd630e66a1a54a3e42f7832415f4231e3e003ba21ea5cbc59755e879a84"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ListIcon",
+      "contentHash": "dd8ecf848bcb70bba3ad2bc7feab08cccc296d551afc9bf5bf927ce7dcce2b28",
+      "iconName": "List",
+      "iconSet": "lucide"
+    },
+    "name": "list-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/list-ordered-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/list-ordered-icon.tsx": "8de51f78ad3529abfa9e799f1407ee17c3ca5ed917862c4db469b73906b36a63"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ListOrderedIcon",
+      "contentHash": "1b233d09d745c3cb429b654442bcab84bb7df09564c7d8cc5640d05788b849c1",
+      "iconName": "ListOrdered",
+      "iconSet": "lucide"
+    },
+    "name": "list-ordered-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@ark-ui/react",
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/loading-overlay/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/loading-overlay/loading-overlay.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/loading-overlay/loading-overlay.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/loading-overlay/index.ts": "c58375ab1172d854ed78b6dbca256cfdf835657678d850a53ddd61b1b4f46d55",
+          "ui/loading-overlay/loading-overlay.context.ts": "49bbc9b13bf1e8859accb55998a4ac8065cb9c1f935ea036da2b6ab1e12638b5",
+          "ui/loading-overlay/loading-overlay.tsx": "5d0679c5346ae2fbd12a2850d350cbdf59e48142745bb7b1045bf904f97e5f99"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/loading-overlay"
+        ],
+        "presetRecipeBindings": [
+          "loadingOverlay"
+        ],
+        "recipeReferences": [
+          "suiLoadingOverlay"
+        ]
+      },
+      "contentHash": "c4a22ac1ef329071b9e839b2d7052083fa93c5cd2b2cd691c0d75d6282357c61"
+    },
+    "name": "loading-overlay",
+    "registryDependencies": [
+      "spinner"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/menu/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/menu/menu.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/menu/index.ts": "8cb05e036b6f00da84813ebbd5928e21ee538b5bfef6def7e1597eb599d609d0",
+          "ui/menu/menu.tsx": "c89d2a85df60cd46199cdc2cc54498e3a84cbc2c114309343a1bf6d3ebf0a7ed"
+        },
+        "iconDependencies": [
+          "check-icon",
+          "chevron-right-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "fbe1dfc837a864cc9261ad917c4f3452b35fd16d2bf6399b57242440bcebc8c0"
+    },
+    "name": "menu",
+    "registryDependencies": [
+      "button",
+      "check-icon",
+      "chevron-right-icon"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/minus-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/minus-icon.tsx": "d95432cdc953ef7fb836cf7346679053abb1fea6e3a33baabe71408ae3236899"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "MinusIcon",
+      "contentHash": "6f73cdb6dba73d1c99a84dc68ba2cf6b81091f4bde008ce5076af4ebace9433e",
+      "iconName": "Minus",
+      "iconSet": "lucide"
+    },
+    "name": "minus-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "description": "Type-safe modal manager with modal, drawer, alert, and confirm dialogs",
+    "files": [
+      {
+        "path": "ui/modals/create-modals.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/modals/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/modals/modal-components.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/modals/modals-provider.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/modals/create-modals.tsx": "146519ffeeffc5bc948c43b847b2065a0dfd709b632c7c3485accefc4530012b",
+          "ui/modals/index.ts": "e135ba03243a9d986d4235f738d9d47e32000ce17d1e589ec678e287be5b932e",
+          "ui/modals/modal-components.tsx": "c938b57c4aea8343f6f007f50c59ca97013be8802cb19af3b6e1d482e21d1521",
+          "ui/modals/modals-provider.tsx": "e5f9f748b2c14e8b794a65683532494cdf1caf72b8ae10c9743a8bb8d9098027"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "3d6b66ce2ed899df407d0faa600e896a9a0dedc4701b5bdf928663c74f463068"
+    },
+    "name": "modals",
+    "registryDependencies": [
+      "dialog",
+      "drawer"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/native-select/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/native-select/native-select.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/native-select/index.ts": "3a30ffbfed49797c2e54969bd93d79717db89c77f3c669ffe1bbd3509d4977da",
+          "ui/native-select/native-select.tsx": "9cfb5387cd2e358e23f603b057df5e63a8c42e2d1b88cec04dcf0b5633e69272"
+        },
+        "iconDependencies": [
+          "chevron-down-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "cfa29bdb58dae89b9bf5db53dbab983a4bb9866b2c366de1f2d4e13768be684c"
+    },
+    "name": "native-select",
+    "registryDependencies": [
+      "chevron-down-icon"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset",
+      "@saas-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/navbar/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/navbar/navbar.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/navbar/navbar.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/navbar/index.ts": "c4584f79e2110f9fe3c3d769e6ce24bb0a421403f2e700be79306bb60a7b5793",
+          "ui/navbar/navbar.context.ts": "5d115857a5d1cced0bcf9bb9a92c86885df6e197d326956775348beac4f16bf4",
+          "ui/navbar/navbar.tsx": "f540d8ef9d66cae402e7d377857d8d1d4c42b1e3c92b068936386a4291e53125"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/navbar"
+        ],
+        "presetRecipeBindings": [
+          "navbar"
+        ],
+        "recipeReferences": [
+          "suiNavbar"
+        ]
+      },
+      "contentHash": "520dde7f87cc55f54e933a39716ee1bf646dc6f80c3cec51ef59dfebce529bc6"
+    },
+    "name": "navbar",
+    "registryDependencies": [
+      "use-link"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/number-input/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/number-input/number-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/number-input/index.ts": "f1f55680fd0cab094040d32280f7a90d5aebdcb339d1a2ab2ca4803c1fc0f708",
+          "ui/number-input/number-input.tsx": "2398aac8b91feff0b927363e1761cd70b1647a9af493cb10aa04fc2daa5ad746"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "f6d4cbcb5bebc51d6c351ebbafc2144bfdef784b46199ecc5e22c1535478d361"
+    },
+    "name": "number-input",
+    "registryDependencies": [
+      "input-group"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/page/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/page/page.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/page/page.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/page/index.ts": "f21b48edbb98e1ba4004bb5fd74c85abdbc32d6fdf24ff91e17931185f477c2f",
+          "ui/page/page.context.ts": "aa08fc2e4c8387b571086f054f17a33cef55ad7cf2d6f54637c0303dbfc723a7",
+          "ui/page/page.tsx": "1e7156e87be68d08b204dcff5064bd76dab15f228a1a59386873c1e50b5ddfa2"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/page"
+        ],
+        "presetRecipeBindings": [
+          "page"
+        ],
+        "recipeReferences": [
+          "suiPage"
+        ]
+      },
+      "contentHash": "e76ef25e33744f2dbbcb10a5ee67fe3e37ebe044a4753606e78e4eb6de5605e7"
+    },
+    "name": "page",
+    "registryDependencies": [
+      "loading-overlay"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/pagination/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/pagination/pagination.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/pagination/index.ts": "2cc41dab91fb60f37ff66d2eb75e855ef28911d310b5e993367e7881a6e82ad2",
+          "ui/pagination/pagination.tsx": "97cccd8a52abc09403aeaf4d9ffb663c5db5593917366246cab3acaad9593006"
+        },
+        "iconDependencies": [
+          "chevron-left-icon",
+          "chevron-right-icon",
+          "ellipsis-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "ed18d12b5dd1eb61ca04a4ddc3fe65df3ba6b8489b6a2493013fd76ffa2d0c01"
+    },
+    "name": "pagination",
+    "registryDependencies": [
+      "chevron-left-icon",
+      "chevron-right-icon",
+      "ellipsis-icon"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/password-input/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/password-input/password-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/password-input/index.ts": "04c7eda18620f356c5014e4c95424690d5308c0b8c8ca63d8f8e47c0ff274f77",
+          "ui/password-input/password-input.tsx": "17b7bb4983b707359f47c5f23a2883647eb0c778fb35e8b25f9812b9711bd11a"
+        },
+        "iconDependencies": [
+          "eye-icon",
+          "eye-off-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "8b2802662aedf24c6ff285a40d0e0d818b4c3bf71e08edeea9e65702a53524b8"
+    },
+    "name": "password-input",
+    "registryDependencies": [
+      "eye-icon",
+      "eye-off-icon"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/persona/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/persona/persona-composed.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/persona/persona.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/persona/persona.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/persona/presence.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/persona/index.ts": "5e81a8ff4749d1d3f2dba84635182bc14555b6c2f80f59ebeefc2c564190df7d",
+          "ui/persona/persona-composed.tsx": "3ced25a4b680e70898740be317013840623376ab1137a15440ae5511526cb85f",
+          "ui/persona/persona.context.ts": "439ee5ba1db1d79eecf425139c281c3a75fb6fea718ce6938e2b858b382c5e1b",
+          "ui/persona/persona.tsx": "1d2dc040bba9a6b38801eb679495bf791e8f353f3e6d4bb1e221b516b4402602",
+          "ui/persona/presence.ts": "397031417142507e7fc15ace56323ecab7c4c181bcc36d02a816f47274f7bd19"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset/slot-recipes/persona"
+        ],
+        "presetRecipeBindings": [
+          "persona"
+        ],
+        "recipeReferences": [
+          "suiPersona"
+        ]
+      },
+      "contentHash": "c0b8cf875a9edb0050ef69176012dd5264fdfe5e077696d6c8c9d785c21aa644"
+    },
+    "name": "persona",
+    "registryDependencies": [
+      "avatar"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/pin-input/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/pin-input/pin-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/pin-input/index.ts": "f3404ef04154e5060820f0760d144e2103336baf2b9da9ee7b199ccd07289412",
+          "ui/pin-input/pin-input.tsx": "0af51d8ec18a9e12a57cc8f58214b6ec039cf837b7c21bdfffcf83935b8e919f"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "b7f43dc48189a1323a93500563a8fc347e41b9619833b4e6f846c2002287cce1"
+    },
+    "name": "pin-input",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/plus-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/plus-icon.tsx": "90e7583801c9837dc6926152f175c7cece078702e74748f41d51de1eea7355ec"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "PlusIcon",
+      "contentHash": "ca7947be44f237c31ff9d829a6778e40f2e480f0db88ef4c801326500775b507",
+      "iconName": "Plus",
+      "iconSet": "lucide"
+    },
+    "name": "plus-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/popover/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/popover/popover.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/popover/index.ts": "f81dc15035bc20db3bd111e068f6370e26ed372ef8273d69e813d2750e8c602f",
+          "ui/popover/popover.tsx": "d0dbae3f7268138b799f8dbe6dc83f80e339738e1f01e6bdcaedde2bb0b775e0"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "1859f812f386053eaec3d55557917b9af8baebfc8cac617e4271a1f512ae8fdd"
+    },
+    "name": "popover",
+    "registryDependencies": [
+      "close-button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/portal/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/portal/portal.ts",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "ui/portal/index.ts": "df961a922aa2d7a65edf0b4c997a9520e53127d28ef56c33c3026789527e33ad",
+          "ui/portal/portal.ts": "86da11646ec3bb97125bb85011445c6b58852b3156a1f321bba636b2d239c835"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "0e57183e359ce505d1e2be10c8994ec709d80dacacd1155582791c90774d818a"
+    },
+    "name": "portal",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "description": "Chakra provider configured with the Saas UI preset and color mode",
+    "files": [
+      {
+        "path": "setup/provider/provider.tsx",
+        "target": "components/setup/provider/provider.tsx",
+        "type": "registry:setup"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "setup/provider/provider.tsx": "94c13142ea970293146e8454adc679cb64ad271d0a0e3ef5f954d56f1b87b14a"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset"
+        ],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "conflicts": [
+        "provider-no-color-mode"
+      ],
+      "contentHash": "5a67dcf12da93b0f5d1c56977a15d10b2790657a378ffc36dc233716abd32a2b",
+      "exclusiveDefault": true,
+      "exclusiveGroup": "provider"
+    },
+    "name": "provider",
+    "registryDependencies": [
+      "color-mode",
+      "use-link"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:setup",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "description": "Chakra provider without a color-mode runtime dependency",
+    "files": [
+      {
+        "path": "setup/provider-no-color-mode/provider-no-color-mode.tsx",
+        "target": "components/setup/provider/provider.tsx",
+        "type": "registry:setup"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "setup/provider-no-color-mode/provider-no-color-mode.tsx": "2627a663214abdf2b51c81d28eab7c9d367e1e8167dbef240c7ce1aa7cfedfd8"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset"
+        ],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "conflicts": [
+        "provider"
+      ],
+      "contentHash": "214677ddfe82fefea6829df7a752de8e31690c0ba3020eb4f6648e29f6f690d5",
+      "exclusiveGroup": "provider"
+    },
+    "name": "provider-no-color-mode",
+    "registryDependencies": [
+      "use-link"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:setup",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/quote-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/quote-icon.tsx": "2ed34e7ca756400f0400cda389bb6637699cc4751ab1150533813e5a186eeca6"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "QuoteIcon",
+      "contentHash": "81b965efc81f1f5d56f6d52ea0d44ce86a0786319675e6a03583291c3e066205",
+      "iconName": "Quote",
+      "iconSet": "lucide"
+    },
+    "name": "quote-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/radio/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/radio/radio.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/radio/index.ts": "69b4c1875be8c1c5cb7de32dc42e7e6d1e33e8e0933f5b430bc269b7ef832fe9",
+          "ui/radio/radio.tsx": "499b43a780feffd4ff03a63071378c77b706e8c796a56b44e53410f7a731ed71"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "55d9735c51ed78a8f8723d034a3ae740f054700b733cb5d9e07ed43a46171dc9"
+    },
+    "name": "radio",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/radio-card/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/radio-card/radio-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/radio-card/index.ts": "2f5e600ffc3939291d745be5b4626fb328f42d91617eb3fde4e9133a860aba3a",
+          "ui/radio-card/radio-card.tsx": "5a61aad047827896e206179cdf2c02186419fa201cca10fdf0c4021192f54e5a"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "a89715adff6ff7e288fd44f5079f729fc98bace6b6630335b38bec1cf6db296b"
+    },
+    "name": "radio-card",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/redo-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/redo-icon.tsx": "163ae698337c8a9bf1ab5b232b33b5d44781f3f818a9d4067b9945a4b9dbd2f0"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "RedoIcon",
+      "contentHash": "43e7f74d89d79b65d1fb97e53fac6513ae2c13dbc1323fd0ea23a91801e65848",
+      "iconName": "Redo",
+      "iconSet": "lucide"
+    },
+    "name": "redo-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "category": "Forms",
+    "dependencies": [
+      "@chakra-ui/react",
+      "@tiptap/react@^3.30.2",
+      "@tiptap/starter-kit@^3.30.2"
+    ],
+    "description": "Composable rich text editor built on Tiptap, with a toolbar of ready-made controls and factories for custom ones",
+    "files": [
+      {
+        "path": "ui/rich-text-editor/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/rich-text-editor/namespace.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/rich-text-editor/rich-text-editor-context.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/rich-text-editor/rich-text-editor-control.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/rich-text-editor/rich-text-editor.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/rich-text-editor/index.ts": "b7074bcc819d2ea474aa897d69d667edc85fabc920c89ff393af1bf2a8ff9b88",
+          "ui/rich-text-editor/namespace.ts": "45204028083fec2c4b8c15ea080d33107a2e177282e52d6670882affbeb5e6cb",
+          "ui/rich-text-editor/rich-text-editor-context.tsx": "ad7ed6360c9a4b48b9ec9335e9cfa1432044bbfb825445af7550bb9a6dc0a770",
+          "ui/rich-text-editor/rich-text-editor-control.tsx": "f75de10e85c1227cac6494530e6157db11b0bced139840d7c274e9e42bf4618d",
+          "ui/rich-text-editor/rich-text-editor.tsx": "6d3f881bd9283d9d55fa29f4b8e0f110cd2e0d2dd3dc139a8f8abb106238e9fa"
+        },
+        "iconDependencies": [
+          "align-center-icon",
+          "align-justify-icon",
+          "align-left-icon",
+          "align-right-icon",
+          "bold-icon",
+          "code-icon",
+          "heading1-icon",
+          "heading2-icon",
+          "heading3-icon",
+          "heading4-icon",
+          "highlighter-icon",
+          "italic-icon",
+          "link-icon",
+          "list-icon",
+          "list-ordered-icon",
+          "minus-icon",
+          "quote-icon",
+          "redo-icon",
+          "strikethrough-icon",
+          "underline-icon",
+          "undo-icon",
+          "unlink-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "409fad3ff5dd064c7e2db700763cfbcd152995283879b0efd4ba696ca03101d1"
+    },
+    "name": "rich-text-editor",
+    "registryDependencies": [
+      "align-center-icon",
+      "align-justify-icon",
+      "align-left-icon",
+      "align-right-icon",
+      "bold-icon",
+      "close-button",
+      "code-icon",
+      "heading1-icon",
+      "heading2-icon",
+      "heading3-icon",
+      "heading4-icon",
+      "highlighter-icon",
+      "icon-button",
+      "italic-icon",
+      "link-icon",
+      "list-icon",
+      "list-ordered-icon",
+      "minus-icon",
+      "popover",
+      "quote-icon",
+      "redo-icon",
+      "select",
+      "strikethrough-icon",
+      "tooltip",
+      "underline-icon",
+      "undo-icon",
+      "unlink-icon"
+    ],
+    "schemaVersion": 1,
+    "subcategory": "Rich Text Editor",
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/search-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/search-icon.tsx": "2c43390763e707afb0c522f31ef34814513e6493e34422eaf1f49106953070ff"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "SearchIcon",
+      "contentHash": "de78e4ce7f8c35b1d06a00e46eec06a5a7a714feb80be93b60a0079ef1970df3",
+      "iconName": "Search",
+      "iconSet": "lucide"
+    },
+    "name": "search-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/search-input/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/search-input/search-input.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/search-input/index.ts": "79a66e05b804ccec82906cf7c0b4c81538b38fcef642ea5b4fb7042222261799",
+          "ui/search-input/search-input.tsx": "555c3629042344c16f19b65988870d5ae3151d3e25a935f0b456aeaa3c1b0461"
+        },
+        "iconDependencies": [
+          "close-icon",
+          "search-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "3cbaa1f8ddce7d9793bb3b0170a14c596db3d14b178c3f9397701d39b582b0ba"
+    },
+    "name": "search-input",
+    "registryDependencies": [
+      "close-icon",
+      "search-icon"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/section/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/section/section.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/section/section.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/section/index.ts": "709147d693bfce5425269cfcf554737b56f9b80532dc9f47b4bc56bc16ff6296",
+          "ui/section/section.context.ts": "86c65349100ecd84667268d2dc3863dbb6a4db73466c791279fa502b2dd22027",
+          "ui/section/section.tsx": "c822fcdf9af32aad26f0847975bceebd3aa93d4498d45ee51a500d529009e772"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/section"
+        ],
+        "presetRecipeBindings": [
+          "section"
+        ],
+        "recipeReferences": [
+          "suiSection"
+        ]
+      },
+      "contentHash": "85e0609a90abcce3e7c96893883ea04472e453cee4c3bef08610770180283d5f"
+    },
+    "name": "section",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/segmented-control/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/segmented-control/segmented-control.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/segmented-control/index.ts": "fcbf94b6d3f3c959c582ac1265d7c205d03c3daa91a67523d9b36370c1510d8a",
+          "ui/segmented-control/segmented-control.tsx": "3c59453697ddc5cc27f6b685538fee430d3394538122f18a1dde4585d5d7ce32"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "bb5a6d718f85c9162c1b5daa5e1e72d13efd43e8f731f7f8673ee192f79a3e7e"
+    },
+    "name": "segmented-control",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/select/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/select/namespace.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/select/select.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/select/index.ts": "ff2f0392189f8e0aa18b7d9b7db9d189289054b80d097a519b689e9f837dea08",
+          "ui/select/namespace.ts": "8fff4ddee5b6c63e2c7f54e1a19082de0674c744a7e3a9b28498a5c4b560e927",
+          "ui/select/select.tsx": "efcd0867fd2dd55f02421624264630fb9976298a5a4ed1443c1eae8ada58aee3"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "34684a5bd5b6bfdacac2397790df80e9884c213dbf6c3090ff7b6f336fc0d95a"
+    },
+    "name": "select",
+    "registryDependencies": [
+      "close-button"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset",
+      "@saas-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/sidebar/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/sidebar/sidebar.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/sidebar/sidebar.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/sidebar/index.ts": "c0bff814fe24e7f716018653730c20e823e9c517b74d4e9c962b17d37a3479f3",
+          "ui/sidebar/sidebar.context.ts": "c58513d91e9d92994e218a316b14987f16e9e621bac7a7062e22041fac99fdcd",
+          "ui/sidebar/sidebar.tsx": "d30a7f8b1009b528327a7bb8ca54a980e62bd7d2cbdce9cd2b196e301dbafe89"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset/slot-recipes/sidebar",
+          "@saas-ui/chakra-preset/slot-recipes/sidebar-nav-item"
+        ],
+        "presetRecipeBindings": [
+          "sidebar",
+          "sidebarNavItem"
+        ],
+        "recipeReferences": []
+      },
+      "contentHash": "216d3cda8007fa482ffc35468cc7d435570e6dc29a81f842d3f1c75c527dd279"
+    },
+    "name": "sidebar",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/skeleton/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/skeleton/skeleton.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/skeleton/index.ts": "de77774dc04e8354c0f534cd86a6fcc7e270cea84d3e04119a304c46117d36dd",
+          "ui/skeleton/skeleton.tsx": "361587645f34a5bf8e04bb48afed09c0ff3186cd10366d1cefea043de83772a3"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "269d9be2b93700ce8fec8c533412ac3c780ba91bb08c5e21d8051474c107aff7"
+    },
+    "name": "skeleton",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/slider/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/slider/slider.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/slider/index.ts": "7b2e73ce5ebf42554dde6b172e523aef999c01f95b037b97c888093e6bd37fad",
+          "ui/slider/slider.tsx": "9c3a90cdcd036f32772a9facc097c8f3fa5e7f86014af6dfde4f31d66ff9d867"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "db0eef0b8661a13e453c71c8b7405f376a2cc996e3628b788fca4bc54d272e0c"
+    },
+    "name": "slider",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/spinner/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/spinner/spinner.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/spinner/index.ts": "c90a9b6c5d01bb7b4f06599bf47821bba0c99fbf2210457fae58f243a9cb1e2e",
+          "ui/spinner/spinner.tsx": "a5a8c656cb701f9601240ee6869748bd5e2174cfd18c2cd62c49bfc1fbbd98f9"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "75d1fd358e817b0b7ca17606ecac6dee6755d522aa040de5398968f9060ac1b5"
+    },
+    "name": "spinner",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset",
+      "@saas-ui/hooks"
+    ],
+    "files": [
+      {
+        "path": "ui/split-page/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/split-page/split-page.context.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/split-page/split-page.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/split-page/index.ts": "c776b99a0bc1411a75845b45b1f6b515f3c2278966f16a6980d0d6da1885d9ba",
+          "ui/split-page/split-page.context.ts": "408617b8e648679cd2dbf1c733bc9e03e9f914df103b22cda5ebf4cf2a9a081e",
+          "ui/split-page/split-page.tsx": "bd00ba021c89f2027917a8a2b07375a532ac1a48cdf703c70e71db812e4060e9"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/slot-recipes/split-page"
+        ],
+        "presetRecipeBindings": [
+          "splitPage"
+        ],
+        "recipeReferences": [
+          "suiSplitPage"
+        ]
+      },
+      "contentHash": "c26ebac3df384e4b3a6bd2f0de0daccb029430a612a8dd284680124063fa654a"
+    },
+    "name": "split-page",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/stat/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/stat/stat.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/stat/index.ts": "c6966201ed7a83d6f91c9d05c693781cd49e49b1f27d7785810ad0794cf8be94",
+          "ui/stat/stat.tsx": "284b44d47d376455740b65cd6d6724693528ac1e13f355a8b7efd9d66f86dfc7"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "103a731e6bce657989723104567aefb73a7713554ab909071387306a8a08df6f"
+    },
+    "name": "stat",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/status/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/status/status.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/status/index.ts": "2453ba7b83456c725cadbad914a38b63b3ee8cf76bccd9e93f175a6d7ae86010",
+          "ui/status/status.tsx": "103cd0321347558af914d68af7edbb838d29860f4877408af581615f9c7c85fa"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "2dbb767e218869a969427114a4de994751d86a3f74fa6b74c662b2b371496f0d"
+    },
+    "name": "status",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/steps/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/steps/steps.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/steps/index.ts": "8e941578c7aa274c214a7efdd6a10ed0fc316ffcc2efb5902ca4f24fe9bb60b9",
+          "ui/steps/steps.tsx": "9ea86e7c05a77d337bf152e5906c1fa9361234e1018b8ad82ff467b82a1c7b48"
+        },
+        "iconDependencies": [
+          "check-icon"
+        ],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "c1742d3bbf80c85975d8c2e3f5bfd807c86231bfc60f9e86a6b8220bcf047503"
+    },
+    "name": "steps",
+    "registryDependencies": [
+      "check-icon"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/strikethrough-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/strikethrough-icon.tsx": "44c46ac5b1d7d7d940159029b5f5bf3878f3f67b78b4dfe64b01676d421717eb"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "StrikethroughIcon",
+      "contentHash": "d39bf426d7cfceb4e3d63d1ed974f820e1aa45b47049a39c017961c38feaa938",
+      "iconName": "Strikethrough",
+      "iconSet": "lucide"
+    },
+    "name": "strikethrough-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/switch/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/switch/switch.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/switch/index.ts": "f7bc2415ff2af8e51dddb8c2faf2e678a662f6de9d34ebc0d02710051985ff18",
+          "ui/switch/switch.tsx": "f61070be38ea44964a32265b81e50740573a97d7324f793b18977eb6f01b78c4"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "b9f3f954eb03c19764d22c73a8a9a7c138a3e5b78f28802f47377e072e852b80"
+    },
+    "name": "switch",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/tag/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/tag/tag.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/tag/index.ts": "7183870c326006b393ea0991c2a09f4a4c26353da248a8e5d9294e251570f5ca",
+          "ui/tag/tag.tsx": "dc80d5b1ea5fd372f72024f5a077519fe586674bac09cf364b2180a8ef55aa93"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "831b165c99c9b9943ee81b641ff0914fd14357ed12cf660ebd0e9a18a77f27a6"
+    },
+    "name": "tag",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/theme/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/theme/theme.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/theme/index.ts": "225ca65fa37db5a32440b301c5e449f01392889ca2b1fc6be5d33bb95e7e3945",
+          "ui/theme/theme.tsx": "584daa681f84ec2327cbe365cc69f2289ba2a69bf8a3293aa3764a3b753e88d2"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset/appearance",
+          "@saas-ui/chakra-preset/colors"
+        ],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "342f26a420c948a818342535597e74bb504a9094e1f6e4ba66ccbb52858c84ec"
+    },
+    "name": "theme",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "files": [
+      {
+        "path": "ui/toaster/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/toaster/toaster.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/toaster/index.ts": "0f0f2979f9a21e1dcfebd84f17e8b6d4c8198124a2c527aecee1ddd0b8428942",
+          "ui/toaster/toaster.tsx": "a43a0eb7bea064c1ee9c42cba0ccdd9ffdf62c0276a91d3adfa5717724069c86"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "e538ced9ff2f4484dc5b7e2d8c4c820f493a69d1fbb3adbbdf3b26d030052cf2"
+    },
+    "name": "toaster",
+    "registryDependencies": [
+      "close-button",
+      "spinner"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "ui/toggle-tip/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/toggle-tip/toggle-tip.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/toggle-tip/index.ts": "3dbb9e619633b21802eb7c03c916467427dac70f365ac6a290d4bd6c9bdb310b",
+          "ui/toggle-tip/toggle-tip.tsx": "7805769d1a9872695cd4a3b39f1dec13bed8cd9cda8ffd6293a1431701b1dcf3"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "10ad6af40379642996b5de28985f5982f4e346c9c1792f89ade6e48f10874774"
+    },
+    "name": "toggle-tip",
+    "registryDependencies": [
+      "popover",
+      "portal"
+    ],
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/tooltip/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/tooltip/tooltip.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/tooltip/index.ts": "19121e8213392403b8cb5e450e75e99cb2ebbead00bffe652c6c2c9fa0ac857e",
+          "ui/tooltip/tooltip.tsx": "25b9bd95a3b6b80664f1383812138cd4f020f7b1c7ac7761556c77c984fa6fa9"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset/slot-recipes/tooltip"
+        ],
+        "presetRecipeBindings": [
+          "tooltip"
+        ],
+        "recipeReferences": []
+      },
+      "contentHash": "f159cd3ea51fe0c11648d69ab6d6437ceada1fcb5c5aa24bf0fec75a2b7359b1"
+    },
+    "name": "tooltip",
+    "schemaVersion": 1,
+    "type": "registry:ui",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/underline-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/underline-icon.tsx": "1b113270e2c9ea87687af54da0fc84d6f1d95d1948a5349846e6758220028c64"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "UnderlineIcon",
+      "contentHash": "681378c0c869d545988bf259a80ea2b7a010907414e8d51dbc790dc5cfd8ef1a",
+      "iconName": "Underline",
+      "iconSet": "lucide"
+    },
+    "name": "underline-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/undo-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/undo-icon.tsx": "a837253108c7bca75b356676bef87b460485685c03307e35dc014a677a7d6237"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "UndoIcon",
+      "contentHash": "0505b3a47120a006be17548ec061e9e6d2ac0a1565add415b8f2c46b2b1d32f5",
+      "iconName": "Undo",
+      "iconSet": "lucide"
+    },
+    "name": "undo-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/unlink-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/unlink-icon.tsx": "2707f1a933529b37bd44acc20aa64a013f8bae36d19f705fbd75c4c7287cf447"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "UnlinkIcon",
+      "contentHash": "774899fe2a3c83a84c5fee04d70d7c5f19b76db234886f30a9ef37f7084c6b46",
+      "iconName": "Unlink",
+      "iconSet": "lucide"
+    },
+    "name": "unlink-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react"
+    ],
+    "description": "Configurable router link behavior for registry components",
+    "files": [
+      {
+        "path": "lib/use-link/use-link.tsx",
+        "type": "registry:lib"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "lib/use-link/use-link.tsx": "22a9c8464e313a0bed4b162889ecec59caded078c2d9a8d556bd3877fdee12cb"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "contentHash": "18ba201fa4d5b94e16c38a2d9627a5d4972298f1c04affaadca3ec67ed71f467"
+    },
+    "name": "use-link",
+    "schemaVersion": 1,
+    "type": "registry:lib",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/view-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/view-icon.tsx": "0732d58134421965148c714384a1d8d9acb43ffb2a43edc83bffad5badbf01ff"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ViewIcon",
+      "contentHash": "ab0dbe4069b7cb50dbe028cef5d243e3024c7c3b9ca518a4d87971df3b1d85ed",
+      "iconName": "Eye",
+      "iconSet": "lucide"
+    },
+    "name": "view-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "files": [
+      {
+        "path": "icons/view-off-icon.tsx",
+        "type": "registry:icon"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": false,
+        "fileHashes": {
+          "icons/view-off-icon.tsx": "e29500498454540f2fbce99c46cabfd359345f7d138147a9ee9b594036696cee"
+        },
+        "iconDependencies": [],
+        "presetImports": [],
+        "presetRecipeBindings": [],
+        "recipeReferences": []
+      },
+      "componentName": "ViewOffIcon",
+      "contentHash": "03a0bf903add9525e0c3ee43ddadf0bbb96ccfa25c17f61b3409dc960a4b1113",
+      "iconName": "EyeOff",
+      "iconSet": "lucide"
+    },
+    "name": "view-off-icon",
+    "schemaVersion": 1,
+    "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  }
+]

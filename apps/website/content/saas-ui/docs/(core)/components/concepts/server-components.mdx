@@ -1,0 +1,99 @@
+---
+title: Server Components
+description: Learn how to use Chakra UI with React Server Components.
+---
+
+React Server Components is a new feature in React that allows you to build
+components that render on the server and return UI to the client without hydration.
+
+Client components are still server-rendered but hydrated on the client. Learn
+more about
+[Server component patterns](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
+
+Chakra UI components are client components because they rely on `useState`,
+`useRef` and `useState` which are not available in server components.
+
+:::info
+
+**TLDR:** By default, Chakra UI components can be used with React Server
+Components without adding the 'use client' directive.
+
+:::
+
+## Usage
+
+Here's an example of how to use Chakra UI components with React Server
+Components in Next.js
+
+```jsx [app/page.tsx]
+import { Heading } from "@chakra-ui/react"
+import fs from "node:fs"
+
+export default async function Page() {
+  const content = fs.readFileSync("path/to/file.md", "utf-8")
+  return <Heading as="h1">{content}</Heading>
+}
+```
+
+## Chakra Factory
+
+When using the `chakra()` factory function, use the `use client` directive and
+move the component to a dedicated file.
+
+```jsx [blog-post.tsx]
+"use client"
+
+import { chakra } from "@chakra-ui/react"
+
+export const BlogPost = chakra("div", {
+  base: {
+    color: "red",
+  },
+  variants: {
+    primary: {
+      true: { color: "blue" },
+      false: { color: "green" },
+    },
+  },
+})
+```
+
+Then import the component in your page server component
+
+```jsx [blogs/page.tsx]
+import { BlogPost } from "./blog-post"
+
+export default async function Page() {
+  const content = fs.readFileSync("path/to/file.md", "utf-8")
+  return <BlogPost>{content}</BlogPost>
+}
+```
+
+## Hooks
+
+When importing hooks from Chakra UI, use the `use client` directive
+
+```jsx
+"use client"
+
+import { useBreakpointValue } from "@chakra-ui/react"
+
+export function MyComponent() {
+  const value = useBreakpointValue({ base: "mobile", md: "desktop" })
+  return <div>{value}</div>
+}
+```
+
+## Render Props
+
+When using render props, use the `use client` directive
+
+```jsx
+"use client"
+
+import { ProgressContext } from "@chakra-ui/react"
+
+export function MyComponent() {
+  return <ProgressContext>{({ value }) => <div>{value}</div>}</ProgressContext>
+}
+```

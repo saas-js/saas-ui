@@ -1,0 +1,232 @@
+---
+title: Data Table
+description: Used to display large datasets with sorting and pagination
+links:
+  source: components/data-table
+---
+
+<ExampleTabs name="data-table-basic" />
+
+## Usage
+
+The DataTable is built on [TanStack Table](https://tanstack.com/table) v9. The
+`useDataTable` hook creates a table instance with all parts, cell components and
+header components bound to it, so you never import the parts separately.
+
+```jsx
+import {
+  createDataTableColumnHelper,
+  useDataTable,
+} from '#components/ui/data-table'
+```
+
+Define your columns with `createDataTableColumnHelper`. The cell components are
+bound to the column definition, which keeps the cells typed and lets them read
+the value from the table context.
+
+```tsx
+const columnHelper = createDataTableColumnHelper<Account>()
+
+const columns = columnHelper.columns([
+  columnHelper.accessor('company', {
+    header: 'Account',
+    cell: ({ cell }) => <cell.TextCell />,
+  }),
+  columnHelper.accessor('mrr', {
+    header: 'MRR',
+    cell: ({ cell }) => <cell.NumberCell style="currency" currency="USD" />,
+  }),
+  columnHelper.accessor('renewal', {
+    header: 'Renewal',
+    cell: ({ cell }) => <cell.DateCell month="short" day="numeric" />,
+  }),
+])
+```
+
+Then compose the parts. `table.Table` renders the header and body for you, wrap
+it in `table.ScrollArea` to make it scrollable.
+
+```tsx
+const table = useDataTable({ columns, data })
+
+return (
+  <table.Provider>
+    <table.Root>
+      <table.ScrollArea>
+        <table.Table aria-label="Accounts" />
+      </table.ScrollArea>
+      <table.Pagination />
+    </table.Root>
+  </table.Provider>
+)
+```
+
+Compose the header and body explicitly when you need to customize them.
+
+```tsx
+<table.Table aria-label="Accounts">
+  <table.Header />
+  <table.Body />
+</table.Table>
+```
+
+:::info
+
+`useDataTable` accepts all TanStack Table options, like `enableRowSelection`,
+`getSubRows`, `initialState` and `state` with `on[Feature]Change` handlers for
+controlled state. Sorting, global and column filtering, pagination, row
+selection, column visibility, column pinning and column resizing are enabled out
+of the box.
+
+:::
+
+## Examples
+
+### Striped
+
+Use the `striped` prop to add zebra-stripes to the rows, the `size` prop to
+change the density of the table, and the `variant` prop to switch between the
+`line` and `outline` appearance.
+
+<ExampleTabs name="data-table-striped" />
+
+### Interactive Rows
+
+Use the `onRowClick` prop on `table.Body` to make rows clickable. Rows become
+keyboard-interactive as well.
+
+<ExampleTabs name="data-table-interactive-rows" />
+
+### Composable Rows
+
+Pass a render function to `table.Body` to render your own rows. The body keeps
+owning the loop, empty state and virtualization, spread the `rowProps` argument
+into `table.Row` to keep the layout intact.
+
+<ExampleTabs name="data-table-composable-rows" />
+
+### Context Menu
+
+The row render function also lets you wrap rows in other components, like a
+context menu.
+
+<ExampleTabs name="data-table-context-menu" />
+
+### Pinned Columns
+
+Use the `columnPinning` state to pin columns to the `start` or `end` of the
+table. Pinned columns stay in place while the table scrolls horizontally.
+
+<ExampleTabs name="data-table-pinned-columns" />
+
+### Pagination
+
+Render `table.Pagination` to add pagination controls. It shows the row range and
+previous/next navigation by default.
+
+<ExampleTabs name="data-table-pagination" />
+
+### Numbered Pagination
+
+Compose `table.Pagination` with `table.PaginationRange` and
+`table.PaginationPages` to show numbered page buttons.
+
+<ExampleTabs name="data-table-numbered-pagination" />
+
+### Page Select
+
+Use `table.PageSelect` to let users jump to a page with a select, useful for
+tables with many pages.
+
+<ExampleTabs name="data-table-page-select" />
+
+### Manual Pagination
+
+Set `manualPagination` and `rowCount` to paginate on the server. The table
+leaves the row model alone and calls `onPaginationChange` when the page changes.
+
+<ExampleTabs name="data-table-manual-pagination" />
+
+### Footer
+
+Define a `footer` on a column to render a sticky footer row, for example page
+totals. The footer only renders when at least one column defines one; pass
+`sticky={false}` to let it scroll with the rows.
+
+<ExampleTabs name="data-table-footer" />
+
+### Empty State
+
+Pass `emptyState` to `table.Body` to render custom content when there are no
+rows. The built-in `table.NoResults` reflects the active filters in its message
+and clears them on click — pass `onReset` when filters are managed outside the
+table.
+
+<ExampleTabs name="data-table-no-results" />
+
+### Sub Rows
+
+Use `getSubRows` to render hierarchical data. Add an `ExpanderCell` to a column
+to toggle the child rows.
+
+<ExampleTabs name="data-table-sub-rows" />
+
+### Grouped Rows
+
+Use the `grouping` state to group rows by a column, and set `aggregationFn` on
+the other columns to aggregate their values.
+
+<ExampleTabs name="data-table-grouped-rows" />
+
+### Expanded Row
+
+Use `getRowCanExpand` together with the `renderExpandedRow` prop on `table.Body`
+to render a full width panel below a row.
+
+<ExampleTabs name="data-table-expanded-row" />
+
+### Cell Selection
+
+Set `enableCellSelection` to enable spreadsheet-style cell selection. Cells can
+be selected by dragging, or by holding `Shift` and `Cmd` to select ranges.
+
+<ExampleTabs name="data-table-cell-selection" />
+
+### Virtual Rows
+
+Wrap `table.Table` in `table.Virtualizer` to only render the rows in view. This
+lets you render tens of thousands of rows without paginating.
+
+:::warning
+
+Virtualization requires a `table.ScrollArea` with a fixed height, and can't be
+combined with `renderExpandedRow`.
+
+:::
+
+<ExampleTabs name="data-table-virtual-rows" />
+
+### Virtual Grid
+
+Pass the `columns` prop to `table.Virtualizer` to window the columns as well.
+Pinned columns are always rendered.
+
+<ExampleTabs name="data-table-virtual-grid" />
+
+## Props
+
+### Root
+
+<PropTable component="DataTable" part="Root" />
+
+### Body
+
+<PropTable component="DataTable" part="Body" />
+
+### Footer
+
+<PropTable component="DataTable" part="Footer" />
+
+### Virtualizer
+
+<PropTable component="DataTable" part="Virtualizer" />

@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface ChevronLeftIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * chevron-left\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronLeftIcon: React.FC<ChevronLeftIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"m15 18l-6-6l6-6\"\n      />\n    </svg>\n  )\n}\n",
+      "path": "icons/chevron-left-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/chevron-left-icon.tsx": "663b9e42d58122d7aa62b0acfcf21795a933fc848f00a1271bc74e5cb4bf3974"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "ChevronLeftIcon",
+    "contentHash": "84b2095132e0288c8c50837147e2694874f2958d5533f46186febcedbf39ebdd",
+    "iconName": "ChevronLeft",
+    "iconSet": "lucide"
+  },
+  "name": "chevron-left-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

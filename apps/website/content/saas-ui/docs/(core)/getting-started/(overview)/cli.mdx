@@ -1,0 +1,353 @@
+---
+title: 'CLI'
+description:
+  Initialize a project and install components, blocks and templates from the
+  Saas UI registry.
+---
+
+The Saas UI CLI initializes Chakra UI in your project and installs editable
+compositions, blocks and custom components from the Saas UI registry.
+
+## Installation
+
+You can run the CLI directly with `npx`, without adding it to your project:
+
+```bash
+npx @saas-ui/cli@rc init
+```
+
+Or install it as a dev dependency:
+
+:::code-group
+
+```bash [npm]
+npm i -D @saas-ui/cli@rc
+```
+
+```bash [yarn]
+yarn add -D @saas-ui/cli@rc
+```
+
+```bash [pnpm]
+pnpm add -D @saas-ui/cli@rc
+```
+
+```bash [bun]
+bun add -d @saas-ui/cli@rc
+```
+
+:::
+
+The CLI installs two executables, `saas-ui` and the shorter `sui`. Both run the
+same program. The examples on this page use `npx @saas-ui/cli@rc`, replace it
+with `saas-ui` if you installed the CLI globally.
+
+> The minimum node version required is Node 22.x
+
+## Usage
+
+```bash
+Usage: saas-ui [options] [command]
+
+Saas UI command line
+
+Options:
+  -v, --version   Output the version number
+  -h, --help      Display help for a command
+
+Commands:
+  login           Log in with your Saas UI account
+  init            Initialize a project
+  add             Add components to your project
+  diff            Compare installed registry items with local files and the registry
+  list            List all available components
+  update          Update installed registry items from the current registry
+  migrate         Migrate legacy Saas UI projects
+```
+
+Flags accept both kebab-case and camelCase, `--dry-run` and `--dryRun` are
+equivalent.
+
+## login
+
+Log in with your Saas UI account. This is required to install Pro blocks and
+templates.
+
+```bash
+npx @saas-ui/cli@rc login
+```
+
+The command starts a temporary local server and opens your browser. After
+authenticating, the token is stored in your user config so subsequent `add`
+commands can resolve private registry items. The command takes no options.
+
+## init
+
+Initialize a project. Installs `@chakra-ui/react`, `@emotion/react` and
+`@saas-ui/chakra-preset`, writes `components.json` and installs the matching
+local provider setup.
+
+```bash
+npx @saas-ui/cli@rc init
+```
+
+Any positional arguments are treated as extra starter components to install.
+
+| Option                      | Description                                               | Default              |
+| --------------------------- | --------------------------------------------------------- | -------------------- |
+| `--yes`                     | Skip the confirmation prompt.                             | `false`              |
+| `--defaults`                | Skip prompts and use the default configuration.           | `false`              |
+| `--force`                   | Overwrite an existing, conflicting configuration.         | `false`              |
+| `--color-mode <on\|off>`    | Install color mode support. `on` also adds `next-themes`. | Prompted             |
+| `--starter`                 | Install the documented starter set (currently `sidebar`). | `false`              |
+| `--style <style>`           | Registry style to use.                                    | `default`            |
+| `--system <system>`         | Component system to use. Currently `chakra` only.         | `chakra`             |
+| `--components-alias <path>` | Import alias for components.                              | `@/components`       |
+| `--ui-alias <path>`         | Import alias for UI components.                           | `@/components/ui`    |
+| `--utils-alias <path>`      | Import alias for utilities.                               | `@/lib/utils`        |
+| `--lib-alias <path>`        | Import alias for shared libraries.                        | `@/lib`              |
+| `--hooks-alias <path>`      | Import alias for hooks.                                   | `@/hooks`            |
+| `--icons-alias <path>`      | Import alias for icons.                                   | `@/components/icons` |
+| `--cwd <path>`              | The working directory.                                    | Current directory    |
+| `--silent`                  | Mute output.                                              | `false`              |
+
+`--yes` accepts confirmations and uses the selected or default configuration.
+`--defaults` avoids prompts entirely for a new configuration, combine it with
+`--force` to replace a conflicting existing configuration.
+
+Setup items such as `provider` and `color-mode` are selected through
+`--color-mode` and cannot be passed as starter items.
+
+```bash
+npx @saas-ui/cli@rc init --yes --defaults --color-mode on --starter
+```
+
+:::info
+
+Existing apps on `@saas-ui/react@next` should follow
+[Migrating from next to rc](/docs/getting-started/migrating-from-next) instead
+of treating `init` as a greenfield install.
+
+:::
+
+## add
+
+Install one or more registry items and their complete transitive dependency
+graph.
+
+```bash
+npx @saas-ui/cli@rc add [components...]
+```
+
+With no item names, `add` opens an interactive selector.
+
+| Option          | Description                                                                       | Default           |
+| --------------- | --------------------------------------------------------------------------------- | ----------------- |
+| `--all`         | Add every public installable item, using defaults for exclusive groups.           | `false`           |
+| `--yes`         | Skip the confirmation prompt.                                                     | `false`           |
+| `--overwrite`   | Overwrite existing files.                                                         | `false`           |
+| `--dry-run`     | Show the install plan without changing the project.                               | `false`           |
+| `--diff [path]` | Show registry file differences without changing the project. Implies `--dry-run`. | —                 |
+| `--cwd <path>`  | The working directory.                                                            | Current directory |
+| `--silent`      | Mute output.                                                                      | `false`           |
+
+`--all` selects every public installable item, and for a mutually exclusive
+group it selects the item marked as that group's default. It cannot be combined
+with explicitly named items.
+
+Use `--dry-run` to print the complete file and package plan without writing
+files, installing packages or updating `components.json`. Dry runs require an
+existing `components.json`. When configuration is missing, `--yes` skips the
+init confirmation and initializes before adding.
+
+```bash
+npx @saas-ui/cli@rc add sidebar
+npx @saas-ui/cli@rc add sidebar navbar --yes
+npx @saas-ui/cli@rc add sidebar --dry-run
+```
+
+Use `--diff` to inspect the transformed files before installing. Without a path
+it shows the first five files, an optional path filters the output:
+
+```bash
+npx @saas-ui/cli@rc add sidebar --diff
+npx @saas-ui/cli@rc add sidebar --diff sidebar.tsx
+```
+
+The output uses local files as the base and registry content as the proposed
+result. Formatting-only changes are collapsed. Existing-file conflicts remain
+non-mutating and still require `--overwrite` when the item is actually added.
+
+### Third-party and private registries
+
+The CLI supports shadcn-compatible registry namespaces. Map each namespace in
+`components.json` to a URL template containing `{name}`. The optional `{style}`
+placeholder, request headers, query parameters and environment substitutions are
+supported:
+
+```json
+{
+  "$schema": "https://saas-ui.dev/r/schema/components.json",
+  "registries": {
+    "@acme": "https://registry.acme.com/{name}.json",
+    "@private": {
+      "url": "https://registry.example.com/{style}/{name}.json",
+      "headers": {
+        "Authorization": "Bearer ${REGISTRY_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+Namespaced items work with the normal commands:
+
+```bash
+npx @saas-ui/cli@rc add @acme/data-table @private/dashboard
+```
+
+A bare dependency such as `button` inherits its parent item's namespace, an
+explicit dependency such as `@acme/button` can cross registries. Authentication
+headers require HTTPS. The CLI loads `.env.local` and then `.env` without
+overriding variables already present in the environment, keep those files out of
+source control.
+
+## list
+
+List all components available in the registry, printed as a table with name,
+category and description. Pro items are marked with a `(PRO)` label.
+
+```bash
+npx @saas-ui/cli@rc list
+```
+
+| Option              | Description                               | Default |
+| ------------------- | ----------------------------------------- | ------- |
+| `--category <name>` | Filter components by category.            | —       |
+| `--search <term>`   | Search components by name or description. | —       |
+
+```bash
+npx @saas-ui/cli@rc list --category navigation
+npx @saas-ui/cli@rc list --search table
+```
+
+## diff
+
+Compare installed registry items with your local files and the current registry.
+This command never writes to your project.
+
+```bash
+npx @saas-ui/cli@rc diff [components...]
+```
+
+With no names it compares every installed root and its current dependency graph.
+Otherwise it compares the named installed roots.
+
+| Option         | Description                                                    | Default           |
+| -------------- | -------------------------------------------------------------- | ----------------- |
+| `--check`      | Exit with an error when installed registry items have drifted. | `false`           |
+| `--cwd <path>` | The working directory.                                         | Current directory |
+
+```bash
+npx @saas-ui/cli@rc diff
+npx @saas-ui/cli@rc diff sidebar
+npx @saas-ui/cli@rc diff --check
+```
+
+Use `--check` in CI to fail a build when local components have drifted from the
+registry.
+
+## update
+
+Refresh installed registry items with the current registry content.
+
+```bash
+npx @saas-ui/cli@rc update [components...]
+```
+
+With no names, every installed root in `components.json` is updated. Pass names
+to limit the update.
+
+| Option         | Description                                        | Default           |
+| -------------- | -------------------------------------------------- | ----------------- |
+| `--all`        | Update every installed item in `components.json`.  | `false`           |
+| `--dry-run`    | Show the update plan without changing the project. | `false`           |
+| `--cwd <path>` | The working directory.                             | Current directory |
+| `--silent`     | Mute output.                                       | `false`           |
+
+Update overwrites destination files with current registry content. It does not
+merge your changes, and it never deletes files that disappeared from a registry
+item or its dependency graph. Run `diff` first if you have local edits.
+
+```bash
+npx @saas-ui/cli@rc update
+npx @saas-ui/cli@rc update sidebar --dry-run
+npx @saas-ui/cli@rc update --all
+```
+
+### Installed items
+
+The CLI records only explicitly requested registry roots in `components.json`:
+
+```json
+{
+  "installed": ["navbar", "sidebar"]
+}
+```
+
+Transitive dependencies are resolved fresh from the registry and are not added
+to this list.
+
+## migrate
+
+Migrate legacy Saas UI projects. Currently one migration is available.
+
+### migrate react-to-registry
+
+Rewrite `@saas-ui/react` imports to Chakra UI and local registry templates.
+
+```bash
+npx @saas-ui/cli@rc migrate react-to-registry [paths...]
+```
+
+The migration scans the whole project by default, or only the supplied files,
+directories and glob patterns.
+
+| Option         | Description                                                   | Default           |
+| -------------- | ------------------------------------------------------------- | ----------------- |
+| `--dry-run`    | Plan and report the migration without changing files.         | `false`           |
+| `--write`      | Atomically write the planned migration and install templates. | `false`           |
+| `--overwrite`  | Replace unmanaged template files that conflict with the plan. | `false`           |
+| `--json`       | Print the versioned machine-readable JSON report.             | `false`           |
+| `--cwd <path>` | The project root.                                             | Current directory |
+
+Migration is non-mutating unless `--write` is supplied. `--write` and
+`--dry-run` are mutually exclusive.
+
+```bash
+npx @saas-ui/cli@rc migrate react-to-registry --dry-run
+npx @saas-ui/cli@rc migrate react-to-registry --dry-run --json > migration.json
+npx @saas-ui/cli@rc migrate react-to-registry src/app --write
+```
+
+The report includes source diagnostics, requested templates, required npm
+packages and package-manifest actions. Migration rewrites Chakra and preset
+imports, installs local composition templates, and removes `@saas-ui/react` only
+after verifying that no static project or package references remain.
+
+:::info
+
+Read [Migrating from next to rc](/docs/getting-started/migrating-from-next)
+before applying a write migration. It covers provider and color-mode changes,
+component ownership, Pro blocks, manual cases and verification.
+
+:::
+
+## Transactions
+
+The CLI reports known conflicts before writing and commits registry files
+together with project configuration changes such as `components.json`.
+Filesystem updates are transactional, but package-manager operations are outside
+that transaction. If dependency installation succeeds and a later filesystem
+commit fails, the newly installed packages are not automatically removed.
+Re-running the command is safe.

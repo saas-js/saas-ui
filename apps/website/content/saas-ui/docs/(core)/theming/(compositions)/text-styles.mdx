@@ -1,0 +1,22 @@
+---
+title: Text styles
+description: Type styles shipped with the Saas UI preset
+---
+
+Text styles map a name to `fontSize` and `lineHeight`. From `4xl` up they also
+set letter spacing. The default face is Inter Variable.
+
+| Style | Notes |
+| ----- | ----- |
+| `2xs`–`3xl` | Size + line height |
+| `4xl`–`5xl` | Plus `letterSpacing: tight` |
+| `6xl` | Plus `tighter` |
+| `7xl` | Plus `tightest` |
+| `none` | Empty. Clears an inherited text style |
+
+```tsx
+<Text textStyle="sm">Secondary copy</Text>
+<Heading textStyle="2xl">Page title</Heading>
+```
+
+<ExamplePreview name="tokens/text-styles" />

@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "customConditions": [],
+    "incremental": false
+  },
+  "include": [
+    "ui/close-button/close-button.types.test-d.ts",
+    "ui/drawer/drawer.types.test-d.ts",
+    "ui/file-upload/file-upload.types.test-d.ts",
+    "ui/modals/modals.types.test-d.ts",
+    "ui/native-select/native-select.types.test-d.ts",
+    "ui/popover/popover.types.test-d.ts",
+    "ui/select/select.types.test-d.ts",
+    "ui/tooltip/tooltip.types.test-d.ts"
+  ],
+  "exclude": []
+}

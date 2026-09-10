@@ -1,14 +1,16 @@
-import '@testing-library/jest-dom/extend-expect'
-import { RenderOptions } from '@testing-library/react'
-import { axe, toHaveNoViolations, JestAxeConfigureOptions } from 'jest-axe'
 import * as React from 'react'
+
+import '@testing-library/jest-dom'
+import { type RenderOptions } from '@testing-library/react'
+import { type JestAxeConfigureOptions, axe, toHaveNoViolations } from 'jest-axe'
+
 import { render } from './render'
 
 expect.extend(toHaveNoViolations)
 
 export async function testA11y(
   ui: React.ReactElement | HTMLElement,
-  options: RenderOptions & { axeOptions?: JestAxeConfigureOptions } = {}
+  options: RenderOptions & { axeOptions?: JestAxeConfigureOptions } = {},
 ) {
   const { axeOptions, ...rest } = options
   const container = React.isValidElement(ui)

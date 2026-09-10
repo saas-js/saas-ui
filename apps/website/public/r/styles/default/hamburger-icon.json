@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface HamburgerIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * hamburger\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const HamburgerIcon: React.FC<HamburgerIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"M4 5h16M4 12h16M4 19h16\"\n      />\n    </svg>\n  )\n}\n",
+      "path": "icons/hamburger-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/hamburger-icon.tsx": "a6f3892a3e730b70c69bed6676d45c40de096c867a4a618578ee5841cd09be98"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "HamburgerIcon",
+    "contentHash": "b401a12394bb2e7ed5264d751c64bc6d229996c9b0f8d62ea058ec7ecaafe49e",
+    "iconName": "Menu",
+    "iconSet": "lucide"
+  },
+  "name": "hamburger-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

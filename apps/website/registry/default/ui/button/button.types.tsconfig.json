@@ -1,0 +1,13 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "customConditions": [],
+    "incremental": false
+  },
+  "include": [
+    "button.ts",
+    "button.types.test-d.ts",
+    "../icon-button/icon-button.tsx"
+  ],
+  "exclude": []
+}

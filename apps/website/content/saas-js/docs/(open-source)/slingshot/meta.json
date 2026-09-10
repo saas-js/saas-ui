@@ -1,0 +1,6 @@
+{
+  "title": "Slingshot",
+  "defaultOpen": true,
+  "root": true,
+  "pages": ["index", "getting-started", "frameworks", "ui", "reference"]
+}

@@ -1,0 +1,104 @@
+---
+title: Floating Panel
+description:
+  Used to render a draggable, resizable panel that floats above the page content
+links:
+  recipe: floating-panel
+---
+
+<ExampleTabs name="floating-panel-basic" />
+
+## Anatomy
+
+```jsx
+import { FloatingPanel } from '@chakra-ui/react'
+```
+
+```jsx
+<FloatingPanel.Root>
+  <FloatingPanel.Trigger />
+  <FloatingPanel.Positioner>
+    <FloatingPanel.Content>
+      <FloatingPanel.Header>
+        <FloatingPanel.DragTrigger>
+          <FloatingPanel.Title />
+        </FloatingPanel.DragTrigger>
+        <FloatingPanel.Control>
+          <FloatingPanel.StageTrigger />
+          <FloatingPanel.CloseTrigger />
+        </FloatingPanel.Control>
+      </FloatingPanel.Header>
+      <FloatingPanel.Body />
+      <FloatingPanel.ResizeTriggers />
+    </FloatingPanel.Content>
+  </FloatingPanel.Positioner>
+</FloatingPanel.Root>
+```
+
+`FloatingPanel.ResizeTriggers` renders a `FloatingPanel.ResizeTrigger` for each
+resize axis (`n`, `s`, `e`, `w`, `ne`, `nw`, `se`, `sw`). Pass the `axes` prop
+to render only specific handles.
+
+## Examples
+
+### Controlled Open
+
+Use the `open` and `onOpenChange` props to control the visibility of the panel.
+
+<ExampleTabs name="floating-panel-controlled-open" />
+
+### Stages
+
+Use the `stage` prop on `FloatingPanel.StageTrigger` to add buttons that
+minimize, maximize and restore the panel. Here are the available stages:
+
+- **`default`** — restore the panel to its normal size and position
+- **`minimized`** — collapse the panel to a compact height (header only)
+- **`maximized`** — expand the panel to fill the available boundary
+
+```tsx
+<FloatingPanel.StageTrigger stage="minimized" />
+```
+
+<ExampleTabs name="floating-panel-stages" />
+
+### Context
+
+Use `useFloatingPanelContext` inside the panel to call `minimize`, `maximize`,
+`restore`, `setPosition`, and `setSize` programmatically.
+
+<ExampleTabs name="floating-panel-context" />
+
+### Multiple
+
+Render multiple `FloatingPanel.Root` instances to show several panels at once.
+Each root manages its own open state, position, and size independently.
+
+<ExampleTabs name="floating-panel-multiple" />
+
+### Resize Axes
+
+Pass the `axes` prop to `FloatingPanel.ResizeTriggers` to limit which resize
+handles are rendered.
+
+<ExampleTabs name="floating-panel-resize-axes" />
+
+### Min/Max
+
+Use the `minSize` and `maxSize` props to constrain how small or large the panel
+can be resized.
+
+<ExampleTabs name="floating-panel-min-max" />
+
+### Boundary
+
+Use `getBoundaryEl` with `allowOverflow={false}` to confine the panel within a
+specific container.
+
+<ExampleTabs name="floating-panel-boundary" />
+
+## Props
+
+### Root
+
+<PropTable component="FloatingPanel" part="Root" />

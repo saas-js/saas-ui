@@ -1,0 +1,50 @@
+---
+title: Tags router
+description: An overview of the tags router
+---
+
+## Procedures
+
+The tags router has the following procedures:
+
+### Create a tag
+
+Create a new tag in the workspace.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = useMutation(trpc.tags.create.mutationOptions())
+
+// Server components
+const data = await caller.tags.create()
+```
+
+### Update a tag
+
+Update a tag in the workspace.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = useMutation(trpc.tags.update.mutationOptions())
+
+// Server components
+const data = await caller.tags.update()
+```
+
+### Delete a tag
+
+Delete a tag in the workspace.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = useMutation(trpc.tags.delete.mutationOptions())
+
+// Server components
+const data = await caller.tags.delete()
+```

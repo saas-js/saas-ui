@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Checkbox as ChakraCheckbox } from '@chakra-ui/react/checkbox'\n\nexport interface CheckboxProps extends ChakraCheckbox.RootProps {\n  icon?: React.ReactNode\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n  rootRef?: React.Ref<HTMLLabelElement>\n}\n\nexport const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(\n  function Checkbox(props, ref) {\n    const { icon, children, inputProps, rootRef, ...rest } = props\n    return (\n      <ChakraCheckbox.Root ref={rootRef} {...rest}>\n        <ChakraCheckbox.HiddenInput ref={ref} {...inputProps} />\n        <ChakraCheckbox.Control>\n          {icon || <ChakraCheckbox.Indicator strokeWidth=\"4\" />}\n        </ChakraCheckbox.Control>\n        {children != null && (\n          <ChakraCheckbox.Label>{children}</ChakraCheckbox.Label>\n        )}\n      </ChakraCheckbox.Root>\n    )\n  },\n)\n",
+      "path": "ui/checkbox/checkbox.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { Checkbox } from './checkbox.tsx'\nexport type { CheckboxProps } from './checkbox.tsx'\nexport {\n  CheckboxGroup,\n  type CheckboxGroupProps,\n} from '@chakra-ui/react/checkbox'\n",
+      "path": "ui/checkbox/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/checkbox/checkbox.tsx": "3008de99365d18f4add6e505066675d47426645442ff131e8e2bb377136dab38",
+        "ui/checkbox/index.ts": "103bc5692e22e3cff34822df1a873fb1b70c1897b38f06771eab9b9fd9fe8e27"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "e39a11787f2e33bd0ff940c63305e9333d78ed162ab9b0352f18ef10c43d2581"
+  },
+  "name": "checkbox",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

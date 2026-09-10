@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export { Radio } from './radio.tsx'\nexport type { RadioProps } from './radio.tsx'\nexport { RadioGroup } from '@chakra-ui/react/radio-group'\n",
+      "path": "ui/radio/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react/radio-group'\n\nexport interface RadioProps extends ChakraRadioGroup.ItemProps {\n  rootRef?: React.Ref<HTMLDivElement>\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n}\n\nexport const Radio = forwardRef<HTMLInputElement, RadioProps>(\n  function Radio(props, ref) {\n    const { children, inputProps, rootRef, ...rest } = props\n    return (\n      <ChakraRadioGroup.Item ref={rootRef} {...rest}>\n        <ChakraRadioGroup.ItemHiddenInput ref={ref} {...inputProps} />\n        <ChakraRadioGroup.ItemIndicator />\n        {children && (\n          <ChakraRadioGroup.ItemText>{children}</ChakraRadioGroup.ItemText>\n        )}\n      </ChakraRadioGroup.Item>\n    )\n  },\n)\n\nexport type RadioGroupProps = ChakraRadioGroup.RootProps\n\nexport const RadioGroup = ChakraRadioGroup.Root\n",
+      "path": "ui/radio/radio.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/radio/index.ts": "69b4c1875be8c1c5cb7de32dc42e7e6d1e33e8e0933f5b430bc269b7ef832fe9",
+        "ui/radio/radio.tsx": "499b43a780feffd4ff03a63071378c77b706e8c796a56b44e53410f7a731ed71"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "55d9735c51ed78a8f8723d034a3ae740f054700b733cb5d9e07ed43a46171dc9"
+  },
+  "name": "radio",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

@@ -1,0 +1,88 @@
+---
+title: Theme
+description:
+  Used to force a part of the tree to light or dark mode, and to override
+  appearance tokens like radius and scale.
+---
+
+<ExampleTabs name="theme-basic" />
+
+## Anatomy
+
+```jsx
+import { Theme } from '#components/ui/theme'
+```
+
+```jsx
+<Theme appearance="dark">
+  <div />
+</Theme>
+```
+
+## Usage
+
+`Theme` renders a `div` that scopes appearance to its subtree. It sets the
+`chakra-theme` class together with the appearance class, and applies the native
+`color-scheme` style so browser UI (scrollbars, form controls) follows along.
+
+The key things to note:
+
+- `appearance` forces `light` or `dark` for everything inside. Leave it off to
+  inherit the current color mode.
+- `hasBackground` (default `true`) paints the `bg` and `fg` tokens. Set it to
+  `false` when the theme wraps an element that already has a background, like a
+  popover or dialog.
+- `colorPalette` sets the default palette for all components in the subtree.
+- The radius and scale props write CSS variables that the Saas UI semantic
+  tokens read, so they cascade to every component below.
+
+## Examples
+
+### Nested
+
+Themes can be nested to apply different appearances to different parts of the
+tree. This is useful for applying a global appearance and then overriding some
+parts of it.
+
+> Good to know: this uses native CSS selectors, so there is no extra React
+> context involved.
+
+<ExampleTabs name="theme-nested" />
+
+### Portalled
+
+Portalled content, such as a popover or dialog, is rendered outside the tree and
+therefore does not inherit a parent `Theme`. Wrap the portalled content itself
+and set `hasBackground={false}` so it keeps the panel styles.
+
+<ExampleTabs name="theme-with-portalled" />
+
+### Radius
+
+Use `controlRadius`, `panelRadius` and `indicatorRadius` to change the border
+radius of controls, panels and indicators in a subtree. `scaleFactor` scales all
+three at once.
+
+<ExampleTabs name="theme-with-radius" />
+
+### Page specific color mode
+
+To lock an entire page to a specific color mode, wrap the page with `Theme`.
+Combine it with `ColorModeProvider` when you also use the `useColorMode` hook.
+
+```tsx
+import { ColorModeProvider } from '#components/setup/color-mode/color-mode'
+import { Theme } from '#components/ui/theme'
+
+export const ForcedColorMode = ({ children }) => {
+  return (
+    <ColorModeProvider forcedTheme="dark">
+      <Theme appearance="dark">{children}</Theme>
+    </ColorModeProvider>
+  )
+}
+```
+
+## Props
+
+<PropTable component="Theme" part="Theme" />

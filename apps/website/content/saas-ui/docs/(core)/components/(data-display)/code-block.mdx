@@ -1,0 +1,201 @@
+---
+title: Code Block
+description: Used to display and highlight dynamic code blocks
+links:
+  recipe: code-block
+---
+
+<ExampleTabs name="code-block-basic" />
+
+## Anatomy
+
+```jsx
+import { CodeBlock } from '@chakra-ui/react'
+```
+
+```jsx
+<CodeBlock.AdapterProvider value={adapter}>
+  <CodeBlock.Root code="..." language="tsx">
+    <CodeBlock.Header>
+      <CodeBlock.Title />
+      <CodeBlock.Control>
+        <CodeBlock.CopyTrigger />
+        <CodeBlock.CollapseTrigger />
+      </CodeBlock.Control>
+    </CodeBlock.Header>
+    <CodeBlock.Content>
+      <CodeBlock.Code>
+        <CodeBlock.CodeText />
+      </CodeBlock.Code>
+    </CodeBlock.Content>
+  </CodeBlock.Root>
+</CodeBlock.AdapterProvider>
+```
+
+## Adapters
+
+Syntax highlighting is provided by an adapter. Create one, pass it to
+`CodeBlock.AdapterProvider` at the top level of your app, and render
+`CodeBlock.Root` within it. Without an adapter the code block falls back to
+plain text.
+
+### Shiki
+
+Install the `shiki` package.
+
+```bash
+npm install shiki
+```
+
+Then create the adapter, which dynamically loads the highlighter for the
+languages you need.
+
+```tsx
+import { CodeBlock, createShikiAdapter } from '@chakra-ui/react'
+import type { HighlighterGeneric } from 'shiki'
+
+const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
+  async load() {
+    const { createHighlighter } = await import('shiki')
+    return createHighlighter({
+      langs: ['tsx', 'html', 'bash', 'json'],
+      themes: ['github-dark'],
+    })
+  },
+  theme: 'github-dark',
+})
+
+const App = () => (
+  <CodeBlock.AdapterProvider value={shikiAdapter}>
+    {/* ... */}
+  </CodeBlock.AdapterProvider>
+)
+```
+
+The examples on this page use the `github-dark` theme. Pass a `{ light, dark }`
+theme map together with `meta.colorScheme` to follow the active color mode, see
+the [themes](#themes) example.
+
+Once an adapter is provided, the `meta` prop on `CodeBlock.Root` unlocks
+highlighting features such as `showLineNumbers`, `highlightLines`,
+`focusedLineNumbers`, `addedLineNumbers` and `removedLineNumbers`.
+
+### Highlight.js
+
+[Highlight.js](https://highlightjs.org/) is supported as well through
+`createHighlightJsAdapter`. Install the `highlight.js` package and register the
+languages you need.
+
+```tsx
+import { createHighlightJsAdapter } from '@chakra-ui/react'
+import hljs from 'highlight.js/lib/core'
+
+const highlightJsAdapter = createHighlightJsAdapter<typeof hljs>({
+  async load() {
+    const languages = {
+      tsx: () => import('highlight.js/lib/languages/typescript'),
+      html: () => import('highlight.js/lib/languages/xml'),
+    }
+    await Promise.all(
+      Object.entries(languages).map(async ([language, file]) => {
+        const { default: langModule } = await file()
+        hljs.registerLanguage(language, langModule)
+      }),
+    )
+    return hljs
+  },
+})
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the code block component.
+
+<ExampleTabs name="code-block-with-sizes" />
+
+### Title
+
+Render the `CodeBlock.Title` component within the `CodeBlock.Header` component
+to add a title to the code block component.
+
+<ExampleTabs name="code-block-with-title" />
+
+### Copy button
+
+Render the `CodeBlock.CopyTrigger` component to add a copy button to the code
+block component.
+
+<ExampleTabs name="code-block-with-copy-button" />
+
+### Floating copy button
+
+Here's an example that adds a floating copy button to the code block component.
+
+<ExampleTabs name="code-block-with-floating-copy-button" />
+
+### Line numbers
+
+Line numbers make it easier to reference specific lines of code. Pass the
+`meta.showLineNumbers` prop to show line numbers in the code block component.
+
+<ExampleTabs name="code-block-with-line-numbers" />
+
+### Line highlighting
+
+Pass the `meta.highlightLines` prop to the `CodeBlock.Root` component to
+highlight specific lines of code. The prop accepts an array of 1-based line
+numbers.
+
+<ExampleTabs name="code-block-with-line-highlight" />
+
+### Line focus
+
+Pass the `meta.focusedLineNumbers` prop to the `CodeBlock.Root` component to
+focus specific lines of code. The other lines are dimmed until the code block is
+hovered.
+
+<ExampleTabs name="code-block-with-line-focus" />
+
+### Diff
+
+Diffs are useful for highlighting source code changes. Use the
+`meta.addedLineNumbers` and `meta.removedLineNumbers` props to mark lines as
+added or removed.
+
+<ExampleTabs name="code-block-with-diff" />
+
+### Max lines
+
+Use the `maxLines` prop to limit the number of lines in the code block
+component. By default, the code block component will expand to fit the content.
+
+<ExampleTabs name="code-block-with-max-lines" />
+
+### Wrap overflow
+
+Use the `meta.wordWrap` prop to wrap the code block component.
+
+<ExampleTabs name="code-block-with-word-wrap" />
+
+### Tabs
+
+Here's an example that composes the `CodeBlock` component with the `Tabs`
+component to create a code block with tabs.
+
+<ExampleTabs name="code-block-with-tabs" />
+
+### Themes
+
+Pass a `{ light, dark }` theme map to the adapter and set the `meta.colorScheme`
+prop to switch themes. In this example the color scheme is derived from the
+`useColorMode` hook.
+
+<ExampleTabs name="code-block-with-themes" />
+
+## Props
+
+### Root
+
+<PropTable component="CodeBlock" part="Root" />

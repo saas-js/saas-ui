@@ -1,0 +1,10 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "system": "chakra",
+  "registries": [
+    {
+      "name": "saas-ui",
+      "url": "http://localhost:3000"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+---
+title: Colors
+description: Primitive swatches, surface roles, and palettes in the Saas UI preset
+---
+
+Product UI should use **roles** (`bg`, `fg`, `border`) and **palette slots**
+(`accent.solid`, `destructive.fg`). Primitive tokens are the raw pigments those
+roles resolve to.
+
+How the system is structured: [Color system](/docs/theming/color-system).
+
+## Primitives
+
+`black`, `white`, and the `whiteAlpha` / `blackAlpha` ramps. `black` and
+`white` are OKLCH, not `#000` / `#fff`.
+
+<ColorTokenDoc />
+
+## Surfaces
+
+Semantic roles for page chrome. These follow the appearance base seed.
+
+| Group | Tokens |
+| ----- | ------ |
+| Background | `bg`, `bg.surface`, `bg.elevated`, `bg.inset`, `bg.overlay`, `bg.backdrop`, `bg.inverted` |
+| Foreground | `fg`, `fg.muted`, `fg.subtle`, `fg.emphasized`, `fg.inverted` |
+| Border | `border`, `border.muted`, `border.subtle`, `border.emphasized` |
+| Sidebar | `sidebar.bg`, `sidebar.fg`, `sidebar.border`, `sidebar.accent.*` |
+| Status | `status.info\|success\|warning\|error` → palette solids |
+| Presence | `presence.online\|busy\|dnd\|offline\|away` |
+
+`bg.error` / `fg.warning` / `border.destructive` are the muted, fg, and border
+slots of those palettes. `colors.shadow` is the pigment used by elevation
+tokens.
+
+<ColorSemanticTokenDoc />
+
+## Palettes
+
+Every palette shares the same slots: `solid`, `contrast`, `fg`, `muted`,
+`subtle`, `emphasized`, `border`, `focusRing`.
+
+Use **appearance** palettes in product UI: `base`, `accent`, `info`,
+`success`, `warning`, `destructive`. Catalog hues (`red`, `blue`, `gray`, …)
+are for charts and one-off coding. They do not follow `--sui-accent`.
+
+<ColorPaletteTokenDoc />

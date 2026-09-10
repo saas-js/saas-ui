@@ -1,0 +1,38 @@
+---
+title: Download Trigger
+description: Used to trigger a download of a file or data
+---
+
+<ExampleTabs name="download-trigger-basic" />
+
+## Anatomy
+
+```jsx
+import { DownloadTrigger } from '@chakra-ui/react'
+```
+
+```jsx
+<DownloadTrigger data="..." fileName="sample.txt" mimeType="text/plain" />
+```
+
+## Examples
+
+### Basic
+
+Pass the `data`, `fileName` and `mimeType` props to the `DownloadTrigger`
+component to trigger a download of the data. Use the `asChild` prop to render a
+custom trigger, like a `Button`.
+
+<ExampleTabs name="download-trigger-basic" />
+
+### Promise
+
+The `data` prop also accepts a function that returns a `Promise`. The promise
+is resolved before the download starts, which is useful for downloading data
+that is generated or fetched on demand.
+
+<ExampleTabs name="download-trigger-with-promise" />
+
+## Props
+
+<PropTable component="DownloadTrigger" part="DownloadTrigger" />

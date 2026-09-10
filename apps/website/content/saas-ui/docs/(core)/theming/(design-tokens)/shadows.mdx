@@ -1,0 +1,19 @@
+---
+title: Shadows
+description: Elevation tokens tinted by the shadow color
+---
+
+Shadows are semantic. They use `{colors.shadow}` (exposed as `--color-shadow`).
+Dark mode adds a thin inset highlight. Change the pigment, not the recipe, to
+retint elevation.
+
+| Token | Use |
+| ----- | --- |
+| `xs`–`2xl` | Elevation ramp |
+| `inner` / `inset` | Recessed wells |
+| `overlay` | Floating panels, menus, dialogs |
+
+`layerStyle="overlay"` applies `shadows.overlay` together with `bg.overlay`
+and `radii.panel`.
+
+<ShadowTokenDoc />

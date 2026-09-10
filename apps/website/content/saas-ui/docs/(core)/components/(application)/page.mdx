@@ -1,0 +1,69 @@
+---
+title: Page
+description: Page layout with header, body, and loading states.
+links:
+  source: components/page
+  storybook: components-page--basic
+  recipe: page
+---
+
+<ExampleTabs name="page-basic" />
+
+## Anatomy
+
+```ts
+import { Page } from '#components/ui/page'
+```
+
+```tsx
+<Page.Root>
+  <Page.Header title="Users" />
+  <Page.Body />
+</Page.Root>
+```
+
+## Examples
+
+### With actions
+
+Add toolbar actions to the page header. Use the `xs` size for buttons in the
+header toolbar.
+
+<ExampleTabs name="page-with-actions" />
+
+### With filters
+
+Use the `footer` prop on `Page.Header` to render a [filter bar](/docs/components/filters)
+below the page title.
+
+<ExampleTabs name="page-with-filters" />
+
+### With data table
+
+Combine the page layout with a [data table](/docs/components/data-table) to
+build list views.
+
+<ExampleTabs name="page-with-data-table" />
+
+### Settings variant
+
+Use the `settings` variant for settings-style pages with larger headings. Pair
+the title with the `description` prop for a subtitle.
+
+<ExampleTabs name="page-settings" />
+
+### Loading
+
+Set `loading` on `Page.Root` to show a loading overlay in the body.
+
+<ExampleTabs name="page-loading" />
+
+## Props
+
+### Root
+
+<PropTable component="Page" part="Root" />
+
+### Header
+
+<PropTable component="Page" part="Header" />

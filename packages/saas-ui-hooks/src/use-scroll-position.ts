@@ -1,11 +1,13 @@
-import { useRef, useEffect } from 'react'
+'use client'
+
+import { useEffect, useRef } from 'react'
 
 const isBrowser = typeof window !== 'undefined'
 
 export type ScrollValue = { x: any; y: any }
 
 function getScrollPosition(
-  element: HTMLElement | undefined | null
+  element: HTMLElement | undefined | null,
 ): ScrollValue {
   if (!isBrowser) return { x: 0, y: 0 }
   if (!element) {
@@ -29,7 +31,7 @@ export interface UseScrollPositionOptions {
   /**
    * The element to track the scroll position for.
    */
-  elementRef?: React.RefObject<HTMLElement> | null
+  elementRef?: React.RefObject<HTMLElement | null> | null
   /**
    * The callback function to be called when the scroll position changes.
    */
@@ -43,12 +45,12 @@ export interface UseScrollPositionOptions {
 }
 
 export const useScrollPosition = (
-  props: UseScrollPositionOptions
+  props: UseScrollPositionOptions,
 ): ScrollValue => {
   const { elementRef, delay = 30, callback, isEnabled } = props
 
   const position = useRef<ScrollValue>(
-    isEnabled ? getScrollPosition(elementRef?.current) : { x: 0, y: 0 }
+    isEnabled ? getScrollPosition(elementRef?.current) : { x: 0, y: 0 },
   )
 
   let throttleTimeout: ReturnType<typeof setTimeout> | null = null

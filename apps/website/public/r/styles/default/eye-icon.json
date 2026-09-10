@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface EyeIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * eye\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const EyeIcon: React.FC<EyeIconProps> = ({ size = '1em', ...props }) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n      >\n        <path d=\"M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0\" />\n        <circle cx=\"12\" cy=\"12\" r=\"3\" />\n      </g>\n    </svg>\n  )\n}\n",
+      "path": "icons/eye-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/eye-icon.tsx": "e458408a5a38ee79818a07bd2898a39c1c8e8617c414009f559cb13a58a08303"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "EyeIcon",
+    "contentHash": "f0e98e49f01996af99637cc2652c1b0c044e6bae408c8ada7488f097a46473b6",
+    "iconName": "Eye",
+    "iconSet": "lucide"
+  },
+  "name": "eye-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

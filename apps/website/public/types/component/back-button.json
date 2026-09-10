@@ -1,0 +1,15 @@
+{
+  "BackButton": {
+    "props": {
+      "aria-label": {
+        "type": "string",
+        "isRequired": false,
+        "description": "Defines a string value that labels the current element."
+      },
+      "href": {
+        "type": "string",
+        "isRequired": false
+      }
+    }
+  }
+}

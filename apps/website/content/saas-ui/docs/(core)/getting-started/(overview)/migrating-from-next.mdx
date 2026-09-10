@@ -1,0 +1,328 @@
+---
+title: Migrating from next to rc
+description: Upgrade existing apps from @saas-ui/react@next to the rc CLI, preset, and registry
+---
+
+:::info
+
+This guide is for apps already on Saas UI v3 through the npm `next` dist-tag
+(`@saas-ui/react@next`). New projects should follow
+[Installation](/docs/getting-started/installation). If you are still on Chakra
+UI v2 / Saas UI v2, start with
+[Migration to v3](/docs/getting-started/migration).
+
+:::
+
+Saas UI is no longer a single `@saas-ui/react` bundle that re-exports Chakra
+and ships styled compositions. The `rc` channel uses a preset plus source
+templates installed by the CLI:
+
+| Before (`next`)                                              | After (`rc`)                                                |
+| ------------------------------------------------------------ | ----------------------------------------------------------- |
+| Chakra primitives re-exported from `@saas-ui/react`          | Import from `@chakra-ui/react`                              |
+| `SuiProvider` and `defaultSystem` from `@saas-ui/react`      | Local provider setup plus `@saas-ui/chakra-preset`          |
+| Styled compositions such as `AppShell`, `Sidebar`, `Persona` | Local registry templates installed by the CLI               |
+| Recipes and semantic tokens from the React package           | `@saas-ui/chakra-preset`                                    |
+| `@saas-ui/react` as the whole component library              | Unstyled primitives package (formerly @saas-ui/core)        |
+
+Bumping `@saas-ui/react` from `next` to `rc` is not the migration. The `rc`
+package is the former @saas-ui/core primitives. Styled UI is installed into
+your repo with `@saas-ui/cli`.
+
+## Migrate with a coding agent
+
+This is the recommended way to upgrade an existing app. Paste the prompt into
+Cursor, Claude Code, Codex, or another coding agent and let it run the CLI.
+Do not have the agent rewrite imports by hand unless the report marks them
+`manual`.
+
+```text title="Agent prompt"
+Migrate this project from @saas-ui/react@next (the old Chakra re-export
+bundle) to the Saas UI rc model: @chakra-ui/react, @saas-ui/chakra-preset,
+and source templates installed by @saas-ui/cli.
+
+Read and follow:
+https://saas-ui.dev/docs/getting-started/migrating-from-next
+
+Rules
+- Do not treat `npm i @saas-ui/react@rc` as the migration. The rc package is
+  unstyled primitives (formerly @saas-ui/core). Styled UI is installed as
+  source by the CLI.
+- Prefer the CLI over hand-rewriting imports. Only hand-edit diagnostics
+  marked `manual`, then known composition API drift after import rewrites.
+- Fail closed. Do not invent replacements for unmapped exports, missing
+  Pro registry items, or unknown call-site APIs.
+- Do not assume `#components` or a `packages/ui` path. Keep aliases
+  already in components.json. In a monorepo, the registry UI alias is the
+  chosen package's `name` (for example `@workspace/ui`), never
+  `#components/ui`. Leave existing app-only aliases alone.
+- Use exactly one install root and one components.json. The CLI cannot
+  install templates outside `--cwd`. Do not add a second components.json
+  in another package.
+- Use the provider installed by init. Do not reconstruct SuiProvider.
+  Do not nest a second ColorModeProvider around it.
+- Keep `@saas-ui/react` for unstyled primitives. Installed templates may
+  still import `@saas-ui/react/sidebar` and similar. App source must not
+  import Chakra primitives from `@saas-ui/react`.
+- Do not commit CLI credentials, `.saas-ui`, or .env secrets.
+- Record issues and learnings in `MIGRATION-NOTES.md` at the project root
+  as you go. Separate CLI/product issues from project-specific leftovers.
+
+Procedure
+1. Commit or stash unrelated work. Do not write a migration on top of
+   unrelated in-progress work without asking.
+2. Detect whether this is a monorepo (turbo.json, pnpm-workspace.yaml,
+   package.json workspaces, packages/*, apps/*). If it is, stop and ask
+   which package should receive the registry UI. Do not assume
+   `packages/ui` or `packages/ui/src`. After they choose, read that
+   package.json `name` and use it as `--components-alias` and `--ui-alias`.
+   Pass `--cwd <chosen-package>` explicitly.
+3. Ensure `@chakra-ui/react` is `^3.28.0` before init. If components.json
+   is missing, initialize non-interactively in the chosen directory.
+   Detect color-mode usage (next-themes, ColorModeProvider, useColorMode)
+   and pass it explicitly:
+   npx @saas-ui/cli@rc init --yes --defaults --cwd <ui-package-or-app> --components-alias '<alias>' --ui-alias '<alias>' --color-mode on
+   or `--color-mode off`. Single-package default alias is `#components`
+   (ui: `#components/ui`). Monorepo UI alias is the package name, so
+   imports become `@workspace/ui/sidebar` not `#components/ui/sidebar`.
+   Do not install both `provider` and `provider-no-color-mode`.
+4. If the theme still imports Pro `baseTheme`, `@saas-ui-pro/react`, or
+   other legacy theme entry points, switch it to `createSystem` +
+   `defineConfig` from `@chakra-ui/react` and `defaultConfig` from
+   `@saas-ui/chakra-preset` before `--write`. Chakra typegen will fail if
+   the theme still loads retired `@saas-ui/react` paths.
+5. Preview:
+   npx @saas-ui/cli@rc migrate react-to-registry --cwd <ui-package-or-app> --dry-run
+   Summarize the plan and every `manual` diagnostic. Hand-fix `manual`
+   cases first (deep `@saas-ui/react/...` imports, compound Card/Persona,
+   useSnackbar → toast, LoadingSpinner → LoadingOverlay.Spinner). If
+   anything else is `manual`, fix or ask before writing.
+6. Apply a clean plan:
+   npx @saas-ui/cli@rc migrate react-to-registry --cwd <ui-package-or-app> --write
+   Use `--overwrite` only after reviewing unmanaged files that predate
+   the registry lock. Then update other workspace packages to import the
+   chosen package name; migrate will not rewrite files outside `--cwd`.
+7. Expected rewrites:
+   - Chakra primitives → `@chakra-ui/react`
+   - Styled compositions → chosen UI alias
+   - Provider → init output; wrap it if the app needs `system` or
+     `linkComponent`, do not rebuild SuiProvider
+   - Theme → `@saas-ui/chakra-preset`, not legacy `baseTheme`
+   - `@saas-ui/modals` → install the `modals` registry item
+8. After import rewrites, fix known call-site API drift. The CLI does
+   not rewrite component props. Examples with a clear replacement:
+   EmptyState `actions` → children; Page `isLoading` → `loading`;
+   CardHeader/CardBody → Card.Header / Card.Body; Alert.Root → Alert
+   from `@chakra-ui/react`; BackButton `href` → asChild + Link.
+   Drop or ask about props that are gone. Do not invent replacements.
+9. Pro: `npx @saas-ui/cli@rc login` then `add` only items that exist in
+   the registry. Aside, SplitPage, and Page are public registry items
+   (`npx @saas-ui/cli@rc add aside split-page page`). If `add` 404s or
+   500s (DataGrid, Filters, Resizer, Toolbar are not public registry
+   items), keep the existing `@saas-ui-pro/react` import and record it.
+   Do not invent replacements or `file:` Pro links unless the user asks.
+10. Keep `MIGRATION-NOTES.md` up to date. Include:
+   - `manual` diagnostics and how each was resolved
+   - CLI failures, typegen failures, rollbacks, `--overwrite` decisions
+   - alias, provider, theme, or Pro surprises
+   - monorepo install location and import alias the user confirmed
+   - API drift that had to be hand-fixed
+   - leftover follow-ups, including pre-existing vs migration errors
+   - commands that worked vs commands that did not
+11. Stop only when all of these are true:
+   - no required manual action remains
+   - app source no longer imports Chakra primitives from `@saas-ui/react`
+   - required public compositions are installed and listed in
+     components.json
+   - the provider uses `@saas-ui/chakra-preset`
+   - formatter, typecheck, tests, and a production build pass, or
+     remaining failures are listed in MIGRATION-NOTES.md and split into
+     pre-existing vs migration
+   - `MIGRATION-NOTES.md` reflects the actual outcome
+```
+
+## Run the CLI yourself
+
+Commit or stash unrelated work before a write migration.
+
+:::steps
+
+### Initialize the registry boundary
+
+Skip this step if the project already has a `components.json` from a previous
+`init`.
+
+```bash
+npx @saas-ui/cli@rc init
+```
+
+`init` installs compatible versions of `@chakra-ui/react`, `@emotion/react`,
+and `@saas-ui/chakra-preset`, writes `components.json`, and installs exactly
+one provider variant. Use `--color-mode off` when the app should not get a
+color-mode provider.
+
+### Preview the migration
+
+```bash
+npx @saas-ui/cli@rc migrate react-to-registry --dry-run
+```
+
+Write a machine-readable report if you want to review the plan in a PR:
+
+```bash
+npx @saas-ui/cli@rc migrate react-to-registry --dry-run --json > saas-ui-migration.json
+```
+
+Limit the scan while a team migrates in batches:
+
+```bash
+npx @saas-ui/cli@rc migrate react-to-registry src/app src/features --dry-run
+```
+
+### Apply the reviewed plan
+
+```bash
+npx @saas-ui/cli@rc migrate react-to-registry --write
+```
+
+If the report identifies unmanaged component files that predate the registry
+lock, review their diffs first and opt in to replacing them:
+
+```bash
+npx @saas-ui/cli@rc migrate react-to-registry --write --overwrite
+```
+
+`--write` rewrites supported imports, installs required registry items, and
+synchronizes package declarations. Source and `components.json` writes are
+rolled back if migration or template application fails. Package-manager
+lockfile and install side effects are outside that rollback.
+
+:::
+
+## Typical import changes
+
+Chakra primitives move to Chakra directly:
+
+```tsx
+// Before
+import { Box, Button, HStack } from '@saas-ui/react'
+
+// After
+import { Box, Button, HStack } from '@chakra-ui/react'
+```
+
+Styled compositions become local imports. The path follows the `ui` alias in
+`components.json` (default `#components/ui`):
+
+```tsx
+// Before
+import { AppShell, Sidebar } from '@saas-ui/react'
+
+// After
+import { AppShell } from '#components/ui/app-shell'
+import { Sidebar } from '#components/ui/sidebar'
+```
+
+Unstyled primitives such as `useSidebar` may still come from the current
+`@saas-ui/react` package. Installed templates can depend on those primitives;
+application code should import the styled template, not reconstruct it from
+the primitive.
+
+## Provider and color mode
+
+Prefer the provider installed by `init`. It composes Chakra with the preset,
+the local link adapter, and the selected color-mode setup:
+
+```tsx
+import { Provider } from '#components/setup/provider/provider'
+
+export function AppProviders(props: { children: React.ReactNode }) {
+  return <Provider>{props.children}</Provider>
+}
+```
+
+Custom theme extensions should extend the preset config. Do not import legacy
+`baseTheme` or `theme` exports from `@saas-ui/react`:
+
+```tsx
+import { createSystem, defineConfig } from '@chakra-ui/react'
+import { defaultConfig } from '@saas-ui/chakra-preset'
+
+const appConfig = defineConfig({
+  theme: {
+    tokens: {
+      colors: {
+        brand: { 500: { value: '#6d28d9' } },
+      },
+    },
+  },
+})
+
+export const system = createSystem(defaultConfig, appConfig)
+```
+
+## When the command stops
+
+The migration fails closed instead of guessing when it cannot preserve
+semantics. Review every diagnostic marked `manual`, especially for:
+
+- Namespace, dynamic, CommonJS, or computed imports
+- Malformed static imports, re-exports, and unknown deep imports
+- Wrappers around `SuiProvider`, custom theme merging, or app-specific link
+  and color-mode behavior
+- Locally forked Saas UI components, or components whose public props changed
+- Generated, vendored, ignored, or symlink source
+- A partial path or glob scan while other files still import the legacy
+  package
+- Package scripts, tests, stories, and code samples that do not contain a
+  complete supported static import
+- Packages such as forms, hooks, or authentication, which have their own
+  release boundary
+- Direct `@saas-ui/modals` or `@saas-ui/modals-provider` usage — install the
+  `modals` registry item and import it from the local UI alias
+
+MDX is included in the scan. Complete static ESM imports at the start of a
+line and inside `js` / `jsx` / `ts` / `tsx` fences are rewritten. Surrounding
+prose is left alone.
+
+## Verify the upgrade
+
+After each batch, run the project formatter, typecheck, tests, and a
+production build. Visual and interaction tests matter where a Chakra v2-style
+API was converted to Chakra v3 compound components.
+
+Finish only after all of these are true:
+
+1. The migration report has no required manual action.
+2. Application source no longer imports Chakra primitives from
+   `@saas-ui/react`.
+3. Every required composition is installed locally and listed in
+   `components.json`.
+4. The provider uses `@saas-ui/chakra-preset` and the intended color-mode
+   setup.
+5. Typecheck, tests, and a production build pass.
+
+## Pro blocks
+
+Authenticate before installing items that require a Saas UI Pro account:
+
+```bash
+npx @saas-ui/cli@rc login
+npx @saas-ui/cli@rc add <pro-block-name>
+```
+
+Pro blocks are installed as source, the same as public items. Public UI
+dependencies resolve from the public registry. Do not commit CLI credentials.
+
+## Add more components
+
+After the migration, install additional compositions the same way as a new
+project:
+
+```bash
+npx @saas-ui/cli@rc add sidebar
+npx @saas-ui/cli@rc add sidebar --dry-run
+```
+
+See the [CLI](/docs/getting-started/cli) guide for `diff`, `update`, and
+flags.

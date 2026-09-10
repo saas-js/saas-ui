@@ -1,0 +1,66 @@
+---
+title: Configure your theme
+description: How to configure and customize your theme.
+---
+
+## Configure your theme
+
+You can find you base theme in `apps/web/theme/preset.ts`, this is where you can
+customize your theme.
+
+Read more about theme customization on the
+[Saas UI website](https://beta.saas-ui.dev/docs/theming/overview).
+
+```tsx
+import { defaultConfig } from '@saas-ui-pro/react'
+import { createSystem, defineConfig, defineRecipe } from '@chakra-ui/react/styled-system'
+
+import { colors } from './semantic-tokens/colors'
+
+const buttonRecipe = defineRecipe({
+  variants: {
+    variant: {
+      primary:
+        defaultConfig.theme?.recipes?.button?.variants?.variant?.glass ?? {},
+      secondary:
+        defaultConfig.theme?.recipes?.button?.variants?.variant?.surface ?? {},
+      tertiary:
+        defaultConfig.theme?.recipes?.button?.variants?.variant?.ghost ?? {},
+    },
+  },
+  defaultVariants: {
+    variant: 'secondary',
+  },
+})
+
+const config = defineConfig({
+  theme: {
+    recipes: {
+      button: buttonRecipe,
+    },
+    slotRecipes: {
+      suiPage: {
+        slots: ['root'],
+        variants: {
+          variant: {
+            panel: {
+              root: {
+                bg: 'bg.content',
+              },
+            },
+          },
+        },
+      },
+    },
+    semanticTokens: {
+      colors,
+    },
+  },
+})
+
+export const system = createSystem(defaultConfig, config)
+```
+
+The theme extends the Saas UI Pro default theme and includes a set of
+[semantic tokens](https://beta.saas-ui.dev/docs/theming/semantic-tokens) and
+custom component styles.

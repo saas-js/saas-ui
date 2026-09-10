@@ -1,0 +1,43 @@
+{
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset"
+  ],
+  "files": [
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\nimport { cloneElement, isValidElement } from 'react'\n\nimport {\n  type HTMLChakraProps,\n  chakra,\n  useRecipe,\n} from '@chakra-ui/react/styled-system'\nimport type { RecipeProps } from '@saas-ui/chakra-preset'\nimport {\n  type IconBadgeVariantProps,\n  iconBadgeRecipe,\n} from '@saas-ui/chakra-preset/recipes/icon-badge'\n\nconst cx = (...classNames: Array<string | undefined>) =>\n  classNames.filter(Boolean).join(' ')\n\n////////////////////////////////////////////////////////////////////////////////////\n\nexport interface IconBadgeProps\n  extends\n    HTMLChakraProps<'div'>,\n    RecipeProps<'suiIconBadge', IconBadgeVariantProps>,\n    IconBadgeVariantProps {\n  /**\n   * The icon to display\n   */\n  icon?: React.ReactNode\n\n  /**\n   * A11y: A label that describes the icon\n   */\n  'aria-label'?: string\n}\n\nexport const IconBadge = React.forwardRef<HTMLDivElement, IconBadgeProps>(\n  (props, ref) => {\n    const { icon, children, ...rest } = props\n    const recipe = useRecipe({\n      key: 'suiIconBadge',\n      recipe: props.recipe ?? iconBadgeRecipe,\n    })\n    const [variantProps, localProps] = recipe.splitVariantProps(rest)\n    const styles = recipe(variantProps)\n\n    /**\n     * Passing the icon as prop or children should work\n     */\n    const element = icon || children\n    const _children = isValidElement(element)\n      ? cloneElement(element as any, {\n          'aria-hidden': true,\n          focusable: false,\n        })\n      : null\n\n    return (\n      <chakra.div\n        ref={ref}\n        {...localProps}\n        css={[styles, props.css]}\n        className={cx(recipe.className, props.className)}\n      >\n        {_children}\n      </chakra.div>\n    )\n  },\n)\n",
+      "path": "ui/icon-badge/icon-badge.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { IconBadge } from './icon-badge.tsx'\nexport type { IconBadgeProps } from './icon-badge.tsx'\n",
+      "path": "ui/icon-badge/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/icon-badge/icon-badge.tsx": "34eaeed78606e4ec13b6ac7af519fcf86bc661c49ee410bcb8294a0b9e94e4d2",
+        "ui/icon-badge/index.ts": "6ebf09281c0369142b3ae548c2ca6ec4ac29f11a3f89feda9a23ab8a681b7f20"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset",
+        "@saas-ui/chakra-preset/recipes/icon-badge"
+      ],
+      "presetRecipeBindings": [
+        "iconBadge"
+      ],
+      "recipeReferences": [
+        "suiIconBadge"
+      ]
+    },
+    "contentHash": "7fc9fcd5d7150e1dc6c7510a6212d305779add3f4b6b16271a76df2b24a9f7e9"
+  },
+  "name": "icon-badge",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

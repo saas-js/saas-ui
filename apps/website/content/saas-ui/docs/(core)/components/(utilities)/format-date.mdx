@@ -1,0 +1,68 @@
+---
+title: Format Date
+description: Used to format dates to a specific locale and options
+links:
+  source: components/format-date
+---
+
+## Usage
+
+The date formatting logic is handled by the native `Intl.DateTimeFormat` API and
+cached per locale and options combination to avoid performance issues.
+
+```jsx
+import { FormatDate } from '#components/ui/format-date'
+```
+
+```jsx
+<FormatDate value={date} day="numeric" month="short" year="numeric" />
+```
+
+The `value` accepts a `Date`, a timestamp or a date string. Date-only strings
+like `2026-03-18` are parsed as local calendar dates, so the rendered date never
+shifts with the timezone of the visitor.
+
+## Examples
+
+### Options
+
+`FormatDate` follows the same conventions as the Ark UI format components,
+[FormatNumber](/docs/components/format-number) and
+[FormatByte](/docs/components/format-byte). All `Intl.DateTimeFormat` options
+are supported as props.
+
+```jsx
+<FormatDate value="2026-03-18" dateStyle="long" />
+<FormatDate value="2026-03-18" day="2-digit" month="2-digit" year="numeric" />
+<FormatDate value={new Date()} hour="numeric" minute="numeric" />
+```
+
+### Locale
+
+Wrap the `FormatDate` component within the `LocaleProvider` to change the
+locale.
+
+```jsx
+<LocaleProvider locale="nl-NL">
+  <FormatDate value="2026-03-18" day="numeric" month="long" year="numeric" />
+</LocaleProvider>
+```
+
+### Data Table
+
+The [DataTable](/docs/components/data-table) `DateCell` renders `FormatDate`
+under the hood, and accepts the same `Intl.DateTimeFormat` options.
+
+```tsx
+columnHelper.accessor('renewal', {
+  header: 'Renewal',
+  cell: ({ cell }) => <cell.DateCell month="short" day="numeric" />,
+})
+```
+
+## Props
+
+The `FormatDate` component supports all `Intl.DateTimeFormat` options in
+addition to the following props:
+
+<PropTable component="FormatDate" part="FormatDate" />

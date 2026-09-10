@@ -1,0 +1,342 @@
+---
+title: CLI Reference
+description: Complete command reference for Iconx CLI
+---
+
+# CLI Reference
+
+## Global Options
+
+```bash
+iconx [command] [options]
+```
+
+### Help
+
+```bash
+iconx --help
+iconx -h
+```
+
+### Version
+
+```bash
+iconx --version
+iconx -V
+```
+
+## Commands
+
+### `init`
+
+Initialize an `icons.json` configuration file in your project root.
+
+```bash
+iconx init
+```
+
+**Interactive prompts:**
+
+- Output directory for generated icons
+- Default icon set (e.g., lucide, heroicons, tabler)
+- Default icon size
+
+**Generated file:**
+
+```json
+{
+  "$schema": "https://saas-js.dev/icons/schema.json",
+  "outputDir": "/src/components/icons",
+  "defaultIconSet": "lucide",
+  "iconSize": "1em",
+  "aliases": {}
+}
+```
+
+### `add`
+
+Add icons to your project by generating React components.
+
+```bash
+iconx add [options] <icon-names...>
+```
+
+**Arguments:**
+
+- `<icon-names...>` - One or more icon names to add
+
+**Options:**
+
+- `-s, --set <icon-set>` - Icon set to use (optional if defaultIconSet is
+  configured)
+- `-o, --outdir <path>` - Output directory for generated icons
+
+**Examples:**
+
+```bash
+# Basic usage with explicit icon set
+iconx add --set lucide home user settings
+
+# Using short flag
+iconx add -s heroicons home user settings
+
+# Using default icon set (if configured in icons.json)
+iconx add home user settings
+
+# Custom output directory
+iconx add --set lucide --outdir ./src/icons home user
+
+# Short flags
+iconx add -s lucide -o ./src/icons home user
+
+# Add multiple icons at once
+iconx add --set lucide home user settings mail search edit trash plus minus
+
+# Add multiple icons at once with aliases
+iconx add house:home cog:settings user:profile
+```
+
+### `list`
+
+List all available icon sets.
+
+```bash
+iconx list
+```
+
+### `search`
+
+Search for icons in the specified icon set.
+
+```bash
+iconx search [options] <query>
+```
+
+**Arguments:**
+
+- `--set <icon-set>` - Icon set to search in
+- `<query>` - Query to search for
+
+### `mcp`
+
+Start the MCP (Model Context Protocol) server for AI-assisted icon management.
+
+```bash
+iconx mcp
+```
+
+This starts a server that can be used by AI assistants to help manage your
+icons. The MCP server provides:
+
+- Icon search capabilities
+- Automated icon addition
+- Configuration management
+- Icon set browsing
+
+## Exit Codes
+
+- `0` - Success
+- `1` - General error
+- `2` - Configuration error
+- `3` - Network error
+- `4` - File system error
+
+## Common Usage Patterns
+
+### Project Setup
+
+```bash
+# Initialize new project
+iconx init
+
+# Add common icons
+iconx add --set lucide home user settings mail search
+```
+
+### Feature-based Icon Addition
+
+```bash
+# Authentication icons
+iconx add --set lucide log-in log-out user-plus user-minus
+
+# Navigation icons
+iconx add --set lucide home dashboard settings help
+
+# Action icons
+iconx add --set lucide plus minus edit trash save
+```
+
+### Working with Multiple Icon Sets
+
+```bash
+# Lucide icons for general UI
+iconx add --set lucide home user settings
+
+# Heroicons for specific components
+iconx add --set heroicons academic-cap beaker
+
+# Font Awesome for brand icons
+iconx add --set fa-brands github twitter linkedin
+```
+
+## Error Handling
+
+### Common Errors
+
+**Configuration not found:**
+
+```bash
+Error: No icons.json configuration found. Run 'iconx init' first.
+```
+
+**Invalid icon set:**
+
+```bash
+Error: Icon set 'invalid-set' not found.
+Available sets: lucide, heroicons, tabler, feather, etc.
+```
+
+**Icon not found:**
+
+```bash
+Error: Icon 'invalid-icon' not found in set 'lucide'.
+Try browsing available icons at https://icon-sets.iconify.design/lucide
+```
+
+**Network error:**
+
+```bash
+Error: Failed to fetch icon data. Check your internet connection.
+```
+
+**File system error:**
+
+```bash
+Error: Cannot write to output directory '/src/components/icons'.
+Check permissions and ensure the directory exists.
+```
+
+### Debugging
+
+Enable verbose output for debugging:
+
+```bash
+DEBUG=icons:* iconx add --set lucide home user
+```
+
+## Tips and Best Practices
+
+### 1. Use Consistent Icon Sets
+
+```bash
+# Good: Stick to one primary icon set
+iconx add --set lucide home user settings mail
+
+# Avoid: Mixing different styles
+iconx add --set lucide home
+iconx add --set heroicons user  # Different style
+```
+
+### 2. Batch Icon Addition
+
+```bash
+# Good: Add related icons together
+iconx add --set lucide home user settings mail search edit trash plus minus
+
+# Less efficient: Add icons one by one
+iconx add --set lucide home
+iconx add --set lucide user
+iconx add --set lucide settings
+```
+
+### 3. Use Aliases for Better Names
+
+Set up aliases in your `icons.json`:
+
+```json
+{
+  "aliases": {
+    "house": "home",
+    "cog": "settings",
+    "envelope": "mail"
+  }
+}
+```
+
+Then use the original names:
+
+```bash
+iconx add house cog envelope
+```
+
+### 4. Organize Output Directory
+
+```bash
+# Feature-based organization
+iconx add --set lucide --outdir ./src/icons/navigation home dashboard
+iconx add --set lucide --outdir ./src/icons/actions plus minus edit trash
+```
+
+### 5. Check Icon Availability
+
+Before adding icons, check if they exist:
+
+1. Visit [Iconify Icon Sets](https://icon-sets.iconify.design/)
+2. Browse your chosen icon set
+3. Copy the exact icon names
+
+## Integration with Build Tools
+
+### Next.js
+
+```bash
+# Add to Next.js project
+iconx init
+# Configure outputDir: "./components/icons"
+iconx add --set lucide home user settings
+```
+
+### Vite
+
+```bash
+# Add to Vite project
+iconx init
+# Configure outputDir: "./src/components/icons"
+iconx add --set lucide home user settings
+```
+
+## Continuous Integration
+
+### GitHub Actions
+
+```yaml
+name: Update Icons
+on:
+  push:
+    paths:
+      - 'icons.json'
+
+jobs:
+  update-icons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install -g iconx
+      - run: iconx add --set lucide home user settings
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update icons" || exit 0
+          git push
+```
+
+## Next Steps
+
+- [Configuration](/packages/iconx/docs/reference/configuration) - Detailed configuration
+  options
+- [Icon Sets](/packages/iconx/docs/reference/icon-sets) - Browse available icon sets

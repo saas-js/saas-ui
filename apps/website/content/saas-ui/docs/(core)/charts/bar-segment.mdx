@@ -1,0 +1,63 @@
+---
+title: Bar Segment
+description: A part-to-whole bar with optional labels, values, legend and a reference marker.
+---
+
+`BarSegment` splits a single bar into colored segments. Each datum needs a
+`name`, `value` and `color`.
+
+<ExampleTabs name="bar-segment-basic" />
+
+## Usage
+
+```tsx
+import { BarSegment, useChart } from '@saas-ui/charts'
+```
+
+```tsx
+const chart = useChart({
+  data: [
+    { name: 'Starter', value: 70, color: 'indigo.solid' },
+    { name: 'Pro', value: 40, color: 'pink.solid' },
+    { name: 'Enterprise', value: 25, color: 'fg' },
+  ],
+})
+
+<BarSegment.Root chart={chart}>
+  <BarSegment.Content>
+    <BarSegment.Bar tooltip />
+  </BarSegment.Content>
+</BarSegment.Root>
+```
+
+## Anatomy
+
+```tsx
+<BarSegment.Root chart={chart}>
+  <BarSegment.Content>
+    <BarSegment.Label />
+    <BarSegment.Bar tooltip>
+      <BarSegment.Reference value={80} label="Limit" />
+    </BarSegment.Bar>
+    <BarSegment.Value />
+  </BarSegment.Content>
+  <BarSegment.Legend showValue showPercent />
+</BarSegment.Root>
+```
+
+Segment width is the value's share of the total. `BarSegment.Label` and
+`BarSegment.Value` use the same flex basis so they line up with the bar.
+
+## Legend
+
+`BarSegment.Legend` lists each segment with a swatch. Set `showValue` and
+`showPercent` to print the number and share.
+
+<ExampleTabs name="bar-segment-with-legend" />
+
+## Reference
+
+`BarSegment.Reference` draws a marker at an absolute value on the same
+scale, useful for a quota or limit.
+
+<ExampleTabs name="bar-segment-with-reference" />

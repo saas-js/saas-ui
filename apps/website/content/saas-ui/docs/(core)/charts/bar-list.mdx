@@ -1,0 +1,78 @@
+---
+title: Bar List
+description: Ranked HTML bars for traffic, leaders and share-of-total lists.
+---
+
+`BarList` is an HTML composition. It uses the same `useChart` instance, but
+lays bars out with Chakra instead of SVG marks. Use it when you want labels
+and values in the document flow.
+
+<ExampleTabs name="bar-list-basic" />
+
+## Usage
+
+```tsx
+import { BarList, useChart } from '@saas-ui/charts'
+```
+
+```tsx
+const chart = useChart({
+  data: [
+    { name: 'Direct', value: 1240 },
+    { name: 'Organic', value: 890 },
+  ],
+  series: [{ name: 'name', color: 'indigo.solid' }],
+})
+
+<BarList.Root chart={chart}>
+  <BarList.Content>
+    <BarList.Label title="Source">
+      <BarList.Bar tooltip />
+    </BarList.Label>
+    <BarList.Label title="Visitors" titleAlignment="end">
+      <BarList.Value />
+    </BarList.Label>
+  </BarList.Content>
+</BarList.Root>
+```
+
+Each row needs a `name` and a numeric `value`. Set the series `name` to
+`"name"` so `BarList.Bar` can read the series color.
+
+## Anatomy
+
+```tsx
+<BarList.Root chart={chart}>
+  <BarList.Title />
+  <BarList.Content>
+    <BarList.Label title="Source">
+      <BarList.Bar tooltip />
+    </BarList.Label>
+    <BarList.Label title="Visitors" titleAlignment="end">
+      <BarList.Value />
+    </BarList.Label>
+  </BarList.Content>
+</BarList.Root>
+```
+
+- `BarList.Bar` draws the bar and optional hover tooltip
+- `BarList.Value` prints the compact-formatted number
+- `barSize` on `Root` sets the row height from a size token
+
+Pass a function to `BarList.Bar`'s `label` or `tooltip` props to customize
+the row content.
+
+## Sorted
+
+Pass `sort` to `useChart` to rank the rows without mutating your source
+data.
+
+<ExampleTabs name="bar-list-sorted" />
+
+```tsx
+const chart = useChart({
+  data,
+  sort: { by: 'value', direction: 'desc' },
+  series: [{ name: 'name', color: 'teal.solid' }],
+})
+```

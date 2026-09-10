@@ -1,0 +1,63 @@
+---
+title: Overview
+description: How theming works in the Saas UI Chakra preset.
+---
+
+Saas UI ships a Chakra preset, not a parallel theme engine.
+`@saas-ui/chakra-preset` is the source of tokens, semantic colors, recipes, and
+the appearance contract. Use `defaultSystem` unless you need a custom
+appearance.
+
+```tsx
+import { defaultSystem } from '@saas-ui/chakra-preset'
+```
+
+The styling engine, style props, and recipe API come from Chakra. This section
+documents only what the preset adds.
+
+## What the preset defines
+
+- **Appearance** — OKLCH seeds (`--sui-base`, `--sui-accent`, sidebar) that
+  generate surfaces, accent, and status palettes in CSS
+- **Color system** — appearance roles (`base`, `accent`, `info`, `success`,
+  `warning`, `destructive`) plus an optional named hue catalog
+- **Semantic tokens** — `bg`, `fg`, `border`, `status`, `presence`, `shadow`,
+  and role radii
+- **Control scale** — shared heights and radii for buttons, inputs, and
+  indicators
+- **Motion** — `--motion-fast|medium|slow` bands and `--ease-standard`
+- **Recipes** — components wired to those tokens (`colorPalette.solid`,
+  `radii.control`, `sizes.control.md`)
+- **Utilities** — `focusRing` / `focusVisibleRing` and extra conditions
+
+## Start here
+
+:::card-group
+
+<Card title="Appearance" href="/docs/theming/appearance">
+
+Seeds, `createAppearance`, and the CSS variables that restyle a product.
+
+</Card>
+
+<Card title="Color system" href="/docs/theming/color-system">
+
+Accent, status, destructive, and when to use a named hue.
+
+</Card>
+
+<Card title="Theme" href="/docs/theming/theme">
+
+The `Theme` component: light/dark, radii, scale, and overlay.
+
+</Card>
+
+<Card title="Customization" href="/docs/theming/customization/overview">
+
+Merge a custom appearance or tokens onto `defaultConfig`.
+
+</Card>
+
+:::
+
+Token tables live under [Design tokens](/docs/theming/colors).

@@ -3,7 +3,45 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "*/dist/**"]
+      "outputs": ["dist/**", ".next/**", "*/dist/**"],
+      "env": [
+        "SUPABASE_URL",
+        "SUPABASE_ANON_KEY",
+        "AUTH_ORIGIN",
+        "REGISTRY_URL",
+        "SCHEMA_URL"
+      ]
+    },
+    "website#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/apps/website/registry/default/**",
+        "!$TURBO_ROOT$/apps/website/registry/default/**/node_modules/**",
+        "$TURBO_ROOT$/apps/website/registry/registry-icons.ts",
+        "$TURBO_ROOT$/packages/saas-ui-chakra-preset/src/**",
+        "$TURBO_ROOT$/packages/saas-ui-registry/src/**",
+        "$TURBO_ROOT$/tooling/registry/**"
+      ],
+      "outputs": [".next/**", "public/r/**", "__registry__/**"],
+      "env": [
+        "SUPABASE_URL",
+        "SUPABASE_ANON_KEY",
+        "AUTH_ORIGIN",
+        "REGISTRY_URL",
+        "SCHEMA_URL"
+      ]
+    },
+    "@saas-ui/cli#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["lib/**"],
+      "env": [
+        "SUPABASE_URL",
+        "SUPABASE_ANON_KEY",
+        "AUTH_ORIGIN",
+        "REGISTRY_URL",
+        "SCHEMA_URL"
+      ]
     },
     "test": {
       "dependsOn": ["^build"],
@@ -20,6 +58,17 @@
     },
     "dev": {
       "cache": false
+    },
+    "registry:generate": {
+      "inputs": [
+        "$TURBO_ROOT$/apps/website/registry/default/**",
+        "!$TURBO_ROOT$/apps/website/registry/default/**/node_modules/**",
+        "$TURBO_ROOT$/apps/website/registry/registry-icons.ts",
+        "$TURBO_ROOT$/packages/saas-ui-chakra-preset/src/**",
+        "$TURBO_ROOT$/packages/saas-ui-registry/src/**",
+        "$TURBO_ROOT$/tooling/registry/**"
+      ],
+      "outputs": ["public/r/**", "__registry__/**"]
     }
   }
 }

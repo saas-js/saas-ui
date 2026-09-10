@@ -1,0 +1,15 @@
+@import '../src/reset.css';
+@import '../src/global-theme.css';
+
+html,
+body,
+#storybook-root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--sui-colors-bg);
+  color: var(--sui-colors-fg);
+  font-family: var(--sui-fonts-body);
+}

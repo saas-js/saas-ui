@@ -1,0 +1,70 @@
+{
+  "createFilters": {
+    "props": {
+      "fields": {
+        "type": "ConditionFields",
+        "description": "The filterable fields: type, label, validation schema, operators and options. Builds the conditions definition inline; it is exposed as `filters.definition`. Provide either `fields` or `definition`."
+      },
+      "operators": {
+        "type": "ConditionOperators",
+        "description": "Custom operator registry for the inline `fields` form.",
+        "defaultValue": "defaultOperators"
+      },
+      "definition": {
+        "type": "ConditionsDefinition",
+        "description": "A conditions definition created with `defineConditions`, as an alternative to `fields` — use this when the definition is shared with non-UI code."
+      },
+      "valueEditors": {
+        "type": "Record<string, ValueEditorComponent>",
+        "description": "Value editors by field type, merged over the built-in string, number, date and option editors."
+      },
+      "fieldValueEditors": {
+        "type": "Record<string, ValueEditorComponent>",
+        "description": "Value editors for a specific field, taking precedence over the type editors."
+      },
+      "operatorValueEditors": {
+        "type": "Record<string, ValueEditorComponent>",
+        "description": "Value editors for a specific operator."
+      },
+      "operatorLabels": {
+        "type": "Record<string, string>",
+        "description": "Compact operator labels shown in the chips, merged over the built-in overrides (`gt` `>`, `gte` `≥`, `lt` `<`, `lte` `≤`). Unmapped operators use the operator label from the definition."
+      },
+      "formatValue": {
+        "type": "(context: { fieldId, field, value }) => string | undefined",
+        "description": "Formats a committed value for display in a chip. Return `undefined` to fall back to the default formatting (option labels, localized dates, Yes/No booleans)."
+      }
+    }
+  },
+  "FilterBar": {
+    "props": {
+      "children": {
+        "type": "React.ReactNode",
+        "description": "Replaces the default composition (chips, add button, clear button). Compose your own bar from `conditions.FilterChips`, `conditions.AddFilterButton` and `conditions.ClearFiltersButton`."
+      }
+    }
+  },
+  "AddFilterButton": {
+    "props": {
+      "parentId": {
+        "type": "string",
+        "description": "The condition group to add the condition to.",
+        "defaultValue": "the root group"
+      },
+      "children": {
+        "type": "React.ReactNode",
+        "description": "The button content.",
+        "defaultValue": "Filter"
+      }
+    }
+  },
+  "ClearFiltersButton": {
+    "props": {
+      "children": {
+        "type": "React.ReactNode",
+        "description": "The button content. The button only renders while at least one filter is active.",
+        "defaultValue": "Clear"
+      }
+    }
+  }
+}

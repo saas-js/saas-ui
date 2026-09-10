@@ -1,0 +1,141 @@
+---
+title: Basic usage
+description: Define fields once, then create stores and mutate a typed query.
+---
+
+## Define conditions
+
+`fields` and optional `operators` are the only definition properties. Field
+`type` is UI and operator metadata — Standard Schema infers and validates
+values, but does not tell a picker whether to render a date input, number
+field, or combobox.
+
+```ts
+import { defineConditions } from '@saas-js/conditions'
+import { z } from 'zod'
+
+export const contacts = defineConditions({
+  fields: {
+    status: {
+      type: 'enum',
+      label: 'Status',
+      schema: z.enum(['lead', 'customer', 'churned']),
+      operators: ['equals', 'not', 'in'],
+      defaultOperator: 'equals',
+      options: [
+        { value: 'lead', label: 'Lead' },
+        { value: 'customer', label: 'Customer' },
+        { value: 'churned', label: 'Churned' },
+      ],
+    },
+    company: {
+      type: 'string',
+      label: 'Company',
+      schema: z.string().min(1),
+      operators: ['contains', 'equals', 'startsWith', 'isNull'],
+      defaultOperator: 'contains',
+    },
+    arr: {
+      type: 'number',
+      label: 'ARR',
+      schema: z.coerce.number().min(0),
+      operators: ['equals', 'gte', 'lte', 'between'],
+      defaultOperator: 'gte',
+    },
+    createdAt: {
+      type: 'date',
+      label: 'Created',
+      schema: z.coerce.date(),
+      operators: ['gte', 'lte', 'between'],
+      defaultOperator: 'gte',
+    },
+  },
+})
+```
+
+Share this definition between filter UIs, rule builders, server validation,
+and as many independent stores as you need.
+
+Async option sources belong on the field. Pass a function instead of a static
+list — React editors opt in with `useConditionOptions`.
+
+```ts
+owner: {
+  type: 'string',
+  label: 'Owner',
+  schema: z.string(),
+  operators: ['equals', 'not'],
+  options: async ({ query, signal }) => loadOwners(query, signal),
+}
+```
+
+## Create a store
+
+```ts
+const store = contacts.createStore({
+  onValueChange({ value }) {
+    console.log(value)
+  },
+})
+
+store.actions.addCondition({
+  id: 'active',
+  field: 'status',
+  value: 'customer',
+})
+
+store.actions.addCondition({
+  id: 'pending',
+  field: 'status',
+  value: 'lead',
+})
+
+store.actions.group(['active', 'pending'], 'or', {
+  id: 'allowed-statuses',
+})
+
+store.actions.addCondition({
+  id: 'adult',
+  field: 'arr',
+  operator: 'gte',
+  value: 50_000,
+})
+```
+
+This produces an AND root containing an OR status group and an ARR condition.
+Multiple conditions may target the same field because every expression has its
+own stable id.
+
+The store uses TanStack Store internally and exposes a framework-neutral
+`get()` and `subscribe()` interface. Mutations are immutable and validated
+before publication.
+
+## Nested groups
+
+`addGroup` returns the new group's id. Pass it as `parentId` when inserting
+children:
+
+```ts
+const revenue = store.actions.addGroup({ id: 'revenue', combinator: 'or' })
+
+store.actions.addCondition(
+  { field: 'arr', operator: 'gte', value: 50_000 },
+  { parentId: revenue },
+)
+
+store.actions.addCondition(
+  { field: 'createdAt', operator: 'gte', value: new Date('2025-01-01') },
+  { parentId: revenue },
+)
+// → (arr ≥ 50k OR created since 2025), ANDed with anything else on the root
+```
+
+Committed store operations require synchronous Standard Schema validators.
+Schema transformations run before a query is published, so committed values
+always contain the inferred schema output.
+
+## Next steps
+
+- [The query](/packages/conditions/docs/getting-started/the-query) — the
+  versioned tree the store holds
+- [Validate, evaluate, serialize](/packages/conditions/docs/getting-started/validate-evaluate)

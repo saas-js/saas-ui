@@ -1,0 +1,4 @@
+{
+  "title": "Deployments",
+  "pages": ["preparation", "netlify", "vercel"]
+}

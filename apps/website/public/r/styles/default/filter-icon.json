@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface FilterIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * filter\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const FilterIcon: React.FC<FilterIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"M22 3H2l8 9.46V19l4 2v-8.54z\"\n      />\n    </svg>\n  )\n}\n",
+      "path": "icons/filter-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/filter-icon.tsx": "8523fa4b7cd416c9cd9fbec31b7b46d1b57fe2ad833178e9bc37f3bf641f6ad3"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "FilterIcon",
+    "contentHash": "5cdcf2f0b3060050bbee812037fb0930da5bdc7c52d835ac765fd819c0108462",
+    "iconName": "Filter",
+    "iconSet": "lucide"
+  },
+  "name": "filter-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

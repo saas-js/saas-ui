@@ -1,48 +1,57 @@
 {
   "name": "@saas-ui/charts",
-  "version": "0.15.1",
+  "version": "3.0.0-rc.1",
+  "description": "Chakra UI theming for TanStack Charts",
+  "type": "module",
   "exports": {
     ".": {
       "sui": "./src/index.ts",
-      "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs"
-    },
-    "./src": {
-      "default": "./src/index.ts"
+      "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "build": "tsc --project tsconfig.json",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
+    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
+    "typecheck": "tsc --noEmit"
+  },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "tsup src/index.ts --config tsup.config.ts",
-    "lint": "TIMING=1 eslint src/**/*.ts* --fix",
-    "clean": "rm -rf dist"
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-charts"
   },
-  "dependencies": {
-    "@chakra-ui/styled-system": "^2.12.1",
-    "recharts": "2.15.4"
-  },
+  "keywords": [
+    "react",
+    "charts",
+    "tanstack",
+    "chakra-ui",
+    "saas-ui"
+  ],
   "peerDependencies": {
-    "@chakra-ui/react": "2.10.9",
-    "@emotion/react": ">=11",
-    "react": "18.3.1",
+    "@chakra-ui/react": ">=3",
+    "@tanstack/charts": ">=0.14.0",
+    "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@types/react": "18.3.23",
-    "@types/react-dom": "^18.3.2",
-    "date-fns": "^3.6.0",
-    "prop-types": "^15.8.1",
-    "tsup": "^8.5.0"
+    "@chakra-ui/react": "^3.36.1",
+    "@tanstack/charts": "^0.14.0",
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "typescript": "5.9.3"
   }
 }

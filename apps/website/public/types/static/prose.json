@@ -1,0 +1,29 @@
+{
+  "Prose": {
+    "props": {
+      "size": {
+        "type": "'md' | 'lg'",
+        "defaultValue": "md",
+        "isRequired": false,
+        "description": "The base font size of the content. Spacing is defined in em, so it scales along."
+      },
+      "maxWidth": {
+        "type": "SystemStyleObject['maxWidth']",
+        "defaultValue": "65ch",
+        "isRequired": false,
+        "description": "The maximum width of the content column."
+      },
+      "children": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "The HTML content to style. Can also be set with dangerouslySetInnerHTML."
+      },
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLDivElement"
+  }
+}

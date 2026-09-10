@@ -1,0 +1,50 @@
+{
+  "name": "@saas-ui/tailwind-preset",
+  "version": "0.0.2-next.3",
+  "description": "Tailwind CSS preset for Saas UI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/theme.css"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./theme.css": "./src/theme.css"
+  },
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "dev": "tsx scripts/build.ts --watch",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@ark-ui/react": "^5.30.0",
+    "tailwind-variants": "^0.2.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@storybook/react": "^10.2.0",
+    "@storybook/react-vite": "^10.2.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@types/node": "^24.0.4",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "fast-glob": "^3.3.2",
+    "prettier": "^3.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "storybook": "^10.2.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vite": "^6.3.6",
+    "@storybook/addon-docs": "^10.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

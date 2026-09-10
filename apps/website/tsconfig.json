@@ -1,62 +1,63 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "downlevelIteration": true,
-    "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"],
-      "@/components/*": ["src/components/*"],
-      "@/data/*": ["src/data/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/layouts/*": ["src/layouts/*"],
-      "@/lib/*": ["src/lib/*"],
-      "@/docs/*": ["src/docs/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@saas-ui/react": ["../../packages/saas-ui-react/src"],
-      "@saas-ui/forms": ["../../packages/saas-ui/forms/src"],
-      "@saas-ui/modals": ["../../packages/saas-ui/modals/src"],
-      "@saas-ui/hotkeys": ["../../packages/saas-ui/hotkeys/src"],
-      "@saas-ui/use-hotkeys": ["../../packages/saas-ui/use-hotkeys/src"],
-      "@saas-ui/data-table": ["../../packages/saas-ui/data-table/src"],
-      "@saas-ui-pro/feature-flags": [
-        "../../packages/pro/packages/feature-flags/src"
-      ],
-      "@saas-ui-pro/react": ["../../packages/pro/packages/react/src"],
-      "@saas-ui-pro/theme-glass": [
-        "../../packages/pro/packages/pro-theme-glass/src"
-      ],
-      "@saas-ui/theme-glass/components/src": [
-        "../../packages/saas-ui-theme-glass/src/components"
-      ],
-      "@saas-ui-pro/kanban": ["../../packages/pro/packages/kanban/src"]
-    },
-    "customConditions": ["sui-pro"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "incremental": true,
+    "allowImportingTsExtensions": true,
+    "customConditions": ["sui", "sui-pro"],
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "paths": {
+      "content-collections": ["./.content-collections/generated"],
+      "compositions/*": ["../compositions/src/*"],
+      "#components/*": ["./components/*"],
+      "#lib/*": ["./lib/*"],
+      "#utils/*": ["./utils/*"],
+      "#hooks/*": ["./hooks/*"],
+      "#theme/*": ["./theme/*"],
+      "#registry/*": ["./registry/*"],
+      "@/*": ["./*"]
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src",
-    ".next/types/**/*.ts"
+    ".velite",
+    ".next/types/**/*.ts",
+    "../compositions",
+    "next.config.mjs",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "**/node_modules",
+    "registry/panda/**",
+    ".next/types/validator.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "registry/**/*.stories.ts",
+    "registry/**/*.stories.tsx",
+    "registry/**/*.spec.ts",
+    "registry/**/*.spec.tsx",
+    "registry/**/*.test.ts",
+    "registry/**/*.test.tsx",
+    "registry/**/*.test-d.ts"
+  ]
 }

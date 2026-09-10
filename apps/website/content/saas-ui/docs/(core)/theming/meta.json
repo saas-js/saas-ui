@@ -1,0 +1,5 @@
+{
+  "title": "Theming",
+  "root": true,
+  "pages": ["(concepts)", "(compositions)", "(design-tokens)", "customization"]
+}

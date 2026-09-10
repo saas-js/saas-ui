@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface CalendarIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * calendar\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const CalendarIcon: React.FC<CalendarIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n      >\n        <path d=\"M8 2v4m8-4v4\" />\n        <rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\" />\n        <path d=\"M3 10h18\" />\n      </g>\n    </svg>\n  )\n}\n",
+      "path": "icons/calendar-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/calendar-icon.tsx": "65b249a4a467d2e1310157d50da87ecd473fd9710351e11c840fbd716b200df0"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "CalendarIcon",
+    "contentHash": "e8ed1168147cd7fae4556fbd94cd54de75311e669c6d1e936761cc3fb4dffcbe",
+    "iconName": "Calendar",
+    "iconSet": "lucide"
+  },
+  "name": "calendar-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

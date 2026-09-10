@@ -1,0 +1,16 @@
+---
+title: Z-Index
+description: Stacking tokens shipped with the Saas UI preset
+---
+
+Prefer the numbered layers for new UI. Named tokens (`dropdown`, `modal`,
+`tooltip`, …) remain for Chakra recipes that already use them.
+
+| Token | Value | Use |
+| ----- | ----- | --- |
+| `layer-1` | `1` | Local chrome (avatar badge) |
+| `layer-2` | `10` | Popovers, menus, tooltips |
+| `layer-3` | `100` | Sticky chrome above the page |
+| `layer-4` | `1000` | Dialogs and other escapes |
+
+<ZIndexTokenDoc />

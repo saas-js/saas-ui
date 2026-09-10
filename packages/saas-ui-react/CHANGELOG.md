@@ -1,47 +1,150 @@
 # @saas-ui/react
 
-## 2.11.4
+## 3.0.0-rc.0
+
+### Minor Changes
+
+- 6e6def9: Restore unstyled primitives as `@saas-ui/react` (formerly
+  `@saas-ui/core`) and have registry Sidebar, Navbar, and GridList templates
+  wrap that package.
+
+## 3.0.0-next.55
+
+### Major Changes
+
+- Publish the unstyled primitives previously released as `@saas-ui/core` under
+  `@saas-ui/react`. Styled Chakra compositions remain registry templates.
+
+## 3.0.0-next.14
 
 ### Patch Changes
 
-- Updated dependencies [091fd38]
-  - @saas-ui/forms@2.11.0
-  - @saas-ui/modals@2.4.4
-  - @saas-ui/data-table@13.0.4
+- 1da18bc: Fix import
 
-## 2.11.3
+## 3.0.0-next.13
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
 
 ### Patch Changes
 
-- Updated dependencies [eb53116]
-  - @saas-ui/forms@2.10.0
-  - @saas-ui/modals@2.4.3
-  - @saas-ui/data-table@13.0.3
+- Updated dependencies [550e5a6]
+  - @saas-ui/hooks@3.0.0-next.4
 
-## 2.11.2
+## 3.0.0-next.12
+
+### Patch Changes
+
+- a14347d: Mobile sidebar now closes when clicking nav buttons
+
+## 3.0.0-next.11
+
+### Patch Changes
+
+- bb98745: Fixed import extensions
+
+## 3.0.0-next.10
+
+### Patch Changes
+
+- Updated dependencies [6e53bc7]
+  - @saas-ui/hooks@3.0.0-next.3
+
+## 3.0.0-next.9
+
+### Patch Changes
+
+- Fix: subpath imports
+
+## 3.0.0-next.8
+
+### Patch Changes
+
+- c89b27d: Removed cjs exports
+
+## 3.0.0-next.7
+
+### Patch Changes
+
+- Updated dependencies [121029e]
+- Updated dependencies [121029e]
+  - @saas-ui/hooks@3.0.0-next.2
+
+## 3.0.0-next.6
+
+### Patch Changes
+
+- Fixed build
+
+## 3.0.0-next.5
+
+### Patch Changes
+
+- c2372f9: Removed duplicate SidebarProvider props
+
+## 3.0.0-next.4
+
+### Patch Changes
+
+- d87c2ac: Improved build and fixed types
+
+## 3.0.0-next.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @saas-ui/hooks@3.0.0-next.1
+
+## 3.0.0-next.2
+
+### Patch Changes
+
+- dae627e: Import HTMLArkProps as type
+
+## 3.0.0-next.1
+
+### Patch Changes
+
+- 860649d: Improved build speed and output
+
+## 3.0.0-next.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+
+### Minor Changes
+
+- f85d493: Added Sidebar.Context component that allows you to access sidebar
+  context using a render prop
+- f85d493: Sidebar mode can now be controlled using the sidebar context
+- 95c8652: Update to Chakra UI 3.2.1
+- eb02362: Improved GridList aria props
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- cee2e9c: Removed chakra ui dependency of core package
+- 6f9f04d: Fixed issue where Sidebar mode could not be controlled
+- 0f49a18: Removed imports from @chakra-ui/react
+- Updated dependencies [550e5a6]
+- Updated dependencies [95c8652]
+- Updated dependencies [cee2e9c]
+- Updated dependencies [6459de4]
+- Updated dependencies [0f49a18]
+  - @saas-ui/hooks@3.0.0-next.0
+
+## 2.8.1
 
 ### Patch Changes
 
 - 862937a: Bump chakra version
 - Updated dependencies [862937a]
-  - @saas-ui/data-table@13.0.2
-  - @saas-ui/nprogress@2.2.1
-  - @saas-ui/hotkeys@2.5.1
-  - @saas-ui/modals@2.4.2
-  - @saas-ui/forms@2.9.1
+  - @saas-ui/react-utils@2.2.1
   - @saas-ui/theme@2.6.1
-  - @saas-ui/core@2.8.1
 
-## 2.11.1
-
-### Patch Changes
-
-- Updated dependencies [a69829a]
-  - @saas-ui/hooks@2.3.0
-  - @saas-ui/modals@2.4.1
-  - @saas-ui/data-table@13.0.1
-
-## 2.11.0
+## 2.8.0
 
 ### Minor Changes
 
@@ -50,95 +153,38 @@
 ### Patch Changes
 
 - Updated dependencies [803ede7]
-  - @saas-ui/data-table@13.0.0
-  - @saas-ui/nprogress@2.2.0
-  - @saas-ui/hotkeys@2.5.0
-  - @saas-ui/modals@2.4.0
-  - @saas-ui/forms@2.9.0
-  - @saas-ui/hooks@2.2.0
+  - @saas-ui/react-utils@2.2.0
   - @saas-ui/theme@2.6.0
-  - @saas-ui/core@2.8.0
 
-## 2.10.5
+## 2.7.2
 
 ### Patch Changes
 
 - c9daf50: Fixed issue where link component prop would not be passed to NavItem
-- Updated dependencies [c9daf50]
-  - @saas-ui/core@2.7.2
-  - @saas-ui/data-table@12.0.5
-  - @saas-ui/forms@2.8.2
-  - @saas-ui/hotkeys@2.4.2
-  - @saas-ui/modals@2.3.5
 
-## 2.10.4
+## 2.7.1
 
 ### Patch Changes
 
-- a863a5e: Updated package type to fix next 15 support
-- Updated dependencies [a863a5e]
-  - @saas-ui/modals@2.3.4
-  - @saas-ui/data-table@12.0.4
+- 5e24ec4: Fixed issue where as prop on NavItem would always be overruled by
+  internal Link prop if href is passed
 
-## 2.10.3
-
-### Patch Changes
-
-- Updated dependencies
-  - @saas-ui/modals@2.3.3
-  - @saas-ui/data-table@12.0.3
-
-## 2.10.2
-
-### Patch Changes
-
-- 7669720: Fixed publint issues
-- Updated dependencies [7669720]
-  - @saas-ui/modals@2.3.2
-  - @saas-ui/data-table@12.0.2
-
-## 2.10.1
-
-### Patch Changes
-
-- 5e24ec4: Fixed issue where as prop on NavItem would always be overruled by internal Link prop if href is passed
-- Updated dependencies [5e24ec4]
-  - @saas-ui/core@2.7.1
-  - @saas-ui/data-table@12.0.1
-  - @saas-ui/forms@2.8.1
-  - @saas-ui/hotkeys@2.4.1
-  - @saas-ui/modals@2.3.1
-
-## 2.10.0
+## 2.7.0
 
 ### Minor Changes
 
 - fc799df: Removed deprecated Chakra UI dependency
 
-### Patch Changes
-
-- Updated dependencies [fc799df]
-  - @saas-ui/hotkeys@2.4.0
-  - @saas-ui/modals@2.3.0
-  - @saas-ui/forms@2.8.0
-  - @saas-ui/core@2.7.0
-  - @saas-ui/data-table@12.0.0
-
-## 2.9.1
+## 2.6.1
 
 ### Patch Changes
 
 - f0ee3db: Updated to Chakra 2.10
 - Updated dependencies [f0ee3db]
-  - @saas-ui/data-table@11.0.1
-  - @saas-ui/nprogress@2.1.1
-  - @saas-ui/hotkeys@2.3.1
-  - @saas-ui/modals@2.2.1
-  - @saas-ui/forms@2.7.1
+  - @saas-ui/react-utils@2.1.1
   - @saas-ui/theme@2.5.1
-  - @saas-ui/core@2.6.1
 
-## 2.9.0
+## 2.6.0
 
 ### Minor Changes
 
@@ -147,500 +193,208 @@
 ### Patch Changes
 
 - Updated dependencies [2ac496a]
-  - @saas-ui/data-table@11.0.0
-  - @saas-ui/nprogress@2.1.0
-  - @saas-ui/hotkeys@2.3.0
-  - @saas-ui/modals@2.2.0
-  - @saas-ui/forms@2.7.0
-  - @saas-ui/hooks@2.1.0
+  - @saas-ui/react-utils@2.1.0
   - @saas-ui/theme@2.5.0
-  - @saas-ui/core@2.6.0
-
-## 2.8.11
-
-### Patch Changes
-
-- 5e000e0: Removed background color from loading overlay fill variant
-- Updated dependencies [5e000e0]
-  - @saas-ui/theme@2.4.2
-  - @saas-ui/core@2.5.6
-  - @saas-ui/data-table@10.0.11
-  - @saas-ui/forms@2.6.11
-  - @saas-ui/hotkeys@2.2.14
-  - @saas-ui/modals@2.1.41
-
-## 2.8.10
-
-### Patch Changes
-
-- Updated dependencies [fc2203a]
-  - @saas-ui/forms@2.6.10
-  - @saas-ui/modals@2.1.40
-  - @saas-ui/data-table@10.0.10
-
-## 2.8.9
-
-### Patch Changes
-
-- Updated dependencies [df5d37f]
-  - @saas-ui/forms@2.6.9
-  - @saas-ui/modals@2.1.39
-  - @saas-ui/data-table@10.0.9
-
-## 2.8.8
-
-### Patch Changes
-
-- Updated dependencies [fc62212]
-  - @saas-ui/forms@2.6.8
-  - @saas-ui/modals@2.1.38
-  - @saas-ui/data-table@10.0.8
-
-## 2.8.7
-
-### Patch Changes
-
-- Updated dependencies [02cac87]
-  - @saas-ui/data-table@10.0.7
-  - @saas-ui/modals@2.1.37
-  - @saas-ui/forms@2.6.7
-  - @saas-ui/core@2.5.5
-  - @saas-ui/hotkeys@2.2.13
-
-## 2.8.6
-
-### Patch Changes
-
-- 12c35ea: Fixed issue where NavGroup title would always render collapsible state
-- b61ff73: Improve styling overrides for EmptyStateIcon
-- Updated dependencies [12c35ea]
-- Updated dependencies [b61ff73]
-  - @saas-ui/core@2.5.4
-  - @saas-ui/data-table@10.0.6
-  - @saas-ui/forms@2.6.6
-  - @saas-ui/hotkeys@2.2.12
-  - @saas-ui/modals@2.1.36
-
-## 2.8.5
-
-### Patch Changes
-
-- 29c6fea: Fixed issue where hideLabel would not be passed to base field
-- b6ce1bf: Fixed return type of useFormContext
-- Updated dependencies [29c6fea]
-- Updated dependencies [b6ce1bf]
-  - @saas-ui/forms@2.6.5
-  - @saas-ui/modals@2.1.35
-  - @saas-ui/data-table@10.0.5
-
-## 2.8.4
-
-### Patch Changes
-
-- 4c03ddb: Added support for horizontal form fields
-- Updated dependencies [4c03ddb]
-  - @saas-ui/forms@2.6.4
-  - @saas-ui/theme@2.4.1
-  - @saas-ui/modals@2.1.34
-  - @saas-ui/core@2.5.3
-  - @saas-ui/data-table@10.0.4
-  - @saas-ui/hotkeys@2.2.11
-
-## 2.8.3
-
-### Patch Changes
-
-- 5a334e2: Fixed issue where hideLabel prop would be passed to input
-- 1cc3e3b: FormLayout now supports theming
-- 69f5e66: Removed lost console.log
-- Updated dependencies [5a334e2]
-- Updated dependencies [1cc3e3b]
-- Updated dependencies [69f5e66]
-  - @saas-ui/forms@2.6.3
-  - @saas-ui/core@2.5.2
-  - @saas-ui/modals@2.1.33
-  - @saas-ui/data-table@10.0.3
-  - @saas-ui/hotkeys@2.2.10
-
-## 2.8.2
-
-### Patch Changes
-
-- 5fb8082: Fixed issue where isInvalid would not be passed down to form control
-- 5fb8082: Fixed issue where the SearchInput reset button could be interacted with when disabled
-- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent other keys from triggering
-- d94ccec: Fixed aria role of PropertyList
-- 06ec4b6: Fixed issue where snackbar promise would not close
-- 1ff54a2: Fixed issue where text selection was disabled inside ContextMenuTrigger on mouse devices
-- Updated dependencies [5fb8082]
-- Updated dependencies [5fb8082]
-- Updated dependencies [d94ccec]
-- Updated dependencies [d94ccec]
-- Updated dependencies [06ec4b6]
-- Updated dependencies [1ff54a2]
-  - @saas-ui/forms@2.6.2
-  - @saas-ui/core@2.5.1
-  - @saas-ui/hotkeys@2.2.9
-  - @saas-ui/modals@2.1.32
-  - @saas-ui/data-table@10.0.2
-
-## 2.8.1
-
-### Patch Changes
-
-- Updated dependencies [b110d4a]
-  - @saas-ui/forms@2.6.1
-  - @saas-ui/modals@2.1.31
-  - @saas-ui/data-table@10.0.1
-
-## 2.8.0
-
-### Minor Changes
-
-- 9fe1899: Improved Select types, value type is now string or string[] depending on the multiple prop
-- e75e99b: StructuredListItem now supports isDisabled props
-
-### Patch Changes
-
-- e75e99b: Fixed issue where StructuredListItem would not receive focus
-- Updated dependencies [9fe1899]
-- Updated dependencies [e75e99b]
-- Updated dependencies [e75e99b]
-  - @saas-ui/forms@2.6.0
-  - @saas-ui/core@2.5.0
-  - @saas-ui/theme@2.4.0
-  - @saas-ui/modals@2.1.30
-  - @saas-ui/data-table@10.0.0
-  - @saas-ui/hotkeys@2.2.8
-
-## 2.7.4
-
-### Patch Changes
-
-- Updated dependencies
-  - @saas-ui/forms@2.5.4
-  - @saas-ui/modals@2.1.29
-  - @saas-ui/data-table@9.0.4
-
-## 2.7.3
-
-### Patch Changes
-
-- 20c7175: Added forwardRef to ContextMenuTrigger
-- ca911e4: Fixed issue where global toast default options would not apply to snackbar
-- 0a218fd: Fixed issue where Field types would not be inferred
-- Updated dependencies [20c7175]
-- Updated dependencies [ca911e4]
-- Updated dependencies [ca911e4]
-- Updated dependencies [0a218fd]
-- Updated dependencies [0a218fd]
-  - @saas-ui/core@2.4.4
-  - @saas-ui/forms@2.5.3
-  - @saas-ui/data-table@9.0.3
-  - @saas-ui/hotkeys@2.2.7
-  - @saas-ui/modals@2.1.28
-
-## 2.7.2
-
-### Patch Changes
-
-- d77a5b3: Fixed circular dependency issue
-- Updated dependencies [d77a5b3]
-  - @saas-ui/forms@2.5.2
-  - @saas-ui/core@2.4.3
-  - @saas-ui/modals@2.1.27
-  - @saas-ui/data-table@9.0.2
-  - @saas-ui/hotkeys@2.2.6
-
-## 2.7.1
-
-### Patch Changes
-
-- Updated dependencies
-  - @saas-ui/core@2.4.2
-  - @saas-ui/data-table@9.0.1
-  - @saas-ui/forms@2.5.1
-  - @saas-ui/hotkeys@2.2.5
-  - @saas-ui/modals@2.1.26
-
-## 2.7.0
-
-### Minor Changes
-
-- Improved forms to support a global base field override
-
-### Patch Changes
-
-- Updated dependencies
-  - @saas-ui/forms@2.5.0
-  - @saas-ui/modals@2.1.25
-  - @saas-ui/data-table@9.0.0
-
-## 2.6.2
-
-### Patch Changes
-
-- Updated dependencies [0fad607]
-  - @saas-ui/modals@2.1.24
-  - @saas-ui/data-table@8.0.2
-
-## 2.6.1
-
-### Patch Changes
-
-- 2f32548: Fixed issue where Chakra UI Card sizes would not apply
-- 0778d23: Moved all StructuredList styling into theme
-- 7db4aee: Fixed issue where ref would not be forwarded to StructuredListHeader
-- Updated dependencies [2f32548]
-- Updated dependencies [0778d23]
-- Updated dependencies [7db4aee]
-  - @saas-ui/theme@2.3.4
-  - @saas-ui/core@2.4.1
-  - @saas-ui/data-table@8.0.1
-  - @saas-ui/forms@2.4.1
-  - @saas-ui/hotkeys@2.2.4
-  - @saas-ui/modals@2.1.23
-
-## 2.6.0
-
-### Minor Changes
-
-- 4a95712: Improved snackbar.promise method to not rethrow error when the error option is a function
-- 4a95712: Improved snackbar.promise success prop to accept an optional function callback
-- 73d09d9: Added support for leftAddon and rightAddon on number input types
-- efca417: Improved ObjectSchema type definitions to be more strict and inherit correct field type props
-
-### Patch Changes
-
-- Updated dependencies [4a95712]
-- Updated dependencies [4a95712]
-- Updated dependencies [73d09d9]
-- Updated dependencies [efca417]
-  - @saas-ui/core@2.4.0
-  - @saas-ui/forms@2.4.0
-  - @saas-ui/data-table@8.0.0
-  - @saas-ui/hotkeys@2.2.3
-  - @saas-ui/modals@2.1.22
-
-## 2.5.10
-
-### Patch Changes
-
-- 2e7da38: Updated dependencies
-- Updated dependencies [2e7da38]
-- Updated dependencies [da5167a]
-  - @saas-ui/data-table@7.0.10
-  - @saas-ui/nprogress@2.0.3
-  - @saas-ui/modals@2.1.21
-  - @saas-ui/forms@2.3.12
-  - @saas-ui/theme@2.3.3
-  - @saas-ui/core@2.3.6
-  - @saas-ui/hotkeys@2.2.2
-
-## 2.5.9
-
-### Patch Changes
-
-- Updated dependencies [29e5c317]
-  - @saas-ui/forms@2.3.11
-  - @saas-ui/modals@2.1.20
-  - @saas-ui/data-table@7.0.9
-
-## 2.5.8
-
-### Patch Changes
-
-- bc1997b0: Fixed issue where form dialog content would overflow when using using scrollbehavior inside
-- Updated dependencies [bc1997b0]
-  - @saas-ui/modals@2.1.19
-  - @saas-ui/data-table@7.0.8
-
-## 2.5.7
-
-### Patch Changes
-
-- Updated dependencies
-  - @saas-ui/hotkeys@2.2.1
-  - @saas-ui/data-table@7.0.7
 
 ## 2.5.6
 
 ### Patch Changes
 
-- 52e7490c: Fixed issue where theming props would be forwarded to form layout element
-- Updated dependencies [afb87d86]
-- Updated dependencies [836305f8]
-- Updated dependencies [52e7490c]
-  - @saas-ui/core@2.3.5
-  - @saas-ui/hotkeys@2.2.0
-  - @saas-ui/forms@2.3.10
-  - @saas-ui/data-table@7.0.6
-  - @saas-ui/modals@2.1.18
+- Updated dependencies [5e000e0]
+  - @saas-ui/theme@2.4.2
 
 ## 2.5.5
 
 ### Patch Changes
 
-- d6d7ca3f: Added xl size to IconBadge
-- 4e291385: Updated Input lg variant height
-- aa3c97a0: Fixed issue where FormStepper separator would render incorrectly
-- Updated dependencies [d6d7ca3f]
-- Updated dependencies [4e291385]
-- Updated dependencies [ac3e7f9f]
-- Updated dependencies [2f170bf7]
-- Updated dependencies [aa3c97a0]
-  - @saas-ui/theme@2.3.2
-  - @saas-ui/data-table@7.0.5
-  - @saas-ui/forms@2.3.9
-  - @saas-ui/core@2.3.4
-  - @saas-ui/modals@2.1.17
-  - @saas-ui/hotkeys@2.1.15
+- 02cac87: Updated dependencies
 
 ## 2.5.4
 
 ### Patch Changes
 
-- Updated dependencies [bc176848]
-- Updated dependencies [bc176848]
-- Updated dependencies [829a3364]
-- Updated dependencies [90ee13c3]
-  - @saas-ui/forms@2.3.8
-  - @saas-ui/hooks@2.0.3
-  - @saas-ui/data-table@7.0.4
-  - @saas-ui/nprogress@2.0.2
-  - @saas-ui/hotkeys@2.1.14
-  - @saas-ui/modals@2.1.16
-  - @saas-ui/core@2.3.3
+- 12c35ea: Fixed issue where NavGroup title would always render collapsible
+  state
+- b61ff73: Improve styling overrides for EmptyStateIcon
 
 ## 2.5.3
 
 ### Patch Changes
 
-- bbd692d4: Improved StructuredList with keyboard navigation support
-- 781a1c26: Added long press support to ContextMenu
-- Updated dependencies [bbd692d4]
-- Updated dependencies [029b9b1c]
-- Updated dependencies [029b9b1c]
-- Updated dependencies [781a1c26]
-  - @saas-ui/core@2.3.2
-  - @saas-ui/hotkeys@2.1.13
-  - @saas-ui/data-table@7.0.3
-  - @saas-ui/forms@2.3.7
-  - @saas-ui/modals@2.1.15
+- Updated dependencies [4c03ddb]
+  - @saas-ui/theme@2.4.1
 
 ## 2.5.2
 
 ### Patch Changes
 
-- 042c15f3: Added useScrollPosition hook
-- Updated dependencies [042c15f3]
-  - @saas-ui/hooks@2.0.2
-  - @saas-ui/modals@2.1.14
-  - @saas-ui/data-table@7.0.2
+- 69f5e66: Removed lost console.log
 
 ## 2.5.1
 
 ### Patch Changes
 
-- Updated dependencies [c0f203bf]
-- Updated dependencies [c0f203bf]
-  - @saas-ui/theme@2.3.1
-  - @saas-ui/core@2.3.1
-  - @saas-ui/data-table@7.0.1
-  - @saas-ui/forms@2.3.6
-  - @saas-ui/hotkeys@2.1.12
-  - @saas-ui/modals@2.1.13
+- 5fb8082: Fixed issue where the SearchInput reset button could be interacted
+  with when disabled
+- d94ccec: Fixed issue where long pressed hotkeys would not reset and prevent
+  other keys from triggering
+- d94ccec: Fixed aria role of PropertyList
+- 06ec4b6: Fixed issue where snackbar promise would not close
+- 1ff54a2: Fixed issue where text selection was disabled inside
+  ContextMenuTrigger on mouse devices
 
 ## 2.5.0
 
 ### Minor Changes
 
-- 78bc41d0: Improved timeline behavior so it scales automatically with the icon and ocontent size used.
-- 316388b9: Added ghost variant to the Badge theme
+- e75e99b: StructuredListItem now supports isDisabled props
+
+### Patch Changes
+
+- e75e99b: Fixed issue where StructuredListItem would not receive focus
+- Updated dependencies [e75e99b]
+  - @saas-ui/theme@2.4.0
+
+## 2.4.4
+
+### Patch Changes
+
+- 20c7175: Added forwardRef to ContextMenuTrigger
+- ca911e4: Fixed issue where global toast default options would not apply to
+  snackbar
+
+## 2.4.3
+
+### Patch Changes
+
+- d77a5b3: Fixed circular dependency issue
+
+## 2.4.2
+
+### Patch Changes
+
+- Bump version
+
+## 2.4.1
+
+### Patch Changes
+
+- 0778d23: Moved all StructuredList styling into theme
+- 7db4aee: Fixed issue where ref would not be forwarded to StructuredListHeader
+- Updated dependencies [2f32548]
+- Updated dependencies [0778d23]
+  - @saas-ui/theme@2.3.4
+
+## 2.4.0
+
+### Minor Changes
+
+- 4a95712: Improved snackbar.promise method to not rethrow error when the error
+  option is a function
+- 4a95712: Improved snackbar.promise success prop to accept an optional function
+  callback
+
+## 2.3.6
+
+### Patch Changes
+
+- 2e7da38: Updated dependencies
+- Updated dependencies [2e7da38]
+  - @saas-ui/theme@2.3.3
+
+## 2.3.5
+
+### Patch Changes
+
+- afb87d86: Removed console.log
+
+## 2.3.4
+
+### Patch Changes
+
+- aa3c97a0: Fixed issue where FormStepper separator would render incorrectly
+- Updated dependencies [d6d7ca3f]
+- Updated dependencies [4e291385]
+  - @saas-ui/theme@2.3.2
+
+## 2.3.3
+
+### Patch Changes
+
+- 90ee13c3: Refactored exports
+
+## 2.3.2
+
+### Patch Changes
+
+- bbd692d4: Improved StructuredList with keyboard navigation support
+- 781a1c26: Added long press support to ContextMenu
+
+## 2.3.1
+
+### Patch Changes
+
+- c0f203bf: Fixed issue where theming props would be passed to dom
+- Updated dependencies [c0f203bf]
+  - @saas-ui/theme@2.3.1
+
+## 2.3.0
+
+### Minor Changes
+
+- 78bc41d0: Improved timeline behavior so it scales automatically with the icon
+  and ocontent size used.
 
 ### Patch Changes
 
 - 8782a76b: Fixed issue where variant would not be passed to SearchInput
 - 8782a76b: Improved Navbar inner padding on small screens
 - 8782a76b: Added new left-accent variant to the NavItem theme
-- 8782a76b: Added new neutral color scheme to Button theme
 - 8782a76b: Updated NavGroup to no longer be collapsible by default
-- 8782a76b: Fixed issue where SidebarToggleButton style props would not have any effect
+- 8782a76b: Fixed issue where SidebarToggleButton style props would not have any
+  effect
+- 8782a76b: Export SaasProviderProps
 - 8782a76b: Added data-state attribute to SidebarToggleButton
 - 8782a76b: NavItem href prop no longer has # as default
 - Updated dependencies [8782a76b]
 - Updated dependencies [8782a76b]
 - Updated dependencies [8782a76b]
 - Updated dependencies [8782a76b]
-- Updated dependencies [8782a76b]
-- Updated dependencies [8782a76b]
-- Updated dependencies [8782a76b]
 - Updated dependencies [78bc41d0]
-- Updated dependencies [8782a76b]
 - Updated dependencies [316388b9]
-- Updated dependencies [8782a76b]
-  - @saas-ui/core@2.3.0
   - @saas-ui/theme@2.3.0
-  - @saas-ui/data-table@7.0.0
-  - @saas-ui/forms@2.3.5
-  - @saas-ui/hotkeys@2.1.11
-  - @saas-ui/modals@2.1.12
 
-## 2.4.4
+## 2.2.4
 
 ### Patch Changes
 
-- f03246ac: Improved IconBadge sizing
-- Updated dependencies [4c81f542]
 - Updated dependencies [f03246ac]
-  - @saas-ui/modals@2.1.11
   - @saas-ui/theme@2.2.3
-  - @saas-ui/core@2.2.4
-  - @saas-ui/data-table@6.0.4
-  - @saas-ui/forms@2.3.4
-  - @saas-ui/hotkeys@2.1.10
 
-## 2.4.3
+## 2.2.3
 
 ### Patch Changes
 
-- d5ca55e4: Fixed issue where SubmitButton would not properties from form fields prop
-- 537804bf: Fixed NavLink line height
-- Updated dependencies [d5ca55e4]
-- Updated dependencies [d5ca55e4]
+- d5ca55e4: Fixed prop types of OverflowMenu
 - Updated dependencies [537804bf]
-  - @saas-ui/forms@2.3.3
-  - @saas-ui/core@2.2.3
   - @saas-ui/theme@2.2.2
-  - @saas-ui/modals@2.1.10
-  - @saas-ui/data-table@6.0.3
-  - @saas-ui/hotkeys@2.1.9
 
-## 2.4.2
+## 2.2.2
 
 ### Patch Changes
 
-- Updated dependencies [491315aa]
-  - @saas-ui/core@2.2.2
-  - @saas-ui/data-table@6.0.2
-  - @saas-ui/forms@2.3.2
-  - @saas-ui/hotkeys@2.1.8
-  - @saas-ui/modals@2.1.9
+- 491315aa: Fixed forwarded ref not being passed down in IconBadge
 
-## 2.4.1
+## 2.2.1
 
 ### Patch Changes
 
+- 3ddca73d: Fixed issue where NavGroup collapse would not receive defaultIsOpen
+  prop
 - Updated dependencies [4e728c26]
-- Updated dependencies [3ddca73d]
   - @saas-ui/theme@2.2.1
-  - @saas-ui/core@2.2.1
-  - @saas-ui/data-table@6.0.1
-  - @saas-ui/forms@2.3.1
-  - @saas-ui/hotkeys@2.1.7
-  - @saas-ui/modals@2.1.8
 
-## 2.4.0
+## 2.2.0
 
 ### Minor Changes
 
@@ -650,443 +404,182 @@
 
 ### Patch Changes
 
-- dddb3d1a: Fixed issue where width would not be applied to the SearchInput container element
+- dddb3d1a: Fixed issue where width would not be applied to the SearchInput
+  container element
 - 91412d77: Fixed SearchInput reset when uncontrolled
 - 91412d77: Fixed theme incompatibility with Chakra UI 2.8
 - Updated dependencies [31d05ed5]
-- Updated dependencies [dddb3d1a]
-- Updated dependencies [68995558]
 - Updated dependencies [ebba8404]
 - Updated dependencies [91412d77]
-- Updated dependencies [a3180b02]
-- Updated dependencies [91412d77]
   - @saas-ui/theme@2.2.0
-  - @saas-ui/core@2.2.0
-  - @saas-ui/forms@2.3.0
-  - @saas-ui/data-table@6.0.0
-  - @saas-ui/hotkeys@2.1.6
-  - @saas-ui/modals@2.1.7
 
-## 2.3.1
+## 2.1.3
 
 ### Patch Changes
 
-- 1c64bfaf: Fixed issue where Zod or Yup schemas would not validate in FormDialog
-- 4a3c9dc7: Fixed issue where ErrorBoundary would not have access to SaasProvider context
-- Updated dependencies [1c64bfaf]
-- Updated dependencies [4a3c9dc7]
-  - @saas-ui/forms@2.2.1
-  - @saas-ui/core@2.1.3
-  - @saas-ui/modals@2.1.6
-  - @saas-ui/data-table@5.0.1
-  - @saas-ui/hotkeys@2.1.5
+- 4a3c9dc7: Fixed issue where ErrorBoundary would not have access to
+  SaasProvider context
 
-## 2.3.0
-
-### Minor Changes
-
-- 87fcdc2c: FormLayout no longer renders each child in a wrapper div
+## 2.1.2
 
 ### Patch Changes
 
-- 9ad407a7: Zod schema enum types now render a Select by default
-- bcd6d65c: Fixed issue where closing large models with modals manager would flicker
-- 654ad186: Fixed issue where Field would not infer correct onChange handler
-- 87fcdc2c: Fixed issue where not all StepForm data would be passed to onSubmit
-- 9ad407a7: ZodForm now infers defaultValues from the schema
-- be52e785: Fixed issue where placeholder would not be passed to the NumberInputField
-- Updated dependencies [9ad407a7]
-- Updated dependencies [bcd6d65c]
-- Updated dependencies [654ad186]
-- Updated dependencies [87fcdc2c]
-- Updated dependencies [9ad407a7]
-- Updated dependencies [87fcdc2c]
-- Updated dependencies [be52e785]
-  - @saas-ui/forms@2.2.0
-  - @saas-ui/modals@2.1.5
-  - @saas-ui/data-table@5.0.0
-
-## 2.2.4
-
-### Patch Changes
-
-- e13ae4cd: Fixed issue where overlay elements inside a vertical stepper would not overflow correctly
-- Updated dependencies [e13ae4cd]
-  - @saas-ui/core@2.1.2
-  - @saas-ui/data-table@4.0.4
-  - @saas-ui/forms@2.1.3
-  - @saas-ui/hotkeys@2.1.4
-  - @saas-ui/modals@2.1.4
-
-## 2.2.3
-
-### Patch Changes
-
-- Fixed all packages index to use named exports
-- Updated dependencies
-  - @saas-ui/data-table@4.0.3
-  - @saas-ui/nprogress@2.0.1
-  - @saas-ui/hotkeys@2.1.3
-  - @saas-ui/modals@2.1.3
-  - @saas-ui/forms@2.1.2
-  - @saas-ui/hooks@2.0.1
-  - @saas-ui/theme@2.1.1
-  - @saas-ui/core@2.1.1
-
-## 2.2.2
-
-### Patch Changes
-
-- 3b12ef4e: Removed client directive from index, fixes app directory compatibility
-- 2fec29d4: Added formRef prop to FormDialog to access the internal form state
-- Updated dependencies [2fec29d4]
-  - @saas-ui/modals@2.1.2
-  - @saas-ui/data-table@4.0.2
-
-## 2.2.1
-
-### Patch Changes
-
-- 96b0a058: Fixed select button sizes
-- Updated dependencies [96b0a058]
-  - @saas-ui/forms@2.1.1
-  - @saas-ui/modals@2.1.1
-  - @saas-ui/data-table@4.0.1
-
-## 2.2.0
-
-### Minor Changes
-
-- 5a384c28: Updated to Chakra UI 2.8.0
-- 5a384c28: Added `use client` directive for better RSC support
-
-### Patch Changes
-
-- Updated dependencies [5a384c28]
-  - @saas-ui/data-table@4.0.0
-  - @saas-ui/modals@2.1.0
-  - @saas-ui/forms@2.1.0
-  - @saas-ui/theme@2.1.0
-  - @saas-ui/core@2.1.0
-  - @saas-ui/hotkeys@2.1.2
+- e13ae4cd: Fixed issue where overlay elements inside a vertical stepper would
+  not overflow correctly
 
 ## 2.1.1
 
 ### Patch Changes
 
-- Updated dependencies [0aecc7ba]
-  - @saas-ui/hotkeys@2.1.1
-  - @saas-ui/data-table@3.0.1
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.1
+  - @saas-ui/theme@2.1.1
 
 ## 2.1.0
 
 ### Minor Changes
 
-- b4808069: useHotkeys now supports a custom targetElement, eg an input
+- 5a384c28: Updated to Chakra UI 2.8.0
 
 ### Patch Changes
 
-- b4808069: Fixed issue where useHotkeys would not reset pressed keys
-- Updated dependencies [b4808069]
-- Updated dependencies [b4808069]
-  - @saas-ui/hotkeys@2.1.0
-  - @saas-ui/data-table@3.0.0
-
-## 2.0.6
-
-### Patch Changes
-
-- 493a548a: NavItem now renders an aria-current tag when the item is active.
-- 9e848077: Export createStandAloneSnackbar from core package.
-- 493a548a: NavItem active state is now compatible with Remix and ReactRouter NavLink
-- Updated dependencies [493a548a]
-- Updated dependencies [9e848077]
-- Updated dependencies [493a548a]
-  - @saas-ui/theme@2.0.1
-  - @saas-ui/core@2.0.3
-  - @saas-ui/auth@2.0.5
-  - @saas-ui/data-table@2.0.6
-  - @saas-ui/forms@2.0.5
-  - @saas-ui/hotkeys@2.0.3
-  - @saas-ui/modals@2.0.6
-
-## 2.0.5
-
-### Patch Changes
-
-- 3b5567c6: Fixed issue where StepForm would not render custom fields
-- Updated dependencies [3b5567c6]
-  - @saas-ui/forms@2.0.4
-  - @saas-ui/auth@2.0.4
-  - @saas-ui/modals@2.0.5
-  - @saas-ui/data-table@2.0.5
-
-## 2.0.4
-
-### Patch Changes
-
-- Updated dependencies [8c7ee0be]
-  - @saas-ui/forms@2.0.3
-  - @saas-ui/auth@2.0.3
-  - @saas-ui/modals@2.0.4
-  - @saas-ui/data-table@2.0.4
+- Updated dependencies [5a384c28]
+  - @saas-ui/theme@2.1.0
 
 ## 2.0.3
 
 ### Patch Changes
 
-- 268fa240: Add support for standalone snackbars
-- 93736bed: Export createZodStepForm from form package
-- Updated dependencies [268fa240]
-- Updated dependencies [93736bed]
-  - @saas-ui/core@2.0.2
-  - @saas-ui/forms@2.0.2
-  - @saas-ui/auth@2.0.2
-  - @saas-ui/data-table@2.0.3
-  - @saas-ui/hotkeys@2.0.2
-  - @saas-ui/modals@2.0.3
+- 493a548a: NavItem now renders an aria-current tag when the item is active.
+- 9e848077: Export createStandAloneSnackbar from core package.
+- Updated dependencies [493a548a]
+- Updated dependencies [493a548a]
+  - @saas-ui/theme@2.0.1
 
 ## 2.0.2
 
 ### Patch Changes
 
-- df98007a: Add missing dependency
-- 9b609119: Fix issue where Link would not pass props correctly.
-- Updated dependencies [9b609119]
-  - @saas-ui/core@2.0.1
-  - @saas-ui/data-table@2.0.2
-  - @saas-ui/auth@2.0.1
-  - @saas-ui/forms@2.0.1
-  - @saas-ui/hotkeys@2.0.1
-  - @saas-ui/modals@2.0.2
+- 268fa240: Add support for standalone snackbars
 
 ## 2.0.1
 
 ### Patch Changes
 
-- Updated dependencies [f29338d0]
-  - @saas-ui/modals@2.0.1
-  - @saas-ui/data-table@2.0.1
+- 9b609119: Fix issue where Link would not pass props correctly.
 
 ## 2.0.0
 
 ### Major Changes
 
-- 772c9868: Updated to Tanstack ReactTable V8
-- d7c87a31: Moved form resolvers into a separate package.
-- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
-- 37e38165: Auth forms can now be used standalone, to build custom solutions.
-- f1e99198: BREAKING: createPalette no longer exported from @saas-ui/react
-- 8b82d945: Renamed List to StructuredList
-- 532011d6: Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
+- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be
+  consistent with Suspense.
 - 83f54180: Secondary button now uses solid variant and gray colorScheme.
-- 8b82d945: Removed button package.
-- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton
+  and useStepperPrevButton
 - 83f54180: Renamed Loader to LoadingOverlay.
 - 0a11d7b6: Renamed Sidebar condensed variant to compact.
-- f34de7af: Moved Supabase and Magic auth services to separate packages.
 - 3a15e8c8: Improve StructuredList API.
-- f1e99198: Restructured packages.
-- 39e778d8: Form will now render AutoField by default when no children are passed.
-- 6236e117: Removed the Divider component in favor of the Chakra UI Divider component.
-- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
-- f3b09191: Removed Card component in favor of the new Chakra UI Card component.
+- 6236e117: Removed the Divider component in favor of the Chakra UI Divider
+  component.
+- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now
+  expects a single breakpoint or false to disable auto toggle.
 
 ### Minor Changes
 
-- ccfce5c1: useHotkeys now supports preventDefault option to prevent default browser events from firing
 - 1177329d: Improved MenuDialog position on mobile
 - e94ca3c0: Added TimeLine to core components.
-- 7ce390e9: Added Sidebar to core packages.
-- 532011d6: Select can now supports theming using the SuiSelect theme config.
-- a8ea24da: PasswordInput now accepts leftAddon property.
-- 84e59fec: Added new createModals method to create typesafe modals managers with support for custom modals
 - 83f54180: Added new tertiary button variant.
 - 046e42b8: Updated to Chakra UI 2.7
-- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
-- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
-- a9ca90dd: Updated to Chakra UI 2.6.x
-- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
-- 6dd737ce: Select field now renders invalid state.
-- c85541cb: AutoForm field props can now be overridden using the fields prop on Form
+- e52f63fa: useSnackbar promise error option now accepts a function with err
+  param or SnackbarOptions
 - 76887bda: AppShell now controls the Sidebar disclosure state.
-- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
-- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context,
+  using the new AppShell context.
+- 27a68bca: useLocalStorage now updates all hook instances on the current page
+  when the value changed
 - 826c561a: EmptyState title and description no longer use Header and Text
 
 ### Patch Changes
 
 - 189190c6: Fix Card theme tokens
 - e23790a8: Fix SnackbarPromiseOptions error type to SnackbarOptions
-- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
 - ba61612f: Fixed useSnackbar return type, always returns toastId.
 - b8be6d41: tooltipProps on NavItem no longer require children
 - d725a5da: Fix esm bundle import
 - 70af3ead: Select now supports theming props.
 - d725a5da: Bump version
-- 5ac0e9ba: Fix vertical stepper items not taking up the full parent width.
+- e9258592: Export LinkProps
 - a5898c44: Fix Divider label contrast
 - 6193c47c: Fixed issue where Sidebar would not get defaultProps from the theme.
-- f1e99198: Migrated from microbundle to tsup for builds
-- dc435dd5: No longer needed to use Next.js legacyBehavior for the Link component.
+- 7052dad3: Fix issue where Select context is undefined
 - 7027d7c1: Improve Stepper seperator position on all sizes
 - 0fda9fee: Fix ContextMenu and OverflowMenu exports.
 - a7ef6dd9: Fixed issue where types for exports were not detected
-- 6c63217c: object and array field props can now be overridden using the fields prop
-- d6e9a39d: Form fields overries types now support array and object type props
 - 83f54180: Fix NavItem focus outline color.
-- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom
+  element
 - b895e5bd: Add Timeline theme to theme package.
-- ccfce5c1: Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
 - 0319aa57: Bump version
 - 166978bd: Fix esm bundle filename.
-- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
-- Updated dependencies [ccfce5c1]
-- Updated dependencies [772c9868]
-- Updated dependencies [84e59fec]
-- Updated dependencies [d7c87a31]
-- Updated dependencies [1563cc9a]
-- Updated dependencies [189190c6]
-- Updated dependencies [1177329d]
-- Updated dependencies [e23790a8]
-- Updated dependencies [d236fb75]
-- Updated dependencies [83f54180]
 - Updated dependencies [d3900eca]
-- Updated dependencies [ba61612f]
-- Updated dependencies [e94ca3c0]
-- Updated dependencies [37e38165]
-- Updated dependencies [b8be6d41]
 - Updated dependencies [d725a5da]
 - Updated dependencies [b521ce10]
-- Updated dependencies [70af3ead]
-- Updated dependencies [532011d6]
-- Updated dependencies [a8ea24da]
-- Updated dependencies [6d3f5717]
 - Updated dependencies [d725a5da]
 - Updated dependencies [5ac0e9ba]
 - Updated dependencies [8d6516c2]
-- Updated dependencies [84e59fec]
-- Updated dependencies [1177329d]
 - Updated dependencies [09dd16cc]
-- Updated dependencies [e9258592]
 - Updated dependencies [a5898c44]
-- Updated dependencies [0a2bb91f]
-- Updated dependencies [532011d6]
 - Updated dependencies [8045baed]
-- Updated dependencies [6193c47c]
 - Updated dependencies [83f54180]
 - Updated dependencies [f1e99198]
-- Updated dependencies [01ac442f]
 - Updated dependencies [f79376c3]
-- Updated dependencies [ffd878b6]
 - Updated dependencies [5b9d90e8]
 - Updated dependencies [046e42b8]
-- Updated dependencies [cc713117]
 - Updated dependencies [83f54180]
 - Updated dependencies [8b82d945]
-- Updated dependencies [2d18cdc2]
-- Updated dependencies [7052dad3]
-- Updated dependencies [e52f63fa]
-- Updated dependencies [61b27fa6]
 - Updated dependencies [7027d7c1]
-- Updated dependencies [a9ca90dd]
-- Updated dependencies [0fda9fee]
-- Updated dependencies [2366db6a]
-- Updated dependencies [6dd737ce]
 - Updated dependencies [a7ef6dd9]
-- Updated dependencies [6c63217c]
-- Updated dependencies [83f54180]
-- Updated dependencies [0a11d7b6]
-- Updated dependencies [d6e9a39d]
-- Updated dependencies [c85541cb]
 - Updated dependencies [aeab9b0b]
-- Updated dependencies [b5912297]
-- Updated dependencies [83f54180]
-- Updated dependencies [2b639656]
 - Updated dependencies [b895e5bd]
-- Updated dependencies [f34de7af]
-- Updated dependencies [3a15e8c8]
-- Updated dependencies [ccfce5c1]
 - Updated dependencies [f1e99198]
 - Updated dependencies [8e155c3b]
-- Updated dependencies [76887bda]
-- Updated dependencies [39e778d8]
-- Updated dependencies [76887bda]
-- Updated dependencies [27a68bca]
-- Updated dependencies [6236e117]
-- Updated dependencies [943f6287]
 - Updated dependencies [0319aa57]
-- Updated dependencies [76887bda]
-- Updated dependencies [826c561a]
 - Updated dependencies [166978bd]
-- Updated dependencies [5ac0e9ba]
-  - @saas-ui/hotkeys@2.0.0
-  - @saas-ui/data-table@2.0.0
-  - @saas-ui/forms@2.0.0
-  - @saas-ui/modals@2.0.0
-  - @saas-ui/core@2.0.0
   - @saas-ui/theme@2.0.0
-  - @saas-ui/auth@2.0.0
-  - @saas-ui/nprogress@2.0.0
-  - @saas-ui/hooks@2.0.0
+  - @saas-ui/react-utils@2.0.0
 
-## 2.0.0-rc.34
+## 2.0.0-rc.29
 
 ### Patch Changes
 
 - 70af3ead: Select now supports theming props.
-- Updated dependencies [70af3ead]
-- Updated dependencies [b5912297]
-  - @saas-ui/core@2.0.0-rc.29
-  - @saas-ui/forms@2.0.0-rc.32
-  - @saas-ui/data-table@2.0.0-rc.34
-  - @saas-ui/auth@2.0.0-rc.33
-  - @saas-ui/hotkeys@2.0.0-rc.30
-  - @saas-ui/modals@2.0.0-rc.32
 
-## 2.0.0-rc.33
+## 2.0.0-rc.28
 
 ### Patch Changes
 
-- Updated dependencies [e9258592]
-  - @saas-ui/core@2.0.0-rc.28
-  - @saas-ui/auth@2.0.0-rc.32
-  - @saas-ui/data-table@2.0.0-rc.33
-  - @saas-ui/forms@2.0.0-rc.31
-  - @saas-ui/hotkeys@2.0.0-rc.29
-  - @saas-ui/modals@2.0.0-rc.31
+- e9258592: Export LinkProps
 
-## 2.0.0-rc.32
+## 2.0.0-rc.27
 
 ### Patch Changes
 
 - Updated dependencies [09dd16cc]
   - @saas-ui/theme@2.0.0-rc.17
-  - @saas-ui/core@2.0.0-rc.27
-  - @saas-ui/auth@2.0.0-rc.31
-  - @saas-ui/data-table@2.0.0-rc.32
-  - @saas-ui/forms@2.0.0-rc.30
-  - @saas-ui/hotkeys@2.0.0-rc.28
-  - @saas-ui/modals@2.0.0-rc.30
 
-## 2.0.0-rc.31
+## 2.0.0-rc.26
 
 ### Patch Changes
 
 - 0fda9fee: Fix ContextMenu and OverflowMenu exports.
-- Updated dependencies [0fda9fee]
-  - @saas-ui/core@2.0.0-rc.26
-  - @saas-ui/data-table@2.0.0-rc.31
-  - @saas-ui/auth@2.0.0-rc.30
-  - @saas-ui/forms@2.0.0-rc.29
-  - @saas-ui/hotkeys@2.0.0-rc.27
-  - @saas-ui/modals@2.0.0-rc.29
 
-## 2.0.0-rc.30
+## 2.0.0-rc.25
 
 ### Major Changes
 
-- 6236e117: Removed the Divider component in favor of the Chakra UI Divider component.
+- 6236e117: Removed the Divider component in favor of the Chakra UI Divider
+  component.
 
 ### Minor Changes
 
@@ -1096,87 +589,39 @@
 
 - 6193c47c: Fixed issue where Sidebar would not get defaultProps from the theme.
 - Updated dependencies [8d6516c2]
-- Updated dependencies [6193c47c]
 - Updated dependencies [046e42b8]
-- Updated dependencies [6236e117]
   - @saas-ui/theme@2.0.0-rc.16
-  - @saas-ui/core@2.0.0-rc.25
-  - @saas-ui/data-table@2.0.0-rc.30
-  - @saas-ui/nprogress@2.0.0-rc.5
-  - @saas-ui/hotkeys@2.0.0-rc.26
-  - @saas-ui/modals@2.0.0-rc.28
-  - @saas-ui/forms@2.0.0-rc.28
-  - @saas-ui/hooks@2.0.0-rc.6
-  - @saas-ui/auth@2.0.0-rc.29
+  - @saas-ui/react-utils@2.0.0-rc.5
 
-## 2.0.0-rc.29
+## 2.0.0-rc.24
 
 ### Patch Changes
 
-- d6e9a39d: Form fields overries types now support array and object type props
 - b895e5bd: Add Timeline theme to theme package.
-- Updated dependencies [d6e9a39d]
 - Updated dependencies [b895e5bd]
-- Updated dependencies [943f6287]
-  - @saas-ui/forms@2.0.0-rc.27
   - @saas-ui/theme@2.0.0-rc.15
-  - @saas-ui/core@2.0.0-rc.24
-  - @saas-ui/auth@2.0.0-rc.28
-  - @saas-ui/modals@2.0.0-rc.27
-  - @saas-ui/data-table@2.0.0-rc.29
-  - @saas-ui/hotkeys@2.0.0-rc.25
 
-## 2.0.0-rc.28
+## 2.0.0-rc.23
 
 ### Minor Changes
 
-- e52f63fa: useSnackbar promise error option now accepts a function with err param or SnackbarOptions
+- e52f63fa: useSnackbar promise error option now accepts a function with err
+  param or SnackbarOptions
 
-### Patch Changes
-
-- Updated dependencies [e52f63fa]
-  - @saas-ui/core@2.0.0-rc.23
-  - @saas-ui/data-table@2.0.0-rc.28
-  - @saas-ui/auth@2.0.0-rc.27
-  - @saas-ui/forms@2.0.0-rc.26
-  - @saas-ui/hotkeys@2.0.0-rc.24
-  - @saas-ui/modals@2.0.0-rc.26
-
-## 2.0.0-rc.27
-
-### Minor Changes
-
-- 2366db6a: ConfirmDialog now supports an async onConfirm prop and shows a spinner when a promise is returned
+## 2.0.0-rc.22
 
 ### Patch Changes
 
 - e23790a8: Fix SnackbarPromiseOptions error type to SnackbarOptions
-- Updated dependencies [e23790a8]
-- Updated dependencies [2366db6a]
-  - @saas-ui/core@2.0.0-rc.22
-  - @saas-ui/modals@2.0.0-rc.25
-  - @saas-ui/data-table@2.0.0-rc.27
-  - @saas-ui/auth@2.0.0-rc.26
-  - @saas-ui/forms@2.0.0-rc.25
-  - @saas-ui/hotkeys@2.0.0-rc.23
 
-## 2.0.0-rc.26
+## 2.0.0-rc.21
 
 ### Patch Changes
 
-- 5ac0e9ba: Fix vertical stepper items not taking up the full parent width.
-- 5ac0e9ba: Fix issue where StepForm would not submit when subsequent fields are required.
-- Updated dependencies [5ac0e9ba]
 - Updated dependencies [5ac0e9ba]
   - @saas-ui/theme@2.0.0-rc.14
-  - @saas-ui/forms@2.0.0-rc.24
-  - @saas-ui/data-table@2.0.0-rc.26
-  - @saas-ui/core@2.0.0-rc.21
-  - @saas-ui/auth@2.0.0-rc.25
-  - @saas-ui/modals@2.0.0-rc.24
-  - @saas-ui/hotkeys@2.0.0-rc.22
 
-## 2.0.0-rc.25
+## 2.0.0-rc.20
 
 ### Patch Changes
 
@@ -1185,105 +630,38 @@
 - Updated dependencies [7027d7c1]
 - Updated dependencies
   - @saas-ui/theme@2.0.0-rc.13
-  - @saas-ui/core@2.0.0-rc.20
-  - @saas-ui/data-table@2.0.0-rc.25
-  - @saas-ui/nprogress@2.0.0-rc.4
-  - @saas-ui/hotkeys@2.0.0-rc.21
-  - @saas-ui/modals@2.0.0-rc.23
-  - @saas-ui/forms@2.0.0-rc.23
-  - @saas-ui/hooks@2.0.0-rc.5
-  - @saas-ui/auth@2.0.0-rc.24
+  - @saas-ui/react-utils@2.0.0-rc.4
 
-## 2.0.0-rc.24
+## 2.0.0-rc.19
 
 ### Patch Changes
 
 - 7027d7c1: Improve Stepper seperator position on all sizes
 - Updated dependencies [7027d7c1]
   - @saas-ui/theme@2.0.0-rc.12
-  - @saas-ui/core@2.0.0-rc.19
-  - @saas-ui/data-table@2.0.0-rc.24
-  - @saas-ui/auth@2.0.0-rc.23
-  - @saas-ui/forms@2.0.0-rc.22
-  - @saas-ui/hotkeys@2.0.0-rc.20
-  - @saas-ui/modals@2.0.0-rc.22
-
-## 2.0.0-next.23
-
-### Patch Changes
-
-- Updated dependencies [d236fb75]
-  - @saas-ui/hotkeys@2.0.0-next.19
-  - @saas-ui/data-table@2.0.0-next.23
-
-## 2.0.0-next.22
-
-### Patch Changes
-
-- Updated dependencies [8e155c3b]
-  - @saas-ui/theme@2.0.0-next.11
-  - @saas-ui/core@2.0.0-next.18
-  - @saas-ui/auth@2.0.0-next.22
-  - @saas-ui/data-table@2.0.0-next.22
-  - @saas-ui/forms@2.0.0-next.21
-  - @saas-ui/hotkeys@2.0.0-next.18
-  - @saas-ui/modals@2.0.0-next.21
-
-## 2.0.0-next.21
-
-### Minor Changes
-
-- ccfce5c1: useHotkeys now supports preventDefault option to prevent default browser events from firing
-- a9ca90dd: Updated to Chakra UI 2.6.x
-
-### Patch Changes
-
-- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom element
-- ccfce5c1: Fixed issue where multiple + separators were not parsed correctly in useHotkeys.
-- Updated dependencies [ccfce5c1]
-- Updated dependencies [a9ca90dd]
-- Updated dependencies [2b639656]
-- Updated dependencies [ccfce5c1]
-  - @saas-ui/hotkeys@2.0.0-next.17
-  - @saas-ui/forms@2.0.0-next.20
-  - @saas-ui/core@2.0.0-next.17
-  - @saas-ui/data-table@2.0.0-next.21
-  - @saas-ui/auth@2.0.0-next.21
-  - @saas-ui/modals@2.0.0-next.20
-
-## 2.0.0-next.20
-
-### Patch Changes
-
-- Updated dependencies [0a2bb91f]
-  - @saas-ui/auth@2.0.0-next.20
-  - @saas-ui/data-table@2.0.0-next.20
-
-## 2.0.0-next.19
-
-### Patch Changes
-
-- Updated dependencies [ffd878b6]
-- Updated dependencies [aeab9b0b]
-  - @saas-ui/auth@2.0.0-next.19
-  - @saas-ui/theme@2.0.0-next.10
-  - @saas-ui/core@2.0.0-next.16
-  - @saas-ui/data-table@2.0.0-next.19
-  - @saas-ui/forms@2.0.0-next.19
-  - @saas-ui/hotkeys@2.0.0-next.16
-  - @saas-ui/modals@2.0.0-next.19
 
 ## 2.0.0-next.18
 
 ### Patch Changes
 
-- Updated dependencies [01ac442f]
-  - @saas-ui/forms@2.0.0-next.18
-  - @saas-ui/auth@2.0.0-next.18
-  - @saas-ui/modals@2.0.0-next.18
-  - @saas-ui/data-table@2.0.0-next.18
+- Updated dependencies [8e155c3b]
+  - @saas-ui/theme@2.0.0-next.11
 
 ## 2.0.0-next.17
+
+### Patch Changes
+
+- 2b639656: Fixed issue where colorScheme would be passed down to stepper dom
+  element
+
+## 2.0.0-next.16
+
+### Patch Changes
+
+- Updated dependencies [aeab9b0b]
+  - @saas-ui/theme@2.0.0-next.10
+
+## 2.0.0-next.15
 
 ### Patch Changes
 
@@ -1291,247 +669,105 @@
 - Updated dependencies [a5898c44]
 - Updated dependencies [8045baed]
   - @saas-ui/theme@2.0.0-next.9
-  - @saas-ui/core@2.0.0-next.15
-  - @saas-ui/data-table@2.0.0-next.17
-  - @saas-ui/auth@2.0.0-next.17
-  - @saas-ui/forms@2.0.0-next.17
-  - @saas-ui/hotkeys@2.0.0-next.15
-  - @saas-ui/modals@2.0.0-next.17
-
-## 2.0.0-next.16
-
-### Patch Changes
-
-- b8be6d41: tooltipProps on NavItem no longer require children
-- Updated dependencies [b8be6d41]
-- Updated dependencies [cc713117]
-  - @saas-ui/core@2.0.0-next.14
-  - @saas-ui/modals@2.0.0-next.16
-  - @saas-ui/data-table@2.0.0-next.16
-  - @saas-ui/auth@2.0.0-next.16
-  - @saas-ui/forms@2.0.0-next.16
-  - @saas-ui/hotkeys@2.0.0-next.14
-
-## 2.0.0-next.15
-
-### Minor Changes
-
-- 2d18cdc2: New createFormDialog function to create Zod or Yup specific FormDialogs
-- 826c561a: EmptyState title and description no longer use Header and Text
-
-### Patch Changes
-
-- Updated dependencies [2d18cdc2]
-- Updated dependencies [826c561a]
-  - @saas-ui/modals@2.0.0-next.15
-  - @saas-ui/forms@2.0.0-next.15
-  - @saas-ui/core@2.0.0-next.13
-  - @saas-ui/auth@2.0.0-next.15
-  - @saas-ui/data-table@2.0.0-next.15
-  - @saas-ui/hotkeys@2.0.0-next.13
 
 ## 2.0.0-next.14
 
 ### Patch Changes
 
-- Fix esm bundle import
-- Updated dependencies
-  - @saas-ui/data-table@2.0.0-next.14
-  - @saas-ui/nprogress@2.0.0-next.3
-  - @saas-ui/hotkeys@2.0.0-next.12
-  - @saas-ui/modals@2.0.0-next.14
-  - @saas-ui/forms@2.0.0-next.14
-  - @saas-ui/hooks@2.0.0-next.4
-  - @saas-ui/theme@2.0.0-next.8
-  - @saas-ui/auth@2.0.0-next.14
-  - @saas-ui/core@2.0.0-next.12
+- b8be6d41: tooltipProps on NavItem no longer require children
 
 ## 2.0.0-next.13
 
-### Patch Changes
+### Minor Changes
 
-- d3900eca: button primary, secondary and tertiary variants colorScheme can now be changed.
-- Bump version
-- dc435dd5: No longer needed to use Next.js legacyBehavior for the Link component.
-- 6c63217c: object and array field props can now be overridden using the fields prop
-- Updated dependencies [1563cc9a]
-- Updated dependencies [d3900eca]
-- Updated dependencies
-- Updated dependencies [6c63217c]
-  - @saas-ui/modals@2.0.0-next.13
-  - @saas-ui/theme@2.0.0-next.7
-  - @saas-ui/data-table@2.0.0-next.13
-  - @saas-ui/nprogress@2.0.0-next.2
-  - @saas-ui/hotkeys@2.0.0-next.11
-  - @saas-ui/forms@2.0.0-next.13
-  - @saas-ui/hooks@2.0.0-next.3
-  - @saas-ui/auth@2.0.0-next.13
-  - @saas-ui/core@2.0.0-next.11
+- 826c561a: EmptyState title and description no longer use Header and Text
 
 ## 2.0.0-next.12
 
 ### Patch Changes
 
-- a7ef6dd9: Fixed issue where types for exports were not detected
-- Updated dependencies [a7ef6dd9]
-  - @saas-ui/forms@2.0.0-next.12
-  - @saas-ui/theme@2.0.0-next.6
-  - @saas-ui/core@2.0.0-next.10
-  - @saas-ui/auth@2.0.0-next.12
-  - @saas-ui/modals@2.0.0-next.12
-  - @saas-ui/data-table@2.0.0-next.12
-  - @saas-ui/hotkeys@2.0.0-next.10
+- Fix esm bundle import
+- Updated dependencies
+  - @saas-ui/react-utils@2.0.0-next.3
+  - @saas-ui/theme@2.0.0-next.8
 
 ## 2.0.0-next.11
 
 ### Patch Changes
 
-- Updated dependencies [5b9d90e8]
-  - @saas-ui/theme@2.0.0-next.5
-  - @saas-ui/core@2.0.0-next.9
-  - @saas-ui/auth@2.0.0-next.11
-  - @saas-ui/data-table@2.0.0-next.11
-  - @saas-ui/forms@2.0.0-next.11
-  - @saas-ui/hotkeys@2.0.0-next.9
-  - @saas-ui/modals@2.0.0-next.11
+- Bump version
+- Updated dependencies [d3900eca]
+- Updated dependencies
+  - @saas-ui/theme@2.0.0-next.7
+  - @saas-ui/react-utils@2.0.0-next.2
 
 ## 2.0.0-next.10
 
 ### Patch Changes
 
-- Updated dependencies [b521ce10]
-  - @saas-ui/theme@2.0.0-next.4
-  - @saas-ui/core@2.0.0-next.8
-  - @saas-ui/auth@2.0.0-next.10
-  - @saas-ui/data-table@2.0.0-next.10
-  - @saas-ui/forms@2.0.0-next.10
-  - @saas-ui/hotkeys@2.0.0-next.8
-  - @saas-ui/modals@2.0.0-next.10
+- a7ef6dd9: Fixed issue where types for exports were not detected
+- Updated dependencies [a7ef6dd9]
+  - @saas-ui/theme@2.0.0-next.6
 
 ## 2.0.0-next.9
 
-### Minor Changes
-
-- 1177329d: Improved MenuDialog position on mobile
-- 84e59fec: Added new createModals method to create typesafe modals managers with support for custom modals
-
 ### Patch Changes
 
-- 189190c6: Fix Card theme tokens
-- Updated dependencies [84e59fec]
-- Updated dependencies [189190c6]
-- Updated dependencies [1177329d]
-- Updated dependencies [84e59fec]
-- Updated dependencies [1177329d]
-  - @saas-ui/forms@2.0.0-next.9
-  - @saas-ui/core@2.0.0-next.7
-  - @saas-ui/modals@2.0.0-next.9
-  - @saas-ui/auth@2.0.0-next.9
-  - @saas-ui/data-table@2.0.0-next.9
-  - @saas-ui/hotkeys@2.0.0-next.7
+- Updated dependencies [5b9d90e8]
+  - @saas-ui/theme@2.0.0-next.5
 
 ## 2.0.0-next.8
 
 ### Patch Changes
 
-- Updated dependencies [6d3f5717]
-  - @saas-ui/forms@2.0.0-next.8
-  - @saas-ui/auth@2.0.0-next.8
-  - @saas-ui/modals@2.0.0-next.8
-  - @saas-ui/data-table@2.0.0-next.8
+- Updated dependencies [b521ce10]
+  - @saas-ui/theme@2.0.0-next.4
 
 ## 2.0.0-next.7
 
+### Minor Changes
+
+- 1177329d: Improved MenuDialog position on mobile
+
 ### Patch Changes
 
-- Updated dependencies [7052dad3]
-  - @saas-ui/core@2.0.0-next.6
-  - @saas-ui/auth@2.0.0-next.7
-  - @saas-ui/data-table@2.0.0-next.7
-  - @saas-ui/forms@2.0.0-next.7
-  - @saas-ui/hotkeys@2.0.0-next.6
-  - @saas-ui/modals@2.0.0-next.7
+- 189190c6: Fix Card theme tokens
 
 ## 2.0.0-next.6
 
-### Major Changes
-
-- 37e38165: Auth forms can now be used standalone, to build custom solutions.
-- 532011d6: Restructured the Select component to make it atomic, the new composition is Select, SelectButton, SelectList and SelectOption.
-- 39e778d8: Form will now render AutoField by default when no children are passed.
-
-### Minor Changes
-
-- 532011d6: Select can now supports theming using the SuiSelect theme config.
-- 6dd737ce: Select field now renders invalid state.
-- c85541cb: AutoForm field props can now be overridden using the fields prop on Form
-
 ### Patch Changes
 
-- Updated dependencies [37e38165]
-- Updated dependencies [532011d6]
-- Updated dependencies [532011d6]
-- Updated dependencies [6dd737ce]
-- Updated dependencies [c85541cb]
-- Updated dependencies [39e778d8]
-  - @saas-ui/auth@2.0.0-next.6
-  - @saas-ui/forms@2.0.0-next.6
-  - @saas-ui/data-table@2.0.0-next.6
-  - @saas-ui/modals@2.0.0-next.6
+- 7052dad3: Fix issue where Select context is undefined
 
 ## 2.0.0-next.5
 
 ### Major Changes
 
-- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton and useStepperPrevButton
-
-### Minor Changes
-
-- a8ea24da: PasswordInput now accepts leftAddon property.
-
-### Patch Changes
-
-- Updated dependencies [a8ea24da]
-- Updated dependencies [61b27fa6]
-  - @saas-ui/forms@2.0.0-next.5
-  - @saas-ui/core@2.0.0-next.5
-  - @saas-ui/auth@2.0.0-next.5
-  - @saas-ui/modals@2.0.0-next.5
-  - @saas-ui/data-table@2.0.0-next.5
-  - @saas-ui/hotkeys@2.0.0-next.5
+- 61b27fa6: Stepper useNext and usePrev hooks renamed to useStepperNextButton
+  and useStepperPrevButton
 
 ## 2.0.0-next.4
 
 ### Major Changes
 
-- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be consistent with Suspense.
+- 83f54180: ErrorBoundary errorComponent property renamed to fallback to be
+  consistent with Suspense.
 - 83f54180: Secondary button now uses solid variant and gray colorScheme.
 - 83f54180: Renamed Loader to LoadingOverlay.
 
 ### Minor Changes
 
 - 83f54180: Added new tertiary button variant.
-- 27a68bca: useLocalStorage now updates all hook instances on the current page when the value changed
+- 27a68bca: useLocalStorage now updates all hook instances on the current page
+  when the value changed
 
 ### Patch Changes
 
 - ba61612f: Fixed useSnackbar return type, always returns toastId.
 - 83f54180: Fix NavItem focus outline color.
 - Updated dependencies [83f54180]
-- Updated dependencies [ba61612f]
 - Updated dependencies [83f54180]
-- Updated dependencies [83f54180]
-- Updated dependencies [83f54180]
-- Updated dependencies [83f54180]
-- Updated dependencies [27a68bca]
-  - @saas-ui/core@2.0.0-next.4
   - @saas-ui/theme@2.0.0-next.3
-  - @saas-ui/hooks@2.0.0-next.2
-  - @saas-ui/auth@2.0.0-next.4
-  - @saas-ui/data-table@2.0.0-next.4
-  - @saas-ui/forms@2.0.0-next.4
-  - @saas-ui/hotkeys@2.0.0-next.4
-  - @saas-ui/modals@2.0.0-next.4
 
 ## 2.0.0-next.3
 
@@ -1539,37 +775,20 @@
 
 - Updated dependencies [f79376c3]
   - @saas-ui/theme@2.0.0-next.2
-  - @saas-ui/core@2.0.0-next.3
-  - @saas-ui/auth@2.0.0-next.3
-  - @saas-ui/data-table@2.0.0-next.3
-  - @saas-ui/forms@2.0.0-next.3
-  - @saas-ui/hotkeys@2.0.0-next.3
-  - @saas-ui/modals@2.0.0-next.3
 
 ## 2.0.0-next.2
 
 ### Major Changes
 
 - 0a11d7b6: Renamed Sidebar condensed variant to compact.
-- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now expects a single breakpoint or false to disable auto toggle.
+- 76887bda: Sidebar breakpoints property renamed to toggleBreakpoint. Now
+  expects a single breakpoint or false to disable auto toggle.
 
 ### Minor Changes
 
 - 76887bda: AppShell now controls the Sidebar disclosure state.
-- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context, using the new AppShell context.
-
-### Patch Changes
-
-- Updated dependencies [0a11d7b6]
-- Updated dependencies [76887bda]
-- Updated dependencies [76887bda]
-- Updated dependencies [76887bda]
-  - @saas-ui/core@2.0.0-next.2
-  - @saas-ui/auth@2.0.0-next.2
-  - @saas-ui/data-table@2.0.0-next.2
-  - @saas-ui/forms@2.0.0-next.2
-  - @saas-ui/hotkeys@2.0.0-next.2
-  - @saas-ui/modals@2.0.0-next.2
+- 76887bda: SidebarToggleButton can now be used outside of the Sidebar context,
+  using the new AppShell context.
 
 ## 2.0.0-next.1
 
@@ -1577,143 +796,33 @@
 
 - 166978bd: Fix esm bundle filename.
 - Updated dependencies [166978bd]
-  - @saas-ui/auth@2.0.0-next.1
-  - @saas-ui/core@2.0.0-next.1
-  - @saas-ui/data-table@2.0.0-next.1
-  - @saas-ui/forms@2.0.0-next.1
-  - @saas-ui/hooks@2.0.0-next.1
-  - @saas-ui/hotkeys@2.0.0-next.1
-  - @saas-ui/modals@2.0.0-next.1
-  - @saas-ui/nprogress@2.0.0-next.1
+  - @saas-ui/react-utils@2.0.0-next.1
   - @saas-ui/theme@2.0.0-next.1
 
 ## 2.0.0-next.0
 
 ### Major Changes
 
-- 772c9868: Updated to Tanstack ReactTable V8
-- d7c87a31: Moved form resolvers into a separate package.
-- f1e99198: BREAKING: createPalette no longer exported from @saas-ui/react
-- 8b82d945: Renamed List to StructuredList
-- 8b82d945: Removed button package.
-- f34de7af: Moved Supabase and Magic auth services to separate packages.
 - 3a15e8c8: Improve StructuredList API.
-- f1e99198: Restructured packages.
-- f3b09191: Removed Card component in favor of the new Chakra UI Card component.
 
 ### Minor Changes
 
 - e94ca3c0: Added TimeLine to core components.
-- 7ce390e9: Added Sidebar to core packages.
 
 ### Patch Changes
 
-- f1e99198: Migrated from microbundle to tsup for builds
-- Updated dependencies [772c9868]
-- Updated dependencies [d7c87a31]
-- Updated dependencies [e94ca3c0]
 - Updated dependencies [f1e99198]
 - Updated dependencies [8b82d945]
-- Updated dependencies [f34de7af]
-- Updated dependencies [3a15e8c8]
 - Updated dependencies [f1e99198]
-  - @saas-ui/data-table@2.0.0-next.0
-  - @saas-ui/forms@2.0.0-next.0
-  - @saas-ui/core@2.0.0-next.0
-  - @saas-ui/auth@2.0.0-next.0
-  - @saas-ui/hooks@2.0.0-next.0
-  - @saas-ui/hotkeys@2.0.0-next.0
-  - @saas-ui/modals@2.0.0-next.0
-  - @saas-ui/nprogress@2.0.0-next.0
+  - @saas-ui/react-utils@2.0.0-next.0
   - @saas-ui/theme@2.0.0-next.0
-
-## 1.9.3
-
-### Patch Changes
-
-- Updated dependencies
-  - @saas-ui/app-shell@1.1.2
-  - @saas-ui/auth@1.7.6
-  - @saas-ui/banner@1.4.2
-  - @saas-ui/button@1.4.2
-  - @saas-ui/card@1.5.2
-  - @saas-ui/collapse@1.4.2
-  - @saas-ui/data-table@1.4.3
-  - @saas-ui/forms@1.5.5
-  - @saas-ui/hooks@1.2.2
-  - @saas-ui/hotkeys@1.4.2
-  - @saas-ui/input-right-button@1.4.2
-  - @saas-ui/layout@1.4.3
-  - @saas-ui/list@1.4.2
-  - @saas-ui/menu@1.4.3
-  - @saas-ui/modals@1.5.7
-  - @saas-ui/nprogress@1.4.2
-  - @saas-ui/number-input@1.4.2
-  - @saas-ui/palette@1.3.2
-  - @saas-ui/password-input@1.4.2
-  - @saas-ui/persona@1.4.2
-  - @saas-ui/pin-input@1.4.2
-  - @saas-ui/property@1.4.2
-  - @saas-ui/provider@1.2.3
-  - @saas-ui/radio@1.4.3
-  - @saas-ui/search-input@1.4.2
-  - @saas-ui/select@1.4.2
-  - @saas-ui/snackbar@1.2.2
-  - @saas-ui/stepper@1.4.2
-  - @saas-ui/theme@1.8.2
-
-## 1.9.2
-
-### Patch Changes
-
-- b2302a3: Add types to package.json exports
-- Updated dependencies [f9234fc]
-- Updated dependencies [b2302a3]
-  - @saas-ui/persona@1.4.1
-  - @saas-ui/app-shell@1.1.1
-  - @saas-ui/auth@1.7.5
-  - @saas-ui/banner@1.4.1
-  - @saas-ui/button@1.4.1
-  - @saas-ui/card@1.5.1
-  - @saas-ui/collapse@1.4.1
-  - @saas-ui/data-table@1.4.2
-  - @saas-ui/forms@1.5.4
-  - @saas-ui/hooks@1.2.1
-  - @saas-ui/hotkeys@1.4.1
-  - @saas-ui/input-right-button@1.4.1
-  - @saas-ui/layout@1.4.2
-  - @saas-ui/list@1.4.1
-  - @saas-ui/menu@1.4.2
-  - @saas-ui/modals@1.5.6
-  - @saas-ui/nprogress@1.4.1
-  - @saas-ui/number-input@1.4.1
-  - @saas-ui/palette@1.3.1
-  - @saas-ui/password-input@1.4.1
-  - @saas-ui/pin-input@1.4.1
-  - @saas-ui/property@1.4.1
-  - @saas-ui/provider@1.2.2
-  - @saas-ui/radio@1.4.2
-  - @saas-ui/search-input@1.4.1
-  - @saas-ui/select@1.4.1
-  - @saas-ui/snackbar@1.2.1
-  - @saas-ui/stepper@1.4.1
-  - @saas-ui/theme@1.8.1
-
-## 1.9.1
-
-### Patch Changes
-
-- 382e095: InputRightButton no longer exported from forms package to prevent conflicts.
-- Updated dependencies [382e095]
-  - @saas-ui/forms@1.5.3
-  - @saas-ui/auth@1.7.4
-  - @saas-ui/modals@1.5.5
 
 ## 1.9.0
 
 ### Minor Changes
 
-- aea16c7: BREAKING: Improved Sidebar behavior and theme. Remove deprecated label prop on NavItem.
+- aea16c7: BREAKING: Improved Sidebar behavior and theme. Remove deprecated
+  label prop on NavItem.
 
 ### Patch Changes
 
@@ -1801,7 +910,8 @@
 
 - 523b5ca: Fixed default value for Switch fields.
 - a050ea1: Support disable sorting on individual columns in DataTable
-- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to flicker, due to config reset before closing animation was finished.
+- c8f7b32: Fixed issue where closing dialogs opened by the modals manager to
+  flicker, due to config reset before closing animation was finished.
 - Updated dependencies [523b5ca]
 - Updated dependencies [a050ea1]
 - Updated dependencies [c8f7b32]
@@ -1888,7 +998,8 @@
 
 ### Patch Changes
 
-- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported presence value is passed.
+- 7b426e8: Fixed issue where PersonaAvatar would throw an error when unsupported
+  presence value is passed.
 - Updated dependencies [7b426e8]
 - Updated dependencies [0a77fc0]
 - Updated dependencies [bc1f403]
@@ -2006,7 +1117,8 @@
 ### Patch Changes
 
 - b88c087: Added missing onChange handler on FormDialog, thanks to @eliandersoh
-- 62f3d4c: AuthProvider / useAuth now accept a generic User type to support custom user types.
+- 62f3d4c: AuthProvider / useAuth now accept a generic User type to support
+  custom user types.
 - 62f3d4c: User.email now is optional
 - Updated dependencies [b88c087]
 - Updated dependencies [62f3d4c]
@@ -2018,7 +1130,8 @@
 
 ### Patch Changes
 
-- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the internal HookForm handlers.
+- dfd61ed: Custom Field onChange and onBlur handlers will no longer override the
+  internal HookForm handlers.
 - Updated dependencies [dfd61ed]
 - Updated dependencies [0d83ca5]
 - Updated dependencies [40a9465]
@@ -2040,7 +1153,8 @@
 
 - d003608: Form now accepts a render function with form state props.
 - d003608: Re-export all React Hook Form types and hooks
-- d003608: New onChange prop for Form that triggers when the form state is changed.
+- d003608: New onChange prop for Form that triggers when the form state is
+  changed.
 
 ### Patch Changes
 
@@ -2089,7 +1203,8 @@
 
 ### Minor Changes
 
-- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components correctly.
+- f6ec7dc: Fixed issue where Next.js would not resolve Chakra UI components
+  correctly.
 
 ### Patch Changes
 
@@ -2148,7 +1263,8 @@
 
 ### Patch Changes
 
-- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise is returned.
+- e14c2e1: Make sure FormStep onSubmit does not throw an error when no promise
+  is returned.
 - 273c10d: Fixed a typo in the AuthForm styles provider.
 - 8d03628: PasswordInput width now applied to the FormGroup element.
 - Updated dependencies [1ff5f3a]
@@ -2240,7 +1356,8 @@
 ### Patch Changes
 
 - 68c7b62: Card now has a isHoverable property to support hover styles.
-- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are
+  passed.
 - fca06e4: Added Json Schema (ajv) support for AutoForm.
 - da3c4e4: Added ErrorBoundary component.
 - de0dce2: Scale reset button icon based on the input size.
@@ -2249,7 +1366,8 @@
 - 1744543: Updated dependencies.
 - bd3438d: FormStep now supports an onSubmit handler.
 - 6133901: No longer passing down label to input fields.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
 - 43dff99: Option labels are now optional.
 - 4bb613c: Added new RouterProvider and useActivePath now uses Router context.
 - d4afda3: ArrayFieldRowFields now accepts all FormLayout props (#48).
@@ -2260,7 +1378,8 @@
 - 1fdf52a: Modern bundles now use .mjs extension.
 - 38f7171: #50 - Fixed StepForm render prop types.
 - 2ec8c91: Fixed vertical divider rendering incorrectly.
-- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles
+  components.
 - 5f80cea: AutoForm now renders children.
 - 532a7d4: Fixed all theme onconsistencies.
 - 42beaa4: Added missing dependency.
@@ -2269,7 +1388,8 @@
 - 07491fd: ContextMenu now passing down all props to the internal Menu.
 - d1fb472: Select now renders a hidden input with the current value.
 - 870db1f: New primary and secondary Button variant.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use variant="primary" instead.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use
+  variant="primary" instead.
 - Updated dependencies [68c7b62]
 - Updated dependencies [3ae6be1]
 - Updated dependencies [c8621b8]
@@ -2467,8 +1587,10 @@
 ### Patch Changes
 
 - de0dce2: Scale reset button icon based on the input size.
-- dc6376f: Updated all readme files, added better descriptions and links to docs and source code.
-- 68f5d3b: Removed isPrimary and isSecondary Button properties, use variant="primary" instead.
+- dc6376f: Updated all readme files, added better descriptions and links to docs
+  and source code.
+- 68f5d3b: Removed isPrimary and isSecondary Button properties, use
+  variant="primary" instead.
 - Updated dependencies [de0dce2]
 - Updated dependencies [dc6376f]
 - Updated dependencies [68f5d3b]
@@ -2551,7 +1673,8 @@
 
 ### Patch Changes
 
-- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are passed.
+- c8621b8: NativeSelect now accepts chilren and doesn't throw if no options are
+  passed.
 - 6133901: No longer passing down label to input fields.
 - ddec417: ArrayField no longer passing down items to the container element.
 - 5f80cea: AutoForm now renders children.
@@ -2636,7 +1759,8 @@
 ### Patch Changes
 
 - 4bb613c: Added new RouterProvider and useActivePath now uses Router context.
-- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles components.
+- 8f3f948: Removed redundant ThemeProvider / CSSReset and GlobalStyles
+  components.
 - 3dee538: Spacing between pin inputs can now be configured.
 - 07491fd: ContextMenu now passing down all props to the internal Menu.
 - Updated dependencies [4bb613c]
@@ -2983,11 +2107,13 @@
 
 ### Minor Changes
 
-- 0e81abd: BREAKING: Removed Yup dependency, you now need to configure default Form resolvers
+- 0e81abd: BREAKING: Removed Yup dependency, you now need to configure default
+  Form resolvers
 
   <Form> no longer accepts a Yup `schema` by default.
 
-  Use a schema resolver to use schema support. All hookform resolvers are supported.
+  Use a schema resolver to use schema support. All hookform resolvers are
+  supported.
 
   ```ts
   import { yupResolver } from '@hookform/resolvers/yup'
@@ -3003,12 +2129,13 @@
   const form = <AutoForm {...yupForm(schema)} />
   ```
 
-  Alternatively you can configure a default resolver for all forms.
-  Add this somewhere in the root of your project.
+  Alternatively you can configure a default resolver for all forms. Add this
+  somewhere in the root of your project.
 
   ```ts
+  import { yupFieldResolver, yupResolver } from '@saas-ui/forms/yup'
   import { Form } from '@saas-ui/react'
-  import { yupResolver, yupFieldResolver } from '@saas-ui/forms/yup' // yupResolver is exported from here as well for convenience.
+  // yupResolver is exported from here as well for convenience.
   import { AnyObjectSchema } from 'yup'
 
   Form.getResolver = (schema: AnyObjectSchema) => yupResolver(schema) // @hookform/resolvers
@@ -3069,7 +2196,8 @@
 
 - 70340f0: useModal now has the correct types
 - 9245460: Make sure Field ref is focusable
-- 6c78c30: FormDialog type is now generic and accepts FieldValues / form context ref
+- 6c78c30: FormDialog type is now generic and accepts FieldValues / form context
+  ref
 - Updated dependencies [70340f0]
 - Updated dependencies [9245460]
 - Updated dependencies [6c78c30]
@@ -3376,7 +2504,8 @@
 
 ### Minor Changes
 
-- 385b760: Improved Typescript support for forms, conditionally render form fields with DisplayIf
+- 385b760: Improved Typescript support for forms, conditionally render form
+  fields with DisplayIf
 - f88d99a: Added new OverflowMenu component
 
 ### Patch Changes
@@ -3396,7 +2525,8 @@
 
 ### Patch Changes
 
-- AuthProvider now checks if a user is authenticated when logIn or signUp are succesful.
+- AuthProvider now checks if a user is authenticated when logIn or signUp are
+  succesful.
 - Updated dependencies
   - @saas-ui/auth@0.4.4
 
@@ -3424,7 +2554,8 @@
 ### Patch Changes
 
 - 65cd402: Added new FormDialog component
-- 4b8a1cb: Improved useCollapse Typescript signature, merge toggle classname and return isCollapsible param.
+- 4b8a1cb: Improved useCollapse Typescript signature, merge toggle classname and
+  return isCollapsible param.
 - 46dd92b: NumberInput stepper can now be hidden and supports custom icons.
 - Updated dependencies [65cd402]
 - Updated dependencies [4b8a1cb]
@@ -3593,7 +2724,8 @@
 ### Patch Changes
 
 - 7141944: Improve button color accesibility
-- e448f31: Saas UI theme now longer shows outlines when buttons/links are focused with a mouse click
+- e448f31: Saas UI theme now longer shows outlines when buttons/links are
+  focused with a mouse click
 - 6c55bef: Now using semantic tokens for presence colors
 - 9673005: Improved typescript support and fixed issue with invalid states
 - Updated dependencies [7141944]

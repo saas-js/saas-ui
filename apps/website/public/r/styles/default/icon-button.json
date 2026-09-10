@@ -1,0 +1,35 @@
+{
+  "files": [
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Button, type ButtonProps } from '../button/index.ts'\n\nexport interface IconButtonProps extends ButtonProps {}\n\nexport const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(\n  function IconButton(props, ref) {\n    return (\n      <Button\n        px=\"0\"\n        py=\"0\"\n        _icon={{ fontSize: '1.2em' }}\n        ref={ref}\n        {...props}\n      />\n    )\n  },\n)\n",
+      "path": "ui/icon-button/icon-button.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { IconButton, type IconButtonProps } from './icon-button.tsx'\n",
+      "path": "ui/icon-button/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/icon-button/icon-button.tsx": "0274f6a306f59b96c8c41ff58c653428ab2b3b548e4cc0cb158aa745ce76a657",
+        "ui/icon-button/index.ts": "41a03906b84db3b38e0c1bce2cd2c3c9afaa65813dd8fe1bef5957ee948c0b10"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "f772c48a8961ee14e72837930078da5274c8d531d4a1fa97febef5d394b81f5c"
+  },
+  "name": "icon-button",
+  "registryDependencies": [
+    "button"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

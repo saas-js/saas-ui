@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface ChevronDownIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * chevron-down\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"m6 9l6 6l6-6\"\n      />\n    </svg>\n  )\n}\n",
+      "path": "icons/chevron-down-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/chevron-down-icon.tsx": "50000e4b39ac955f43b7949400b38c40191333c77441737003152c8a7151c99e"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "ChevronDownIcon",
+    "contentHash": "a0db5d6cf6d369870276339d666e6ec0ea752415d53bb3bc797f4a0fc2464cb1",
+    "iconName": "ChevronDown",
+    "iconSet": "lucide"
+  },
+  "name": "chevron-down-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

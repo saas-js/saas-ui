@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export { Slider, type SliderProps } from './slider.tsx'\n",
+      "path": "ui/slider/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Slider as ChakraSlider } from '@chakra-ui/react/slider'\n\nexport interface SliderProps extends ChakraSlider.RootProps {\n  marks?: Array<number | { value: number; label: React.ReactNode }>\n  label?: React.ReactNode\n}\n\nexport const Slider = forwardRef<HTMLDivElement, SliderProps>(\n  function Slider(props, ref) {\n    const { marks: marksProp, label, ...rest } = props\n    const value = props.defaultValue ?? props.value\n\n    const marks = marksProp?.map((mark) => {\n      if (typeof mark === 'number') return { value: mark, label: undefined }\n      return mark\n    })\n\n    const hasMarkLabel = !!marks?.some((mark) => mark.label)\n\n    return (\n      <ChakraSlider.Root ref={ref} thumbAlignment=\"center\" {...rest}>\n        {label && (\n          <ChakraSlider.Label fontWeight=\"medium\">{label}</ChakraSlider.Label>\n        )}\n        <ChakraSlider.Control mb={hasMarkLabel ? '4' : undefined}>\n          <ChakraSlider.Track>\n            <ChakraSlider.Range />\n          </ChakraSlider.Track>\n          {value?.map((_, index) => (\n            <ChakraSlider.Thumb key={index} index={index}>\n              <ChakraSlider.HiddenInput />\n            </ChakraSlider.Thumb>\n          ))}\n        </ChakraSlider.Control>\n        {marks?.length && (\n          <ChakraSlider.MarkerGroup>\n            {marks.map((mark, index) => {\n              const value = typeof mark === 'number' ? mark : mark.value\n              const label = typeof mark === 'number' ? undefined : mark.label\n              return (\n                <ChakraSlider.Marker key={index} value={value}>\n                  <ChakraSlider.MarkerIndicator />\n                  {label}\n                </ChakraSlider.Marker>\n              )\n            })}\n          </ChakraSlider.MarkerGroup>\n        )}\n      </ChakraSlider.Root>\n    )\n  },\n)\n",
+      "path": "ui/slider/slider.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/slider/index.ts": "7b2e73ce5ebf42554dde6b172e523aef999c01f95b037b97c888093e6bd37fad",
+        "ui/slider/slider.tsx": "9c3a90cdcd036f32772a9facc097c8f3fa5e7f86014af6dfde4f31d66ff9d867"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "db0eef0b8661a13e453c71c8b7405f376a2cc996e3628b788fca4bc54d272e0c"
+  },
+  "name": "slider",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

@@ -1,0 +1,36 @@
+{
+  "Root": {
+    "props": {
+      "colorPalette": {
+        "defaultValue": "gray",
+        "type": "\"gray\" | \"zinc\" | \"neutral\" | \"stone\" | \"red\" | \"orange\" | \"amber\" | \"yellow\" | \"lime\" | \"green\" | \"emerald\" | \"teal\" | \"cyan\" | \"sky\" | \"blue\" | \"indigo\" | \"violet\" | \"purple\" | \"fuchsia\" | \"pink\" | \"rose\" | \"presence\" | \"status\" | \"sidebar\" | \"sidebar.accent\" | \"accent\" | \"slate\"",
+        "isRequired": false,
+        "description": "The color palette of the component"
+      },
+      "status": {
+        "type": "\"info\" | \"warning\" | \"success\" | \"error\" | \"neutral\"",
+        "defaultValue": "info",
+        "isRequired": false,
+        "description": "The status of the component"
+      },
+      "inline": {
+        "type": "\"true\" | \"false\"",
+        "defaultValue": false,
+        "isRequired": false,
+        "description": "The inline of the component"
+      },
+      "variant": {
+        "type": "\"subtle\" | \"surface\" | \"outline\" | \"solid\"",
+        "defaultValue": "subtle",
+        "isRequired": false,
+        "description": "The variant of the component"
+      },
+      "size": {
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "defaultValue": "md",
+        "isRequired": false,
+        "description": "The size of the component"
+      }
+    }
+  }
+}

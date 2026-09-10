@@ -1,0 +1,44 @@
+---
+title: Split Page
+description: A master-detail layout with a list pane and detail pane.
+links:
+  source: components/split-page
+  storybook: components-split-page--basic
+  recipe: split-page
+---
+
+<ExampleTabs name="split-page-basic" />
+
+## Anatomy
+
+```ts
+import { SplitPage, useSplitPage } from '#components/ui/split-page'
+```
+
+```tsx
+<SplitPage>
+  <Page.Root>{/* list */}</Page.Root>
+  <Page.Root>{/* detail */}</Page.Root>
+</SplitPage>
+```
+
+## Examples
+
+### With content
+
+Combine SplitPage with Page for a full master-detail view.
+
+<ExampleTabs name="split-page-with-content" />
+
+### Responsive
+
+On smaller screens, the detail pane overlays the list. Use `useSplitPage` to
+open and close it.
+
+<ExampleTabs name="split-page-responsive" />
+
+## Props
+
+### SplitPage
+
+<PropTable component="SplitPage" part="SplitPage" />

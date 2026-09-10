@@ -1,0 +1,277 @@
+{
+  "$id": "https://saas-ui.dev/r/schema/registry-item.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "canvas": {
+      "additionalProperties": {},
+      "properties": {
+        "center": {
+          "type": "boolean"
+        },
+        "className": {
+          "type": "string"
+        },
+        "maxWidth": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "categories": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "category": {
+      "type": "string"
+    },
+    "chunks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "component": {},
+          "container": {
+            "additionalProperties": false,
+            "properties": {
+              "className": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "description": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "component",
+          "file"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cssVars": {
+      "additionalProperties": false,
+      "properties": {
+        "dark": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "propertyNames": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "light": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "propertyNames": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "dependencies": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^((?:@[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?\\/[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?|[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?))(?:@((?:\\^|~)?(?:(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*))?)?|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?)))?$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "devDependencies": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^((?:@[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?\\/[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?|[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?))(?:@((?:\\^|~)?(?:(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*))?)?|(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?)))?$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "docs": {
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "registry:setup",
+              "registry:ui",
+              "registry:component",
+              "registry:lib",
+              "registry:hook",
+              "registry:icon",
+              "registry:block",
+              "registry:example",
+              "registry:style",
+              "registry:theme",
+              "registry:page",
+              "registry:story"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "meta": {
+      "additionalProperties": {},
+      "propertyNames": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "name": {
+      "minLength": 1,
+      "pattern": "^[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$",
+      "type": "string"
+    },
+    "order": {
+      "type": "number"
+    },
+    "preview": {
+      "type": "string"
+    },
+    "primaryFile": {
+      "type": "string"
+    },
+    "private": {
+      "type": "boolean"
+    },
+    "registryDependencies": {
+      "items": {
+        "anyOf": [
+          {
+            "minLength": 1,
+            "pattern": "^[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$",
+            "type": "string"
+          },
+          {
+            "pattern": "^@[a-z0-9][a-z0-9_-]*\\/[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$",
+            "type": "string"
+          },
+          {
+            "format": "uri",
+            "type": "string"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": 1,
+      "default": 1,
+      "type": "number"
+    },
+    "source": {
+      "type": "string"
+    },
+    "subcategory": {
+      "type": "string"
+    },
+    "tailwind": {
+      "additionalProperties": false,
+      "properties": {
+        "config": {
+          "additionalProperties": false,
+          "properties": {
+            "content": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "plugins": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "theme": {
+              "additionalProperties": {},
+              "propertyNames": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "type": {
+      "enum": [
+        "registry:setup",
+        "registry:ui",
+        "registry:component",
+        "registry:lib",
+        "registry:hook",
+        "registry:icon",
+        "registry:block",
+        "registry:example",
+        "registry:style",
+        "registry:theme",
+        "registry:page",
+        "registry:story"
+      ],
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "name",
+    "type"
+  ],
+  "type": "object",
+  "x-registry-schema-version": 1
+}

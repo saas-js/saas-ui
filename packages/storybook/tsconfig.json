@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@saas-ui/forms": ["../saas-ui-forms/src"]
+      "compositions/*": ["../../apps/compositions/src/*"]
     }
   },
   "include": [".storybook/*.ts"]

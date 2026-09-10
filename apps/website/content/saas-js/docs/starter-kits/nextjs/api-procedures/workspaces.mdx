@@ -1,0 +1,65 @@
+---
+title: Workspaces router
+description: An overview of the workspaces router
+---
+
+## Procedures
+
+The workspaces router has the following procedures:
+
+### Create a workspace
+
+Create a new workspace.
+
+- Access: `@protected`
+
+```typescript
+// Client components
+const { data } = useMutation(trpc.workspaces.create.mutationOptions())
+
+// Server components
+const data = await caller.workspaces.create()
+```
+
+### Check if slug is available
+
+Check if a workspace slug is available.
+
+- Access: `@protected`
+
+```typescript
+// Client components
+const { data } = useQuery(trpc.workspaces.slugAvailable.queryOptions({ slug: 'my-workspace' }))
+
+// Server components
+const data = await caller.workspaces.slugAvailable({ slug: 'my-workspace' })
+```
+
+### Get workspace by slug
+
+Get a workspace by its slug and returns the workspace details, subscription,
+members and tags.
+
+- Access: `@member`
+
+```typescript
+// Client components
+const { data } = useQuery(trpc.workspaces.get.queryOptions({ slug: 'my-workspace' }))
+
+// Server components
+const data = await caller.workspaces.get({ slug: 'my-workspace' })
+```
+
+### Update workspace
+
+Update a workspace.
+
+- Access: `@admin`
+
+```typescript
+// Client components
+const { mutate } = useMutation(trpc.workspaces.update.mutationOptions())
+
+// Server components
+const data = await caller.workspaces.update()
+```

@@ -1,0 +1,38 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export { Link, type LinkProps } from './link'\n",
+      "path": "ui/link/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Link as ChakraLink, type LinkProps } from '@chakra-ui/react'\n\nimport { useLink } from '@/registry/default/lib/use-link/use-link.tsx'\n\nexport type { LinkProps }\n\n/**\n * A Chakra Link rendered through the router component configured by Provider.\n */\nexport const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(\n  function Link(props, ref) {\n    const { children, ...rest } = props\n    const LinkComponent = useLink()\n\n    return (\n      <ChakraLink asChild {...rest}>\n        <LinkComponent ref={ref}>{children}</LinkComponent>\n      </ChakraLink>\n    )\n  },\n)\n",
+      "path": "ui/link/link.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/link/index.ts": "e0b5fe8544694787432d901cf10f892198e7e86c144fa20ce5a292e73c984428",
+        "ui/link/link.tsx": "6bffc515a1e9d3f1e8ff56866975314ad1d16952828bf08478c649ee1bff8d97"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "7d06633c8131686ef0db651c3dad405f203aad8ac18595c628a912770b506f68"
+  },
+  "name": "link",
+  "registryDependencies": [
+    "use-link"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

@@ -1,0 +1,49 @@
+---
+title: Introducing the new Glass theme for Chakra UI
+publishedAt: '2022-12-12'
+authors: ['eelco']
+description:
+  Today I'm happy to announce that the new Glass theme for Chakra UI I've been
+  working on is now available for download.
+---
+
+The new theme is heavily inspired by the new Linear design and the glassmorpism
+trend. It's perfect for creating modern minimalist web applications and works
+very well on top of the default Saas UI theme.
+
+One of the standout features of the new Glass theme is its use of transparent
+elements. This adds a sense of dept and layering inside your application, giving
+it a more sophisticated and dynamic look. The transparent elements also help to
+create a sense of visual continuity, making your UI look more cohesive, polished
+and simply very sexy 😍
+
+The theme is still in beta, but I would really love to get your feedback. You
+can install it from NPM or download the
+[source code](https://github.com/saas-js/saas-ui/tree/main/packages/saas-ui-theme-glass)
+directly from Github.
+
+```bash
+npm i @saas-ui/theme-glass
+```
+
+The original package targeted Chakra UI v2. With Chakra UI v3, add glass
+tokens and recipes as a system config layered on top of the Saas UI preset:
+
+```ts
+import { createSystem, defineConfig, mergeConfigs } from '@chakra-ui/react'
+import { defaultConfig } from '@saas-ui/chakra-preset'
+
+const glassConfig = defineConfig({
+  theme: {
+    // Add your glass tokens and recipes here.
+  },
+})
+
+export const system = createSystem(mergeConfigs(defaultConfig, glassConfig))
+```
+
+See it live in action on the new [Themes page](/themes) or in the
+[Storybook](https://storybook.saas-ui.pro/).
+
+A big shout out to the Linear team, as they are a huge inspiration and they
+really raised the bar for how we build modern web applications.

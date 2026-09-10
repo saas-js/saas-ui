@@ -6,7 +6,8 @@ export function queue(): Promise<void> {
 
 export function nextTick(): Promise<void> {
   return act(
-    () => new Promise((resolve) => requestAnimationFrame(() => resolve()))
+    () =>
+      new Promise<void>((resolve) => requestAnimationFrame(() => resolve())),
   )
 }
 

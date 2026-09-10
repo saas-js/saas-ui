@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { IconButton } from '@storybook/components'
-import { addons } from '@storybook/manager-api'
+import { IconButton } from 'storybook/internal/components'
+import { addons } from 'storybook/manager-api'
 
 import { EVENTS } from '../constants'
 

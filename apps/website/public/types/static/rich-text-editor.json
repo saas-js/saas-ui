@@ -1,0 +1,156 @@
+{
+  "Root": {
+    "props": {
+      "editor": {
+        "type": "Editor | null",
+        "isRequired": true,
+        "description": "The Tiptap editor instance, usually created with `useEditor`. Renders nothing until the editor is ready."
+      },
+      "disabled": {
+        "type": "boolean",
+        "description": "Dims the content area and blocks pointer events. Disable the editor itself with Tiptap's `editable` option."
+      }
+    }
+  },
+  "Toolbar": {
+    "props": {
+      "variant": {
+        "type": "'fixed' | 'sticky' | 'floating'",
+        "defaultValue": "fixed",
+        "description": "`fixed` sits above the content, `sticky` follows the scroll position, `floating` is a panel for use inside a bubble menu."
+      },
+      "stickyOffset": {
+        "type": "string",
+        "defaultValue": "0px",
+        "description": "Distance from the top of the scroll container, used by the `sticky` variant."
+      }
+    }
+  },
+  "Content": {
+    "props": {
+      "editorProps": {
+        "type": "EditorProps",
+        "description": "ProseMirror view props forwarded to Tiptap's `EditorContent`."
+      }
+    }
+  },
+  "ButtonControl": {
+    "props": {
+      "label": {
+        "type": "string",
+        "isRequired": true,
+        "description": "Accessible name for the button, also shown as its tooltip."
+      },
+      "icon": {
+        "type": "React.ReactNode",
+        "isRequired": true,
+        "description": "The icon rendered inside the button."
+      }
+    }
+  },
+  "createBooleanControl": {
+    "props": {
+      "label": {
+        "type": "string",
+        "isRequired": true,
+        "description": "Accessible name for the control, also shown as its tooltip."
+      },
+      "icon": {
+        "type": "React.ElementType",
+        "isRequired": true,
+        "description": "The icon component rendered inside the button."
+      },
+      "command": {
+        "type": "(editor: Editor) => void",
+        "isRequired": true,
+        "description": "Runs when the control is clicked, usually a chained Tiptap command."
+      },
+      "getVariant": {
+        "type": "(editor: Editor) => IconButtonProps['variant']",
+        "description": "Derives the button variant from the editor state, typically `subtle` when the mark is active."
+      },
+      "isDisabled": {
+        "type": "(editor: Editor) => boolean",
+        "description": "Disables the control based on the editor state, for example when the command can't run."
+      },
+      "getProps": {
+        "type": "(editor: Editor) => Record<string, any>",
+        "description": "Props derived from the editor state. Takes precedence over `getVariant`."
+      }
+    }
+  },
+  "createSelectControl": {
+    "props": {
+      "label": {
+        "type": "string",
+        "isRequired": true,
+        "description": "Accessible name for the select, also shown as its tooltip."
+      },
+      "options": {
+        "type": "SelectOption[]",
+        "isRequired": true,
+        "description": "The selectable options, each with a `value`, `label` and optional `icon`."
+      },
+      "getValue": {
+        "type": "(editor: Editor) => string",
+        "isRequired": true,
+        "description": "Derives the selected option value from the editor state."
+      },
+      "command": {
+        "type": "(editor: Editor, value: string) => void",
+        "isRequired": true,
+        "description": "Runs when an option is selected."
+      },
+      "renderValue": {
+        "type": "(value: string, option?: SelectOption) => React.ReactNode",
+        "description": "Customizes how the selected option is rendered in the trigger."
+      },
+      "placeholder": {
+        "type": "string",
+        "defaultValue": "Select",
+        "description": "Shown when the current editor state matches none of the options."
+      },
+      "width": {
+        "type": "string",
+        "description": "Width of the select trigger."
+      }
+    }
+  },
+  "createSwatchControl": {
+    "props": {
+      "label": {
+        "type": "string",
+        "isRequired": true,
+        "description": "Accessible name for the control, also shown as its tooltip."
+      },
+      "swatches": {
+        "type": "SwatchOption[]",
+        "isRequired": true,
+        "description": "The colors shown in the popover, each with a `value` and a `color`."
+      },
+      "getValue": {
+        "type": "(editor: Editor) => string",
+        "isRequired": true,
+        "description": "Derives the active color from the editor state."
+      },
+      "command": {
+        "type": "(editor: Editor, value: string) => void",
+        "isRequired": true,
+        "description": "Runs when a swatch is picked."
+      },
+      "showRemove": {
+        "type": "boolean",
+        "defaultValue": "false",
+        "description": "Adds a close button to the popover that clears the color."
+      },
+      "onRemove": {
+        "type": "(editor: Editor) => void",
+        "description": "Runs when the remove button is clicked."
+      },
+      "icon": {
+        "type": "React.ElementType",
+        "description": "Icon rendered above the color bar in the trigger."
+      }
+    }
+  }
+}

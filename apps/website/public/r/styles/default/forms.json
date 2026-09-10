@@ -1,0 +1,123 @@
+{
+  "dependencies": [
+    "@chakra-ui/react",
+    "@tanstack/react-form@^1.33.2"
+  ],
+  "description": "Typed TanStack Form components built with Chakra UI and Saas UI controls",
+  "files": [
+    {
+      "content": "import { useAppForm } from './create-form'\n\nexport type AnyAppForm = ReturnType<typeof useAppForm>\n",
+      "path": "forms/app-form.ts",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport { createFormHook } from '@tanstack/react-form'\n\nimport { SelectField } from './fields/select-field'\nimport { SwitchField } from './fields/switch-field'\nimport { TextField } from './fields/text-field'\nimport { TextareaField } from './fields/textarea-field'\nimport { Footer } from './footer'\nimport { fieldContext, formContext } from './form-context'\nimport { Layout } from './layout'\nimport { SubmitButton } from './submit-button'\n\n/**\n * App-wide TanStack Form hook. Registers our Chakra/Saas UI field and form\n * components so they're available as `field.*` inside `<form.AppField>` and\n * `form.*` inside `<form.AppForm>`.\n *\n * Usage (the standalone `<Form form={form}>` provides context + renders the\n * `<form>` element, so no separate `<form.AppForm>` wrapper is needed):\n *\n *   const form = useAppForm({ defaultValues, validators, onSubmit })\n *   <Form form={form}>\n *     <form.Layout>\n *       <form.AppField name=\"email\">\n *         {(field) => <field.TextField label=\"Email\" type=\"email\" />}\n *       </form.AppField>\n *       <form.SubmitButton>Save</form.SubmitButton>\n *     </form.Layout>\n *   </Form>\n */\nexport const { useAppForm, withForm, withFieldGroup } = createFormHook({\n  fieldContext,\n  formContext,\n  fieldComponents: {\n    TextField,\n    TextareaField,\n    SelectField,\n    SwitchField,\n  },\n  formComponents: {\n    Layout,\n    Footer,\n    SubmitButton,\n  },\n})\n",
+      "path": "forms/create-form.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Field } from '@chakra-ui/react'\n\nimport type { BaseFieldProps } from './types'\n\nexport interface FieldRootProps extends BaseFieldProps {\n  invalid: boolean\n  errorText?: string\n  children: React.ReactNode\n}\n\n/**\n * Shared shell for every field component: renders the Chakra `Field.Root`\n * with label, the control (`children`), and helper/error text.\n */\nexport function FieldRoot(props: FieldRootProps) {\n  const {\n    label,\n    help,\n    orientation,\n    required,\n    rootProps,\n    invalid,\n    errorText,\n    children,\n  } = props\n\n  return (\n    <Field.Root\n      orientation={orientation}\n      required={required}\n      invalid={invalid}\n      {...rootProps}\n    >\n      {label && <Field.Label>{label}</Field.Label>}\n      {children}\n      {help && !invalid && <Field.HelperText>{help}</Field.HelperText>}\n      {invalid && errorText && <Field.ErrorText>{errorText}</Field.ErrorText>}\n    </Field.Root>\n  )\n}\n",
+      "path": "forms/fields/field-root.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { createListCollection } from '@chakra-ui/react'\n\nimport { Select } from '#registry/default/ui/select/index.ts'\n\nimport { useFieldContext } from '../form-context'\nimport { getErrorText } from '../utils'\nimport { FieldRoot } from './field-root'\nimport type { BaseFieldProps } from './types'\n\nexport interface SelectFieldOption {\n  label: string\n  value: string\n}\n\n/** A list of select options. */\nexport type FieldOptions = SelectFieldOption[]\n\nexport interface SelectFieldProps extends BaseFieldProps {\n  options: SelectFieldOption[]\n  multiple?: boolean\n  placeholder?: string\n}\n\n/**\n * Select field backed by the Chakra 3 collection API. Adapts the scalar field\n * value (single select) to the array value the underlying `Select` expects.\n */\nexport function SelectField(props: SelectFieldProps) {\n  const {\n    label,\n    help,\n    orientation,\n    required,\n    rootProps,\n    options,\n    multiple,\n    placeholder,\n  } = props\n\n  const field = useFieldContext<string | string[]>()\n  const errorText = getErrorText(field.state.meta.errors)\n  const invalid = field.state.meta.isTouched && !!errorText\n\n  const collection = React.useMemo(\n    () => createListCollection({ items: options }),\n    [options],\n  )\n\n  const value = multiple\n    ? ((field.state.value as string[] | undefined) ?? [])\n    : field.state.value\n      ? [field.state.value as string]\n      : []\n\n  return (\n    <FieldRoot\n      label={label}\n      help={help}\n      orientation={orientation}\n      required={required}\n      rootProps={rootProps}\n      invalid={invalid}\n      errorText={errorText}\n    >\n      <Select.Root\n        name={field.name}\n        multiple={multiple}\n        collection={collection}\n        value={value}\n        onValueChange={({ value }) =>\n          field.handleChange(multiple ? value : (value[0] ?? ''))\n        }\n        onInteractOutside={() => field.handleBlur()}\n      >\n        <Select.Trigger>\n          <Select.ValueText placeholder={placeholder} />\n        </Select.Trigger>\n        <Select.Content portalled={false}>\n          {collection.items.map((item) => (\n            <Select.Item key={item.value} item={item}>\n              {item.label}\n            </Select.Item>\n          ))}\n        </Select.Content>\n      </Select.Root>\n    </FieldRoot>\n  )\n}\n",
+      "path": "forms/fields/select-field.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Field } from '@chakra-ui/react'\n\nimport { Switch } from '#registry/default/ui/switch/index.ts'\n\nimport { useFieldContext } from '../form-context'\nimport { getErrorText } from '../utils'\nimport type { BaseFieldProps } from './types'\n\nexport interface SwitchFieldProps\n  extends\n    BaseFieldProps,\n    Omit<\n      React.ComponentProps<typeof Switch>,\n      'checked' | 'onCheckedChange' | 'onBlur' | keyof BaseFieldProps\n    > {}\n\n/**\n * Boolean toggle field. Renders the label beside the switch (horizontal by\n * default, matching the common settings/notification layout).\n */\nexport function SwitchField(props: SwitchFieldProps) {\n  const {\n    label,\n    help,\n    orientation = 'horizontal',\n    required,\n    rootProps,\n    ...rest\n  } = props\n\n  const field = useFieldContext<boolean>()\n  const errorText = getErrorText(field.state.meta.errors)\n  const invalid = field.state.meta.isTouched && !!errorText\n\n  return (\n    <Field.Root\n      orientation={orientation}\n      required={required}\n      invalid={invalid}\n      {...rootProps}\n    >\n      {label && <Field.Label>{label}</Field.Label>}\n      <Switch\n        name={field.name}\n        checked={field.state.value ?? false}\n        onCheckedChange={({ checked }) => field.handleChange(checked)}\n        onBlur={() => field.handleBlur()}\n        {...rest}\n      />\n      {help && !invalid && <Field.HelperText>{help}</Field.HelperText>}\n      {invalid && errorText && <Field.ErrorText>{errorText}</Field.ErrorText>}\n    </Field.Root>\n  )\n}\n",
+      "path": "forms/fields/switch-field.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { InputGroup } from '#registry/default/ui/input-group/index.ts'\nimport { Input } from '#registry/default/ui/input/index.ts'\nimport { PasswordInput } from '#registry/default/ui/password-input/index.ts'\n\nimport { useFieldContext } from '../form-context'\nimport { getErrorText } from '../utils'\nimport { FieldRoot } from './field-root'\nimport type { BaseFieldProps } from './types'\n\nexport interface TextFieldProps\n  extends\n    BaseFieldProps,\n    Omit<\n      React.ComponentProps<typeof Input>,\n      'value' | 'onChange' | 'onBlur' | 'type' | 'form'\n    > {\n  type?: 'text' | 'email' | 'password' | 'tel' | 'url'\n  startElement?: React.ReactNode\n  endElement?: React.ReactNode\n  /** Called in addition to the field's own change handler. */\n  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void\n}\n\n/**\n * Text input field, covering text/email/password/tel/url. `type=\"password\"`\n * uses `PasswordInput` (with the show/hide toggle). `startElement`/`endElement`\n * wrap the control in an `InputGroup`.\n */\nexport const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(\n  function TextField(props, ref) {\n    const {\n      label,\n      help,\n      orientation,\n      required,\n      rootProps,\n      type = 'text',\n      startElement,\n      endElement,\n      onChange,\n      ...inputProps\n    } = props\n\n    const field = useFieldContext<string>()\n    const errorText = getErrorText(field.state.meta.errors)\n    const invalid = field.state.meta.isTouched && !!errorText\n\n    const commonProps = {\n      ref,\n      id: field.name,\n      name: field.name,\n      value: field.state.value ?? '',\n      onChange: (e: React.ChangeEvent<HTMLInputElement>) => {\n        field.handleChange(e.currentTarget.value)\n        onChange?.(e)\n      },\n      onBlur: field.handleBlur,\n      ...inputProps,\n    }\n\n    const control =\n      type === 'password' ? (\n        <PasswordInput {...commonProps} />\n      ) : (\n        <Input type={type} {...commonProps} />\n      )\n\n    return (\n      <FieldRoot\n        label={label}\n        help={help}\n        orientation={orientation}\n        required={required}\n        rootProps={rootProps}\n        invalid={invalid}\n        errorText={errorText}\n      >\n        {startElement || endElement ? (\n          <InputGroup startElement={startElement} endElement={endElement}>\n            {control}\n          </InputGroup>\n        ) : (\n          control\n        )}\n      </FieldRoot>\n    )\n  },\n)\n",
+      "path": "forms/fields/text-field.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Textarea } from '@chakra-ui/react'\n\nimport { useFieldContext } from '../form-context'\nimport { getErrorText } from '../utils'\nimport { FieldRoot } from './field-root'\nimport type { BaseFieldProps } from './types'\n\nexport interface TextareaFieldProps\n  extends\n    BaseFieldProps,\n    Omit<\n      React.ComponentProps<typeof Textarea>,\n      'value' | 'onChange' | 'onBlur' | 'form'\n    > {\n  /** Called in addition to the field's own change handler. */\n  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void\n}\n\nexport const TextareaField = React.forwardRef<\n  HTMLTextAreaElement,\n  TextareaFieldProps\n>(function TextareaField(props, ref) {\n  const { label, help, orientation, required, rootProps, onChange, ...rest } =\n    props\n\n  const field = useFieldContext<string>()\n  const errorText = getErrorText(field.state.meta.errors)\n  const invalid = field.state.meta.isTouched && !!errorText\n\n  return (\n    <FieldRoot\n      label={label}\n      help={help}\n      orientation={orientation}\n      required={required}\n      rootProps={rootProps}\n      invalid={invalid}\n      errorText={errorText}\n    >\n      <Textarea\n        ref={ref}\n        id={field.name}\n        name={field.name}\n        value={field.state.value ?? ''}\n        onChange={(e) => {\n          field.handleChange(e.currentTarget.value)\n          onChange?.(e)\n        }}\n        onBlur={field.handleBlur}\n        {...rest}\n      />\n    </FieldRoot>\n  )\n})\n",
+      "path": "forms/fields/textarea-field.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "import type * as React from 'react'\n\nimport type { Field } from '@chakra-ui/react'\n\n/**\n * Props shared by every field component. Each field reads its bound state from\n * `useFieldContext` and renders a Chakra `Field.Root` with label/help/error.\n */\nexport interface BaseFieldProps {\n  /** Field label rendered above (or beside, when horizontal) the control. */\n  label?: React.ReactNode\n  /** Helper text shown below the control when the field is valid. */\n  help?: React.ReactNode\n  /** Label placement. `horizontal` uses the `--field-label-width` CSS var. */\n  orientation?: 'horizontal' | 'vertical'\n  /** Marks the field required (renders the required indicator). */\n  required?: boolean\n  /** Passthrough props for the wrapping `Field.Root` (e.g. `ps`, `width`). */\n  rootProps?: React.ComponentProps<typeof Field.Root>\n}\n",
+      "path": "forms/fields/types.ts",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport { Group, type GroupProps } from '@chakra-ui/react'\n\n/**\n * Footer row for form actions (e.g. the submit button). Indents by the\n * `--field-label-width` so the actions line up under the field column in\n * horizontal-orientation forms; falls back to no indent when the var is unset.\n */\nexport function Footer(props: GroupProps) {\n  return (\n    <Group\n      ps=\"calc(var(--field-label-width, 0px) + var(--chakra-spacing-2))\"\n      {...props}\n    />\n  )\n}\n",
+      "path": "forms/footer.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport { createFormHookContexts } from '@tanstack/react-form'\n\n/**\n * Shared form/field contexts used by every field and form component in this\n * module. Kept in its own file (separate from `create-form.tsx`) so field\n * components can import the hooks without creating a circular dependency with\n * the `createFormHook` factory that registers those same components.\n */\nexport const { fieldContext, formContext, useFieldContext, useFormContext } =\n  createFormHookContexts()\n",
+      "path": "forms/form-context.ts",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { chakra } from '@chakra-ui/react'\n\n/** Minimal structural shape of the app form used by `Form`. */\nexport interface FormLike {\n  AppForm: React.ComponentType<React.PropsWithChildren<{}>>\n  handleSubmit: () => unknown\n}\n\nexport type FormProps<TForm extends FormLike> = {\n  form: TForm\n  children: React.ReactNode\n} & Omit<React.ComponentProps<typeof chakra.form>, 'onSubmit'>\n\n/**\n * Renders the `<form>` element and provides the app-form context in a single\n * wrapper, so registered form components (`form.SubmitButton`) work without a\n * separate `<form.AppForm>` and without threading the form through props.\n *\n * Generic over the form type so the concrete `useAppForm` generics are\n * forwarded (not widened to `any`).\n *\n *   <Form form={form}>\n *     <form.Layout>\n *       <form.AppField name=\"email\">{(field) => <field.TextField />}</form.AppField>\n *       <form.SubmitButton>Save</form.SubmitButton>\n *     </form.Layout>\n *   </Form>\n */\nexport function Form<TForm extends FormLike>(props: FormProps<TForm>) {\n  const { form, children, ...rest } = props\n\n  return (\n    <form.AppForm>\n      <chakra.form\n        noValidate\n        onSubmit={(e) => {\n          e.preventDefault()\n          e.stopPropagation()\n          void form.handleSubmit()\n        }}\n        {...rest}\n      >\n        {children}\n      </chakra.form>\n    </form.AppForm>\n  )\n}\n",
+      "path": "forms/form.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "// Factory hook + composition helpers\nexport { useAppForm, withForm, withFieldGroup } from './create-form'\nexport type { AnyAppForm } from './app-form'\n\n// Contexts / hooks for building custom field & form components\nexport {\n  fieldContext,\n  formContext,\n  useFieldContext,\n  useFormContext,\n} from './form-context'\n\n// Field components\nexport { TextField, type TextFieldProps } from './fields/text-field'\nexport { TextareaField, type TextareaFieldProps } from './fields/textarea-field'\nexport {\n  SelectField,\n  type SelectFieldProps,\n  type SelectFieldOption,\n  type FieldOptions,\n} from './fields/select-field'\nexport { SwitchField, type SwitchFieldProps } from './fields/switch-field'\nexport type { BaseFieldProps } from './fields/types'\n\n// Form-level components\nexport { Form, type FormProps, type FormLike } from './form'\nexport { Layout, type LayoutProps } from './layout'\nexport { Footer } from './footer'\nexport { SubmitButton, type SubmitButtonProps } from './submit-button'\n\n// Utilities\nexport { getErrorText } from './utils'\n",
+      "path": "forms/index.ts",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Stack, type StackProps } from '@chakra-ui/react'\n\nexport interface LayoutProps extends StackProps {\n  children: React.ReactNode\n  /**\n   * The width of the labels for horizontal-orientation form fields.\n   * Sets `--field-label-width` CSS variable.\n   */\n  labelWidth?: string\n}\n/**\n * Vertical layout for form fields. Carries the `--field-label-width` CSS var\n * when a call-site sets it (used by horizontal-orientation fields). Does not\n * hardcode the var so an ancestor (e.g. `Card.Body`) can provide it instead.\n */\nexport function Layout(props: LayoutProps) {\n  const { children, labelWidth, ...rest } = props\n  return (\n    <Stack\n      gap=\"4\"\n      width=\"full\"\n      css={{\n        '--field-label-width': labelWidth,\n        ...rest.css,\n      }}\n      {...rest}\n    >\n      {children}\n    </Stack>\n  )\n}\n",
+      "path": "forms/layout.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { Button, type ButtonProps } from '#registry/default/ui/button/index.ts'\n\nimport { useFormContext } from './form-context'\n\nexport interface SubmitButtonProps extends ButtonProps {\n  loadingText?: React.ReactNode\n  /**\n   * Disable the button while the form is invalid/pristine. Defaults to `true`.\n   * Set to `false` to always allow clicking (e.g. to trigger validation).\n   */\n  disableIfInvalid?: boolean\n}\n\n/**\n * Submit button bound to the app form from context (provided by `<Form>`).\n * Shows a loading state while submitting and (by default) disables until the\n * form can submit.\n */\nexport const SubmitButton = React.forwardRef<\n  HTMLButtonElement,\n  SubmitButtonProps\n>(function SubmitButton(props, ref) {\n  const {\n    children = 'Submit',\n    loadingText,\n    disabled,\n    disableIfInvalid = true,\n    ...rest\n  } = props\n\n  const form = useFormContext()\n\n  return (\n    <form.Subscribe\n      selector={(state) => ({\n        isSubmitting: state.isSubmitting,\n        canSubmit: state.canSubmit,\n      })}\n    >\n      {({ isSubmitting, canSubmit }) => (\n        <Button\n          ref={ref}\n          type=\"submit\"\n          variant=\"solid\"\n          colorPalette=\"accent\"\n          loading={isSubmitting}\n          loadingText={loadingText}\n          disabled={disabled ?? (disableIfInvalid ? !canSubmit : false)}\n          {...rest}\n        >\n          {children}\n        </Button>\n      )}\n    </form.Subscribe>\n  )\n})\n",
+      "path": "forms/submit-button.tsx",
+      "type": "registry:component"
+    },
+    {
+      "content": "/**\n * Extract a displayable error message from a field's `meta.errors`.\n *\n * TanStack Form surfaces errors from two sources with different shapes:\n * - Standard Schema (Zod) validators produce issue objects `{ message }`.\n * - Function validators produce plain strings.\n *\n * This normalizes both to the first error's message string.\n */\nexport function getErrorText(\n  errors: ReadonlyArray<unknown> | undefined,\n): string | undefined {\n  const first = errors?.[0]\n  if (first == null) {\n    return undefined\n  }\n  if (typeof first === 'string') {\n    return first\n  }\n  return (first as { message?: string }).message\n}\n",
+      "path": "forms/utils.ts",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "forms/app-form.ts": "38fc85925598caa3077407202d00d9730d2f13d9b05d9d9f9820381841f05576",
+        "forms/create-form.tsx": "4541a86b3df28cb8258c55da992d03014db18447d7e0c5523bf5c69a8204f680",
+        "forms/fields/field-root.tsx": "304de0730ce66c484cc0478670eae1a820c8f57d708dafb9c4943d63ef45cfd9",
+        "forms/fields/select-field.tsx": "1927b5104c1c2d5866cb5575e6ca91ad515a4163e4373a0baffa7efa742f9b9b",
+        "forms/fields/switch-field.tsx": "3626ee2a8fcc17c0bc629837342ac2a2fbc6e5ef5bae5afa3a7a183d9e17d848",
+        "forms/fields/text-field.tsx": "9b3f41d93cebfd57b4d065b13f393ff021a2deddd2e2dafaf4f55d9a0a48b471",
+        "forms/fields/textarea-field.tsx": "183fcf9e9433483b548cf3953b12424475e3466f2a20e8decdaa190684d4cd88",
+        "forms/fields/types.ts": "aaf7cb7fdc65b24d9e14b9502a683795454d9fd1bddc8c8926a544d0361bb591",
+        "forms/footer.tsx": "9075fc41bf7aac7e4fb2a5e74707d50e966b5383a7861ba21769bc4704c79b9e",
+        "forms/form-context.ts": "bfce5b567ba09018df2fe599c3abc54611871e2baeda54b17e6cbfc7946e499b",
+        "forms/form.tsx": "d88ce181a220968890ebc62d80ec1153f3de133f6207b3d122e771a56f0d09a4",
+        "forms/index.ts": "30836d49662aadef3c7eef2b5140b23d891dba01fc7cfc7f035c4c370dda6542",
+        "forms/layout.tsx": "aa7efb027ce7581bc9e1dc5c94d7ba901e5394693c14a8eff7c9cd801cbcc4dc",
+        "forms/submit-button.tsx": "96e91d9d0660fb7eea990502bff3cf54717dcd83abaa971b50ed63c0bff95e33",
+        "forms/utils.ts": "adbda241b4e5bba447b66fb4e684cdb34ad6be45258cda8782001d1991fc0e84"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "04684becaf8b37ec664f94c222d78c3d25993c64ec68fa49c9cc7e75bee1f79f"
+  },
+  "name": "forms",
+  "registryDependencies": [
+    "button",
+    "input",
+    "input-group",
+    "password-input",
+    "select",
+    "switch"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:component",
+  "version": "3.0.0-rc.1"
+}

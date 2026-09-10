@@ -1,0 +1,189 @@
+---
+title: Workspace members router
+description: An overview of the workspace members router
+---
+
+## Procedures
+
+The workspace members router has the following procedures:
+
+### Get invitation
+
+Used to check if a workspace invitation token is valid.
+
+```typescript
+// Client components
+const { data } = useQuery(trpc.workspaceMembers.invitation.queryOptions({
+  input: {
+    token: '',
+  },
+})
+
+// Server components
+const data = await caller.workspaceMembers.invitation({
+  input: {
+    token: '',
+  },
+})
+```
+
+### List workspace members
+
+List all members of a workspace.
+
+```typescript
+// Client components
+const { data } = useQuery(trpc.workspaceMembers.list.queryOptions({
+  input: {
+    workspaceId: '',
+  },
+}))
+
+// Server components
+const data = await caller.workspaceMembers.list({
+  input: {
+    workspaceId: '',
+  },
+})
+```
+
+### Invite users
+
+Invite people to join a workspace.
+
+```typescript
+// Client components
+const { data } = useMutation(trpc.workspaceMembers.invite.mutationOptions({
+  input: {
+    workspaceId: '',
+    emails: [],
+    role: 'member',
+  },
+}))
+
+// Server components
+const data = await caller.workspaceMembers.invite({
+  input: {
+    workspaceId: '',
+    emails: [],
+    role: 'member',
+  },
+})
+```
+
+### Accept invitation
+
+Accept a workspace invitation.
+
+```typescript
+// Client components
+const { data } = useMutation(trpc.workspaceMembers.accept.mutationOptions({
+  input: {
+    token: '',
+  },
+}))
+
+// Server components
+const data = await caller.workspaceMembers.accept({
+  input: {
+    token: '',
+  },
+})
+```
+
+### Remove member
+
+Remove a member from a workspace.
+
+```typescript
+// Client components
+const { data } = useMutation(trpc.workspaceMembers.remove.mutationOptions({
+  input: {
+    workspaceId: '',
+    userId: '',
+  },
+}))
+
+// Server components
+const data = await caller.workspaceMembers.remove({
+  input: {
+    workspaceId: '',
+    userId: '',
+  },
+})
+```
+
+### Update member roles
+
+Update the roles of a member in a workspace.
+
+```typescript
+// Client components
+const { data } = useMutation(trpc.workspaceMembers.updateRoles.mutationOptions({
+  input: {
+    workspaceId: '',
+    userId: '',
+    roles: ['admin'],
+  },
+}))
+
+// Server components
+const data = await caller.workspaceMembers.updateRoles({
+  input: {
+    workspaceId: '',
+    userId: '',
+    roles: ['admin'],
+  },
+})
+```
+
+### Get notification settings
+
+Get the notification settings of a member in a workspace.
+
+```typescript
+// Client components
+const { data } = useQuery(trpc.workspaceMembers.getNotificationSettings.queryOptions({
+  input: {
+    workspaceId: '',
+  },
+}))
+
+// Server components
+const data = await caller.workspaceMembers.getNotificationSettings({
+  input: {
+    workspaceId: '',
+  },
+})
+```
+
+### Update notification settings
+
+Update the notification settings of a member in a workspace.
+
+```typescript
+// Client components
+const { mutate } = useMutation(
+  trpc.workspaceMembers.updateNotificationSettings.mutationOptions(),
+)
+
+mutate({
+  input: {
+    workspaceId: '',
+    channels: {
+      email: true,
+      desktop: false,
+    },
+    topics: {
+      contacts_new_lead: true,
+      contacts_account_upgraded: true,
+      inbox_assigned_to_me: true,
+      inbox_mentioned: true,
+    },
+    newsletters: {
+      product_updates: true,
+      important_updates: true,
+    },
+  },
+})
+```

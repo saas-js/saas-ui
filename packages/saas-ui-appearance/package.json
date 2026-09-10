@@ -1,0 +1,43 @@
+{
+  "name": "@saas-ui/appearance",
+  "version": "0.0.1",
+  "description": "Shared OKLCH appearance and palette generators for Saas UI presets",
+  "type": "module",
+  "exports": {
+    ".": {
+      "sui": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf --no-glob ./dist",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --config ../../vitest.config.ts --dir ."
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
+  "license": "MIT",
+  "homepage": "https://saas-ui.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
+    "directory": "packages/saas-ui-appearance"
+  },
+  "keywords": [
+    "saas-ui",
+    "oklch",
+    "design-tokens",
+    "appearance"
+  ],
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

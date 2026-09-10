@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export { PinInput } from './pin-input.tsx'\nexport type { PinInputProps } from './pin-input.tsx'\n",
+      "path": "ui/pin-input/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Group } from '@chakra-ui/react/group'\nimport { PinInput as ChakraPinInput } from '@chakra-ui/react/pin-input'\n\nexport interface PinInputProps extends ChakraPinInput.RootProps {\n  rootRef?: React.Ref<HTMLDivElement>\n  pinLength?: number\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n  attached?: boolean\n}\n\nexport const PinInput = forwardRef<HTMLInputElement, PinInputProps>(\n  function PinInput(props, ref) {\n    const {\n      pinLength = 4,\n      inputProps,\n      rootRef,\n      attached,\n      gap = attached ? 0 : 2,\n      ...rest\n    } = props\n\n    return (\n      <ChakraPinInput.Root ref={rootRef} {...rest}>\n        <ChakraPinInput.HiddenInput ref={ref} {...inputProps} />\n        <ChakraPinInput.Control>\n          <Group attached={attached} gap={gap}>\n            {Array.from({ length: pinLength }).map((_, index) => (\n              <ChakraPinInput.Input key={index} index={index} />\n            ))}\n          </Group>\n        </ChakraPinInput.Control>\n      </ChakraPinInput.Root>\n    )\n  },\n)\n",
+      "path": "ui/pin-input/pin-input.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/pin-input/index.ts": "f3404ef04154e5060820f0760d144e2103336baf2b9da9ee7b199ccd07289412",
+        "ui/pin-input/pin-input.tsx": "0af51d8ec18a9e12a57cc8f58214b6ec039cf837b7c21bdfffcf83935b8e919f"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "b7f43dc48189a1323a93500563a8fc347e41b9619833b4e6f846c2002287cce1"
+  },
+  "name": "pin-input",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

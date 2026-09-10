@@ -1,0 +1,48 @@
+import { forwardRef } from 'react'
+
+import { Button, ButtonProps, Kbd, Span } from '@chakra-ui/react'
+import { LuSearch } from 'react-icons/lu'
+
+import { IconButton, type IconButtonProps } from '#components/ui/icon-button'
+
+export const SearchButton = forwardRef<HTMLButtonElement, ButtonProps>(
+  function SearchButton(props, ref) {
+    return (
+      <Button variant="outline" color="fg.subtle!" ref={ref} {...props}>
+        <LuSearch />
+        <Span
+          ms="1"
+          fontWeight="normal"
+          flex="1"
+          minW="0"
+          textAlign="start"
+          textOverflow="ellipsis"
+          overflow="hidden"
+        >
+          Search...
+        </Span>
+        <Kbd
+          variant="outline"
+          bg="bg"
+          fontSize="0.8em"
+          letterSpacing="widest"
+          color="fg.subtle"
+          me="-1"
+        >
+          ⌘K
+        </Kbd>
+      </Button>
+    )
+  },
+)
+
+export const MobileSearchButton = forwardRef<
+  HTMLButtonElement,
+  IconButtonProps
+>(function SearchButton(props, ref) {
+  return (
+    <IconButton variant="ghost" size="sm" ref={ref} {...props}>
+      <LuSearch />
+    </IconButton>
+  )
+})

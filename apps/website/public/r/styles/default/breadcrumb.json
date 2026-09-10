@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "'use client'\n\nimport { Children, Fragment, forwardRef, isValidElement } from 'react'\n\nimport { Breadcrumb } from '@chakra-ui/react/breadcrumb'\nimport type { SystemStyleObject } from '@chakra-ui/react/styled-system'\n\nexport interface RootProps extends Breadcrumb.RootProps {\n  separator?: React.ReactNode\n  separatorGap?: SystemStyleObject['gap']\n}\n\nexport const Root = forwardRef<HTMLDivElement, RootProps>(\n  function BreadcrumbRoot(props, ref) {\n    const { separator = '/', separatorGap, children, ...rest } = props\n    const validChildren = Children.toArray(children).filter(isValidElement)\n    return (\n      <Breadcrumb.Root ref={ref} {...rest}>\n        <Breadcrumb.List gap={separatorGap}>\n          {validChildren.map((child, index) => {\n            const last = index === validChildren.length - 1\n            return (\n              <Fragment key={index}>\n                <Breadcrumb.Item>{child}</Breadcrumb.Item>\n                {!last && (\n                  <Breadcrumb.Separator>{separator}</Breadcrumb.Separator>\n                )}\n              </Fragment>\n            )\n          })}\n        </Breadcrumb.List>\n      </Breadcrumb.Root>\n    )\n  },\n)\n\nexport const Link = Breadcrumb.Link\nexport const CurrentLink = Breadcrumb.CurrentLink\nexport const Ellipsis = Breadcrumb.Ellipsis\n",
+      "path": "ui/breadcrumb/breadcrumb.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export * as Breadcrumb from './breadcrumb.tsx'\n",
+      "path": "ui/breadcrumb/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/breadcrumb/breadcrumb.tsx": "151d10a654a09c94f7cbf3419ebd115787b36bcad8dc41630a295502daaa398c",
+        "ui/breadcrumb/index.ts": "258376a414c6ffdaf646bd7a9bd47b5cb526f5bef794aeaaedfad71042dfa8bd"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "93b8e297c47f6f510175fea401ec39a69d102ce0c891b7ae096980f69999971a"
+  },
+  "name": "breadcrumb",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

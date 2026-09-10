@@ -1,0 +1,109 @@
+---
+title: Conditions
+description:
+  A headless condition expression engine for filters and rule builders.
+---
+
+`@saas-js/conditions` is a framework-agnostic condition expression engine for
+filters, rule builders, segments, and other `when` or `where` interfaces.
+
+Define fields once. The same AND/OR expression tree validates, evaluates, and
+serializes on the server and in the UI. The core package owns the condition
+model — not the controls. It has no React, DOM, or visual component code.
+
+## Packages
+
+| Package | Role |
+| --- | --- |
+| [`@saas-js/conditions`](/packages/conditions/docs/getting-started/installation) | Definition, query, store, validation, evaluation, serialization |
+| [`@saas-js/conditions-react`](/packages/conditions/docs/react) | Headless React bindings, drafts, and filter-chip orchestration |
+| [`@saas-js/conditions-tanstack-table`](/packages/conditions/docs/integrations/tanstack-table) | Filter TanStack Table rows with a condition query |
+| [`@saas-js/conditions-drizzle`](/packages/conditions/docs/integrations/drizzle) | Convert a query to a Drizzle `where` clause |
+| [`@saas-js/conditions-zero`](/packages/conditions/docs/integrations/zero) | Convert a query to a Zero (ZQL) where expression |
+
+Adapters for [Chakra UI](/packages/conditions/docs/react/chakra-ui) and
+[shadcn](/packages/conditions/docs/react/shadcn) live in the React examples —
+the published React package stays unstyled.
+
+## Define and evaluate
+
+Fields use [Standard Schema](https://standardschema.dev/schema), so their input
+and output types are inferred and their values are validated at runtime. Zod,
+Valibot, ArkType, and other Standard Schema implementations work without an
+adapter.
+
+```ts
+import { defineConditions } from '@saas-js/conditions'
+import { z } from 'zod'
+
+const contacts = defineConditions({
+  fields: {
+    status: {
+      type: 'enum',
+      label: 'Status',
+      schema: z.enum(['lead', 'customer', 'churned']),
+      operators: ['equals', 'not', 'in'],
+      defaultOperator: 'equals',
+    },
+    arr: {
+      type: 'number',
+      label: 'ARR',
+      schema: z.coerce.number().min(0),
+      operators: ['gte', 'lte', 'between'],
+      defaultOperator: 'gte',
+    },
+  },
+})
+
+const store = contacts.createStore()
+
+store.actions.addCondition({
+  id: 'active',
+  field: 'status',
+  value: 'customer',
+})
+
+const query = store.get().value
+
+contacts.evaluate(query, { status: 'customer', arr: 84_000 }) // true
+contacts.filter(query, contactList)
+```
+
+Share the same definition between filter UIs, rule builders, server validation,
+and multiple independent stores.
+
+## One query, many runtimes
+
+A query is versioned JSON: groups with `and` / `or`, and conditions with a
+field, operator, and value. Persist it, send it to the server, and run it
+wherever you need:
+
+```ts
+const json = contacts.stringify(query)
+const restored = contacts.parse(json)
+
+// In-memory
+contacts.filter(restored, contactList)
+
+// Database — @saas-js/conditions-drizzle
+db.select().from(contactsTable).where(
+  conditionsToDrizzle(contacts, restored, { columns }),
+)
+
+// Client-side table — @saas-js/conditions-tanstack-table
+useTable({ ...conditionsGlobalFilter(contacts), state: { globalFilter: restored } })
+
+// Sync replica — @saas-js/conditions-zero
+zql.contact.where(conditionsToZero(contacts, restored))
+```
+
+`parse` is the entry point for untrusted input: it deserializes, revives dates
+and custom values, validates against the definition, and returns a typed query.
+
+## Next steps
+
+- [Installation](/packages/conditions/docs/getting-started/installation)
+- [Basic usage](/packages/conditions/docs/getting-started/basic-usage)
+- [The query](/packages/conditions/docs/getting-started/the-query)
+- [React](/packages/conditions/docs/react)
+- [Integrations](/packages/conditions/docs/integrations/tanstack-table)

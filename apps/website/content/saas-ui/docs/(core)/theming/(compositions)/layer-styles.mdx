@@ -1,0 +1,48 @@
+---
+title: Layer styles
+description: Fill, outline, indicator, overlay, and backdrop compositions
+---
+
+Layer styles name a surface treatment. Palette styles read `colorPalette`, so
+they follow accent and status. Surface styles read semantic tokens.
+
+```tsx
+<Box layerStyle="fill.solid" colorPalette="accent" />
+<Box layerStyle="overlay" />
+```
+
+## Palette treatments
+
+| Style | What it sets |
+| ----- | ------------ |
+| `fill.muted` | `colorPalette.muted` + `colorPalette.fg` |
+| `fill.subtle` | `colorPalette.subtle` + `colorPalette.fg` |
+| `fill.surface` | Muted fill with an inset `colorPalette.subtle` ring |
+| `fill.solid` | `colorPalette.solid` + `colorPalette.contrast` |
+| `outline.subtle` | Inset ring, no fill |
+| `outline.solid` | `1px` `colorPalette.solid` border |
+| `indicator.top\|bottom\|start\|end` | Bar using `colorPalette.solid` |
+
+Indicator thickness and offset are `--indicator-thickness` (default `3px`)
+and `--indicator-offset-x` / `--indicator-offset-y`.
+
+## Surfaces
+
+These do **not** read `colorPalette`. They are the floating-panel and dim
+treatments used by dialogs, menus, and popovers.
+
+| Style | What it sets |
+| ----- | ------------ |
+| `overlay` | `bg.overlay`, `radii.panel`, `shadows.overlay`, `--overlay-effect` |
+| `backdrop` | `bg.backdrop`, `--backdrop-effect` |
+
+`--overlay-effect` defaults to `blur(10px)` via [Theme](/docs/theming/theme).
+
+## State
+
+| Style | What it sets |
+| ----- | ------------ |
+| `disabled` | `opacity: 0.5`, `cursor: not-allowed` |
+| `none` | Empty. Clears an inherited layer style |
+
+<ExamplePreview name="tokens/layer-style" />

@@ -1,0 +1,143 @@
+---
+title: Adding pages
+description: How to add new pages to your app
+---
+
+In this guide you'll learn how to add new pages to your application and add some
+basic data fetching.
+
+For the sake of this guide, let's add a new projects features with a list page
+and a details page with some tabs to illustrate how you can use layouts and data
+prefetching.
+
+## Project list page
+
+Let's start by creating the list page. Create a new file in
+`apps/web/features/projects/list/list-page.tsx`
+
+We group all project list page related files in a `list` folder to keep things
+organized.
+
+```tsx
+'use client'
+
+export function ProjectsListPage(props: {
+  params: {
+    workspace: string
+  }
+}) {
+  return <div>Projects list</div>
+}
+```
+
+### List page route
+
+The route for this page will be `$workspace/projects`, let's go ahead and create
+the route file in
+`apps/web/src/routes/_app/$workspace/_dashboard/projects/index.tsx`.
+
+```tsx
+import { createFileRoute } from '@tanstack/react-router'
+
+import { ProjectsListPage } from '#features/projects/list/list-page'
+
+export const Route = createFileRoute('/_app/$workspace/_dashboard/projects/')({
+  head: () => ({
+    meta: [
+      {
+        title: 'Projects',
+      },
+    ],
+  }),
+  component: RouteComponent,
+})
+
+function RouteComponent() {
+  const params = Route.useParams()
+  return <ProjectsListPage params={params} />
+}
+```
+
+### List page navigation
+
+Now that the page and route are created, we can add a navigation link to the
+sidebar.
+
+Open `apps/web/features/common/components/app-sidebar.tsx` and add a new nav
+item to the navigation.
+
+```tsx
+<NavGroup>
+  // ... other links
+  <AppSidebarLink
+    to="/$workspace/projects"
+    params={{
+      workspace,
+    }}
+    activeOptions={{
+      exact: false,
+    }}
+    label="Projects"
+    icon={<LuFolder />}
+    hotkey="navigation.projects"
+  />
+</NavGroup>
+```
+
+Now open the application and navigate to the new projects page.
+
+### List page fetching data
+
+Let's assume we already have a `projects` API endpoint that returns a list of
+projects.
+
+Open the `list-page.tsx` file and add a `useQuery` hook to fetch the projects.
+
+```tsx
+'use client'
+
+import { DataGrid, Page, PageBody, PageHeader } from '@saas-ui-pro/react'
+import { LoadingOverlay } from '#components/ui/loading-overlay'
+import { ProjectDTO } from '@workspace/api/types'
+
+import { useCurrentWorkspace } from '#features/common/hooks/use-current-workspace'
+import { api } from '#lib/api'
+
+export function ProjectsListPage(props: {
+  params: {
+    workspace: string
+  }
+}) {
+  const [workspace] = useCurrentWorkspace()
+
+  const { data, isLoading } = api.projects.list.useQuery({
+    workspaceId: workspace.id,
+  })
+
+  const columns = useColumns<ProjectDTO>(
+    (helper) => [
+      helper.accessor('name', {
+        header: 'Name',
+      }),
+    ],
+    [],
+  )
+
+  return (
+    <Page>
+      <PageHeader title="Projects" />
+      <PageBody contentWidth="full">
+        {isLoading ? (
+          <LoadingOverlay.Root>
+            <LoadingOverlay.Spinner />
+          </LoadingOverlay.Root>
+        ) : (
+          <DataGrid data={data ?? []} columns={columns} />
+        )}
+      </PageBody>
+    </Page>
+  )
+}
+```
+
+Voila! You've just created your first page with data fetching.

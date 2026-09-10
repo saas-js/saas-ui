@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "content": "export { InfoTip, type InfoTipProps } from './info-tip.tsx'\n",
+      "path": "ui/info-tip/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport { InfoIcon } from '../../icons/info-icon'\nimport { IconButton } from '../icon-button/index.ts'\nimport { ToggleTip, type ToggleTipProps } from '../toggle-tip/index.ts'\n\nexport interface InfoTipProps extends Omit<ToggleTipProps, 'content'> {\n  children: React.ReactNode\n  icon?: React.ReactNode\n  'aria-label'?: string\n}\n\nexport const InfoTip = React.forwardRef<HTMLDivElement, InfoTipProps>(\n  function InfoTip(props, ref) {\n    const { children, icon, 'aria-label': ariaLabel = 'Info', ...rest } = props\n    return (\n      <ToggleTip content={children} {...rest} ref={ref}>\n        <IconButton variant=\"ghost\" aria-label={ariaLabel} size=\"2xs\">\n          {icon ?? <InfoIcon />}\n        </IconButton>\n      </ToggleTip>\n    )\n  },\n)\n",
+      "path": "ui/info-tip/info-tip.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/info-tip/index.ts": "212ee255af57d395ce43c3dba6ee7bf0ab307bd98e911a86dc97441d29e0b165",
+        "ui/info-tip/info-tip.tsx": "8643a4116c1da2887457f04b39f2f380632088f2c392c08b73a42623d10aea80"
+      },
+      "iconDependencies": [
+        "info-icon"
+      ],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "b3094827a877bd026eb997af5da63e1d6ca6fce6300a6f574f242391ea234f1f"
+  },
+  "name": "info-tip",
+  "registryDependencies": [
+    "icon-button",
+    "info-icon",
+    "toggle-tip"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

@@ -1,43 +1,39 @@
 {
   "name": "@saas-ui/hooks",
-  "version": "2.3.0",
+  "version": "3.0.0-next.4",
   "description": "Saas UI react hooks",
-  "source": "src/index.ts",
   "exports": {
     ".": {
       "sui": "./src/index.ts",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
-    },
-    "./src": {
-      "default": "./src/index.ts"
     }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "dev": "tsup src/index.ts --config tsup.config.ts --watch",
     "clean": "rimraf --no-glob ./dist",
     "build": "tsup src/index.ts --config tsup.config.ts",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../.eslintrc.js",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx --config ../../eslint.config.js",
     "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
     "typecheck": "tsc --noEmit"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
-  "author": "Eelco Wiersma <eelco@appulse.nl>",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
   "license": "MIT",
   "homepage": "https://saas-ui.dev/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saas-js/saas-ui",
+    "url": "git+https://github.com/saas-js/saas-ui.git",
     "directory": "packages/saas-ui-system"
   },
   "keywords": [
@@ -58,11 +54,13 @@
     "url": "https://storybook.saas-ui.dev"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "2.10.9",
-    "react": "18.3.1"
+    "react": "19.1.1"
   },
   "devDependencies": {
-    "@types/react": "18.3.23",
-    "@types/react-dom": "^18.3.2"
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "typescript": "5.9.3"
   }
 }

@@ -1,0 +1,119 @@
+---
+title: Color system
+description: Appearance palettes, status hues, and the optional color catalog.
+---
+
+The product color API is a small set of palettes that share one slot structure.
+Prefer these over raw hex or the named hue catalog.
+
+## Palettes you should use
+
+| Palette | Source | Use |
+| ------- | ------ | --- |
+| `base` | Appearance base seed | Neutral chrome, secondary controls |
+| `accent` | Appearance accent seed | Primary actions, selection, focus |
+| `gray` | Catalog, low chroma | Quiet chrome that is not `base` |
+| `neutral` | Hard black / white | Ink, high-contrast accents |
+| `info` | Accent L/C, hue `260` | Informational status |
+| `success` | Accent L/C, hue `150` | Success status |
+| `warning` | Accent L/C, hue `50` | Warning status |
+| `destructive` | Accent L/C, hue `25` | Errors, irreversible actions |
+
+`info`, `success`, `warning`, and `destructive` follow the accent’s saturation
+and lightness. Changing the appearance retints status without changing its hue
+family.
+
+## Slots
+
+Every chromatic palette exposes the same slots:
+
+| Slot | Typical use |
+| ---- | ----------- |
+| `solid` | Filled button, badge, solid alert |
+| `contrast` | Text or icon on `solid` |
+| `fg` | Text on `muted` / `subtle` / `surface` |
+| `muted` | Softest fill |
+| `subtle` | Soft fill, default alert background |
+| `emphasized` | Stronger fill, hover |
+| `border` | Outlines |
+| `focusRing` | Focus outline. Falls back to the palette solid |
+
+```tsx
+<Button colorPalette="accent" variant="solid" />
+<Button colorPalette="destructive" variant="outline" />
+<Badge colorPalette="success">Ready</Badge>
+```
+
+Recipes read `colorPalette.solid`, `colorPalette.fg`, and so on. Setting
+`colorPalette` on a parent is enough for descendants that use those slots.
+
+## Surfaces are not a palette
+
+Page chrome uses [semantic tokens](/docs/theming/semantic-tokens): `bg`,
+`bg.panel`, `fg`, `fg.muted`, `border`. Those come from the base seed. Do not
+paint a page with `gray.500`.
+
+## Status and presence
+
+```tsx
+<Alert status="error" title="Cannot promote this release" />
+<Status value="success" />
+```
+
+| Token | Resolves to |
+| ----- | ----------- |
+| `status.info` | `info.solid` |
+| `status.success` | `success.solid` |
+| `status.warning` | `warning.solid` |
+| `status.error` | `destructive.solid` |
+| `presence.online` | `success.solid` |
+| `presence.busy` | `warning.solid` |
+| `presence.dnd` | `destructive.solid` |
+| `presence.offline` / `presence.away` | `gray.solid` |
+
+Alert `status` maps to the same roles: `info`, `success`, `warning`, `error` →
+`destructive`, plus `neutral` → `gray`.
+
+`bg.error`, `fg.destructive`, and `border.warning` are muted / fg / border
+slots on those palettes. Invalid checkmarks and radiomarks use `destructive`.
+
+## Catalog hues
+
+The preset still ships named palettes for charts, tags, and one-off color
+coding: `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`,
+`teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`,
+`pink`, `rose`, plus neutrals `gray`, `zinc`, `stone`.
+
+These are generated from OKLCH seeds (`createPalette`) with a chroma cap of
+`0.22`. They do **not** follow the appearance accent. `colorPalette="green"`
+stays the same green in Graphite and Ember.
+
+There is no `50–950` scale on the public theme. Add a numbered ramp yourself if
+you need one.
+
+`createPalette` and `paletteSeeds` are exported from
+`@saas-ui/chakra-preset` for that extension path.
+
+## Neutrals
+
+- **`base`** — tinted by the appearance. Use for product chrome.
+- **`gray`** — cool, low-chroma scale. Default `colorPalette` on `Theme`.
+- **`neutral`** — black in light mode, white in dark. Use when you want ink,
+  not a tinted gray.
+- **`zinc` / `stone`** — alternate neutrals if `gray` is the wrong temperature.
+
+## How values are computed
+
+In `defaultSystem`, appearance and status slots are CSS relative color:
+
+```css
+--chakra-colors-accent-solid: oklch(from var(--sui-accent) l c h / 1);
+--chakra-colors-success-solid: oklch(from var(--sui-accent) l c 150 / 1);
+```
+
+Changing `--sui-accent` updates accent and status together. Catalog solids are
+literal `oklch(…)` strings and do not move.
+
+`createAppearance()` bakes the same L/C math into JS token values. Use that
+when you want a fixed system instead of live CSS variables. See
+[Appearance](/docs/theming/appearance).

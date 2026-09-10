@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export { Portal, type PortalProps } from './portal.ts'\n",
+      "path": "ui/portal/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { Portal, type PortalProps } from '@chakra-ui/react/portal'\n",
+      "path": "ui/portal/portal.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "ui/portal/index.ts": "df961a922aa2d7a65edf0b4c997a9520e53127d28ef56c33c3026789527e33ad",
+        "ui/portal/portal.ts": "86da11646ec3bb97125bb85011445c6b58852b3156a1f321bba636b2d239c835"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "0e57183e359ce505d1e2be10c8994ec709d80dacacd1155582791c90774d818a"
+  },
+  "name": "portal",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

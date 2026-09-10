@@ -1,0 +1,15 @@
+{
+  "title": "Charts",
+  "root": true,
+  "pages": [
+    "overview",
+    "use-chart",
+    "chart",
+    "bar",
+    "line",
+    "area",
+    "pie",
+    "bar-list",
+    "bar-segment"
+  ]
+}

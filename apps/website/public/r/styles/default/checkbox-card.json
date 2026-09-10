@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "'use client'\n\nimport { Fragment, forwardRef } from 'react'\n\nimport { CheckboxCard as ChakraCheckboxCard } from '@chakra-ui/react/checkbox-card'\n\nexport interface CheckboxCardProps extends ChakraCheckboxCard.RootProps {\n  icon?: React.ReactElement\n  label?: React.ReactNode\n  description?: React.ReactNode\n  addon?: React.ReactNode\n  indicator?: React.ReactNode | null\n  indicatorPlacement?: 'start' | 'end' | 'inside'\n  inputProps?: React.InputHTMLAttributes<HTMLInputElement>\n}\n\nexport const CheckboxCard = forwardRef<HTMLInputElement, CheckboxCardProps>(\n  function CheckboxCard(props, ref) {\n    const {\n      inputProps,\n      label,\n      description,\n      icon,\n      addon,\n      indicator = <ChakraCheckboxCard.Indicator />,\n      indicatorPlacement = 'end',\n      ...rest\n    } = props\n\n    const hasContent = label || description || icon\n    const ContentWrapper = indicator ? ChakraCheckboxCard.Content : Fragment\n\n    return (\n      <ChakraCheckboxCard.Root {...rest}>\n        <ChakraCheckboxCard.HiddenInput ref={ref} {...inputProps} />\n        <ChakraCheckboxCard.Control>\n          {indicatorPlacement === 'start' && indicator}\n          {hasContent && (\n            <ContentWrapper>\n              {icon}\n              {label && (\n                <ChakraCheckboxCard.Label>{label}</ChakraCheckboxCard.Label>\n              )}\n              {description && (\n                <ChakraCheckboxCard.Description>\n                  {description}\n                </ChakraCheckboxCard.Description>\n              )}\n              {indicatorPlacement === 'inside' && indicator}\n            </ContentWrapper>\n          )}\n          {indicatorPlacement === 'end' && indicator}\n        </ChakraCheckboxCard.Control>\n        {addon && <ChakraCheckboxCard.Addon>{addon}</ChakraCheckboxCard.Addon>}\n      </ChakraCheckboxCard.Root>\n    )\n  },\n)\n\nexport const CheckboxCardIndicator = ChakraCheckboxCard.Indicator\n",
+      "path": "ui/checkbox-card/checkbox-card.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { CheckboxCard, type CheckboxCardProps } from './checkbox-card.tsx'\n",
+      "path": "ui/checkbox-card/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/checkbox-card/checkbox-card.tsx": "601aa075d44eb4cd9f7cf3b1c097c7841a8570218f8c11caa86a2a134414a081",
+        "ui/checkbox-card/index.ts": "fbc3cf53c7f24148028b10d965342dc81e684c902094e7c5217ca50247c3e185"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "69f82249603e59bdcb8cfbcec9b8db52000e28732a1e8ad0f0a4059b5faa5fb7"
+  },
+  "name": "checkbox-card",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

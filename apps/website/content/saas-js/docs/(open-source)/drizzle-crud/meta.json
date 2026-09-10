@@ -1,0 +1,5 @@
+{
+  "title": "Drizzle CRUD",
+  "root": true,
+  "pages": ["index", "getting-started", "reference", "advanced"]
+}

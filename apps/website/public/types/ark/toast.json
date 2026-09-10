@@ -1,0 +1,137 @@
+{
+  "ActionTrigger": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLButtonElement",
+    "tag": "button"
+  },
+  "CloseTrigger": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLButtonElement",
+    "tag": "button"
+  },
+  "Description": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLDivElement",
+    "tag": "div"
+  },
+  "Root": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLDivElement"
+  },
+  "Store": {
+    "props": {
+      "duration": {
+        "type": "number",
+        "isRequired": false,
+        "description": "The duration of the toast.\nBy default, it is determined by the type of the toast."
+      },
+      "gap": {
+        "type": "number",
+        "isRequired": false,
+        "defaultValue": "16",
+        "description": "The gap between the toasts"
+      },
+      "hotkey": {
+        "type": "string[]",
+        "isRequired": false,
+        "defaultValue": "'[\"altKey\", \"KeyT\"]'",
+        "description": "The hotkey that will move focus to the toast group"
+      },
+      "max": {
+        "type": "number",
+        "isRequired": false,
+        "defaultValue": "24",
+        "description": "The maximum number of toasts. When the number of toasts exceeds this limit, the new toasts are queued."
+      },
+      "offsets": {
+        "type": "string | Record<'top' | 'bottom' | 'left' | 'right', string>",
+        "isRequired": false,
+        "defaultValue": "\"1rem\"",
+        "description": "The offset from the safe environment edge of the viewport"
+      },
+      "overlap": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Whether to overlap the toasts"
+      },
+      "pauseOnPageIdle": {
+        "type": "boolean",
+        "isRequired": false,
+        "defaultValue": "false",
+        "description": "Whether to pause toast when the user leaves the browser tab"
+      },
+      "placement": {
+        "type": "Placement",
+        "isRequired": false,
+        "defaultValue": "\"bottom\"",
+        "description": "The placement of the toast"
+      },
+      "removeDelay": {
+        "type": "number",
+        "isRequired": false,
+        "defaultValue": "200",
+        "description": "The duration for the toast to kept alive before it is removed.\nUseful for exit transitions."
+      }
+    }
+  },
+  "Title": {
+    "props": {
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      }
+    },
+    "element": "HTMLDivElement",
+    "tag": "div"
+  },
+  "Toaster": {
+    "props": {
+      "toaster": {
+        "type": "CreateToasterReturn<any>",
+        "isRequired": true
+      },
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      },
+      "dir": {
+        "type": "'ltr' | 'rtl'",
+        "isRequired": false,
+        "defaultValue": "\"ltr\"",
+        "description": "The document's text/writing direction."
+      },
+      "getRootNode": {
+        "type": "() => ShadowRoot | Node | Document",
+        "isRequired": false,
+        "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron."
+      }
+    },
+    "tag": "div"
+  }
+}

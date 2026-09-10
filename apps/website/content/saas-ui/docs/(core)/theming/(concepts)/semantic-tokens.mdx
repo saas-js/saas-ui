@@ -1,0 +1,102 @@
+---
+title: Semantic tokens
+description: The roles the preset expects you to paint with.
+---
+
+Semantic tokens name a job, not a swatch. Use them in product UI. Reach for a
+palette slot when a component is explicitly accent, status, or catalog-colored.
+
+## Color roles
+
+### Surfaces
+
+| Token | Use |
+| ----- | --- |
+| `bg` | Page canvas |
+| `bg.surface` / `bg.panel` | Cards, sheets |
+| `bg.elevated` | Raised panels |
+| `bg.inset` / `bg.muted` | Recessed wells |
+| `bg.overlay` | Floating overlay fill |
+| `bg.backdrop` | Dim behind a dialog |
+| `bg.inverted` | Inverse canvas |
+
+`bg.error`, `bg.warning`, `bg.success`, `bg.info`, and `bg.destructive` are
+the muted slots of those palettes.
+
+### Foreground
+
+| Token | Use |
+| ----- | --- |
+| `fg` | Body text |
+| `fg.muted` | Secondary text |
+| `fg.subtle` | Placeholder, hints |
+| `fg.emphasized` | Stronger than body |
+| `fg.inverted` | Text on `bg.inverted` |
+
+Status aliases: `fg.error`, `fg.warning`, `fg.success`, `fg.info`,
+`fg.destructive`.
+
+### Border and interaction
+
+| Token | Use |
+| ----- | --- |
+| `border` | Default hairline |
+| `border.muted` / `border.subtle` / `border.emphasized` | Ramp |
+| `border.inverted` | On inverse surfaces |
+| `interaction.hover` | Hover wash |
+| `interaction.pressed` | Pressed wash |
+| `interaction.selected` | `accent.subtle` |
+
+`bg.subtle` and `bg.emphasized` alias hover and pressed.
+
+### Sidebar
+
+| Token | Use |
+| ----- | --- |
+| `sidebar.bg` | Sidebar canvas |
+| `sidebar.fg` | Sidebar text |
+| `sidebar.border` | Sidebar rules |
+| `sidebar.accent.bg` / `sidebar.accent.fg` | Active nav |
+
+These follow the sidebar seed. A solid sidebar uses `--sui-sidebar-solid`.
+
+### Status, presence, shadow
+
+| Token | Resolves to |
+| ----- | ----------- |
+| `status.*` | Palette solids. See [Color system](/docs/theming/color-system) |
+| `presence.*` | Online / busy / dnd / away |
+| `shadow` | Pigment for elevation. Default `{colors.black}` in both modes |
+
+Shadows (`shadows.sm`, `shadows.overlay`, …) reference `{colors.shadow}`. Set
+`--color-shadow` or the `shadow` token to retint elevation.
+
+The token tables are on [Colors](/docs/theming/colors).
+
+## Radii
+
+Role radii wrap the primitive scale and the factor CSS variables:
+
+```
+radii.control = radii.sm × --scale-factor × --radius-factor × --radius-control-factor
+```
+
+| Role | Default primitive | Used for |
+| ---- | ----------------- | -------- |
+| `control` / `control.sm\|md\|lg` | `xs`–`md` | Button, input, select |
+| `panel` / `panel.sm\|md\|lg` | `sm`–`lg` | Card, dialog, popover |
+| `indicator` / `indicator.sm\|md\|lg` | `xs`–`md` | Badge, tag, avatar |
+
+`l1`, `l2`, `l3` still exist as aliases of `radii.xs|sm|md`. Prefer the role
+tokens so [Theme](/docs/theming/theme) radius props have an effect.
+
+See [Radii](/docs/theming/radii).
+
+## Shadows and motion
+
+[Shadows](/docs/theming/shadows) are semantic. They use `{colors.shadow}` and a
+slight inset highlight in dark mode.
+
+[Motion](/docs/theming/animations) exposes `durations.motion.fast|medium|slow`
+(plus `.min` / `.max`) and `easings.standard`. Those read `--motion-*` and
+`--ease-standard`.

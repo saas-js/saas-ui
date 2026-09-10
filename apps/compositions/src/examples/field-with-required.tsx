@@ -1,0 +1,12 @@
+'use client'
+
+import { Field, Input } from '@chakra-ui/react'
+
+export const FieldWithRequired = () => {
+  return (
+    <Field.Root required>
+      <Field.Label>Email</Field.Label>
+      <Input placeholder="me@example.com" />
+    </Field.Root>
+  )
+}

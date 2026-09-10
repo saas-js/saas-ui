@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export { InputGroup, type InputGroupProps } from './input-group.ts'\n",
+      "path": "ui/input-group/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { InputGroup, type InputGroupProps } from '@chakra-ui/react/input-group'\n",
+      "path": "ui/input-group/input-group.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "ui/input-group/index.ts": "d0852027823b3d97a0b6a1c5471781b148d16380d2488d1aa360c8d15f210c2b",
+        "ui/input-group/input-group.ts": "7db11b684dc5ef6d30196847b990409bcf06dc0bda795b177034de054c7a4899"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "6e6b67d4b6ea74a28aa84ade1fc044606a63aae77824236b841ffd744681bfab"
+  },
+  "name": "input-group",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

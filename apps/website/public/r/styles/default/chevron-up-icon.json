@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface ChevronUpIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * chevron-up\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const ChevronUpIcon: React.FC<ChevronUpIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        d=\"m18 15l-6-6l-6 6\"\n      />\n    </svg>\n  )\n}\n",
+      "path": "icons/chevron-up-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/chevron-up-icon.tsx": "c85a1c5b4f597345f4e188fcafa2f59ab6d61713f73c6d4d54c4e4a278cd08b9"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "ChevronUpIcon",
+    "contentHash": "709d0dcd124507005a1e625de05e08a7e9403c0f1e5e02989c745c07250646c3",
+    "iconName": "ChevronUp",
+    "iconSet": "lucide"
+  },
+  "name": "chevron-up-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

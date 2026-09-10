@@ -1,0 +1,85 @@
+---
+title: React
+description: Reference for the FileUpload component.
+---
+
+All props of the
+[Ark UI FileUpload component](https://ark-ui.com/react/docs/components/file-upload#api-reference)
+are supported.
+
+## FileUpload.Context
+
+The `FileUpload.Context` component receives an `slingshot` object that contains
+the Slingshot client API.
+
+### Slingshot client API
+
+<TypeTable
+  type={{
+    upload: {
+      description: 'Upload files to the server.',
+      type: '(files: File[]) => Promise<void>',
+    },
+    getFiles: {
+      description: 'Get the files that are being uploaded.',
+      type: '() => SlingshotFile[]',
+    },
+    status: {
+      description: 'The status of the upload.',
+      type: 'idle | uploading | done | failed | aborted',
+    },
+    progress: {
+      description: 'The progress of the upload.',
+      type: 'number',
+      default: undefined,
+    },
+  }}
+/>
+
+### SlingshotFile
+
+<TypeTable
+  type={{
+    key: {
+      description: 'The key of the file.',
+      type: 'string',
+      default: undefined,
+
+    },
+    url: {
+      description: 'The URL of the file.',
+      type: 'string',
+      default: undefined,
+    },
+    name: {
+      description: 'The name of the file.',
+      type: 'string',
+    },
+    type: {
+      description: 'The type of the file.',
+      type: 'string',
+    },
+    size: {
+      description: 'The size of the file in bytes.',
+      type: 'number',
+    },
+    data: {
+      description: 'The file data.',
+      type: 'File',
+    },
+    progress: {
+      description: 'The progress of the file upload.',
+      type: 'number',
+      default: undefined,
+    },
+    error: {
+      description: 'The error of the file upload.',
+      type: 'string',
+      default: undefined,
+    },
+    status: {
+      description: 'The status of the file upload.',
+      type: 'authorizing | accepted | rejected | uploading | done | failed | aborted',
+    },
+
+}} />

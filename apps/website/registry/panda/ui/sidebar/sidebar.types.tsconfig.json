@@ -1,0 +1,7 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "incremental": false
+  },
+  "include": ["sidebar.tsx", "sidebar.types.ts"]
+}

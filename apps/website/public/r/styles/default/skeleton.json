@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export {\n  Skeleton,\n  type SkeletonProps,\n  SkeletonCircle,\n  type SkeletonCircleProps,\n  SkeletonText,\n  type SkeletonTextProps,\n} from './skeleton.tsx'\n",
+      "path": "ui/skeleton/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Circle, type CircleProps } from '@chakra-ui/react/circle'\nimport type { SkeletonProps as ChakraSkeletonProps } from '@chakra-ui/react/skeleton'\nimport { Skeleton as ChakraSkeleton } from '@chakra-ui/react/skeleton'\nimport { Stack } from '@chakra-ui/react/stack'\n\nexport interface SkeletonCircleProps extends ChakraSkeletonProps {\n  size?: CircleProps['size']\n}\n\nexport const SkeletonCircle = (props: SkeletonCircleProps) => {\n  const { size, ...rest } = props\n  return (\n    <Circle size={size} asChild>\n      <ChakraSkeleton {...rest} />\n    </Circle>\n  )\n}\n\nexport interface SkeletonTextProps extends ChakraSkeletonProps {\n  noOfLines?: number\n}\n\nexport const SkeletonText = forwardRef<HTMLDivElement, SkeletonTextProps>(\n  function SkeletonText(props, ref) {\n    const { noOfLines = 3, gap, ...rest } = props\n    return (\n      <Stack gap={gap} width=\"full\" ref={ref}>\n        {Array.from({ length: noOfLines }).map((_, index) => (\n          <ChakraSkeleton\n            height=\"4\"\n            key={index}\n            {...props}\n            _last={{ maxW: '80%' }}\n            {...rest}\n          />\n        ))}\n      </Stack>\n    )\n  },\n)\n\nexport type SkeletonProps = ChakraSkeletonProps\n\nexport const Skeleton = ChakraSkeleton\n",
+      "path": "ui/skeleton/skeleton.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/skeleton/index.ts": "de77774dc04e8354c0f534cd86a6fcc7e270cea84d3e04119a304c46117d36dd",
+        "ui/skeleton/skeleton.tsx": "361587645f34a5bf8e04bb48afed09c0ff3186cd10366d1cefea043de83772a3"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "269d9be2b93700ce8fec8c533412ac3c780ba91bb08c5e21d8051474c107aff7"
+  },
+  "name": "skeleton",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

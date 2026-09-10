@@ -1,0 +1,10 @@
+{
+  "Spinner": {
+    "props": {
+      "loading": {
+        "type": "boolean",
+        "isRequired": false
+      }
+    }
+  }
+}

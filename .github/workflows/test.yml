@@ -1,32 +1,43 @@
-on: [push]
+name: Test
+
+on:
+  push:
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Vitest
+    name: Build, registry, and tests
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-          token: ${{ secrets.ACCESS_TOKEN }}
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 24
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
-        run: yarn
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+        run: pnpm i --ignore-scripts
 
       - name: Build packages
-        run: yarn build:packages
+        run: pnpm build:packages
 
       - name: Build tokens
-        run: yarn build:tokens
+        run: pnpm build:tokens
+
+      - name: Validate registry, CLI, and generated consumer
+        run: pnpm registry:ci
+
+      - name: Typecheck migrated dogfood applications
+        run: |
+          pnpm --dir apps/compositions typecheck
+          pnpm --dir apps/compositions typecheck:dogfood
+          pnpm --dir apps/website typecheck
 
       - name: Run tests
-        run: yarn test:ci
+        run: pnpm test:ci

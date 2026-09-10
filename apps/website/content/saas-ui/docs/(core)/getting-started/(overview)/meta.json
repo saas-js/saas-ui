@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "introduction",
+    "installation",
+    "migrating-from-next",
+    "migration",
+    "contributing",
+    "cli"
+  ]
+}

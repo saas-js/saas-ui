@@ -1,0 +1,94 @@
+import { Logo } from '@/components/logo'
+import { Box, Container, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import Link from 'next/link'
+
+const linkTree = [
+  {
+    title: 'Resources',
+    items: [
+      {
+        label: 'Affiliate program',
+        href: 'https://saas-ui.lemonsqueezy.com/affiliates?aff_ref=nB1mj6rB',
+      },
+      { label: 'Documentation', href: '/docs' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Roadmap', href: 'https://roadmap.saas-ui.dev' },
+      { label: 'Changelog', href: '/changelog' },
+    ],
+  },
+  {
+    title: 'Products',
+    items: [
+      { label: 'React components', href: '/docs/components' },
+      { label: 'Blocks', href: '/pro/blocks' },
+      { label: 'Figma UI kit', href: '/pro/figma' },
+
+      // Point each kit at its own page rather than the saas-js.com homepage.
+      // These are sitewide links with exact-match anchor text, so they are the
+      // main way saas-ui.dev's authority reaches the pages that need it.
+      { label: 'Next.js starter kit', href: 'https://www.saas-js.com/nextjs' },
+      {
+        // saas-js.com/ is the TanStack Start kit; /tanstack-start now redirects
+        // there, so link the canonical URL rather than spending a hop.
+        label: 'Tanstack Start starter kit',
+        href: 'https://www.saas-js.com',
+      },
+    ],
+  },
+  {
+    title: 'Company',
+    items: [
+      { label: 'License', href: '/license' },
+      { label: 'Privacy', href: '/privacy' },
+      { label: 'Terms', href: '/terms' },
+    ],
+  },
+]
+
+export const FooterSection = () => {
+  return (
+    <footer role="contentinfo">
+      <Container py="8" fontSize="sm">
+        <Stack
+          direction={{ base: 'column-reverse', md: 'row' }}
+          justify="space-between"
+          align="flex-start"
+          gap="8"
+        >
+          <Stack align="flex-start" gap="4">
+            <Logo />
+            <Text color="fg.subtle">
+              Crafted by Saas UI B.V. in the Netherlands &copy;{' '}
+              {new Date().getFullYear()}
+            </Text>
+          </Stack>
+          <SimpleGrid
+            width="full"
+            columns={{ base: 1, sm: 3 }}
+            gap="10"
+            maxW={{ md: '2xl' }}
+            pb="20"
+          >
+            {linkTree.map((column) => (
+              <Stack key={column.title} direction="column" gap="2.5">
+                <Heading as="h5" size="md" fontWeight="medium">
+                  {column.title}
+                </Heading>
+                {column.items.map((item) => (
+                  <Box
+                    key={item.label}
+                    asChild
+                    color="fg.subtle"
+                    _hover={{ color: 'fg' }}
+                  >
+                    <Link href={item.href}>{item.label}</Link>
+                  </Box>
+                ))}
+              </Stack>
+            ))}
+          </SimpleGrid>
+        </Stack>
+      </Container>
+    </footer>
+  )
+}

@@ -1,0 +1,71 @@
+---
+title: Recipes
+description: How Saas UI recipes consume the token system.
+---
+
+Recipes in the preset are Chakra recipes. The Saas UI part is what they bind
+to: control sizes, role radii, palette slots, and status.
+
+Do not copy Chakra’s default recipe tokens (`gray.100`, `red.500`, `radii.l2`).
+If you eject or add a recipe, follow this contract so [Theme](/docs/theming/theme)
+and [appearance](/docs/theming/appearance) keep working.
+
+## Control size
+
+Interactive height comes from `sizes.control.*`:
+
+| Size | Token | Typical components |
+| ---- | ----- | ------------------ |
+| `xs` / `2xs` | `control.xs` | Compact icon buttons |
+| `sm` | `control.sm` | Dense toolbars |
+| `md` | `control.md` | Default button and input |
+| `lg` | `control.lg` | Emphasized actions |
+| `xl` | `control.xl` | Marketing / empty states |
+
+```ts
+h: 'control.md',
+minW: 'control.md',
+borderRadius: 'control',
+```
+
+## Role radius
+
+| Role | Use |
+| ---- | --- |
+| `control` | Button, input, select, textarea |
+| `panel` | Card, dialog, drawer, popover, alert |
+| `indicator` | Badge, tag, avatar, checkbox mark |
+
+Concentric recipes (card with inner controls, dialog with footer buttons) use
+`panel` on the shell and `control` on the children so the factors stay aligned.
+
+## Color
+
+Read slots, not steps:
+
+```ts
+bg: 'colorPalette.solid',
+color: 'colorPalette.contrast',
+_hover: { bg: 'colorPalette.solid/90' },
+```
+
+Surface / outline / ghost variants use `colorPalette.fg`,
+`colorPalette.muted`, `colorPalette.subtle`, and `colorPalette.emphasized`.
+
+Invalid and destructive paths use `destructive` or `border.destructive`, not
+`red.500`.
+
+## Status
+
+Alert `status` sets `colorPalette` to `info`, `success`, `warning`,
+`destructive`, or `gray`. Do not hard-code `green` / `orange` / `blue` if the
+component should follow appearance saturation.
+
+## Variants the preset adds
+
+Button includes `glass` and `surface` on top of `solid`, `subtle`, `outline`,
+`ghost`, and `plain`. `glass` uses a gradient overlay and `shadows.sm`.
+`surface` uses `bg` plus `colorPalette.emphasized` and a size-based shadow.
+
+Those variants still go through `colorPalette` slots, so they track accent and
+status.

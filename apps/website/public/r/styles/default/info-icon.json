@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "content": "import React from 'react'\n\nexport interface InfoIconProps extends React.SVGProps<SVGSVGElement> {\n  size?: number | string\n}\n\n/**\n * info\n * Lucide\n * @url https://icon-sets.iconify.design/lucide\n * @license ISC\n */\nexport const InfoIcon: React.FC<InfoIconProps> = ({\n  size = '1em',\n  ...props\n}) => {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <g\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n      >\n        <circle cx=\"12\" cy=\"12\" r=\"10\" />\n        <path d=\"M12 16v-4m0-4h.01\" />\n      </g>\n    </svg>\n  )\n}\n",
+      "path": "icons/info-icon.tsx",
+      "type": "registry:icon"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "icons/info-icon.tsx": "ddbceda9cd45cea133d0e4dff5fba28fae509ab7a977a3aee428b5409d640667"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "componentName": "InfoIcon",
+    "contentHash": "6eb0ca5da226396a81264bf79f3b7a9ddfcf6f8f4035636e029dd4fd6803682f",
+    "iconName": "Info",
+    "iconSet": "lucide"
+  },
+  "name": "info-icon",
+  "schemaVersion": 1,
+  "type": "registry:icon",
+  "version": "3.0.0-rc.1"
+}

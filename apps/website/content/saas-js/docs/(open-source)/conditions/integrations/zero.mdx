@@ -1,0 +1,118 @@
+---
+title: Zero Sync
+description: Convert a condition query into a Zero (ZQL) where expression.
+---
+
+`@saas-js/conditions-zero` converts a condition query into a
+[Zero](https://zero.rocicorp.dev) (ZQL) where expression, so a saved segment
+built with the conditions UI filters rows straight from the client-side sync
+replica.
+
+`@rocicorp/zero` is a peer dependency, used for types only. The converter
+builds conditions through the expression builder ZQL hands to `where`, so
+there is no runtime coupling to a specific Zero version.
+
+```bash
+npm install @saas-js/conditions @saas-js/conditions-zero
+```
+
+## Usage
+
+```ts
+import { conditionsToZero } from '@saas-js/conditions-zero'
+
+import { contactConditions } from './conditions'
+
+const query = contactConditions.parse(savedSegment.query)
+
+const contacts = zql.contact.where(
+  conditionsToZero(contactConditions, query),
+)
+```
+
+Parse the payload first. `parse` validates it against the definition and
+revives dates, so only schema outputs reach the query.
+
+The returned factory is a standard ZQL `ExpressionFactory` — compose it like
+any other condition:
+
+```ts
+zql.contact
+  .where(conditionsToZero(contactConditions, query))
+  .where('workspaceId', workspaceId)
+  .orderBy('createdAt', 'desc')
+```
+
+An empty query converts to `and()` (ZQL's TRUE) and keeps every row.
+
+## With the React builder
+
+The query comes straight from the builder UI and the synced view refilters
+live:
+
+```tsx
+const conditions = contactUI.useConditionsContext()
+const query = conditions.useValue()
+
+const [contacts] = useQuery(
+  zql.contact.where(conditionsToZero(contactConditions, query)),
+)
+```
+
+## Operator mapping
+
+| Operator | ZQL |
+| --- | --- |
+| `equals` / `not` | `=` / `!=` |
+| `gt` / `gte` / `lt` / `lte` | order operators |
+| `between` | `and(>= min, <= max)` |
+| `contains` / `startsWith` / `endsWith` | case-insensitive `ILIKE` with `%` / `_` / `\` escaping |
+| `in` / `notIn` | `IN` / `NOT IN`; an empty `notIn` list constrains nothing |
+| `isNull` / `isNotNull` | `IS null` / `IS NOT null` (ZQL's null-safe comparisons) |
+
+`some` / `every` compare against array subjects and have no ZQL form. Map
+them yourself (for example via `exists` on a relationship) through
+`operators`, which also overrides built-ins and adds custom operators:
+
+```ts
+conditionsToZero(contactConditions, query, {
+  operators: {
+    equals: (value, { eb, column, mapValue }) =>
+      eb.cmp(column, '=', mapValue(value)),
+    matches: (value, { eb, column }) => {
+      const { pattern } = value as { pattern: string }
+      return eb.cmp(column, 'ILIKE', `%${pattern}%`)
+    },
+  },
+})
+```
+
+## Field mapping
+
+Condition field ids map to Zero columns by name. Rename columns or transform
+values with `fields`:
+
+```ts
+conditionsToZero(contactConditions, query, {
+  fields: {
+    company: 'company_name',
+    createdAt: {
+      value: (value) => (value as Date).toISOString(),
+    },
+  },
+})
+```
+
+By default `Date` values convert to epoch milliseconds — Zero's convention
+for timestamps — and all other primitives pass through.
+
+Operators without a translation throw `UnsupportedConditionOperatorError`
+rather than silently widening the result set.
+
+## Parity
+
+The test suite builds every conversion through Zero's real schema-checked
+query builder (`createBuilder` + `where`) and asserts that evaluating the
+generated ZQL AST returns exactly the rows `definition.filter(query, rows)`
+returns — including nested AND/OR groups, LIKE escaping, null handling, and
+date conversion.

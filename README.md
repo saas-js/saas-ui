@@ -3,14 +3,14 @@
 <img src="./apps/website/public/saasui-dark.svg#gh-dark-mode-only" alt="Saas UI logo" height="60px" />
 </p>
 
-<p align='center'>The React component library for Startups</p>
+<p align='center'>A design system and source component registry for SaaS products</p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@saas-ui/react">
-    <img src="https://img.shields.io/npm/v/@saas-ui/react" alt="NPM">
+  <a href="https://www.npmjs.com/package/@saas-ui/cli">
+    <img src="https://img.shields.io/npm/v/@saas-ui/cli/rc" alt="Saas UI CLI on npm">
   </a>
-  <a href="https://www.npmjs.com/package/@saas-ui/react">
-    <img src="https://img.shields.io/npm/dm/@saas-ui/react.svg" alt="npm downloads">
+  <a href="https://www.npmjs.com/package/@saas-ui/chakra-preset">
+    <img src="https://img.shields.io/npm/v/@saas-ui/chakra-preset" alt="Saas UI Chakra preset on npm">
   </a>
   <img alt="MIT License" src="https://img.shields.io/github/license/saas-js/saas-ui"/>
   <a href="https://twitter.com/intent/follow?screen_name=saas_js">
@@ -20,10 +20,36 @@
 
 <hr />
 
-Saas UI is an advanced component library designed to build beautiful B2B and dashboard style apps with speed.
-It's built on top of Chakra UI and fully written in Typescript.
+Saas UI helps teams build B2B applications and dashboards with Chakra UI. Chakra
+primitives come from `@chakra-ui/react`, Saas UI tokens and recipes come from
+`@saas-ui/chakra-preset`, and editable compositions such as Sidebar are
+installed into applications with `@saas-ui/cli`.
 
-This repository contains all [open source components](/packages), as well as the [documentation website](apps/website/pages/docs).
+This repository contains the preset, registry compiler and templates, CLI,
+supporting packages, examples, and documentation website.
+
+## Get started
+
+Initialize an existing React project:
+
+```sh
+npx @saas-ui/cli@rc init
+```
+
+Add editable components or compositions:
+
+```sh
+npx @saas-ui/cli@rc add sidebar
+```
+
+Initialization installs compatible Chakra, Emotion, and preset dependencies,
+creates `components.json`, and installs local provider setup. See the
+[CLI README](packages/saas-ui-cli/README.md) for command details.
+
+Existing `@saas-ui/react` users should follow the
+[migration guide](MIGRATION.md). The package remains available during the
+transition; this repository does not claim that npm deprecation or removal has
+already occurred.
 
 ## Links
 
@@ -44,23 +70,33 @@ Saas UI is sponsored by these amazing companies and people.
 
 ## Contributing & Support
 
-Want to help? Great! Check out the [contributing guidelines](CONTRIBUTING.md) and feel free to open a PR or [discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature requests and feedback.
+Want to help? Great! Check out the [contributing guidelines](CONTRIBUTING.md)
+and feel free to open a PR or
+[discussion](https://github.com/saas-js/saas-ui/discussions/new) for feature
+requests and feedback.
 
-If you'd like to support the project financially, you can [become a sponsor](https://github.com/sponsors/saas-js) of Saas UI or consider ordering [Saas UI Pro Beta](https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5). All funds will go toward the further development of Saas UI. This will give you access to the private Git repository with the beta and our private Discord server for support.
+If you'd like to support the project financially, you can
+[become a sponsor](https://github.com/sponsors/saas-js) of Saas UI or consider
+ordering
+[Saas UI Pro Beta](https://saas-ui.lemonsqueezy.com/checkout/buy/5c76854f-738a-46b8-b32d-932a97d477f5).
+All funds will go toward the further development of Saas UI. This will give you
+access to the private Git repository with the beta and our private Discord
+server for support.
 
-### Core
+### Open source
 
-40+ essential open-source components built on top of Chakra UI.
+The open-source distribution includes:
 
-- Authentication screens
-- Powerful forms manager
-- DatePicker / DateRangePicker
-- Stepper, Timeline, DataTable and much more.
+- Chakra tokens, recipes, semantic styling, and system configuration
+- Editable registry components and application compositions
+- CLI initialization, installation, migration, diff, and update workflows
+- Supporting hooks, forms, authentication, and modal packages
 
 ### Pro
 
-A premium frontend starter pack designed for SaaS products.
-Complete source code available in a monorepo that can serve as a starting point or as a reference for your project.
+A premium catalog of editable application blocks for SaaS products. Pro blocks
+are installed as source through the authenticated registry and can compose
+public registry items.
 
 ![theme-tokens](https://user-images.githubusercontent.com/32583/172424112-72bacfdd-17df-4024-81db-690dc47d0c81.png)
 
@@ -80,46 +116,36 @@ Complete source code available in a monorepo that can serve as a starting point 
 
 ## Using this repo
 
-The docs website depends on private packages (`@saas-ui-pro/react`), and won't build fully without access to the private Git submodule.
+The docs website depends on private packages (`@saas-ui-pro/react`), and won't
+build fully without access to the private Git submodule.
 
-This repository uses Yarn workspaces, to get started run:
+This repository is a pnpm workspace. Install pnpm 10 or newer, then run:
 
 ```bash
-yarn
+pnpm install
 ```
 
 ### Storybook
 
 ```bash
-yarn storybook
+pnpm storybook
 ```
 
 ### Build
 
 ```bash
-yarn build:packages
+pnpm build:packages
 ```
 
 ### Website
 
-Before running the website you need to build the props-docs by running this.
+Run the documentation website with:
 
 ```bash
-yarn build:props-docs
-```
-
-After that run the website with this command.
-
-```bash
-yarn w website dev
-```
-
-or
-
-```bash
-cd apps/website && yarn dev
+pnpm dev:web
 ```
 
 ## License
 
-All code in this repository, except for the Saas UI branding assets are licensed under MIT.
+All code in this repository, except for the Saas UI branding assets are licensed
+under MIT.

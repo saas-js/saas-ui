@@ -1,0 +1,153 @@
+---
+title: Tree View
+description:
+  Used to display hierarchical data structures in an expandable tree format
+links:
+  recipe: tree-view
+---
+
+<ExampleTabs name="tree-view-basic" />
+
+## Anatomy
+
+```jsx
+import { TreeView, createTreeCollection } from '@chakra-ui/react'
+```
+
+```jsx
+<TreeView.Root collection={collection}>
+  <TreeView.Label />
+  <TreeView.Tree>
+    <TreeView.Branch>
+      <TreeView.BranchControl>
+        <TreeView.BranchIndicator />
+        <TreeView.BranchText />
+      </TreeView.BranchControl>
+      <TreeView.BranchContent>
+        <TreeView.BranchIndentGuide />
+        <TreeView.Item />
+      </TreeView.BranchContent>
+    </TreeView.Branch>
+    <TreeView.Item />
+  </TreeView.Tree>
+</TreeView.Root>
+```
+
+> Use the `createTreeCollection` function to register the tree data before
+> rendering the tree view.
+
+## Shortcuts
+
+### `TreeView.Node`
+
+This component is a helper that manages the recursive rendering of the branch
+and leaf nodes for you.
+
+```jsx
+<TreeView.Node
+  indentGuide={<TreeView.BranchIndentGuide />}
+  render={({ node, nodeState }) =>
+    nodeState.isBranch ? (
+      <TreeView.BranchControl>
+        <TreeView.BranchText>{node.name}</TreeView.BranchText>
+      </TreeView.BranchControl>
+    ) : (
+      <TreeView.Item>
+        <TreeView.ItemText>{node.name}</TreeView.ItemText>
+      </TreeView.Item>
+    )
+  }
+/>
+```
+
+is equivalent to:
+
+```jsx
+const TreeNode = (props) => {
+  const { node, indexPath } = props
+  return (
+    <TreeView.NodeProvider key={node.id} node={node} indexPath={indexPath}>
+      {node.children ? (
+        <TreeView.Branch>
+          <TreeView.BranchControl>
+            <TreeView.BranchText>{node.name}</TreeView.BranchText>
+          </TreeView.BranchControl>
+          <TreeView.BranchContent>
+            <TreeView.BranchIndentGuide />
+            {node.children.map((child, index) => (
+              <TreeNode
+                key={child.id}
+                node={child}
+                indexPath={[...indexPath, index]}
+              />
+            ))}
+          </TreeView.BranchContent>
+        </TreeView.Branch>
+      ) : (
+        <TreeView.Item>
+          <TreeView.ItemText>{node.name}</TreeView.ItemText>
+        </TreeView.Item>
+      )}
+    </TreeView.NodeProvider>
+  )
+}
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the tree view.
+
+<ExampleTabs name="tree-view-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the variant of the tree view.
+
+<ExampleTabs name="tree-view-with-variants" />
+
+### Colors
+
+Use the `colorPalette` prop to change the color palette of the tree view.
+
+<ExampleTabs name="tree-view-with-colors" />
+
+### Disabled Node
+
+Adding the `disabled` prop to a node's property will disable the node and
+prevent interaction.
+
+<ExampleTabs name="tree-view-disabled-node" />
+
+### Controlled Expansion
+
+Use the `expandedValue` and `onExpandedChange` props to programmatically control
+node expansion behavior.
+
+<ExampleTabs name="tree-view-controlled-expansion" />
+
+### Expand Icon
+
+Use the `nodeState.expanded` property to swap the rendered icon on the branch
+when it's expanded or collapsed.
+
+<ExampleTabs name="tree-view-expand-icon" />
+
+### Checkbox Tree
+
+Add checkboxes to tree nodes for selection functionality. Render the
+`TreeView.NodeCheckbox` component and read the node's checked state from the
+`useTreeViewNodeContext` hook.
+
+<ExampleTabs name="tree-view-checkbox" />
+
+## Props
+
+### Root
+
+<PropTable component="TreeView" part="Root" />
+
+### Item
+
+<PropTable component="TreeView" part="Item" />

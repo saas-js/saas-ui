@@ -1,0 +1,38 @@
+---
+title: Layer Styles
+description: Apply named surface treatments from the Saas UI preset.
+---
+
+Use the `layerStyle` prop to apply a named treatment. Palette styles follow
+`colorPalette`. Surface styles use semantic tokens.
+
+```tsx
+<Box layerStyle="fill.subtle" colorPalette="destructive">Warning</Box>
+<Box layerStyle="overlay">Dialog panel</Box>
+```
+
+The full list — fill, outline, indicator, overlay, backdrop, disabled, and
+none — is on [Layer styles](/docs/theming/layer-styles).
+
+<ExamplePreview name="tokens/layer-style" />
+
+To add your own, merge onto `defaultConfig`:
+
+```tsx
+import { createSystem, defineConfig, defineLayerStyles } from '@chakra-ui/react'
+import { defaultConfig } from '@saas-ui/chakra-preset'
+
+const layerStyles = defineLayerStyles({
+  hero: {
+    value: {
+      bg: 'bg.inverted',
+      color: 'fg.inverted',
+    },
+  },
+})
+
+export const system = createSystem(
+  defaultConfig,
+  defineConfig({ theme: { layerStyles } }),
+)
+```

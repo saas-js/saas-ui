@@ -1,0 +1,53 @@
+{
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset",
+    "@saas-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export * as Navbar from './navbar.tsx'\n\nexport { useNavbarStyles } from './navbar.context.ts'\n",
+      "path": "ui/navbar/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { createSlotRecipeContext } from '@chakra-ui/react'\nimport { navbarSlotRecipe } from '@saas-ui/chakra-preset/slot-recipes/navbar'\n\nexport const {\n  withProvider,\n  withContext,\n  useStyles: useNavbarStyles,\n} = createSlotRecipeContext({\n  recipe: navbarSlotRecipe,\n})\n",
+      "path": "ui/navbar/navbar.context.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { useLink } from '@/registry/default/lib/use-link/use-link.tsx'\nimport type { HTMLChakraProps } from '@chakra-ui/react'\nimport type { SlotRecipeProps } from '@saas-ui/chakra-preset'\nimport type { NavbarVariantProps } from '@saas-ui/chakra-preset/slot-recipes/navbar'\nimport { Navbar } from '@saas-ui/react/navbar'\n\nimport { withContext, withProvider } from './navbar.context.ts'\n\ninterface NavbarRootProps\n  extends\n    SlotRecipeProps<'suiNavbar', NavbarVariantProps>,\n    HTMLChakraProps<'div', Navbar.RootProps> {}\n\nconst NavbarRoot = withProvider<HTMLDivElement, NavbarRootProps>(\n  Navbar.Root,\n  'root',\n)\n\nconst NavbarBrand = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  Navbar.Brand,\n  'brand',\n)\n\nconst NavbarContent = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  Navbar.Content,\n  'content',\n)\n\nconst NavbarItemGroup = withContext<HTMLUListElement, HTMLChakraProps<'ul'>>(\n  'ul',\n  'itemGroup',\n)\n\nconst NavbarItem = withContext<\n  HTMLLIElement,\n  HTMLChakraProps<'li', Navbar.ItemProps>\n>(Navbar.Item, 'item')\n\ninterface NavbarLinkProps extends HTMLChakraProps<'a', Navbar.LinkProps> {\n  active?: boolean\n}\n\nconst NavbarLink = withContext<HTMLAnchorElement, NavbarLinkProps>(\n  forwardRef<HTMLAnchorElement, NavbarLinkProps>(\n    function NavbarLink(props, ref) {\n      const { active, asChild, children, ...rest } = props\n      const Link = useLink()\n\n      if (asChild) {\n        return (\n          <Navbar.Link\n            ref={ref}\n            data-active={active ? '' : undefined}\n            {...rest}\n          >\n            {children}\n          </Navbar.Link>\n        )\n      }\n\n      return (\n        <Navbar.Link\n          asChild\n          ref={ref}\n          data-active={active ? '' : undefined}\n          {...rest}\n        >\n          <Link>{children}</Link>\n        </Navbar.Link>\n      )\n    },\n  ),\n  'link',\n  { forwardAsChild: true },\n)\n\nexport {\n  NavbarRoot as Root,\n  NavbarContent as Content,\n  NavbarBrand as Brand,\n  NavbarItemGroup as ItemGroup,\n  NavbarItem as Item,\n  NavbarLink as Link,\n}\n\nexport type { NavbarRootProps as RootProps, NavbarLinkProps as LinkProps }\n",
+      "path": "ui/navbar/navbar.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/navbar/index.ts": "c4584f79e2110f9fe3c3d769e6ce24bb0a421403f2e700be79306bb60a7b5793",
+        "ui/navbar/navbar.context.ts": "5d115857a5d1cced0bcf9bb9a92c86885df6e197d326956775348beac4f16bf4",
+        "ui/navbar/navbar.tsx": "f540d8ef9d66cae402e7d377857d8d1d4c42b1e3c92b068936386a4291e53125"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset",
+        "@saas-ui/chakra-preset/slot-recipes/navbar"
+      ],
+      "presetRecipeBindings": [
+        "navbar"
+      ],
+      "recipeReferences": [
+        "suiNavbar"
+      ]
+    },
+    "contentHash": "520dde7f87cc55f54e933a39716ee1bf646dc6f80c3cec51ef59dfebce529bc6"
+  },
+  "name": "navbar",
+  "registryDependencies": [
+    "use-link"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

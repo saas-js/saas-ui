@@ -1,0 +1,82 @@
+---
+title: Installation
+description: How to install and set up Saas UI in your project
+---
+
+## Framework Guide
+
+Saas UI works in all modern React frameworks, we've put together step-by-step
+guides for these frameworks
+
+:::card-group
+
+<Card title="Next.js" href="/docs/getting-started/frameworks/next-app" icon="nextjs">
+
+Easily add Saas UI with Next.js app directory
+
+</Card>
+
+<Card title="Vite" href="/docs/getting-started/frameworks/vite" icon="vite">
+
+Use Saas UI in your Vite application
+
+</Card>
+
+:::
+
+> The minimum node version required is Node 22.x
+
+:::info
+
+Existing apps on `@saas-ui/react@next` should follow
+[Migrating from next to rc](/docs/getting-started/migrating-from-next) instead
+of treating `init` as a greenfield install.
+
+:::
+
+## Installation
+
+To manually set up Saas UI in your project, follow the steps below.
+
+:::steps
+
+### Install Saas UI
+
+```bash
+npx @saas-ui/cli@rc init
+```
+
+The CLI installs Chakra UI, Emotion, and `@saas-ui/chakra-preset`. Chakra
+primitives are imported from `@chakra-ui/react`; Saas UI compositions are
+installed as source templates owned by your project.
+
+### Setup provider
+
+Wrap your application with the `SuiProvider` at the root of your application.
+
+```jsx
+import { Provider as SuiProvider } from '#components/setup/provider/provider'
+import { defaultSystem } from '@saas-ui/chakra-preset'
+
+function App({ Component, pageProps }) {
+  return (
+    <SuiProvider system={defaultSystem}>
+      <Component {...pageProps} />
+    </SuiProvider>
+  )
+}
+```
+
+:::
+
+Now you can start using Saas UI components in your project.
+
+## CLI
+
+Install elements, blocks and templates from the CLI.
+
+TBD
+
+## Ejecting
+
+TBD

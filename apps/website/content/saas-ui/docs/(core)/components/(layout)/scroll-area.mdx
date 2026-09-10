@@ -1,0 +1,106 @@
+---
+title: Scroll Area
+description: Used to create a scrollable area with custom styled scrollbars
+links:
+  recipe: scroll-area
+---
+
+<ExampleTabs name="scroll-area-basic" />
+
+## Anatomy
+
+```jsx
+import { ScrollArea } from '@chakra-ui/react'
+```
+
+```jsx
+<ScrollArea.Root>
+  <ScrollArea.Viewport>
+    <ScrollArea.Content />
+  </ScrollArea.Viewport>
+  <ScrollArea.Scrollbar>
+    <ScrollArea.Thumb />
+  </ScrollArea.Scrollbar>
+  <ScrollArea.Corner />
+</ScrollArea.Root>
+```
+
+## Examples
+
+### Variants
+
+Use the `variant` prop to change the scrollbar visibility behavior. Values can
+be either `hover` (default) or `always`.
+
+<ExampleTabs name="scroll-area-with-variants" />
+
+### Sizes
+
+Use the `size` prop to change the size of the scroll area. This affects the
+scrollbar thickness and content padding.
+
+<ExampleTabs name="scroll-area-with-sizes" />
+
+### Horizontal Scrolling
+
+The scroll area automatically supports horizontal scrolling when content
+overflows horizontally.
+
+<ExampleTabs name="scroll-area-horizontal" />
+
+### Both Directions
+
+When content overflows in both directions, both scrollbars will appear.
+
+<ExampleTabs name="scroll-area-both-directions" />
+
+:::info
+
+You can render the `ScrollArea.Corner` component to show a corner indicator to
+fill the intersection of the two scrollbars for a seamless, styled appearance.
+
+:::
+
+### Scroll Shadow
+
+Add visual feedback when content is scrollable by implementing scroll shadows
+that appear at the edges using `mask-image`.
+
+Use the `data-overflow-y` attribute to only show shadows when content actually
+overflows—this prevents shadows from appearing when there's a single item or no
+scrollable content.
+
+<ExampleTabs name="scroll-area-with-scroll-shadow" />
+
+### Thumb Styling
+
+Customize the appearance of the scrollbar thumb with different styles and
+colors.
+
+<ExampleTabs name="scroll-area-with-thumb-styling" />
+
+## Props
+
+### Root
+
+<PropTable component="ScrollArea" part="Root" />
+
+### Viewport
+
+<PropTable component="ScrollArea" part="Viewport" />
+
+### Content
+
+<PropTable component="ScrollArea" part="Content" />
+
+### Scrollbar
+
+<PropTable component="ScrollArea" part="Scrollbar" />
+
+### Thumb
+
+<PropTable component="ScrollArea" part="Thumb" />
+
+### Corner
+
+<PropTable component="ScrollArea" part="Corner" />

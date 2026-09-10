@@ -1,0 +1,173 @@
+---
+title: Color Picker
+description:
+  Used to select colors from a color area or a set of defined swatches.
+links:
+  recipe: color-picker
+---
+
+<ExampleTabs name="color-picker-basic" />
+
+## Anatomy
+
+```jsx
+import { ColorPicker } from '@chakra-ui/react'
+```
+
+```jsx
+<ColorPicker.Root>
+  <ColorPicker.HiddenInput />
+  <ColorPicker.Label />
+  <ColorPicker.Control>
+    <ColorPicker.Input />
+    <ColorPicker.Trigger />
+  </ColorPicker.Control>
+  <ColorPicker.Positioner>
+    <ColorPicker.Content>
+      <ColorPicker.Area />
+      <ColorPicker.EyeDropper />
+      <ColorPicker.Sliders />
+      <ColorPicker.SwatchGroup>
+        <ColorPicker.SwatchTrigger>
+          <ColorPicker.Swatch />
+        </ColorPicker.SwatchTrigger>
+      </ColorPicker.SwatchGroup>
+    </ColorPicker.Content>
+  </ColorPicker.Positioner>
+</ColorPicker.Root>
+```
+
+## Shortcuts
+
+Some parts are shortcuts that render a group of parts for you.
+
+`ColorPicker.Area` renders the area background and thumb:
+
+```tsx
+<ColorPicker.Area>
+  <ColorPicker.AreaThumb />
+  <ColorPicker.AreaBackground />
+</ColorPicker.Area>
+```
+
+`ColorPicker.ChannelSlider` renders the transparency grid, track and thumb:
+
+```tsx
+<ColorPicker.ChannelSlider>
+  <ColorPicker.TransparencyGrid />
+  <ColorPicker.ChannelSliderTrack />
+  <ColorPicker.ChannelSliderThumb />
+</ColorPicker.ChannelSlider>
+```
+
+`ColorPicker.Sliders` renders both the hue and alpha channel sliders:
+
+```tsx
+<Stack>
+  <ColorPicker.ChannelSlider channel="hue" />
+  <ColorPicker.ChannelSlider channel="alpha" />
+</Stack>
+```
+
+`ColorPicker.EyeDropper` renders an icon button wired to the eye dropper
+trigger:
+
+```tsx
+<ColorPicker.EyeDropperTrigger asChild>
+  <IconButton>
+    <LuPipette />
+  </IconButton>
+</ColorPicker.EyeDropperTrigger>
+```
+
+## Examples
+
+### Basic
+
+Use `parseColor` to create the initial color value, and compose the input and
+trigger inside `ColorPicker.Control`.
+
+<ExampleTabs name="color-picker-basic" />
+
+### Sizes
+
+Use the `size` prop to change the size of the color picker.
+
+<ExampleTabs name="color-picker-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the color picker. Values
+can be either `outline` or `subtle`.
+
+<ExampleTabs name="color-picker-with-variants" />
+
+### Controlled
+
+Use the `value` and `onValueChange` props to control the state of the color
+picker.
+
+<ExampleTabs name="color-picker-controlled" />
+
+### Swatches
+
+Render a `ColorPicker.SwatchGroup` inside the content to offer a set of
+predefined colors alongside the color area.
+
+<ExampleTabs name="color-picker-with-swatches" />
+
+### Input Only
+
+Combine `ColorPicker.ValueSwatch` and `ColorPicker.EyeDropper` with an
+`InputGroup` to render a color picker that consists of only an input.
+
+<ExampleTabs name="color-picker-input-only" />
+
+### Inline
+
+Pass the `open` prop to render the color picker inline, without a popover.
+
+<ExampleTabs name="color-picker-inline" />
+
+## Guide
+
+### Getting the hex code
+
+Use the `onValueChange` callback to get the color value. The `value` object has
+a `toString()` method that accepts different format options.
+
+```tsx
+<ColorPicker.Root
+  onValueChange={(details) => {
+    console.log(details.value.toString('hex')) // "#ff0000"
+    console.log(details.value.toString('hexa')) // "#ff0000ff" (with alpha)
+    console.log(details.value.toString('rgb')) // "rgb(255, 0, 0)"
+    console.log(details.value.toString('css')) // CSS color string
+  }}
+>
+  {/* ... */}
+</ColorPicker.Root>
+```
+
+You can also access it from the store:
+
+```tsx
+const picker = useColorPicker() // or useColorPickerContext()
+const hexValue = picker.value.toString('hex') // "#ff0000"
+```
+
+The same `toString()` method is available when using `parseColor`:
+
+```tsx
+import { parseColor } from '@chakra-ui/react'
+
+const color = parseColor('#ff0000')
+console.log(color.toString('hex')) // "#ff0000"
+console.log(color.toString('rgba')) // "rgba(255, 0, 0, 1)"
+```
+
+## Props
+
+### Root
+
+<PropTable component="ColorPicker" part="Root" />

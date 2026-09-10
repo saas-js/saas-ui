@@ -1,0 +1,88 @@
+---
+title: Using Saas UI with TanStack Start
+description: A guide for installing Saas UI in TanStack Start projects
+---
+
+## Templates
+
+Use one of the following templates to get started quickly. The templates are
+configured correctly to use Saas UI.
+
+:::card-group
+
+<ResourceCard
+  type="github"
+  title="TanStack Start template"
+  url="https://github.com/saas-js/saas-ui/tree/main/examples/tanstack"
+/>
+
+:::
+
+## Installation
+
+> The minimum node version required is Node 22.x
+
+:::steps
+
+### Install dependencies
+
+```bash
+npx @saas-ui/cli@rc init
+```
+
+### Setup provider
+
+Wrap your application with the CLI-installed `Provider` in the root route's
+document shell.
+
+The generated provider configures:
+
+- Chakra UI with `@saas-ui/chakra-preset`
+- color mode with `next-themes`
+- links used by installed Saas UI components
+
+```tsx title="src/routes/__root.tsx"
+import * as React from 'react'
+
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+
+import { Provider } from '#components/setup/provider/provider'
+
+export const Route = createRootRoute({
+  shellComponent: RootDocument,
+})
+
+function RootDocument({ children }: { children: React.ReactNode }) {
+  return (
+    <html suppressHydrationWarning>
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        <Provider>{children}</Provider>
+        <Scripts />
+      </body>
+    </html>
+  )
+}
+```
+
+### Enjoy!
+
+Combine Chakra UI primitives with editable Saas UI components installed by the
+CLI to build your interface.
+
+```tsx
+import { Button, HStack } from '@chakra-ui/react'
+
+const Demo = () => {
+  return (
+    <HStack>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
+    </HStack>
+  )
+}
+```
+
+:::

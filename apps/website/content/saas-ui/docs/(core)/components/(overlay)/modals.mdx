@@ -1,0 +1,82 @@
+---
+title: Modals
+description: Open type-safe dialogs and drawers from anywhere in your app
+links:
+  source: components/modals
+---
+
+Install the modal manager with the CLI. The `dialog` and `drawer` templates are
+installed automatically as dependencies.
+
+```bash
+pnpm dlx @saas-ui/cli@rc add modals
+```
+
+Add `ModalsProvider` near the root of your application.
+
+```tsx
+import { ModalsProvider } from '#components/ui/modals'
+
+export function App({ children }: { children: React.ReactNode }) {
+  return <ModalsProvider>{children}</ModalsProvider>
+}
+```
+
+Use `useModals` to open a modal, drawer, alert, or confirmation dialog.
+
+```tsx
+import { Button } from '@chakra-ui/react'
+
+import { useModals } from '#components/ui/modals'
+
+export function DeleteProject() {
+  const modals = useModals()
+
+  return (
+    <Button
+      colorPalette="red"
+      onClick={() =>
+        modals.confirm({
+          title: 'Delete project?',
+          body: 'This action cannot be undone.',
+          slotProps: {
+            confirm: { colorPalette: 'red', children: 'Delete' },
+          },
+          onConfirm: async () => {
+            // Delete the project
+          },
+        })
+      }
+    >
+      Delete project
+    </Button>
+  )
+}
+```
+
+## Custom modal types
+
+Use `createModals` to create a manager with application-specific modal
+components. The component props are inferred by `open`.
+
+```tsx
+import { Modal, type ModalProps, createModals } from '#components/ui/modals'
+
+interface InviteModalProps extends Omit<ModalProps, 'children'> {
+  organizationId: string
+}
+
+function InviteModal({ organizationId, ...props }: InviteModalProps) {
+  return <Modal {...props}>Invite a member to {organizationId}</Modal>
+}
+
+export const { ModalsProvider, useModals } = createModals({
+  modals: { invite: InviteModal },
+})
+```
+
+```tsx
+const modals = useModals()
+
+modals.open({ type: 'invite', organizationId: 'acme' })
+```

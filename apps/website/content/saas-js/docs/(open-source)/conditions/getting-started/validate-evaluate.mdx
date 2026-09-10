@@ -1,0 +1,164 @@
+---
+title: Validate, evaluate, serialize
+description: Check a query, run it against data, and move it across the wire.
+---
+
+A query on its own is inert data. The definition's pure operations do the
+work, and they fall into three groups.
+
+## Validation
+
+Is this query structurally sound for this definition?
+
+```ts
+// Check without throwing. Each issue has a code ('unknown_field',
+// 'invalid_value', …), message, node id, and path.
+const result = contacts.validate(query)
+if (!result.valid) console.warn(result.issues)
+
+// Check and narrow. Returns the query typed against the definition with all
+// schema transformations applied (e.g. z.coerce.number() output), or throws
+// InvalidConditionQueryError with the same issues.
+const checked = contacts.assert(query)
+```
+
+Use `validate` to display problems (a form, an API response). Use `assert` at
+trust boundaries where an invalid query is a programming error.
+
+## Evaluation
+
+Which subjects match the query?
+
+```ts
+// One subject → boolean. Field values are read by property name, or through
+// the field's `accessor` when defined.
+contacts.evaluate(query, { status: 'customer', arr: 84_000 }) // true
+
+// Many subjects → the matching subset, in order.
+const adults = contacts.filter(query, contactList)
+```
+
+Evaluation runs the operator comparators against validated values: an `and`
+group matches when every item matches, an `or` group when at least one does.
+
+## Serialization
+
+Move a query across a wire or into storage and back.
+
+```ts
+const json = contacts.serialize(query) // JSON-safe object (dates → ISO strings)
+const text = contacts.stringify(query) // JSON string of the same
+const restored = contacts.parse(text) // accepts a string or a parsed object
+```
+
+`parse` is the single entry point for untrusted input: it deserializes,
+revives dates and custom field/operator values, validates against the
+definition, and returns the typed query — or throws when the payload does not
+fit. `serialize` / `parse` round-trip exactly:
+`parse(stringify(query))` deep equals `query`.
+
+To reject bad payloads without exceptions, deserialize first, then
+`validate` and return `result.issues` to the client.
+
+## Store conveniences
+
+The store exposes the same operations bound to its current value, so UI code
+does not pass the query around:
+
+```ts
+store.validate()
+store.evaluate(subject)
+store.serialize()
+store.stringify()
+
+const subscription = store.subscribe((state) => {
+  console.log(state.value)
+})
+subscription.unsubscribe()
+```
+
+## Custom field serialization
+
+Condition queries include a format version. Dates are encoded as ISO strings
+and restored according to the field type. Fields can customize scalar value
+serialization without changing the query format:
+
+```ts
+const geometry = defineConditions({
+  fields: {
+    point: {
+      type: 'point',
+      schema: z.object({ x: z.number(), y: z.number() }),
+      operators: ['equals'],
+      serialize: ({ x, y }) => `${x},${y}`,
+      deserialize: (value) => {
+        const [x, y] = String(value).split(',').map(Number)
+        return { x, y }
+      },
+    },
+  },
+})
+```
+
+For built-in `multiple` and `range` operators, field hooks are applied to each
+item. Custom operators can define their own hooks; operator hooks take
+precedence because their operand may differ from the field value.
+
+## End-to-end
+
+One definition carries a saved segment from the browser to the database and
+back.
+
+```ts
+import {
+  type ConditionQueryForDefinition,
+  defineConditions,
+} from '@saas-js/conditions'
+import { z } from 'zod'
+
+export const contactConditions = defineConditions({
+  fields: {
+    status: {
+      type: 'enum',
+      schema: z.enum(['lead', 'customer', 'churned']),
+      operators: ['equals', 'not', 'in'],
+    },
+    arr: {
+      type: 'number',
+      schema: z.coerce.number().min(0),
+      operators: ['gte', 'lte', 'between'],
+    },
+    createdAt: {
+      type: 'date',
+      schema: z.coerce.date(),
+      operators: ['gte', 'lte', 'between'],
+    },
+  },
+})
+
+export type ContactsQuery = ConditionQueryForDefinition<
+  typeof contactConditions
+>
+```
+
+```ts
+// Client: build and persist
+const store = contactConditions.createStore()
+store.actions.addCondition({ id: 'active', field: 'status', value: 'customer' })
+
+await api.saveSegment({
+  name: 'High value',
+  query: store.stringify(),
+})
+```
+
+```ts
+// Server: parse the untrusted payload with the same definition
+const query: ContactsQuery = contactConditions.parse(saved.query)
+
+const matches = contactConditions.filter(query, contacts)
+```
+
+Invalid fields, operators, or values throw with structured issues. Valid
+payloads come back fully typed, with dates revived and schema coercions
+applied.

@@ -1,0 +1,26 @@
+{
+  "AppShell": {
+    "props": {
+      "header": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "The top header navigation"
+      },
+      "sidebar": {
+        "type": "React.ReactElement",
+        "isRequired": false,
+        "description": "Main sidebar, positioned on the left"
+      },
+      "aside": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "Secondary sidebar, positioned on the right"
+      },
+      "footer": {
+        "type": "React.ReactNode",
+        "isRequired": false,
+        "description": "The footer"
+      }
+    }
+  }
+}

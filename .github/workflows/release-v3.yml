@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - v3
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Dependencies
+        run: pnpm i --ignore-scripts
+
+      - name: Build packages
+        run: pnpm build:packages
+
+      - name: Build tokens
+        run: pnpm build:tokens
+
+      - name: Generate and validate release registry artifacts
+        run: pnpm registry:release
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+          AUTH_ORIGIN: ${{ vars.AUTH_ORIGIN }}
+          REGISTRY_URL: ${{ vars.REGISTRY_URL }}
+          SCHEMA_URL: ${{ vars.SCHEMA_URL }}

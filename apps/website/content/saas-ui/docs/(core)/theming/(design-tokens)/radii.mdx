@@ -1,0 +1,26 @@
+---
+title: Radii
+description: Primitive radii and control / panel / indicator roles
+---
+
+Primitives (`2xs`–`4xl`, `full`) are the raw scale. Recipes should use **role**
+radii so [Theme](/docs/theming/theme) factors have an effect.
+
+```
+radii.control = radii.sm × --scale-factor × --radius-factor × --radius-control-factor
+```
+
+| Role | Default primitive | Used for |
+| ---- | ----------------- | -------- |
+| `control` / `control.sm\|md\|lg` | `xs`–`md` | Button, input, select |
+| `panel` / `panel.sm\|md\|lg` | `sm`–`lg` | Card, dialog, popover |
+| `indicator` / `indicator.sm\|md\|lg` | `xs`–`md` | Badge, tag, avatar |
+
+`l1`, `l2`, and `l3` still exist as aliases of `xs` / `sm` / `md`. Prefer the
+roles.
+
+Set `--radius-factor` and `--radius-*-factor` through `Theme`
+(`controlRadius`, `panelRadius`, `indicatorRadius`). `0` squares the role,
+large values pill it.
+
+<BorderRadiusTokenDoc />

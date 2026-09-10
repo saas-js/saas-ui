@@ -1,0 +1,38 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "'use client'\n\nimport { type RefObject, forwardRef } from 'react'\n\nimport { Dialog as ChakraDialog } from '@chakra-ui/react/dialog'\nimport { Portal } from '@chakra-ui/react/portal'\n\nimport { CloseButton as CloseButtonBase } from '../close-button/index.ts'\n\nexport interface ContentProps extends ChakraDialog.ContentProps {\n  portalled?: boolean\n  portalRef?: RefObject<HTMLElement>\n  backdrop?: boolean\n}\n\nexport const Content = forwardRef<HTMLDivElement, ContentProps>(\n  function DialogContent(props, ref) {\n    const {\n      children,\n      portalled = true,\n      portalRef,\n      backdrop = true,\n      ...rest\n    } = props\n\n    return (\n      <Portal disabled={!portalled} container={portalRef}>\n        {backdrop && <ChakraDialog.Backdrop />}\n        <ChakraDialog.Positioner>\n          <ChakraDialog.Content ref={ref} {...rest} asChild={false}>\n            {children}\n          </ChakraDialog.Content>\n        </ChakraDialog.Positioner>\n      </Portal>\n    )\n  },\n)\n\nexport const CloseButton = forwardRef<\n  HTMLButtonElement,\n  ChakraDialog.CloseTriggerProps\n>(function DialogCloseTrigger(props, ref) {\n  return (\n    <ChakraDialog.CloseTrigger {...props} asChild>\n      <CloseButtonBase size=\"sm\" ref={ref}>\n        {props.children}\n      </CloseButtonBase>\n    </ChakraDialog.CloseTrigger>\n  )\n})\n\nexport const CloseTrigger = ChakraDialog.CloseTrigger\n\nexport type RootProps = ChakraDialog.RootProps\n\nexport const Root = ChakraDialog.Root\nexport const Context = ChakraDialog.Context\nexport const Footer = ChakraDialog.Footer\nexport const Header = ChakraDialog.Header\nexport const Body = ChakraDialog.Body\nexport const Backdrop = ChakraDialog.Backdrop\nexport const Title = ChakraDialog.Title\nexport const Description = ChakraDialog.Description\nexport const Trigger = ChakraDialog.Trigger\nexport const ActionTrigger = ChakraDialog.ActionTrigger\n",
+      "path": "ui/dialog/dialog.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export * as Dialog from './dialog.tsx'\n",
+      "path": "ui/dialog/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/dialog/dialog.tsx": "31691f741dc36de83ebb5f0fd81136ae0929d900b87c2c5dd275bd7f9e09116b",
+        "ui/dialog/index.ts": "975119d5a4f9100ccba1b7c68d230f1a19aec7093fe889f7c7abbc8eedca0e41"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "28c644c3e4b4cd8e27fbb19babe1b8624f5287397af1cdfbeb55e61f070dc8b6"
+  },
+  "name": "dialog",
+  "registryDependencies": [
+    "close-button"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

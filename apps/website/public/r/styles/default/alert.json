@@ -1,0 +1,38 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Alert as AlertPrimitive } from '@chakra-ui/react/alert'\n\nimport { CloseButton } from '../close-button/index.ts'\n\nexport interface AlertProps extends Omit<AlertPrimitive.RootProps, 'title'> {\n  startElement?: React.ReactNode\n  endElement?: React.ReactNode\n  title?: React.ReactNode\n  icon?: React.ReactElement\n  closable?: boolean\n  onClose?: () => void\n}\n\nexport const Alert = forwardRef<HTMLDivElement, AlertProps>(\n  function Alert(props, ref) {\n    const {\n      title,\n      children,\n      icon,\n      closable,\n      onClose,\n      startElement,\n      endElement,\n      ...rest\n    } = props\n    return (\n      <AlertPrimitive.Root ref={ref} {...rest}>\n        {startElement || (\n          <AlertPrimitive.Indicator>{icon}</AlertPrimitive.Indicator>\n        )}\n        {children ? (\n          <AlertPrimitive.Content>\n            <AlertPrimitive.Title>{title}</AlertPrimitive.Title>\n            <AlertPrimitive.Description>{children}</AlertPrimitive.Description>\n          </AlertPrimitive.Content>\n        ) : (\n          <AlertPrimitive.Title flex=\"1\">{title}</AlertPrimitive.Title>\n        )}\n        {endElement}\n        {closable && (\n          <CloseButton\n            size=\"sm\"\n            pos=\"relative\"\n            top=\"-2\"\n            insetEnd=\"-2\"\n            alignSelf=\"flex-start\"\n            onClick={onClose}\n          />\n        )}\n      </AlertPrimitive.Root>\n    )\n  },\n)\n",
+      "path": "ui/alert/alert.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { Alert, type AlertProps } from './alert.tsx'\n",
+      "path": "ui/alert/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/alert/alert.tsx": "814acc97136c640821f91990433306b714540c456f9f451a43aae9b559e00486",
+        "ui/alert/index.ts": "4f2eae36e58e2a9c78a3755c002b831e16f3663890c1cfd503013f9e9ebf5feb"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "202ff1a91290b916ad9ff9913c15a4ab635fe5b9178f8ae036d4102bcd7531a3"
+  },
+  "name": "alert",
+  "registryDependencies": [
+    "close-button"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

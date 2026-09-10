@@ -1,0 +1,9 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "customConditions": [],
+    "incremental": false
+  },
+  "include": ["app-shell.tsx", "app-shell.types.test-d.ts"],
+  "exclude": []
+}

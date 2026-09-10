@@ -1,0 +1,51 @@
+---
+title: Installation
+description: Install Conditions and the adapters you need.
+---
+
+## Core
+
+```bash
+npm install @saas-js/conditions
+```
+
+The core package is framework-agnostic. It depends on `@standard-schema/spec`
+and `@tanstack/store`. Pair it with Zod, Valibot, ArkType, or any other
+[Standard Schema](https://standardschema.dev/schema) library for field and
+operator schemas.
+
+```bash
+npm install zod
+```
+
+## Adapters
+
+Install only what you use. Each adapter takes `@saas-js/conditions` as a peer
+dependency.
+
+```bash
+npm install @saas-js/conditions-react
+npm install @saas-js/conditions-tanstack-table
+npm install @saas-js/conditions-drizzle
+npm install @saas-js/conditions-zero
+```
+
+| Package | Peer dependencies |
+| --- | --- |
+| `@saas-js/conditions-react` | `react` >= 18 |
+| `@saas-js/conditions-tanstack-table` | `@tanstack/table-core` >= 9 |
+| `@saas-js/conditions-drizzle` | `drizzle-orm` >= 0.40 |
+| `@saas-js/conditions-zero` | `@rocicorp/zero` >= 1 |
+
+<Callout>
+  The React package has no styles and no component-library dependencies. Chakra
+  UI and shadcn examples live in the docs and the
+  [storybook workspace](https://github.com/saas-js/saas-js/tree/main/examples/conditions-react-storybook),
+  not in the published package.
+</Callout>
+
+## Next steps
+
+- [Basic usage](/packages/conditions/docs/getting-started/basic-usage) — define
+  fields and create a store
+- [React](/packages/conditions/docs/react) — bind the definition to a UI

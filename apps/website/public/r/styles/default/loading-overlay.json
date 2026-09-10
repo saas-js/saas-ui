@@ -1,0 +1,53 @@
+{
+  "dependencies": [
+    "@ark-ui/react",
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset"
+  ],
+  "files": [
+    {
+      "content": "export * as LoadingOverlay from './loading-overlay.tsx'\nexport { useLoadingOverlayStyles } from './loading-overlay.context.ts'\n",
+      "path": "ui/loading-overlay/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { createSlotRecipeContext } from '@chakra-ui/react'\nimport { loadingOverlaySlotRecipe } from '@saas-ui/chakra-preset/slot-recipes/loading-overlay'\n\nexport const {\n  useStyles: useLoadingOverlayStyles,\n  withContext,\n  withProvider,\n} = createSlotRecipeContext({\n  recipe: loadingOverlaySlotRecipe,\n})\n",
+      "path": "ui/loading-overlay/loading-overlay.context.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport {\n  Presence,\n  type PresenceBaseProps,\n  splitPresenceProps,\n} from '@ark-ui/react/presence'\nimport { HTMLChakraProps, chakra } from '@chakra-ui/react'\nimport type { SlotRecipeProps } from '@saas-ui/chakra-preset'\nimport type { LoadingOverlayVariantProps } from '@saas-ui/chakra-preset/slot-recipes/loading-overlay'\n\nimport { Spinner } from '../spinner/index.ts'\nimport { withContext, withProvider } from './loading-overlay.context.ts'\n\ninterface LoadingOverlayProps\n  extends\n    HTMLChakraProps<'div'>,\n    SlotRecipeProps<'suiLoadingOverlay', LoadingOverlayVariantProps>,\n    PresenceBaseProps {\n  /**\n   * Show or hide the LoadingOverlay.\n   * @default true\n   */\n  loading?: boolean\n}\n\nconst LoadingOverlay = forwardRef<HTMLDivElement, LoadingOverlayProps>(\n  (props, ref) => {\n    const { children, loading = true, ...rest } = props\n\n    const [presenceProps, rootProps] = splitPresenceProps(rest)\n\n    return (\n      <Presence present={loading} {...presenceProps} asChild>\n        <chakra.div ref={ref} {...rootProps}>\n          {children}\n        </chakra.div>\n      </Presence>\n    )\n  },\n)\n\nconst LoadingOverlayRoot = withProvider<HTMLDivElement, LoadingOverlayProps>(\n  LoadingOverlay,\n  'root',\n)\n\nLoadingOverlayRoot.displayName = 'LoadingOverlay'\n\nconst LoadingOverlaySpinner = Spinner\n\ninterface LoadingTextProps extends HTMLChakraProps<'p'> {}\n\nconst LoadingOverlayText = withContext<HTMLParagraphElement, LoadingTextProps>(\n  'p',\n  'text',\n)\n\nexport {\n  LoadingOverlayRoot as Root,\n  LoadingOverlaySpinner as Spinner,\n  LoadingOverlayText as Text,\n}\nexport type { LoadingOverlayProps as RootProps, LoadingTextProps as TextProps }\n",
+      "path": "ui/loading-overlay/loading-overlay.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/loading-overlay/index.ts": "c58375ab1172d854ed78b6dbca256cfdf835657678d850a53ddd61b1b4f46d55",
+        "ui/loading-overlay/loading-overlay.context.ts": "49bbc9b13bf1e8859accb55998a4ac8065cb9c1f935ea036da2b6ab1e12638b5",
+        "ui/loading-overlay/loading-overlay.tsx": "5d0679c5346ae2fbd12a2850d350cbdf59e48142745bb7b1045bf904f97e5f99"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset",
+        "@saas-ui/chakra-preset/slot-recipes/loading-overlay"
+      ],
+      "presetRecipeBindings": [
+        "loadingOverlay"
+      ],
+      "recipeReferences": [
+        "suiLoadingOverlay"
+      ]
+    },
+    "contentHash": "c4a22ac1ef329071b9e839b2d7052083fa93c5cd2b2cd691c0d75d6282357c61"
+  },
+  "name": "loading-overlay",
+  "registryDependencies": [
+    "spinner"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

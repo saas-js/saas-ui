@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/storybook-addon",
-  "version": "6.0.1",
+  "version": "7.0.0-rc.1",
   "description": "The official Storybook Addon for Saas UI",
   "type": "module",
   "main": "dist/index.js",
@@ -33,7 +33,7 @@
       "manager": [
         "./dist/manager.d.ts"
       ],
-      "previews": [
+      "preview": [
         "./dist/preview.d.ts"
       ]
     }
@@ -64,30 +64,27 @@
   },
   "homepage": "https://github.com/saas-ui/saas-ui#readme",
   "devDependencies": {
-    "@chakra-ui/react": "2.10.9",
-    "@emotion/react": ">=11.1.5",
-    "@emotion/styled": ">=11.1.5",
-    "@saas-ui/react": "workspace:*",
-    "@saas-ui/theme-glass": "workspace:*",
-    "@storybook/types": "^8.3.5",
-    "framer-motion": "^11.9.0",
-    "react": "18.3.1",
+    "@chakra-ui/react": "^3.36.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@saas-ui/chakra-preset": "workspace:*",
+    "@storybook/react": "^9.1.10",
+    "@types/react": "^19.2.0",
+    "framer-motion": "^12.23.22",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "storybook": "9.1.10",
     "tsup": "^8.5.0"
   },
   "dependencies": {
-    "@storybook/components": "^8.3.5",
-    "@storybook/manager-api": "^8.3.5",
-    "@storybook/preview-api": "^8.3.5"
+    "@storybook/icons": "^1.6.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "2.10.9",
-    "@saas-ui/react": ">=2.11.4",
-    "@storybook/components": ">=8.0.0",
-    "@storybook/manager-api": ">=8.0.0",
-    "@storybook/preview-api": ">=8.0.0",
-    "@storybook/types": ">=8.0.0",
-    "react": "18.3.1",
-    "react-dom": ">=18.x"
+    "@chakra-ui/react": "^3.36.1",
+    "@saas-ui/chakra-preset": "^3.0.0-rc.1",
+    "storybook": ">=9.0.0 <10.0.0",
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/test-utils",
-  "version": "4.2.4",
+  "version": "5.0.0-rc.1",
   "private": true,
   "description": "Testing utilities for Chakra UI's components",
   "keywords": [
@@ -24,28 +24,26 @@
     "url": "https://github.com/chakra-ui/chakra-ui/issues"
   },
   "dependencies": {
-    "@saas-ui/react": "workspace:*",
-    "@testing-library/dom": "^9.3.4",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^15.0.7",
-    "@testing-library/user-event": "14.5.2",
+    "@saas-ui/chakra-preset": "workspace:*",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "14.6.1",
     "@types/jest-axe": "^3.5.9",
-    "jest-axe": "^8.0.0",
-    "react-test-renderer": "^18.3.1"
+    "jest-axe": "^10.0.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "2.10.9",
+    "@chakra-ui/react": "^3.36.1",
     "@emotion/react": ">=11",
-    "@emotion/styled": ">=11",
     "@storybook/addon-a11y": ">=8",
     "@storybook/react": ">=8",
-    "framer-motion": ">=5.5.0",
-    "react": "18.3.1",
-    "react-dom": ">=18.0.0"
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
   },
   "devDependencies": {
-    "@storybook/react": "^8.3.5",
-    "@storybook/types": "^8.3.5",
-    "react": "18.3.1"
+    "@storybook/react": "^9.1.10",
+    "@storybook/types": "^8.6.9",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
   }
 }

@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport {\n  Box,\n  type BoxProps,\n  EmptyState as ChakraEmptyState,\n  useEmptyStateStyles,\n} from '@chakra-ui/react'\n\nexport interface EmptyStateProps extends ChakraEmptyState.RootProps {\n  title: string\n  description?: React.ReactNode\n  icon?: React.ReactNode\n}\n\nconst EmptyStateActions = (props: BoxProps) => {\n  const { actions } = useEmptyStateStyles()\n  return <Box {...props} css={[actions, props.css]} />\n}\n\nexport const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(\n  function EmptyState(props, ref) {\n    const { title, description, icon, children, ...rest } = props\n\n    const as = typeof description === 'string' ? 'p' : 'div'\n\n    return (\n      <ChakraEmptyState.Root ref={ref} {...rest}>\n        <ChakraEmptyState.Content>\n          {icon && (\n            <ChakraEmptyState.Indicator>{icon}</ChakraEmptyState.Indicator>\n          )}\n\n          <ChakraEmptyState.Title>{title}</ChakraEmptyState.Title>\n          {description ? (\n            <ChakraEmptyState.Description as={as}>\n              {description}\n            </ChakraEmptyState.Description>\n          ) : null}\n\n          <EmptyStateActions>{children}</EmptyStateActions>\n        </ChakraEmptyState.Content>\n      </ChakraEmptyState.Root>\n    )\n  },\n)\n",
+      "path": "ui/empty-state/empty-state.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { EmptyState } from './empty-state.tsx'\n\nexport type { EmptyStateProps } from './empty-state.tsx'\n",
+      "path": "ui/empty-state/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/empty-state/empty-state.tsx": "7380f40b06266fccb5f04f97434c04e735ca58f8bbb431de7d046ffc93ffe9c0",
+        "ui/empty-state/index.ts": "c38465e4738de8d1a0b575bba786b96aefb3940e4de61f928ad0f47961fb4b4a"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "d5357edbfdc1bf0e97b5a177ff895b02a01a5c515af982ab64cf829ba85f982d"
+  },
+  "name": "empty-state",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

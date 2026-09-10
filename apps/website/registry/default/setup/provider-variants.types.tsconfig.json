@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "customConditions": [],
+    "incremental": false
+  },
+  "include": [
+    "../lib/use-link/use-link.tsx",
+    "color-mode/color-mode.tsx",
+    "provider/provider.tsx",
+    "provider-no-color-mode/provider-no-color-mode.tsx",
+    "provider-variants.types.test-d.ts"
+  ],
+  "exclude": []
+}

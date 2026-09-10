@@ -1,7 +1,7 @@
 export interface SaasUILogoProps extends React.SVGProps<SVGSVGElement> {}
 
 export const SaasUILogo: React.FC<SaasUILogoProps> = (props) => {
-  const { color = '#8952e0', ...rest } = props
+  const { color = 'oklch(0.511 0.262 276.966)', ...rest } = props
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 172" {...rest}>
       <path

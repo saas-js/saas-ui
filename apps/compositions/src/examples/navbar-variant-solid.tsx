@@ -1,0 +1,83 @@
+'use client';
+import { SaasUILogo } from '@saas-ui/assets'
+import { AppShell } from 'compositions/ui/app-shell'
+import { Box, Container, Stack } from '@chakra-ui/react'
+import { Navbar } from 'compositions/ui/navbar'
+import { Skeleton, SkeletonText } from 'compositions/ui/skeleton'
+
+export const NavbarVariantSolid = () => {
+  return (
+    <AppShell
+      height="400px"
+      header={
+        <Navbar.Root position="sticky" variant="solid" colorPalette="accent">
+          <Navbar.Content maxW="4xl">
+            <Navbar.Brand>
+              <SaasUILogo width="100px" color="white" />
+            </Navbar.Brand>
+            <Navbar.ItemGroup>
+              <Navbar.Item>
+                <Navbar.Link active aria-current="page" href="#">
+                  Home
+                </Navbar.Link>
+              </Navbar.Item>
+              <Navbar.Item>
+                <Navbar.Link href="#">About</Navbar.Link>
+              </Navbar.Item>
+              <Navbar.Item>
+                <Navbar.Link href="#">Contact</Navbar.Link>
+              </Navbar.Item>
+            </Navbar.ItemGroup>
+            <Navbar.ItemGroup justifyContent="flex-end">
+              <Navbar.Item>
+                <Navbar.Link href="#">Log in</Navbar.Link>
+              </Navbar.Item>
+              <Navbar.Item>
+                <Navbar.Link href="#">Sign up</Navbar.Link>
+              </Navbar.Item>
+            </Navbar.ItemGroup>
+          </Navbar.Content>
+        </Navbar.Root>
+      }
+    >
+      <Box as="main" flex="1" py="4">
+        <Container maxW="4xl">
+          <Stack gap="2" mb="14">
+            <Skeleton width="100px" height="24px" variant="none" />
+            <SkeletonText variant="none" />
+          </Stack>
+          <Stack direction="row" gap="8" mb="14">
+            <Stack gap="2" flex="1">
+              <Skeleton width="100px" height="20px" variant="none" />
+              <SkeletonText variant="none" />
+            </Stack>
+            <Stack gap="2" flex="1">
+              <Skeleton width="100px" height="20px" variant="none" />
+              <SkeletonText variant="none" />
+            </Stack>
+          </Stack>
+          <Stack direction="row" gap="8" mb="14">
+            <Stack gap="2" flex="1">
+              <Skeleton width="100px" height="20px" variant="none" />
+              <SkeletonText variant="none" />
+            </Stack>
+            <Stack gap="2" flex="1">
+              <Skeleton width="100px" height="20px" variant="none" />
+              <SkeletonText variant="none" />
+            </Stack>
+          </Stack>
+          <Stack direction="row" gap="8">
+            <Stack gap="2" flex="1">
+              <Skeleton width="100px" height="20px" variant="none" />
+              <SkeletonText variant="none" />
+            </Stack>
+            <Stack gap="2" flex="1">
+              <Skeleton width="100px" height="20px" variant="none" />
+              <SkeletonText variant="none" />
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+    </AppShell>
+  )
+}

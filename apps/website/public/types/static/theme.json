@@ -1,0 +1,53 @@
+{
+  "Theme": {
+    "props": {
+      "appearance": {
+        "type": "'light' | 'dark'",
+        "isRequired": false,
+        "description": "The light or dark appearance applied to this subtree. Leave undefined to inherit the current color mode."
+      },
+      "hasBackground": {
+        "type": "boolean",
+        "defaultValue": "true",
+        "isRequired": false,
+        "description": "Whether to apply the theme background and foreground colors. Set to false when wrapping content that already has a background, such as portalled panels."
+      },
+      "colorPalette": {
+        "type": "ColorPalette",
+        "isRequired": false,
+        "description": "The default color palette for components in this subtree."
+      },
+      "scaleFactor": {
+        "type": "number",
+        "defaultValue": "1",
+        "isRequired": false,
+        "description": "Scale factor consumed by the Saas UI semantic radius tokens. Scales control, panel and indicator radii at once."
+      },
+      "controlRadius": {
+        "type": "number",
+        "defaultValue": "1",
+        "isRequired": false,
+        "description": "Radius factor for controls such as Button, Input and Select."
+      },
+      "panelRadius": {
+        "type": "number",
+        "defaultValue": "1",
+        "isRequired": false,
+        "description": "Radius factor for panels such as Dialog, Drawer and Popover."
+      },
+      "indicatorRadius": {
+        "type": "number",
+        "defaultValue": "1",
+        "isRequired": false,
+        "description": "Radius factor for indicators such as Badge and Tag."
+      },
+      "overlayEffect": {
+        "type": "string",
+        "defaultValue": "blur(10px)",
+        "isRequired": false,
+        "description": "Backdrop effect consumed by the Saas UI overlay layer styles."
+      }
+    },
+    "element": "HTMLDivElement"
+  }
+}

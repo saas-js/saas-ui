@@ -1,0 +1,90 @@
+---
+title: Focus Ring
+description: How to style focus states in Chakra UI
+---
+
+The focus ring is used to identify the currently focused element on your page.
+While this is important for accessibility, styling every component to have a
+focus ring can be tedious.
+
+Chakra UI provides the `focusRing` and `focusVisibleRing` style props to style
+focus ring with ease. The value of the `focusRing` prop can be "outside",
+"inside", or "mixed".
+
+## Focus Ring
+
+This focus ring maps to the `&:is(:focus, [data-focus])` CSS selector.
+
+Here's how to style a button from scratch with a focus ring:
+
+```tsx
+<chakra.button px="4" py="2" focusRing="outside">
+  Click me
+</chakra.button>
+```
+
+## Focus Visible Ring
+
+This focus ring maps to the `&:is(:focus-visible, [data-focus-visible])` CSS
+selector.
+
+```tsx
+<chakra.button px="4" py="2" focusVisibleRing="outside">
+  Click me
+</chakra.button>
+```
+
+### Difference between Focus Ring and Focus Visible Ring
+
+The Focus Visible Ring functions similarly to the Focus Ring, but with a key
+difference: it only applies focus indicator styles when an element receives
+keyboard focus.
+
+This ensures that the focus ring is visible only when navigating via keyboard,
+improving accessibility without affecting mouse interactions.
+
+## Built-in Focus Ring
+
+Here's a preview of the supported focus ring.
+
+<ExampleTabs name="tokens/focus-ring" />
+
+## Customization
+
+### Ring Color
+
+To change the focus ring color for a specific component, you can use the
+`focusRingColor` prop.
+
+```tsx
+<Button focusRingColor="red.500">Click me</Button>
+```
+
+To change the color of the focus ring globally, you can configure the
+`focusRing` semantic token.
+
+```tsx {2-4}
+const colors = defineSemanticTokens.colors({
+  focusRing: {
+    value: { base: "{colors.red.500}", _dark: "{colors.red.500}" },
+  },
+})
+```
+
+### Ring Width
+
+To change the focus ring width for a specific component, you can use the
+`focusRingWidth` prop.
+
+```tsx
+<Button focusRingWidth="2px">Click me</Button>
+```
+
+### Ring Style
+
+To change the focus ring style for a specific component, you can use the
+`focusRingStyle` prop.
+
+```tsx
+<Button focusRingStyle="dashed">Click me</Button>
+```

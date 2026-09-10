@@ -1,0 +1,49 @@
+{
+  "": {
+    "props": {
+      "name": {
+        "type": "string",
+        "isRequired": false
+      },
+      "src": {
+        "type": "string",
+        "isRequired": false
+      },
+      "srcSet": {
+        "type": "string",
+        "isRequired": false
+      },
+      "loading": {
+        "type": "ImageProps['loading']",
+        "isRequired": false
+      },
+      "icon": {
+        "type": "React.ReactElement",
+        "isRequired": false
+      },
+      "fallback": {
+        "type": "React.ReactNode",
+        "isRequired": false
+      }
+    }
+  },
+  "Root": {
+    "props": {
+      "as": {
+        "type": "React.ElementType",
+        "isRequired": false,
+        "description": "The underlying element to render."
+      },
+      "asChild": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Use the provided child element as the default rendered element, combining their props and behavior."
+      },
+      "unstyled": {
+        "type": "boolean",
+        "isRequired": false,
+        "description": "Whether to remove the component's style."
+      }
+    }
+  }
+}

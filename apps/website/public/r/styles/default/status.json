@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export { Status, type StatusProps } from './status.tsx'\n",
+      "path": "ui/status/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { Status as ChakraStatus } from '@chakra-ui/react/status'\nimport type { Token } from '@chakra-ui/react/styled-system'\n\ntype StatusTokenValue<T> = T extends `colors.status.${infer Value}`\n  ? Value\n  : never\n\nexport type StatusTokens = StatusTokenValue<\n  Extract<Token, `colors.status.${string}`>\n>\n\nexport interface StatusProps extends ChakraStatus.RootProps {\n  /**\n   * The status value, used to determine the color of the status\n   * colors can be configured as semantic tokens under the `colors.status` key.\n   */\n  value?: StatusTokens extends never ? string : StatusTokens\n}\n\n/**\n * Status component\n */\nexport const Status = forwardRef<HTMLDivElement, StatusProps>(\n  function Status(props, ref) {\n    const { children, value, ...rest } = props\n\n    const color = value ? `status.${value}` : undefined\n\n    return (\n      <ChakraStatus.Root ref={ref} {...rest}>\n        <ChakraStatus.Indicator bg={color} />\n        {children}\n      </ChakraStatus.Root>\n    )\n  },\n)\n",
+      "path": "ui/status/status.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/status/index.ts": "2453ba7b83456c725cadbad914a38b63b3ee8cf76bccd9e93f175a6d7ae86010",
+        "ui/status/status.tsx": "103cd0321347558af914d68af7edbb838d29860f4877408af581615f9c7c85fa"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "2dbb767e218869a969427114a4de994751d86a3f74fa6b74c662b2b371496f0d"
+  },
+  "name": "status",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

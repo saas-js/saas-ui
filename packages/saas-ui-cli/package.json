@@ -1,0 +1,105 @@
+{
+  "name": "@saas-ui/cli",
+  "author": "Eelco Wiersma <eelco@saas-ui.dev>",
+  "description": "Saas UI command line",
+  "type": "module",
+  "version": "0.1.0-rc.1",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "bin": {
+    "__cli_bash_complete": "lib/bash-complete.js",
+    "saas-ui": "lib/cli.js",
+    "sui": "lib/cli.js",
+    "@saas-ui/cli": "lib/cli.js"
+  },
+  "exports": {
+    ".": "./lib/cli.js",
+    "./consumer": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/consumer/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "imports": {
+    "#*": [
+      "./src/*",
+      "./src/*.ts"
+    ]
+  },
+  "scripts": {
+    "prebuild": "tsc -p tsconfig.json",
+    "test": "pnpm --dir ../.. registry:generate && pnpm test:prepared",
+    "test:prepared": "vitest run",
+    "test:consumer": "pnpm --dir ../.. registry:generate && pnpm test:consumer:prepared",
+    "test:consumer:prepared": "vitest run test/consumer/fixture.test.ts",
+    "test:consumer:install-all": "pnpm --dir ../.. registry:generate && pnpm test:consumer:install-all:prepared",
+    "test:consumer:install-all:prepared": "vitest run test/consumer/install-all.fixture.test.ts",
+    "test:consumer:acceptance": "pnpm --dir ../.. registry:generate && pnpm test:consumer:acceptance:prepared",
+    "test:consumer:acceptance:prepared": "tsx --conditions=sui test/consumer/acceptance.ts",
+    "test:consumer:install-all:acceptance": "pnpm --dir ../.. registry:generate && pnpm test:consumer:install-all:acceptance:prepared",
+    "test:consumer:install-all:acceptance:prepared": "tsx --conditions=sui test/consumer/acceptance.ts --install-all",
+    "build": "dotenvx run -f .env.production -- tsup",
+    "build:dev": "dotenvx run -f .env.local -- tsup --watch",
+    "prepublishOnly": "tsx --conditions=sui ../../tooling/registry/cli-prepublish-contract.ts",
+    "postinstall2": "sui install",
+    "dev": "dotenvx run -f .env.local -- tsx --tsconfig tsconfig.json bin/cli.ts"
+  },
+  "dependencies": {
+    "@antfu/ni": "^25.0.0",
+    "@babel/core": "^7.28.5",
+    "@babel/parser": "^7.28.5",
+    "@babel/plugin-transform-typescript": "^7.28.0",
+    "@hono/node-server": "^1.14.0",
+    "@stricli/auto-complete": "^1.1.1",
+    "@stricli/core": "^1.1.1",
+    "@supabase/supabase-js": "^2.49.1",
+    "@saas-js/iconify": "^0.0.3",
+    "chalk": "^5.4.1",
+    "cli-table3": "^0.6.3",
+    "cosmiconfig": "^9.0.0",
+    "deepmerge": "^4.3.1",
+    "diff": "^8.0.2",
+    "dotenv": "^17.2.3",
+    "execa": "^9.5.2",
+    "fast-glob": "^3.3.3",
+    "fs-extra": "^11.3.1",
+    "hono": "^4.7.5",
+    "https-proxy-agent": "^7.0.6",
+    "kleur": "^4.1.5",
+    "lodash.template": "^4.5.0",
+    "node-fetch": "^3.3.2",
+    "open": "^10.1.0",
+    "ora": "^8.2.0",
+    "prompts": "^2.4.2",
+    "recast": "^0.23.11",
+    "rimraf": "^6.0.1",
+    "stringify-object": "^5.0.0",
+    "ts-morph": "^26.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.19.3",
+    "type-fest": "^4.37.0",
+    "zod": "4.1.5"
+  },
+  "devDependencies": {
+    "@saas-ui/chakra-preset": "workspace:*",
+    "@saas-ui/registry": "workspace:*",
+    "@types/babel__core": "^7.20.5",
+    "@dotenvx/dotenvx": "^1.39.0",
+    "@tsconfig/node22": "^22.0.5",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash.template": "^4.5.3",
+    "@types/node": "^24.0.4",
+    "@types/prompts": "^2.4.9",
+    "@types/stringify-object": "^4.0.5",
+    "tsup": "^8.5.0",
+    "typescript": "5.9.2",
+    "vitest": "^3.2.2"
+  }
+}

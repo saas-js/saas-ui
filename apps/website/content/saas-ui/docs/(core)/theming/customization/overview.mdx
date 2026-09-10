@@ -1,0 +1,99 @@
+---
+title: Customization
+description: Extend the Saas UI preset without replacing the appearance contract.
+---
+
+Start from `defaultConfig` or `defaultSystem`. Do not start from Chakra’s
+empty base config unless you intend to rebuild tokens, recipes, and appearance
+yourself.
+
+```tsx
+import { createSystem, defineConfig } from '@chakra-ui/react'
+import {
+  createAppearance,
+  defaultConfig,
+} from '@saas-ui/chakra-preset'
+
+export const system = createSystem(
+  defaultConfig,
+  defineConfig({
+    theme: {
+      semanticTokens: {
+        colors: createAppearance({
+          base: { h: 35, c: 0.008 },
+          accent: {
+            l: 0.64,
+            c: 0.18,
+            h: 35,
+            foreground: 'dark',
+          },
+        }),
+      },
+      tokens: {
+        fonts: {
+          heading: { value: 'Geist, sans-serif' },
+          body: { value: 'Geist, sans-serif' },
+        },
+      },
+    },
+  }),
+)
+```
+
+Pass that system into your provider.
+
+## Prefer CSS variables before forking tokens
+
+| Goal | Do this |
+| ---- | ------- |
+| Brand color | `--sui-accent` or `createAppearance({ accent })` |
+| Canvas tint | `--sui-base` or `base` seed |
+| Soft / punchy surfaces | `base.contrast` |
+| Rounder controls | `Theme` `controlRadius` / `--radius-control-factor` |
+| Denser UI | `scaleFactor` |
+| Retint elevation | `--color-shadow` or `colors.shadow` |
+| Faster motion | `--motion-fast` / `--motion-ratio` |
+
+See [Appearance](/docs/theming/appearance) and [Theme](/docs/theming/theme).
+
+## Adding a palette
+
+Use `createPalette` with an OKLCH seed. Do not add a `50–950` table unless you
+truly need one.
+
+```tsx
+import { createPalette, defaultConfig } from '@saas-ui/chakra-preset'
+import { createSystem, defineConfig } from '@chakra-ui/react'
+
+const brand = createPalette({
+  h: 200,
+  c: 0.16,
+  l: 0.55,
+  foreground: 'light',
+})
+
+export const system = createSystem(
+  defaultConfig,
+  defineConfig({
+    theme: {
+      semanticTokens: {
+        colors: { brand },
+      },
+    },
+  }),
+)
+```
+
+`colorPalette="brand"` then works on any recipe that reads palette slots.
+
+## Recipes
+
+When you override a recipe, keep the Saas UI bindings:
+`sizes.control.*`, `radii.control|panel|indicator`, and `colorPalette.*` slots.
+See [Recipes](/docs/theming/recipes).
+
+## Engine APIs
+
+`defineConfig`, `createSystem`, conditions, and style props are Chakra. Use
+the [Chakra theming docs](https://chakra-ui.com/docs/theming/overview) for the
+engine. This page is only how to extend the Saas UI layer.

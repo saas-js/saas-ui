@@ -1,0 +1,85 @@
+pre.shiki {
+  position: relative;
+}
+
+pre.shiki code * {
+  font-size: 0.82rem;
+  hyphens: none;
+  white-space: pre;
+  font-style: normal !important;
+}
+
+code .diff {
+  transition: background-color 0.5s;
+  margin: 0 -12px;
+  padding: 0 24px;
+  width: calc(100% + 24px);
+  display: inline-block;
+
+  &:before {
+    position: absolute;
+    left: 10px;
+  }
+}
+
+code .diff.remove {
+  background-color: var(--chakra-colors-bg-error) !important;
+  opacity: 0.7;
+  & span {
+    background-color: transparent !important;
+  }
+}
+
+code .diff.remove:before {
+  content: '-';
+  color: var(--chakra-colors-fg-error);
+}
+
+code .diff.add {
+  background-color: var(--chakra-colors-bg-success) !important;
+  & span {
+    background-color: transparent !important;
+  }
+}
+
+code .diff.add:before {
+  content: '+';
+  color: var(--chakra-colors-fg-success);
+}
+
+code .highlighted {
+  background-color: var(--chakra-colors-bg-subtle) !important;
+  transition: background-color 0.5s;
+  margin: 0 -12px;
+  padding: 0 12px;
+  box-shadow: 2px 0 0 0 var(--chakra-colors-accent-solid) inset;
+  width: calc(100% + 24px);
+  display: inline-block;
+
+  & span {
+    background-color: transparent !important;
+  }
+}
+
+code .highlighted-word {
+  background: var(--chakra-colors-accent-subtle) !important;
+  border-width: 1px;
+  border-color: var(--chakra-colors-accent-border);
+  padding: 1px 2px;
+  margin: -1px -3px;
+  border-radius: 4px;
+
+  + span {
+    background: transparent !important;
+  }
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  /* Optional, if you also want font styles */
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}

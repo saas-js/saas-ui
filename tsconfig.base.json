@@ -1,21 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    // Enable latest features
+    "lib": ["DOM", "ESNext"],
+    "target": "ESNext",
     "module": "ESNext",
-    "lib": ["dom", "esnext"],
-    "declaration": true,
-    "sourceMap": true,
-    "moduleResolution": "Bundler",
-    "skipLibCheck": true,
-    "strict": true,
-    "isolatedModules": true,
-    "noFallthroughCasesInSwitch": true,
+    "moduleDetection": "force",
+    "allowJs": true,
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": false,
+    "noEmit": true,
+    "customConditions": ["sui"],
+
+    // JSX
     "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true,
-    "declarationMap": true
-  },
-  "exclude": ["**/node_modules"]
+
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false
+  }
 }

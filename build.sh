@@ -1,3 +1,3 @@
 #!/bin/bash
  
-pnpm build:web
+pnpm build:packages && pnpm build:web

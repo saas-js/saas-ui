@@ -1,0 +1,10 @@
+{
+  "title": "Advanced",
+  "pages": [
+    "filtering",
+    "access-control",
+    "hooks",
+    "validation",
+    "transactions"
+  ]
+}

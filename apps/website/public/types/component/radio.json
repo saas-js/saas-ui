@@ -1,0 +1,14 @@
+{
+  "Radio": {
+    "props": {
+      "rootRef": {
+        "type": "React.Ref<HTMLDivElement>",
+        "isRequired": false
+      },
+      "inputProps": {
+        "type": "React.InputHTMLAttributes<HTMLInputElement>",
+        "isRequired": false
+      }
+    }
+  }
+}

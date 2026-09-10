@@ -1,0 +1,35 @@
+{
+  "dependencies": [
+    "@chakra-ui/react"
+  ],
+  "files": [
+    {
+      "content": "export { Input, InputPropsProvider, type InputProps } from './input.ts'\n",
+      "path": "ui/input/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { Input, InputPropsProvider } from '@chakra-ui/react/input'\nexport type { InputProps } from '@chakra-ui/react/input'\n",
+      "path": "ui/input/input.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": false,
+      "fileHashes": {
+        "ui/input/index.ts": "2c8447edebde8afd7a1b11636bd14a29f6b0163529ad4bdab74837038b39653c",
+        "ui/input/input.ts": "4518024ad9ea60344d62b36474ec5d25b7337750c237bcc81e0fd1d01aa8b084"
+      },
+      "iconDependencies": [],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "230b8e9f78d75d8797a82d87b28c0050f51c984155835ad1a1ae15e34fd43ac8"
+  },
+  "name": "input",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

@@ -1,0 +1,38 @@
+{
+  "files": [
+    {
+      "content": "'use client'\n\nimport { forwardRef } from 'react'\n\nimport { CloseIcon } from '../../icons/close-icon'\nimport { IconButton, type IconButtonProps } from '../icon-button/index.ts'\n\nexport interface CloseButtonProps extends IconButtonProps {}\n\nexport const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(\n  function CloseButton(props, ref) {\n    return (\n      <IconButton variant=\"ghost\" aria-label=\"Close\" ref={ref} {...props}>\n        {props.children ?? <CloseIcon />}\n      </IconButton>\n    )\n  },\n)\n",
+      "path": "ui/close-button/close-button.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "content": "export { CloseButton } from './close-button.tsx'\nexport type { CloseButtonProps } from './close-button.tsx'\n",
+      "path": "ui/close-button/index.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/close-button/close-button.tsx": "2f7632684c03269c4ec7a93c04e53de4bdd51ebd861e095cacf5a6a35f05b2ee",
+        "ui/close-button/index.ts": "e452baf885eada9a593a293e6efd6eac52e8abef2f6f9d43d249110399ccbcc2"
+      },
+      "iconDependencies": [
+        "close-icon"
+      ],
+      "presetImports": [],
+      "presetRecipeBindings": [],
+      "recipeReferences": []
+    },
+    "contentHash": "4be9beeb58c3e3a204321684d68c5570123743626e191724713ab29f37803e5f"
+  },
+  "name": "close-button",
+  "registryDependencies": [
+    "close-icon",
+    "icon-button"
+  ],
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

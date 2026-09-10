@@ -1,0 +1,31 @@
+---
+title: Next.js
+description: How to use Slingshot with Next.js
+---
+
+Slingshot has built-in support for Next.js and can easily be added to your Next.js project.
+
+## Create route handler
+
+The slingshot profile needs to be mounted in a route handler.
+
+Both `edge` and `node` runtimes are supported.
+
+```tsx title="app/api/slingshot/avatar/route.ts"
+import { createSlingshotServer } from '@saas-js/slingshot'
+import { handle } from '@saas-js/slingshot/next'
+
+const slingshot = createSlingshotServer({
+  profile: 'avatar',
+  maxSizeBytes: 1024 * 1024 * 5, // 5MB
+  allowedFileTypes: 'image/*',
+})
+
+export const POST = handle(slingshot)
+export const GET = handle(slingshot)
+```
+
+<Callout>
+  You can change the basePath to anything you want, but it's recommended to use
+  the `/api/slingshot` path.
+</Callout>

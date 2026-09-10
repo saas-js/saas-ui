@@ -1,7 +1,9 @@
+import { useMemo } from 'react'
+
 import { useEditorContext } from '@/providers/editor'
 import { usePalette } from '@/providers/palette'
 import { Code } from '@chakra-ui/react'
-import { useMemo } from 'react'
+
 import CopyButton from '../copy-button'
 
 const CodePreview = () => {
@@ -29,27 +31,26 @@ const CodePreview = () => {
 export default CodePreview
 
 export const exampleCodeChakra = ({ colors }: any) => `
-import { extendTheme } from '@chakra-ui/react'
-import { baseTheme } from '@saas-ui/react' // Only required if you use Saas UI components.
+import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
 
 const colors = ${JSON.stringify(colors, null, 2)}
 
-const theme = extendTheme({
-  colors
-}, baseTheme)
+const system = createSystem(defaultConfig, defineConfig({
+  theme: { tokens: { colors } }
+}))
 
-export default theme
+export default system
 `
 
 export const exampleCodeSaas = ({ colors }: any) => `
-import { extendTheme } from '@chakra-ui/react'
-import { theme as baseTheme } from '@saas-ui/react'
+import { createSystem, defineConfig } from '@chakra-ui/react'
+import { defaultConfig } from '@saas-ui/chakra-preset'
 
 const colors = ${JSON.stringify(colors, null, 2)}
 
-const theme = extendTheme({
-  colors
-}, baseTheme)
+const system = createSystem(defaultConfig, defineConfig({
+  theme: { tokens: { colors } }
+}))
 
-export default theme
+export default system
 `

@@ -1,0 +1,49 @@
+{
+  "dependencies": [
+    "@chakra-ui/react",
+    "@saas-ui/chakra-preset"
+  ],
+  "files": [
+    {
+      "content": "export * as Section from './section.tsx'\nexport { useSectionStyles } from './section.context.ts'\n",
+      "path": "ui/section/index.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport { createSlotRecipeContext } from '@chakra-ui/react'\nimport { sectionSlotRecipe } from '@saas-ui/chakra-preset/slot-recipes/section'\n\nexport const {\n  withProvider,\n  withContext,\n  useStyles: useSectionStyles,\n  useClassNames,\n} = createSlotRecipeContext({\n  recipe: sectionSlotRecipe,\n})\n",
+      "path": "ui/section/section.context.ts",
+      "type": "registry:ui"
+    },
+    {
+      "content": "'use client'\n\nimport * as React from 'react'\n\nimport {\n  type HTMLChakraProps,\n  chakra,\n} from '@chakra-ui/react'\nimport type { SlotRecipeProps } from '@saas-ui/chakra-preset'\nimport type { SectionVariantProps } from '@saas-ui/chakra-preset/slot-recipes/section'\n\nimport { withContext, withProvider } from './section.context.ts'\n\ninterface SectionRootProps\n  extends HTMLChakraProps<'div'>,\n    SlotRecipeProps<'suiSection', SectionVariantProps> {}\n\nconst SectionRoot = withProvider<HTMLDivElement, SectionRootProps>(\n  'div',\n  'root',\n)\n\ninterface SectionBodyProps extends HTMLChakraProps<'div'> {}\n\nconst SectionBody = withContext<HTMLDivElement, SectionBodyProps>('div', 'body')\n\ninterface SectionHeaderProps extends Omit<HTMLChakraProps<'div'>, 'title'> {\n  title?: React.ReactNode\n  description?: React.ReactNode\n}\n\nconst SectionHeader = withContext<HTMLDivElement, SectionHeaderProps>(\n  (props) => {\n    const { title, description, children, ...rest } = props\n\n    return (\n      <chakra.div {...rest}>\n        {typeof title === 'string' ? (\n          <SectionTitle>{title}</SectionTitle>\n        ) : (\n          title\n        )}\n        {typeof description === 'string' ? (\n          <SectionDescription>{description}</SectionDescription>\n        ) : (\n          description\n        )}\n        {children}\n      </chakra.div>\n    )\n  },\n  'header',\n)\n\nconst SectionTitle = withContext<HTMLHeadingElement, HTMLChakraProps<'h3'>>(\n  'h3',\n  'title',\n)\n\nconst SectionDescription = withContext<HTMLDivElement, HTMLChakraProps<'div'>>(\n  'div',\n  'description',\n)\n\nexport {\n  SectionRoot as Root,\n  SectionHeader as Header,\n  SectionTitle as Title,\n  SectionDescription as Description,\n  SectionBody as Body,\n}\nexport type {\n  SectionRootProps as RootProps,\n  SectionHeaderProps as HeaderProps,\n  SectionBodyProps as BodyProps,\n}\n",
+      "path": "ui/section/section.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "compiler": {
+      "client": true,
+      "fileHashes": {
+        "ui/section/index.ts": "709147d693bfce5425269cfcf554737b56f9b80532dc9f47b4bc56bc16ff6296",
+        "ui/section/section.context.ts": "86c65349100ecd84667268d2dc3863dbb6a4db73466c791279fa502b2dd22027",
+        "ui/section/section.tsx": "c822fcdf9af32aad26f0847975bceebd3aa93d4498d45ee51a500d529009e772"
+      },
+      "iconDependencies": [],
+      "presetImports": [
+        "@saas-ui/chakra-preset",
+        "@saas-ui/chakra-preset/slot-recipes/section"
+      ],
+      "presetRecipeBindings": [
+        "section"
+      ],
+      "recipeReferences": [
+        "suiSection"
+      ]
+    },
+    "contentHash": "85e0609a90abcce3e7c96893883ea04472e453cee4c3bef08610770180283d5f"
+  },
+  "name": "section",
+  "schemaVersion": 1,
+  "type": "registry:ui",
+  "version": "3.0.0-rc.1"
+}

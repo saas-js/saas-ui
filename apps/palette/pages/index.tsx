@@ -1,24 +1,17 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
+
+import PaletteConfiguration from '@/components/configuration'
+import Layout from '@/components/layout'
+import Page from '@/components/page'
+import { Preview } from '@/components/preview'
+import { EditorProvider, UseEditorReturn, useEditor } from '@/providers/editor'
 import {
   Box,
   Button,
   Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
   HStack,
-  IconButton,
   useBreakpointValue,
-  useDisclosure,
 } from '@chakra-ui/react'
-
-import Layout from '@/components/layout'
-import Page from '@/components/page'
-
-import { Preview } from '@/components/preview'
-import { EditorProvider, useEditor, UseEditorReturn } from '@/providers/editor'
-import PaletteConfiguration from '@/components/configuration'
 import { FiSliders } from 'react-icons/fi'
 
 export default function ColorsPage() {
@@ -26,13 +19,11 @@ export default function ColorsPage() {
 
   const ctx = useMemo<UseEditorReturn>(
     () => [state, setState],
-    [state, setState]
+    [state, setState],
   )
 
   const isMobile = useBreakpointValue({ base: true, lg: false })
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure({
-    defaultIsOpen: isMobile,
-  })
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   return (
     <EditorProvider value={ctx}>
@@ -43,7 +34,8 @@ export default function ColorsPage() {
             description="Quickly generate custom color palettes for Chakra UI."
           >
             {isMobile && (
-              <Button leftIcon={<FiSliders />} onClick={onToggle} mb="8">
+              <Button onClick={() => setDrawerOpen(true)} mb="8">
+                <FiSliders />
                 Configure
               </Button>
             )}
@@ -51,14 +43,21 @@ export default function ColorsPage() {
           </Page>
           {isMobile ? (
             <>
-              <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-                <DrawerContent>
-                  <DrawerCloseButton />
-                  <DrawerBody pt="8">
-                    <PaletteConfiguration />
-                  </DrawerBody>
-                </DrawerContent>
-              </Drawer>
+              <Drawer.Root
+                open={drawerOpen}
+                placement="end"
+                onOpenChange={({ open }) => setDrawerOpen(open)}
+              >
+                <Drawer.Backdrop />
+                <Drawer.Positioner>
+                  <Drawer.Content>
+                    <Drawer.CloseTrigger />
+                    <Drawer.Body pt="8">
+                      <PaletteConfiguration />
+                    </Drawer.Body>
+                  </Drawer.Content>
+                </Drawer.Positioner>
+              </Drawer.Root>
             </>
           ) : (
             <Box

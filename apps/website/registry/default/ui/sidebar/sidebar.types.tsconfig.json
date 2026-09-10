@@ -1,0 +1,9 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "customConditions": [],
+    "incremental": false
+  },
+  "include": ["sidebar.context.ts", "sidebar.tsx", "sidebar.types.test-d.ts"],
+  "exclude": []
+}

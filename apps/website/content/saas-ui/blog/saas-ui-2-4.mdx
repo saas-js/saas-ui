@@ -1,0 +1,170 @@
+---
+title: Saas UI v2.4 is here!
+publishedAt: '2023-11-24'
+authors: ['eelco']
+description:
+  We got some nifty new components and improvements for you in this release.
+---
+
+## What's new in v2.4?
+
+### New Components
+
+- `Navbar` - A new component used for top navigation.
+- `IconBadge` - A new component used for displaying icons with a badge.
+
+### Improvements
+
+- Removed all Component.defaultProps definitions
+- Fixed issue where width would not be applied to the SearchInput container
+  element
+- Fixed SearchInput reset when uncontrolled
+- Fixed theme incompatibility with Chakra UI 2.8
+
+## Navbar
+
+The Navbar component represents a top navigation bar that typically contains
+links or buttons for navigating to different sections of a website or
+application.
+
+- [Navbar Documentation](/docs/components/layout/navbar)
+
+### Usage
+
+The `Navbar` component can be used together with `AppShell` and supports
+different placement modes, `static`, `sticky`. It can also be easily styled to
+add a glass effect for example.
+
+Here's a full example with a workspace dropdown, search input and user menu.
+
+```jsx height=280px overflow=auto padding=0
+import { AppShell } from '#components/ui/app-shell'
+import { Breadcrumb } from '#components/ui/breadcrumb'
+import { Menu } from '#components/ui/menu'
+import { Navbar } from '#components/ui/navbar'
+import { Persona } from '#components/ui/persona/persona-composed'
+import { SearchInput } from '#components/ui/search-input'
+import { Box, Button, Container, Stack } from '@chakra-ui/react'
+import { Skeleton, SkeletonText } from '#components/ui/skeleton'
+import { SaasUIIcon } from '@saas-ui/assets'
+import { FiChevronDown } from 'react-icons/fi'
+
+export default function Page() {
+  return (
+    <AppShell
+      header={
+        <Navbar.Root position="sticky" borderBottomWidth="1px">
+          <Navbar.Content>
+            <Navbar.ItemGroup>
+              <Breadcrumb.Root>
+                <Breadcrumb.Item>
+                  <Menu.Root>
+                    <Menu.Trigger asChild>
+                      <Button variant="ghost">
+                        <SaasUIIcon height="24px" />
+                        Saas UI
+                        <FiChevronDown />
+                      </Button>
+                    </Menu.Trigger>
+                    <Menu.Content>
+                      <Menu.ItemGroup title="Workspaces">
+                        <Menu.Item value="saas-ui">Saas UI</Menu.Item>
+                        <Menu.Item value="acme">Acme</Menu.Item>
+                      </Menu.ItemGroup>
+                      <Menu.Separator />
+                      <Menu.Item value="create">Create workspace</Menu.Item>
+                    </Menu.Content>
+                  </Menu.Root>
+                </Breadcrumb.Item>
+                <Breadcrumb.CurrentLink>Overview</Breadcrumb.CurrentLink>
+              </Breadcrumb.Root>
+            </Navbar.ItemGroup>
+            <Navbar.ItemGroup justifyContent="end" gap="4">
+              <Box width="180px">
+                <SearchInput size="sm" />
+              </Box>
+              <Menu.Root>
+                <Menu.Trigger asChild>
+                  <Button variant="ghost" p="0">
+                    <Persona.Root presence="online">
+                      <Persona.Avatar
+                        src="/showcase-avatar.jpg"
+                        name="Beatriz"
+                        size="xs"
+                      />
+                    </Persona.Root>
+                  </Button>
+                </Menu.Trigger>
+                <Menu.Content>
+                  <Menu.ItemGroup title="beatriz@saas-ui.dev">
+                    <Menu.Item value="profile">Profile</Menu.Item>
+                    <Menu.Item value="settings">Settings</Menu.Item>
+                    <Menu.Item value="help">Help &amp; feedback</Menu.Item>
+                  </Menu.ItemGroup>
+                  <Menu.Separator />
+                  <Menu.Item value="logout">Log out</Menu.Item>
+                </Menu.Content>
+              </Menu.Root>
+            </Navbar.ItemGroup>
+          </Navbar.Content>
+        </Navbar.Root>
+      }
+    >
+      <Box as="main" flex="1" py="2" px="4">
+        <Container
+          maxW="container.xl"
+          pt="8"
+          px="8"
+          display="flex"
+          flexDirection="column"
+          margin="0 auto"
+        >
+          <Stack gap="4" mb="14">
+            <Skeleton width="100px" height="24px" />
+            <SkeletonText />
+          </Stack>
+          <Stack direction="row" gap="8" mb="14">
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
+            </Stack>
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
+            </Stack>
+          </Stack>
+          <Stack direction="row" gap="8" mb="14">
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
+            </Stack>
+            <Stack gap="4" flex="1">
+              <Skeleton width="100px" height="20px" />
+              <SkeletonText />
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+    </AppShell>
+  )
+}
+```
+
+## IconBadge
+
+The IconBadge component represents a badge with an icon.
+
+- [IconBadge Documentation](/docs/components/data-display/icon-badge)
+
+### Usage
+
+The `IconBadge` component can be used to display a badge with an icon.
+
+```jsx
+import { IconBadge } from '#components/ui/icon-badge'
+import { FiUser } from 'react-icons/fi'
+
+export default function Page() {
+  return <IconBadge icon={<FiUser />} />
+}
+```

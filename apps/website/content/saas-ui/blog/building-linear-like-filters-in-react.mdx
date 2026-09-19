@@ -1,0 +1,348 @@
+---
+title: Building Linear-like filters in React
+publishedAt: '2026-09-19'
+authors: ['eelco']
+description:
+  Build a Linear-inspired filter bar in React with Saas UI, including searchable
+  menus, editable chips, multiple selections, and typed query state.
+---
+
+A good filter bar lets you narrow down a list without losing your place. Pick a
+field, choose a value, and the filter stays visible as a compact chip you can
+edit or remove. That's the interaction we'll build in this tutorial: a
+Linear-inspired filter bar for an issue list in React.
+
+We'll use the [Saas UI Filters component](/docs/components/filters), which
+combines searchable menus and value editors with
+[Saas.js Conditions](https://www.saas-js.com/packages/conditions). You define
+the fields and their operators once, then use that definition to drive both the
+interface and the filtering logic.
+
+The component docs include an interactive account-list example of the same
+pattern:
+
+<ExampleTabs name="filters-basic" />
+
+## Set up the component
+
+This tutorial assumes a React app with the Saas UI provider configured. If
+you're starting from scratch, follow the
+[installation guide](/docs/getting-started/installation) first. Then add the
+Filters composition through the [CLI](/docs/getting-started/cli):
+
+```bash
+npx @saas-ui/cli@rc add filters
+```
+
+The examples below use `#components/ui/filters` for the installed component.
+Adjust that import to match the component alias in your project.
+
+## Define the fields users can filter
+
+For our issue list, we'll expose three fields: status, title, and estimate. Each
+needs a type, a validation schema, and a list of supported operators. Status
+also needs options so users can choose from known values.
+
+Create an `issue-list.tsx` file with this definition at module scope:
+
+```tsx
+'use client'
+
+import { Box, Button, HStack, Stack, Text } from '@chakra-ui/react'
+import { z } from 'zod'
+
+import { createFilters } from '#components/ui/filters'
+
+const issueFilters = createFilters({
+  fields: {
+    status: {
+      type: 'enum',
+      label: 'Status',
+      schema: z.enum(['Backlog', 'In progress', 'Done']),
+      operators: ['equals', 'not', 'in'],
+      defaultOperator: 'equals',
+      meta: {
+        icon: <Box boxSize="2" rounded="full" bg="gray.500" />,
+        pluralLabel: 'statuses',
+      },
+      options: [
+        {
+          value: 'Backlog',
+          label: 'Backlog',
+          meta: {
+            icon: <Box boxSize="2" rounded="full" bg="gray.500" />,
+          },
+        },
+        {
+          value: 'In progress',
+          label: 'In progress',
+          meta: {
+            icon: <Box boxSize="2" rounded="full" bg="blue.500" />,
+          },
+        },
+        {
+          value: 'Done',
+          label: 'Done',
+          meta: {
+            icon: <Box boxSize="2" rounded="full" bg="green.500" />,
+          },
+        },
+      ],
+    },
+    title: {
+      type: 'string',
+      label: 'Title',
+      schema: z.string().min(1),
+      operators: ['contains', 'equals', 'startsWith'],
+      defaultOperator: 'contains',
+    },
+    estimate: {
+      type: 'number',
+      label: 'Estimate',
+      schema: z.coerce.number().min(0),
+      operators: ['equals', 'gte', 'lte', 'between'],
+      defaultOperator: 'gte',
+    },
+  },
+  operatorLabels: {
+    gte: 'at least',
+    lte: 'at most',
+  },
+  formatValue: ({ fieldId, value }) => {
+    if (fieldId === 'estimate' && typeof value === 'number') {
+      return `${value} ${value === 1 ? 'point' : 'points'}`
+    }
+    return undefined
+  },
+})
+```
+
+The field keys match properties on our issue objects. `type` determines the
+value editor, while `schema` describes valid values. `defaultOperator` makes the
+first selection useful: title searches start with “contains,” and estimates
+start with “at least.”
+
+Keep `createFilters` outside the component so the definition and generated hook
+stay stable across renders. `formatValue` changes how a committed value appears
+in a chip; the estimate itself stays a number for comparisons. Returning
+`undefined` preserves the default formatting for other fields.
+
+## Render the bar and filter the issues
+
+Append the following data and component to the same file:
+
+```tsx
+interface Issue {
+  id: string
+  title: string
+  status: 'Backlog' | 'In progress' | 'Done'
+  estimate: number
+}
+
+const issues: Issue[] = [
+  {
+    id: 'ENG-101',
+    title: 'Add keyboard shortcuts',
+    status: 'Backlog',
+    estimate: 3,
+  },
+  {
+    id: 'ENG-102',
+    title: 'Fix invitation flow',
+    status: 'In progress',
+    estimate: 2,
+  },
+  {
+    id: 'ENG-103',
+    title: 'Add saved views',
+    status: 'In progress',
+    estimate: 5,
+  },
+  {
+    id: 'ENG-104',
+    title: 'Update onboarding copy',
+    status: 'Done',
+    estimate: 1,
+  },
+]
+
+export default function IssueList() {
+  const conditions = issueFilters.useConditions()
+  const matches = conditions.useFilter(issues)
+
+  return (
+    <conditions.Root>
+      <Stack gap="4">
+        <conditions.FilterBar />
+
+        <Text textStyle="sm" color="fg.muted" aria-live="polite">
+          {matches.length} of {issues.length} issues
+        </Text>
+
+        <Stack borderWidth="1px" rounded="md" divideY="1px" gap="0">
+          {matches.map((issue) => (
+            <HStack key={issue.id} p="4" gap="3" flexWrap="wrap">
+              <Text textStyle="sm" color="fg.muted">
+                {issue.id}
+              </Text>
+              <Text flex="1" minW="40" fontWeight="medium">
+                {issue.title}
+              </Text>
+              <Text textStyle="sm">{issue.status}</Text>
+              <Text textStyle="sm" color="fg.muted">
+                {issue.estimate} {issue.estimate === 1 ? 'point' : 'points'}
+              </Text>
+            </HStack>
+          ))}
+
+          {matches.length === 0 && (
+            <Stack p="6" align="center">
+              <Text>No issues match these filters.</Text>
+              <Button
+                variant="outline"
+                onClick={() => conditions.actions.clear()}
+              >
+                Clear filters
+              </Button>
+            </Stack>
+          )}
+        </Stack>
+      </Stack>
+    </conditions.Root>
+  )
+}
+```
+
+`useConditions` owns the query state. Its `Root` provides context to the filter
+components, and `useFilter(issues)` evaluates the committed query against the
+rows. The default `FilterBar` includes active chips, an add-filter button, and a
+clear button.
+
+Try selecting **Status → In progress**, then adding **Estimate → at least → 3**.
+Only “Add saved views” should remain. Clear the filters and all four issues
+return. An empty result still leaves the filter bar visible, with a reset action
+next to the message so users can recover immediately.
+
+## Make the chips work like a sentence
+
+The field definition gives us the compact interactions that make this pattern
+useful:
+
+- **Choose a value directly.** Status opens a searchable submenu. Clicking an
+  option commits it with `equals` and closes the menu.
+- **Select several values.** Because status supports `in`, its options also have
+  checkboxes. Toggling them keeps the menu open and changes the operator from
+  “is” for one value to “is any of” for several.
+- **Edit in place.** Active chips expose the operator and value editors, so
+  users can refine a filter without removing it and starting over.
+- **Keep long selections compact.** Option icons appear in the chip. With
+  several selected values, the chip uses icons and a count; `pluralLabel` makes
+  that count read “2 statuses.”
+
+Selecting Backlog and In progress means either status can match. Adding an
+estimate filter narrows those results further. The multi-value selection is one
+condition using `in`; it doesn't require a separate chip for each status.
+
+Text and number fields open their value editor after the field is chosen.
+There's no need to build a separate popover for each field type.
+
+## Compose your own toolbar
+
+When you want the add button first or different button copy, replace
+`<conditions.FilterBar />` in `IssueList` with:
+
+```tsx
+<conditions.FilterBar>
+  <conditions.AddFilterButton variant="outline">
+    Add filter
+  </conditions.AddFilterButton>
+  <conditions.FilterChips />
+  <conditions.ClearFiltersButton marginStart="auto">
+    Clear all
+  </conditions.ClearFiltersButton>
+</conditions.FilterBar>
+```
+
+These parts share the same conditions instance. Changing their arrangement
+doesn't require new state or filtering logic. For a fully custom add action, the
+conditions API also exposes `conditions.draft.beginAddCondition`.
+
+## Load assignees on demand
+
+A short status list can live in the definition. For assignees, you may need to
+search a workspace directory. Add an `assignee` field to `fields` using an async
+option source:
+
+```tsx
+assignee: {
+  type: 'enum',
+  label: 'Assignee',
+  schema: z.string().min(1),
+  operators: ['equals', 'not', 'in'],
+  defaultOperator: 'equals',
+  meta: { pluralLabel: 'assignees' },
+  options: async ({ query, signal }) => {
+    const response = await fetch(
+      `/api/members?q=${encodeURIComponent(query)}`,
+      { signal },
+    )
+
+    if (!response.ok) {
+      throw new Error('Could not load workspace members')
+    }
+
+    const members = z.array(z.object({
+      id: z.string(),
+      name: z.string(),
+    })).parse(await response.json())
+
+    return members.map((member) => ({
+      value: member.id,
+      label: member.name,
+    }))
+  },
+},
+```
+
+This extension assumes you implement `/api/members` to return matching
+`{ id, name }` records and add an `assignee` property containing a member ID to
+each issue. The option's `value` must match that stored ID; its `label` is what
+users see.
+
+Async option sources get a search input, debounced queries, and a loading state
+in the value editor. Passing the supplied `signal` to `fetch` lets obsolete
+requests be cancelled when the search changes.
+
+## Connect the query to the rest of your app
+
+The local list is enough to get started, but the same query can drive a table or
+a saved view. `conditions.useValue()` subscribes to the committed query, which
+is a plain serializable tree of groups and conditions.
+
+For a [Saas UI Data Table](/docs/components/data-table), the documented
+`@saas-js/conditions-tanstack-table` adapter evaluates rows against that query.
+Create `conditionsGlobalFilter` with `issueFilters.definition` at module scope
+and pass the returned options to `useDataTable`. Set its `state.globalFilter` to
+`isEmpty ? undefined : query`, using `conditions.useIsEmpty()` and
+`conditions.useValue()`. This keeps an empty query from being counted as an
+active table filter. Wire `table.NoResults` to `conditions.actions.clear()` for
+the same reset behavior as our list. The
+[complete table example](/docs/components/filters#data-table) shows the adapter
+and table markup together.
+
+For saved views, `useConditions` supports `defaultValue` for an initial query or
+`value` and `onValueChange` for controlled state. Persist the committed query,
+then validate it against your definition when loading it again.
+
+For server-side filtering, define the fields separately with `defineConditions`
+in a shared module and pass that definition to
+`createFilters({ definition: issueConditions })`. Keep React-specific
+presentation code out of the shared module. The server can validate and evaluate
+or translate the query using the same field rules. Apply filtering before
+pagination so results cover the full dataset, and keep authorization checks in
+your backend.
+
+See the [Filters documentation](/docs/components/filters) for more value editors
+and examples, and the
+[Conditions documentation](https://www.saas-js.com/packages/conditions) for
+query validation, serialization, and server integrations.

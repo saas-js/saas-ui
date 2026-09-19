@@ -1,7 +1,8 @@
 'use client'
 
-import { Box, Button, HStack, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Stack, Text } from '@chakra-ui/react'
 import { createFilters } from 'compositions/ui/filters'
+import { GridList } from 'compositions/ui/grid-list'
 import { z } from 'zod'
 
 const issueFilters = createFilters({
@@ -114,34 +115,39 @@ export function FiltersIssueList() {
           {matches.length} of {issues.length} issues
         </Text>
 
-        <Stack borderWidth="1px" rounded="md" divideY="1px" gap="0">
+        <GridList.Root
+          aria-label="Issues"
+          borderWidth="1px"
+          rounded="md"
+          divideY="1px"
+        >
           {matches.map((issue) => (
-            <HStack key={issue.id} p="4" gap="3" flexWrap="wrap">
-              <Text textStyle="sm" color="fg.muted">
+            <GridList.Item key={issue.id} p="4" gap="3" flexWrap="wrap">
+              <GridList.Cell textStyle="sm" color="fg.muted">
                 {issue.id}
-              </Text>
-              <Text flex="1" minW="40" fontWeight="medium">
+              </GridList.Cell>
+              <GridList.Cell flex="1" minW="40" fontWeight="medium">
                 {issue.title}
-              </Text>
-              <Text textStyle="sm">{issue.status}</Text>
-              <Text textStyle="sm" color="fg.muted">
+              </GridList.Cell>
+              <GridList.Cell textStyle="sm">{issue.status}</GridList.Cell>
+              <GridList.Cell textStyle="sm" color="fg.muted">
                 {issue.estimate} {issue.estimate === 1 ? 'point' : 'points'}
-              </Text>
-            </HStack>
+              </GridList.Cell>
+            </GridList.Item>
           ))}
+        </GridList.Root>
 
-          {matches.length === 0 && (
-            <Stack p="6" align="center">
-              <Text>No issues match these filters.</Text>
-              <Button
-                variant="outline"
-                onClick={() => conditions.actions.clear()}
-              >
-                Clear filters
-              </Button>
-            </Stack>
-          )}
-        </Stack>
+        {matches.length === 0 && (
+          <Stack p="6" align="center">
+            <Text>No issues match these filters.</Text>
+            <Button
+              variant="outline"
+              onClick={() => conditions.actions.clear()}
+            >
+              Clear filters
+            </Button>
+          </Stack>
+        )}
       </Stack>
     </conditions.Root>
   )

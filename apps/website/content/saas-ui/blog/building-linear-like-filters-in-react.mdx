@@ -22,19 +22,22 @@ Here's what we're going to build:
 
 <ExamplePreview name="filters-issue-list" />
 
-## Set up the component
+## Install the components
 
 This tutorial assumes a React app with the Saas UI provider configured. If
 you're starting from scratch, follow the
 [installation guide](/docs/getting-started/installation) first. Then add the
-Filters composition through the [CLI](/docs/getting-started/cli):
+Filters and Grid List compositions through the [CLI](/docs/getting-started/cli):
 
 ```bash
-npx @saas-ui/cli@rc add filters
+npx @saas-ui/cli@rc add filters grid-list
 ```
 
-The examples below use `#components/ui/filters` for the installed component.
-Adjust that import to match the component alias in your project.
+This installs the filter controls and the list used to display matching issues.
+The examples import them from `#components/ui/filters` and
+`#components/ui/grid-list`; adjust these paths to match your project aliases.
+`Box`, `Button`, `Stack`, and `Text` come from the Chakra UI installation
+configured during setup, so they do not need separate CLI commands.
 
 ## Define the fields users can filter
 
@@ -47,10 +50,11 @@ Create an `issue-list.tsx` file with this definition at module scope:
 ```tsx
 'use client'
 
-import { Box, Button, HStack, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Stack, Text } from '@chakra-ui/react'
 import { z } from 'zod'
 
 import { createFilters } from '#components/ui/filters'
+import { GridList } from '#components/ui/grid-list'
 
 const issueFilters = createFilters({
   fields: {
@@ -178,34 +182,39 @@ export default function IssueList() {
           {matches.length} of {issues.length} issues
         </Text>
 
-        <Stack borderWidth="1px" rounded="md" divideY="1px" gap="0">
+        <GridList.Root
+          aria-label="Issues"
+          borderWidth="1px"
+          rounded="md"
+          divideY="1px"
+        >
           {matches.map((issue) => (
-            <HStack key={issue.id} p="4" gap="3" flexWrap="wrap">
-              <Text textStyle="sm" color="fg.muted">
+            <GridList.Item key={issue.id} p="4" gap="3" flexWrap="wrap">
+              <GridList.Cell textStyle="sm" color="fg.muted">
                 {issue.id}
-              </Text>
-              <Text flex="1" minW="40" fontWeight="medium">
+              </GridList.Cell>
+              <GridList.Cell flex="1" minW="40" fontWeight="medium">
                 {issue.title}
-              </Text>
-              <Text textStyle="sm">{issue.status}</Text>
-              <Text textStyle="sm" color="fg.muted">
+              </GridList.Cell>
+              <GridList.Cell textStyle="sm">{issue.status}</GridList.Cell>
+              <GridList.Cell textStyle="sm" color="fg.muted">
                 {issue.estimate} {issue.estimate === 1 ? 'point' : 'points'}
-              </Text>
-            </HStack>
+              </GridList.Cell>
+            </GridList.Item>
           ))}
+        </GridList.Root>
 
-          {matches.length === 0 && (
-            <Stack p="6" align="center">
-              <Text>No issues match these filters.</Text>
-              <Button
-                variant="outline"
-                onClick={() => conditions.actions.clear()}
-              >
-                Clear filters
-              </Button>
-            </Stack>
-          )}
-        </Stack>
+        {matches.length === 0 && (
+          <Stack p="6" align="center">
+            <Text>No issues match these filters.</Text>
+            <Button
+              variant="outline"
+              onClick={() => conditions.actions.clear()}
+            >
+              Clear filters
+            </Button>
+          </Stack>
+        )}
       </Stack>
     </conditions.Root>
   )
@@ -216,6 +225,11 @@ export default function IssueList() {
 components, and `useFilter(issues)` evaluates the committed query against the
 rows. The default `FilterBar` includes active chips, an add-filter button, and a
 clear button.
+
+[Grid List](/docs/components/grid-list) renders the matching issues with a
+`GridList.Item` for each row and a `GridList.Cell` for each value. Keep the
+empty-state message and reset button outside the grid so they do not become an
+issue row.
 
 Try selecting **Status → In progress**, then adding **Estimate → at least → 3**.
 Only “Add saved views” should remain. Clear the filters and all four issues
@@ -318,14 +332,20 @@ The local list is enough to get started, but the same query can drive a table or
 a saved view. `conditions.useValue()` subscribes to the committed query, which
 is a plain serializable tree of groups and conditions.
 
-For a [Saas UI Data Table](/docs/components/data-table), the documented
-`@saas-js/conditions-tanstack-table` adapter evaluates rows against that query.
-Create `conditionsGlobalFilter` with `issueFilters.definition` at module scope
-and pass the returned options to `useDataTable`. Set its `state.globalFilter` to
-`isEmpty ? undefined : query`, using `conditions.useIsEmpty()` and
-`conditions.useValue()`. This keeps an empty query from being counted as an
-active table filter. Wire `table.NoResults` to `conditions.actions.clear()` for
-the same reset behavior as our list. The
+If you want to replace Grid List with a
+[Saas UI Data Table](/docs/components/data-table), install that composition too:
+
+```bash
+npx @saas-ui/cli@rc add data-table
+```
+
+The documented `@saas-js/conditions-tanstack-table` adapter evaluates rows
+against that query. Create `conditionsGlobalFilter` with
+`issueFilters.definition` at module scope and pass the returned options to
+`useDataTable`. Set its `state.globalFilter` to `isEmpty ? undefined : query`,
+using `conditions.useIsEmpty()` and `conditions.useValue()`. This keeps an empty
+query from being counted as an active table filter. Wire `table.NoResults` to
+`conditions.actions.clear()` for the same reset behavior as our list. The
 [complete table example](/docs/components/filters#data-table) shows the adapter
 and table markup together.
 

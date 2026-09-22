@@ -166,5 +166,15 @@ export function resolveSaasUiRedirect(pathname: string): string | undefined {
     }
   }
 
+  // The old docs had /props and /theming sub-pages for most components. None
+  // exist now, and listing every variant by hand missed some, e.g.
+  // /date-input/theming was still 404ing and collecting impressions. Resolve
+  // the parent instead: through the map if it is a legacy path, as-is if not.
+  const subpage = path.match(/^(\/docs\/.+)\/(props|theming)$/)
+  if (subpage) {
+    const parent = subpage[1]
+    return resolveSaasUiRedirect(parent) ?? parent
+  }
+
   return undefined
 }

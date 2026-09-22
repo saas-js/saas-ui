@@ -44,6 +44,15 @@ describe('resolveSaasUiRedirect', () => {
     expect(resolveSaasUiRedirect('/blocks/theming')).toBeUndefined()
   })
 
+  it('sends both kit URLs to saas-js.com, where the kits live', () => {
+    expect(resolveSaasUiRedirect('/nextjs')).toBe(
+      'https://www.saas-js.com/nextjs',
+    )
+    expect(resolveSaasUiRedirect('/tanstack-start')).toBe(
+      'https://www.saas-js.com/',
+    )
+  })
+
   it('ignores a trailing slash', () => {
     expect(resolveSaasUiRedirect('/docs/components/layout/app-shell/')).toBe(
       '/docs/components/app-shell',

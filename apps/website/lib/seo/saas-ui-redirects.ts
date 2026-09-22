@@ -117,6 +117,11 @@ export const saasUiRedirects: Record<string, string> = {
 
   // --- starter kits and auth guides now live on saas-js.com ---
   '/nextjs-starter-kit': `${SAAS_JS}/nextjs`,
+  // The kits live on saas-js.com. /nextjs 404'd here, and /tanstack-start was
+  // caught by the saas-js.com homepage redirect and landed on this site's
+  // homepage instead, which is the component library, not the kit.
+  '/nextjs': `${SAAS_JS}/nextjs`,
+  '/tanstack-start': `${SAAS_JS}/`,
   '/docs/nextjs-starter-kit': `${SAAS_JS}/docs/starter-kits/nextjs`,
   '/docs/tanstack-router-starter-kit': `${SAAS_JS}/docs/starter-kits/tanstack-start`,
   // There is no /authentication index page — better-auth is the auth doc now.

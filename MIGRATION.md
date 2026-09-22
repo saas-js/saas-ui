@@ -104,6 +104,19 @@ synchronizes package declarations. Source and manifest writes are rolled back if
 migration or template application fails. Package-manager lockfile/install side
 effects are outside that rollback boundary, so review them separately.
 
+Always `--dry-run` first. If `--write` fails, apply the dry-run plan by hand
+and record the failure. Installed sidebar and grid-list templates can keep
+leftover `@saas-ui/react` primitive imports, which may make the CLI refuse a
+clean write.
+
+After init, pin `@saas-ui/react` and `@saas-ui/chakra-preset` to the newest
+published `rc`, add a root override so leftover packages cannot nest
+`@saas-ui/react@next`, and bump `@chakra-ui/react` until typegen passes.
+Former Pro names such as `DataGrid` and `Filters` are public registry items
+(`data-table`, `filters`); `Toolbar` and `Resizer` are not. See the published
+guide for the full follow-through, including Chakra v3 namespace remaps and
+allowed leftovers.
+
 ### Typical import changes
 
 Chakra primitives move to Chakra directly:
@@ -303,13 +316,15 @@ may still depend on the current `@saas-ui/react` primitives package.
 
 Finish the Chakra re-export migration only after all of these are true:
 
-1. The migration report has no required manual action.
+1. The migration report has no required manual action, or `--write` failed
+   and the dry-run plan was applied by hand.
 2. Application source no longer imports Chakra primitives from
    `@saas-ui/react`.
 3. Every required custom component is installed locally and present in the
    `components.json` installed list.
 4. The provider uses `@saas-ui/chakra-preset` and the intended color-mode setup.
-5. Typecheck, tests, and a production build pass.
+5. The lockfile has no `@saas-ui/react@next`.
+6. Typecheck, tests, and a production build pass.
 
 Use a repository-wide scan as a final independent check:
 

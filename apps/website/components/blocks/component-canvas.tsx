@@ -52,7 +52,10 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
       <CanvasHeader {...props} state={state} onStateChange={setState} />
 
       <Card.Root rounded="xl" overflow="hidden" mb="20">
-        <Card.Body bg="component-canvas-bg" padding="0">
+        <Card.Body
+          padding="0"
+          bg={state === 'preview' ? 'bg' : 'bg.muted'}
+        >
           {state === 'preview' ? (
             <Resizer>
               <Stack

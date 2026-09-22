@@ -42,6 +42,10 @@ const nextConfig = {
         source: '/tanstack-start',
         destination: '/',
         permanent: true,
+        // Config redirects run on every host. Without this, saas-ui.dev
+        // /tanstack-start went to saas-ui.dev's own homepage; proxy.ts
+        // handles that host instead.
+        missing: [{ type: 'host', value: '.*saas-ui.*' }],
       },
       {
         source: '/docs/getting-started',

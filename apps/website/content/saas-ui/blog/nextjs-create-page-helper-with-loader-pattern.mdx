@@ -71,7 +71,7 @@ The `createPage` function is a factory function that returns a `Page` component 
 We can define `params` and `searchParams` using Zod schemas (or an array with the param names `['workspace']`).
 These then become available in the `loader` function that is called server-side to fetch the data for the metadata and page component.
 
-In this example we're fetchin data from a tRPC procedure, but this could be any async function that returns the data needed for the page.
+In this example we're fetching data from a tRPC procedure, but this could be any async function that returns the data needed for the page.
 The return value of the loader function is then inferred by the metadata, and component handlers.
 
 The component returned by the `createPage` is a React Server Component that wraps the `DashboardPage` component, which can be a regular client component, or another RSC.

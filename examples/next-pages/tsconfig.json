@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": ["dom", "esnext"],
     "module": "ESNext",
     "moduleResolution": "Bundler",

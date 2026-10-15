@@ -1,18 +1,70 @@
-## Getting Started
+# Saas UI v2 docs archive
+
+This app is the frozen v2 documentation site. It is built as a fully static
+Next.js export and served as a Cloudflare Worker with [static assets](https://developers.cloudflare.com/workers/static-assets/).
+
+The production Worker name is `saas-ui-v2-docs`. Do not deploy from `main` or `v3`.
+
+## Local build
+
+From the repository root (pnpm workspace):
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
+pnpm --filter website build
+pnpm preview:web
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`preview:web` runs `wrangler dev` against `apps/website/out`.
 
-You can start editing the page by modifying `src/pages/index.ts`. The page auto-updates as you edit the file.
+The private `packages/pro` git submodule is **not** required. Pro UI used in
+docs live examples comes from the public `@saas-ui-pro/*` npm packages.
 
-## References
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Chakra UI](https://chakra-ui.com)
-- [TypeScript](https://www.typescriptlang.org)
+Do not run `wrangler deploy` until the Worker exists and the production git
+branch is `v2`. DNS for `v2.saas-ui.dev` is unchanged by this repo.
+
+### Option A — Cloudflare Workers Builds (preferred)
+
+In the Cloudflare dashboard, create a Worker named **`saas-ui-v2-docs`** and
+connect this GitHub repository. The Worker name must match `name` in
+`wrangler.jsonc`.
+
+| Setting | Value |
+| --- | --- |
+| Worker name | `saas-ui-v2-docs` |
+| Git repository | `saas-js/saas-ui` |
+| Production branch | `v2` |
+| Root directory | repository root (leave empty) |
+| Build command | `pnpm install --frozen-lockfile && pnpm --filter website build` |
+| Deploy command | `npx wrangler deploy` |
+| Non-production branch builds | optional; `npx wrangler versions upload` / preview |
+| Node.js version | `20` or `22` |
+
+No GitHub secrets are required. Cloudflare mints a build token for the account.
+
+After the first successful deploy, attach the custom domain `v2.saas-ui.dev`
+in the Worker settings (DNS is out of scope for this change).
+
+### Option B — GitHub Actions (optional)
+
+Workflow: `.github/workflows/deploy-v2-docs.yml` (push to `v2` or
+`workflow_dispatch`). Production deploys use Workers Builds; this workflow
+is a fallback.
+
+If `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID` are unset, the job
+succeeds and skips `wrangler deploy`. It only deploys when both secrets exist:
+
+1. `CLOUDFLARE_API_TOKEN` — [API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) with **Edit Cloudflare Workers** (and Account / Users read as required by Wrangler).
+2. `CLOUDFLARE_ACCOUNT_ID` — [account ID](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/).
+
+Do not set those secrets if Workers Builds is already deploying, or every
+push to `v2` will deploy twice.
+
+## Headers and redirects
+
+Static export cannot use Next.js `headers()` / `redirects()`. Those live in:
+
+- `public/_headers` — `X-Robots-Tag: noindex, follow`
+- `public/_redirects` — former Next and `getServerSideProps` redirects

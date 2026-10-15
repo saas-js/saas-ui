@@ -1,0 +1,20 @@
+# Former next.config.js redirects (static export cannot emit these).
+/changelog /blog 302
+/nextjs-boilerplate /nextjs-starter-kit 301
+/docs/pro/project-structure /docs/nextjs-starter-kit/project-structure 301
+/docs/pro/installation/overview /docs/nextjs-starter-kit/installation 301
+/docs/pro/installation/clone-repository /docs/nextjs-starter-kit/installation/clone-repository 301
+/docs/pro/installation/run-application /docs/nextjs-starter-kit/installation/run-application 301
+/docs/pro/authentication/* /docs/nextjs-starter-kit/authentication/:splat 301
+/docs/pro/deployments/* /docs/nextjs-starter-kit/deployments/:splat 301
+/docs/pro/theming/* /docs/nextjs-starter-kit/theming/:splat 301
+
+# Former getServerSideProps redirects.
+/love https://senja.io/p/saas-ui/r/kZYNuW 302
+/discord https://discord.gg/4PmJGFcAjX 302
+
+# Licensing / account live on the current site, not this archive.
+/account https://saas-ui.dev 302
+/login https://saas-ui.dev 302
+/redeem https://saas-ui.dev 302
+/cli https://saas-ui.dev 302

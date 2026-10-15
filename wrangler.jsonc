@@ -1,0 +1,21 @@
+/**
+ * Frozen v2 docs archive.
+ *
+ * Built from apps/website with Next.js `output: 'export'` (apps/website/out).
+ * Do not deploy from this file until the Cloudflare Worker `saas-ui-v2-docs`
+ * exists and the production branch is set to `v2`. See apps/website/README.md.
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "saas-ui-v2-docs",
+  "compatibility_date": "2026-10-15",
+  "assets": {
+    "directory": "./apps/website/out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "workers_dev": true,
+}

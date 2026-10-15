@@ -46,27 +46,7 @@ export function SignupForm({ isOpen, onClose }: any) {
     /* @ts-ignore */
     window?.pirsch?.('Signup Submitted')
 
-    fetch('/api/figma-signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name,
-        email,
-      }),
-    })
-      .then((response) => {
-        console.log(response)
-        if (response.ok) {
-          setResult(true)
-        }
-      })
-      .catch((error) => {
-        console.error(error)
-        /* @ts-ignore */
-        window?.pirsch?.('Signup Failed')
-        setResult(false)
-      })
-      .finally(() => setLoading(false))
+    window.location.href = 'https://saas-ui.dev/figma'
   }
 
   let content

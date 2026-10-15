@@ -34,6 +34,8 @@
     "@next/bundle-analyzer": "^14.2.14",
     "@octokit/rest": "^21.0.2",
     "@radix-ui/react-navigation-menu": "^1.2.1",
+    "@saas-ui-pro/feature-flags": "^0.18.0",
+    "@saas-ui-pro/kanban": "^0.8.0",
     "@saas-ui-pro/react": "^0.42.3",
     "@saas-ui/command-bar": "workspace:^",
     "@saas-ui/file-upload": "workspace:*",

@@ -30,19 +30,11 @@
       "@saas-ui/hotkeys": ["../../packages/saas-ui/hotkeys/src"],
       "@saas-ui/use-hotkeys": ["../../packages/saas-ui/use-hotkeys/src"],
       "@saas-ui/data-table": ["../../packages/saas-ui/data-table/src"],
-      "@saas-ui-pro/feature-flags": [
-        "../../packages/pro/packages/feature-flags/src"
-      ],
-      "@saas-ui-pro/react": ["../../packages/pro/packages/react/src"],
-      "@saas-ui-pro/theme-glass": [
-        "../../packages/pro/packages/pro-theme-glass/src"
-      ],
       "@saas-ui/theme-glass/components/src": [
         "../../packages/saas-ui-theme-glass/src/components"
-      ],
-      "@saas-ui-pro/kanban": ["../../packages/pro/packages/kanban/src"]
+      ]
     },
-    "customConditions": ["sui-pro"],
+    "customConditions": ["sui"],
     "incremental": true,
     "plugins": [
       {

@@ -1,12 +1,6 @@
 import * as React from 'react'
 import { Button, ButtonGroup, Flex, Stack, Text } from '@chakra-ui/react'
-import {
-  Field,
-  Form,
-  FormLayout,
-  SubmitButton,
-  useLocalStorage,
-} from '@saas-ui/react'
+import { Field, Form, FormLayout, SubmitButton } from '@saas-ui/react'
 
 const options = {
   Yes: '😃',
@@ -43,19 +37,8 @@ export const DocsFeedback = () => {
 }
 
 const FeedbackButton = ({ children, onClick: onClickProp, ...rest }) => {
-  const [data] = useLocalStorage<any>('saas-ui.data', null)
-
   const onClick = () => {
     onClickProp(rest['aria-label'])
-    fetch('/api/rate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        page: window.location.href,
-        rating: children,
-        username: data?.githubAccount,
-      }),
-    })
   }
   return (
     <Button
@@ -72,26 +55,12 @@ const FeedbackButton = ({ children, onClick: onClickProp, ...rest }) => {
 }
 
 const FeedbackForm = (props) => {
-  const [data] = useLocalStorage<any>('saas-ui.data', null)
   const { rating } = props
 
   const [submitted, setSubmitted] = React.useState(false)
 
-  const onSubmit = async (formData) => {
-    const result = await fetch('/api/rate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        page: window.location.href,
-        rating: options[rating],
-        feedback: formData.feedback,
-        username: data?.githubAccount,
-      }),
-    })
-
-    if (result.ok) {
-      setSubmitted(true)
-    }
+  const onSubmit = async () => {
+    setSubmitted(true)
   }
 
   const placeholder =

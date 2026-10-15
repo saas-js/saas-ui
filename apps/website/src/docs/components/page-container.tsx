@@ -71,7 +71,6 @@ interface PageContainerProps {
 }
 
 function PageContainer(props: PageContainerProps) {
-  const router = useRouter()
   const { frontmatter, children, sidebar, pagination } = props
   useHeadingFocusOnRouteChange()
 
@@ -90,11 +89,6 @@ function PageContainer(props: PageContainerProps) {
     seo,
   } = frontmatter
 
-  const basePath =
-    process.env.NODE_ENV !== 'production' ? '' : 'https://saas-ui.dev'
-
-  const screenshot = router.asPath.match('/docs') ? '&screenshot=true' : ''
-
   return (
     <>
       <SEO
@@ -104,7 +98,7 @@ function PageContainer(props: PageContainerProps) {
         openGraph={{
           images: [
             {
-              url: `${basePath}/api/og?title=${title}&description=${description}${screenshot}`,
+              url: '/og-image.jpg',
               width: 1200,
               height: 630,
               alt: title,

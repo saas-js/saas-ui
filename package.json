@@ -49,6 +49,8 @@
     "create:pkg": "hygen package chakra-component",
     "create:block": "pnpm hygen blocks new",
     "build:web": "pnpm --filter website build",
+    "preview:web": "wrangler dev",
+    "deploy:web": "wrangler deploy",
     "build:theme": "turbo run build --filter='./packages/saas-ui-theme'",
     "build:tokens": "chakra-cli tokens packages/saas-ui-theme/src/saas-ui/theme.ts",
     "build:packages": "turbo run build --filter='./packages/saas-ui-*' --filter='!./packages/pro/*' --concurrency=5 --continue && pnpm build:tokens",
@@ -102,8 +104,19 @@
     "typescript": "^5.6.2",
     "vercel-submodules": "^1.0.10",
     "vitest": "^2.1.2",
+    "wrangler": "^4.45.0",
     "yup": "^1.4.0",
     "zod": "^3.23.8"
   },
-  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "contentlayer2",
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
+  }
 }

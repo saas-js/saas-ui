@@ -47,18 +47,20 @@ No GitHub secrets are required. Cloudflare mints a build token for the account.
 After the first successful deploy, attach the custom domain `v2.saas-ui.dev`
 in the Worker settings (DNS is out of scope for this change).
 
-### Option B — GitHub Actions
+### Option B — GitHub Actions (optional)
 
 Workflow: `.github/workflows/deploy-v2-docs.yml` (push to `v2` or
-`workflow_dispatch`).
+`workflow_dispatch`). Production deploys use Workers Builds; this workflow
+is a fallback.
 
-Add repository secrets:
+If `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID` are unset, the job
+succeeds and skips `wrangler deploy`. It only deploys when both secrets exist:
 
 1. `CLOUDFLARE_API_TOKEN` — [API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) with **Edit Cloudflare Workers** (and Account / Users read as required by Wrangler).
 2. `CLOUDFLARE_ACCOUNT_ID` — [account ID](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/).
 
-The Worker `saas-ui-v2-docs` must already exist, or the first deploy will
-create it on the account.
+Do not set those secrets if Workers Builds is already deploying, or every
+push to `v2` will deploy twice.
 
 ## Headers and redirects
 

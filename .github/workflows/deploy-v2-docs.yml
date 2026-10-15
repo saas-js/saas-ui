@@ -1,11 +1,7 @@
-# Deploy the frozen v2 docs archive to the Cloudflare Worker `saas-ui-v2-docs`.
-#
-# Required GitHub Actions secrets (they do not exist yet):
-#   CLOUDFLARE_API_TOKEN  – token with "Edit Cloudflare Workers"
-#   CLOUDFLARE_ACCOUNT_ID – Cloudflare account ID
-#
-# Prefer Workers Builds in the Cloudflare dashboard if you do not want to
-# store those secrets in GitHub. See apps/website/README.md.
+# Optional deploy path if Workers Builds (git integration) is not used.
+# Requires repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+# Those secrets do not exist yet; deploy is skipped until they are set.
+# Prefer Workers Builds in the Cloudflare dashboard. See apps/website/README.md.
 name: Deploy v2 docs
 
 on:
@@ -26,22 +22,32 @@ jobs:
     permissions:
       contents: read
     steps:
+      - name: Skip deploy when Cloudflare secrets are missing
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '' }}
+        run: echo "CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID not set; skipping wrangler deploy."
+
       - uses: actions/checkout@v4
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
 
       - uses: pnpm/action-setup@v4
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
 
       - uses: actions/setup-node@v4
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
         with:
           node-version: 20
           cache: pnpm
 
       - name: Install
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
         run: pnpm install --frozen-lockfile
 
       - name: Build static site
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
         run: pnpm --filter website build
 
-      - name: Deploy to Cloudflare Workers
+      - name: Deploy Worker
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

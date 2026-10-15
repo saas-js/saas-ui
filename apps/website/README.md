@@ -17,8 +17,8 @@ pnpm preview:web
 
 `preview:web` runs `wrangler dev` against `apps/website/out`.
 
-The private `packages/pro` git submodule is **not** required. Pro UI used in
-docs live examples comes from the public `@saas-ui-pro/*` npm packages.
+Pro UI used in docs live examples comes from the public `@saas-ui-pro/*`
+npm packages. The private `packages/pro` git submodule is not used.
 
 ## Deploy
 

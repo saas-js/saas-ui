@@ -80,7 +80,7 @@ Complete source code available in a monorepo that can serve as a starting point 
 
 ## Using this repo
 
-The docs website depends on private packages (`@saas-ui-pro/react`), and won't build fully without access to the private Git submodule.
+The docs website uses public `@saas-ui-pro/*` packages from npm. The private `packages/pro` git submodule is not part of this branch.
 
 This repository uses Yarn workspaces, to get started run:
 

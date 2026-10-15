@@ -22,6 +22,7 @@ let config = {
   },
   experimental: {
     externalDir: true,
+    esmExternals: 'loose',
   },
   transpilePackages: [
     '@saas-ui/core',
@@ -78,7 +79,6 @@ let config = {
       ...config.resolve,
       conditionNames: [
         'sui',
-        'sui-pro',
         'browser',
         'node',
         'development',

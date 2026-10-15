@@ -1,6 +1,7 @@
 import { extendTheme } from '@chakra-ui/react'
 
 import { theme as baseTheme } from '@saas-ui-pro/react'
+import { theme as saasUiTheme } from '@saas-ui/react'
 
 import '@fontsource-variable/inter'
 
@@ -51,18 +52,21 @@ const theme = extendTheme(
       useSystemColorMode: false,
     },
     breakpoints,
-    colors,
+    colors: {
+      ...saasUiTheme.colors,
+      ...colors,
+    },
     semanticTokens: {
       colors: {
         /**
          * @deprecated use `code-bg` instead
          */
         codeBackground: {
-          default: blacken('purple.600', 70)(baseTheme),
+          default: blacken('purple.600', 70)(saasUiTheme),
           _dark: 'gray.900',
         },
         'code-bg': {
-          default: blacken('purple.600', 70)(baseTheme),
+          default: blacken('purple.600', 70)(saasUiTheme),
           _dark: 'gray.900',
         },
         muted: {
@@ -156,6 +160,7 @@ const theme = extendTheme(
       },
     },
   },
+  saasUiTheme,
   baseTheme
 )
 

@@ -34,7 +34,7 @@
         "../../packages/saas-ui-theme-glass/src/components"
       ]
     },
-    "customConditions": ["sui", "sui-pro"],
+    "customConditions": ["sui"],
     "incremental": true,
     "plugins": [
       {

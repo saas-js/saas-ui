@@ -1,6 +1,7 @@
 import { Badge } from '@chakra-ui/react'
 import pkg from '../../../../packages/saas-ui-react/package.json'
-import proPkg from '@saas-ui-pro/react/package.json'
+
+const PRO_VERSION = '0.42.3'
 
 export const Version = (props: { version?: string; pro?: boolean }) => {
   return (
@@ -20,7 +21,7 @@ export const Version = (props: { version?: string; pro?: boolean }) => {
         color: 'whiteAlpha.700',
       }}
     >
-      {props.version || (props.pro && proPkg.version) || pkg.version} (latest)
+      {props.version || (props.pro && PRO_VERSION) || pkg.version} (latest)
     </Badge>
   )
 }

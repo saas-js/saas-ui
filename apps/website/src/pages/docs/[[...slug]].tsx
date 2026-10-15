@@ -45,7 +45,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   //   allDocs.flatMap((doc) => [doc?.slug, `/${doc._raw.sourceFileDir}`])
   // )
   const paths = allDocs.map((doc) => doc.slug)
-  return { paths, fallback: true }
+  return { paths, fallback: false }
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {

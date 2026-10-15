@@ -1,5 +1,5 @@
 # Archived version of the site. Crawling stays allowed so the
-# X-Robots-Tag: noindex header (see next.config.js) is actually seen —
+# X-Robots-Tag: noindex header (see public/_headers) is actually seen —
 # a Disallow here would hide the directive and leave URLs indexable from links.
 
 User-agent: *

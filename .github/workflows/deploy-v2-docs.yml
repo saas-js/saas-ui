@@ -1,0 +1,49 @@
+# Deploy the frozen v2 docs archive to the Cloudflare Worker `saas-ui-v2-docs`.
+#
+# Required GitHub Actions secrets (they do not exist yet):
+#   CLOUDFLARE_API_TOKEN  – token with "Edit Cloudflare Workers"
+#   CLOUDFLARE_ACCOUNT_ID – Cloudflare account ID
+#
+# Prefer Workers Builds in the Cloudflare dashboard if you do not want to
+# store those secrets in GitHub. See apps/website/README.md.
+name: Deploy v2 docs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - v2
+
+concurrency:
+  group: deploy-v2-docs
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static site
+        run: pnpm --filter website build
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy

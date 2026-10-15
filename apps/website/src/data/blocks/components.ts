@@ -67,6 +67,10 @@ const getRootFolder = () => {
 export function getAllComponents(): ComponentInfo[] {
   const rootFolder = getRootFolder()
 
+  if (!fs.existsSync(rootFolder)) {
+    return []
+  }
+
   const categories = fs.readdirSync(rootFolder)
 
   const components: ComponentInfo[] = []

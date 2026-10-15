@@ -1,8 +1,20 @@
-import { createAuthService } from '@saas-ui/supabase'
-import { supabase } from './supabase'
+import type { AuthProviderProps } from '@saas-ui/auth'
 
-export const authService = createAuthService(supabase, {
-  loginOptions: {
-    redirectTo: '/blocks',
+/**
+ * This archive does not run licensing, payments, or Supabase auth.
+ * Keep a no-op provider so existing `useAuth()` call sites still render.
+ */
+export const authService: AuthProviderProps = {
+  onLogin: async () => {
+    throw new Error('Authentication is not available on this v2 docs archive.')
   },
-})
+  onSignup: async () => {
+    throw new Error('Authentication is not available on this v2 docs archive.')
+  },
+  onVerifyOtp: async () => false,
+  onLogout: async () => {},
+  onAuthStateChange: () => () => {},
+  onLoadUser: async () => null,
+  onResetPassword: async () => {},
+  onUpdatePassword: async () => {},
+}

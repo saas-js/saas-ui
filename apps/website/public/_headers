@@ -1,0 +1,3 @@
+# Archived v2 docs: keep pages crawlable so X-Robots-Tag is seen, but do not index.
+/*
+  X-Robots-Tag: noindex, follow

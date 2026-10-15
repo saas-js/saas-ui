@@ -11,10 +11,14 @@ const webpack = require('webpack')
  * @type {import('next').NextConfig}
  */
 let config = {
+  output: 'export',
   optimizeFonts: true,
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
   },
   experimental: {
     externalDir: true,
@@ -31,68 +35,11 @@ let config = {
     '@saas-ui/date-picker',
     '@saas-ui-pro/react',
     '@saas-ui-pro/react/theme',
+    '@saas-ui-pro/feature-flags',
+    '@saas-ui-pro/kanban',
   ],
-  // v2.saas-ui.dev is an archive: still served so anyone on v2 can read their
-  // docs, but kept out of search so it cannot compete with saas-ui.dev.
-  // `follow` is deliberate — links out to the current site stay crawlable.
-  // Set as a header rather than a meta tag so non-HTML responses are covered too.
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
-      },
-    ]
-  },
-  async redirects() {
-    return [
-      {
-        source: '/changelog',
-        destination: '/blog',
-        permanent: false,
-      },
-      {
-        source: '/nextjs-boilerplate',
-        destination: '/nextjs-starter-kit',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/project-structure',
-        destination: '/docs/nextjs-starter-kit/project-structure',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/overview',
-        destination: '/docs/nextjs-starter-kit/installation',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/clone-repository',
-        destination: '/docs/nextjs-starter-kit/installation/clone-repository',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/installation/run-application',
-        destination: '/docs/nextjs-starter-kit/installation/run-application',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/authentication/:path*',
-        destination: '/docs/nextjs-starter-kit/authentication/:path*',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/deployments/:path*',
-        destination: '/docs/nextjs-starter-kit/deployments/:path*',
-        permanent: true,
-      },
-      {
-        source: '/docs/pro/theming/:path*',
-        destination: '/docs/nextjs-starter-kit/theming/:path*',
-        permanent: true,
-      },
-    ]
-  },
+  // X-Robots-Tag and redirects cannot be set here with `output: 'export'`.
+  // They are applied by Cloudflare via public/_headers and public/_redirects.
   webpack: (config, { defaultLoaders }) => {
     const fileLoaderRule = config.module.rules.find((rule) => {
       return new RegExp(rule.test).test('.svg')

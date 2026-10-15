@@ -1,7 +1,6 @@
 packages:
   - apps/*
   - packages/storybook
-  - packages/pro/packages/*
   - packages/saas-ui-*
   - tooling/next-workspaces
   - tooling/test-utils
@@ -9,6 +8,11 @@ packages:
   - tooling/storybook-addon
 onlyBuiltDependencies:
   - '@parcel/watcher'
+  - '@swc/core'
+  - contentlayer2
+  - esbuild
+  - sharp
+  - workerd
 overrides:
   '@react-types/button': '3.12.2'
   '@internationalized/date': '3.8.2'

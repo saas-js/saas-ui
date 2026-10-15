@@ -44,7 +44,7 @@ const Post = (props) => {
     >
       <AspectRatio ratio={16 / 9} width="full">
         <Image
-          src={image || `/api/og?title=${title}`}
+          src={image || '/og-image.jpg'}
           alt={title}
           width="100%"
         />

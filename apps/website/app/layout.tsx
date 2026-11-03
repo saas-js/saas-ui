@@ -98,10 +98,10 @@ export default async function RootLayout({
       })
     : []
 
-  const pirschCode =
+  const kobbeToken =
     site === 'sui'
-      ? '6VI7VAQoe3eG33JAw0giyqequwucCiou'
-      : '0wmOd91WUKqHhN2foO6rJdvW4Ak2Wscq'
+      ? '05bed818.9OIrhifVros4-_GPIVPuLpbvXe9UIwvm'
+      : '6a4ba45c.KZtuQMDk8V46XyyvUqub4H9NQ4E7qvmO'
 
   return (
     <html
@@ -162,16 +162,10 @@ export default async function RootLayout({
         />
 
         <Script
-          id="pirschjs"
-          strategy="afterInteractive"
-          src="https://api.pirsch.io/pirsch.js"
-          data-code={pirschCode}
-        />
-        <Script
-          id="pirscheventsjs"
-          strategy="afterInteractive"
-          src="https://api.pirsch.io/pirsch-events.js"
-          data-code={pirschCode}
+          id="kobbe"
+          defer
+          src="https://app.kobbe.io/tracker.js"
+          data-token={kobbeToken}
         />
         <Script src="https://app.lemonsqueezy.com/js/lemon.js" defer />
         <Script

@@ -10,6 +10,10 @@ packages:
   - examples/*
 onlyBuiltDependencies:
   - '@parcel/watcher'
+  - esbuild
+  - sharp
+  - unrs-resolver
+  - workerd
 overrides:
   '@chakra-ui/react': '^3.36.1'
   '@ark-ui/react': '^5.38.2'

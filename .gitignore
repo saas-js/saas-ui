@@ -19,6 +19,8 @@ __snapshots__
 
 # next.js
 .next/
+.open-next/
+.wrangler/
 **/out/
 
 # production
@@ -45,6 +47,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 .env.*
+.dev.vars.local
 
 # editors
 !.vscode

@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: Props) {
         </Stack>
       </Stack>
       <Separator my="10" />
-      <MDXContent code={blog.code} />
+      <MDXContent code={blog.code} mdxId={blog.mdxId} />
     </Container>
   )
 }

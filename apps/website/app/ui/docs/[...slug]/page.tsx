@@ -44,7 +44,10 @@ export default async function Page(props: Props) {
           links={page.data.links}
         />
         <Box fontSize="md">
-          <MDXContent code={page.data.code} />
+          <MDXContent
+            code={page.data.code}
+            mdxId={(page.data as { mdxId?: string }).mdxId}
+          />
           <MDXPagination />
         </Box>
       </Stack>

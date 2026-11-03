@@ -106,7 +106,9 @@ describe('packed release wiring', () => {
     }
     expect(website.scripts?.dev).toContain('registry:generate')
     expect(website.scripts?.dev).toContain('registry:dev')
-    expect(website.scripts?.prebuild).toBe('pnpm registry:generate')
+    // Workers needs generated example/prop-type JSON at build time, but
+    // registry:generate must still run first so public/r and __registry__ exist.
+    expect(website.scripts?.prebuild).toMatch(/^pnpm registry:generate(?:\s|$)/)
   })
 
   test('keeps derived public catalogs out of new commits', async () => {

@@ -145,6 +145,11 @@ Run the documentation website with:
 pnpm dev:web
 ```
 
+The site in `apps/website` is prepared for Cloudflare Workers. See
+[`apps/website/README.md`](./apps/website/README.md) for the local Workers
+preview command, required env vars, and Workers Builds settings. Do not deploy
+or change DNS until cutover is approved.
+
 ## License
 
 All code in this repository, except for the Saas UI branding assets are licensed

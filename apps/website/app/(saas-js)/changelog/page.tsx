@@ -165,7 +165,10 @@ export default async function ChangelogPage({ searchParams }: Props) {
                     })}
                   </HStack>
                   <Box mt="2">
-                    <MDXContent code={changelog.code} />
+                    <MDXContent
+                      code={changelog.code}
+                      mdxId={changelog.mdxId}
+                    />
                   </Box>
                 </Stack>
               </Box>

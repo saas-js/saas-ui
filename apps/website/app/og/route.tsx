@@ -1,7 +1,6 @@
+import { loadOgFont } from '@/lib/og-font'
 import { ImageResponse } from 'next/og'
 import type { NextRequest } from 'next/server'
-
-export const runtime = 'edge'
 
 export const contentType = 'image/png'
 
@@ -106,12 +105,8 @@ function SaasJsLogo({ height = 36 }: { height?: number }) {
 export const GET = async (req: NextRequest) => {
   try {
     const [fontRegular, fontSemiBold] = await Promise.all([
-      fetch(
-        new URL('../../public/fonts/Inter-Regular.ttf', import.meta.url),
-      ).then((res) => res.arrayBuffer()),
-      fetch(
-        new URL('../../public/fonts/Inter-SemiBold.ttf', import.meta.url),
-      ).then((res) => res.arrayBuffer()),
+      loadOgFont(req, 'Inter-Regular.ttf'),
+      loadOgFont(req, 'Inter-SemiBold.ttf'),
     ])
 
     const { searchParams } = new URL(req.url)

@@ -1,3 +1,4 @@
+import { mdxRegistry } from '@/lib/generated/mdx/registry'
 import * as TypographyDocs from 'compositions/lib/typography-token-doc'
 import { useMDXComponent } from '@content-collections/mdx/react'
 import { Kbd, SimpleGrid } from '@chakra-ui/react'
@@ -102,12 +103,21 @@ const sharedComponents = {
 // }
 
 interface MDXProps {
-  code: string
+  code?: string
+  mdxId?: string
   components?: Record<string, React.ComponentType>
 }
 
-export const MDXContent = (props: MDXProps) => {
-  const { code, components = {} } = props
-  const Component = useMDXComponent(code)
+export const MDXContent = async (props: MDXProps) => {
+  const { code, mdxId, components = {} } = props
+  const id =
+    mdxId ||
+    (code && !code.includes('var Component=') ? code : undefined)
+  const loader = id ? mdxRegistry[id] : undefined
+
+  const Component = loader
+    ? (await loader()).default
+    : useMDXComponent(code ?? '')
+
   return <Component components={{ ...sharedComponents, ...components }} />
 }

@@ -23,7 +23,7 @@
         "$TURBO_ROOT$/packages/saas-ui-registry/src/**",
         "$TURBO_ROOT$/tooling/registry/**"
       ],
-      "outputs": [".next/**", "public/r/**", "__registry__/**"],
+      "outputs": [".next/**", ".open-next/**", "public/r/**", "__registry__/**"],
       "env": [
         "SUPABASE_URL",
         "SUPABASE_ANON_KEY",

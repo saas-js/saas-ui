@@ -14,7 +14,8 @@ registry are request-time APIs, and `proxy.ts` rewrites by host.
 workerd cannot `eval` MDX (`new Function`) or instantiate Shiki's
 Oniguruma WASM. Docs/blog MDX is compiled to ESM modules under
 `lib/generated/mdx/` at build time; `highlightCode` uses Shiki's
-JavaScript regex engine.
+JavaScript regex engine and statically imported `@shikijs/langs`
+grammars (no runtime fs/wasm language loading).
 
 Worker name: `saas-ui-website`.
 
@@ -76,8 +77,8 @@ are not wiped. `wrangler.jsonc` sets `upload_source_maps` to `false`
 | `SUPABASE_ANON_KEY` | server | Required for Pro | Same as `SUPABASE_URL`. |
 | `NEXT_PUBLIC_SUPABASE_URL` | client/build | Fallback | Used if `SUPABASE_URL` is unset. |
 | `NEXT_PUBLIC_SUPABASE_KEY` | client/build | Fallback | Used if `SUPABASE_ANON_KEY` is unset. |
-| `PRO_REGISTRY_URL` | server | Optional | Blocks gallery defaults to `http://localhost:4000/r` (empty in prod). |
-| `PRO_STORYBOOK_URL` | server | Optional | Block previews default to `http://localhost:6007`. |
+| `PRO_REGISTRY_URL` | server | Optional | Defaults to `http://localhost:4000/r`. Production: `https://registry.saas-ui.pro/r`. |
+| `PRO_STORYBOOK_URL` | server | Optional | Defaults to `http://localhost:6007`. Production: `https://storybook.saas-ui.pro`. |
 | `PRO_ENTITLEMENT` | server | Optional | Defaults to `saas-ui-pro`. |
 | `PRO_REGISTRY_TOKEN` | server | Optional | Falls back to the signed-in Supabase access token. |
 | `REGISTRY_BASE_PATH` | server | Optional | Defaults to `/r`. |

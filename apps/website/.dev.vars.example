@@ -43,7 +43,7 @@ NEXT_PUBLIC_SUPABASE_KEY=
 # --- Pro registry (blocks gallery) ------------------------------------------
 # Remote Pro registry. Defaults to http://localhost:4000/r (empty gallery
 # in production if unset).
-PRO_REGISTRY_URL=https://pro.saas-ui.dev/r
+PRO_REGISTRY_URL=https://registry.saas-ui.pro/r
 # Storybook iframe previews. Defaults to http://localhost:6007.
 PRO_STORYBOOK_URL=https://storybook.saas-ui.pro
 # Entitlement string in Supabase app_metadata. Default: saas-ui-pro

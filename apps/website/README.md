@@ -54,9 +54,11 @@ inject a `__name` helper into `next-themes` inline scripts.
 
 Every `process.env` the website reads (excluding `NODE_ENV`). Set
 `NEXT_PUBLIC_*` as Workers Builds **build variables** so they are inlined
-during `next build`. Set the rest as Worker **Variables & Secrets**. Use
-`wrangler deploy --keep-vars` (or `opennextjs-cloudflare deploy -- --keep-vars`)
-so dashboard runtime vars are not wiped.
+during `next build`. Set the rest as Worker **Variables & Secrets**. Always
+deploy with `--keep-vars` (`npx wrangler deploy --keep-vars` or
+`opennextjs-cloudflare deploy -- --keep-vars`) so dashboard runtime vars
+are not wiped. `wrangler.jsonc` sets `upload_source_maps` to `false`
+(maps exceeded the 60 MiB upload limit).
 
 | Variable | Side | Required | What breaks without it |
 | --- | --- | --- | --- |
@@ -97,9 +99,9 @@ Workers Builds:
 | Worker name | `saas-ui-website` |
 | Production branch | `main` |
 | Root directory | `apps/website` |
-| Build command | `cd ../.. && pnpm install --frozen-lockfile && pnpm --filter website cf:build` |
-| Deploy command | `npx wrangler deploy` |
-| Preview command | `npx wrangler versions upload` (or the dashboard default) |
+| Build command | `cd ../.. && pnpm install --frozen-lockfile && pnpm exec turbo run build --filter='website^...' --env-mode=loose && pnpm --filter website cf:build` |
+| Deploy command | `npx wrangler deploy --keep-vars` |
+| Preview command | `npx wrangler versions upload --keep-vars` (or the dashboard default) |
 | Build watch paths | `apps/website/**`, `apps/compositions/**`, `packages/**`, `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `package.json` |
 | Node.js | 22 |
 
@@ -127,9 +129,23 @@ Optional later: bind a D1 database as `NEXT_TAG_CACHE_D1` and switch
   in generated absolute links (llms routes).
 - Generated files (`lib/generated/**`, `.content-collections`) are
   gitignored and produced during `next build` / `cf:build`.
-- `wrangler deploy --dry-run` measured **~9.5 MiB gzip** (59 MiB raw).
-  That fits the paid Workers limit (10 MiB) and will not fit the free
-  1 MiB limit. Watch bundle size if more MDX or dependencies land.
+- `wrangler deploy --dry-run` measured **~9.5 MiB gzip** (59 MiB raw)
+  without source maps. That fits the paid Workers limit (10 MiB) and
+  will not fit the free 1 MiB limit. Watch bundle size if more MDX or
+  dependencies land. Do not turn `upload_source_maps` back on without
+  shrinking maps (they were ~79 MiB vs a 60 MiB limit).
+- Do not use `pnpm build:packages` as the Workers pre-build: it failed
+  on `@saas-ui/tailwind-preset` ordering. Prefer
+  `turbo run build --filter='website^...' --env-mode=loose`.
+- Vercel production deploy of `0549b3c1`
+  (`dpl_VbAGFtMEq69WE4iqszMEqF1yNLkS`) failed while the PR preview
+  built. Likely: `initOpenNextCloudflareForDev()` used to run on every
+  `next build` (starts wrangler/miniflare and loads `.dev.vars` with
+  `NEXTJS_ENV=development`); new `prebuild` steps need
+  `apps/compositions` and `public/types`; `outputFileTracingRoot` at the
+  monorepo root plus generated MDX modules can blow the production
+  serverless size budget. `initOpenNextCloudflareForDev` now runs only
+  for `next dev`.
 
 ## Remaining cutover steps
 

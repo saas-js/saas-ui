@@ -146,4 +146,8 @@ export default Promise.resolve(withContentCollections(nextConfig)).then(
   },
 )
 
-initOpenNextCloudflareForDev()
+// Only for `next dev`. The helper starts wrangler/miniflare; `next build`
+// (Vercel and `cf:build`) must not do that.
+if (process.argv.includes('dev')) {
+  initOpenNextCloudflareForDev()
+}

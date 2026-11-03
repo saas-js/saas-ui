@@ -130,15 +130,19 @@ export async function getProRegistryItem(
   const headers = new Headers()
   if (options.authorization) headers.set('Authorization', options.authorization)
 
-  const response = await (options.fetchImplementation ?? globalThis.fetch)(
-    url,
-    {
-      headers,
-      cache: 'no-store',
-    },
-  )
-  if (!response.ok) return null
-  return parseRegistryItem(await response.json(), `Pro registry item ${name}`)
+  try {
+    const response = await (options.fetchImplementation ?? globalThis.fetch)(
+      url,
+      {
+        headers,
+        cache: 'no-store',
+      },
+    )
+    if (!response.ok) return null
+    return parseRegistryItem(await response.json(), `Pro registry item ${name}`)
+  } catch {
+    return null
+  }
 }
 
 export async function getAllComponents(): Promise<UiComponent[]> {

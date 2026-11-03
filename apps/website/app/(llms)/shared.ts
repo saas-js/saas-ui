@@ -1,8 +1,9 @@
+import { getSiteUrl } from '@/lib/site-url'
 import { colorPalettes } from 'compositions/lib/color-palettes'
 import { allDocs as docs } from 'content-collections'
 
 export function getBaseUrl() {
-  return process.env.VERCEL_URL ?? process.env.HOST ?? 'http://localhost:3000'
+  return getSiteUrl()
 }
 
 ///////////////////////////////////////////////////////////////////////

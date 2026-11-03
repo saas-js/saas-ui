@@ -1,6 +1,7 @@
 'use client'
 
 import { LinkButton } from '@/components/link-button'
+import { getCheckoutBaseUrl } from '@/lib/site-url'
 import {
   Badge,
   Box,
@@ -124,10 +125,7 @@ function buildUrl(productId: string) {
     query.set('metadata', metadata)
   }
 
-  const url = new URL(
-    '/checkout',
-    process.env.NEXT_PUBLIC_URL ?? process.env.VERCEL_URL,
-  )
+  const url = new URL('/checkout', getCheckoutBaseUrl())
 
   url.search = query.toString()
 

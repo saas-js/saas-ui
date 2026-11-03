@@ -1,6 +1,7 @@
 'use client'
 
 import { LinkButton } from '@/components/link-button'
+import { getCheckoutBaseUrl } from '@/lib/site-url'
 import { Box, Grid, Heading, List, Separator, Span, Stack, Text } from '@chakra-ui/react'
 import { TbCheck } from 'react-icons/tb'
 
@@ -31,10 +32,7 @@ function buildUrl(productId: string) {
 
   query.set('discountId', '33cd49c1-d823-4648-9516-cb8281ab8f87')
 
-  const url = new URL(
-    '/checkout',
-    process.env.NEXT_PUBLIC_URL ?? process.env.VERCEL_URL,
-  )
+  const url = new URL('/checkout', getCheckoutBaseUrl())
 
   url.search = query.toString()
 

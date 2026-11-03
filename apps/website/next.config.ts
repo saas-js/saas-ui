@@ -1,5 +1,10 @@
 import { withContentCollections } from '@content-collections/next'
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
 import type { NextConfig } from 'next'
+import { execSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+
+const workspaceRoot = fileURLToPath(new URL('../..', import.meta.url))
 
 const nextConfig = {
   typescript: {
@@ -7,6 +12,14 @@ const nextConfig = {
   },
   experimental: {
     externalDir: true,
+  },
+  outputFileTracingRoot: workspaceRoot,
+  outputFileTracingIncludes: {
+    '/*': [
+      './public/types/**/*',
+      './public/fonts/**/*',
+      '../compositions/src/examples/**/*',
+    ],
   },
   async redirects() {
     const packageRedirects = [
@@ -112,6 +125,7 @@ const nextConfig = {
     return config
   },
   turbopack: {
+    root: workspaceRoot,
     resolveAlias: {
       '@saas-ui/assets': '../../packages/saas-ui-assets/src/index.ts',
       '@saas-ui/charts': '../../packages/saas-ui-charts/src/index.ts',
@@ -122,4 +136,14 @@ const nextConfig = {
   },
 } satisfies NextConfig
 
-export default withContentCollections(nextConfig)
+export default Promise.resolve(withContentCollections(nextConfig)).then(
+  (config) => {
+    execSync('node scripts/generate-mdx-modules.mjs', {
+      cwd: fileURLToPath(new URL('.', import.meta.url)),
+      stdio: 'inherit',
+    })
+    return config
+  },
+)
+
+initOpenNextCloudflareForDev()

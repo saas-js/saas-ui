@@ -1,5 +1,4 @@
-import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import exampleSources from './generated/example-sources.json'
 
 const exampleImportAliases = {
   components: '#components',
@@ -37,9 +36,10 @@ export const prepareBlockSource = (source: string) => {
 }
 
 export const readExampleFile = async (name: string, ext = 'tsx') => {
-  const filePath = resolve('../compositions/src/examples', `${name}.${ext}`)
-
-  const fileContent = await readFile(filePath, 'utf-8')
-
+  const key = `${name}.${ext}`
+  const fileContent = (exampleSources as Record<string, string>)[key]
+  if (typeof fileContent !== 'string') {
+    throw new Error(`Example ${key} not found`)
+  }
   return prepareExampleSource(fileContent)
 }

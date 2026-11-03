@@ -1,0 +1,56 @@
+# Copy to `.dev.vars` (gitignored extras go in `.dev.vars.local`).
+# Do not put production secrets in git. Workers Builds: set matching
+# **Build variables** (for NEXT_PUBLIC_* inlining) and Worker **Variables & Secrets**.
+# Deploy with `--keep-vars` so dashboard runtime vars are not wiped.
+
+# --- OpenNext / Wrangler ----------------------------------------------------
+# Local preview only. Omit in production so Next uses the production env.
+NEXTJS_ENV=development
+
+# --- Site URL (replaces VERCEL_URL) -----------------------------------------
+# Public origin used for absolute links (llms.txt, Polar checkout fallback).
+# Dual-host: Polar checkout uses the request host in the browser.
+# Without this: llms.txt links fall back to http://localhost:3020.
+NEXT_PUBLIC_URL=https://saas-ui.dev
+SITE_URL=https://saas-ui.dev
+# Optional extra fallback read by getSiteUrl()
+# HOST=https://saas-ui.dev
+
+# --- GitHub -----------------------------------------------------------------
+# Stars on the marketing site. Without it: falls back to 1500.
+GITHUB_TOKEN=
+# Pricing pages fetch starter-kit `updated_at`. Without it: unauthenticated
+# GitHub (rate-limited); page still renders with today's date on failure.
+GITHUB_PERSONAL_TOKEN=
+
+# --- Polar (saas-js.com checkout) -------------------------------------------
+# /checkout and /success. Without it: checkout route cannot create sessions.
+POLAR_ACCESS_TOKEN=
+# Polar redirect after payment. Without it: Polar uses its default success page.
+POLAR_SUCCESS_URL=https://www.saas-js.com/success
+# /api/webhooks/polar. Without it: webhook verification throws.
+POLAR_WEBHOOK_SECRET=
+
+# --- Supabase (Pro registry + entitlement) ----------------------------------
+# Private registry items and getProAccess(). Without them: Pro blocks stay
+# locked; public registry still works.
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+# Client/build fallbacks if the server names above are unset.
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_KEY=
+
+# --- Pro registry (blocks gallery) ------------------------------------------
+# Remote Pro registry. Defaults to http://localhost:4000/r (empty gallery
+# in production if unset).
+PRO_REGISTRY_URL=https://pro.saas-ui.dev/r
+# Storybook iframe previews. Defaults to http://localhost:6007.
+PRO_STORYBOOK_URL=https://storybook.saas-ui.pro
+# Entitlement string in Supabase app_metadata. Default: saas-ui-pro
+PRO_ENTITLEMENT=saas-ui-pro
+# Optional bearer token if the user session has none.
+PRO_REGISTRY_TOKEN=
+
+# --- Registry app -----------------------------------------------------------
+# Public registry mount. Default: /r (also served under /ui/r for saas-ui.dev).
+REGISTRY_BASE_PATH=/r

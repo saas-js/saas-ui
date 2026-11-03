@@ -110,7 +110,7 @@ export default async function ChangelogPostPage({ params }: Props) {
         </Stack>
       </Stack>
       <Separator my="10" />
-      <MDXContent code={changelog.code} />
+      <MDXContent code={changelog.code} mdxId={changelog.mdxId} />
     </Container>
   )
 }

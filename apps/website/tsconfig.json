@@ -36,6 +36,8 @@
   },
   "include": [
     "next-env.d.ts",
+    "cloudflare-env.d.ts",
+    "open-next.config.ts",
     "**/*.ts",
     "**/*.tsx",
     ".velite",

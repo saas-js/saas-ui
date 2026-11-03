@@ -39,7 +39,10 @@ export async function SjsDocsPage({ slug }: { slug: string[] }) {
           links={page.data.links}
         />
         <Box fontSize="md">
-          <MDXContent code={page.data.code} />
+          <MDXContent
+            code={page.data.code}
+            mdxId={(page.data as { mdxId?: string }).mdxId}
+          />
           <DocsPagination tree={source.pageTree} url={page.url} />
         </Box>
       </Stack>

@@ -12,6 +12,8 @@
 # next.js
 /.next/
 /out/
+.open-next/
+.wrangler/
 
 # production
 /build
@@ -27,6 +29,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.dev.vars.local
 
 # vercel
 .vercel
@@ -34,3 +37,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated at prebuild for Workers (no runtime filesystem)
+/lib/generated/

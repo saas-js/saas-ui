@@ -26,6 +26,7 @@ import { bundledLanguages, getSingletonHighlighter } from 'shiki'
 import z from 'zod'
 
 import { docsConfig } from './app/ui/docs/docs.config'
+import { persistMdxModule, writeMdxRegistry } from './lib/mdx-modules'
 import { remarkCallout } from './lib/remark-callout'
 import { remarkCard } from './lib/remark-card'
 import { remarkCodeTitle } from './lib/remark-code-title'
@@ -130,13 +131,17 @@ const docs = defineCollection({
   }),
   transform: async (doc, context) => {
     const code = await compileMDX(context, doc, mdxConfig)
+    const slug = slugify(doc._meta.path)
+    const mdxId = persistMdxModule(cwd, 'docs', slug, code)
+    writeMdxRegistry(cwd)
 
     const links = doc.links || {}
     return {
       ...doc,
-      code,
+      code: '',
+      mdxId,
       llm: replaceExampleTabs(doc.content),
-      slug: slugify(doc._meta.path),
+      slug,
       links: {
         ...links,
         source: links.source
@@ -176,12 +181,16 @@ const sjsDocs = defineCollection({
   }),
   transform: async (doc, context) => {
     const code = await compileMDX(context, doc, mdxConfig)
+    const slug = slugify(doc._meta.path)
+    const mdxId = persistMdxModule(cwd, 'sjs-docs', slug, code)
+    writeMdxRegistry(cwd)
 
     const links = doc.links || {}
     return {
       ...doc,
-      code,
-      slug: slugify(doc._meta.path),
+      code: '',
+      mdxId,
+      slug,
       links: {
         ...links,
         source: links.source
@@ -237,10 +246,14 @@ const blogs = defineCollection({
   }),
   transform: async (doc, context) => {
     const code = await compileMDX(context, doc, mdxConfig)
+    const slug = slugify(doc._meta.path)
+    const mdxId = persistMdxModule(cwd, 'blog', slug, code)
+    writeMdxRegistry(cwd)
     return {
       ...doc,
-      code,
-      slug: slugify(doc._meta.path),
+      code: '',
+      mdxId,
+      slug,
     }
   },
 })
@@ -263,10 +276,14 @@ const changelog = defineCollection({
   }),
   transform: async (doc, context) => {
     const code = await compileMDX(context, doc, mdxConfig)
+    const slug = slugify(doc._meta.path)
+    const mdxId = persistMdxModule(cwd, 'changelog', slug, code)
+    writeMdxRegistry(cwd)
     return {
       ...doc,
-      code,
-      slug: slugify(doc._meta.path),
+      code: '',
+      mdxId,
+      slug,
     }
   },
 })

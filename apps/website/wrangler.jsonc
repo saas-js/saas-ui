@@ -6,7 +6,9 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   // Avoid esbuild keep-names injecting `__name` into next-themes inline scripts.
   "keep_names": false,
-  "upload_source_maps": true,
+  // Maps alone were ~79 MiB (Workers limit 60 MiB). Keep them off in
+  // wrangler.jsonc so dashboard `npx wrangler deploy --keep-vars` matches.
+  "upload_source_maps": false,
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",

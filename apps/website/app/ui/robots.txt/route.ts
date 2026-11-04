@@ -1,18 +1,9 @@
+import { robotsTxtResponse } from '@/lib/robots-txt'
+
 /**
- * saas-ui.dev rewrites every request into `/ui/*` (see proxy.ts), which made
- * the shared `public/robots.txt` unreachable on this host.
+ * saas-ui.dev rewrites unmatched paths into `/ui/*` (see proxy.ts).
+ * Keep this route so a rewrite still hits host-aware robots.txt.
  */
-export function GET() {
-  const body = `User-Agent: *
-Allow: /
-
-Sitemap: https://saas-ui.dev/sitemap.xml
-`
-
-  return new Response(body, {
-    headers: {
-      'content-type': 'text/plain; charset=utf-8',
-      'cache-control': 'public, max-age=0, s-maxage=3600',
-    },
-  })
+export function GET(request: Request) {
+  return robotsTxtResponse(request.headers.get('host'))
 }

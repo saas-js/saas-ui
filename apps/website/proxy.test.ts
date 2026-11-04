@@ -33,6 +33,12 @@ describe('website proxy', () => {
     )
   })
 
+  it('does not rewrite host-aware robots.txt on saas-ui.dev', () => {
+    expect(rewrittenPath(proxy(request('/robots.txt', 'saas-ui.dev')))).toBe(
+      null,
+    )
+  })
+
   it('does not rewrite saas-js.com registry requests', () => {
     expect(rewrittenPath(proxy(request('/r/index.json', 'saas-js.com')))).toBe(
       null,

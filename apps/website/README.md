@@ -124,6 +124,10 @@ Optional later: bind a D1 database as `NEXT_TAG_CACHE_D1` and switch
   queue. No D1 tag cache yet (the app does not call `revalidateTag`).
 - `IMAGES` is bound for `next/image`. Confirm Cloudflare Images is enabled
   on the account, or switch to `unoptimized` / a custom loader.
+- `robots.txt` is a host-aware route (`app/robots.txt/route.ts`), not a
+  `public/` file. Workers Assets would otherwise serve one sitemap for
+  both hosts. `saas-ui.dev` → `https://saas-ui.dev/sitemap.xml`;
+  saas-js hosts → `https://www.saas-js.com/sitemap.xml`.
 - `llms.txt` lives at the saas-js tree (`/llms.txt`). On `saas-ui.dev` the
   proxy rewrites it to `/ui/llms.txt` (same as Vercel) and that path 404s.
 - Preview without `NEXT_PUBLIC_URL` / `SITE_URL` emits `localhost:3020`

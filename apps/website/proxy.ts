@@ -19,7 +19,12 @@ export function proxy(request: NextRequest) {
 
   // Legal pages live outside `app/ui`, so rewriting them into `/ui` 404s them
   // on saas-ui.dev. They are host-neutral — serve the shared route as-is.
-  const isSharedRoute = ['/license', '/privacy', '/terms'].includes(pathname)
+  const isSharedRoute = [
+    '/license',
+    '/privacy',
+    '/terms',
+    '/robots.txt',
+  ].includes(pathname)
 
   // Handle /ui routes on saas-js (proxy to saas-ui content)
   if (isSaasJs && pathname.startsWith('/ui')) {

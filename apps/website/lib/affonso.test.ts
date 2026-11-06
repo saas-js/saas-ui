@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest'
 
-import { affonsoEmbedSrc, applyAffonsoCheckoutMetadata } from './affonso'
+import {
+  AFFONSO_API_BASE,
+  AFFONSO_PIXEL_SRC,
+  AFFONSO_PROGRAM_ID,
+  AFFONSO_PROXY_PREFIX,
+  affonsoEmbedSrc,
+  applyAffonsoCheckoutMetadata,
+} from './affonso'
 
 describe('applyAffonsoCheckoutMetadata', () => {
   it('adds Polar metadata from the Affonso cookie', () => {
@@ -32,9 +39,18 @@ describe('applyAffonsoCheckoutMetadata', () => {
 })
 
 describe('affonsoEmbedSrc', () => {
-  it('builds the hosted embed URL', () => {
+  it('builds the first-party embed URL', () => {
     expect(affonsoEmbedSrc('tok_abc')).toBe(
-      'https://affonso.io/embed/referrals?token=tok_abc&theme=light&lang=en',
+      '/a/embed/referrals?token=tok_abc&theme=light&lang=en',
     )
+  })
+})
+
+describe('Affonso first-party constants', () => {
+  it('keeps the public program id and /a pixel paths', () => {
+    expect(AFFONSO_PROGRAM_ID).toBe('cmgdfoad90006ib7qt4poawok')
+    expect(AFFONSO_PROXY_PREFIX).toBe('/a')
+    expect(AFFONSO_PIXEL_SRC).toBe('/a/pixel.js')
+    expect(AFFONSO_API_BASE).toBe('/a')
   })
 })

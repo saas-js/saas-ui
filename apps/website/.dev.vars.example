@@ -60,4 +60,5 @@ PRO_REGISTRY_TOKEN=
 
 # --- Registry app -----------------------------------------------------------
 # Public registry mount. Default: /r (also served under /ui/r for saas-ui.dev).
+# Affonso first-party tracking uses `/a` instead — `/r` is already the registry.
 REGISTRY_BASE_PATH=/r

@@ -73,6 +73,7 @@ are not wiped. `wrangler.jsonc` sets `upload_source_maps` to `false`
 | `POLAR_ACCESS_TOKEN` | server | Required for checkout | `/checkout` and `/success` cannot talk to Polar. |
 | `POLAR_SUCCESS_URL` | server | Required for checkout | Polar has no post-payment return URL. |
 | `POLAR_WEBHOOK_SECRET` | server | Required for webhooks | `/api/webhooks/polar` throws on boot/request. |
+| `AFFONSO_API_KEY` | server | Required for in-app affiliate dashboard | `/affiliate` falls back to the public Affonso portal; `POST /api/affonso/embed-token` returns 503. Pixel tracking does not need this secret. |
 | `SUPABASE_URL` | server | Required for Pro | Private registry items 401; Pro entitlement is false. |
 | `SUPABASE_ANON_KEY` | server | Required for Pro | Same as `SUPABASE_URL`. |
 | `NEXT_PUBLIC_SUPABASE_URL` | client/build | Fallback | Used if `SUPABASE_URL` is unset. |

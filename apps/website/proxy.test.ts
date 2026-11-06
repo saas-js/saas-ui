@@ -39,6 +39,12 @@ describe('website proxy', () => {
     )
   })
 
+  it('does not rewrite the Affonso affiliate page on saas-ui.dev', () => {
+    expect(rewrittenPath(proxy(request('/affiliate', 'saas-ui.dev')))).toBe(
+      null,
+    )
+  })
+
   it('does not rewrite Polar checkout and success on saas-ui.dev', () => {
     expect(rewrittenPath(proxy(request('/checkout', 'saas-ui.dev')))).toBe(null)
     expect(

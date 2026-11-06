@@ -1,15 +1,19 @@
 import { Logo } from '@/components/logo'
-import { Box, Container, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Heading,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
 import Link from 'next/link'
 
 const linkTree = [
   {
     title: 'Resources',
     items: [
-      {
-        label: 'Affiliate program',
-        href: 'https://saas-ui.lemonsqueezy.com/affiliates?aff_ref=nB1mj6rB',
-      },
+      { label: 'Affiliate program', href: '/affiliate' },
       { label: 'Documentation', href: '/docs' },
       { label: 'Blog', href: '/blog' },
       { label: 'Roadmap', href: 'https://roadmap.saas-ui.dev' },

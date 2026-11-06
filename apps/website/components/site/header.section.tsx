@@ -37,20 +37,12 @@ const LogoLink = () => (
 
 const NAV_LINKS = [
   { title: 'Docs', url: '/docs' },
-  { title: 'Pricing', url: '/pricing', pro: true },
+  { title: 'Pricing', url: '/pricing' },
   { title: 'Resources', url: '/resources' },
   { title: 'Showcase', url: '/showcase' },
 ]
 
-interface HeaderProps {
-  /**
-   * Show Pricing and Get Pro. Off on saas-ui.dev; only Saas.js pages that reuse
-   * this header (the blog) turn it on.
-   */
-  pro?: boolean
-}
-
-const DesktopNav = ({ pro }: HeaderProps) => (
+const DesktopNav = () => (
   <HStack gap="6" as="nav" aria-label="primary navigation">
     <HStack>
       <LogoLink />
@@ -62,7 +54,7 @@ const DesktopNav = ({ pro }: HeaderProps) => (
       display={{ base: 'none', md: 'flex' }}
       flex="1"
     >
-      <Navigation pro={pro} />
+      <Navigation />
     </HStack>
     <HStack gap="0" justifyContent="flex-end">
       <CommandMenu
@@ -74,19 +66,15 @@ const DesktopNav = ({ pro }: HeaderProps) => (
         </Link>
       </Button>
       <ColorModeButton />
-      {pro && (
-        <>
-          <Separator orientation="vertical" height="4" mx="2" />
-          <LinkButton
-            href="/pricing"
-            colorPalette="accent"
-            variant="glass"
-            size="sm"
-          >
-            Get Pro
-          </LinkButton>
-        </>
-      )}
+      <Separator orientation="vertical" height="4" mx="2" />
+      <LinkButton
+        href="/pricing"
+        colorPalette="accent"
+        variant="glass"
+        size="sm"
+      >
+        Get Pro
+      </LinkButton>
     </HStack>
   </HStack>
 )
@@ -118,10 +106,10 @@ const MobileNavCloseTrigger = () => (
   </Dialog.CloseTrigger>
 )
 
-const MobileNavContent = ({ pro }: HeaderProps) => (
+const MobileNavContent = () => (
   <Container>
     <Stack py="4" gap="4" color="white">
-      {NAV_LINKS.filter((item) => pro || !item.pro).map((item) => (
+      {NAV_LINKS.map((item) => (
         <Button key={item.title} variant="outline" colorPalette="teal" asChild>
           <Link href={item.url}>{item.title}</Link>
         </Button>
@@ -130,7 +118,7 @@ const MobileNavContent = ({ pro }: HeaderProps) => (
   </Container>
 )
 
-const MobileNav = ({ pro }: HeaderProps) => {
+const MobileNav = () => {
   return (
     <Dialog.Root>
       <MobileNavTrigger />
@@ -141,13 +129,13 @@ const MobileNav = ({ pro }: HeaderProps) => {
           <Spacer />
           <MobileNavCloseTrigger />
         </HeaderRoot>
-        <MobileNavContent pro={pro} />
+        <MobileNavContent />
       </Dialog.Content>
     </Dialog.Root>
   )
 }
 
-export const HeaderSection = ({ pro = false }: HeaderProps) => {
+export const HeaderSection = () => {
   return (
     <Box
       position="fixed"
@@ -184,8 +172,8 @@ export const HeaderSection = ({ pro = false }: HeaderProps) => {
         </LinkButton>
       </Stack>
       <Container py="2">
-        <DesktopNav pro={pro} />
-        <MobileNav pro={pro} />
+        <DesktopNav />
+        <MobileNav />
       </Container>
     </Box>
   )

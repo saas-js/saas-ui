@@ -7,7 +7,7 @@ import { SocialLinks } from '@/components/social-links'
 import { useRoute } from '@/lib/use-route'
 import { websiteConfig } from '@/website.config'
 import { SaasUIIcon } from '@saas-ui/assets'
-import { Box, HStack, Portal, Spacer, Span, VStack } from '@chakra-ui/react'
+import { Box, HStack, Portal, Separator, Spacer, Span, VStack } from '@chakra-ui/react'
 import { Drawer } from '#components/ui/drawer'
 import { IconButton } from '#components/ui/icon-button'
 import { chakra } from '@chakra-ui/react/styled-system'
@@ -16,6 +16,7 @@ import { usePathname } from 'next/navigation'
 import { BsGithub } from 'react-icons/bs'
 import { LuMenu } from 'react-icons/lu'
 
+import { LinkButton } from '../link-button'
 import { HeaderVersionMenu } from '../site/version-menu'
 import { CommandMenu } from './command-menu'
 
@@ -235,6 +236,15 @@ const HeaderDesktopNavbar = () => {
             </Link>
           </IconButton>
           <ColorModeButton />
+          <Separator orientation="vertical" height="4" mx="2" />
+          <LinkButton
+            href="/pro/pricing"
+            colorPalette="accent"
+            variant="glass"
+            size="sm"
+          >
+            Get Pro
+          </LinkButton>
         </HStack>
       </HStack>
     </Box>

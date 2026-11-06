@@ -22,16 +22,23 @@ export function GetStartedSection(props: { children?: React.ReactNode }) {
           justifyContent="space-between"
         >
           <Text textStyle="4xl" fontWeight="medium">
-            Give your agents a solid <br /> foundation to build on.
+            Join hundreds of developers <br /> building better SaaS interfaces.
           </Text>
 
           <ButtonGroup>
             {props.children ? (
               props.children
             ) : (
-              <Button variant="glass" colorPalette="accent" asChild>
-                <Link href="https://www.saas-js.com">Explore Saas.js</Link>
-              </Button>
+              <>
+                <Button variant="glass" colorPalette="accent" asChild>
+                  <Link href="/docs/components/overview">
+                    Browse all components
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild>
+                  <Link href="/blocks">View blocks</Link>
+                </Button>
+              </>
             )}
           </ButtonGroup>
         </HStack>

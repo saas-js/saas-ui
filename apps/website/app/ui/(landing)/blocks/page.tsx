@@ -33,7 +33,7 @@ export default async function Page() {
           {!isAuthenticated && (
             <ButtonGroup>
               <LinkButton
-                href="https://www.saas-js.com/pricing"
+                href="/pricing"
                 size="lg"
                 variant="surface"
                 bg="white"

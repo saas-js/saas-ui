@@ -9,7 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <Stack pos="relative" gap="8" overflow="hidden">
-      <HeaderSection pro />
+      <HeaderSection />
       {children}
       <FooterSection />
     </Stack>

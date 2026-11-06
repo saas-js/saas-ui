@@ -19,6 +19,7 @@ interface Entry {
 function entries(): Entry[] {
   const marketing: Entry[] = [
     '/',
+    '/pricing',
     '/figma',
     '/blocks',
     '/showcase',

@@ -130,9 +130,7 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/guides/auth/magic': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/docs/components/authentication/auth': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/docs/components/authentication/auth-provider': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
-  // Saas UI no longer sells anything; the Pro products are sold on Saas.js.
-  '/pricing': `${SAAS_JS}/pricing`,
-  '/pricing/figma': `${SAAS_JS}/pricing`,
+  '/pricing/figma': '/pricing',
 
   // Legacy sitemap URLs still registered in Search Console, submitted between
   // 2022 and 2024 and reporting "Couldn't fetch" since the July restructure.

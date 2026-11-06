@@ -14,9 +14,7 @@ import {
   ViewportPosition,
 } from '../navigation-menu'
 
-// `pro` shows the Pricing link. Saas UI no longer sells anything, so only the
-// Saas.js-hosted pages (e.g. the blog) that reuse this header opt in.
-export const Navigation = ({ pro = false }: { pro?: boolean }) => {
+export const Navigation = () => {
   return (
     <NavigationMenuRoot>
       <NavigationMenuList>
@@ -81,11 +79,9 @@ export const Navigation = ({ pro = false }: { pro?: boolean }) => {
             <NavigationMenuLink href="/blocks">Blocks</NavigationMenuLink>
           </NavigationMenuItem>
 
-          {pro && (
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/pricing">Pricing</NavigationMenuLink>
-            </NavigationMenuItem>
-          )}
+          <NavigationMenuItem>
+            <NavigationMenuLink href="/pricing">Pricing</NavigationMenuLink>
+          </NavigationMenuItem>
 
           <NavigationMenuItem>
             <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>

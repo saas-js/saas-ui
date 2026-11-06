@@ -88,7 +88,7 @@ const FigmaHero = () => {
             variant="glass"
             colorPalette="accent"
             size="lg"
-            href="/pricing/figma"
+            href="https://www.saas-js.com/pricing"
           >
             Buy Figma Pro
           </LinkButton>
@@ -223,7 +223,7 @@ const Stats = () => {
 
         <HStack>
           <LinkButton
-            href="/pricing/figma"
+            href="https://www.saas-js.com/pricing"
             variant="glass"
             colorPalette="accent"
             size="md"
@@ -491,7 +491,7 @@ function CTA() {
 
         <HStack>
           <LinkButton
-            href="/pricing/figma"
+            href="https://www.saas-js.com/pricing"
             variant="glass"
             colorPalette="accent"
             size="lg"

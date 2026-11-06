@@ -31,6 +31,13 @@ POLAR_SUCCESS_URL=https://www.saas-js.com/success
 # /api/webhooks/polar. Without it: webhook verification throws.
 POLAR_WEBHOOK_SECRET=
 
+# --- Affonso (affiliate tracking + embedded dashboard) ----------------------
+# Pixel program id is public (in layout). This secret is server-only.
+# Without it: /affiliate still 200s and links to the Affonso portal;
+# POST /api/affonso/embed-token returns 503. Set on the Worker at runtime
+# (`wrangler secret put AFFONSO_API_KEY`, deploy with `--keep-vars`).
+AFFONSO_API_KEY=
+
 # --- Supabase (Pro registry + entitlement) ----------------------------------
 # Private registry items and getProAccess(). Without them: Pro blocks stay
 # locked; public registry still works.

@@ -1,10 +1,16 @@
+import type { CSSProperties } from 'react'
+
+import {
+  AFFONSO_COOKIE_DURATION_DAYS,
+  AFFONSO_PIXEL_SRC,
+  AFFONSO_PROGRAM_ID,
+} from '@/lib/affonso'
 import { websiteConfig } from '@/website.config'
 import type { Metadata } from 'next'
 import { Figtree, Inter, Outfit, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
 import { cookies, headers } from 'next/headers'
 import Script from 'next/script'
-import type { CSSProperties } from 'react'
 
 import { googleFontHref, selectedFontOptions } from '#components/theme/fonts'
 import {
@@ -107,9 +113,7 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`sui-theme ${inter.variable} ${figTree.variable} ${roboto.variable} ${outfit.variable} ${guton.variable}`}
-      style={
-        theme ? (themeStateToCssVars(theme) as CSSProperties) : undefined
-      }
+      style={theme ? (themeStateToCssVars(theme) as CSSProperties) : undefined}
       {...(theme ? themeStateToHtmlAttributes(theme) : {})}
       suppressHydrationWarning
     >
@@ -166,6 +170,13 @@ export default async function RootLayout({
           defer
           src="https://app.kobbe.io/tracker.js"
           data-token={kobbeToken}
+        />
+        <Script
+          id="affonso"
+          src={AFFONSO_PIXEL_SRC}
+          strategy="afterInteractive"
+          data-affonso={AFFONSO_PROGRAM_ID}
+          data-cookie_duration={AFFONSO_COOKIE_DURATION_DAYS}
         />
         <Script src="https://app.lemonsqueezy.com/js/lemon.js" defer />
         <Script

@@ -1,5 +1,12 @@
 import { Logo } from '@/components/logo'
-import { Box, Container, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Heading,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
 import Link from 'next/link'
 
 const linkTree = [
@@ -13,7 +20,7 @@ const linkTree = [
       { label: 'Documentation', href: '/docs' },
       { label: 'Blog', href: '/blog' },
       { label: 'Changelog', href: '/changelog' },
-      { label: 'Affiliate program', href: 'https://saas-ui.affonso.io' },
+      { label: 'Affiliate program', href: '/affiliate' },
     ],
   },
   {
@@ -23,7 +30,10 @@ const linkTree = [
       { label: 'Drizzle CRUD', href: '/packages/drizzle-crud' },
       { label: 'Conditions', href: '/packages/conditions' },
       { label: 'Slingshot', href: '/packages/slingshot' },
-      { label: 'Better Auth React Query', href: '/packages/better-auth-react-query' },
+      {
+        label: 'Better Auth React Query',
+        href: '/packages/better-auth-react-query',
+      },
       { label: 'Iconx', href: '/packages/iconx' },
     ],
   },

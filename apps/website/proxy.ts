@@ -22,6 +22,7 @@ export function proxy(request: NextRequest) {
   // These routes live outside `app/ui`, so rewriting them into `/ui` 404s them
   // on saas-ui.dev. They are host-neutral — serve the shared route as-is.
   // /checkout and /success are Polar payment paths used from both hosts.
+  // /affiliate is the Affonso referrals page (pixel lives on the shared layout).
   const isSharedRoute = [
     '/license',
     '/privacy',
@@ -29,6 +30,7 @@ export function proxy(request: NextRequest) {
     '/robots.txt',
     '/checkout',
     '/success',
+    '/affiliate',
   ].includes(pathname)
 
   // Handle /ui routes on saas-js (proxy to saas-ui content)

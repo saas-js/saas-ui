@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-import { resolveSaasUiRedirect } from '@/lib/seo/saas-ui-redirects'
+// Relative on purpose: install-all consumer `next build` compiles this
+// parent file with the nested project's `@/` map (`./src/*`).
+import { resolveSaasUiRedirect } from './lib/seo/saas-ui-redirects'
 
 export function proxy(request: NextRequest) {
   const host = request.headers.get('host') || ''
@@ -17,13 +19,16 @@ export function proxy(request: NextRequest) {
     host === 'saas-ui.dev' ||
     host === 'www.saas-ui.dev'
 
-  // Legal pages live outside `app/ui`, so rewriting them into `/ui` 404s them
+  // These routes live outside `app/ui`, so rewriting them into `/ui` 404s them
   // on saas-ui.dev. They are host-neutral — serve the shared route as-is.
+  // /checkout and /success are Polar payment paths used from both hosts.
   const isSharedRoute = [
     '/license',
     '/privacy',
     '/terms',
     '/robots.txt',
+    '/checkout',
+    '/success',
   ].includes(pathname)
 
   // Handle /ui routes on saas-js (proxy to saas-ui content)

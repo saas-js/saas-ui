@@ -1,3 +1,4 @@
+import { polarCheckoutId } from '@/lib/polar-checkout-id'
 import { Container, Heading, Stack, Text, VStack } from '@chakra-ui/react'
 import { Polar } from '@polar-sh/sdk'
 import { redirect } from 'next/navigation'
@@ -7,12 +8,21 @@ const polar = new Polar({
 })
 
 export default async function SuccessPage(props: {
-  searchParams: Promise<{ checkout_id: string; customer_session_token: string }>
+  searchParams: Promise<{
+    checkoutId?: string
+    checkout_id?: string
+    customer_session_token?: string
+  }>
 }) {
-  const { checkout_id } = await props.searchParams
+  const searchParams = await props.searchParams
+  const checkoutId = polarCheckoutId(searchParams)
+
+  if (!checkoutId) {
+    throw redirect('/')
+  }
 
   const checkout = await polar.checkouts.get({
-    id: checkout_id,
+    id: checkoutId,
   })
 
   if (!checkout) {

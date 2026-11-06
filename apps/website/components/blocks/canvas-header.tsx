@@ -107,7 +107,7 @@ export function CanvasHeader({
         ) : (
           <button
             type="button"
-            onClick={() => (window.location.href = '/pricing')}
+            onClick={() => (window.location.href = 'https://www.saas-js.com/pricing')}
           >
             <FiLock size="1rem" />
             Get the code

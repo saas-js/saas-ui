@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 
 import {
+  AFFONSO_API_BASE,
   AFFONSO_COOKIE_DURATION_DAYS,
   AFFONSO_PIXEL_SRC,
   AFFONSO_PROGRAM_ID,
@@ -177,6 +178,7 @@ export default async function RootLayout({
           strategy="afterInteractive"
           data-affonso={AFFONSO_PROGRAM_ID}
           data-cookie_duration={AFFONSO_COOKIE_DURATION_DAYS}
+          data-api-base={AFFONSO_API_BASE}
         />
         <Script src="https://app.lemonsqueezy.com/js/lemon.js" defer />
         <Script

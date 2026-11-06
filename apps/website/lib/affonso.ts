@@ -1,6 +1,9 @@
 export const AFFONSO_PROGRAM_ID = 'cmgdfoad90006ib7qt4poawok'
 export const AFFONSO_PORTAL_URL = 'https://saas-ui.affonso.io'
-export const AFFONSO_PIXEL_SRC = 'https://cdn.affonso.io/js/pixel.min.js'
+// `/r` is the public registry (`REGISTRY_BASE_PATH`), so Affonso uses `/a`.
+export const AFFONSO_PROXY_PREFIX = '/a'
+export const AFFONSO_PIXEL_SRC = `${AFFONSO_PROXY_PREFIX}/pixel.js`
+export const AFFONSO_API_BASE = AFFONSO_PROXY_PREFIX
 export const AFFONSO_COOKIE_DURATION_DAYS = '180'
 export const AFFONSO_REFERRAL_COOKIE = 'affonso_referral'
 
@@ -14,11 +17,14 @@ export function applyAffonsoCheckoutMetadata(
 }
 
 export function affonsoEmbedSrc(publicToken: string) {
-  const url = new URL('https://affonso.io/embed/referrals')
+  const url = new URL(
+    `${AFFONSO_PROXY_PREFIX}/embed/referrals`,
+    'http://saas-ui.local',
+  )
   url.searchParams.set('token', publicToken)
   url.searchParams.set('theme', 'light')
   url.searchParams.set('lang', 'en')
-  return url.toString()
+  return `${url.pathname}${url.search}`
 }
 
 export async function createAffonsoEmbedToken(partner: {

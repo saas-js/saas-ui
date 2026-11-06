@@ -23,15 +23,20 @@ export function proxy(request: NextRequest) {
   // on saas-ui.dev. They are host-neutral — serve the shared route as-is.
   // /checkout and /success are Polar payment paths used from both hosts.
   // /affiliate is the Affonso referrals page (pixel lives on the shared layout).
-  const isSharedRoute = [
-    '/license',
-    '/privacy',
-    '/terms',
-    '/robots.txt',
-    '/checkout',
-    '/success',
-    '/affiliate',
-  ].includes(pathname)
+  // /a is the first-party Affonso proxy (pixel, track, signups, embed). `/r`
+  // stays the public registry, including the `/ui/r` rewrite on saas-ui.dev.
+  const isSharedRoute =
+    [
+      '/license',
+      '/privacy',
+      '/terms',
+      '/robots.txt',
+      '/checkout',
+      '/success',
+      '/affiliate',
+    ].includes(pathname) ||
+    pathname === '/a' ||
+    pathname.startsWith('/a/')
 
   // Handle /ui routes on saas-js (proxy to saas-ui content)
   if (isSaasJs && pathname.startsWith('/ui')) {

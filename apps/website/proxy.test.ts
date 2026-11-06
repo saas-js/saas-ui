@@ -45,6 +45,24 @@ describe('website proxy', () => {
     )
   })
 
+  it('does not rewrite the first-party Affonso proxy on saas-ui.dev', () => {
+    expect(rewrittenPath(proxy(request('/a/pixel.js', 'saas-ui.dev')))).toBe(
+      null,
+    )
+    expect(rewrittenPath(proxy(request('/a/track', 'saas-ui.dev')))).toBe(null)
+    expect(
+      rewrittenPath(
+        proxy(request('/a/embed/referrals?token=tok', 'saas-ui.dev')),
+      ),
+    ).toBe(null)
+  })
+
+  it('does not treat /about as the Affonso proxy prefix', () => {
+    expect(rewrittenPath(proxy(request('/about', 'saas-ui.dev')))).toBe(
+      '/ui/about',
+    )
+  })
+
   it('does not rewrite Polar checkout and success on saas-ui.dev', () => {
     expect(rewrittenPath(proxy(request('/checkout', 'saas-ui.dev')))).toBe(null)
     expect(

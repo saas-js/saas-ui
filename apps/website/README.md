@@ -82,7 +82,7 @@ are not wiped. `wrangler.jsonc` sets `upload_source_maps` to `false`
 | `PRO_STORYBOOK_URL` | server | Optional | Defaults to `http://localhost:6007`. Production: `https://storybook.saas-ui.pro`. |
 | `PRO_ENTITLEMENT` | server | Optional | Defaults to `saas-ui-pro`. |
 | `PRO_REGISTRY_TOKEN` | server | Optional | Falls back to the signed-in Supabase access token. |
-| `REGISTRY_BASE_PATH` | server | Optional | Defaults to `/r`. |
+| `REGISTRY_BASE_PATH` | server | Optional | Defaults to `/r`. Affonso first-party proxy is `/a` because `/r` is the registry. |
 
 Not used at runtime (sample code / other packages only): `AWS_BUCKET`,
 `AUTH_ORIGIN`, `REGISTRY_URL`, `SCHEMA_URL`.

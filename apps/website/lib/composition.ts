@@ -1,5 +1,3 @@
-import exampleSources from './generated/example-sources.json'
-
 const exampleImportAliases = {
   components: '#components',
   hooks: '#hooks',
@@ -36,6 +34,8 @@ export const prepareBlockSource = (source: string) => {
 }
 
 export const readExampleFile = async (name: string, ext = 'tsx') => {
+  const { default: exampleSources } =
+    await import('@/lib/generated/example-sources.json')
   const key = `${name}.${ext}`
   const fileContent = (exampleSources as Record<string, string>)[key]
   if (typeof fileContent !== 'string') {

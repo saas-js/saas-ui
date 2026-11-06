@@ -1,5 +1,8 @@
-import { resolveSaasUiRedirect } from '@/lib/seo/saas-ui-redirects'
 import { NextRequest, NextResponse } from 'next/server'
+
+// Relative on purpose: install-all consumer `next build` compiles this
+// parent file with the nested project's `@/` map (`./src/*`).
+import { resolveSaasUiRedirect } from './lib/seo/saas-ui-redirects'
 
 export function proxy(request: NextRequest) {
   const host = request.headers.get('host') || ''

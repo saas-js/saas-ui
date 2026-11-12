@@ -287,7 +287,7 @@ const docsLinks: NavItem = {
 }
 
 export const docsConfig: DocsConfig = {
-  storybookUrl: 'https://storybook.saas-u.dev',
+  storybookUrl: 'https://storybook.saas-ui.dev',
   copyright: 'Copyright © {{date}} Saas UI B.V. All Rights Reserved.',
   title: 'Saas UI',
   titleTemplate: '%s | Saas UI',

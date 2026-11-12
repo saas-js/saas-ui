@@ -172,7 +172,7 @@ const HeaderDesktopNavbar = () => {
       <HStack py="2" minH="48px">
         <HStack width="300px">
           <HStack asChild>
-            <Link href="/docs">
+            <Link href="/docs/getting-started/introduction">
               <>
                 <SaasUIIcon color="black" width="24px" height="24px" />
 

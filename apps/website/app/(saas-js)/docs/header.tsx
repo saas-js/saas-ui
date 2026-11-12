@@ -185,7 +185,7 @@ const HeaderDesktopNavbar = () => {
           <HoverMenu
             trigger={
               <PrimaryNavLink
-                href="/docs/starter-kits"
+                href="/docs/starter-kits/nextjs"
                 onClick={(e) => {
                   e.preventDefault()
                 }}

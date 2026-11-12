@@ -35,10 +35,16 @@ const LogoLink = () => (
   </HStack>
 )
 
+// "Resources" pointed at /resources, which has never been a route.
+// Changelog and Blog are the internal destinations from that menu.
 const NAV_LINKS = [
-  { title: 'Docs', url: '/docs' },
+  {
+    title: 'Docs',
+    url: 'https://saas-ui.dev/docs/getting-started/introduction',
+  },
   { title: 'Pricing', url: '/pricing', pro: true },
-  { title: 'Resources', url: '/resources' },
+  { title: 'Changelog', url: '/changelog' },
+  { title: 'Blog', url: 'https://www.saas-js.com/blog' },
   { title: 'Showcase', url: '/showcase' },
 ]
 

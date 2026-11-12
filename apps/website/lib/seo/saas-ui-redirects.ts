@@ -1,3 +1,5 @@
+import { starterKitPages } from './starter-kit-pages'
+
 const SAAS_JS = 'https://www.saas-js.com'
 
 /**
@@ -13,9 +15,14 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/components/layout/navbar': '/docs/components/navbar',
   '/docs/components/layout/navbar/props': '/docs/components/navbar',
   '/docs/components/layout/navbar/theming': '/docs/components/navbar',
+  '/docs/components/layout/page': '/docs/components/page',
+  '/docs/components/layout/split-page': '/docs/components/split-page',
   '/docs/components/layout/split-page/theming': '/docs/components/split-page',
+  '/docs/components/layout/section': '/docs/components/page',
   '/docs/components/layout/section/theming': '/docs/components/page',
   '/docs/components/layout/toolbar': '/docs/components/group',
+  '/docs/components/data-display/persona': '/docs/components/persona',
+  '/docs/components/data-display/command': '/docs/components/overview',
   '/docs/components/data-display/data-table': '/docs/components/data-table',
   '/docs/components/data-display/timeline': '/docs/components/timeline',
   '/docs/components/data-display/empty-state': '/docs/components/empty-state',
@@ -33,6 +40,7 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/components/forms/password-input': '/docs/components/password-input',
   '/docs/components/forms/search-input': '/docs/components/input',
   '/docs/components/forms/object-field': '/docs/forms/fields',
+  '/docs/components/forms/array-field': '/docs/forms/fields',
   '/docs/components/forms/array-field/props': '/docs/forms/fields',
   '/docs/components/forms/auto-form': '/docs/forms/overview',
   '/docs/components/forms/form': '/docs/forms/overview',
@@ -50,13 +58,18 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/components/feedback/banner/theming': '/docs/components/alert',
   '/docs/components/feedback/nprogress': '/docs/components/progress',
   '/docs/components/feedback/nprogress/props': '/docs/components/progress',
+  '/docs/feedback/nprogress': '/docs/components/progress',
   '/docs/components/overlay/modals-manager': '/docs/components/overlay-manager',
   '/docs/components/overlay/context-menu': '/docs/components/menu',
   '/docs/components/overlay/form-dialog': '/docs/components/dialog',
+  '/docs/components/overlay/menu-dialog': '/docs/components/menu',
   '/docs/components/overlay/menu-dialog/props': '/docs/components/dialog',
+  '/docs/components/overlay/responsive-menu': '/docs/components/menu',
   '/docs/components/date-time/date-picker': '/docs/components/date-picker',
   '/docs/components/date-time/date-picker/props': '/docs/components/date-picker',
   '/docs/components/date-time/date-picker-modal': '/docs/components/date-picker',
+  '/docs/components/date-time/date-picker-static':
+    '/docs/components/date-picker',
   '/docs/components/date-time/date-picker-static/props':
     '/docs/components/date-picker',
   '/docs/components/date-time/date-input': '/docs/components/date-picker',
@@ -64,8 +77,12 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/components/date-time/date-range-input': '/docs/components/date-picker',
   '/docs/components/date-time/date-range-input/props':
     '/docs/components/date-picker',
+  '/docs/components/date-time/date-range-picker':
+    '/docs/components/date-picker',
   '/docs/components/date-time/date-range-picker/props':
     '/docs/components/date-picker',
+  '/docs/components/visualization/sparkline': '/docs/charts/overview',
+  '/docs/components/visualization/bar-chart': '/docs/charts/bar',
   '/docs/components/visualization/line-chart': '/docs/charts/line',
   '/docs/components/visualization/area-chart': '/docs/charts/area',
   '/docs/components/utils/resize-box': '/docs/components/splitter',
@@ -73,6 +90,9 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/components/utils/feature-flags': '/docs/components/overview',
   '/docs/components/utils/error-boundary': '/docs/components/overview',
   '/docs/components/engagement/beacon': '/docs/components/overview',
+  '/docs/components/engagement/tour': '/docs/components/overview',
+  '/docs/components/engagement/tour-dialog': '/docs/components/overview',
+  '/docs/components/engagement/benefits-modal': '/docs/components/dialog',
   '/docs/components/web3/address': '/docs/components/overview',
   '/docs/components/advanced-data/filters': '/docs/components/filters',
   '/docs/components/advanced-data/data-grid': '/docs/pro/components/data-grid',
@@ -85,12 +105,17 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/components/advanced-data/bulk-actions': '/docs/components/action-bar',
   '/docs/components': '/docs/components/overview',
   '/docs/hooks/use-local-storage': '/docs/components/overview',
+  '/docs/hooks/use-collapse': '/docs/components/collapsible',
 
   // --- docs: core/* folded into getting-started, styling and theming ---
+  '/docs/core/theming/customize-theme':
+    '/docs/theming/customization/overview',
   '/docs/core/theming/saas-ui-theme': '/docs/theming/overview',
   '/docs/core/theming/chakra-ui-theme': '/docs/theming/overview',
   '/docs/core/theming/fonts': '/docs/theming/typography',
   '/docs/core/principles': '/docs/getting-started/introduction',
+  '/docs/core/upgrading-to-v2': '/docs/getting-started/migration',
+  '/docs/guides': '/docs/getting-started/introduction',
   '/docs/core/quickstarts': '/docs/getting-started/installation',
   '/docs/core/installation/vite-guide': '/docs/getting-started/frameworks/vite',
   '/docs/core/installation/nextjs-guide':
@@ -128,11 +153,22 @@ export const saasUiRedirects: Record<string, string> = {
   '/docs/guides/auth/clerk': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/docs/guides/auth/supabase': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/docs/guides/auth/magic': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
+  '/docs/guides/auth/custom-auth-service': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/docs/components/authentication/auth': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   '/docs/components/authentication/auth-provider': `${SAAS_JS}/docs/starter-kits/nextjs/authentication/better-auth`,
   // Saas UI no longer sells anything; the Pro products are sold on Saas.js.
   '/pricing': `${SAAS_JS}/pricing`,
   '/pricing/figma': `${SAAS_JS}/pricing`,
+  // Old Pro account pages. saas-js.com has no login, account, or redeem route,
+  // and no single starter-kits page — each kit has its own docs.
+  '/login': `${SAAS_JS}/`,
+  '/redeem': `${SAAS_JS}/`,
+  '/pro/starter-kits': `${SAAS_JS}/`,
+  // Still linked internally. The pages exist; these keep the old URLs from
+  // 404ing until those links are updated.
+  '/pro/figma': '/figma',
+  '/pro/blocks': '/blocks',
+  '/resources': '/',
 
   // Legacy sitemap URLs still registered in Search Console, submitted between
   // 2022 and 2024 and reporting "Couldn't fetch" since the July restructure.
@@ -147,24 +183,74 @@ export const saasUiRedirects: Record<string, string> = {
   '/blog.xml': '/sitemap.xml',
 }
 
+const starterKits: Array<{
+  prefix: string
+  destination: string
+  pages: ReadonlySet<string>
+}> = [
+  {
+    prefix: '/docs/nextjs-starter-kit',
+    destination: `${SAAS_JS}/docs/starter-kits/nextjs`,
+    pages: new Set(starterKitPages.nextjs),
+  },
+  {
+    prefix: '/docs/tanstack-router-starter-kit',
+    destination: `${SAAS_JS}/docs/starter-kits/tanstack-start`,
+    pages: new Set(starterKitPages['tanstack-start']),
+  },
+]
+
+/**
+ * Sections that were renamed. A known page is copied through. An unknown path
+ * in one of these sections lands on the section index when that page exists,
+ * otherwise on this child. nextjs has no installation index and its database
+ * index is overview.mdx; tanstack-start has both indexes, so those win.
+ * Anything else with no page falls back to the kit root.
+ */
+const starterKitSectionChild: Record<string, string> = {
+  authentication: 'better-auth',
+  installation: 'clone-repository',
+  database: 'overview',
+}
+
+function resolveStarterKitSubpath(
+  pages: ReadonlySet<string>,
+  subpath: string,
+): string {
+  if (pages.has(subpath)) return subpath
+
+  const section = subpath.split('/')[0]
+  const childName = starterKitSectionChild[section]
+  if (!childName) return ''
+
+  if (pages.has(section)) return section
+
+  const child = `${section}/${childName}`
+  return pages.has(child) ? child : ''
+}
+
 /**
  * Prefix moves where every descendant maps to the same subtree. Checked after
- * the exact map, longest prefix first.
+ * the exact map and the starter-kit rules, longest prefix first.
  */
-const prefixRedirects: Array<[string, string]> = [
-  ['/docs/nextjs-starter-kit', `${SAAS_JS}/docs/starter-kits/nextjs`],
-  [
-    '/docs/tanstack-router-starter-kit',
-    `${SAAS_JS}/docs/starter-kits/tanstack-start`,
-  ],
-  ['/blog', `${SAAS_JS}/blog`],
-]
+const prefixRedirects: Array<[string, string]> = [['/blog', `${SAAS_JS}/blog`]]
 
 export function resolveSaasUiRedirect(pathname: string): string | undefined {
   const path = pathname !== '/' ? pathname.replace(/\/+$/, '') : pathname
 
   const exact = saasUiRedirects[path]
   if (exact && exact !== path) return exact
+
+  for (const kit of starterKits) {
+    if (path === kit.prefix) return kit.destination
+    if (path.startsWith(`${kit.prefix}/`)) {
+      const subpath = resolveStarterKitSubpath(
+        kit.pages,
+        path.slice(kit.prefix.length + 1),
+      )
+      return subpath ? `${kit.destination}/${subpath}` : kit.destination
+    }
+  }
 
   for (const [prefix, destination] of prefixRedirects) {
     if (path === prefix) return destination
@@ -173,11 +259,11 @@ export function resolveSaasUiRedirect(pathname: string): string | undefined {
     }
   }
 
-  // The old docs had /props and /theming sub-pages for most components. None
-  // exist now, and listing every variant by hand missed some, e.g.
-  // /date-input/theming was still 404ing and collecting impressions. Resolve
-  // the parent instead: through the map if it is a legacy path, as-is if not.
-  const subpage = path.match(/^(\/docs\/.+)\/(props|theming)$/)
+  // The old docs had /props, /theming and /usage sub-pages for most components.
+  // None exist now, and listing every variant by hand missed some, e.g.
+  // /date-input/theming and /date-picker/usage were still 404ing. Resolve the
+  // parent instead: through the map if it is a legacy path, as-is if not.
+  const subpage = path.match(/^(\/docs\/.+)\/(props|theming|usage)$/)
   if (subpage) {
     const parent = subpage[1]
     return resolveSaasUiRedirect(parent) ?? parent

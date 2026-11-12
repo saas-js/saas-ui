@@ -34,7 +34,7 @@ const Intro = () => (
       w="fit-content"
       px="8"
     >
-      <Link href="/docs/getting-started/overview/installation">
+      <Link href="https://saas-ui.dev/docs/getting-started/installation">
         Start Building
       </Link>
     </Button>

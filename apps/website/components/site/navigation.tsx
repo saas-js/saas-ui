@@ -88,7 +88,9 @@ export const Navigation = ({ pro = false }: { pro?: boolean }) => {
           )}
 
           <NavigationMenuItem>
-            <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
+            <NavigationMenuLink href="https://saas-ui.dev/docs/getting-started/introduction">
+              Docs
+            </NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
@@ -130,7 +132,7 @@ export const Navigation = ({ pro = false }: { pro?: boolean }) => {
                 >
                   Explore the code.
                 </ListItem>
-                <ListItem title="Blog" href="/blog">
+                <ListItem title="Blog" href="https://www.saas-js.com/blog">
                   Read the latest posts.
                 </ListItem>
                 <ListItem title="Discord" href="/discord">

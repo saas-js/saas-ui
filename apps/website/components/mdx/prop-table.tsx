@@ -130,7 +130,9 @@ export const PropTable = async (props: PropTableProps) => {
                   {name === 'asChild' && (
                     <Text as="span">
                       For more details, read our{' '}
-                      <Link href="/docs/guides/composition">Composition</Link>{' '}
+                      <Link href="/docs/components/concepts/composition">
+                        Composition
+                      </Link>{' '}
                       guide.
                     </Text>
                   )}

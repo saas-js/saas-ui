@@ -66,7 +66,7 @@ export function ProductsSection() {
         ]}
         primaryAction={{
           label: 'Blocks & Templates',
-          href: '/pro/blocks',
+          href: 'https://saas-ui.dev/blocks',
         }}
         secondaryAction={{
           label: 'Pricing',

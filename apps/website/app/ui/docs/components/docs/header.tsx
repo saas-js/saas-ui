@@ -175,7 +175,7 @@ const HeaderDesktopNavbar = () => {
       <HStack py="2" minH="48px">
         <HStack width="300px">
           <HStack asChild>
-            <Link href="/docs">
+            <Link href="/docs/getting-started/introduction">
               <>
                 <SaasUIIcon color="black" width="24px" height="24px" />
 
@@ -259,7 +259,7 @@ const HeaderDesktopNavbar = () => {
           <HoverMenu
             trigger={
               <PrimaryNavLink
-                href="/docs/starter-kits"
+                href="https://www.saas-js.com/docs/starter-kits/nextjs"
                 onClick={(e) => {
                   e.preventDefault()
                 }}
@@ -272,10 +272,12 @@ const HeaderDesktopNavbar = () => {
             }
           >
             <Menu.Item value="nextjs" asChild>
-              <Link href="/docs/starter-kits/nextjs">Next.js</Link>
+              <Link href="https://www.saas-js.com/docs/starter-kits/nextjs">
+                Next.js
+              </Link>
             </Menu.Item>
             <Menu.Item value="tanstack-start" asChild>
-              <Link href="/docs/starter-kits/tanstack-start">
+              <Link href="https://www.saas-js.com/docs/starter-kits/tanstack-start">
                 Tanstack Start
               </Link>
             </Menu.Item>

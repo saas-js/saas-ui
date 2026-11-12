@@ -14,8 +14,11 @@ const linkTree = [
     title: 'Resources',
     items: [
       { label: 'Affiliate program', href: '/affiliate' },
-      { label: 'Documentation', href: '/docs' },
-      { label: 'Blog', href: '/blog' },
+      {
+        label: 'Documentation',
+        href: 'https://saas-ui.dev/docs/getting-started/introduction',
+      },
+      { label: 'Blog', href: 'https://www.saas-js.com/blog' },
       { label: 'Roadmap', href: 'https://roadmap.saas-ui.dev' },
       { label: 'Changelog', href: '/changelog' },
     ],
@@ -23,9 +26,12 @@ const linkTree = [
   {
     title: 'Products',
     items: [
-      { label: 'React components', href: '/docs/components' },
-      { label: 'Blocks', href: '/pro/blocks' },
-      { label: 'Figma UI kit', href: '/pro/figma' },
+      {
+        label: 'React components',
+        href: 'https://saas-ui.dev/docs/components/overview',
+      },
+      { label: 'Blocks', href: 'https://saas-ui.dev/blocks' },
+      { label: 'Figma UI kit', href: 'https://saas-ui.dev/figma' },
 
       // Point each kit at its own page rather than the saas-js.com homepage.
       // These are sitewide links with exact-match anchor text, so they are the

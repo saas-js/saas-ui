@@ -23,9 +23,11 @@ const HeaderRoot = chakra(Container, {
   },
 })
 
+// "Resources" pointed at /resources, which has never been a route.
 const NAV_LINKS = [
-  { title: 'Docs', url: '/docs' },
-  { title: 'Resources', url: '/resources' },
+  { title: 'Docs', url: '/docs/getting-started/introduction' },
+  { title: 'Changelog', url: '/changelog' },
+  { title: 'Blog', url: 'https://www.saas-js.com/blog' },
   { title: 'Showcase', url: '/showcase' },
 ]
 

@@ -301,7 +301,6 @@ export const docsConfig: DocsConfig = {
   },
   navigation: [
     docsLinks,
-    { title: 'Resources', url: 'resources' },
     { title: 'Showcase', url: 'showcase' },
   ],
 }

@@ -204,7 +204,7 @@ const HeaderDesktopNavbar = () => {
       <HStack py="2" minH="48px">
         <HStack width="300px">
           <HStack asChild>
-            <Link href="/docs">
+            <Link href="/docs/getting-started/introduction">
               <>
                 <SaasUIIcon color="black" width="24px" height="24px" />
 
@@ -217,9 +217,15 @@ const HeaderDesktopNavbar = () => {
         </HStack>
 
         <HStack gap="4">
-          <PrimaryNavLink href="/docs">Component system</PrimaryNavLink>
-          <PrimaryNavLink href="/docs">Pro components</PrimaryNavLink>
-          <PrimaryNavLink href="/docs">Starter kits</PrimaryNavLink>
+          <PrimaryNavLink href="/docs/getting-started/introduction">
+            Component system
+          </PrimaryNavLink>
+          <PrimaryNavLink href="/docs/pro/getting-started/introduction">
+            Pro components
+          </PrimaryNavLink>
+          <PrimaryNavLink href="https://www.saas-js.com/docs/starter-kits/nextjs">
+            Starter kits
+          </PrimaryNavLink>
         </HStack>
 
         <Spacer />

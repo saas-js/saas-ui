@@ -50,10 +50,10 @@ export const Navigation = () => {
                   <Text textStyle="xs" color="fg.muted" px="3" py="2">
                     Pro
                   </Text>
-                  <ListItem title="Figma" href="/pro/figma">
+                  <ListItem title="Figma" href="/figma">
                     Premium Figma UI kit.
                   </ListItem>
-                  <ListItem title="Blocks" href="/pro/blocks">
+                  <ListItem title="Blocks" href="/blocks">
                     Pre-built React components.
                   </ListItem>
                 </Stack>
@@ -122,7 +122,7 @@ export const Navigation = () => {
                 >
                   Explore the code.
                 </ListItem>
-                <ListItem title="Blog" href="/blog">
+                <ListItem title="Blog" href="https://www.saas-js.com/blog">
                   Read the latest posts.
                 </ListItem>
                 <ListItem title="Discord" href="/discord">

@@ -195,10 +195,10 @@ Let's make our way down this list.
 Sidebars are usually the most common type of navigation. It can take quite some
 time if you want to create it from scratch, but Saas UI makes it super easy. It
 provides a component called
-[_AppShell_](https://saas-ui.dev/docs/components/layout/app-shell). _AppShell_
+[_AppShell_](https://saas-ui.dev/docs/components/app-shell). _AppShell_
 offers a collection of components that can be shared throughout the application,
 consisting of a header, content aside, footer - and you guessed it, a
-[Sidebar](https://saas-ui.dev/docs/components/layout/sidebar).
+[Sidebar](https://saas-ui.dev/docs/components/sidebar).
 
 Create a new folder called `components` inside your src directory and create a
 file called `SidebarLayout.jsx` inside it. Once the file is created, paste the
@@ -300,7 +300,7 @@ Let's quickly go over this code.
   user's name. In this case, it's _John Doe_, and it will display the initial of
   the name inside it. You can also provide a _presence_ prop that can either be
   _online_, _offline_, _busy_, _dnd_, or _away_. You can see more
-  [in the docs](https://saas-ui.dev/docs/components/data-display/persona).
+  [in the docs](https://saas-ui.dev/docs/components/persona).
 - For an accessible dropdown menu that is Tab navigable, the installed `Menu`
   composition exposes `Menu.Trigger`, `Menu.Content`, and `Menu.Item`. Check
   [docs](https://chakra-ui.com/docs/components) here for a better understanding
@@ -431,7 +431,7 @@ application. You can now start building the dashboard components.
 
 Dashboards are built to display large amounts of data in a more readable format.
 A data table makes it easier. Let's implement a
-[data table with Saas UI](https://saas-ui.dev/docs/components/data-display/data-table)
+[data table with Saas UI](https://saas-ui.dev/docs/components/data-table)
 now. But before that, let's fetch some data to display in the data table.
 
 You'll be using the
@@ -517,7 +517,7 @@ export function DataTable({ columns, data }) {
 ```
 
 The DataTable component is built using the Pro
-[_DataGrid_ component](https://saas-ui.dev/docs/components/data-display/data-grid)
+[_DataGrid_ component](https://saas-ui.dev/docs/pro/components/data-grid)
 installed in the project. The component takes two props. One is for the
 columns, and the other is for the data. These props are passed into the columns
 and data props of the _DataTable_ component.
@@ -553,7 +553,7 @@ The _DataTable_ component accepts props like _isSortable_, _isSelectable_, etc.
 Passing these props into the component will allow you to either sort or select
 the data from the table. This component is now ready. You can also add a search
 box at the top of the datable using the
-[SearchInput component](https://saas-ui.dev/docs/components/forms/search-input)
+[SearchInput component](https://saas-ui.dev/docs/components/input)
 from the Saas UI package. Importing and using it is pretty straightforward.
 Inside the parent Box component of the _DatatableComponent_, paste the following
 code:
@@ -704,7 +704,7 @@ server component.
 #### 4. Recent Activity
 
 This section uses Saas UI's
-[Timeline](https://saas-ui.dev/docs/components/data-display/timeline) component
+[Timeline](https://saas-ui.dev/docs/components/timeline) component
 to display a list of events chronologically - user signups, plan changes,
 cancellations, and so on.
 
@@ -717,7 +717,7 @@ The Chakra UI
 [`Timeline.Connector`](https://chakra-ui.com/docs/components/timeline)
 part lets us customize the component/icon we want to use for each item, and
 we'll use the
-[Persona component](https://saas-ui.dev/docs/components/data-display/persona)
+[Persona component](https://saas-ui.dev/docs/components/persona)
 here, again, to represent users, as each event in our Timeline has _something_
 to do with a user.
 
@@ -849,10 +849,10 @@ devices.
 ![Responsive Dashboard with Next.js and SaaS UI](/img/blog/dashboard/responsive.png)
 
 There are many other components Saas UI provides to make building SaaS
-applications easier. Check out the [documentation](https://saas-ui.dev/docs) to
+applications easier. Check out the [documentation](https://saas-ui.dev/docs/getting-started/introduction) to
 learn more. If you are not satisfied with the styling of your app, you can also
 change the theming. Follow
-[this link](https://saas-ui.dev/docs/core/theming/customize-theme) to understand
+[this link](https://saas-ui.dev/docs/theming/customization/overview) to understand
 better how theming can be done in Saas UI.
 
 The code of this article can be found in this

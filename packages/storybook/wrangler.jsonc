@@ -1,0 +1,12 @@
+{
+  // Static Storybook build served from storybook.saas-ui.dev.
+  // Deploy with `pnpm cf:deploy` (generates stories, builds, uploads).
+  "name": "saas-ui-storybook",
+  "account_id": "41628d985876e47e71b0c5b53722e8b7",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./storybook-static"
+  },
+  "routes": [{ "pattern": "storybook.saas-ui.dev", "custom_domain": true }]
+}

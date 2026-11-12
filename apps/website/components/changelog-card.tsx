@@ -1,5 +1,5 @@
 import { formatBlogDate, getBlogAuthor } from '@/lib/blog'
-import { AspectRatio, Card, Flex, LinkBox, LinkOverlay, Stack, Text, VisuallyHidden } from '@chakra-ui/react'
+import { Box, Card, Flex, LinkBox, LinkOverlay, Stack, Text, VisuallyHidden } from '@chakra-ui/react'
 import { Avatar, AvatarGroup } from '#components/ui/avatar'
 import { Changelog } from 'content-collections'
 import Image from 'next/image'
@@ -16,21 +16,27 @@ export const ChangelogCard = (props: Props) => {
   return (
     <LinkBox asChild>
       <Card.Root size="lg" _hover={{ borderColor: 'border.emphasized' }}>
-        <AspectRatio
-          ratio={aspectRatio}
+        <Box
+          aspectRatio={aspectRatio}
           bg="bg.subtle"
           borderTopRadius="md"
           overflow="hidden"
+          position="relative"
         >
           <Image
-            src={`/og?title=${title}`}
+            src={`/og?title=${encodeURIComponent(title)}`}
             alt={title}
             objectFit="cover"
             objectPosition="center"
             width={340}
             height={340 * aspectRatio}
+            // /og already renders a sized image, and its query string can't be
+            // expressed as an images.localPatterns `search` match. The default
+            // loader throws during render, which 500s the changelog index.
+            unoptimized
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
-        </AspectRatio>
+        </Box>
         <Card.Body>
           <Stack gap="1" fontSize="sm" height="full">
             <Flex gap="2" justify="space-between" alignItems="center">
@@ -45,7 +51,7 @@ export const ChangelogCard = (props: Props) => {
               </AvatarGroup>
             </Flex>
             <Card.Title mt="1" fontSize="xl">
-              <LinkOverlay asChild href={`/${data.slug}`}>
+              <LinkOverlay asChild>
                 <Link href={`/changelog/${data.slug}`}>{title}</Link>
               </LinkOverlay>
             </Card.Title>

@@ -1,9 +1,7 @@
 'use client';
 import { ColorModeButton } from '@/components/docs/color-mode-button'
 import {
-  Alert,
   Portal,
-  Span,
   Box,
   Button,
   Container,
@@ -19,8 +17,6 @@ import { chakra } from '@chakra-ui/react/styled-system'
 import Link from 'next/link'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
-
-import { CopyButton } from '#components/copy-button'
 
 import { CommandMenu } from '../docs/command-menu'
 import { LinkButton } from '../link-button'
@@ -186,42 +182,5 @@ export const HeaderSection = () => {
         </Container>
       </Box>
     </>
-  )
-}
-
-function Announcement() {
-  return (
-    <Alert.Root
-      data-announcement
-      colorPalette="cyan"
-      borderRadius="0"
-      borderBottomWidth="1px"
-      borderBottomColor="cyan.solid/20"
-      py="1.5"
-    >
-      <Alert.Description
-        display="flex"
-        flexDirection="row"
-        flexWrap="wrap"
-        alignItems="center"
-        justifyContent="center"
-        gap="1"
-        mx="auto"
-        textAlign="center"
-        fontSize={{ base: 'xs', sm: 'sm' }}
-      >
-        Get <Span fontWeight="medium">30% off</Span> with code{' '}
-        <strong>V3BETA</strong>
-        <CopyButton
-          value="V3BETA"
-          variant="solid"
-          size="xs"
-          colorPalette="cyan"
-          ms="2"
-        >
-          Copy
-        </CopyButton>
-      </Alert.Description>
-    </Alert.Root>
   )
 }

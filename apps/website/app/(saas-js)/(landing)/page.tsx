@@ -5,7 +5,7 @@ import { FounderSection } from '@/components/saas-js/founder.section'
 import { GetStartedSection } from '@/components/saas-js/get-started.section'
 import { HeroSection } from '@/components/saas-js/hero.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
-import { ButtonGroup, Stack, Text } from '@chakra-ui/react'
+import { ButtonGroup, Stack } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -38,10 +38,6 @@ export default function Page() {
               </Link>
             </Button>
           </ButtonGroup>
-
-          <Text textStyle="xs" color="fg.muted">
-            <strong>30% off</strong> for a limited time
-          </Text>
         </Stack>
       </GetStartedSection>
     </>

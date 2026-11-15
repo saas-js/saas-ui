@@ -13,7 +13,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = createSjsMetadata({
   title: 'Affiliate program',
-  description: 'Share Saas UI and earn commissions on referred purchases.',
+  description: 'Share Saas.js and earn 30% of the sales price on every referred purchase.',
   path: '/affiliate',
 })
 
@@ -35,8 +35,8 @@ export default async function AffiliatePage() {
             Affiliate program
           </Heading>
           <Text>
-            Share Saas UI with your audience and earn a commission on every
-            referred purchase.
+            Share Saas.js with your audience and earn 30% of the sales price on
+            every referred purchase.
           </Text>
           {embed ? (
             <iframe

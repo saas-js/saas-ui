@@ -1,0 +1,85 @@
+---
+title: Next.js 16.4 and React 19.3
+publishedAt: '2026-11-19'
+authors: ['eelco']
+products: ['nextjs']
+description:
+  The Next.js starter kit is updated to Next.js 16.4 and React 19.3, bringing
+  smaller production bundles, a leaner dev server, stable View Transitions and
+  the new agent upgrade tooling.
+---
+
+The Next.js starter kit now runs on
+[Next.js 16.4](https://nextjs.org/blog/next-16-4) and
+[React 19.3](https://react.dev/blog/2026/09/09/react-19-3). This update also
+covers everything that shipped in
+[Next.js 16.3](https://nextjs.org/blog/next-16-3), so if you're coming from
+16.2 there's a lot to pick up.
+
+## What's new?
+
+### Faster and lighter, with no code changes
+
+Most of the gains in this update come for free:
+
+- **Up to 90% less memory in dev.** Turbopack now evicts memory and caches to
+  disk by default, so long `next dev` sessions stay lean.
+- **Faster builds.** The Turbopack disk cache now also works for `next build`,
+  so repeat builds on CI reuse unchanged artifacts.
+- **Faster server rendering.** The App Router uses native Node.js streams
+  instead of web streams, and handles up to 22% more requests under load.
+- **Smaller production bundles.** Turbopack ships a shared runtime chunk across
+  routes, shortens CSS Module class names and mangles internal export names.
+- **A 20–25% smaller disk cache** and lazy server HMR, so editing a shared
+  server module only recompiles the routes you actually request.
+
+The starter kit already uses TypeScript 7, which `next build` now picks up for
+much faster type checking.
+
+### React 19.3
+
+React 19.3 makes View Transitions and Fragment Refs stable and adds the new
+`browser()` API. You can use them in the starter kit today.
+
+### New APIs worth knowing
+
+Next.js 16.3 and 16.4 add a few APIs that fit nicely into a multi-tenant SaaS
+app:
+
+- **`catchError`** from `next/error` creates custom error boundaries that don't
+  interfere with `notFound()` or `redirect()`, and can `retry()` failed Server
+  Components.
+- **Root params** from `next/root-params` let any Server Component read root
+  level params without prop drilling.
+- **`import.meta.glob`** is supported natively by Turbopack.
+
+### Cache Components and Instant Navigations
+
+Next.js 16.4 recommends Cache Components (`cacheComponents` and
+`partialPrefetching`) for every app, and it becomes the default in Next.js 17.
+The starter kit doesn't enable it yet. We're evaluating how it fits with the
+workspace-scoped, tRPC-driven data fetching and will follow up in a later
+release.
+
+### Agent-assisted upgrades
+
+The new `next upgrade --agent` command gives coding agents version-specific
+guidance, codemods and verification steps to upgrade your app from start to
+finish. It's a good fit for projects based on the starter kit that have
+drifted from `main`:
+
+```bash
+npx next@canary upgrade --agent=latest
+```
+
+## Upgrading
+
+The upgrade required no code changes in the starter kit. To upgrade your own
+project, bump the dependencies and reinstall:
+
+```bash
+pnpm add next@^16.4.6 react@^19.3.1 react-dom@^19.3.1 --filter web
+pnpm add -D @next/eslint-plugin-next@^16.4.6 @next/bundle-analyzer@^16.4.6 @types/react@^19.3.0 @types/react-dom@^19.3.0 --filter web
+```
+
+Or pull the latest changes from the `main` branch of the starter kit.

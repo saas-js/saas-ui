@@ -70,6 +70,62 @@ import { TimelineAnatomy } from "./timeline"
 import { ToastAnatomy } from "./toast"
 import { TooltipAnatomy } from "./tooltip"
 import { VisuallyHiddenAnatomy } from "./visually-hidden"
+import { AbsoluteCenterAnatomy } from "./absolute-center"
+import { AppShellAnatomy } from "./app-shell"
+import { AsideAnatomy } from "./aside"
+import { BleedAnatomy } from "./bleed"
+import { CarouselAnatomy } from "./carousel"
+import { CheckmarkAnatomy } from "./checkmark"
+import { ClientOnlyAnatomy } from "./client-only"
+import { CodeBlockAnatomy } from "./code-block"
+import { CollapsibleAnatomy } from "./collapsible"
+import { ColorPickerAnatomy } from "./color-picker"
+import { ColorSwatchAnatomy } from "./color-swatch"
+import { ComboboxAnatomy } from "./combobox"
+import { CommandAnatomy } from "./command"
+import { ContainerAnatomy } from "./container"
+import { DataTableAnatomy } from "./data-table"
+import { DateInputAnatomy } from "./date-input"
+import { DatePickerAnatomy } from "./date-picker"
+import { DownloadTriggerAnatomy } from "./download-trigger"
+import { EmAnatomy } from "./em"
+import { EnvironmentProviderAnatomy } from "./environment-provider"
+import { FieldAnatomy } from "./field"
+import { FieldsetAnatomy } from "./fieldset"
+import { FiltersAnatomy } from "./filters"
+import { FloatingPanelAnatomy } from "./floating-panel"
+import { FormatDateAnatomy } from "./format-date"
+import { GridListAnatomy } from "./grid-list"
+import { GroupAnatomy } from "./group"
+import { HoverCardAnatomy } from "./hover-card"
+import { IconBadgeAnatomy } from "./icon-badge"
+import { IconButtonAnatomy } from "./icon-button"
+import { LinkOverlayAnatomy } from "./link-overlay"
+import { ListboxAnatomy } from "./listbox"
+import { MarkAnatomy } from "./mark"
+import { MarqueeAnatomy } from "./marquee"
+import { ModalsAnatomy } from "./modals"
+import { NativeSelectAnatomy } from "./native-select"
+import { NavbarAnatomy } from "./navbar"
+import { OverlayManagerAnatomy } from "./overlay-manager"
+import { PageAnatomy } from "./page"
+import { PersonaAnatomy } from "./persona"
+import { PresenceAnatomy } from "./presence"
+import { QrCodeAnatomy } from "./qr-code"
+import { RadiomarkAnatomy } from "./radiomark"
+import { RichTextEditorAnatomy } from "./rich-text-editor"
+import { ScrollAreaAnatomy } from "./scroll-area"
+import { SidebarAnatomy } from "./sidebar"
+import { SimpleGridAnatomy } from "./simple-grid"
+import { SkipNavAnatomy } from "./skip-nav"
+import { SplitPageAnatomy } from "./split-page"
+import { SplitterAnatomy } from "./splitter"
+import { TagsInputAnatomy } from "./tags-input"
+import { ThemeAnatomy } from "./theme"
+import { ToggleAnatomy } from "./toggle"
+import { ToggleTipAnatomy } from "./toggle-tip"
+import { TreeViewAnatomy } from "./tree-view"
+import { WrapAnatomy } from "./wrap"
 
 export const allComponents = {
   blockquote: BlockquoteAnatomy,
@@ -144,6 +200,62 @@ export const allComponents = {
   switch: SwitchAnatomy,
   checkbox: CheckboxAnatomy,
   button: ButtonAnatomy,
+  "absolute-center": AbsoluteCenterAnatomy,
+  "app-shell": AppShellAnatomy,
+  aside: AsideAnatomy,
+  bleed: BleedAnatomy,
+  carousel: CarouselAnatomy,
+  checkmark: CheckmarkAnatomy,
+  "client-only": ClientOnlyAnatomy,
+  "code-block": CodeBlockAnatomy,
+  collapsible: CollapsibleAnatomy,
+  "color-picker": ColorPickerAnatomy,
+  "color-swatch": ColorSwatchAnatomy,
+  combobox: ComboboxAnatomy,
+  command: CommandAnatomy,
+  container: ContainerAnatomy,
+  "data-table": DataTableAnatomy,
+  "date-input": DateInputAnatomy,
+  "date-picker": DatePickerAnatomy,
+  "download-trigger": DownloadTriggerAnatomy,
+  em: EmAnatomy,
+  "environment-provider": EnvironmentProviderAnatomy,
+  field: FieldAnatomy,
+  fieldset: FieldsetAnatomy,
+  filters: FiltersAnatomy,
+  "floating-panel": FloatingPanelAnatomy,
+  "format-date": FormatDateAnatomy,
+  "grid-list": GridListAnatomy,
+  group: GroupAnatomy,
+  "hover-card": HoverCardAnatomy,
+  "icon-badge": IconBadgeAnatomy,
+  "icon-button": IconButtonAnatomy,
+  "link-overlay": LinkOverlayAnatomy,
+  listbox: ListboxAnatomy,
+  mark: MarkAnatomy,
+  marquee: MarqueeAnatomy,
+  modals: ModalsAnatomy,
+  "native-select": NativeSelectAnatomy,
+  navbar: NavbarAnatomy,
+  "overlay-manager": OverlayManagerAnatomy,
+  page: PageAnatomy,
+  persona: PersonaAnatomy,
+  presence: PresenceAnatomy,
+  "qr-code": QrCodeAnatomy,
+  radiomark: RadiomarkAnatomy,
+  "rich-text-editor": RichTextEditorAnatomy,
+  "scroll-area": ScrollAreaAnatomy,
+  sidebar: SidebarAnatomy,
+  "simple-grid": SimpleGridAnatomy,
+  "skip-nav": SkipNavAnatomy,
+  "split-page": SplitPageAnatomy,
+  splitter: SplitterAnatomy,
+  "tags-input": TagsInputAnatomy,
+  theme: ThemeAnatomy,
+  toggle: ToggleAnatomy,
+  "toggle-tip": ToggleTipAnatomy,
+  "tree-view": TreeViewAnatomy,
+  wrap: WrapAnatomy,
 }
 
 export type ComponentAnatomyName = keyof typeof allComponents

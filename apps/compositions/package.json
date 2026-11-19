@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@ark-ui/react": "^5.30.0",
-    "@chakra-ui/react": "^3.36.1",
+    "@chakra-ui/react": "^3.38.0",
     "@emotion/react": "^11.14.0",
     "@saas-js/conditions": "^0.1.0",
     "@saas-js/conditions-react": "^0.1.0",

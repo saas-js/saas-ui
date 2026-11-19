@@ -938,47 +938,6 @@
     "version": "3.0.0-rc.1"
   },
   {
-    "dependencies": [
-      "@chakra-ui/react",
-      "@saas-ui/chakra-preset"
-    ],
-    "files": [
-      {
-        "path": "ui/command/command.tsx",
-        "type": "registry:ui"
-      },
-      {
-        "path": "ui/command/index.ts",
-        "type": "registry:ui"
-      }
-    ],
-    "meta": {
-      "compiler": {
-        "client": true,
-        "fileHashes": {
-          "ui/command/command.tsx": "cfffa7b796cfaca326a26b65f1d89c307ab13d4c5e44da6f1233955ceac4a81c",
-          "ui/command/index.ts": "47b46bd5922a7d8dec0a72dbdd4b4a3cd2007de7c1cdd4035d159c126ab6298f"
-        },
-        "iconDependencies": [],
-        "presetImports": [
-          "@saas-ui/chakra-preset",
-          "@saas-ui/chakra-preset/recipes/command"
-        ],
-        "presetRecipeBindings": [
-          "command"
-        ],
-        "recipeReferences": [
-          "suiCommand"
-        ]
-      },
-      "contentHash": "11ea2ad466c48fc61eed20e7a599c2daf109211952498a6f86096a47bbbb28fe"
-    },
-    "name": "command",
-    "schemaVersion": 1,
-    "type": "registry:ui",
-    "version": "3.0.0-rc.1"
-  },
-  {
     "files": [
       {
         "path": "icons/copy-icon.tsx",
@@ -2090,6 +2049,47 @@
     "name": "italic-icon",
     "schemaVersion": 1,
     "type": "registry:icon",
+    "version": "3.0.0-rc.1"
+  },
+  {
+    "dependencies": [
+      "@chakra-ui/react",
+      "@saas-ui/chakra-preset"
+    ],
+    "files": [
+      {
+        "path": "ui/kbd-group/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/kbd-group/kbd-group.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "meta": {
+      "compiler": {
+        "client": true,
+        "fileHashes": {
+          "ui/kbd-group/index.ts": "5a91baa573b94cfe638354c7f3648ee03809b1f874ba818c0baf9b8d25050a43",
+          "ui/kbd-group/kbd-group.tsx": "fdcac83c89ea37bf097a921060536405e7bf1f7a82538430c1ca2a8897eff1b6"
+        },
+        "iconDependencies": [],
+        "presetImports": [
+          "@saas-ui/chakra-preset",
+          "@saas-ui/chakra-preset/recipes/kbd-group"
+        ],
+        "presetRecipeBindings": [
+          "kbdGroup"
+        ],
+        "recipeReferences": [
+          "suiKbdGroup"
+        ]
+      },
+      "contentHash": "d5b7917767688df499f08c58edb8bb971f20997ff80ad3bbb5655ca881d8ab16"
+    },
+    "name": "kbd-group",
+    "schemaVersion": 1,
+    "type": "registry:ui",
     "version": "3.0.0-rc.1"
   },
   {

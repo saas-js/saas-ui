@@ -15,7 +15,7 @@ onlyBuiltDependencies:
   - unrs-resolver
   - workerd
 overrides:
-  '@chakra-ui/react': '^3.36.1'
-  '@ark-ui/react': '^5.38.2'
+  '@chakra-ui/react': '^3.38.0'
+  '@ark-ui/react': '^5.40.0'
   '@types/react': '^19.2.2'
   '@types/react-dom': '^19.2.0'

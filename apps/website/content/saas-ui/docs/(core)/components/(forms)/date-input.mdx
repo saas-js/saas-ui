@@ -1,0 +1,48 @@
+---
+title: Date Input
+description:
+  A segmented input for typing a date, with each part editable on its own.
+links:
+  recipe: dateInput
+---
+
+<ExampleTabs name="date-input-basic" />
+
+## Anatomy
+
+```jsx
+import { DateInput } from '@chakra-ui/react'
+```
+
+```jsx
+<DateInput.Root>
+  <DateInput.Label />
+  <DateInput.Control>
+    <DateInput.Segments />
+  </DateInput.Control>
+  <DateInput.HiddenInput />
+</DateInput.Root>
+```
+
+`DateInput.Segments` renders a segment for each part of the date in the order
+of the user's locale. Use the arrow keys or type to change a segment. To pick a
+date from a calendar instead, use the [Date Picker](/docs/components/date-picker).
+
+## Examples
+
+### Basic
+
+<ExampleTabs name="date-input-basic" />
+
+### Sizes
+
+The date input uses the same sizes as `Input`, so it lines up with other
+fields in a form.
+
+<ExampleTabs name="date-input-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to switch between `outline`, `subtle` and `flushed`.
+
+<ExampleTabs name="date-input-with-variants" />

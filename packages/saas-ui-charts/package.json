@@ -46,7 +46,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@chakra-ui/react": "^3.36.1",
+    "@chakra-ui/react": "^3.38.0",
     "@tanstack/charts": "^0.14.0",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",

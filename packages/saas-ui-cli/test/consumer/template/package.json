@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.30.0",
-    "@chakra-ui/react": "^3.30.0",
+    "@chakra-ui/react": "^3.38.0",
     "@emotion/react": "^11.14.0",
     "@saas-ui/chakra-preset": "3.0.0-rc.1",
     "@tanstack/react-form": "^1.33.2",

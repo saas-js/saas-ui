@@ -14,7 +14,7 @@ type DialogResult = {
   message: string
 }
 
-const dialog = createOverlay<DialogProps>((props) => {
+const dialog = createOverlay<DialogProps, DialogResult>((props) => {
   const { title, description, content, ...rest } = props
   return (
     <Dialog.Root {...rest}>

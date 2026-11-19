@@ -56,7 +56,7 @@ const sharedStack = [
   },
   {
     layer: 'UI',
-    choice: 'Chakra UI + Panda CSS',
+    choice: 'Chakra UI + Saas UI',
     note: 'A themeable token system with pre-built components and Storybook stories.',
   },
   {
@@ -135,12 +135,12 @@ const sharedFaq = [
     a: 'Yes. Both licences cover unlimited self-hosted projects, including work you deliver to clients.',
   },
   {
-    q: 'Do I have to use every part of it?',
-    a: 'No. The packages behind it, like Drizzle CRUD and the Better Auth React Query bindings, are open source and work on their own.',
+    q: 'Do you offer refunds?',
+    a: 'No. It is a digital download, so we do not offer refunds. Read through the docs and try the open source packages first to check it is a good fit.',
   },
   {
     q: 'How do updates work?',
-    a: 'You pull them from the repo. It is a starting point, not a dependency, so you take what you want when you want it.',
+    a: 'Every release includes migration docs, so your agents can apply upstream improvements to your codebase. It is a starting point, not a dependency, so you choose what to take and when.',
   },
 ]
 
@@ -188,7 +188,7 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
     faq: [
       {
         q: 'Is TanStack Start ready for production?',
-        a: 'It is younger than Next.js. What you get for that is a router and cache built together, and typed routing that holds up as a dashboard grows. Building mostly marketing pages? Use Next.js. Building an application? TanStack Start is the better fit.',
+        a: 'Yes. It has over 14 million weekly downloads, and every app built on Lovable runs on it. Compared to Next.js you get simpler, explicit APIs, end-to-end type safety and a faster development loop.',
       },
       ...sharedFaq,
     ],
@@ -207,28 +207,28 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
     productHref: '/nextjs',
     whyFramework: [
       {
-        title: 'Agents have seen more Next.js than anything else',
-        body: 'Models are trained on far more Next.js than any other React framework. An agent writing App Router code works from patterns it has seen thousands of times, so it invents fewer APIs and needs correcting less often.',
+        title: 'Prefetch on the server, hydrate on the client',
+        body: 'Server components prefetch the same tRPC queries the client uses and hand the data over on hydration. Pages render with data on first paint, and there is still only one API to maintain.',
       },
       {
-        title: 'Server by default',
-        body: 'Components run on the server until someone writes use client. An agent has to opt in before code reaches the browser, so a database call does not drift into a client bundle while nobody is looking.',
+        title: 'The ecosystem targets it first',
+        body: 'Auth providers, analytics, CMSes and payment SDKs ship a Next.js adapter before anything else. Whatever you add next, there is a documented path.',
       },
       {
-        title: 'Conventions leave less to invent',
-        body: 'Where a route lives, where its layout goes, where loading and error states belong: all of it is convention. An agent adding a page has one correct answer to find instead of a decision to make.',
+        title: 'Your team already knows it',
+        body: 'Most React developers have shipped a Next.js app, and coding agents know its APIs well. New people, and new agents, are productive on day one.',
       },
       {
-        title: 'Typed routes',
-        body: 'Route types are generated from the file tree. A link to a page that does not exist fails type checking instead of 404ing in production after an agent renamed a folder.',
+        title: 'Fast tooling with Turbopack',
+        body: 'The dev server runs on Turbopack, so it starts quickly and changes show up almost instantly. That tight loop matters even more when an agent is making a dozen edits a minute.',
       },
       {
-        title: 'Suspense boundaries are structural',
-        body: 'Loading states are positions in the tree, not flags in component state. A slow query degrades one section of the dashboard instead of blanking the page.',
+        title: 'SEO built in',
+        body: 'The Metadata API sets titles, descriptions and Open Graph tags per route. Your marketing pages and your app live in one project, with no extra SEO libraries.',
       },
       {
-        title: 'Every integration targets it first',
-        body: 'Auth providers, analytics, CMSes and payment SDKs ship a Next.js adapter before anything else. Whatever you bolt on next, the documented path already exists.',
+        title: 'Backed by Vercel',
+        body: 'Vercel funds the framework and employs members of the React core team, so it is not going anywhere. Deploy there and you get preview deployments for every pull request out of the box.',
       },
     ],
     stack: sharedStack,
@@ -237,7 +237,11 @@ export const seoLandingPages: Record<string, SeoLandingContent> = {
     faq: [
       {
         q: 'Which Next.js version does it use?',
-        a: 'The App Router, with server components and streaming. The kit tracks the framework instead of pinning to whatever version it shipped on.',
+        a: 'Next.js 16 with the App Router, server components and streaming. The kit tracks new releases, with migration docs when something changes.',
+      },
+      {
+        q: 'Should I choose Next.js or TanStack Start?',
+        a: 'Pick the framework your team knows. Choose Next.js for its ecosystem and familiarity. Choose TanStack Start for simpler, explicit APIs, end-to-end type safety and a faster development loop.',
       },
       ...sharedFaq,
     ],

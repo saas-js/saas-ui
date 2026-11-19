@@ -93,7 +93,9 @@ Use `update` to change the props of an overlay that is already open.
 ### Return value
 
 `open` returns a promise that resolves with the value passed to `close`, which
-makes confirmation flows read top to bottom.
+makes confirmation flows read top to bottom. Pass the result type as the second
+type parameter, `createOverlay<DialogProps, DialogResult>(...)`, to type the
+value `open` resolves with; without it the result is `unknown`.
 
 Use `waitForExit` to let the exit animation finish before opening the next
 overlay.

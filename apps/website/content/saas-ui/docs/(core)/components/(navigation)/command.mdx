@@ -1,0 +1,77 @@
+---
+title: Command
+description:
+  A searchable command palette for jumping to pages and running actions.
+links:
+  recipe: command
+---
+
+<ExampleTabs name="command-basic" />
+
+## Anatomy
+
+```jsx
+import { Command, useCommandCollection } from '@chakra-ui/react'
+```
+
+```jsx
+<Command.Root>
+  <Command.Label />
+  <Command.Control>
+    <Command.Indicator />
+    <Command.Input />
+    <Command.ClearTrigger />
+  </Command.Control>
+  <Command.List>
+    <Command.Empty />
+    <Command.Loading />
+    <Command.ItemGroup>
+      <Command.ItemGroupLabel />
+      <Command.Item>
+        <Command.ItemText />
+        <Command.ItemCommand />
+      </Command.Item>
+    </Command.ItemGroup>
+    <Command.Separator />
+  </Command.List>
+  <Command.Footer />
+</Command.Root>
+```
+
+`useCommandCollection` holds the items and the query. It ranks items with a
+fuzzy match on their `label` and `keywords`, so pass it to `Command.Root` as
+`command` and render `command.collection`.
+
+<Info>
+  This is the command palette from Chakra UI. To display a keyboard shortcut
+  such as `⌘K`, use `KbdGroup` (registry item `kbd-group`), which was called
+  `Command` before the rc.
+</Info>
+
+## Examples
+
+### Basic
+
+Group items with `groupBy` and render each group with `Command.ItemGroup`. Set
+`highlight` on `Command.ItemText` to emphasize the characters that match the
+query, and use `Command.ItemCommand` to show an item's shortcut.
+
+<ExampleTabs name="command-basic" />
+
+### Dialog
+
+Wrap the palette in `Command.Dialog` to open it as an overlay, and register a
+hotkey with `useHotkeys`. Put the collection in `Command.Provider` so the query
+resets when the dialog closes.
+
+This example opens with `⌘J` because the docs search already uses `⌘K`. In your
+own app, `mod+k` is the usual choice.
+
+<ExampleTabs name="command-dialog" />
+
+### Sizes
+
+Use the `size` prop to change the height of the input and the density of the
+list.
+
+<ExampleTabs name="command-with-sizes" />

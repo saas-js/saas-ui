@@ -174,7 +174,7 @@ const HeaderDesktopNavbar = () => {
           <HStack asChild>
             <Link href="/docs/getting-started/introduction">
               <>
-                <SaasUIIcon color="black" width="24px" height="24px" />
+                <SaasUIIcon color="currentColor" width="24px" height="24px" />
 
                 <Span fontSize="lg" color="fg.subtle">
                   Documentation

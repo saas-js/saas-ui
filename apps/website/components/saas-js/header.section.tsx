@@ -86,9 +86,6 @@ const DesktopNav = () => (
       </IconButton>
       <ColorModeButton />
       <Separator orientation="vertical" height="4" mx="2" />
-      <LinkButton href="/docs" variant="ghost" size="sm" flexShrink="0">
-        Docs
-      </LinkButton>
       <LinkButton
         href="/pricing"
         colorPalette="accent"
@@ -174,7 +171,7 @@ export const HeaderSection = () => {
         h="48px"
         zIndex="3"
         backdropFilter="blur(10px)"
-        bg="bg.muted/90"
+        bg="bg/90"
       >
         <Container>
           <DesktopNav />

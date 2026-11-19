@@ -1,15 +1,10 @@
 import { CustomersSection } from '@/components/saas-js/customers.section'
-import { DemoSection } from '@/components/saas-js/demo.section'
 import { FeaturesSection } from '@/components/saas-js/features.section'
 import { FounderSection } from '@/components/saas-js/founder.section'
 import { GetStartedSection } from '@/components/saas-js/get-started.section'
-import { HeroSection } from '@/components/saas-js/hero.section'
+import { HeroWorkspaceSection } from '@/components/saas-js/hero/hero-workspace'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
-import { ButtonGroup, Stack } from '@chakra-ui/react'
 import type { Metadata } from 'next'
-import Link from 'next/link'
-
-import { Button } from '#components/ui/button'
 
 export const metadata: Metadata = {
   title: 'AI-native SaaS starter kit for TanStack Start',
@@ -20,26 +15,12 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <HeroSection />
-      <DemoSection />
+      <HeroWorkspaceSection />
       <CustomersSection />
       <FeaturesSection />
       <FounderSection />
       <TestimonialsSection />
-      <GetStartedSection>
-        <Stack>
-          <ButtonGroup>
-            <Button variant="glass" colorPalette="accent" asChild>
-              <Link href="/pricing">Buy now</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/docs/starter-kits/tanstack-start">
-                Read the docs
-              </Link>
-            </Button>
-          </ButtonGroup>
-        </Stack>
-      </GetStartedSection>
+      <GetStartedSection docsHref="/docs/starter-kits/tanstack-start" />
     </>
   )
 }

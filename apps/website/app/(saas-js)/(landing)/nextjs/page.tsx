@@ -5,11 +5,8 @@ import { FounderSection } from '@/components/saas-js/founder.section'
 import { GetStartedSection } from '@/components/saas-js/get-started.section'
 import { NextjsSection } from '@/components/saas-js/hero.section'
 import { TestimonialsSection } from '@/components/saas-js/testimonials.section'
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
-import { Button } from '#components/ui/button'
 import { createSjsMetadata } from '@/lib/saas-js/metadata'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = createSjsMetadata({
   title: 'AI-native SaaS starter kit for Next.js',
@@ -27,14 +24,7 @@ export default function Page() {
       <FeaturesSection framework="nextjs" />
       <FounderSection />
       <TestimonialsSection />
-      <GetStartedSection>
-        <Button variant="glass" colorPalette="accent" asChild>
-          <Link href="/pricing">Buy now</Link>
-        </Button>
-        <Button variant="outline" asChild>
-          <Link href="/docs/starter-kits/nextjs">Documentation</Link>
-        </Button>
-      </GetStartedSection>
+      <GetStartedSection docsHref="/docs/starter-kits/nextjs" />
     </>
   )
 }

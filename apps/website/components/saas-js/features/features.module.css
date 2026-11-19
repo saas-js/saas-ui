@@ -1,0 +1,1240 @@
+/*
+ * Feature stages: compact product UI set on the page canvas. A back panel
+ * fades out towards the edges, a floating card sits on top of it. Colors come
+ * from the Chakra theme so light and dark mode follow the site.
+ */
+
+.stage {
+  --m-panel: var(--chakra-colors-bg-panel);
+  --m-line: var(--chakra-colors-border);
+  --m-line-em: var(--chakra-colors-border-emphasized);
+  --m-subtle: var(--chakra-colors-bg-subtle);
+  --m-muted-bg: var(--chakra-colors-bg-muted);
+  --m-fg: var(--chakra-colors-fg);
+  --m-fg-muted: var(--chakra-colors-fg-muted);
+  --m-fg-subtle: var(--chakra-colors-fg-subtle);
+  --m-accent: var(--chakra-colors-accent-solid);
+  --m-accent-contrast: var(--chakra-colors-accent-contrast);
+  --m-blue: var(--chakra-colors-blue-solid);
+  --m-blue-subtle: var(--chakra-colors-blue-subtle);
+  /* Explicit hues: the theme palette leans blue, which muddies status tints. */
+  --m-green: oklch(0.62 0.15 152);
+  --m-green-subtle: oklch(0.62 0.15 152 / 0.12);
+  --m-green-fg: oklch(0.45 0.12 152);
+  --m-tag-blue-bg: oklch(0.58 0.17 258 / 0.1);
+  --m-tag-blue-fg: oklch(0.45 0.15 258);
+  --m-tag-pink-bg: oklch(0.62 0.19 355 / 0.1);
+  --m-tag-pink-fg: oklch(0.48 0.17 355);
+  --m-shadow-sm: 0 1px 2px rgb(20 20 30 / 0.05), 0 0 1px rgb(20 20 30 / 0.06);
+  --m-shadow-lg:
+    0 0 0 1px var(--m-line), 0 2px 4px rgb(20 20 30 / 0.04),
+    0 16px 32px -8px rgb(20 20 30 / 0.18);
+
+  position: relative;
+  height: 380px;
+  margin-block: 36px 32px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--m-fg);
+  text-align: left;
+  user-select: none;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+:global(.dark) .stage {
+  --m-green-subtle: oklch(0.62 0.15 152 / 0.2);
+  --m-green-fg: oklch(0.8 0.13 152);
+  --m-tag-blue-bg: oklch(0.58 0.17 258 / 0.22);
+  --m-tag-blue-fg: oklch(0.82 0.09 258);
+  --m-tag-pink-bg: oklch(0.62 0.19 355 / 0.22);
+  --m-tag-pink-fg: oklch(0.84 0.09 355);
+}
+
+.stage svg {
+  flex-shrink: 0;
+}
+
+.stage p {
+  margin: 0;
+}
+
+/* -------------------------------------------------------------- layout -- */
+
+.back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  padding: 1px;
+  -webkit-mask-image:
+    linear-gradient(to right, #000 78%, transparent),
+    linear-gradient(to bottom, #000 55%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, #000 78%, transparent),
+    linear-gradient(to bottom, #000 55%, transparent);
+  mask-composite: intersect;
+}
+
+.front {
+  position: absolute;
+  z-index: 2;
+}
+
+.fill {
+  height: 100%;
+}
+
+.stageAuth .back {
+  inset: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent);
+}
+.stageAuth .front {
+  right: 0;
+  top: 190px;
+  width: min(288px, 74%);
+}
+
+.stageWorkspaces .back {
+  inset: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent);
+}
+/* Anchored under the workspace trigger in the panel header. */
+.stageWorkspaces .front {
+  left: 9px;
+  top: 38px;
+  width: min(220px, 60%);
+}
+
+.stageBilling .back {
+  inset: 0 24% 0 0;
+}
+.stageBilling .front {
+  right: 0;
+  top: 96px;
+  width: min(312px, 80%);
+}
+
+.stageFlags .back {
+  inset: 0 14% 0 0;
+}
+.stageFlags .front {
+  right: 0;
+  top: 150px;
+  width: min(288px, 80%);
+}
+
+.stageDatabase .back {
+  inset: 0 16% 0 0;
+}
+.stageDatabase .front {
+  right: 0;
+  top: 168px;
+  width: min(272px, 74%);
+}
+
+.stageApi .back {
+  inset: 0;
+}
+/*
+ * Sits under line 10 of the editor, at the `contact.` column:
+ * 1px + 1px border + 36px tabs + 12px padding + 10 lines of 12px * 1.7,
+ * and 2px + 16px padding + 21 monospace characters across.
+ */
+.stageApi .front {
+  top: calc(49px + 10 * 20.4px + 2px);
+  left: calc(18px + 21ch);
+  width: min(300px, calc(100% - 18px - 21ch));
+  font-family: var(--chakra-fonts-mono);
+  font-size: 12px;
+}
+
+.stageUi .back {
+  inset: 0 26% 0 0;
+}
+.stageUi .front {
+  right: 0;
+  top: 72px;
+  width: min(248px, 66%);
+}
+
+.stageEmail .back {
+  inset: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent);
+  mask-image: linear-gradient(to bottom, #000 62%, transparent);
+}
+
+.stageTesting .back {
+  inset: 0 18% 0 0;
+}
+.stageTesting .front {
+  right: 0;
+  top: 136px;
+  width: min(300px, 80%);
+}
+
+/* ---------------------------------------------------------- primitives -- */
+
+.panel {
+  background: var(--m-panel);
+  border: 1px solid var(--m-line);
+  border-radius: 10px;
+  box-shadow: var(--m-shadow-sm);
+  overflow: hidden;
+}
+
+.float {
+  background: var(--m-panel);
+  border-radius: 12px;
+  box-shadow: var(--m-shadow-lg);
+  overflow: hidden;
+}
+
+.floatHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--m-line);
+}
+
+.floatHead strong {
+  font-weight: 600;
+}
+
+.floatHead span {
+  font-size: 12px;
+}
+
+.floatFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--m-line);
+  font-size: 12px;
+}
+
+.floatFoot > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.muted {
+  color: var(--m-fg-muted);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.crumbs {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--m-line);
+  color: var(--m-fg-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: 4px;
+}
+
+.crumbCurrent {
+  color: var(--m-fg);
+}
+
+.crumbMore {
+  margin-left: auto;
+  color: var(--m-fg-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.btnXs {
+  height: 24px;
+  padding: 0 8px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.btnIcon {
+  width: 30px;
+  padding: 0;
+}
+
+.btnBlock {
+  width: 100%;
+}
+
+.btnPrimary {
+  background: var(--m-accent);
+  color: var(--m-accent-contrast);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.16),
+    0 1px 2px rgb(20 20 30 / 0.12);
+}
+
+.btnOutline {
+  background: var(--m-panel);
+  color: var(--m-fg);
+  box-shadow:
+    inset 0 0 0 1px var(--m-line-em),
+    var(--m-shadow-sm);
+}
+
+.btnGhost {
+  color: var(--m-fg);
+}
+
+.btnRow {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badgeGreen {
+  background: var(--m-green-subtle);
+  color: var(--m-green-fg);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--m-subtle);
+  color: var(--m-fg);
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tagSurface {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--m-line-em);
+  color: var(--m-fg-muted);
+}
+
+.tag[data-tone='blue'] {
+  background: var(--m-tag-blue-bg);
+  color: var(--m-tag-blue-fg);
+}
+.tag[data-tone='green'] {
+  background: var(--m-green-subtle);
+  color: var(--m-green-fg);
+}
+.tag[data-tone='pink'] {
+  background: var(--m-tag-pink-bg);
+  color: var(--m-tag-pink-fg);
+}
+
+.avatar,
+.workspaceMark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  --tone: var(--m-fg-muted);
+  background: color-mix(in oklch, var(--tone) 18%, var(--m-panel));
+  color: color-mix(in oklch, var(--tone) 75%, var(--m-fg));
+}
+
+.workspaceMark {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  font-size: 10px;
+}
+
+.stage [data-tone='pink'] {
+  --tone: var(--chakra-colors-pink-solid);
+}
+.stage [data-tone='yellow'] {
+  --tone: var(--chakra-colors-yellow-solid);
+}
+.stage [data-tone='blue'] {
+  --tone: var(--chakra-colors-blue-solid);
+}
+.stage [data-tone='teal'] {
+  --tone: var(--chakra-colors-teal-solid);
+}
+.stage [data-tone='purple'] {
+  --tone: var(--chakra-colors-purple-solid);
+}
+
+.avatar[data-tone='ink'],
+.workspaceMark[data-tone='ink'] {
+  background: var(--m-accent);
+  color: var(--m-accent-contrast);
+}
+
+.switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--m-line-em);
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+}
+
+.switch[data-checked] {
+  background: var(--m-accent);
+}
+
+.switch[data-checked]::after {
+  left: 14px;
+  background: var(--m-accent-contrast);
+}
+
+.checkbox {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--m-accent);
+  color: var(--m-accent-contrast);
+}
+
+.iconBox {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--m-subtle);
+  color: var(--m-fg);
+}
+
+.settingText {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+
+.settingText strong {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.settingText span {
+  color: var(--m-fg-muted);
+  font-size: 12px;
+}
+
+.label {
+  color: var(--m-fg-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.field {
+  display: grid;
+  gap: 5px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 7px;
+  background: var(--m-panel);
+  box-shadow: inset 0 0 0 1px var(--m-line-em);
+}
+
+.inputSecret {
+  letter-spacing: 0.08em;
+  color: var(--m-fg-muted);
+}
+
+.link {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--m-line-em);
+  text-underline-offset: 3px;
+}
+
+.card {
+  padding: 14px;
+  border-radius: 9px;
+  background: var(--m-panel);
+  box-shadow: inset 0 0 0 1px var(--m-line);
+}
+
+.cardFlush {
+  padding: 0;
+}
+
+.segmented {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 2px;
+  border-radius: 8px;
+  background: var(--m-subtle);
+}
+
+.segmented span {
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: var(--m-fg-muted);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.segmented span[data-active] {
+  background: var(--m-panel);
+  color: var(--m-fg);
+  box-shadow: var(--m-shadow-sm);
+}
+
+.segmentedSm span {
+  padding: 3px 9px;
+}
+
+/* --------------------------------------------------------------- code -- */
+
+.codeWindow {
+  display: flex;
+  flex-direction: column;
+}
+
+.codeTabs {
+  display: flex;
+  align-items: stretch;
+  height: 36px;
+  padding: 0 6px;
+  border-bottom: 1px solid var(--m-line);
+  background: var(--m-muted-bg);
+}
+
+.codeTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  color: var(--m-fg-muted);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.codeTabActive {
+  color: var(--m-fg);
+  box-shadow: inset 0 -1.5px 0 var(--m-fg);
+}
+
+.code {
+  padding: 12px 0;
+  overflow: hidden;
+  font-family: var(--chakra-fonts-mono);
+}
+
+.stage .code :global(pre.shiki) {
+  margin: 0;
+  padding: 0 16px;
+  background: transparent !important;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow: visible;
+}
+
+/* Dark mode gives every Shiki token a background; keep tokens transparent. */
+.stage .code :global(pre.shiki span) {
+  background-color: transparent !important;
+}
+
+.stage .code :global(pre.shiki code *) {
+  font-size: 12px;
+}
+
+.stage .code :global(.line.is-marked) {
+  display: inline-block;
+  width: calc(100% + 32px);
+  margin: 0 -16px;
+  padding: 0 14px;
+  border-left: 2px solid var(--m-blue);
+  background: var(--m-blue-subtle) !important;
+}
+
+/* --------------------------------------------------------------- auth -- */
+
+.authPage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 16px 0;
+  background: var(--m-muted-bg);
+  overflow: visible;
+}
+
+.authCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(320px, 100%);
+  overflow: visible;
+  padding: 24px 22px;
+}
+
+.authCard > * {
+  flex-shrink: 0;
+}
+
+.appMark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--m-accent);
+  color: var(--m-accent-contrast);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.authTitle {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.providerRow {
+  position: relative;
+}
+
+.lastUsed {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 30px);
+  transform: translate(0, -50%);
+  white-space: nowrap;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--m-accent);
+  color: var(--m-accent-contrast);
+  font-size: 11px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgb(20 20 30 / 0.16);
+}
+
+/* A clipped triangle, so it never overlaps the tooltip body. */
+.lastUsed::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 5px;
+  height: 10px;
+  background: inherit;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  transform: translateY(-50%);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--m-fg-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--m-line);
+}
+
+.securityCard .settingRows {
+  display: grid;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+}
+
+.settingRows li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+}
+
+/* --------------------------------------------------------- workspaces -- */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--m-line);
+}
+
+.search {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 7px;
+  box-shadow: inset 0 0 0 1px var(--m-line-em);
+  color: var(--m-fg-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.memberList {
+  margin: 0;
+  padding: 0 16px;
+  list-style: none;
+}
+
+.memberList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--m-line);
+}
+
+.memberList li:last-child {
+  border-bottom: 0;
+}
+
+.memberText {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.memberText strong {
+  font-weight: 500;
+}
+
+.memberText span {
+  color: var(--m-fg-muted);
+  font-size: 12px;
+}
+
+.switcherTrigger {
+  margin-left: -8px;
+  padding-left: 4px;
+  background: var(--m-subtle);
+}
+
+.crumbSlash {
+  margin: 0 8px 0 6px;
+  color: var(--m-line-em);
+}
+
+.menu {
+  display: grid;
+  padding: 4px;
+}
+
+.menuLabel {
+  padding: 6px 8px 4px;
+  color: var(--m-fg-muted);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.menuItemActive {
+  background: var(--m-subtle);
+}
+
+.menuCheck {
+  margin-left: auto;
+}
+
+.menuSeparator {
+  height: 1px;
+  margin: 4px -4px;
+  background: var(--m-line);
+}
+
+/* ------------------------------------------------------------ billing -- */
+
+.settingsBody {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  background: var(--m-muted-bg);
+  height: 100%;
+  align-content: start;
+}
+
+.sectionTitle {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.sectionTitle + .card {
+  margin-bottom: 8px;
+}
+
+.invoiceRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--m-line);
+}
+
+.invoiceRow:last-child {
+  border-bottom: 0;
+}
+
+.syncFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--m-line);
+  font-size: 12px;
+}
+
+.syncFoot code {
+  font-family: var(--chakra-fonts-mono);
+  font-size: 11.5px;
+  color: var(--m-fg-muted);
+}
+
+.syncFoot span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--m-green-fg);
+  font-weight: 500;
+}
+
+.configCard .code {
+  padding: 10px 0;
+}
+
+/* -------------------------------------------------------------- flags -- */
+
+.flagRows {
+  display: grid;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+}
+
+.flagRows li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+}
+
+.flagKey {
+  font-family: var(--chakra-fonts-mono);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.rollout {
+  position: relative;
+  width: 44px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--m-line);
+  overflow: hidden;
+}
+
+.rollout i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: var(--m-blue);
+}
+
+/* ----------------------------------------------------------- terminal -- */
+
+.terminal {
+  overflow: hidden;
+  border-radius: 12px;
+  background: oklch(0.2 0.012 260);
+  color: oklch(0.93 0.005 260);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.06),
+    0 16px 32px -8px rgb(20 20 30 / 0.35);
+  font-family: var(--chakra-fonts-mono);
+  font-size: 12px;
+}
+
+.terminalHead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.terminalHead i {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.18);
+}
+
+.terminalHead span {
+  margin-left: 6px;
+  color: rgb(255 255 255 / 0.5);
+  font-family: var(--chakra-fonts-body);
+  font-size: 11.5px;
+}
+
+.terminalBody {
+  display: grid;
+  gap: 3px;
+  padding: 12px 14px 14px;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.prompt {
+  color: rgb(255 255 255 / 0.45);
+}
+
+.dim {
+  color: rgb(255 255 255 / 0.5);
+}
+
+.ok {
+  color: oklch(0.78 0.16 150);
+}
+
+.caret {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 6px;
+  vertical-align: -2px;
+  background: currentColor;
+  animation: blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* ---------------------------------------------------------------- api -- */
+
+.completions {
+  display: grid;
+  margin: 0;
+  padding: 4px;
+  border-radius: 8px;
+  background: var(--m-panel);
+  box-shadow: var(--m-shadow-lg);
+  list-style: none;
+  font-family: var(--chakra-fonts-mono);
+  font-size: 11.5px;
+}
+
+.completions li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.completions li[data-active] {
+  background: var(--m-blue-subtle);
+}
+
+.completionKind {
+  color: var(--m-blue);
+}
+
+.completionType {
+  margin-left: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--m-fg-muted);
+}
+
+/* ----------------------------------------------------------------- ui -- */
+
+.kit {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+}
+
+.kitRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.statRow .card {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.themeBody {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px 14px;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.swatch {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  color: var(--m-fg-muted);
+  font-size: 10.5px;
+}
+
+.swatch i {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 7px;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.08);
+}
+
+.themeFont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--m-line);
+  font-weight: 500;
+}
+
+/* -------------------------------------------------------------- email -- */
+
+.mailHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--m-line);
+  white-space: nowrap;
+}
+
+.mailMeta {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.mailMeta strong {
+  font-weight: 600;
+}
+
+.mailMeta span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--m-fg-muted);
+  font-size: 12px;
+}
+
+.mailBody {
+  height: 100%;
+  padding: 24px;
+  background: var(--m-muted-bg);
+}
+
+.mailSheet {
+  display: grid;
+  justify-items: start;
+  gap: 14px;
+  max-width: 360px;
+  margin-inline: auto;
+  padding: 28px;
+  border-radius: 10px;
+  background: var(--m-panel);
+  box-shadow: inset 0 0 0 1px var(--m-line);
+}
+
+.mailTitle {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.mailSheet p {
+  color: var(--m-fg-muted);
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------ testing -- */
+
+.checksHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--m-line);
+}
+
+.checksIcon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--m-green);
+  color: #fff;
+}
+
+.checkList {
+  display: grid;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+}
+
+.checkList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  white-space: nowrap;
+}
+
+.checkList strong {
+  font-weight: 500;
+}
+
+.checkList .muted {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+.checkOk {
+  color: var(--m-green);
+}
+
+/* --------------------------------------------------------- responsive -- */
+
+@media (max-width: 640px) {
+  .stage {
+    height: 340px;
+    margin-block: 28px 24px;
+    font-size: 12.5px;
+  }
+
+  .stageAuth .lastUsed {
+    display: none;
+  }
+
+  .authPage {
+    padding: 20px 16px 0;
+  }
+
+  .stageApi .front {
+    left: auto;
+    right: 0;
+    width: min(280px, 82%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+}

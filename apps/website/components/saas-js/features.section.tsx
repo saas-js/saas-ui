@@ -1,27 +1,35 @@
+import { highlightCode } from '@/lib/highlight-code'
 import {
-  Badge,
   Box,
-  ButtonGroup,
-  Card,
   Container,
-  Flex,
   Grid,
   HStack,
   Heading,
-  List,
-  Separator,
-  Span,
   Stack,
   Text,
-  Button,
 } from '@chakra-ui/react'
-import { Section } from '#components/ui/section'
 import Image from 'next/image'
-import Link from 'next/link'
-import { TbCheck } from 'react-icons/tb'
 
-import { ActionArrow } from '../action-arrow'
-import { ProBadge } from '../pro/pro-badge'
+import { Section } from '#components/ui/section'
+
+import {
+  ApiStage,
+  AuthStage,
+  BillingStage,
+  DatabaseStage,
+  EmailStage,
+  FlagsStage,
+  TestingStage,
+  UiStage,
+  WorkspacesStage,
+} from './features/feature-stages'
+import {
+  billingConfigCode,
+  flagsCode,
+  routerCode,
+  schemaCode,
+  specCode,
+} from './features/snippets'
 
 // This section renders on the homepage and on both starter-kit pages. It was
 // hardcoded to TanStack Start, so /nextjs told visitors the Next.js kit was
@@ -39,15 +47,33 @@ const frameworkCopy = {
   },
 } as const
 
-export function FeaturesSection({
+/** Shiki emits one `<span class="line">` per line; flag the 1-based `lines`. */
+function markLines(html: string, lines: number[]) {
+  let line = 0
+  return html.replace(/<span class="line">/g, (match) => {
+    line += 1
+    return lines.includes(line) ? '<span class="line is-marked">' : match
+  })
+}
+
+export async function FeaturesSection({
   framework = 'tanstack-start',
 }: {
   framework?: keyof typeof frameworkCopy
 }) {
   const { heading, description } = frameworkCopy[framework]
 
+  const [configHtml, flagsHtml, schemaHtml, routerHtml, specHtml] =
+    await Promise.all([
+      highlightCode(billingConfigCode, { lang: 'ts' }),
+      highlightCode(flagsCode, { lang: 'ts' }),
+      highlightCode(schemaCode, { lang: 'ts' }),
+      highlightCode(routerCode, { lang: 'ts' }),
+      highlightCode(specCode, { lang: 'ts' }),
+    ])
+
   return (
-    <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
+    <Section.Root py={{ base: '16', md: '24' }} borderTopWidth="1px">
       <Container maxW="8xl">
         <Stack mb="16" gap="4">
           <Heading as="h3" textStyle="4xl">
@@ -59,57 +85,48 @@ export function FeaturesSection({
         </Stack>
 
         <Grid
-          templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
-          borderTopWidth="1px"
-          borderStyle="dashed"
-          position="relative"
-          gap="0"
-          _after={{
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            height: '100%',
-            borderLeftWidth: '1px',
-            borderStyle: 'dashed',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 1,
-            display: { base: 'none', md: 'block' },
-          }}
+          templateColumns={{ base: '1fr', md: 'repeat(2, minmax(0, 1fr))' }}
+          columnGap={{ md: '10', xl: '16' }}
+          rowGap={{ base: '16', md: '24' }}
         >
-          <FeatureCard
-            title="Auth"
-            description="Customizable auth system built on Better Auth, or use your own auth provider."
+          <FeatureTile
+            label="Auth"
+            title="Sign in, every way your users expect."
+            description="Built on Better Auth, with the login, signup and security screens already designed. Bring your own provider if you prefer."
             logos={['/img/frameworks/better-auth.svg']}
+            stage={<AuthStage />}
             features={[
               'Email & password',
               'Social login',
               'Magic links',
               '2FA',
-              'RBAC',
-              'Email verification',
               'Passkeys',
+              'Email verification',
+              'RBAC',
               'SSO',
             ]}
           />
 
-          <FeatureCard
-            title="Workspaces"
-            description="Allow users to create, manage, and invite other users to their own workspaces."
+          <FeatureTile
+            label="Workspaces"
+            title="Every customer gets a workspace."
+            description="Multi-tenancy from the first commit. Users create workspaces, invite their team and manage roles, all scoped per workspace."
+            stage={<WorkspacesStage />}
             features={[
-              'RBAC',
               'Multi-tenancy',
-              'Block workspaces',
               'Invite users',
               'Manage roles',
+              'RBAC',
+              'Block workspaces',
             ]}
           />
 
-          <FeatureCard
-            title="Billing"
-            description="Built-in billing with Stripe, or use your own billing provider. Automatically sync your billing configuration with Stripe."
+          <FeatureTile
+            label="Billing"
+            title="Plans in code. Synced to Stripe."
+            description="Define plans, trials and per-seat prices in one config file. One command sets them up in Stripe, and the billing pages are ready."
             logos={['/img/frameworks/stripe.svg']}
+            stage={<BillingStage configHtml={markLines(configHtml, [7])} />}
             features={[
               'Subscriptions',
               'Automatic Stripe setup',
@@ -122,11 +139,28 @@ export function FeaturesSection({
             ]}
           />
 
-          <FeatureCard
-            title="Database"
-            description="Built on the world's most proven database. PostgreSQL managed by Drizzle ORM. Run it locally, use Supabase, or on the edge with Neon.."
+          <FeatureTile
+            label="Feature flags"
+            logos={['/img/frameworks/openfeature.svg']}
+            title="Ship behind flags. Bring any provider."
+            description="Built on the OpenFeature standard. Reflag is wired up out of the box, and any other OpenFeature provider drops in without touching your feature code."
+            stage={<FlagsStage setupHtml={markLines(flagsHtml, [5])} />}
+            features={[
+              'OpenFeature',
+              'Reflag',
+              'Server & client flags',
+              'Workspace targeting',
+              'Gradual rollouts',
+              'Any OpenFeature provider',
+            ]}
+          />
+
+          <FeatureTile
+            label="Database"
+            title="A typed schema on PostgreSQL."
+            description="Drizzle ORM with migrations and seed data. Every table is scoped to a workspace. Run it locally, on Supabase, or at the edge with Neon."
             logos={['/img/frameworks/drizzle.svg']}
-            featureColumns={2}
+            stage={<DatabaseStage schemaHtml={markLines(schemaHtml, [4])} />}
             features={[
               'PostgreSQL',
               'Migrations & seeding',
@@ -135,10 +169,12 @@ export function FeaturesSection({
             ]}
           />
 
-          <FeatureCard
-            title="API"
-            description="End-to-end typesafe API with tRPC. Built fast without breaking anything. Fully portable, run it in a route function or fully standalone as your backend grows."
+          <FeatureTile
+            label="API"
+            title="End-to-end types, no codegen."
+            description="tRPC routers with workspace-scoped procedures and role checks. Change a field on the server and your editor knows on the client."
             logos={['/img/frameworks/trpc.svg']}
+            stage={<ApiStage routerHtml={markLines(routerHtml, [10])} />}
             features={[
               'Type-safe',
               'React Query integration',
@@ -148,13 +184,15 @@ export function FeaturesSection({
             ]}
           />
 
-          <FeatureCard
-            title="Beautiful UI"
-            description="Meticulously crafted theme that works with Chakra UI and Panda CSS. Built-in components, hooks, and utilities that work together seamlessly."
+          <FeatureTile
+            label="UI components"
+            title="Components that belong together."
+            description="A crafted theme for Chakra UI and Panda CSS, with the app shell, forms and settings pages built on the same tokens."
             logos={[
               '/img/frameworks/chakra-ui.svg',
               '/img/frameworks/pandacss.svg',
             ]}
+            stage={<UiStage />}
             features={[
               'Customizable token system',
               'Pre-built components',
@@ -163,13 +201,15 @@ export function FeaturesSection({
             ]}
           />
 
-          <FeatureCard
-            title="Transactional Emails"
-            description="Beautiful, easily customisable transactional emails. Integrate with Resend, or use your own SMTP provider."
+          <FeatureTile
+            label="Transactional emails"
+            title="Emails that look the part."
+            description="React Email templates for invites, email confirmation and password resets. Send them with Resend or your own SMTP server."
             logos={[
               '/img/frameworks/resend.svg',
               '/img/frameworks/react-email.png',
             ]}
+            stage={<EmailStage />}
             features={[
               'Built-in templates',
               'Template editor',
@@ -177,15 +217,18 @@ export function FeaturesSection({
             ]}
           />
 
-          <FeatureCard
-            title="Testing &amp; Linting"
-            description="End-to-end and unit testing setup for agent back pressure, ship with confidence."
+          <FeatureTile
+            label="Testing & linting"
+            title="Back pressure for your agents."
+            description="Playwright, Vitest and GitHub Actions come set up, so you and your agents find out about a regression before it merges."
             logos={[
               '/img/frameworks/playwright.svg',
               '/img/frameworks/vitest.svg',
               '/img/frameworks/github.svg',
             ]}
-            features={['Playwright', 'Vitest', 'Github Actions']}
+            stage={<TestingStage specHtml={markLines(specHtml, [7])} />}
+            features={['Playwright', 'Vitest', 'GitHub Actions']}
+            wide
           />
         </Grid>
       </Container>
@@ -193,165 +236,107 @@ export function FeaturesSection({
   )
 }
 
-function FeatureCard(props: {
+function FeatureTile(props: {
+  label: string
   title: string
   description: string
   logos?: string[]
-  featureColumns?: number
+  stage: React.ReactNode
   features: string[]
+  /** Span both columns, copy beside the stage. Used to close an odd grid. */
+  wide?: boolean
 }) {
-  return (
-    <Card.Root
-      variant="outline"
-      border="0"
-      bg="none"
-      borderBottomWidth="1px"
-      borderStyle="dashed"
-      borderColor="border"
-      rounded="0"
-      py="16"
-      css={{
-        '&:nth-child(even)': {
-          ps: { base: '0', md: '16' },
-        },
-        '&:nth-child(odd)': {
-          pe: { base: '0', md: '16' },
-        },
-      }}
-    >
-      <Card.Header p="0">
-        <Card.Title textStyle="2xl">{props.title}</Card.Title>
-        <Card.Description fontSize="lg" color="fg.subtle" textWrap="pretty">
-          {props.description}
-        </Card.Description>
-      </Card.Header>
-      <Card.Body p="0" pt="4">
-        <Flex mb="4" gap="2">
-          {props.logos?.map((logo) => (
-            <Image
-              key={logo}
-              src={logo}
-              alt={props.title}
-              width={32}
-              height={32}
-            />
-          ))}
-        </Flex>
-
-        <List.Root
-          variant="plain"
-          textStyle="md"
-          color="fg.muted"
-          display="grid"
-          gridTemplateColumns={{
-            base: `repeat(${Math.min(props.featureColumns ?? 3, 2)}, 1fr)`,
-            md: `repeat(${props.featureColumns ?? 3}, 1fr)`,
-          }}
-          gap="2"
-          fontSize="sm"
-        >
-          {props.features.map((feature) => (
-            <List.Item key={feature}>
-              <List.Indicator color="fg" asChild>
-                <TbCheck />
-              </List.Indicator>
-              {feature}
-            </List.Item>
-          ))}
-        </List.Root>
-      </Card.Body>
-    </Card.Root>
-  )
-}
-
-function PrimaryFeatureCard(props: {
-  title: string
-  description: string
-  featureColumns?: number
-  features?: string[]
-  children?: React.ReactNode
-}) {
-  return (
-    <Card.Root
-      position="relative"
-      zIndex={2}
-      variant="outline"
-      border="0"
-      borderBottomWidth="1px"
-      borderStyle="dashed"
-      borderColor="border"
-      rounded="0"
-      py="16"
-      gridColumn={{ base: 'span 1', md: 'span 2' }}
-      bg="bg.muted"
-    >
-      <Card.Header p="0">
-        <Card.Title textStyle="4xl">{props.title}</Card.Title>
-        <Card.Description fontSize="lg" color="fg.subtle" textWrap="pretty">
-          {props.description}
-        </Card.Description>
-      </Card.Header>
-      <Card.Body
-        p="0"
-        pt="4"
-        display="flex"
-        flexDirection="column"
-        alignItems="flex-start"
-        gap="4"
+  const copy = (
+    <>
+      <HStack
+        gap="2"
+        mb="4"
+        color="fg.muted"
+        textStyle="sm"
+        fontWeight="medium"
       >
-        <List.Root
-          variant="plain"
-          textStyle="md"
-          color="fg.muted"
-          display="grid"
-          gridTemplateColumns={{
-            base: `repeat(${Math.min(props.featureColumns ?? 3, 2)}, 1fr)`,
-            md: `repeat(${props.featureColumns ?? 3}, 1fr)`,
-          }}
-          gap="2"
-          fontSize="sm"
-        >
-          {props.features?.map((feature) => (
-            <List.Item key={feature}>
-              <List.Indicator color="fg" asChild>
-                <TbCheck />
-              </List.Indicator>
-              {feature}
-            </List.Item>
-          ))}
-        </List.Root>
+        {props.logos?.map((logo) => (
+          <Image key={logo} src={logo} alt="" width={20} height={20} />
+        ))}
+        <Text as="span">{props.label}</Text>
+      </HStack>
 
-        {props.children}
-      </Card.Body>
-    </Card.Root>
+      <Heading
+        as="h4"
+        fontSize={{ base: '2xl', md: '3xl' }}
+        lineHeight="1.15"
+        fontWeight="medium"
+        letterSpacing="-0.025em"
+        textWrap="balance"
+        mb="3"
+      >
+        {props.title}
+      </Heading>
+      <Text textStyle="lg" color="fg.subtle" textWrap="pretty" maxW="lg">
+        {props.description}
+      </Text>
+    </>
   )
-}
 
-function TertiaryFeatureCard(props: {
-  title: string
-  description: string
-  featureColumns?: number
-  features?: string[]
-  children?: React.ReactNode
-}) {
+  const features = (
+    <Box as="ul" display="flex" flexWrap="wrap" gap="1.5" listStyle="none">
+      {props.features.map((feature) => (
+        <Box
+          as="li"
+          key={feature}
+          display="inline-flex"
+          alignItems="center"
+          h="7"
+          px="2.5"
+          rounded="full"
+          bg="bg.panel"
+          borderWidth="1px"
+          borderColor="border"
+          color="fg.muted"
+          textStyle="xs"
+          fontWeight="medium"
+          whiteSpace="nowrap"
+        >
+          {feature}
+        </Box>
+      ))}
+    </Box>
+  )
+
+  const stage = <Box aria-hidden="true">{props.stage}</Box>
+
+  if (props.wide) {
+    return (
+      <Grid
+        as="article"
+        gridColumn={{ md: 'span 2' }}
+        templateColumns={{ base: '1fr', md: 'repeat(2, minmax(0, 1fr))' }}
+        columnGap={{ md: '16', xl: '24' }}
+        alignItems="center"
+        minW="0"
+      >
+        <Box>
+          {copy}
+          <Box
+            mt={{ base: '0', md: '8' }}
+            display={{ base: 'none', md: 'block' }}
+          >
+            {features}
+          </Box>
+        </Box>
+        <Box minW="0">
+          {stage}
+          <Box display={{ base: 'block', md: 'none' }}>{features}</Box>
+        </Box>
+      </Grid>
+    )
+  }
+
   return (
-    <Card.Root
-      variant="outline"
-      bg={{
-        _light: 'white/40',
-        _dark: 'white/5',
-      }}
-      width="260px"
-    >
-      <Box height="200px"></Box>
-      <Card.Header>
-        <Card.Title textStyle="md" color="fg.muted" fontWeight="medium">
-          {props.title}
-        </Card.Title>
-        <Card.Description fontSize="md" color="fg" fontWeight="semibold">
-          {props.description}
-        </Card.Description>
-      </Card.Header>
-    </Card.Root>
+    <Box as="article" minW="0">
+      {copy}
+      {stage}
+      {features}
+    </Box>
   )
 }

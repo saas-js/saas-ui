@@ -6,8 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Stack
       gap="8"
-      bg="bg.muted"
-      _dark={{ bg: 'bg' }}
+      bg="bg"
       css={{
         paddingTop: '48px',
         '&:has([data-announcement])': {

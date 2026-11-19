@@ -233,7 +233,11 @@ interface BaseProfile {
   bg: number
   surface: number
   elevated: number
-  inset: number
+  /**
+   * Opaque inset lightness, dark mode only. Light insets are a translucent
+   * foreground overlay at `hoverAlpha`, matching the CSS contract.
+   */
+  inset?: number
   fg: number
   fgMuted: number
   fgSubtle: number
@@ -252,7 +256,6 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.99,
       surface: 0.995,
       elevated: 0.995,
-      inset: 0.975,
       fg: 0.2,
       fgMuted: 0.44,
       fgSubtle: 0.54,
@@ -282,7 +285,6 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.985,
       surface: 0.995,
       elevated: 0.995,
-      inset: 0.965,
       fg: 0.18,
       fgMuted: 0.42,
       fgSubtle: 0.52,
@@ -312,7 +314,6 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.98,
       surface: 0.995,
       elevated: 0.995,
-      inset: 0.945,
       fg: 0.16,
       fgMuted: 0.4,
       fgSubtle: 0.49,
@@ -472,7 +473,10 @@ function createBase(
   const bg = tone(seed, profile.bg, 0.2)
   const surface = tone(seed, profile.surface, dark ? 0.3 : 0.2)
   const elevated = tone(seed, profile.elevated, dark ? 0.45 : 0.2)
-  const inset = tone(seed, profile.inset, dark ? 0.3 : 0.35)
+  const inset =
+    dark && profile.inset !== undefined
+      ? tone(seed, profile.inset, 0.2)
+      : withAlpha(fgSeed, profile.hoverAlpha)
   const hover = withAlpha(fgSeed, profile.hoverAlpha)
   const pressed = withAlpha(fgSeed, profile.pressedAlpha)
   const invertedBg = tone(seed, dark ? 0.985 : 0.16, dark ? 0.08 : 0.4)

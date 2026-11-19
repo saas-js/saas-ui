@@ -65,6 +65,16 @@ describe('CSS appearance contract', () => {
     )
   })
 
+  it('renders light insets as a translucent overlay that keeps the parent tint', () => {
+    const inset = appearanceColors.bg.inset.value
+
+    // An opaque light inset paints a fixed page tone inside panels and
+    // popovers; the overlay darkens whatever surface it sits on instead.
+    expect(inset).toMatch(/^light-dark\(oklch\(from var\(--sui-base\) calc\(0\.18 /)
+    expect(inset).toContain('calc(c * 0.3) h / calc(0.05 ')
+    expect(inset).toMatch(/calc\(c \* 0\.2\) h \/ 1\)\)$/)
+  })
+
   it('registers base as a color palette despite Chakra reserving the name', () => {
     expect(defaultSystem.token('colors.base.solid')).toContain('light-dark(')
     expect(defaultSystem.token('colors.base.contrast')).toContain('light-dark(')

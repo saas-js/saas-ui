@@ -2,10 +2,10 @@ import * as stylex from '@stylexjs/stylex'
 
 export const radii = stylex.defineVars({
   _2xs: '0.15rem',
-  xs: '0.2rem',
-  sm: '0.25rem',
-  md: '0.375rem',
-  lg: '0.5rem',
+  xs: '0.25rem',
+  sm: '0.375rem',
+  md: '0.5rem',
+  lg: '0.75rem',
   xl: '0.75rem',
   _2xl: '1rem',
   _3xl: '1.5rem',

@@ -22,7 +22,7 @@ export const semanticColors = stylex.defineVars({
   bgElevated:
     'light-dark(oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 1), oklch(from var(--sui-base) calc(0.2 - 0.015 * max(calc(-1 * var(--sui-contrast)), 0) + 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.45) h / 1))',
   bgInset:
-    'light-dark(oklch(from var(--sui-base) calc(0.965 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.35) h / 1), oklch(from var(--sui-base) calc(0.11 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / 1))',
+    'light-dark(oklch(from var(--sui-base) calc(0.18 + 0.02 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.3) h / calc(0.05 - 0.01 * max(calc(-1 * var(--sui-contrast)), 0) + 0.01 * max(var(--sui-contrast), 0))), oklch(from var(--sui-base) calc(0.11 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.2) h / 1))',
   bgOverlay:
     'light-dark(oklch(from var(--sui-base) 0.995 calc(c * 0.2) h / 0.95), oklch(from var(--sui-base) calc(0.2 - 0.015 * max(calc(-1 * var(--sui-contrast)), 0) + 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.45) h / 0.9))',
   bgBackdrop: 'oklch(0 0 0 / 0.3)',

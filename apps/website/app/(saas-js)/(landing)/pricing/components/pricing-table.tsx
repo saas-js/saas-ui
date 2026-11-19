@@ -196,13 +196,13 @@ export function PricingTableAllAccess(props: { lastUpdated?: string | null }) {
                 <List.Indicator asChild color="fg.muted">
                   <TbCheck />
                 </List.Indicator>
-                All starter kits
+                TanStack starter kit
               </List.Item>
-              <List.Item>
+              <List.Item fontWeight="medium">
                 <List.Indicator asChild color="fg.muted">
                   <TbCheck />
                 </List.Indicator>
-                Saas UI Pro blocks and templates
+                Next.js starter kit
               </List.Item>
 
               <List.Item>

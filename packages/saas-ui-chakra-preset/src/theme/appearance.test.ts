@@ -75,6 +75,13 @@ describe('CSS appearance contract', () => {
     expect(inset).toMatch(/calc\(c \* 0\.2\) h \/ 1\)\)$/)
   })
 
+  it('keeps bg.muted opaque so it can back fades and pinned content', () => {
+    const muted = appearanceColors.bg.muted.value
+
+    expect(muted).not.toBe('{colors.bg.inset}')
+    expect(muted.match(/h \/ 1\)/g)).toHaveLength(2)
+  })
+
   it('registers base as a color palette despite Chakra reserving the name', () => {
     expect(defaultSystem.token('colors.base.solid')).toContain('light-dark(')
     expect(defaultSystem.token('colors.base.contrast')).toContain('light-dark(')

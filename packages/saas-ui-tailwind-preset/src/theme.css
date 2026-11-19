@@ -528,7 +528,24 @@
     oklch(from var(--sui-base) 0.16 calc(c * 0.4) h / 1),
     oklch(from var(--sui-base) 0.985 calc(c * 0.08) h / 1)
   );
-  --color-bg-muted: var(--color-bg-inset);
+  --color-bg-muted: light-dark(
+    oklch(
+      from var(--sui-base)
+        calc(
+          0.965 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 *
+            max(var(--sui-contrast), 0)
+        )
+        calc(c * 0.35) h / 1
+    ),
+    oklch(
+      from var(--sui-base)
+        calc(
+          0.11 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.025 *
+            max(var(--sui-contrast), 0)
+        )
+        calc(c * 0.2) h / 1
+    )
+  );
   --color-bg-subtle: var(--color-interaction-hover);
   --color-bg-emphasized: var(--color-interaction-pressed);
   --color-bg-content: var(--color-bg);
@@ -1820,7 +1837,24 @@
     oklch(from var(--sui-base) 0.16 calc(c * 0.4) h / 1),
     oklch(from var(--sui-base) 0.985 calc(c * 0.08) h / 1)
   );
-  --colors-bg-muted: var(--color-bg-inset);
+  --colors-bg-muted: light-dark(
+    oklch(
+      from var(--sui-base)
+        calc(
+          0.965 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 *
+            max(var(--sui-contrast), 0)
+        )
+        calc(c * 0.35) h / 1
+    ),
+    oklch(
+      from var(--sui-base)
+        calc(
+          0.11 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.025 *
+            max(var(--sui-contrast), 0)
+        )
+        calc(c * 0.2) h / 1
+    )
+  );
   --colors-bg-subtle: var(--color-interaction-hover);
   --colors-bg-emphasized: var(--color-interaction-pressed);
   --colors-bg-content: var(--color-bg);

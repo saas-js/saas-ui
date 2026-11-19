@@ -136,6 +136,12 @@ const appearanceValues = {
     ),
     relativeColor(baseSeed, contrast(0.11, 0.01, -0.025), 'calc(c * 0.2)'),
   ),
+  // bg.muted stays opaque: it is used as a page, section and pinned-cell fill
+  // that content scrolls or fades beneath, which a translucent inset breaks.
+  muted: lightDark(
+    relativeColor(baseSeed, contrast(0.965, 0.01, -0.02), 'calc(c * 0.35)'),
+    relativeColor(baseSeed, contrast(0.11, 0.01, -0.025), 'calc(c * 0.2)'),
+  ),
   overlay: lightDark(
     relativeColor(baseSeed, surfaceLightness.light, 'calc(c * 0.2)', 0.95),
     relativeColor(
@@ -482,7 +488,7 @@ export const appearanceColors = {
     overlay: { value: appearanceValues.overlay },
     backdrop: { value: appearanceValues.backdrop },
     inverted: { value: appearanceValues.bgInverted },
-    muted: { value: '{colors.bg.inset}' },
+    muted: { value: appearanceValues.muted },
     subtle: { value: '{colors.interaction.hover}' },
     emphasized: { value: '{colors.interaction.pressed}' },
     content: { value: '{colors.bg}' },

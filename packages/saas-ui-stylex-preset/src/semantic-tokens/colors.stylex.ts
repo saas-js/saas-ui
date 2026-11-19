@@ -28,7 +28,8 @@ export const semanticColors = stylex.defineVars({
   bgBackdrop: 'oklch(0 0 0 / 0.3)',
   bgInverted:
     'light-dark(oklch(from var(--sui-base) 0.16 calc(c * 0.4) h / 1), oklch(from var(--sui-base) 0.985 calc(c * 0.08) h / 1))',
-  bgMuted: 'var(--sui-colors-bg-inset)',
+  bgMuted:
+    'light-dark(oklch(from var(--sui-base) calc(0.965 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.02 * max(var(--sui-contrast), 0)) calc(c * 0.35) h / 1), oklch(from var(--sui-base) calc(0.11 + 0.01 * max(calc(-1 * var(--sui-contrast)), 0) - 0.025 * max(var(--sui-contrast), 0)) calc(c * 0.2) h / 1))',
   bgSubtle: 'var(--sui-colors-interaction-hover)',
   bgEmphasized: 'var(--sui-colors-interaction-pressed)',
   bgContent: 'var(--sui-colors-bg)',

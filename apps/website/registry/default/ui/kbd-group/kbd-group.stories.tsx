@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { Button, Center, Tooltip, VStack } from '@chakra-ui/react'
+import { Button, Center, Kbd, Tooltip, VStack } from '@chakra-ui/react'
 
-import { Command } from './command'
+import { KbdGroup } from './kbd-group'
 
 export default {
-  title: 'Components/Command',
+  title: 'Components/KbdGroup',
   decorators: [
     (Story: any) => (
       <Center height="100%">
@@ -18,9 +18,9 @@ export default {
 export const Basic = {
   render: () => (
     <VStack>
-      <Command>shift+X</Command>
-      <Command>A then B</Command>
-      <Command>alt or option</Command>
+      <KbdGroup>shift+X</KbdGroup>
+      <KbdGroup>A then B</KbdGroup>
+      <KbdGroup>alt or option</KbdGroup>
     </VStack>
   ),
 }
@@ -28,15 +28,15 @@ export const Basic = {
 export const Sizes = {
   render: () => (
     <VStack>
-      <Command size="xs">shift+X</Command>
-      <Command size="sm">shift+X</Command>
-      <Command size="md">A then B</Command>
-      <Command size="lg">alt or option</Command>
+      <KbdGroup size="xs">shift+X</KbdGroup>
+      <KbdGroup size="sm">shift+X</KbdGroup>
+      <KbdGroup size="md">A then B</KbdGroup>
+      <KbdGroup size="lg">alt or option</KbdGroup>
     </VStack>
   ),
 }
 
-export const TooltipCommand = {
+export const TooltipShortcut = {
   render: () => (
     <Tooltip.Root>
       <Tooltip.Trigger>
@@ -49,10 +49,19 @@ export const TooltipCommand = {
           </Tooltip.Arrow>
 
           <>
-            Inbox <Command size="sm">G then I</Command>
+            Inbox <KbdGroup size="sm">G then I</KbdGroup>
           </>
         </Tooltip.Content>
       </Tooltip.Positioner>
     </Tooltip.Root>
+  ),
+}
+
+export const WithKbdChildren = {
+  render: () => (
+    <KbdGroup size="md">
+      <Kbd>⌘</Kbd>
+      <Kbd>K</Kbd>
+    </KbdGroup>
   ),
 }

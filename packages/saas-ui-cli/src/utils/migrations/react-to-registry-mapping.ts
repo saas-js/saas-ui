@@ -256,7 +256,6 @@ export const canonicalRegistryItemExports = {
   'checkbox-card': ['CheckboxCard', 'CheckboxCardProps'],
   clipboard: ['Clipboard'],
   'close-button': ['CloseButton', 'CloseButtonProps'],
-  command: ['Command'],
   dialog: ['Dialog'],
   drawer: ['Drawer'],
   'empty-state': ['EmptyState', 'EmptyStateProps'],
@@ -266,6 +265,7 @@ export const canonicalRegistryItemExports = {
   'icon-badge': ['IconBadge'],
   'icon-button': ['IconButton', 'IconButtonProps'],
   'info-tip': ['InfoTip', 'InfoTipProps'],
+  'kbd-group': ['KbdGroup'],
   icons: ['createIcon'],
   'loading-overlay': ['LoadingOverlay'],
   link: ['Link'],
@@ -318,12 +318,27 @@ export const canonicalRegistryItemExports = {
   tooltip: ['Tooltip', 'TooltipProps'],
 } as const satisfies Record<string, readonly string[]>
 
+/**
+ * Legacy exports whose registry item was renamed. The legacy name maps to the
+ * new export, and the new name is not treated as a legacy export of its own.
+ */
+const renamedLegacyExports = {
+  // Chakra UI 3.38 added a `Command` palette, so the shortcut became KbdGroup.
+  Command: { item: 'kbd-group', exportName: 'KbdGroup', root: 'ui' },
+} as const satisfies Record<string, RegistryExportTarget>
+
+const renamedExportTargets = new Set<string>(
+  Object.values(renamedLegacyExports).map((target) => target.exportName),
+)
+
 function generatedRegistryEntries(): Array<[string, RegistryExportTarget]> {
   return Object.entries(canonicalRegistryItemExports).flatMap(([item, names]) =>
-    names.map((name): [string, RegistryExportTarget] => [
-      name,
-      { item, root: 'ui' },
-    ]),
+    names
+      .filter((name) => !renamedExportTargets.has(name))
+      .map((name): [string, RegistryExportTarget] => [
+        name,
+        { item, root: 'ui' },
+      ]),
   )
 }
 
@@ -337,6 +352,7 @@ function generatedRegistryEntries(): Array<[string, RegistryExportTarget]> {
  */
 export const defaultRegistryExportMap: RegistryExportMap = Object.fromEntries([
   ...generatedRegistryEntries(),
+  ...Object.entries(renamedLegacyExports),
   ...['Persona', 'PersonaProps'].map((name): [string, RegistryExportTarget] => [
     name,
     {

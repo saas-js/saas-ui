@@ -133,7 +133,7 @@ describe('emitRecipe', () => {
 
 describe('stripSuiPrefix', () => {
   it('drops the Chakra-era sui prefix from Saas UI recipe names', () => {
-    expect(stripSuiPrefix('suiCommand')).toBe('command')
+    expect(stripSuiPrefix('suiKbdGroup')).toBe('kbdGroup')
     expect(stripSuiPrefix('suiIconBadge')).toBe('iconBadge')
     expect(stripSuiPrefix('suiSidebarNavItem')).toBe('sidebarNavItem')
     expect(stripSuiPrefix('button')).toBe('button')

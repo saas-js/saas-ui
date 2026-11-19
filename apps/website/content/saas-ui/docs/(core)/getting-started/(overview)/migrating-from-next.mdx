@@ -58,7 +58,13 @@ Rules
 - Pin @saas-ui/chakra-preset to the newest published rc. A leftover
   next.* pin makes typegen fail. Bump @chakra-ui/react until
   `chakra typegen` passes; override @ark-ui/react if the pair
-  requires it. Do not leave a next.* preset pin.
+  requires it. Do not leave a next.* preset pin. The preset needs
+  @chakra-ui/react 3.38+ and @ark-ui/react 5.40+.
+- The keyboard shortcut component `Command` is now `KbdGroup`
+  (registry item `kbd-group`). `Command` from @chakra-ui/react is
+  the command palette, a different component. Do not import it to
+  render shortcuts. If `ui/command` is already installed, add
+  `kbd-group`, rewrite its imports, and delete `ui/command`.
 - Prefer the CLI over hand-rewriting imports. Only hand-edit
   diagnostics marked `manual`, then known composition API drift
   after import rewrites. Always --dry-run first. If --write fails
@@ -349,8 +355,9 @@ still have to move.
    Pro, or forms cannot nest `@saas-ui/react@next`.
 3. Pin `@saas-ui/chakra-preset` to the newest published `rc`. A leftover
    `next.*` pin makes typegen fail.
-4. Bump `@chakra-ui/react` until `chakra typegen` passes. Override
-   `@ark-ui/react` if that pair requires it.
+4. Bump `@chakra-ui/react` to 3.38 or later (the preset's peer range) and
+   check that `chakra typegen` passes. Chakra 3.38 needs `@ark-ui/react`
+   5.40 or later, so raise any `@ark-ui/react` override to match.
 5. Run typegen after the bump. Do not leave a `next.*` preset pin.
 
 A leftover `next.8` preset pin, or an older Chakra that is missing
@@ -497,6 +504,7 @@ registry items.
 | `Filters`                   | `add filters`. App: `createFilters` + `FilterBar`                                                |
 | `Aside` / `SplitPage` / `Page` | `add aside split-page page`                                                                   |
 | `Modals`                    | `add modals`. Remap `confirmProps` → `slotProps.confirm`. Remove `@saas-ui/modals`               |
+| `Command` (keyboard shortcut) | `add kbd-group`. Use `KbdGroup`. The CLI rewrites `Command` imports for you. `Command` from `@chakra-ui/react` is the command palette |
 | `Toolbar`                   | Not a registry item. `add toolbar` 500s. Use `ButtonGroup`                                       |
 | `Resizer`                   | Not a registry item. `add resizer` / `add resize` 500s. Drop drag-to-resize or ask                |
 | `getDataGridFilter('date')` | No equivalent on the installed table feature set. Drop it or ask; do not invent a `filterFn`     |
@@ -506,6 +514,37 @@ npx @saas-ui/cli@rc add data-table filters modals aside split-page page --cwd <a
 ```
 
 Do not add `toolbar` or `resizer` unless `list` shows them.
+
+### Command is now KbdGroup
+
+Chakra UI 3.38 added a `Command` component, a searchable command palette. To
+avoid the clash, the Saas UI component that displays a keyboard shortcut was
+renamed from `Command` to `KbdGroup`, and its registry item from `command` to
+`kbd-group`. The migration maps `Command` imports from `@saas-ui/react` to
+`KbdGroup` automatically.
+
+If an earlier rc already installed `ui/command`, switch it over by hand:
+
+```bash
+npx @saas-ui/cli@rc add kbd-group --cwd <actual-dir>
+```
+
+```tsx
+// Before
+import { Command } from '#components/ui/command'
+
+<Command>shift+X</Command>
+
+// After
+import { KbdGroup } from '#components/ui/kbd-group'
+
+<KbdGroup>shift+X</KbdGroup>
+```
+
+Then delete the `ui/command` folder. The props are unchanged, and `KbdGroup`
+also accepts `Kbd` children, passing its `size` and `variant` to each key. The
+preset recipe is now `suiKbdGroup`; the old
+`@saas-ui/chakra-preset/recipes/command` import still works but is deprecated.
 
 After `data-table` and `filters` land, remove `@saas-ui-pro/react`. Do not
 leave it as a leftover pin. Inline one-off helpers. `@saas-ui-pro/billing`
@@ -614,6 +653,7 @@ npx @saas-ui/cli@rc add data-table filters modals aside split-page page --cwd <u
 # grep @saas-ui-pro/react and remove the package
 # grep @saas-ui/modals and remove the package
 # grep @saas-ui/react@next in the lockfile — must be 0
+# grep '#components/ui/command' — replace with ui/kbd-group (KbdGroup)
 # grep <Switch|<Checkbox|<NumberInput|<Alert from @chakra-ui/react in app source
 # grep form.Field + standalone TextField; form.useStore; store.subscribe in useEffect
 ```

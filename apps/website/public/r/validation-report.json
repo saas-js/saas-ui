@@ -29,7 +29,6 @@
     "close-icon": "abf25a68c315b75de0ae32c8275c0806cb0a274dc97e9bde6d3e9704cb3e1f0c",
     "code-icon": "eb0c22ff31528539c60b573bc13bd11572b785e0712cadcd156250c34987826f",
     "color-mode": "af341a4020dd5dbcbf126e74f4062ab32cd2705b2911a69ab82c81c485b544e3",
-    "command": "11ea2ad466c48fc61eed20e7a599c2daf109211952498a6f86096a47bbbb28fe",
     "copy-icon": "59d7d28667dc3e6a3da24cf0f696f8548e1b6d9a42734158ffa7f9a0976fa2ce",
     "data-table": "f6d125ddc0df3067132e262a3abf54ef233e607795e1a1c8f578996565dfe384",
     "dialog": "28c644c3e4b4cd8e27fbb19babe1b8624f5287397af1cdfbeb55e61f070dc8b6",
@@ -59,6 +58,7 @@
     "input": "230b8e9f78d75d8797a82d87b28c0050f51c984155835ad1a1ae15e34fd43ac8",
     "input-group": "6e6b67d4b6ea74a28aa84ade1fc044606a63aae77824236b841ffd744681bfab",
     "italic-icon": "87e43db4c582048ba9c0e454c1f93cc2679a1570117b8b813e81056c9a24554b",
+    "kbd-group": "d5b7917767688df499f08c58edb8bb971f20997ff80ad3bbb5655ca881d8ab16",
     "link": "7d06633c8131686ef0db651c3dad405f203aad8ac18595c628a912770b506f68",
     "link-icon": "82000951ad8ce61268668b157843565c893a70891503b9445f7c66573f3ffeb4",
     "list-icon": "dd8ecf848bcb70bba3ad2bc7feab08cccc296d551afc9bf5bf927ce7dcce2b28",
@@ -206,13 +206,6 @@
     },
     {
       "code": "preview-default-export-not-renderable",
-      "file": "ui/command/command.tsx",
-      "item": "command",
-      "message": "Preview candidate \"ui/command/command.tsx\" does not have a statically proven renderable default export; its lazy component was omitted",
-      "severity": "info"
-    },
-    {
-      "code": "preview-default-export-not-renderable",
       "file": "ui/data-table/data-table.tsx",
       "item": "data-table",
       "message": "Preview candidate \"ui/data-table/data-table.tsx\" does not have a statically proven renderable default export; its lazy component was omitted",
@@ -300,6 +293,13 @@
       "file": "ui/info-tip/info-tip.tsx",
       "item": "info-tip",
       "message": "Preview candidate \"ui/info-tip/info-tip.tsx\" does not have a statically proven renderable default export; its lazy component was omitted",
+      "severity": "info"
+    },
+    {
+      "code": "preview-default-export-not-renderable",
+      "file": "ui/kbd-group/kbd-group.tsx",
+      "item": "kbd-group",
+      "message": "Preview candidate \"ui/kbd-group/kbd-group.tsx\" does not have a statically proven renderable default export; its lazy component was omitted",
       "severity": "info"
     },
     {

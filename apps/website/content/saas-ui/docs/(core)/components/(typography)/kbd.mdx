@@ -51,6 +51,62 @@ Use `Kbd` within text to highlight key combinations
 
 <ExampleTabs name="kbd-within-text" />
 
+## Kbd Group
+
+`KbdGroup` displays a whole shortcut. Install it with
+`npx @saas-ui/cli@rc add kbd-group`.
+
+```jsx
+import { KbdGroup } from '#components/ui/kbd-group'
+```
+
+```jsx
+<KbdGroup>shift+X</KbdGroup>
+```
+
+:::info
+
+`KbdGroup` was called `Command` before the rc. `Command` from
+`@chakra-ui/react` is now the [command palette](/docs/components/command). See
+the [migration guide](/docs/getting-started/migrating-from-next#command-is-now-kbdgroup).
+
+:::
+
+### Shortcut string
+
+Pass the shortcut as a string. Each key separated by `+` or a space renders as a
+`Kbd`, while `then` and `or` render as plain text. Set the `modifiers` prop to
+change which words stay as text.
+
+<ExampleTabs name="kbd-group-basic" />
+
+### Kbd children
+
+Pass `Kbd` elements as children for full control over each key. `size` and
+`variant` are passed to every key in the group.
+
+<ExampleTabs name="kbd-group-with-children" />
+
+### Sizes
+
+Use the `size` prop to change the size of the keys.
+
+<ExampleTabs name="kbd-group-with-sizes" />
+
+### In a tooltip
+
+Inside a tooltip, the group is separated from the label with a dot.
+
+<ExampleTabs name="kbd-group-in-tooltip" />
+
 ## Props
 
 <PropTable component="Kbd" part="Kbd" />
+
+### KbdGroup
+
+| Prop        | Type                           | Default                 | Description                                                 |
+| ----------- | ------------------------------ | ----------------------- | ----------------------------------------------------------- |
+| `size`      | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'sm'`                  | The size of the text and the keys                           |
+| `variant`   | `Kbd` variant                  | -                       | The variant passed to each `Kbd`                            |
+| `modifiers` | `string[]`                     | `['then', 'or', '+']`   | Words in a shortcut string that render as text, not as keys |

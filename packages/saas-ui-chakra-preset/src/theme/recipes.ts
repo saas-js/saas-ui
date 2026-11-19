@@ -3,13 +3,13 @@ import { buttonRecipe } from './recipes/button.recipe.ts'
 import { checkmarkRecipe } from './recipes/checkmark.recipe.ts'
 import { codeRecipe } from './recipes/code.recipe.ts'
 import { colorSwatchRecipe } from './recipes/color-swatch.recipe.ts'
-import { commandRecipe } from './recipes/command.recipe.ts'
 import { containerRecipe } from './recipes/container.recipe.ts'
 import { headingRecipe } from './recipes/heading.recipe.ts'
 import { iconBadgeRecipe } from './recipes/icon-badge.recipe.ts'
 import { iconRecipe } from './recipes/icon.recipe.ts'
 import { inputAddonRecipe } from './recipes/input-addon.recipe.ts'
 import { inputRecipe } from './recipes/input.recipe.ts'
+import { kbdGroupRecipe } from './recipes/kbd-group.recipe.ts'
 import { kbdRecipe } from './recipes/kbd.recipe.ts'
 import { linkRecipe } from './recipes/link.recipe.ts'
 import { markRecipe } from './recipes/mark.recipe.ts'
@@ -42,6 +42,6 @@ export const recipes = {
   checkmark: checkmarkRecipe,
   radiomark: radiomarkRecipe,
   // Saas UI
-  suiCommand: commandRecipe,
+  suiKbdGroup: kbdGroupRecipe,
   suiIconBadge: iconBadgeRecipe,
 }

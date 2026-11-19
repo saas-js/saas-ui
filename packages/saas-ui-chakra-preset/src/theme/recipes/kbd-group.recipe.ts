@@ -1,7 +1,11 @@
-import { defineRecipe } from '../def'
+import {
+  type RecipeVariantProps,
+  defineRecipe,
+} from '@chakra-ui/react/styled-system'
 
-export const commandRecipe = defineRecipe({
-  className: 'sui-command',
+/** Lays out the keys of a keyboard shortcut, e.g. `⌘ K` or `G then I`. */
+export const kbdGroupRecipe = defineRecipe({
+  className: 'sui-kbd-group',
   base: {
     colorPalette: 'gray',
     display: 'inline-flex',
@@ -12,12 +16,14 @@ export const commandRecipe = defineRecipe({
       _before: {
         content: '"•"',
         me: 1,
-        fontSize: 'xs',
       },
     },
   },
   variants: {
     size: {
+      xs: {
+        fontSize: '2xs',
+      },
       sm: {
         fontSize: 'xs',
       },
@@ -30,6 +36,8 @@ export const commandRecipe = defineRecipe({
     },
   },
   defaultVariants: {
-    size: 'md',
+    size: 'sm',
   },
 })
+
+export type KbdGroupVariantProps = RecipeVariantProps<typeof kbdGroupRecipe>

@@ -6,7 +6,7 @@ import { fontSizes } from '../tokens/font-sizes.stylex.ts'
 import { semanticColors } from '../semantic-tokens/colors.stylex.ts'
 import { spacing } from '../tokens/spacing.stylex.ts'
 
-export const commandStyles = stylex.create({
+export const kbdGroupStyles = stylex.create({
   base: {
     display: 'inline-flex',
     gap: spacing._1,
@@ -14,7 +14,7 @@ export const commandStyles = stylex.create({
   },
 })
 
-export const commandSizes = stylex.create({
+export const kbdGroupSizes = stylex.create({
   xs: {
     fontSize: '2xs',
   },
@@ -29,23 +29,23 @@ export const commandSizes = stylex.create({
   },
 })
 
-export type CommandSize = keyof typeof commandSizes
+export type KbdGroupSize = keyof typeof kbdGroupSizes
 
-export const commandRecipe = {
-  styles: commandStyles,
-  sizes: commandSizes,
+export const kbdGroupRecipe = {
+  styles: kbdGroupStyles,
+  sizes: kbdGroupSizes,
   defaultVariants: {
     size: 'sm',
   },
 } as const
 
-export function commandRecipeStyles(variants?: {
-  size?: CommandSize
+export function kbdGroupRecipeStyles(variants?: {
+  size?: KbdGroupSize
   colorPalette?: string
 }) {
-  const size = variants?.size ?? commandRecipe.defaultVariants.size
+  const size = variants?.size ?? kbdGroupRecipe.defaultVariants.size
 
-  return [commandStyles.base, commandSizes[size]]
+  return [kbdGroupStyles.base, kbdGroupSizes[size]]
 }
 
-export type CommandVariantProps = Parameters<typeof commandRecipeStyles>[0]
+export type KbdGroupVariantProps = Parameters<typeof kbdGroupRecipeStyles>[0]

@@ -1,42 +1,9 @@
-import {
-  type RecipeVariantProps,
-  defineRecipe,
-} from '@chakra-ui/react/styled-system'
-
-export const commandRecipe = defineRecipe({
-  className: 'sui-command',
-  base: {
-    colorPalette: 'gray',
-    display: 'inline-flex',
-    gap: 1,
-    color: 'fg.muted',
-    '[role=tooltip] > &': {
-      ms: 1,
-      _before: {
-        content: '"•"',
-        me: 1,
-      },
-    },
-  },
-  variants: {
-    size: {
-      xs: {
-        fontSize: '2xs',
-      },
-      sm: {
-        fontSize: 'xs',
-      },
-      md: {
-        fontSize: 'sm',
-      },
-      lg: {
-        fontSize: 'md',
-      },
-    },
-  },
-  defaultVariants: {
-    size: 'sm',
-  },
-})
-
-export type CommandVariantProps = RecipeVariantProps<typeof commandRecipe>
+/**
+ * @deprecated The `Command` keyboard shortcut component was renamed to
+ * `KbdGroup`. Import from `@saas-ui/chakra-preset/recipes/kbd-group` instead.
+ * Chakra UI's `Command` is the command palette (`slot-recipes/command`).
+ */
+export {
+  kbdGroupRecipe as commandRecipe,
+  type KbdGroupVariantProps as CommandVariantProps,
+} from './kbd-group.recipe.ts'

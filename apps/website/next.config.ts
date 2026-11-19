@@ -10,7 +10,7 @@ const nextConfig = {
   },
   async redirects() {
     const packageRedirects = [
-      'drizzle-crud',
+      'drizzle-secrets',
       'conditions',
       'iconx',
       'slingshot',
@@ -63,24 +63,46 @@ const nextConfig = {
         permanent: true,
       },
       ...packageRedirects,
+      // Drizzle CRUD was retired from the site; keep its old URLs (and the
+      // legacy /docs/drizzle-crud paths) landing somewhere useful.
+      {
+        source: '/packages/drizzle-crud/docs/advanced/filtering',
+        destination: '/packages/conditions/docs/integrations/drizzle',
+        permanent: true,
+      },
+      {
+        source: '/docs/drizzle-crud/advanced/filtering',
+        destination: '/packages/conditions/docs/integrations/drizzle',
+        permanent: true,
+      },
+      {
+        source: '/packages/drizzle-crud/:path*',
+        destination: '/packages',
+        permanent: true,
+      },
+      {
+        source: '/docs/drizzle-crud/:path*',
+        destination: '/packages',
+        permanent: true,
+      },
       {
         source: '/drizzle-orm-pagination',
-        destination: '/packages/drizzle-crud/docs/reference/core-operations',
+        destination: '/packages',
         permanent: true,
       },
       {
         source: '/drizzle-soft-delete',
-        destination: '/packages/drizzle-crud/docs/reference/core-operations',
+        destination: '/packages',
         permanent: true,
       },
       {
         source: '/drizzle-crud-generator',
-        destination: '/packages/drizzle-crud/docs/getting-started/basic-usage',
+        destination: '/packages',
         permanent: true,
       },
       {
         source: '/drizzle-filtering',
-        destination: '/packages/drizzle-crud/docs/advanced/filtering',
+        destination: '/packages/conditions/docs/integrations/drizzle',
         permanent: true,
       },
       {

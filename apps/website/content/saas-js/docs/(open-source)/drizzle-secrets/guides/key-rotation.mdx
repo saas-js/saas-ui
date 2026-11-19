@@ -1,0 +1,74 @@
+---
+title: Key rotation
+description: Add a new encryption key without downtime and re-encrypt existing rows.
+---
+
+Every ciphertext records the ID of the key that encrypted it:
+
+```
+enc$v1$<iv>$<authTag>$<ciphertext>
+    ^^ key ID
+```
+
+Configure several keys and pick one as current. New writes use the current
+key. Reads find the right key from the ID stored in the value.
+
+## Configure multiple keys
+
+```ts title="db/secret.ts"
+import { createDrizzleSecret } from 'drizzle-secrets/drizzle'
+
+export const secret = createDrizzleSecret({
+  keys: {
+    v1: process.env.ENCRYPTION_KEY_V1!,
+    v2: process.env.ENCRYPTION_KEY_V2!,
+  },
+  currentKeyId: 'v2',
+})
+```
+
+`currentKeyId` must be one of the keys you pass. Reading a value encrypted
+with a key that isn't configured throws an error that names the unknown key
+ID.
+
+<Callout>
+  A single string key, as in `createDrizzleSecret(process.env.ENCRYPTION_KEY!)`,
+  is stored under the ID `default`. To move to multiple keys later, keep the
+  old key under `default`, add the new one under its own ID, and make that ID
+  current.
+</Callout>
+
+## Rotate
+
+1. Generate a new key with `npx drizzle-secrets generate-key`.
+2. Add it to `keys` and make it `currentKeyId`. Deploy. New writes now use it,
+   and old rows still decrypt.
+3. Re-encrypt existing rows in the background.
+4. Once no rows reference the old key, remove it.
+
+Use a column in `'encrypted'` mode for step 3, so the job handles ciphertext
+only:
+
+```ts
+const integrationsRaw = pgTable('integrations', {
+  id: text('id').primaryKey(),
+  accessToken: secret('access_token', { mode: 'encrypted' }),
+})
+
+const rows = await db.select().from(integrationsRaw)
+
+for (const row of rows) {
+  if (!row.accessToken || !secret.secrets.needsRotation(row.accessToken)) {
+    continue
+  }
+
+  await db
+    .update(integrationsRaw)
+    .set({ accessToken: secret.secrets.rotate(row.accessToken) })
+    .where(eq(integrationsRaw.id, row.id))
+}
+```
+
+`needsRotation` returns `true` when a value was encrypted with a key other
+than the current one. `rotate` decrypts and re-encrypts such values, and
+returns values that already use the current key unchanged.

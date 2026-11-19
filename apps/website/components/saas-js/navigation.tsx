@@ -34,7 +34,7 @@ const KITS = [
 // Mirrors PACKAGE_IDS in lib/saas-js/packages.ts. Kept local so the nav does
 // not pull that module's descriptions and code samples into the client bundle.
 const PACKAGES = [
-  { name: 'Drizzle CRUD', href: '/packages/drizzle-crud' },
+  { name: 'Drizzle Secrets', href: '/packages/drizzle-secrets' },
   { name: 'Conditions', href: '/packages/conditions' },
   { name: 'Slingshot', href: '/packages/slingshot' },
   { name: 'Better Auth React Query', href: '/packages/better-auth-react-query' },

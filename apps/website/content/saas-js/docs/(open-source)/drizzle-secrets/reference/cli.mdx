@@ -1,0 +1,52 @@
+---
+title: CLI
+description: Generate keys and encrypt or decrypt values from the terminal.
+---
+
+```bash
+npx drizzle-secrets <command> [options]
+```
+
+## Commands
+
+### `generate-key`
+
+Prints a new random 256-bit key, base64-encoded.
+
+```bash
+npx drizzle-secrets generate-key
+```
+
+### `encrypt <value>`
+
+Encrypts a plaintext value with the given key. Useful for seeding a row by
+hand.
+
+```bash
+ENCRYPTION_KEY="..." npx drizzle-secrets encrypt "sk-abc123"
+```
+
+### `decrypt <value>`
+
+Decrypts a value. Exits with an error if the value isn't in the encrypted
+format, or if the key is wrong.
+
+```bash
+ENCRYPTION_KEY="..." npx drizzle-secrets decrypt 'enc$default$...'
+```
+
+<Callout>
+  Quote ciphertext with single quotes. The `$` separators would otherwise be
+  expanded by your shell.
+</Callout>
+
+## Options
+
+| Option           | Description                                              |
+| ---------------- | -------------------------------------------------------- |
+| `--key`, `-k`    | Base64 encryption key. Defaults to `$ENCRYPTION_KEY`.    |
+| `--help`, `-h`   | Show help.                                               |
+
+The CLI uses a single key, stored under the ID `default`. To decrypt values
+written with a named key from a multi-key config, use `createSecrets` in a
+script instead.

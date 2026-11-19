@@ -1,0 +1,120 @@
+---
+title: API
+description: Exports from drizzle-secrets and drizzle-secrets/drizzle.
+---
+
+## `drizzle-secrets/drizzle`
+
+### `createDrizzleSecret(input)`
+
+Creates a column builder bound to a set of keys.
+
+```ts
+createDrizzleSecret(encryptionKey: string, options?: { mask?: Mask }): SecretColumn
+createDrizzleSecret(config: SecretsConfig, options?: { mask?: Mask }): SecretColumn
+createDrizzleSecret(secrets: Secrets, options?: { mask?: Mask }): SecretColumn
+```
+
+`options.mask` is the default masking for every column it creates.
+
+### `secret(name, options?)`
+
+The builder returned by `createDrizzleSecret`. Returns a Postgres `text`
+custom column.
+
+| Option | Type                                   | Default                  |
+| ------ | -------------------------------------- | ------------------------ |
+| `mode` | `'masked' \| 'decrypt' \| 'encrypted'` | `'masked'`               |
+| `mask` | `Mask`                                 | the factory's `mask`     |
+
+`secret.secrets` is the underlying `Secrets` instance. See
+[Read modes](/packages/drizzle-secrets/docs/guides/read-modes).
+
+### `expose(value)`
+
+Returns the plaintext inside a `SecretValue`, or returns a plain string
+unchanged.
+
+```ts
+expose(value: SecretValue | string): string
+```
+
+### `SecretValue`
+
+An opaque wrapper around a decrypted value. `toString()`, `toJSON()`,
+`valueOf()`, `Symbol.toPrimitive`, and `util.inspect` all return masked
+text. The `masked` property holds the display form (`••••1234`).
+
+```ts
+new SecretValue(value: string, mask?: Mask)
+```
+
+### `mask(value, mask?)`
+
+Masks a plaintext value for display. With the defaults, values of 12+
+characters show their last four (`••••1234`) and shorter values return
+`••••`.
+
+```ts
+type Mask =
+  | { visible?: number; minLength?: number; placeholder?: string }
+  | ((value: string) => string)
+
+mask('sk-live-abcdef1234') // '••••1234'
+mask('12345') // '••••'
+mask('sk-live-abcdef1234', { visible: 0 }) // '••••'
+```
+
+`DEFAULT_MASK` holds the defaults: `{ visible: 4, minLength: 12, placeholder: '••••' }`.
+See [Masking](/packages/drizzle-secrets/docs/guides/read-modes#masking).
+
+## `drizzle-secrets`
+
+### `createSecrets(input)`
+
+```ts
+createSecrets(encryptionKey: string): Secrets
+createSecrets(config: SecretsConfig): Secrets
+```
+
+A single string key is registered under the ID `default`.
+
+### `SecretsConfig`
+
+```ts
+interface SecretsConfig {
+  /** Key ID → base64-encoded 32-byte key. */
+  keys: Record<string, string>
+  /** Key used for new encryptions. Must be present in `keys`. */
+  currentKeyId: string
+}
+```
+
+### `Secrets`
+
+| Method                    | Description                                                         |
+| ------------------------- | ------------------------------------------------------------------- |
+| `encrypt(plaintext)`      | Encrypts with the current key.                                      |
+| `decrypt(ciphertext)`     | Decrypts with the key named in the ciphertext.                      |
+| `needsRotation(value)`    | `true` if the value was encrypted with a key other than the current one. |
+| `rotate(value)`           | Re-encrypts with the current key, or returns the value unchanged.   |
+| `isEncrypted(value)`      | `true` if the string has the `enc$...` format.                      |
+
+### `generateKey()`
+
+Returns a new random 32-byte key as base64.
+
+### `isEncrypted(value)`
+
+`true` if the string has the five-part `enc$<keyId>$<iv>$<authTag>$<ciphertext>`
+format.
+
+## Format
+
+```
+enc$<keyId>$<iv>$<authTag>$<ciphertext>
+```
+
+AES-256-GCM, with a 12-byte random IV and a 16-byte auth tag. Binary
+segments are base64url-encoded. If a value has been tampered with, or the
+wrong key is used, decryption throws.

@@ -1,0 +1,139 @@
+---
+title: Basic usage
+description: Declare encrypted columns, write to them, and read them back safely.
+---
+
+## Create the column factory
+
+`createDrizzleSecret` returns a column builder bound to your key. There's no
+global state: the key lives inside the function you get back.
+
+```ts title="db/secret.ts"
+import { createDrizzleSecret } from 'drizzle-secrets/drizzle'
+
+export const secret = createDrizzleSecret(process.env.ENCRYPTION_KEY!)
+```
+
+## Declare secret columns
+
+Use `secret(name, options?)` like any other column builder. The column is
+stored as `text`.
+
+```ts title="db/schema.ts"
+import { pgTable, text, timestamp } from 'drizzle-orm/pg-core'
+
+import { secret } from './secret'
+
+export const integrations = pgTable('integrations', {
+  id: text('id').primaryKey(),
+  workspaceId: text('workspace_id').notNull(),
+  provider: text('provider').notNull(),
+  accessToken: secret('access_token'),
+  refreshToken: secret('refresh_token', { mode: 'decrypt' }),
+  createdAt: timestamp('created_at').defaultNow(),
+})
+```
+
+## Write plaintext
+
+Inserts and updates take plaintext. The column encrypts on the way to the
+database:
+
+```ts
+await db.insert(integrations).values({
+  id: crypto.randomUUID(),
+  workspaceId,
+  provider: 'github',
+  accessToken: tokens.access_token,
+  refreshToken: tokens.refresh_token,
+})
+```
+
+The stored value looks like `enc$default$<iv>$<authTag>$<ciphertext>`.
+Values that are already encrypted are written as-is, so you can copy
+ciphertext between rows without encrypting it twice.
+
+## Read safely
+
+What a read returns depends on the column's
+[mode](/packages/drizzle-secrets/docs/guides/read-modes):
+
+```ts
+const [row] = await db
+  .select()
+  .from(integrations)
+  .where(eq(integrations.id, id))
+
+row.accessToken // '••••a1b2' (masked, the default)
+row.refreshToken // SecretValue(••••9f2c)
+```
+
+`SecretValue` won't give up its plaintext by accident:
+
+```ts
+JSON.stringify(row) // {"refreshToken":"••••9f2c", ...}
+console.log(row.refreshToken) // SecretValue(••••9f2c)
+`token: ${row.refreshToken}` // 'token: ••••9f2c'
+```
+
+When you actually need the value, unwrap it with `expose()`:
+
+```ts
+import { expose } from 'drizzle-secrets/drizzle'
+
+const octokit = new Octokit({ auth: expose(row.refreshToken) })
+```
+
+`expose()` also accepts plain strings and returns them unchanged, so helpers
+can take `SecretValue | string`.
+
+## Encrypt outside of Drizzle
+
+The builder exposes the `Secrets` instance it uses, for values that don't go
+through a column:
+
+```ts
+const encrypted = secret.secrets.encrypt('whsec_...')
+const plaintext = secret.secrets.decrypt(encrypted)
+```
+
+You can also use the core API without Drizzle:
+
+```ts
+import { createSecrets } from 'drizzle-secrets'
+
+const secrets = createSecrets(process.env.ENCRYPTION_KEY!)
+```
+
+## Adopting on an existing column
+
+Reads only decrypt values that look encrypted. Plaintext that is already in
+the table comes back through the same mode (masked, or wrapped in
+`SecretValue`). You can switch a `text` column to `secret()` and backfill
+whenever you like:
+
+```ts
+import { isEncrypted } from 'drizzle-secrets'
+
+const rows = await db
+  .select({ id: integrations.id, token: integrations.refreshToken })
+  .from(integrations)
+
+for (const row of rows) {
+  // Writing the plaintext back through the column encrypts it.
+  await db
+    .update(integrations)
+    .set({ refreshToken: expose(row.token) })
+    .where(eq(integrations.id, row.id))
+}
+```
+
+Use a `'decrypt'` or `'encrypted'` column for the backfill, never a
+`'masked'` one. See the warning below.
+
+<Callout type="warn">
+  Don't write a masked read back to the database. A `'masked'` column returns
+  the string `'••••1234'`, and saving that string encrypts the mask in place
+  of the real secret. If a form edits a row that contains a secret, leave the
+  secret field out of the update unless the user typed a new value.
+</Callout>

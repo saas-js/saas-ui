@@ -1,47 +1,28 @@
-import { Box, ButtonGroup, Container, Stack, Text } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Box, Container, Heading, Stack } from '@chakra-ui/react'
 
-import { Button } from '#components/ui/button'
+import { HeroActions } from './hero.ui'
 
-export function GetStartedSection(props: { children?: React.ReactNode }) {
+export function GetStartedSection({
+  docsHref = '/docs',
+}: {
+  /** Docs entry point for the kit this page sells. */
+  docsHref?: string
+}) {
   return (
-    <Box
-      as="section"
-      borderTopWidth="1px"
-      borderBottomWidth="1px"
-      borderStyle="dashed"
-    >
+    <Box as="section" py={{ base: '16', md: '28' }} borderTopWidth="1px">
       <Container maxW="8xl">
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          borderLeftWidth="1px"
-          borderRightWidth="1px"
-          borderStyle="dashed"
-          p={{ base: '6', md: '16' }}
-          gap="4"
-          alignItems={{ base: 'stretch', md: 'flex-end' }}
-          justifyContent="space-between"
-        >
-          <Text
-            textStyle="4xl"
+        <Stack align="center" textAlign="center" gap={{ base: '8', md: '10' }}>
+          <Heading
+            as="h2"
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
+            lineHeight="1.05"
+            letterSpacing="tight"
             fontWeight="medium"
-            fontSize={{ base: '2xl', md: '4xl' }}
+            textWrap="balance"
           >
             Start shipping features today.
-          </Text>
-
-          {props.children ? (
-            props.children
-          ) : (
-            <ButtonGroup>
-              <Button variant="glass" colorPalette="accent" asChild>
-                <Link href="/pricing">Buy now</Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link href="/docs">Documentation</Link>
-              </Button>
-            </ButtonGroup>
-          )}
+          </Heading>
+          <HeroActions docsHref={docsHref} justify="center" />
         </Stack>
       </Container>
     </Box>

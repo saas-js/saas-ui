@@ -41,7 +41,7 @@ export const DemoSection = () => {
           bgGradient="to-b"
           gradientFrom="transparent"
           gradientVia="transparent"
-          gradientTo="bg.muted"
+          gradientTo="bg"
         />
       </Container>
     </Box>

@@ -207,6 +207,8 @@ export const ListItem = forwardRef<
     gridRow?: HTMLChakraProps<'li'>['gridRow']
     gridColumn?: HTMLChakraProps<'li'>['gridColumn']
     gridArea?: HTMLChakraProps<'li'>['gridArea']
+    /** Render as non-interactive text, for items that are not live yet. */
+    disabled?: boolean
   }
 >(function ListItem(
   {
@@ -220,9 +222,38 @@ export const ListItem = forwardRef<
     href,
     target,
     rel,
+    disabled,
   },
   forwardedRef,
 ) {
+  const content = (
+    <HStack
+      alignItems={align === 'center' ? 'center' : 'flex-start'}
+      height={align === 'center' ? '100%' : undefined}
+    >
+      {icon}
+      <Box>
+        <ListItemHeading>{title}</ListItemHeading>
+        {children && <ListItemText>{children}</ListItemText>}
+      </Box>
+    </HStack>
+  )
+
+  if (disabled) {
+    return (
+      <chakra.li
+        gridRow={gridRow}
+        gridColumn={gridColumn}
+        gridArea={gridArea}
+        aria-disabled="true"
+      >
+        <Box height="100%" px="3" py="2" opacity="0.7" cursor="default">
+          {content}
+        </Box>
+      </chakra.li>
+    )
+  }
+
   return (
     <chakra.li
       role="group"
@@ -232,16 +263,7 @@ export const ListItem = forwardRef<
     >
       <NavigationMenu.Link asChild>
         <ListItemLink href={href} target={target} rel={rel} ref={forwardedRef}>
-          <HStack
-            alignItems={align === 'center' ? 'center' : 'flex-start'}
-            height={align === 'center' ? '100%' : undefined}
-          >
-            {icon}
-            <Box>
-              <ListItemHeading>{title}</ListItemHeading>
-              {children && <ListItemText>{children}</ListItemText>}
-            </Box>
-          </HStack>
+          {content}
         </ListItemLink>
       </NavigationMenu.Link>
     </chakra.li>

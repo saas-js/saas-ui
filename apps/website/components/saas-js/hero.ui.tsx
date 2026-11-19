@@ -18,6 +18,100 @@ import { Avatar, AvatarGroup } from '#components/ui/avatar'
 import { Button } from '#components/ui/button'
 import { Link } from '#components/ui/link'
 
+export function HeroActions({
+  docsHref,
+  justify,
+}: {
+  docsHref: string
+  justify?: 'center'
+}) {
+  return (
+    <Stack
+      justify={justify}
+      direction={{ base: 'column', sm: 'row' }}
+      gap="3"
+      width={{ base: 'full', sm: 'auto' }}
+    >
+      <Button
+        size="lg"
+        minW={{ sm: '160px' }}
+        asChild
+        variant="glass"
+        colorPalette="accent"
+      >
+        <Link href="/pricing">Buy now</Link>
+      </Button>
+      <Button
+        size="lg"
+        minW={{ sm: '160px' }}
+        asChild
+        variant="outline"
+        colorPalette="neutral"
+      >
+        <Link href={docsHref}>Read the docs</Link>
+      </Button>
+    </Stack>
+  )
+}
+
+export function HeroProof({
+  latestChangelog,
+  justify,
+}: {
+  latestChangelog: { title: string; link: string } | null
+  justify?: 'center'
+}) {
+  return (
+    <Flex
+      justify={justify}
+      align="center"
+      gap={{ base: '4', md: '8' }}
+      flexShrink="0"
+      direction={{ base: 'column', sm: 'row' }}
+    >
+      <HStack gap="3">
+        <AvatarGroup size="xs">
+          <Avatar src="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=40&format=webp" />
+          <Avatar src="https://cdn.senja.io/public/avatar/5e93a8cc-0204-422a-a509-546cd0a634a6_actual.png?width=40&format=webp" />
+          <Avatar src="https://senjaio.b-cdn.net/public/avatar/48bd839c-bbab-4290-ae39-a3731486d63e_IMG_6039%20%281%29.jpg?width=40&height=40&format=webp" />
+          <Avatar src="https://cdn.senja.io/public/avatar/660ebe99-0c37-4fc3-8396-fd24dcf7afd1_Avatar%20512x512.jpg?width=40&format=webp" />
+        </AvatarGroup>
+        <Stack gap="0">
+          <HStack color="yellow.500" gap="0.5">
+            <TbStarFilled size={10} />
+            <TbStarFilled size={10} />
+            <TbStarFilled size={10} />
+            <TbStarFilled size={10} />
+            <TbStarFilled size={10} />
+          </HStack>
+          <Text textStyle="xs" color="fg.muted" whiteSpace="nowrap">
+            Used by 1000+ developers
+          </Text>
+        </Stack>
+      </HStack>
+      {latestChangelog ? (
+        <Flex align="center" gap="3">
+          <Badge variant="solid" colorPalette="accent">
+            New
+          </Badge>
+          <Link href={latestChangelog.link}>
+            <Text
+              textStyle="sm"
+              color="fg.muted"
+              _hover={{ color: 'fg' }}
+              transition="colors"
+              whiteSpace="nowrap"
+            >
+              {latestChangelog.title}
+              <ActionArrow />
+            </Text>
+          </Link>
+        </Flex>
+      ) : null}
+    </Flex>
+  )
+}
+
 const StarterKitHeroUI = ({
   title = 'Your AI agents are only as good as your codebase',
   description,
@@ -61,78 +155,9 @@ const StarterKitHeroUI = ({
                   {description}
                 </Text>
 
-                {/* The hero had no call to action at all. */}
-                <Stack
-                  direction={{ base: 'column', sm: 'row' }}
-                  gap="3"
-                  width={{ base: 'full', sm: 'auto' }}
-                >
-                  <Button
-                    size="lg"
-                    minW={{ sm: '160px' }}
-                    asChild
-                    variant="glass"
-                    colorPalette="accent"
-                  >
-                    <Link href="/pricing">Buy now</Link>
-                  </Button>
-                  <Button
-                    size="lg"
-                    minW={{ sm: '160px' }}
-                    asChild
-                    variant="outline"
-                    colorPalette="neutral"
-                  >
-                    <Link href={docsHref}>Read the docs</Link>
-                  </Button>
-                </Stack>
+                <HeroActions docsHref={docsHref} />
               </Stack>
-              <Flex
-                align="center"
-                gap={{ base: '4', md: '8' }}
-                flexShrink="0"
-                direction={{ base: 'column', sm: 'row' }}
-              >
-                <HStack gap="3">
-                  <AvatarGroup size="xs">
-                    <Avatar src="https://senjaio.b-cdn.net/public/avatar/33d3d3ac-530d-4a2a-a2a9-93621e00bb1d_1698499800957.jpg?width=40&format=webp" />
-                    <Avatar src="https://cdn.senja.io/public/avatar/5e93a8cc-0204-422a-a509-546cd0a634a6_actual.png?width=40&format=webp" />
-                    <Avatar src="https://senjaio.b-cdn.net/public/avatar/48bd839c-bbab-4290-ae39-a3731486d63e_IMG_6039%20%281%29.jpg?width=40&height=40&format=webp" />
-                    <Avatar src="https://cdn.senja.io/public/avatar/660ebe99-0c37-4fc3-8396-fd24dcf7afd1_Avatar%20512x512.jpg?width=40&format=webp" />
-                  </AvatarGroup>
-                  <Stack gap="0">
-                    <HStack color="yellow.500" gap="0.5">
-                      <TbStarFilled size={10} />
-                      <TbStarFilled size={10} />
-                      <TbStarFilled size={10} />
-                      <TbStarFilled size={10} />
-                      <TbStarFilled size={10} />
-                    </HStack>
-                    <Text textStyle="xs" color="fg.muted" whiteSpace="nowrap">
-                      Used by 1000+ developers
-                    </Text>
-                  </Stack>
-                </HStack>
-                {latestChangelog ? (
-                  <Flex align="center" gap="3">
-                    <Badge variant="solid" colorPalette="accent">
-                      New
-                    </Badge>
-                    <Link href={latestChangelog.link}>
-                      <Text
-                        textStyle="sm"
-                        color="fg.muted"
-                        _hover={{ color: 'fg' }}
-                        transition="colors"
-                        whiteSpace="nowrap"
-                      >
-                        {latestChangelog.title}
-                        <ActionArrow />
-                      </Text>
-                    </Link>
-                  </Flex>
-                ) : null}
-              </Flex>
+              <HeroProof latestChangelog={latestChangelog} />
             </Flex>
           </Stack>
         </Container>

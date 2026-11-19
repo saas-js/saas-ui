@@ -1,0 +1,232 @@
+/* Hero stage. Reuses the feature-stage primitives (features.module.css). */
+
+.stage.stage {
+  margin-block: 64px 0;
+}
+
+.diffStat {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 6px;
+  font-family: var(--chakra-fonts-mono);
+  font-size: 11.5px;
+}
+
+.diffDel {
+  color: oklch(0.65 0.18 25);
+}
+
+.diffAdd {
+  color: oklch(0.7 0.16 150);
+}
+
+.stage .diffCode :global(.line.is-added) {
+  display: inline-block;
+  width: calc(100% + 32px);
+  margin: 0 -16px;
+  min-height: calc(12px * 1.7);
+  vertical-align: top;
+  padding: 0 16px;
+  background: oklch(0.72 0.17 150 / 0.12) !important;
+  box-shadow: inset 2px 0 0 oklch(0.68 0.17 150);
+}
+
+.agentBody {
+  gap: 6px;
+  white-space: normal;
+}
+
+.agentBody p {
+  margin: 0;
+}
+
+.prompt {
+  margin-bottom: 8px !important;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.06);
+  line-height: 1.5;
+}
+
+.step {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.stepText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.done {
+  margin-top: 8px !important;
+  line-height: 1.5;
+}
+
+.tree {
+  display: grid;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+}
+
+.tree li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding-right: 14px;
+  font-family: var(--chakra-fonts-mono);
+  font-size: 12.5px;
+}
+
+.treeIcon {
+  color: var(--m-fg-muted);
+}
+
+.treeNote {
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--m-line);
+  color: var(--m-fg-muted);
+  font-family: var(--chakra-fonts-body);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.treeActive {
+  background: var(--m-blue-subtle);
+  box-shadow: inset 2px 0 0 var(--m-blue);
+}
+
+.stage.stageWorkspace {
+  height: 540px;
+}
+
+.stage .workspaceBack {
+  inset: 0;
+  -webkit-mask-image:
+    linear-gradient(to right, #000 88%, transparent),
+    linear-gradient(to bottom, #000 62%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, #000 88%, transparent),
+    linear-gradient(to bottom, #000 62%, transparent);
+  mask-composite: intersect;
+}
+
+.ide {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  height: 100%;
+}
+
+.explorer {
+  border-right: 1px solid var(--m-line);
+  background: var(--m-muted-bg);
+}
+
+.explorerTitle {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--m-line);
+  color: var(--m-fg-muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.explorerTree li {
+  height: 30px;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.treeName {
+  white-space: nowrap;
+}
+
+.treeModified {
+  margin-left: auto;
+  color: oklch(0.68 0.15 75);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.treeNote + .treeModified {
+  margin-left: 6px;
+}
+
+.treeView {
+  padding: 6px;
+  font-family: var(--chakra-fonts-mono);
+  --tree-indent-size: 6px;
+}
+
+.treeView [data-part='item-text'],
+.treeView [data-part='branch-text'] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.treeView [data-part='item'],
+.treeView [data-part='branch-control'] {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.treeView [data-part='item'] .treeModified {
+  margin-left: auto;
+}
+
+.tabButton {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.tabButton:focus-visible {
+  outline: 2px solid var(--m-blue);
+  outline-offset: -2px;
+}
+
+.editor {
+  min-width: 0;
+}
+
+.workspaceTerminal {
+  right: 0;
+  top: 120px;
+  width: min(400px, 40%);
+}
+
+@media (max-width: 767px) {
+  .stage.stage {
+    margin-block: 40px 0;
+  }
+
+  .ide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .explorer {
+    display: none;
+  }
+
+  .stage .workspaceBack {
+    inset: 150px 0 0 0;
+  }
+
+  .workspaceTerminal {
+    top: 0;
+    width: 100%;
+  }
+}

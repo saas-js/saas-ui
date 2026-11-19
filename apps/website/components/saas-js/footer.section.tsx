@@ -50,7 +50,7 @@ const linkTree = [
 
 export const FooterSection = () => {
   return (
-    <footer role="contentinfo">
+    <Box as="footer" role="contentinfo" borderTopWidth="1px">
       <Container py="8" fontSize="sm">
         <Stack
           direction={{ base: 'column-reverse', md: 'row' }}
@@ -92,6 +92,6 @@ export const FooterSection = () => {
           </SimpleGrid>
         </Stack>
       </Container>
-    </footer>
+    </Box>
   )
 }

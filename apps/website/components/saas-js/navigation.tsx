@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Stack, Text } from '@chakra-ui/react'
+import { Badge, Box, HStack, Stack, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 
 import {
@@ -17,11 +17,23 @@ import {
   ViewportPosition,
 } from '../navigation-menu'
 
-const KITS = [
+const KITS: Array<{
+  title: string
+  href: string
+  mark: string
+  invert?: boolean
+  soon?: boolean
+}> = [
   {
     title: 'TanStack Start kit',
     href: '/',
     mark: '/img/frameworks/tanstack.svg',
+  },
+  {
+    title: 'TanStack Start kit v2',
+    href: '/',
+    mark: '/img/frameworks/tanstack.svg',
+    soon: true,
   },
   {
     title: 'Next.js kit',
@@ -37,16 +49,20 @@ const PACKAGES = [
   { name: 'Drizzle CRUD', href: '/packages/drizzle-crud' },
   { name: 'Conditions', href: '/packages/conditions' },
   { name: 'Slingshot', href: '/packages/slingshot' },
-  { name: 'Better Auth React Query', href: '/packages/better-auth-react-query' },
+  {
+    name: 'Better Auth React Query',
+    href: '/packages/better-auth-react-query',
+  },
   { name: 'Iconx', href: '/packages/iconx' },
   { name: 'All packages', href: '/packages' },
 ]
 
 const PACKAGE_COLUMNS = 2
 const PACKAGE_ROWS = Math.ceil(PACKAGES.length / PACKAGE_COLUMNS)
-// Two grid rows per package row, so the two kits can each span exactly half
-// the column whatever the package count is.
-const MENU_ROWS = PACKAGE_ROWS * 2
+// Kits and packages share one grid: each kit spans PACKAGE_ROWS rows and
+// each package row spans KITS.length rows, so both columns fill the same
+// height whatever the counts are.
+const MENU_ROWS = PACKAGE_ROWS * KITS.length
 
 const GroupLabel = ({
   children,
@@ -84,7 +100,7 @@ export const Navigation = () => {
                 '@media only screen and (min-width: 600px)': {
                   width: '720px',
                   maxWidth: '92vw',
-                  gridTemplateColumns: `1fr 1px repeat(${PACKAGE_COLUMNS}, 1fr)`,
+                  gridTemplateColumns: `1.3fr 1px repeat(${PACKAGE_COLUMNS}, 1fr)`,
                   gridTemplateRows: `auto repeat(${MENU_ROWS}, auto)`,
                 },
               }}
@@ -111,16 +127,28 @@ export const Navigation = () => {
 
               {KITS.map((kit, i) => (
                 <ListItem
-                  key={kit.href}
-                  title={kit.title}
+                  key={kit.title}
+                  title={
+                    kit.soon ? (
+                      <HStack gap="2">
+                        {kit.title}
+                        <Badge size="sm" variant="surface">
+                          Soon
+                        </Badge>
+                      </HStack>
+                    ) : (
+                      kit.title
+                    )
+                  }
                   href={kit.href}
+                  disabled={kit.soon}
                   align="center"
                   icon={<Mark src={kit.mark} invert={kit.invert} />}
                   gridColumn={{ md: 1 }}
                   // Every item is placed explicitly. Auto placement walks past
                   // the spanning kits and offsets the whole package block.
                   gridRow={{
-                    md: `${i * (MENU_ROWS / 2) + 2} / span ${MENU_ROWS / 2}`,
+                    md: `${i * PACKAGE_ROWS + 2} / span ${PACKAGE_ROWS}`,
                   }}
                 />
               ))}
@@ -132,7 +160,7 @@ export const Navigation = () => {
                   href={pkg.href}
                   gridColumn={{ md: (i % PACKAGE_COLUMNS) + 3 }}
                   gridRow={{
-                    md: `${Math.floor(i / PACKAGE_COLUMNS) * 2 + 2} / span 2`,
+                    md: `${Math.floor(i / PACKAGE_COLUMNS) * KITS.length + 2} / span ${KITS.length}`,
                   }}
                 />
               ))}

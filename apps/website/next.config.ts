@@ -135,6 +135,13 @@ const nextConfig = {
       '@saas-ui/charts': '../../packages/saas-ui-charts/src/index.ts',
       '@saas-ui/chakra-preset':
         '../../packages/saas-ui-chakra-preset/src/index.ts',
+      // Subpaths would otherwise resolve to the package's (possibly stale)
+      // dist build, so registry templates that import a recipe directly
+      // render with an outdated copy in dev.
+      '@saas-ui/chakra-preset/recipes/*':
+        '../../packages/saas-ui-chakra-preset/src/theme/recipes/*.recipe.ts',
+      '@saas-ui/chakra-preset/slot-recipes/*':
+        '../../packages/saas-ui-chakra-preset/src/theme/slot-recipes/*.recipe.ts',
       '@saas-ui/hooks': '../../packages/saas-ui-hooks/src/index.ts',
     },
   },

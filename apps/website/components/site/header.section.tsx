@@ -37,10 +37,10 @@ const LogoLink = () => (
 
 // "Resources" pointed at /resources, which has never been a route.
 // Changelog and Blog are the internal destinations from that menu.
-const NAV_LINKS = [
+const getNavLinks = (saasUiUrl = '') => [
   {
     title: 'Docs',
-    url: 'https://saas-ui.dev/docs/getting-started/introduction',
+    url: `${saasUiUrl}/docs/getting-started/introduction`,
   },
   { title: 'Pricing', url: '/pricing', pro: true },
   { title: 'Changelog', url: '/changelog' },
@@ -54,9 +54,15 @@ interface HeaderProps {
    * this header (the blog) turn it on.
    */
   pro?: boolean
+  /**
+   * Origin prefixed to Saas UI links. Leave empty on saas-ui.dev so links stay
+   * relative (and work on any host, e.g. saas-ui.localhost); set it to
+   * https://saas-ui.dev on pages served from saas-js.com.
+   */
+  saasUiUrl?: string
 }
 
-const DesktopNav = ({ pro }: HeaderProps) => (
+const DesktopNav = ({ pro, saasUiUrl }: HeaderProps) => (
   <HStack gap="6" as="nav" aria-label="primary navigation">
     <HStack>
       <LogoLink />
@@ -68,7 +74,7 @@ const DesktopNav = ({ pro }: HeaderProps) => (
       display={{ base: 'none', md: 'flex' }}
       flex="1"
     >
-      <Navigation pro={pro} />
+      <Navigation pro={pro} saasUiUrl={saasUiUrl} />
     </HStack>
     <HStack gap="0" justifyContent="flex-end">
       <CommandMenu
@@ -124,10 +130,10 @@ const MobileNavCloseTrigger = () => (
   </Dialog.CloseTrigger>
 )
 
-const MobileNavContent = ({ pro }: HeaderProps) => (
+const MobileNavContent = ({ pro, saasUiUrl }: HeaderProps) => (
   <Container>
     <Stack py="4" gap="4" color="white">
-      {NAV_LINKS.filter((item) => pro || !item.pro).map((item) => (
+      {getNavLinks(saasUiUrl).filter((item) => pro || !item.pro).map((item) => (
         <Button key={item.title} variant="outline" colorPalette="teal" asChild>
           <Link href={item.url}>{item.title}</Link>
         </Button>
@@ -136,7 +142,7 @@ const MobileNavContent = ({ pro }: HeaderProps) => (
   </Container>
 )
 
-const MobileNav = ({ pro }: HeaderProps) => {
+const MobileNav = ({ pro, saasUiUrl }: HeaderProps) => {
   return (
     <Dialog.Root>
       <MobileNavTrigger />
@@ -147,13 +153,13 @@ const MobileNav = ({ pro }: HeaderProps) => {
           <Spacer />
           <MobileNavCloseTrigger />
         </HeaderRoot>
-        <MobileNavContent pro={pro} />
+        <MobileNavContent pro={pro} saasUiUrl={saasUiUrl} />
       </Dialog.Content>
     </Dialog.Root>
   )
 }
 
-export const HeaderSection = ({ pro = false }: HeaderProps) => {
+export const HeaderSection = ({ pro = false, saasUiUrl = '' }: HeaderProps) => {
   return (
     <Box
       position="fixed"
@@ -190,8 +196,8 @@ export const HeaderSection = ({ pro = false }: HeaderProps) => {
         </LinkButton>
       </Stack>
       <Container py="2">
-        <DesktopNav pro={pro} />
-        <MobileNav pro={pro} />
+        <DesktopNav pro={pro} saasUiUrl={saasUiUrl} />
+        <MobileNav pro={pro} saasUiUrl={saasUiUrl} />
       </Container>
     </Box>
   )

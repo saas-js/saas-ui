@@ -9,14 +9,14 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 
-const linkTree = [
+const getLinkTree = (saasUiUrl = '') => [
   {
     title: 'Resources',
     items: [
       { label: 'Affiliate program', href: '/affiliate' },
       {
         label: 'Documentation',
-        href: 'https://saas-ui.dev/docs/getting-started/introduction',
+        href: `${saasUiUrl}/docs/getting-started/introduction`,
       },
       { label: 'Blog', href: 'https://www.saas-js.com/blog' },
       { label: 'Roadmap', href: 'https://roadmap.saas-ui.dev' },
@@ -28,10 +28,10 @@ const linkTree = [
     items: [
       {
         label: 'React components',
-        href: 'https://saas-ui.dev/docs/components/overview',
+        href: `${saasUiUrl}/docs/components/overview`,
       },
-      { label: 'Blocks', href: 'https://saas-ui.dev/blocks' },
-      { label: 'Figma UI kit', href: 'https://saas-ui.dev/figma' },
+      { label: 'Blocks', href: `${saasUiUrl}/blocks` },
+      { label: 'Figma UI kit', href: `${saasUiUrl}/figma` },
 
       // Point each kit at its own page rather than the saas-js.com homepage.
       // These are sitewide links with exact-match anchor text, so they are the
@@ -55,7 +55,9 @@ const linkTree = [
   },
 ]
 
-export const FooterSection = () => {
+/** See `HeaderSection` for `saasUiUrl`. */
+export const FooterSection = ({ saasUiUrl = '' }: { saasUiUrl?: string }) => {
+  const linkTree = getLinkTree(saasUiUrl)
   return (
     <footer role="contentinfo">
       <Container py="8" fontSize="sm">

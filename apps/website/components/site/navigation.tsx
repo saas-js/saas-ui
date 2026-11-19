@@ -16,7 +16,15 @@ import {
 
 // `pro` shows the Pricing link. Saas UI no longer sells anything, so only the
 // Saas.js-hosted pages (e.g. the blog) that reuse this header opt in.
-export const Navigation = ({ pro = false }: { pro?: boolean }) => {
+// `saasUiUrl` prefixes Saas UI paths; empty (relative) on saas-ui.dev, set to
+// the saas-ui.dev origin only where the nav renders on saas-js.com.
+export const Navigation = ({
+  pro = false,
+  saasUiUrl = '',
+}: {
+  pro?: boolean
+  saasUiUrl?: string
+}) => {
   return (
     <NavigationMenuRoot>
       <NavigationMenuList>
@@ -88,7 +96,7 @@ export const Navigation = ({ pro = false }: { pro?: boolean }) => {
           )}
 
           <NavigationMenuItem>
-            <NavigationMenuLink href="https://saas-ui.dev/docs/getting-started/introduction">
+            <NavigationMenuLink href={`${saasUiUrl}/docs/getting-started/introduction`}>
               Docs
             </NavigationMenuLink>
           </NavigationMenuItem>

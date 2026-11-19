@@ -95,7 +95,7 @@ export interface AppearanceOverrides {
     overlay: ColorValue
     backdrop: ColorValue
     inverted: ColorValue
-    /** Compatibility alias for inset. */
+    /** Opaque recessed fill; insets are translucent in light mode. */
     muted: ColorValue
     /** Compatibility alias for interaction.hover. */
     subtle: ColorValue
@@ -233,7 +233,12 @@ interface BaseProfile {
   bg: number
   surface: number
   elevated: number
-  inset: number
+  /**
+   * Opaque recessed lightness, used by `bg.muted` in both modes and by
+   * `bg.inset` in dark mode. Light insets are a translucent foreground
+   * overlay at `hoverAlpha`, matching the CSS contract.
+   */
+  muted: number
   fg: number
   fgMuted: number
   fgSubtle: number
@@ -252,7 +257,7 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.99,
       surface: 0.995,
       elevated: 0.995,
-      inset: 0.975,
+      muted: 0.975,
       fg: 0.2,
       fgMuted: 0.44,
       fgSubtle: 0.54,
@@ -266,7 +271,7 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.145,
       surface: 0.165,
       elevated: 0.185,
-      inset: 0.12,
+      muted: 0.12,
       fg: 0.92,
       fgMuted: 0.7,
       fgSubtle: 0.58,
@@ -282,7 +287,7 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.985,
       surface: 0.995,
       elevated: 0.995,
-      inset: 0.965,
+      muted: 0.965,
       fg: 0.18,
       fgMuted: 0.42,
       fgSubtle: 0.52,
@@ -296,7 +301,7 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.14,
       surface: 0.17,
       elevated: 0.2,
-      inset: 0.11,
+      muted: 0.11,
       fg: 0.94,
       fgMuted: 0.72,
       fgSubtle: 0.6,
@@ -312,7 +317,7 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.98,
       surface: 0.995,
       elevated: 0.995,
-      inset: 0.945,
+      muted: 0.945,
       fg: 0.16,
       fgMuted: 0.4,
       fgSubtle: 0.49,
@@ -326,7 +331,7 @@ const baseProfiles: Record<ContrastLevel, Record<Mode, BaseProfile>> = {
       bg: 0.125,
       surface: 0.175,
       elevated: 0.225,
-      inset: 0.085,
+      muted: 0.085,
       fg: 0.96,
       fgMuted: 0.75,
       fgSubtle: 0.63,
@@ -472,7 +477,8 @@ function createBase(
   const bg = tone(seed, profile.bg, 0.2)
   const surface = tone(seed, profile.surface, dark ? 0.3 : 0.2)
   const elevated = tone(seed, profile.elevated, dark ? 0.45 : 0.2)
-  const inset = tone(seed, profile.inset, dark ? 0.3 : 0.35)
+  const muted = tone(seed, profile.muted, dark ? 0.2 : 0.35)
+  const inset = dark ? muted : withAlpha(fgSeed, profile.hoverAlpha)
   const hover = withAlpha(fgSeed, profile.hoverAlpha)
   const pressed = withAlpha(fgSeed, profile.pressedAlpha)
   const invertedBg = tone(seed, dark ? 0.985 : 0.16, dark ? 0.08 : 0.4)
@@ -489,7 +495,7 @@ function createBase(
       }),
       backdrop: formatOklch({ l: 0, c: 0, h: 0, a: 0.3 }),
       inverted: invertedBg,
-      muted: inset,
+      muted,
       subtle: hover,
       emphasized: pressed,
       content: bg,

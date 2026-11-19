@@ -124,9 +124,23 @@ const appearanceValues = {
     relativeColor(baseSeed, surfaceLightness.light, 'calc(c * 0.2)'),
     relativeColor(baseSeed, contrast(0.2, -0.015, 0.025), 'calc(c * 0.45)'),
   ),
+  // Light insets are a translucent foreground overlay rather than an opaque
+  // grey, so a well inside a panel, card or popover darkens whatever it sits
+  // on and keeps that parent's tint instead of painting a fixed page tone.
   inset: lightDark(
+    relativeColor(
+      baseSeed,
+      baseForegroundLightness.light,
+      'calc(c * 0.3)',
+      contrast(0.05, -0.01, 0.01),
+    ),
+    relativeColor(baseSeed, contrast(0.11, 0.01, -0.025), 'calc(c * 0.2)'),
+  ),
+  // bg.muted stays opaque: it is used as a page, section and pinned-cell fill
+  // that content scrolls or fades beneath, which a translucent inset breaks.
+  muted: lightDark(
     relativeColor(baseSeed, contrast(0.965, 0.01, -0.02), 'calc(c * 0.35)'),
-    relativeColor(baseSeed, contrast(0.11, 0.01, -0.025), 'calc(c * 0.3)'),
+    relativeColor(baseSeed, contrast(0.11, 0.01, -0.025), 'calc(c * 0.2)'),
   ),
   overlay: lightDark(
     relativeColor(baseSeed, surfaceLightness.light, 'calc(c * 0.2)', 0.95),
@@ -474,7 +488,7 @@ export const appearanceColors = {
     overlay: { value: appearanceValues.overlay },
     backdrop: { value: appearanceValues.backdrop },
     inverted: { value: appearanceValues.bgInverted },
-    muted: { value: '{colors.bg.inset}' },
+    muted: { value: appearanceValues.muted },
     subtle: { value: '{colors.interaction.hover}' },
     emphasized: { value: '{colors.interaction.pressed}' },
     content: { value: '{colors.bg}' },

@@ -23,7 +23,12 @@ export interface SeoLandingContent {
   /** Why this framework, for the SaaS use case specifically. */
   whyFramework: { title: string; body: string }[]
   stack: { layer: string; choice: string; note: string }[]
-  included: { title: string; body: string }[]
+  included: {
+    title: string
+    body: string
+    /** Product mockup shown with the item, from the homepage feature tiles. */
+    stage?: 'workspaces' | 'billing' | 'ui' | 'api'
+  }[]
   generateVsKit: { area: string; generated: string; withKit: string }[]
   faq: { q: string; a: string }[]
 }
@@ -66,21 +71,25 @@ const sharedStack = [
   },
 ]
 
-const sharedIncluded = [
+const sharedIncluded: SeoLandingContent['included'] = [
   {
     title: 'Multi-tenant workspaces',
+    stage: 'workspaces',
     body: 'Users create workspaces, invite teammates and manage roles. Scope filters run in the data layer, so every query is tenant-scoped by default. You do not have to remember it in each new route.',
   },
   {
     title: 'Billing that matches your pricing',
+    stage: 'billing',
     body: 'Subscriptions, tiered plans, metered and usage-based pricing, entitlements. Your pricing config syncs to Stripe, so you maintain it in one place.',
   },
   {
     title: 'An admin and dashboard shell',
+    stage: 'ui',
     body: 'Navigation, data tables, filters, forms and empty states. The parts that take a week to build properly and drift out of sync when you do not.',
   },
   {
     title: 'Types strict enough for agents',
+    stage: 'api',
     body: 'Full type coverage and one set of patterns give an agent something to conform to. The tests catch it when it does not.',
   },
 ]
@@ -107,14 +116,12 @@ const sharedGenerateVsKit = [
   {
     area: 'Conventions',
     generated: 'Whatever it picked this session.',
-    withKit:
-      'One set of patterns. Your tenth feature looks like your first.',
+    withKit: 'One set of patterns. Your tenth feature looks like your first.',
   },
   {
     area: 'Knowing it works',
     generated: 'Code that looks right.',
-    withKit:
-      'Types and end-to-end tests in CI that fail when it is not.',
+    withKit: 'Types and end-to-end tests in CI that fail when it is not.',
   },
 ]
 

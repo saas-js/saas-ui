@@ -1,28 +1,57 @@
+import { getLatestChangelog } from '@/lib/get-latest-changelog'
+import { highlightCode } from '@/lib/highlight-code'
+import type { SeoLandingContent } from '@/lib/saas-js/seo-pages'
 import {
   Box,
   Container,
+  Flex,
   Grid,
-  HStack,
   Heading,
   Stack,
   Table,
   Text,
 } from '@chakra-ui/react'
-import { Section } from '#components/ui/section'
 import Link from 'next/link'
 
 import { Button } from '#components/ui/button'
-import type { SeoLandingContent } from '@/lib/saas-js/seo-pages'
 
 import { CustomersSection } from './customers.section'
+import { FeatureTile, markLines } from './features.section'
+import {
+  ApiStage,
+  BillingStage,
+  UiStage,
+  WorkspacesStage,
+} from './features/feature-stages'
+import { billingConfigCode, routerCode } from './features/snippets'
+import { HeroProof } from './hero.ui'
 import { TestimonialsSection } from './testimonials.section'
 
 /**
  * Long-form landing page for a framework keyword. Deliberately answers the
  * research query (stack, contents, build-vs-buy, why this framework) instead
- * of repeating the product pitch on `/` and `/nextjs`.
+ * of repeating the product pitch on `/` and `/nextjs`. It shares the
+ * homepage's visual language: the same hero type, the feature-tile mockups and
+ * solid section dividers.
  */
-export function SeoLanding({ content }: { content: SeoLandingContent }) {
+export async function SeoLanding({ content }: { content: SeoLandingContent }) {
+  const [configHtml, routerHtml] = await Promise.all([
+    highlightCode(billingConfigCode, { lang: 'ts' }),
+    highlightCode(routerCode, { lang: 'ts' }),
+  ])
+
+  const stages = {
+    workspaces: <WorkspacesStage />,
+    billing: <BillingStage configHtml={markLines(configHtml, [7])} />,
+    ui: <UiStage />,
+    api: <ApiStage routerHtml={markLines(routerHtml, [10])} />,
+  }
+
+  const changelog = getLatestChangelog(['tanstack', 'tanstack-start', 'nextjs'])
+  const latestChangelog = changelog
+    ? { title: changelog.title, link: `/changelog/${changelog.slug}` }
+    : null
+
   return (
     <>
       {/* FAQPage markup makes the questions eligible for rich results. */}
@@ -43,189 +72,292 @@ export function SeoLanding({ content }: { content: SeoLandingContent }) {
         }}
       />
 
-      <Box as="section" pt={{ base: '24', md: '36' }} pb="16">
-        <Container maxW="5xl">
-          <Stack gap="6">
+      <Box
+        as="section"
+        pt={{ base: '24', md: '36' }}
+        pb={{ base: '8', md: '12' }}
+      >
+        <Container maxW="8xl">
+          <Stack gap={{ base: '8', md: '10' }}>
             <Heading
               as="h1"
-              fontSize={{ base: '4xl', md: '6xl' }}
+              fontSize={{ base: '4xl', sm: '5xl', md: '6xl', lg: '7xl' }}
               lineHeight="1.05"
               letterSpacing="tight"
               textWrap="balance"
+              maxW="4xl"
             >
               {content.h1}
             </Heading>
-            <Text textStyle={{ base: 'md', md: 'lg' }} color="fg.subtle" maxW="3xl">
-              {content.intro}
-            </Text>
-            <HStack gap="3" pt="2" flexWrap="wrap">
-              <Button size="lg" asChild variant="glass" colorPalette="accent">
-                <Link href="/pricing">Buy now, $200</Link>
-              </Button>
-              <Button size="lg" asChild variant="outline" colorPalette="neutral">
-                <Link href={content.docsHref}>Read the docs</Link>
-              </Button>
-            </HStack>
+            <Flex
+              direction={{ base: 'column', md: 'row' }}
+              justify="space-between"
+              align={{ base: 'start', md: 'end' }}
+              gap={{ base: '6', md: '8' }}
+            >
+              <Stack gap={{ base: '6', md: '8' }} maxW="xl">
+                <Text textStyle={{ base: 'md', md: 'lg' }} color="fg.subtle">
+                  {content.intro}
+                </Text>
+                <Stack
+                  direction={{ base: 'column', sm: 'row' }}
+                  gap="3"
+                  width={{ base: 'full', sm: 'auto' }}
+                >
+                  <Button
+                    size="lg"
+                    minW={{ sm: '160px' }}
+                    asChild
+                    variant="glass"
+                    colorPalette="accent"
+                  >
+                    <Link href="/pricing">Buy now, $200</Link>
+                  </Button>
+                  <Button
+                    size="lg"
+                    minW={{ sm: '160px' }}
+                    asChild
+                    variant="outline"
+                    colorPalette="neutral"
+                  >
+                    <Link href={content.docsHref}>Read the docs</Link>
+                  </Button>
+                </Stack>
+              </Stack>
+              <HeroProof latestChangelog={latestChangelog} />
+            </Flex>
           </Stack>
         </Container>
       </Box>
 
       <CustomersSection />
 
-      <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
-        <Container maxW="5xl">
-          <Stack gap="4" mb="10">
-            <Heading as="h2" textStyle="4xl" letterSpacing="tight">
-              What tech stack does it use?
-            </Heading>
-            <Text textStyle="lg" color="fg.subtle" maxW="2xl">
-              These are the defaults. Every one of them is swappable.
-            </Text>
-          </Stack>
+      <PageSection
+        title="What tech stack does it use?"
+        description="These are the defaults. Every one of them is swappable."
+      >
+        <ComparisonTable
+          columns={['Layer', 'Choice', 'Why']}
+          rows={content.stack.map((row) => [row.layer, row.choice, row.note])}
+          mutedColumn={2}
+          widths={['18%', '27%', '55%']}
+        />
+      </PageSection>
 
-          <Box overflowX="auto">
-            <Table.Root size="md" variant="outline" minW="3xl">
-              <Table.Header>
-                <Table.Row>
-                  <Table.ColumnHeader>Layer</Table.ColumnHeader>
-                  <Table.ColumnHeader>Choice</Table.ColumnHeader>
-                  <Table.ColumnHeader>Why</Table.ColumnHeader>
-                </Table.Row>
-              </Table.Header>
-              <Table.Body>
-                {content.stack.map((row) => (
-                  <Table.Row key={row.layer}>
-                    <Table.Cell fontWeight="medium" whiteSpace="nowrap">
-                      {row.layer}
-                    </Table.Cell>
-                    <Table.Cell whiteSpace="nowrap">{row.choice}</Table.Cell>
-                    <Table.Cell color="fg.subtle">{row.note}</Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table.Body>
-            </Table.Root>
-          </Box>
-        </Container>
-      </Section.Root>
-
-      <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
-        <Container maxW="5xl">
-          <Heading as="h2" textStyle="4xl" letterSpacing="tight" mb="10">
-            What&apos;s included?
-          </Heading>
-          <Grid
-            templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
-            gridAutoRows={{ md: 'auto' }}
-            gap={{ base: '8', md: '10' }}
-          >
-            {content.included.map((item) => (
+      <PageSection
+        title="What's included?"
+        description={`The parts every SaaS needs before its first customer, built into the ${content.framework} kit.`}
+      >
+        <Grid
+          templateColumns={{ base: '1fr', md: 'repeat(2, minmax(0, 1fr))' }}
+          columnGap={{ md: '10', xl: '16' }}
+          rowGap={{ base: '16', md: '20' }}
+        >
+          {content.included.map((item) =>
+            item.stage ? (
+              <FeatureTile
+                key={item.title}
+                headingAs="h3"
+                title={item.title}
+                description={item.body}
+                stage={stages[item.stage]}
+              />
+            ) : (
               <CardCell key={item.title} title={item.title} body={item.body} />
-            ))}
-          </Grid>
-        </Container>
-      </Section.Root>
+            ),
+          )}
+        </Grid>
+      </PageSection>
 
-      <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
-        <Container maxW="5xl">
-          <Stack gap="4" mb="10">
-            <Heading as="h2" textStyle="4xl" letterSpacing="tight">
-              Why not just generate it?
-            </Heading>
-            <Text textStyle="lg" color="fg.subtle" maxW="2xl">
-              An agent will scaffold sign-in this afternoon. The question is
-              what your tenth feature looks like, and whether you would notice
-              it getting something wrong.
-            </Text>
-          </Stack>
+      <PageSection
+        title="Why not just generate it?"
+        description="An agent will scaffold sign-in this afternoon. The question is what your tenth feature looks like, and whether you would notice it getting something wrong."
+      >
+        <ComparisonTable
+          columns={['Area', 'Generated from a prompt', 'In the kit']}
+          rows={content.generateVsKit.map((row) => [
+            row.area,
+            row.generated,
+            row.withKit,
+          ])}
+          mutedColumn={1}
+          widths={['18%', '32%', '50%']}
+        />
+      </PageSection>
 
-          <Box overflowX="auto">
-            <Table.Root size="md" variant="outline" minW="3xl">
-              <Table.Header>
-                <Table.Row>
-                  <Table.ColumnHeader>Area</Table.ColumnHeader>
-                  <Table.ColumnHeader>Generated from a prompt</Table.ColumnHeader>
-                  <Table.ColumnHeader>In the kit</Table.ColumnHeader>
-                </Table.Row>
-              </Table.Header>
-              <Table.Body>
-                {content.generateVsKit.map((row) => (
-                  <Table.Row key={row.area}>
-                    <Table.Cell fontWeight="medium" whiteSpace="nowrap">
-                      {row.area}
-                    </Table.Cell>
-                    <Table.Cell color="fg.subtle">{row.generated}</Table.Cell>
-                    <Table.Cell>{row.withKit}</Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table.Body>
-            </Table.Root>
-          </Box>
-        </Container>
-      </Section.Root>
-
-      <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
-        <Container maxW="5xl">
-          <Heading as="h2" textStyle="4xl" letterSpacing="tight" mb="10">
-            Why {content.framework} for a SaaS with agents?
-          </Heading>
-          <Grid
-            templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}
-            gridAutoRows={{ md: 'auto' }}
-            gap={{ base: '8', md: '10' }}
-          >
-            {content.whyFramework.map((item) => (
-              <CardCell key={item.title} title={item.title} body={item.body} />
-            ))}
-          </Grid>
-        </Container>
-      </Section.Root>
+      <PageSection title={`Why ${content.framework} for a SaaS with agents?`}>
+        <Grid
+          templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}
+          gridAutoRows={{ md: 'auto' }}
+          columnGap={{ base: '8', md: '10' }}
+          rowGap={{ base: '8', md: '12' }}
+        >
+          {content.whyFramework.map((item) => (
+            <CardCell key={item.title} title={item.title} body={item.body} />
+          ))}
+        </Grid>
+      </PageSection>
 
       <TestimonialsSection />
 
-      <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
-        <Container maxW="3xl">
-          <Heading as="h2" textStyle="4xl" letterSpacing="tight" mb="10">
-            Frequently asked questions
-          </Heading>
-          <Stack gap="8">
-            {content.faq.map((item) => (
-              <Stack key={item.q} gap="2">
-                <Heading as="h3" textStyle="lg">
-                  {item.q}
-                </Heading>
-                <Text color="fg.subtle" textWrap="pretty">
-                  {item.a}
-                </Text>
-              </Stack>
-            ))}
-          </Stack>
-        </Container>
-      </Section.Root>
+      <PageSection title="Frequently asked questions">
+        <Stack gap="8" maxW="3xl">
+          {content.faq.map((item) => (
+            <Stack key={item.q} gap="2">
+              <Heading as="h3" textStyle="lg">
+                {item.q}
+              </Heading>
+              <Text color="fg.subtle" textWrap="pretty">
+                {item.a}
+              </Text>
+            </Stack>
+          ))}
+        </Stack>
+      </PageSection>
 
-      <Section.Root borderTopWidth="1px" borderStyle="dashed" py="20">
-        <Container maxW="3xl">
-          <Stack gap="6" alignItems="flex-start">
-            <Heading as="h2" textStyle="4xl" letterSpacing="tight">
+      <Box as="section" py={{ base: '16', md: '28' }} borderTopWidth="1px">
+        <Container maxW="8xl">
+          <Stack align="center" textAlign="center" gap={{ base: '6', md: '8' }}>
+            <Heading
+              as="h2"
+              fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
+              lineHeight="1.05"
+              letterSpacing="tight"
+              fontWeight="medium"
+              textWrap="balance"
+            >
               Start with the boring parts done
             </Heading>
-            <Text textStyle="lg" color="fg.subtle">
+            <Text textStyle="lg" color="fg.subtle" maxW="xl">
               One-time purchase with lifetime access. Unlimited self-hosted
               projects.
             </Text>
-            <HStack gap="3" flexWrap="wrap">
-              <Button size="lg" asChild variant="glass" colorPalette="accent">
+            <Stack
+              direction={{ base: 'column', sm: 'row' }}
+              gap="3"
+              justify="center"
+              width={{ base: 'full', sm: 'auto' }}
+              pt="2"
+            >
+              <Button
+                size="lg"
+                minW={{ sm: '160px' }}
+                asChild
+                variant="glass"
+                colorPalette="accent"
+              >
                 <Link href="/pricing">See pricing</Link>
               </Button>
-              <Button size="lg" asChild variant="outline" colorPalette="neutral">
+              <Button
+                size="lg"
+                minW={{ sm: '160px' }}
+                asChild
+                variant="outline"
+                colorPalette="neutral"
+              >
                 <Link href={content.productHref}>
                   About the {content.framework} kit
                 </Link>
               </Button>
-            </HStack>
+            </Stack>
           </Stack>
         </Container>
-      </Section.Root>
+      </Box>
     </>
+  )
+}
+
+/** A full-width section with the homepage's solid divider and heading style. */
+function PageSection({
+  title,
+  description,
+  children,
+}: {
+  title: string
+  description?: string
+  children: React.ReactNode
+}) {
+  return (
+    <Box as="section" py={{ base: '16', md: '24' }} borderTopWidth="1px">
+      <Container maxW="8xl">
+        <Stack gap="4" mb={{ base: '10', md: '14' }}>
+          <Heading as="h2" textStyle="4xl" letterSpacing="tight">
+            {title}
+          </Heading>
+          {description && (
+            <Text
+              textStyle="lg"
+              color="fg.subtle"
+              fontWeight="medium"
+              maxW="2xl"
+              textWrap="pretty"
+            >
+              {description}
+            </Text>
+          )}
+        </Stack>
+        {children}
+      </Container>
+    </Box>
+  )
+}
+
+/** Plain rules between rows, no outer box, so it reads as part of the page. */
+function ComparisonTable({
+  columns,
+  rows,
+  mutedColumn,
+  widths,
+}: {
+  columns: string[]
+  rows: string[][]
+  /** Column widths, so short labels do not take an equal share. */
+  widths: string[]
+  /** Index of the column rendered in the subdued colour. */
+  mutedColumn: number
+}) {
+  return (
+    <Box overflowX="auto">
+      <Table.Root
+        size="lg"
+        variant="line"
+        minW="3xl"
+        css={{ tableLayout: 'fixed' }}
+      >
+        <Table.Header>
+          <Table.Row bg="transparent">
+            {columns.map((column, index) => (
+              <Table.ColumnHeader
+                key={column}
+                color="fg.muted"
+                fontWeight="medium"
+                textStyle="sm"
+                width={widths[index]}
+              >
+                {column}
+              </Table.ColumnHeader>
+            ))}
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {rows.map((row) => (
+            <Table.Row key={row[0]} bg="transparent">
+              {row.map((cell, index) => (
+                <Table.Cell
+                  key={index}
+                  verticalAlign="top"
+                  fontWeight={index === 0 ? 'medium' : undefined}
+                  color={index === mutedColumn ? 'fg.subtle' : undefined}
+                  textWrap="pretty"
+                >
+                  {cell}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table.Root>
+    </Box>
   )
 }
 

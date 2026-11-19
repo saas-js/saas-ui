@@ -48,7 +48,7 @@ const frameworkCopy = {
 } as const
 
 /** Shiki emits one `<span class="line">` per line; flag the 1-based `lines`. */
-function markLines(html: string, lines: number[]) {
+export function markLines(html: string, lines: number[]) {
   let line = 0
   return html.replace(/<span class="line">/g, (match) => {
     line += 1
@@ -236,33 +236,38 @@ export async function FeaturesSection({
   )
 }
 
-function FeatureTile(props: {
-  label: string
+/** A feature with a product mockup. Also used on the keyword landing pages. */
+export function FeatureTile(props: {
+  label?: string
   title: string
   description: string
   logos?: string[]
   stage: React.ReactNode
-  features: string[]
+  features?: string[]
+  /** Heading level, so the tile fits the page's outline. Defaults to h4. */
+  headingAs?: 'h3' | 'h4'
   /** Span both columns, copy beside the stage. Used to close an odd grid. */
   wide?: boolean
 }) {
   const copy = (
     <>
-      <HStack
-        gap="2"
-        mb="4"
-        color="fg.muted"
-        textStyle="sm"
-        fontWeight="medium"
-      >
-        {props.logos?.map((logo) => (
-          <Image key={logo} src={logo} alt="" width={20} height={20} />
-        ))}
-        <Text as="span">{props.label}</Text>
-      </HStack>
+      {props.label && (
+        <HStack
+          gap="2"
+          mb="4"
+          color="fg.muted"
+          textStyle="sm"
+          fontWeight="medium"
+        >
+          {props.logos?.map((logo) => (
+            <Image key={logo} src={logo} alt="" width={20} height={20} />
+          ))}
+          <Text as="span">{props.label}</Text>
+        </HStack>
+      )}
 
       <Heading
-        as="h4"
+        as={props.headingAs ?? 'h4'}
         fontSize={{ base: '2xl', md: '3xl' }}
         lineHeight="1.15"
         fontWeight="medium"
@@ -278,7 +283,7 @@ function FeatureTile(props: {
     </>
   )
 
-  const features = (
+  const features = props.features?.length ? (
     <Box as="ul" display="flex" flexWrap="wrap" gap="1.5" listStyle="none">
       {props.features.map((feature) => (
         <Box
@@ -301,7 +306,7 @@ function FeatureTile(props: {
         </Box>
       ))}
     </Box>
-  )
+  ) : null
 
   const stage = <Box aria-hidden="true">{props.stage}</Box>
 

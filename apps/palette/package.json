@@ -8,12 +8,16 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "cd ../.. && vitest run apps/palette"
+    "test": "cd ../.. && vitest run apps/palette",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.38.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
+    "@opennextjs/cloudflare": "^1.20.15",
     "@saas-ui/appearance": "workspace:*",
     "@saas-ui/chakra-preset": "workspace:*",
     "next": "^16.4.6",
@@ -26,6 +30,7 @@
     "@types/node": "^24.0.4",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "wrangler": "^4.151.0"
   }
 }

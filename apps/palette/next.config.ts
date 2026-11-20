@@ -5,6 +5,9 @@ const workspaceRoot = fileURLToPath(new URL('../..', import.meta.url))
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Workers have no image optimizer without an IMAGES binding, and the one
+  // image on the site is a pre-sized webp.
+  images: { unoptimized: true },
   outputFileTracingRoot: workspaceRoot,
   experimental: {
     externalDir: true,

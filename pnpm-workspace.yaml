@@ -1,6 +1,7 @@
 packages:
   - apps/website
   - apps/compositions
+  - apps/palette
   - packages/storybook
   - packages/saas-ui-*
   - tooling/next-workspaces

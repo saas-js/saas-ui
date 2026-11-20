@@ -11,6 +11,7 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
+  "routes": [{ "pattern": "palette.saas-ui.dev", "custom_domain": true }],
   "observability": {
     "enabled": true,
   },

@@ -1,7 +1,7 @@
 export const SITE_URL = 'https://saas-js.com'
 
 export const PACKAGE_IDS = [
-  'drizzle-crud',
+  'drizzle-secrets',
   'conditions',
   'slingshot',
   'better-auth-react-query',
@@ -43,44 +43,44 @@ export const packageGroups: { id: PackageGroupId; label: string }[] = [
 
 export const packages: SjsPackage[] = [
   {
-    id: 'drizzle-crud',
-    name: 'Drizzle CRUD',
-    npm: 'drizzle-crud',
-    tagline: 'Type-safe CRUD operations, generated from your Drizzle schema.',
-    headline: 'CRUD from your Drizzle schema.',
+    id: 'drizzle-secrets',
+    name: 'Drizzle Secrets',
+    npm: 'drizzle-secrets',
+    tagline: 'Encrypted columns for Drizzle, with masked reads by default.',
+    headline: 'Encrypted columns for Drizzle.',
     description: [
-      'Most SaaS tables need the same work: create, read, update, delete, then list with search, filters, and pagination. That usually means a new query helper per feature — and soft deletes, validation, and access control get copied into every route.',
-      'Drizzle CRUD generates those operations from the tables you already have. Pass a Drizzle schema and you get typed create, findById, list, update, and delete, plus filter operators, full-text search, pagination, soft delete, and restore on one API.',
-      'Validation stays on Standard Schema (Zod and others) so inputs match the table. Actor-based access control and scope filters keep multi-tenant queries honest. Lifecycle hooks and bulk operations put the business rules next to the table instead of in every caller.',
+      "SaaS apps end up storing other people's credentials: OAuth refresh tokens, API keys, webhook secrets. They belong encrypted at rest, and they should never show up in a log line, an API response, or a JSON dump of a row.",
+      'Drizzle Secrets is a column type. Declare a column with secret() and values are encrypted with AES-256-GCM on write. Reads return a masked value by default, or a SecretValue wrapper that only gives up the plaintext through an explicit expose() call.',
+      'Every ciphertext carries the ID of the key that encrypted it, so you can add a new key, keep decrypting with the old ones, and rotate rows when you are ready. Plaintext rows already in the table are still readable, so you can turn on encryption without a big-bang migration.',
     ],
-    mark: 'DC',
+    mark: 'DS',
     logo: '/img/frameworks/drizzle.svg',
-    install: 'npm install drizzle-crud',
-    github: 'https://github.com/saas-js/saas-js',
-    npmUrl: 'https://www.npmjs.com/package/drizzle-crud',
+    install: 'npm install drizzle-secrets',
+    github:
+      'https://github.com/saas-js/saas-js/tree/main/packages/drizzle-secrets',
+    npmUrl: 'https://www.npmjs.com/package/drizzle-secrets',
     group: 'data',
     features: [
-      'CRUD operations generated from your Drizzle schema',
-      'Filtering, pagination, and full-text search',
-      'Soft deletes with restore',
-      'Actor-based access control and scope filters',
-      'Standard Schema validation (Zod and others)',
-      'Lifecycle hooks and bulk operations',
+      'Encrypted Postgres columns with AES-256-GCM',
+      'Masked reads by default (••••1234), configurable per column',
+      'SecretValue wrapper that stays masked in logs, JSON, and template strings',
+      'Key IDs in every ciphertext for zero-downtime rotation',
+      'Reads existing plaintext rows, so you can adopt it incrementally',
+      'CLI to generate keys and encrypt or decrypt values',
     ],
     sample: {
       language: 'ts',
-      code: `const users = createCrud(usersTable, {
-  searchFields: ['name', 'email'],
-  allowedFilters: ['isActive'],
-  softDelete: { field: 'deletedAt' },
+      code: `const secret = createDrizzleSecret(process.env.ENCRYPTION_KEY!)
+
+export const integrations = pgTable('integrations', {
+  id: text('id').primaryKey(),
+  apiKey: secret('api_key'), // reads as '••••1234'
+  refreshToken: secret('refresh_token', { mode: 'decrypt' }),
 })
 
-const page = await users.list({
-  search: 'ada',
-  filters: { isActive: true },
-  page: 1,
-  limit: 20,
-})`,
+const [row] = await db.select().from(integrations)
+console.log(row.refreshToken) // SecretValue(••••9f2c)
+const token = expose(row.refreshToken)`,
     },
   },
   {
@@ -262,39 +262,27 @@ export interface PackageGuide {
 
 export const packageGuides: PackageGuide[] = [
   {
-    packageId: 'drizzle-crud',
-    path: packageDocsPath('drizzle-crud', ['getting-started', 'basic-usage']),
-    title: 'Basic Usage',
+    packageId: 'drizzle-secrets',
+    path: packageDocsPath('drizzle-secrets', [
+      'getting-started',
+      'basic-usage',
+    ]),
+    title: 'Basic usage',
   },
   {
-    packageId: 'drizzle-crud',
-    path: packageDocsPath('drizzle-crud', ['reference', 'core-operations']),
-    title: 'Core Operations',
+    packageId: 'drizzle-secrets',
+    path: packageDocsPath('drizzle-secrets', ['guides', 'read-modes']),
+    title: 'Read modes',
   },
   {
-    packageId: 'drizzle-crud',
-    path: packageDocsPath('drizzle-crud', ['advanced', 'filtering']),
-    title: 'Advanced Filtering',
+    packageId: 'drizzle-secrets',
+    path: packageDocsPath('drizzle-secrets', ['guides', 'key-rotation']),
+    title: 'Key rotation',
   },
   {
-    packageId: 'drizzle-crud',
-    path: packageDocsPath('drizzle-crud', ['advanced', 'access-control']),
-    title: 'Access Control',
-  },
-  {
-    packageId: 'drizzle-crud',
-    path: packageDocsPath('drizzle-crud', ['advanced', 'hooks']),
-    title: 'Lifecycle Hooks',
-  },
-  {
-    packageId: 'drizzle-crud',
-    path: packageDocsPath('drizzle-crud', ['advanced', 'validation']),
-    title: 'Validation',
-  },
-  {
-    packageId: 'drizzle-crud',
-    path: packageDocsPath('drizzle-crud', ['advanced', 'transactions']),
-    title: 'Transactions',
+    packageId: 'drizzle-secrets',
+    path: packageDocsPath('drizzle-secrets', ['reference', 'cli']),
+    title: 'CLI',
   },
   {
     packageId: 'conditions',

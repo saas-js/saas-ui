@@ -20,7 +20,7 @@ const linkTree = [
     title: 'Packages',
     items: [
       { label: 'All packages', href: '/packages' },
-      { label: 'Drizzle CRUD', href: '/packages/drizzle-crud' },
+      { label: 'Drizzle Secrets', href: '/packages/drizzle-secrets' },
       { label: 'Conditions', href: '/packages/conditions' },
       { label: 'Slingshot', href: '/packages/slingshot' },
       { label: 'Better Auth React Query', href: '/packages/better-auth-react-query' },

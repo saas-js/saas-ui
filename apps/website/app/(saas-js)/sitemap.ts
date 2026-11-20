@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const marketing = [
     '/',
     '/packages',
-    '/packages/drizzle-crud',
+    '/packages/drizzle-secrets',
     '/packages/conditions',
     '/packages/slingshot',
     '/packages/better-auth-react-query',

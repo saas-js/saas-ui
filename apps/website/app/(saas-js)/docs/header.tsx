@@ -83,7 +83,7 @@ const HeaderSocialLinks = () => (
 const docsMobileNavItems = [
   { title: 'Starter kits', url: '/docs/starter-kits/tanstack-start' },
   { title: 'Packages', url: '/packages' },
-  { title: 'Drizzle CRUD', url: '/packages/drizzle-crud' },
+  { title: 'Drizzle Secrets', url: '/packages/drizzle-secrets' },
   { title: 'Conditions', url: '/packages/conditions' },
   { title: 'Slingshot', url: '/packages/slingshot' },
   { title: 'Better Auth React Query', url: '/packages/better-auth-react-query' },
@@ -225,8 +225,8 @@ const HeaderDesktopNavbar = () => {
             <Menu.Item value="all-packages" asChild>
               <Link href="/packages">All packages</Link>
             </Menu.Item>
-            <Menu.Item value="drizzle-crud" asChild>
-              <Link href="/packages/drizzle-crud">Drizzle CRUD</Link>
+            <Menu.Item value="drizzle-secrets" asChild>
+              <Link href="/packages/drizzle-secrets">Drizzle Secrets</Link>
             </Menu.Item>
             <Menu.Item value="conditions" asChild>
               <Link href="/packages/conditions">Conditions</Link>

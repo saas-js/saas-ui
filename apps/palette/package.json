@@ -1,38 +1,31 @@
 {
   "name": "palette-docs",
-  "version": "1.5.12",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack --port 3030",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:staged": "lint-staged --allow-empty --config ../../lint-staged.config.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "cd ../.. && vitest run apps/palette"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.38.0",
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
-    "@fontsource/inter": "^5.0.20",
-    "@saas-ui/next-workspaces": "^0.3.0",
-    "@saas-ui/palette": "workspace:*",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@saas-ui/appearance": "workspace:*",
     "@saas-ui/chakra-preset": "workspace:*",
-    "@svgr/webpack": "^5.5.0",
-    "@types/lodash.debounce": "^4.0.9",
-    "framer-motion": "^11.3.28",
-    "lodash.debounce": "^4.0.8",
-    "next": "^15.3.2",
-    "next-seo": "^6.5.0",
-    "next-themes": "^0.4.6",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.3.0"
+    "next": "^16.4.6",
+    "next-themes": "0.4.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-icons": "5.5.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.5",
-    "typescript": "^5.5.4"
+    "@types/node": "^24.0.4",
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
+    "typescript": "5.9.3"
   }
 }

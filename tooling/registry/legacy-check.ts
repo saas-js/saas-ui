@@ -118,7 +118,6 @@ export const migratedLegacyCheckScopes: readonly LegacyCheckScope[] = [
   { name: 'storybook-addon', root: 'tooling/storybook-addon' },
   { name: 'storybook-package', root: 'packages/storybook' },
   { name: 'palette', root: 'apps/palette' },
-  { name: 'panda-testing', root: 'apps/panda-testing' },
   { name: 'example-react-router', root: 'examples/react-router' },
   { name: 'example-remix', root: 'examples/remix-ts', optional: true },
   { name: 'example-tsrouter', root: 'examples/tsrouter' },

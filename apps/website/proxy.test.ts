@@ -3,9 +3,13 @@ import { describe, expect, it } from 'vitest'
 
 import { proxy } from './proxy'
 
-function request(pathname: string, host: string) {
+function request(
+  pathname: string,
+  host: string,
+  headers: Record<string, string> = {},
+) {
   return new NextRequest(`https://${host}${pathname}`, {
-    headers: { host },
+    headers: { host, ...headers },
   })
 }
 
@@ -96,5 +100,110 @@ describe('website proxy', () => {
     expect(rewrittenPath(proxy(request('/r/index.json', 'saas-js.com')))).toBe(
       null,
     )
+  })
+
+  it('rewrites saas-ui.dev /llms.txt under /ui and leaves saas-js.com alone', () => {
+    expect(rewrittenPath(proxy(request('/llms.txt', 'saas-ui.dev')))).toBe(
+      '/ui/llms.txt',
+    )
+    expect(
+      rewrittenPath(proxy(request('/llms-full.txt', 'www.saas-ui.dev'))),
+    ).toBe('/ui/llms-full.txt')
+    expect(rewrittenPath(proxy(request('/llms.txt', 'www.saas-js.com')))).toBe(
+      null,
+    )
+    expect(
+      rewrittenPath(proxy(request('/llms-full.txt', 'saas-js.com'))),
+    ).toBe(null)
+  })
+
+  it('does not rewrite the shared API catalog into /ui', () => {
+    expect(
+      rewrittenPath(
+        proxy(request('/.well-known/api-catalog', 'saas-ui.dev')),
+      ),
+    ).toBe(null)
+    expect(
+      rewrittenPath(
+        proxy(request('/.well-known/api-catalog', 'www.saas-js.com')),
+      ),
+    ).toBe(null)
+  })
+
+  it('rewrites docs to markdown when Accept prefers text/markdown', () => {
+    expect(
+      rewrittenPath(
+        proxy(
+          request('/docs/components/button', 'saas-ui.dev', {
+            accept: 'text/markdown',
+          }),
+        ),
+      ),
+    ).toBe('/ui/md/docs/components/button')
+    expect(
+      rewrittenPath(
+        proxy(
+          request('/', 'saas-ui.dev', {
+            accept: 'text/markdown, text/html;q=0.9',
+          }),
+        ),
+      ),
+    ).toBe('/ui/md')
+    expect(
+      rewrittenPath(
+        proxy(
+          request('/packages/conditions/docs', 'www.saas-js.com', {
+            accept: 'text/markdown',
+          }),
+        ),
+      ),
+    ).toBe('/md/packages/conditions/docs')
+    expect(
+      rewrittenPath(
+        proxy(request('/', 'www.saas-js.com', { accept: 'text/markdown' })),
+      ),
+    ).toBe('/md')
+  })
+
+  it('keeps HTML as the default for docs requests', () => {
+    expect(
+      rewrittenPath(
+        proxy(
+          request('/docs/components/button', 'saas-ui.dev', {
+            accept: 'text/html, text/markdown;q=0.1',
+          }),
+        ),
+      ),
+    ).toBe('/ui/docs/components/button')
+    expect(
+      rewrittenPath(
+        proxy(
+          request('/docs/starter-kits/nextjs', 'www.saas-js.com', {
+            accept: 'text/html',
+          }),
+        ),
+      ),
+    ).toBe(null)
+    expect(
+      rewrittenPath(
+        proxy(
+          request('/llms.txt', 'saas-ui.dev', { accept: 'text/markdown' }),
+        ),
+      ),
+    ).toBe('/ui/llms.txt')
+  })
+
+  it('advertises llms.txt, the API catalog, and the docs on HTML pages', () => {
+    for (const host of ['saas-ui.dev', 'www.saas-js.com']) {
+      const response = proxy(request('/', host))
+      const link = response.headers.get('link') ?? ''
+      expect(link).toContain('</llms.txt>; rel="describedby"')
+      expect(link).toContain('</.well-known/api-catalog>; rel="api-catalog"')
+      expect(link).toContain('</docs>; rel="service-doc"')
+      expect(response.headers.get('vary')).toContain('Accept')
+    }
+
+    const asset = proxy(request('/llms.txt', 'saas-ui.dev'))
+    expect(asset.headers.get('link')).toBeNull()
   })
 })

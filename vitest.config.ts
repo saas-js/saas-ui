@@ -5,6 +5,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, 'apps/website'),
+      'compositions/lib/color-palettes': path.resolve(
+        import.meta.dirname,
+        'apps/compositions/src/lib/color-palettes.ts',
+      ),
       '@saas-ui/test-utils': path.resolve(
         import.meta.dirname,
         'tooling/test-utils/src/index.ts',

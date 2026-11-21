@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm registry:generate && pnpm generate:example-sources && pnpm generate:prop-types && concurrently --kill-others-on-fail --names registry,next \"pnpm registry:dev -- --skip-initial\" \"next dev --turbopack --port 3020\"",
-    "prebuild": "pnpm registry:generate && pnpm generate:example-sources && pnpm generate:prop-types",
+    "dev": "pnpm registry:generate && pnpm generate:example-sources && pnpm generate:prop-types && pnpm generate:llms-tokens && concurrently --kill-others-on-fail --names registry,next \"pnpm registry:dev -- --skip-initial\" \"next dev --turbopack --port 3020\"",
+    "prebuild": "pnpm registry:generate && pnpm generate:example-sources && pnpm generate:prop-types && pnpm generate:llms-tokens",
+    "generate:llms-tokens": "node scripts/generate-llms-tokens.mjs",
     "generate:example-sources": "node scripts/generate-example-sources.mjs",
     "generate:prop-types": "node scripts/generate-prop-types.mjs",
     "generate:mdx-modules": "node scripts/generate-mdx-modules.mjs",

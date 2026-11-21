@@ -2,9 +2,31 @@ import { NextRequest, NextResponse } from 'next/server'
 
 // Relative on purpose: install-all consumer `next build` compiles this
 // parent file with the nested project's `@/` map (`./src/*`).
+import {
+  AGENT_LINK_HEADER,
+  isAgentDocument,
+  isNegotiableDocument,
+  markdownInternalPath,
+  prefersMarkdown,
+} from './lib/agent-discovery'
 import { resolveSaasUiRedirect } from './lib/seo/saas-ui-redirects'
 
 export function proxy(request: NextRequest) {
+  return withDiscovery(request, route(request))
+}
+
+function withDiscovery(request: NextRequest, response: NextResponse) {
+  const pathname = request.nextUrl.pathname
+  if (isAgentDocument(pathname)) {
+    response.headers.set('Link', AGENT_LINK_HEADER)
+  }
+  if (isNegotiableDocument(pathname)) {
+    response.headers.append('Vary', 'Accept')
+  }
+  return response
+}
+
+function route(request: NextRequest) {
   const host = request.headers.get('host') || ''
   const pathname = request.nextUrl.pathname
 
@@ -25,6 +47,7 @@ export function proxy(request: NextRequest) {
   // /affiliate is the Affonso referrals page (pixel lives on the shared layout).
   // /a is the first-party Affonso proxy (pixel, track, signups, embed). `/r`
   // stays the public registry, including the `/ui/r` rewrite on saas-ui.dev.
+  // /.well-known/api-catalog is host-aware and reads the Host header.
   const isSharedRoute =
     [
       '/license',
@@ -34,9 +57,35 @@ export function proxy(request: NextRequest) {
       '/checkout',
       '/success',
       '/affiliate',
+      '/.well-known/api-catalog',
     ].includes(pathname) ||
     pathname === '/a' ||
     pathname.startsWith('/a/')
+
+  // Legacy saas-ui.dev URLs. Resolved before markdown negotiation and the /ui
+  // rewrite, otherwise an Accept: text/markdown request for an old path would
+  // miss the redirect and 404.
+  if (isSaasUi && !isSharedRoute) {
+    const redirect = resolveSaasUiRedirect(pathname)
+    if (redirect) {
+      const destination = redirect.startsWith('http')
+        ? new URL(redirect)
+        : new URL(redirect, request.nextUrl.origin)
+      destination.search = request.nextUrl.search
+      return NextResponse.redirect(destination, 308)
+    }
+  }
+
+  // Docs pages and the homepages negotiate markdown before the /ui rewrite,
+  // so each host lands on its own markdown route.
+  if (
+    isNegotiableDocument(pathname) &&
+    prefersMarkdown(request.headers.get('accept'))
+  ) {
+    const url = request.nextUrl.clone()
+    url.pathname = markdownInternalPath(pathname, isSaasUi)
+    return rewrite(request, url, isSaasUi ? 'saas-ui' : 'saas-js')
+  }
 
   // Handle /ui routes on saas-js (proxy to saas-ui content)
   if (isSaasJs && pathname.startsWith('/ui')) {
@@ -50,48 +99,33 @@ export function proxy(request: NextRequest) {
     // In development, proxy to saas-ui content by rewriting the path
     const url = request.nextUrl.clone()
     url.pathname = pathname.replace('/ui', '')
-
-    const requestHeaders = new Headers(request.headers)
-    requestHeaders.set('x-site', 'saas-ui')
-
-    return NextResponse.rewrite(url, {
-      request: {
-        headers: requestHeaders,
-      },
-    })
+    return rewrite(request, url, 'saas-ui')
   }
 
   // Handle saas-ui requests - rewrite to /ui path
   if (isSaasUi && !isSharedRoute) {
-    // Legacy URLs from before the v3 docs restructure. Middleware runs ahead of
-    // next.config redirects, and by the time the rewrite below has run the
-    // original path is gone, so these have to be resolved here.
-    const redirect = resolveSaasUiRedirect(pathname)
-    if (redirect) {
-      const destination = redirect.startsWith('http')
-        ? new URL(redirect)
-        : new URL(redirect, request.nextUrl.origin)
-      destination.search = request.nextUrl.search
-      return NextResponse.redirect(destination, 308)
-    }
-
     const url = request.nextUrl.clone()
     url.pathname = `/ui${pathname}`
-
-    const requestHeaders = new Headers(request.headers)
-    requestHeaders.set('x-site', 'saas-ui')
-
-    return NextResponse.rewrite(url, {
-      request: {
-        headers: requestHeaders,
-      },
-    })
+    return rewrite(request, url, 'saas-ui')
   }
 
   // saas-js requests (default)
-  const requestHeaders = new Headers(request.headers)
-  requestHeaders.set('x-site', 'saas-js')
+  return next(request, 'saas-js')
+}
 
+function rewrite(request: NextRequest, url: URL, site: 'saas-ui' | 'saas-js') {
+  const requestHeaders = new Headers(request.headers)
+  requestHeaders.set('x-site', site)
+  return NextResponse.rewrite(url, {
+    request: {
+      headers: requestHeaders,
+    },
+  })
+}
+
+function next(request: NextRequest, site: 'saas-ui' | 'saas-js') {
+  const requestHeaders = new Headers(request.headers)
+  requestHeaders.set('x-site', site)
   return NextResponse.next({
     request: {
       headers: requestHeaders,

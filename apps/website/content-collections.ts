@@ -190,6 +190,7 @@ const sjsDocs = defineCollection({
       ...doc,
       code: '',
       mdxId,
+      llm: replaceExampleTabs(doc.content),
       slug,
       links: {
         ...links,
@@ -293,24 +294,18 @@ export default defineConfig({
   collections: [docs, metas, sjsDocs, sjsMetas, blogs, changelog],
 })
 
+/**
+ * Inline `<Example>` / `<ExampleTabs>` / `<ExamplePreview name="..." />` with
+ * the example source, so the `llm` field (used by the llms.txt routes) has
+ * real code instead of a component reference.
+ */
 function replaceExampleTabs(text: string) {
-  const matches = text.matchAll(/<ExampleTabs name="([^"]+)" \/>/g)
-
-  if (!matches) return text
-
-  for (const match of matches) {
-    const name = match[1]
-
-    const example = fs.readFileSync(
-      `../compositions/src/examples/${name}.tsx`,
-      'utf-8',
-    )
-
-    text = text.replace(
-      `<ExampleTabs name="${name}" \/>`,
-      `\`\`\`tsx\n${example}\n\`\`\``,
-    )
-  }
-
-  return text
+  return text.replace(
+    /<Example(?:Tabs|Preview)?\s+[^>]*?name="([^"]+)"[^>]*?\/>/g,
+    (_, name: string) => {
+      const file = `../compositions/src/examples/${name}.tsx`
+      if (!fs.existsSync(file)) return ''
+      return `\`\`\`tsx\n${fs.readFileSync(file, 'utf-8').trim()}\n\`\`\``
+    },
+  )
 }

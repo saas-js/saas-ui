@@ -32,7 +32,16 @@ describe('robotsTxtForHost', () => {
     expect(isSaasUiHost('www.saas-js.com')).toBe(false)
   })
 
-  it('keeps the allow-all crawler rules', () => {
-    expect(robotsTxtForHost('saas-ui.dev')).toMatch(/^User-Agent: \*\nAllow: \//)
+  it('keeps the allow-all crawler rules and content signals', () => {
+    const body = robotsTxtForHost('saas-ui.dev')
+    expect(body).toMatch(
+      /^User-Agent: \*\nContent-Signal: search=yes, ai-input=yes, ai-train=no\nAllow: \//,
+    )
+    expect(robotsTxtForHost('www.saas-js.com')).toContain(
+      'Content-Signal: search=yes, ai-input=yes, ai-train=no',
+    )
+    expect(robotsTxtForHost(null)).toContain(
+      'Content-Signal: search=yes, ai-input=yes, ai-train=no',
+    )
   })
 })

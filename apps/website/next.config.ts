@@ -149,8 +149,13 @@ const nextConfig = {
 
 export default Promise.resolve(withContentCollections(nextConfig)).then(
   (config) => {
+    const websiteDir = fileURLToPath(new URL('.', import.meta.url))
     execSync('node scripts/generate-mdx-modules.mjs', {
-      cwd: fileURLToPath(new URL('.', import.meta.url)),
+      cwd: websiteDir,
+      stdio: 'inherit',
+    })
+    execSync('node scripts/generate-llms-tokens.mjs', {
+      cwd: websiteDir,
       stdio: 'inherit',
     })
     return config

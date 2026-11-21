@@ -1,6 +1,12 @@
 const SAAS_UI_SITEMAP = 'https://saas-ui.dev/sitemap.xml'
 const SAAS_JS_SITEMAP = 'https://www.saas-js.com/sitemap.xml'
 
+/**
+ * IETF Content Signals for both docs sites.
+ * Search and AI input are allowed; training is the conservative opt-out.
+ */
+export const CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=no'
+
 export function isSaasUiHost(host: string | null | undefined) {
   const hostname = (host ?? '').split(':')[0]?.toLowerCase() ?? ''
   return hostname.includes('saas-ui')
@@ -9,6 +15,7 @@ export function isSaasUiHost(host: string | null | undefined) {
 export function robotsTxtForHost(host: string | null | undefined) {
   const sitemap = isSaasUiHost(host) ? SAAS_UI_SITEMAP : SAAS_JS_SITEMAP
   return `User-Agent: *
+Content-Signal: ${CONTENT_SIGNAL}
 Allow: /
 
 Sitemap: ${sitemap}

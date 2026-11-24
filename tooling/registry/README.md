@@ -35,10 +35,10 @@ Run these commands from the repository root:
   preview indexes, with a joint checksummed manifest, and is verified before an
   atomic local directory swap.
 - `pnpm registry:retirement:preflight` verifies the computed Changesets plan,
-  `v3`/`next` release context, stable migration links, retained compatibility
-  package, published CLI entry point, production endpoint build, and zero legacy
-  runtime references. It reports repository readiness only; it never reads from
-  or mutates npm.
+  `main` release branch, rc or stable release channel, stable migration links,
+  retained compatibility package, published CLI entry point, production endpoint
+  build, and zero legacy runtime references. It reports repository readiness
+  only; it never reads from or mutates npm.
 - `pnpm registry:retirement:check` runs the complete registry CI matrix before
   that retirement preflight. `registry:release` includes the same preflight.
 - `pnpm registry:retirement:packed-release` runs after Changesets versions and
@@ -94,7 +94,7 @@ its own immutable release location and authorization boundary.
 `.github/workflows/deprecate-saas-ui-react.yml` is the only automated npm
 deprecation entry point. It has no push, pull-request, release, or scheduled
 trigger. Configure its `npm-deprecation` environment with required reviewers,
-prevent self-review where available, restrict it to `v3`, and store a granular
+prevent self-review where available, restrict it to `main`, and store a granular
 package-scoped npm token as `NPM_DEPRECATE_TOKEN`.
 
 Run the workflow in `plan` mode after the compatibility React package and exact
@@ -108,12 +108,12 @@ lifecycle scripts disabled, independently verifies their bytes against published
 `dist.integrity`, reads the migration contract from the React tarball README,
 and verifies the CLI tarball's production build information. The full version
 set and immutable integrity identities are included in the content digest and
-exact confirmation phrase, which are also bound to the checked-out `v3` commit.
-Rerun in `apply` mode at that same commit with the execute checkbox, digest, and
-phrase. If `v3`, the published version set, or a tarball identity changed,
-create and review a new plan. The protected job repeats every public check
-without npm credentials after approval, then exposes the scoped token only to
-authentication and npm's per-version dry-run and exact-version mutations. It
+exact confirmation phrase, which are also bound to the checked-out `main`
+commit. Rerun in `apply` mode at that same commit with the execute checkbox,
+digest, and phrase. If `main`, the published version set, or a tarball identity
+changed, create and review a new plan. The protected job repeats every public
+check without npm credentials after approval, then exposes the scoped token only
+to authentication and npm's per-version dry-run and exact-version mutations. It
 refetches the credential-free packument immediately before mutating each exact
 version and performs bounded full-evidence post-verification.
 

@@ -757,8 +757,8 @@ async function main() {
   if (mode !== 'plan' && mode !== 'apply') {
     throw new Error('usage: react-deprecation.ts <plan|apply>')
   }
-  if (process.env.GITHUB_REF && process.env.GITHUB_REF !== 'refs/heads/v3') {
-    throw new Error('npm deprecation is restricted to refs/heads/v3')
+  if (process.env.GITHUB_REF && process.env.GITHUB_REF !== 'refs/heads/main') {
+    throw new Error('npm deprecation is restricted to refs/heads/main')
   }
   if (
     process.env.GITHUB_SHA &&

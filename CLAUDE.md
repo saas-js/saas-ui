@@ -7,7 +7,7 @@ It's built on top of Chakra UI v3 and Ark UI, providing unstyled primitives
 (`@saas-ui/react`) and styled compositions installed from the registry.
 
 **Repository**: https://github.com/saas-js/saas-ui
-**Main branch**: `v3`
+**Main branch**: `main`
 
 ## Monorepo Structure
 
@@ -61,7 +61,7 @@ pnpm lint                       # Run ESLint across repo (via Turbo)
 # Releasing
 pnpm changeset                  # Create a changeset entry
 pnpm changeset:version          # Update package versions
-pnpm publish:rc                 # Publish release candidate to npm
+pnpm publish:latest             # Publish to npm (CI runs this on main)
 ```
 
 ## Code Style & Conventions
@@ -155,8 +155,8 @@ changes: `pnpm changeset add --empty`.
 ## CI/CD
 
 - **test.yml**: Runs on all pushes — installs, builds, runs tests
-- **release-v3.yml**: Runs on `v3` branch — uses changesets/action for automated
-  npm releases
+- **release-v3.yml**: Runs on `main` — uses changesets/action for automated npm
+  releases
 
 ## Tips for AI Agents
 

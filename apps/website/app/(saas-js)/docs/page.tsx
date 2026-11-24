@@ -67,11 +67,11 @@ export default function Page() {
               </List.Item>
               <List.Item>
                 <Link
-                  href="/packages/drizzle-crud/docs"
+                  href="/packages/drizzle-secrets/docs"
                   colorPalette="cyan"
                   fontWeight="medium"
                 >
-                  Drizzle CRUD
+                  Drizzle Secrets
                 </Link>
               </List.Item>
               <List.Item>

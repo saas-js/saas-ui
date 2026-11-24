@@ -1,0 +1,5 @@
+{
+  "title": "Drizzle Secrets",
+  "root": true,
+  "pages": ["index", "getting-started", "guides", "reference"]
+}

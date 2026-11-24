@@ -1,0 +1,92 @@
+---
+title: Read modes
+description: Choose what a secret column returns when you query it.
+---
+
+Every secret column encrypts on write. The `mode` option decides what you get
+back on read:
+
+```ts
+secret('api_key') // 'masked' (default)
+secret('refresh_token', { mode: 'decrypt' })
+secret('webhook_secret', { mode: 'encrypted' })
+```
+
+| Mode                  | Read returns              | Use it for                                                  |
+| --------------------- | ------------------------- | ----------------------------------------------------------- |
+| `'masked'` (default)  | `'••••1234'`              | Values you only display, such as "API key ending in 1234". |
+| `'decrypt'`           | `SecretValue(••••1234)`   | Values your server code needs to call another service.     |
+| `'encrypted'`         | `'enc$v1$...'`            | Copying, re-keying, or decrypting later with `secrets`.    |
+
+## `masked`
+
+The column decrypts the value and returns `••••` plus its last four
+characters. Values shorter than 12 characters, such as PINs or short
+passwords, come back as `••••` so they never leak most of their characters.
+This is the safe default: rows can go straight into API responses and
+settings screens. See [Masking](#masking) to change how values are masked.
+
+The plaintext isn't reachable from a masked read. If some code paths need it,
+use `'decrypt'`, or declare a second column object for the same database
+column with a different mode.
+
+## `decrypt`
+
+The column decrypts the value and wraps it in a `SecretValue`. The wrapper
+prints masked text from `toString`, `toJSON`, `valueOf`, `Symbol.toPrimitive`,
+and Node's `util.inspect`, and exposes `.masked` for display. The only way to
+get the plaintext is `expose(value)`, which makes every use of the real value
+easy to grep for.
+
+```ts
+import { expose } from 'drizzle-secrets/drizzle'
+
+const client = new Stripe(expose(row.secretKey))
+```
+
+## `encrypted`
+
+The column returns the stored ciphertext unchanged. Writing it back is a
+no-op for the encryption step, so this mode suits jobs that move or rotate
+values without needing the plaintext:
+
+```ts
+const value = secret.secrets.rotate(row.webhookSecret)
+```
+
+## Typing
+
+Columns are typed as `string`, the type of a masked or encrypted read. With
+`mode: 'decrypt'`, the runtime value is a `SecretValue`. Pass it to
+`expose()`, which accepts `SecretValue | string`.
+
+## Masking
+
+The `mask` option controls what `'masked'` reads return and how a
+`SecretValue` prints. Set a default for every column on the factory, and
+override it per column:
+
+```ts
+const secret = createDrizzleSecret(process.env.ENCRYPTION_KEY!, {
+  // the defaults
+  mask: { visible: 4, minLength: 12, placeholder: '••••' },
+})
+
+export const accounts = pgTable('accounts', {
+  apiKey: secret('api_key'), // '••••1234'
+  pin: secret('pin', { mask: { visible: 0 } }), // always '••••'
+  card: secret('card', { mask: { minLength: 8, placeholder: '**** ' } }), // '**** 4242'
+  webhook: secret('webhook', { mask: (v) => `whsec_…${v.slice(-2)}` }),
+})
+```
+
+| Option        | Default  | Description                                                         |
+| ------------- | -------- | ------------------------------------------------------------------- |
+| `visible`     | `4`      | Trailing characters to reveal. `0` never reveals anything.          |
+| `minLength`   | `12`     | Values shorter than this are fully masked.                          |
+| `placeholder` | `'••••'` | Replaces the hidden part of the value.                              |
+
+Pass a function instead of options for full control. It receives the
+plaintext and returns the display value, so keep it from returning more than
+you'd want in a log line.
+

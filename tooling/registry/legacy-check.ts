@@ -204,9 +204,13 @@ function location(source: string, offset: number) {
   }
 }
 
+/** Migration guides name the retired packages on purpose. */
+const MIGRATION_GUIDE_PATTERN = /^migrating-[^/]*\.mdx?$/
+
 function shouldReadFile(file: string, installableOnly: boolean) {
   const basename = path.basename(file)
   if (IGNORED_FILES.has(basename)) return false
+  if (MIGRATION_GUIDE_PATTERN.test(basename)) return false
   if (installableOnly && IGNORED_SOURCE_PATTERN.test(basename)) return false
   return SOURCE_EXTENSIONS.has(path.extname(basename))
 }

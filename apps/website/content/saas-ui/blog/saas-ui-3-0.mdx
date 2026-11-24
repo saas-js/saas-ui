@@ -1,0 +1,180 @@
+---
+title: Saas UI 3.0
+type: announcement
+publishedAt: '2026-11-24'
+authors: ['eelco']
+description:
+  Saas UI 3.0 ships the preset, CLI, and source registry on top of Chakra UI
+  3.38, moves unstyled primitives back to @saas-ui/react, and points the CLI at
+  saas-ui.dev/r.
+---
+
+Saas UI 3.0 is out. The main change in this release is structural: Saas UI is
+moving away from shipping a single bundled component library and toward a
+preset, a CLI, and a registry of editable blocks, compositions, and templates.
+
+Instead of importing styled components from `@saas-ui/react` and working around
+library abstractions when your product diverges, you install the Chakra preset
+for tokens and recipes and pull styled compositions into your own repository as
+source code.
+
+## What changed in 3.0
+
+Previously, `@saas-ui/react` bundled styled compositions and re-exported Chakra
+UI primitives. In 3.0 those responsibilities are split:
+
+- **`@chakra-ui/react`** (`^3.38.0`) — import Chakra primitives directly.
+- **`@saas-ui/chakra-preset`** (`3.0.0`) — design tokens, OKLCH appearance and
+  semantic palettes, recipes, and slot recipes. Includes recipes for Chakra
+  3.38's `Command` palette and `DateInput`, 10 Chakra 3.36 components
+  (`Carousel`, `Code Block`, `Color Picker`, `Date Picker`, `Floating Panel`,
+  `Listbox`, `Marquee`, `QR Code`, `Scroll Area`, and `Tree View`), and Saas UI
+  layouts (`suiAside`, `suiSplitPage`).
+- **`@saas-ui/react`** (`3.0.0`) — unstyled, headless primitives built on Ark UI
+  (`Sidebar`, `Navbar`, `GridList`, `Steps`, and `ErrorBoundary`). This is the
+  package formerly published as @saas-ui/core, which is now retired.
+- **`@saas-ui/cli`** (`3.0.0`) — initializes your project, installs editable
+  source from the registry at `https://saas-ui.dev/r`, tracks explicitly
+  installed roots in `components.json`, diffs local changes against upstream,
+  and runs automated migrations.
+
+The full set of packages in this release:
+
+| Package | Version | Role |
+| --- | --- | --- |
+| `@saas-ui/chakra-preset` | `3.0.0` | Chakra UI v3 tokens, semantic palettes, and recipes |
+| `@saas-ui/react` | `3.0.0` | Unstyled primitives (`Sidebar`, `Navbar`, `GridList`, `Steps`, `ErrorBoundary`) |
+| `@saas-ui/cli` | `3.0.0` | Project setup, registry installs, diffs, updates, and migration |
+| `@saas-ui/hooks` | `3.0.0` | React hooks (`useOpenState`, `useSearchQuery`, and others) |
+| `@saas-ui/charts` | `3.0.0` | Chakra-token layer for TanStack Charts (`useChart`, `Chart.Root`, tooltip, legend, `BarList`, `BarSegment`) |
+| `@saas-ui/registry` | `3.0.0` | Registry compiler and recipe-key metadata |
+| `@saas-ui/appearance` | `0.1.0` | Shared OKLCH appearance and palette generators (first release) |
+| `@saas-ui/tailwind-preset` | `0.1.0` | Tailwind CSS preset sharing the appearance contract |
+| `@saas-ui/assets` | `2.0.0` | Design assets and icons for Chakra v3 |
+| `@saas-ui/storybook-addon` | `7.0.0` | Storybook integration |
+
+## Getting started
+
+The CLI requires Node 22 or newer and fetches registry items from
+`https://saas-ui.dev/r`.
+
+Initialize a new project:
+
+```bash
+npx @saas-ui/cli init
+```
+
+`init` installs `@chakra-ui/react`, `@emotion/react`, and
+`@saas-ui/chakra-preset`, writes `components.json`, and installs a local
+provider setup (with optional `next-themes` color mode). For non-interactive
+setup:
+
+```bash
+npx @saas-ui/cli init --yes --defaults --color-mode on
+```
+
+Pass `--color-mode off` if your app manages color mode differently, or
+`--starter` to include the starter layout.
+
+Then add the compositions you need:
+
+```bash
+npx @saas-ui/cli add sidebar data-table filters
+```
+
+Each item is written to the paths configured in `components.json` together with
+its transitive registry and npm dependencies. Once installed, the files belong
+to your codebase.
+
+To inspect available items, preview changes, or track drift against the
+registry:
+
+```bash
+# List available registry items
+npx @saas-ui/cli list
+
+# Preview files and dependencies without writing
+npx @saas-ui/cli add data-table --dry-run
+npx @saas-ui/cli add data-table --diff
+
+# Compare local files with the current registry (use --check in CI)
+npx @saas-ui/cli diff
+
+# Refresh installed items
+npx @saas-ui/cli update --dry-run
+```
+
+The CLI also supports shadcn-compatible `registries` entries in
+`components.json` for third-party or private namespaced registries, and
+`npx @saas-ui/cli login` for authenticated Saas UI Pro blocks.
+
+For the full flag reference, see the [CLI documentation](/docs/getting-started/cli)
+and the [installation guide](/docs/getting-started/installation).
+
+## What is in the registry
+
+The public registry at `https://saas-ui.dev/r` includes 65 UI compositions, the
+`forms` integration, setup templates (`provider`, `provider-no-color-mode`,
+`color-mode`), and Lucide icon components. Several components that previously
+lived in Pro or standalone packages are now public registry items:
+
+- **`data-table`** — composable data table built on TanStack Table v9 with
+  opt-in row and column virtualization, pinning, grouping, and cell selection
+  (replaces Pro `DataGrid`).
+- **`filters`** — composable filter bar with typed fields, operators, and value
+  editors built on Saas.js Conditions (replaces Pro `Filters`).
+- **`sidebar`**, **`navbar`**, **`app-shell`**, **`page`**, **`aside`**, and
+  **`split-page`** — application layout and navigation compositions. `sidebar`,
+  `navbar`, and `grid-list` wrap the unstyled primitives in `@saas-ui/react`.
+- **`modals`** — type-safe modal manager with modal, drawer, alert, and confirm
+  dialogs (replaces `@saas-ui/modals`).
+- **`forms`** — typed TanStack Form components built with Chakra UI and Saas UI
+  controls.
+- **`rich-text-editor`** — composable rich text editor built on Tiptap with
+  toolbar controls.
+- **`kbd-group`** — keyboard shortcut display, renamed from `command` to avoid
+  clashing with Chakra UI 3.38's `Command` palette.
+
+For data visualization, `@saas-ui/charts` (`3.0.0`) ships as a standalone
+package providing a Chakra-token layer on top of TanStack Charts (`useChart`,
+`Chart.Root`, tooltip, legend, `BarList`, and `BarSegment`):
+
+```bash
+npm install @saas-ui/charts
+```
+
+## Migrating existing apps
+
+Which guide you need depends on what you are upgrading from:
+
+- **Upgrading from `@saas-ui/react@next` (v3 prereleases):** follow
+  [Migrating from next to v3](/docs/getting-started/migrating-from-next). Do not
+  just bump `@saas-ui/react` to `3.0.0` and treat that as the styled-UI upgrade
+  — in 3.0, `@saas-ui/react` only contains unstyled primitives. Use the CLI
+  migration command to preview and rewrite Chakra and composition imports, then
+  pin `@saas-ui/react`, `@saas-ui/chakra-preset`, and `@chakra-ui/react`
+  (`^3.38.0`):
+
+  ```bash
+  npx @saas-ui/cli migrate react-to-registry --dry-run
+  npx @saas-ui/cli migrate react-to-registry --write
+  ```
+
+  The guide also includes a ready-to-paste prompt for running the migration with
+  a coding agent, along with the list of manual cases and call-site changes
+  (such as `Command` to `KbdGroup` and Chakra v3 namespace components).
+
+- **Upgrading from Saas UI v2 / Chakra UI v2:** start with
+  [Migration to v3](/docs/getting-started/migration) for the Chakra UI v2 to v3
+  API changes, then initialize the preset and registry with `@saas-ui/cli`.
+
+- **New projects:** follow [Installation](/docs/getting-started/installation).
+
+## Why the registry model
+
+Maintaining a large wrapper package over Chakra UI meant duplicating every API
+change upstream and forcing every customization through props or theme
+overrides. Moving styled compositions to the registry keeps the runtime layer
+small (`@saas-ui/chakra-preset` and the headless primitives in `@saas-ui/react`)
+and shifts focus toward complete blocks and templates you can read, edit, and
+version alongside the rest of your app.

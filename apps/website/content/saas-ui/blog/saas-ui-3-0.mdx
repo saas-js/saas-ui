@@ -1,22 +1,49 @@
 ---
-title: Saas UI 3.0
+title: Saas UI 3.0 is here
 type: announcement
 publishedAt: '2026-11-24'
 authors: ['eelco']
 description:
-  Saas UI 3.0 ships the preset, CLI, and source registry on top of Chakra UI
-  3.38, moves unstyled primitives back to @saas-ui/react, and points the CLI at
-  saas-ui.dev/r.
+  Your components, your code. Saas UI 3.0 turns every component into source you
+  own, with a new CLI, a Chakra UI 3.38 preset, and a public registry of
+  production-ready building blocks.
 ---
 
-Saas UI 3.0 is out. The main change in this release is structural: Saas UI is
-moving away from shipping a single bundled component library and toward a
-preset, a CLI, and a registry of editable blocks, compositions, and templates.
+Today we're releasing Saas UI 3.0, the biggest change to Saas UI since it
+started.
 
-Instead of importing styled components from `@saas-ui/react` and working around
-library abstractions when your product diverges, you install the Chakra preset
-for tokens and recipes and pull styled compositions into your own repository as
-source code.
+Every component library eventually hits the same wall. Your product grows, your
+design drifts from the defaults, and you end up fighting the library: wrapping
+components, overriding styles, waiting on an upstream fix for one prop.
+
+3.0 takes that wall away. Saas UI components are no longer a black box in
+`node_modules`. They're source code that lives in your repo, styled with your
+tokens and ready to change on day one.
+
+One command sets up your project, and one more drops in a data table, a filter
+bar, a sidebar or an app shell. The code is yours from that point on. Read it,
+change it, ship it.
+
+```bash
+npx @saas-ui/cli init
+npx @saas-ui/cli add sidebar data-table filters
+```
+
+## Why 3.0 is different
+
+- **You own the code.** Components are installed as editable source, not
+  imported from a package. Change anything without forks or workarounds.
+- **Built for real SaaS apps.** The registry ships the hard parts: a data table
+  with virtualization, pinning and grouping, a Linear-style filter bar, a modal
+  manager, typed forms, a rich text editor, and complete app layouts.
+- **Stays in sync when you want it to.** The CLI tracks what you installed,
+  shows you how your copy differs from upstream, and pulls in updates on your
+  terms.
+- **Chakra UI 3.38, fully themed.** A new preset with OKLCH color palettes,
+  semantic tokens and recipes for the latest Chakra components, including the
+  new `Command` palette and `DateInput`.
+- **Former Pro components are now public.** The data table and filters that used
+  to be Saas UI Pro features are free in the public registry.
 
 ## What changed in 3.0
 
@@ -40,18 +67,18 @@ UI primitives. In 3.0 those responsibilities are split:
 
 The full set of packages in this release:
 
-| Package | Version | Role |
-| --- | --- | --- |
-| `@saas-ui/chakra-preset` | `3.0.0` | Chakra UI v3 tokens, semantic palettes, and recipes |
-| `@saas-ui/react` | `3.0.0` | Unstyled primitives (`Sidebar`, `Navbar`, `GridList`, `Steps`, `ErrorBoundary`) |
-| `@saas-ui/cli` | `3.0.0` | Project setup, registry installs, diffs, updates, and migration |
-| `@saas-ui/hooks` | `3.0.0` | React hooks (`useOpenState`, `useSearchQuery`, and others) |
-| `@saas-ui/charts` | `3.0.0` | Chakra-token layer for TanStack Charts (`useChart`, `Chart.Root`, tooltip, legend, `BarList`, `BarSegment`) |
-| `@saas-ui/registry` | `3.0.0` | Registry compiler and recipe-key metadata |
-| `@saas-ui/appearance` | `0.1.0` | Shared OKLCH appearance and palette generators (first release) |
-| `@saas-ui/tailwind-preset` | `0.1.0` | Tailwind CSS preset sharing the appearance contract |
-| `@saas-ui/assets` | `2.0.0` | Design assets and icons for Chakra v3 |
-| `@saas-ui/storybook-addon` | `7.0.0` | Storybook integration |
+| Package                    | Version | Role                                                                                                        |
+| -------------------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| `@saas-ui/chakra-preset`   | `3.0.0` | Chakra UI v3 tokens, semantic palettes, and recipes                                                         |
+| `@saas-ui/react`           | `3.0.0` | Unstyled primitives (`Sidebar`, `Navbar`, `GridList`, `Steps`, `ErrorBoundary`)                             |
+| `@saas-ui/cli`             | `3.0.0` | Project setup, registry installs, diffs, updates, and migration                                             |
+| `@saas-ui/hooks`           | `3.0.0` | React hooks (`useOpenState`, `useSearchQuery`, and others)                                                  |
+| `@saas-ui/charts`          | `3.0.0` | Chakra-token layer for TanStack Charts (`useChart`, `Chart.Root`, tooltip, legend, `BarList`, `BarSegment`) |
+| `@saas-ui/registry`        | `3.0.0` | Registry compiler and recipe-key metadata                                                                   |
+| `@saas-ui/appearance`      | `0.1.0` | Shared OKLCH appearance and palette generators (first release)                                              |
+| `@saas-ui/tailwind-preset` | `0.1.0` | Tailwind CSS preset sharing the appearance contract                                                         |
+| `@saas-ui/assets`          | `2.0.0` | Design assets and icons for Chakra v3                                                                       |
+| `@saas-ui/storybook-addon` | `7.0.0` | Storybook integration                                                                                       |
 
 ## Getting started
 
@@ -108,8 +135,9 @@ The CLI also supports shadcn-compatible `registries` entries in
 `components.json` for third-party or private namespaced registries, and
 `npx @saas-ui/cli login` for authenticated Saas UI Pro blocks.
 
-For the full flag reference, see the [CLI documentation](/docs/getting-started/cli)
-and the [installation guide](/docs/getting-started/installation).
+For the full flag reference, see the
+[CLI documentation](/docs/getting-started/cli) and the
+[installation guide](/docs/getting-started/installation).
 
 ## What is in the registry
 
@@ -170,11 +198,16 @@ Which guide you need depends on what you are upgrading from:
 
 - **New projects:** follow [Installation](/docs/getting-started/installation).
 
-## Why the registry model
+## What's next
 
-Maintaining a large wrapper package over Chakra UI meant duplicating every API
-change upstream and forcing every customization through props or theme
-overrides. Moving styled compositions to the registry keeps the runtime layer
-small (`@saas-ui/chakra-preset` and the headless primitives in `@saas-ui/react`)
-and shifts focus toward complete blocks and templates you can read, edit, and
-version alongside the rest of your app.
+3.0 is a foundation. With components living in your codebase, we can ship what
+SaaS teams actually spend weeks building: complete blocks and templates for
+settings pages, onboarding, billing and dashboards, ready to drop in and make
+your own.
+
+Install it, add a few components, and tell us what you build. We'd love to hear
+what you want in the registry next.
+
+```bash
+npx @saas-ui/cli init
+```

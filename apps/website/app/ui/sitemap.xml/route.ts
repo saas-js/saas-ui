@@ -21,6 +21,7 @@ function entries(): Entry[] {
     '/',
     '/figma',
     '/blocks',
+    '/starter-kits',
     '/showcase',
     '/changelog',
   ].map((path) => ({

@@ -86,7 +86,15 @@ export const Navigation = ({
           </NavigationMenuItem> */}
 
           <NavigationMenuItem>
-            <NavigationMenuLink href="/blocks">Blocks</NavigationMenuLink>
+            <NavigationMenuLink href={`${saasUiUrl}/blocks`}>
+              Blocks
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <NavigationMenuLink href={`${saasUiUrl}/starter-kits`}>
+              Starter kits
+            </NavigationMenuLink>
           </NavigationMenuItem>
 
           {pro && (
@@ -96,7 +104,9 @@ export const Navigation = ({
           )}
 
           <NavigationMenuItem>
-            <NavigationMenuLink href={`${saasUiUrl}/docs/getting-started/introduction`}>
+            <NavigationMenuLink
+              href={`${saasUiUrl}/docs/getting-started/introduction`}
+            >
               Docs
             </NavigationMenuLink>
           </NavigationMenuItem>

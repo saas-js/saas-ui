@@ -32,6 +32,7 @@ const getLinkTree = (saasUiUrl = '') => [
       },
       { label: 'Blocks', href: `${saasUiUrl}/blocks` },
       { label: 'Figma UI kit', href: `${saasUiUrl}/figma` },
+      { label: 'Starter kits', href: `${saasUiUrl}/starter-kits` },
 
       // Point each kit at its own page rather than the saas-js.com homepage.
       // These are sitewide links with exact-match anchor text, so they are the

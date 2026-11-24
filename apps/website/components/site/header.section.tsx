@@ -1,15 +1,26 @@
-'use client';
+'use client'
+
 import { ColorModeButton } from '@/components/docs/color-mode-button'
 import { Logo } from '@/components/logo'
 import { SocialLinks } from '@/components/social-links'
-import { Alert } from '#components/ui/alert'
-import { Box, Button, Container, HStack, Separator, Spacer, Stack, Text } from '@chakra-ui/react'
-import { Dialog } from '#components/ui/dialog'
-import { IconButton } from '#components/ui/icon-button'
+import {
+  Box,
+  Button,
+  Container,
+  HStack,
+  Separator,
+  Spacer,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
 import { chakra } from '@chakra-ui/react/styled-system'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
+
+import { Alert } from '#components/ui/alert'
+import { Dialog } from '#components/ui/dialog'
+import { IconButton } from '#components/ui/icon-button'
 
 import { ActionArrow } from '../action-arrow'
 import { CommandMenu } from '../docs/command-menu'
@@ -42,6 +53,8 @@ const getNavLinks = (saasUiUrl = '') => [
     title: 'Docs',
     url: `${saasUiUrl}/docs/getting-started/introduction`,
   },
+  { title: 'Blocks', url: `${saasUiUrl}/blocks` },
+  { title: 'Starter kits', url: `${saasUiUrl}/starter-kits` },
   { title: 'Pricing', url: '/pricing', pro: true },
   { title: 'Changelog', url: '/changelog' },
   { title: 'Blog', url: 'https://www.saas-js.com/blog' },
@@ -133,11 +146,18 @@ const MobileNavCloseTrigger = () => (
 const MobileNavContent = ({ pro, saasUiUrl }: HeaderProps) => (
   <Container>
     <Stack py="4" gap="4" color="white">
-      {getNavLinks(saasUiUrl).filter((item) => pro || !item.pro).map((item) => (
-        <Button key={item.title} variant="outline" colorPalette="teal" asChild>
-          <Link href={item.url}>{item.title}</Link>
-        </Button>
-      ))}
+      {getNavLinks(saasUiUrl)
+        .filter((item) => pro || !item.pro)
+        .map((item) => (
+          <Button
+            key={item.title}
+            variant="outline"
+            colorPalette="teal"
+            asChild
+          >
+            <Link href={item.url}>{item.title}</Link>
+          </Button>
+        ))}
     </Stack>
   </Container>
 )
@@ -177,22 +197,23 @@ export const HeaderSection = ({ pro = false, saasUiUrl = '' }: HeaderProps) => {
         justifyContent="center"
         alignItems="center"
         py="2"
+        px="4"
         flexDir="row"
         textStyle="sm"
       >
-        <Text fontWeight="medium">Looking for our SaaS starter kits?</Text>
-        <Text>
-          They're now available at{' '}
-          <Link href="https://www.saas-js.com">saas-js.com</Link>
+        <Text fontWeight="medium">Saas UI 3.0 is here</Text>
+        <Text display={{ base: 'none', sm: 'block' }}>
+          Your components, your code — new CLI, Chakra UI 3.38 preset, and
+          public registry.
         </Text>
 
         <LinkButton
           variant="outline"
           colorPalette="accent"
-          href="https://www.saas-js.com"
+          href="https://www.saas-js.com/blog/saas-ui-3-0"
           size="xs"
         >
-          Learn more <ActionArrow />
+          Read announcement <ActionArrow />
         </LinkButton>
       </Stack>
       <Container py="2">

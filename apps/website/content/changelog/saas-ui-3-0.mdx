@@ -1,0 +1,50 @@
+---
+title: Saas UI 3.0
+version: '3.0.0'
+publishedAt: '2026-11-24'
+authors: ['eelco']
+products: ['saas-ui']
+packages:
+  [
+    '@saas-ui/chakra-preset',
+    '@saas-ui/react',
+    '@saas-ui/cli',
+    '@saas-ui/hooks',
+    '@saas-ui/charts',
+    '@saas-ui/registry',
+    '@saas-ui/appearance',
+    '@saas-ui/tailwind-preset',
+    '@saas-ui/assets',
+    '@saas-ui/storybook-addon',
+  ]
+description:
+  Saas UI 3.0 moves styled compositions to the editable source registry at
+  saas-ui.dev/r, ships @saas-ui/chakra-preset and @saas-ui/cli 3.0, and turns
+  @saas-ui/react into the unstyled primitives package.
+---
+
+Saas UI 3.0 is released. Styled Chakra compositions are now installed as
+editable source code from `https://saas-ui.dev/r` via `@saas-ui/cli` on top of
+`@saas-ui/chakra-preset`, while `@saas-ui/react` (`3.0.0`) provides unstyled
+primitives (`Sidebar`, `Navbar`, `GridList`, `Steps`, and `ErrorBoundary`).
+
+## Highlights
+
+- **`@saas-ui/cli` 3.0.0** — initializes Chakra UI and `@saas-ui/chakra-preset`,
+  installs registry items from `https://saas-ui.dev/r`, supports `list`,
+  `diff`, `update`, shadcn-compatible registry namespaces, and
+  `migrate react-to-registry`.
+- **`@saas-ui/chakra-preset` 3.0.0** — supports Chakra UI `^3.38.0`, adds OKLCH
+  appearance and semantic palettes, shared control sizes and radii, and recipes
+  for `Command`, `DateInput`, `Aside`, `SplitPage`, and 10 Chakra 3.36
+  components.
+- **Public registry items** — includes `data-table` (TanStack Table v9),
+  `filters` (Saas.js Conditions), `modals`, `forms` (TanStack Form),
+  `rich-text-editor` (Tiptap), `sidebar`, `navbar`, `app-shell`, `page`,
+  `aside`, `split-page`, and `kbd-group`.
+- **`@saas-ui/charts` 3.0.0** and **`@saas-ui/appearance` 0.1.0** — Chakra-token
+  theming for TanStack Charts and shared OKLCH appearance generators.
+
+Read the full [Saas UI 3.0 announcement](/blog/saas-ui-3-0), or jump to
+[Migrating from next to v3](/docs/getting-started/migrating-from-next) or
+[Migration to v3](/docs/getting-started/migration).

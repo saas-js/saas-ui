@@ -233,7 +233,9 @@ function resolveStarterKitSubpath(
  * Prefix moves where every descendant maps to the same subtree. Checked after
  * the exact map and the starter-kit rules, longest prefix first.
  */
-const prefixRedirects: Array<[string, string]> = [['/blog', `${SAAS_JS}/blog`]]
+// /blog is no longer here: saas-ui.dev has its own blog again. Saas.js posts
+// requested on it redirect from the post page itself (components/blog).
+const prefixRedirects: Array<[string, string]> = []
 
 export function resolveSaasUiRedirect(pathname: string): string | undefined {
   const path = pathname !== '/' ? pathname.replace(/\/+$/, '') : pathname

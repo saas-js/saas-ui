@@ -57,14 +57,14 @@ const getNavLinks = (saasUiUrl = '') => [
   { title: 'Starter kits', url: `${saasUiUrl}/starter-kits` },
   { title: 'Pricing', url: '/pricing', pro: true },
   { title: 'Changelog', url: '/changelog' },
-  { title: 'Blog', url: 'https://www.saas-js.com/blog' },
+  { title: 'Blog', url: `${saasUiUrl}/blog` },
   { title: 'Showcase', url: '/showcase' },
 ]
 
 interface HeaderProps {
   /**
    * Show Pricing and Get Pro. Off on saas-ui.dev; only Saas.js pages that reuse
-   * this header (the blog) turn it on.
+   * this header may turn it on.
    */
   pro?: boolean
   /**
@@ -210,7 +210,7 @@ export const HeaderSection = ({ pro = false, saasUiUrl = '' }: HeaderProps) => {
         <LinkButton
           variant="outline"
           colorPalette="accent"
-          href="https://www.saas-js.com/blog/saas-ui-3-0"
+          href={`${saasUiUrl}/blog/saas-ui-3-0`}
           size="xs"
         >
           Read announcement <ActionArrow />

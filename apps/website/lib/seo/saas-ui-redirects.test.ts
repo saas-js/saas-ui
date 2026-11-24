@@ -253,10 +253,9 @@ describe('resolveSaasUiRedirect', () => {
     ).toBe(`${SAAS_JS}/docs/starter-kits/tanstack-start`)
   })
 
-  it('still copies blog posts onto saas-js.com', () => {
-    expect(resolveSaasUiRedirect('/blog/some-post')).toBe(
-      `${SAAS_JS}/blog/some-post`,
-    )
+  it('serves the blog on saas-ui.dev instead of sending it to saas-js.com', () => {
+    expect(resolveSaasUiRedirect('/blog')).toBeUndefined()
+    expect(resolveSaasUiRedirect('/blog/some-post')).toBeUndefined()
   })
 
   it('points every relative redirect at a page that exists', async () => {

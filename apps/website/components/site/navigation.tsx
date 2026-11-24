@@ -15,7 +15,7 @@ import {
 } from '../navigation-menu'
 
 // `pro` shows the Pricing link. Saas UI no longer sells anything, so only the
-// Saas.js-hosted pages (e.g. the blog) that reuse this header opt in.
+// Saas.js-hosted pages that reuse this header opt in.
 // `saasUiUrl` prefixes Saas UI paths; empty (relative) on saas-ui.dev, set to
 // the saas-ui.dev origin only where the nav renders on saas-js.com.
 export const Navigation = ({
@@ -150,7 +150,7 @@ export const Navigation = ({
                 >
                   Explore the code.
                 </ListItem>
-                <ListItem title="Blog" href="https://www.saas-js.com/blog">
+                <ListItem title="Blog" href={`${saasUiUrl}/blog`}>
                   Read the latest posts.
                 </ListItem>
                 <ListItem title="Discord" href="/discord">

@@ -1,8 +1,6 @@
-import { FooterSection } from '@/components/site/footer.section'
-import { HeaderSection } from '@/components/site/header.section'
+import { FooterSection } from '@/components/saas-js/footer.section'
+import { HeaderSection } from '@/components/saas-js/header.section'
 import { Stack } from '@chakra-ui/react'
-
-const SAAS_UI_URL = 'https://saas-ui.dev'
 
 export default function RootLayout({
   children,
@@ -11,9 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <Stack pos="relative" gap="8" overflow="hidden">
-      <HeaderSection pro saasUiUrl={SAAS_UI_URL} />
+      <HeaderSection />
       {children}
-      <FooterSection saasUiUrl={SAAS_UI_URL} />
+      <FooterSection />
     </Stack>
   )
 }

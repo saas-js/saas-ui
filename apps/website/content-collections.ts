@@ -231,10 +231,14 @@ const sjsMetas = defineCollection({
   }),
 })
 
+// One collection for both blogs. The folder a post lives in decides which site
+// publishes it: content/saas-ui/blog -> saas-ui.dev, content/saas-js/blog ->
+// saas-js.com. Slugs must stay unique across both (they share the MDX registry,
+// and each blog redirects the other's slugs to their home).
 const blogs = defineCollection({
   name: 'Blog',
-  directory: 'content/saas-ui/blog',
-  include: ['**/*.mdx'],
+  directory: 'content',
+  include: ['saas-ui/blog/**/*.mdx', 'saas-js/blog/**/*.mdx'],
   schema: z.object({
     title: z.string(),
     type: z.enum(['announcement', 'article']).default('article'),
@@ -247,7 +251,8 @@ const blogs = defineCollection({
   }),
   transform: async (doc, context) => {
     const code = await compileMDX(context, doc, mdxConfig)
-    const slug = slugify(doc._meta.path)
+    const [site, , ...rest] = doc._meta.path.split('/')
+    const slug = slugify(rest.join('/'))
     const mdxId = persistMdxModule(cwd, 'blog', slug, code)
     writeMdxRegistry(cwd)
     return {
@@ -255,6 +260,7 @@ const blogs = defineCollection({
       code: '',
       mdxId,
       slug,
+      site: site as 'saas-ui' | 'saas-js',
     }
   },
 })

@@ -34,7 +34,7 @@ export const BlogCard = (props: Props) => {
           position="relative"
         >
           <Image
-            src={`/og?title=${encodeURIComponent(title)}`}
+            src={`/og?title=${encodeURIComponent(title)}&site=${data.site === 'saas-js' ? 'sjs' : 'sui'}`}
             alt={title}
             objectFit="cover"
             objectPosition="center"

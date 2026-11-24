@@ -59,7 +59,7 @@ Compatibility release.
   await write(
     root,
     '.changeset/config.json',
-    JSON.stringify({ baseBranch: 'v3' }),
+    JSON.stringify({ baseBranch: 'main' }),
   )
   await write(
     root,
@@ -277,11 +277,108 @@ describe('react package retirement preflight', () => {
     })
   })
 
+  test('accepts the stable release after exiting prerelease mode', async () => {
+    const root = await fixture()
+    await rm(path.join(root, '.changeset/registry-template-transition.md'), {
+      force: true,
+    })
+    await rm(path.join(root, '.changeset/pre.json'), { force: true })
+    await write(
+      root,
+      'packages/saas-ui-cli/package.json',
+      JSON.stringify({
+        bin: { 'saas-ui': 'lib/cli.js' },
+        files: ['lib'],
+        name: '@saas-ui/cli',
+        version: '0.1.0',
+      }),
+    )
+    await write(
+      root,
+      'packages/saas-ui-chakra-preset/package.json',
+      JSON.stringify({
+        name: '@saas-ui/chakra-preset',
+        version: '3.0.0',
+      }),
+    )
+    await write(
+      root,
+      'packages/saas-ui-react/package.json',
+      JSON.stringify({
+        name: '@saas-ui/react',
+        version: '3.0.0',
+      }),
+    )
+    const releaseValues = [
+      'https://saas-ui.dev',
+      'https://saas-ui.dev/r',
+      'https://saas-ui.dev/r/schema/components.json',
+      '3.0.0',
+      '0.1.0',
+    ].join('\n')
+    await write(
+      root,
+      'packages/saas-ui-cli/lib/cli.js',
+      `#!/usr/bin/env node\n${releaseValues}\n`,
+    )
+    await write(
+      root,
+      'packages/saas-ui-cli/lib/bash-complete.js',
+      'export {}\n',
+    )
+    await write(
+      root,
+      'packages/saas-ui-cli/lib/release-contract.js',
+      releaseValues,
+    )
+    await write(
+      root,
+      'packages/saas-ui-cli/lib/build-info.json',
+      JSON.stringify({
+        authOrigin: 'https://saas-ui.dev',
+        cliVersion: '0.1.0',
+        kind: 'saas-ui.cli-build-info',
+        presetVersion: '3.0.0',
+        registryUrl: 'https://saas-ui.dev/r',
+        schemaUrl: 'https://saas-ui.dev/r/schema/components.json',
+        version: 1,
+      }),
+    )
+    const releasePlan = async () => {
+      throw new Error('release plan must not run after versioning')
+    }
+
+    const report = await runRetirementPreflight({
+      repositoryRoot: root,
+      releasePlan,
+      scanLegacy: async () => legacyResult(),
+    })
+
+    expect(report.checks).toHaveLength(10)
+    expect(report.releaseVersions).toEqual({
+      '@saas-ui/chakra-preset': '3.0.0',
+      '@saas-ui/cli': '0.1.0',
+    })
+  })
+
   test('rejects an absent transition changeset before manifests are versioned', async () => {
     const root = await fixture()
     await rm(path.join(root, '.changeset/registry-template-transition.md'), {
       force: true,
     })
+    await write(
+      root,
+      'packages/saas-ui-cli/package.json',
+      JSON.stringify({ name: '@saas-ui/cli', version: '0.0.2' }),
+    )
+    await write(
+      root,
+      'packages/saas-ui-chakra-preset/package.json',
+      JSON.stringify({
+        name: '@saas-ui/chakra-preset',
+        version: '3.0.0-next.2',
+      }),
+    )
 
     await expect(
       runRetirementPreflight({

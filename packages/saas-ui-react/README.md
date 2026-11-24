@@ -17,7 +17,7 @@ The package also exports `ErrorBoundary`, stepper hooks, and shared utilities.
 
 Existing projects that used the previous Chakra re-export bundle should follow
 the [docs](https://saas-ui.dev/docs/getting-started/migrating-from-next) or the
-[migration guide](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md).
+[migration guide](https://github.com/saas-js/saas-ui/blob/main/MIGRATION.md).
 
 ## License
 

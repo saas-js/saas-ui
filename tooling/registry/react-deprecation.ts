@@ -10,7 +10,7 @@ export const DEPRECATED_PACKAGE = '@saas-ui/react'
 export const DEPRECATION_REGISTRY = 'https://registry.npmjs.org/'
 export const DEPRECATION_PACKUMENT_URL = `${DEPRECATION_REGISTRY}@saas-ui%2freact`
 export const DEPRECATION_MIGRATION_URL =
-  'https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md'
+  'https://github.com/saas-js/saas-ui/blob/main/MIGRATION.md'
 export const DEPRECATION_MESSAGE =
   '@saas-ui/react is deprecated. Migrate to @saas-ui/chakra-preset and ' +
   `@saas-ui/cli: ${DEPRECATION_MIGRATION_URL}`

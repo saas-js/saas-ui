@@ -166,7 +166,7 @@ Read the
 guide before applying a write migration. It covers provider and color-mode
 changes, component ownership, Pro blocks, manual cases, and verification. The
 repository
-[`@saas-ui/react` migration guide](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md)
+[`@saas-ui/react` migration guide](https://github.com/saas-js/saas-ui/blob/main/MIGRATION.md)
 is the detailed source for the same path.
 
 The migration scans the project by default, or only the supplied files,
@@ -224,7 +224,7 @@ Visit <https://saas-ui.dev/docs/getting-started/cli> for the full documentation.
 For the distribution-model transition, see
 [Migrating from next to rc](https://saas-ui.dev/docs/getting-started/migrating-from-next)
 and the repository
-[`@saas-ui/react` migration guide](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md).
+[`@saas-ui/react` migration guide](https://github.com/saas-js/saas-ui/blob/main/MIGRATION.md).
 
 ## Acknowledgements
 

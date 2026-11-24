@@ -25,3 +25,26 @@ const authorMap: Record<string, Author> = {
 export const getBlogAuthor = (author: string): Author => {
   return authorMap[author] ?? {}
 }
+
+export type BlogSite = 'saas-ui' | 'saas-js'
+
+export const blogOrigins: Record<BlogSite, string> = {
+  'saas-ui': 'https://saas-ui.dev',
+  // The apex 308s to www.
+  'saas-js': 'https://www.saas-js.com',
+}
+
+/** Posts published on one site, newest first. */
+export const getBlogPosts = <T extends { site: BlogSite; publishedAt: string }>(
+  posts: T[],
+  site: BlogSite,
+) =>
+  posts
+    .filter((post) => post.site === site)
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    )
+
+export const getBlogPostUrl = (post: { site: BlogSite; slug: string }) =>
+  `${blogOrigins[post.site]}/blog/${post.slug}`

@@ -1,5 +1,6 @@
 import { source } from '@/app/(saas-js)/docs/lib/source'
-import { allChangelogs } from 'content-collections'
+import { getBlogPosts } from '@/lib/blog'
+import { allBlogs, allChangelogs } from 'content-collections'
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -49,6 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pricing',
     '/showcase',
     '/docs',
+    '/blog',
   ].map((path) => ({
     url: `${baseUrl}${path === '/' ? '' : path}`,
     lastModified: new Date(),
@@ -66,5 +68,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     ...changelogUrls,
+    ...getBlogPosts(allBlogs, 'saas-js').map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
   ]
 }

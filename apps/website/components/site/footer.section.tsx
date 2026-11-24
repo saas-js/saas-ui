@@ -18,7 +18,7 @@ const getLinkTree = (saasUiUrl = '') => [
         label: 'Documentation',
         href: `${saasUiUrl}/docs/getting-started/introduction`,
       },
-      { label: 'Blog', href: 'https://www.saas-js.com/blog' },
+      { label: 'Blog', href: `${saasUiUrl}/blog` },
       { label: 'Roadmap', href: 'https://roadmap.saas-ui.dev' },
       { label: 'Changelog', href: '/changelog' },
     ],

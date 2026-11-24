@@ -1,6 +1,7 @@
 import { CATEGORIES_SLUGS } from '@/blocks'
+import { getBlogPosts } from '@/lib/blog'
 import { source } from '@/lib/source'
-import { allChangelogs } from 'content-collections'
+import { allBlogs, allChangelogs } from 'content-collections'
 
 const BASE_URL = 'https://saas-ui.dev'
 
@@ -24,6 +25,7 @@ function entries(): Entry[] {
     '/starter-kits',
     '/showcase',
     '/changelog',
+    '/blog',
   ].map((path) => ({
     path,
     changeFrequency: 'monthly',
@@ -54,7 +56,14 @@ function entries(): Entry[] {
       priority: 0.5,
     }))
 
-  return [...marketing, ...blocks, ...docs, ...changelogs]
+  const posts: Entry[] = getBlogPosts(allBlogs, 'saas-ui').map((post) => ({
+    path: `/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  return [...marketing, ...blocks, ...docs, ...changelogs, ...posts]
 }
 
 export function GET() {

@@ -10,20 +10,35 @@ import { type LegacyCheckResult, scanLegacyReferences } from './legacy-check'
 
 export const REACT_PACKAGE = '@saas-ui/react'
 export const MIGRATION_URL =
-  'https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md'
+  'https://github.com/saas-js/saas-ui/blob/main/MIGRATION.md'
 
 const CHANGESET_PATH = '.changeset/registry-template-transition.md'
 const REQUIRED_CHANGESET_BUMPS = new Map([
   ['@saas-ui/chakra-preset', 'minor'],
   ['@saas-ui/cli', 'minor'],
 ] as const)
-const VERSIONED_TRANSITION_MINIMUMS = new Map<
-  string,
-  { minimum: number; prefix: string }
->([
-  ['@saas-ui/cli', { minimum: 0, prefix: '0.1.0-rc.' }],
-  ['@saas-ui/chakra-preset', { minimum: 0, prefix: '3.0.0-rc.' }],
+/** The compatibility release line: its rc builds or any stable release on it. */
+const VERSIONED_TRANSITION_MINIMUMS = new Map<string, string>([
+  ['@saas-ui/cli', '0.1.0'],
+  ['@saas-ui/chakra-preset', '3.0.0'],
 ] as const)
+const RELEASE_BRANCH = 'main'
+
+function isAtLeastReleaseLine(version: string | undefined, minimum: string) {
+  const match = /^(\d+)\.(\d+)\.(\d+)(?:-rc\.\d+)?$/.exec(version ?? '')
+  if (!match) return false
+  const actual = match.slice(1, 4).map(Number)
+  const floor = minimum.split('.').map(Number)
+  for (let index = 0; index < 3; index++) {
+    if (actual[index] !== floor[index]) return actual[index] > floor[index]
+  }
+  return true
+}
+
+/** Stable releases have no pre state; prereleases must be on the rc channel. */
+function isReleaseChannel(pre: { mode?: string; tag?: string } | undefined) {
+  return !pre || pre.mode === 'exit' || (pre.mode === 'pre' && pre.tag === 'rc')
+}
 const REQUIRED_MIGRATION_READMES = [
   'packages/saas-ui-chakra-preset/README.md',
   'packages/saas-ui-cli/README.md',
@@ -354,14 +369,13 @@ export async function runRetirementPreflight(
       },
     ]) {
       const manifest = await readManifest(root, spec.manifest)
-      const expected = VERSIONED_TRANSITION_MINIMUMS.get(spec.name)!
-      const suffix = manifest.version?.startsWith(expected.prefix)
-        ? manifest.version.slice(expected.prefix.length)
-        : ''
-      const sequence = /^\d+$/.test(suffix) ? Number(suffix) : -1
-      if (manifest.name !== spec.name || sequence < expected.minimum) {
+      const minimum = VERSIONED_TRANSITION_MINIMUMS.get(spec.name)!
+      if (
+        manifest.name !== spec.name ||
+        !isAtLeastReleaseLine(manifest.version, minimum)
+      ) {
         throw new Error(
-          `${spec.manifest} must contain the versioned compatibility release at ${expected.prefix}${expected.minimum} or newer; found ${String(
+          `${spec.manifest} must contain the versioned compatibility release at ${minimum}-rc.0 or newer; found ${String(
             manifest.name,
           )}@${String(manifest.version)}`,
         )
@@ -373,18 +387,19 @@ export async function runRetirementPreflight(
     const config = JSON.parse(
       await readRequired(root, '.changeset/config.json'),
     ) as { baseBranch?: string }
-    if (config.baseBranch !== 'v3') {
+    if (config.baseBranch !== RELEASE_BRANCH) {
       throw new Error(
-        `.changeset/config.json baseBranch must be v3; found ${String(config.baseBranch)}`,
+        `.changeset/config.json baseBranch must be ${RELEASE_BRANCH}; found ${String(config.baseBranch)}`,
       )
     }
-    const pre = JSON.parse(await readRequired(root, '.changeset/pre.json')) as {
-      mode?: string
-      tag?: string
-    }
-    if (pre.mode !== 'pre' || pre.tag !== 'rc') {
+    const preSource = await readOptional(root, '.changeset/pre.json')
+    const pre =
+      preSource === null
+        ? undefined
+        : (JSON.parse(preSource) as { mode?: string; tag?: string })
+    if (!isReleaseChannel(pre)) {
       throw new Error(
-        `.changeset/pre.json must be in rc prerelease mode; found ${String(pre.mode)}/${String(pre.tag)}`,
+        `.changeset/pre.json must be in rc prerelease mode or exited; found ${String(pre?.mode)}/${String(pre?.tag)}`,
       )
     }
   })
@@ -410,8 +425,10 @@ export async function runRetirementPreflight(
     const status = await (options.releasePlan ?? computeChangesetReleasePlan)(
       root,
     )
-    if (status.preState?.mode !== 'pre' || status.preState.tag !== 'rc') {
-      throw new Error('computed Changesets plan is not on the rc channel')
+    if (!isReleaseChannel(status.preState)) {
+      throw new Error(
+        'computed Changesets plan is not on the rc or stable channel',
+      )
     }
     const releases = new Map(
       (status.releases ?? []).map((release) => [release.name, release]),

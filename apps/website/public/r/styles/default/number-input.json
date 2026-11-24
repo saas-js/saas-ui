@@ -26,7 +26,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "f6d4cbcb5bebc51d6c351ebbafc2144bfdef784b46199ecc5e22c1535478d361"
+    "contentHash": "a6d31bbeef81f765cd94cf37b787d1a26320fd0f77ee6fb6df4bcb917761e80d"
   },
   "name": "number-input",
   "registryDependencies": [
@@ -34,5 +34,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

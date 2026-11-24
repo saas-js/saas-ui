@@ -8,7 +8,7 @@ For a new application, let the CLI install compatible dependency versions and
 local provider setup:
 
 ```sh
-npx @saas-ui/cli@rc init
+npx @saas-ui/cli init
 ```
 
 The underlying provider boundary is:
@@ -27,7 +27,7 @@ local link adapter or color-mode integration. Install editable custom components
 separately:
 
 ```sh
-npx @saas-ui/cli@rc add sidebar app-shell page
+npx @saas-ui/cli add sidebar app-shell page
 ```
 
 The package exports `defaultSystem` (also aliased as `system`), `defaultConfig`,
@@ -35,7 +35,7 @@ recipe values, and their variant-prop types. Templates bind directly to those
 recipe exports so consumers do not need Chakra type generation to use them.
 
 Existing `@saas-ui/react` users should follow the
-[migration guide](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md).
+[migration guide](https://github.com/saas-js/saas-ui/blob/main/MIGRATION.md).
 
 ## License
 

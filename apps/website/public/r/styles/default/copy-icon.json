@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "CopyIcon",
-    "contentHash": "59d7d28667dc3e6a3da24cf0f696f8548e1b6d9a42734158ffa7f9a0976fa2ce",
+    "contentHash": "09828e9e030e9ab711cf22877dc696cfb07e5436e5c7857e9ccd518dae66ac0a",
     "iconName": "Copy",
     "iconSet": "lucide"
   },
   "name": "copy-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

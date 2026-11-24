@@ -1,6 +1,6 @@
 ---
-title: Migrating from next to rc
-description: Upgrade existing apps from @saas-ui/react@next to the rc CLI, preset, and registry
+title: Migrating from next to v3
+description: Upgrade existing apps from @saas-ui/react@next to the v3 CLI, preset, and registry
 ---
 
 :::info
@@ -14,10 +14,10 @@ UI v2 / Saas UI v2, start with
 :::
 
 Saas UI is no longer a single `@saas-ui/react` bundle that re-exports Chakra
-and ships styled compositions. The `rc` channel uses a preset plus source
+and ships styled compositions. v3 uses a preset plus source
 templates installed by the CLI:
 
-| Before (`next`)                                              | After (`rc`)                                                |
+| Before (`next`)                                              | After (v3)                                                |
 | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | Chakra primitives re-exported from `@saas-ui/react`          | Import from `@chakra-ui/react`                              |
 | `SuiProvider` and `defaultSystem` from `@saas-ui/react`      | Local provider setup plus `@saas-ui/chakra-preset`          |
@@ -25,8 +25,8 @@ templates installed by the CLI:
 | Recipes and semantic tokens from the React package           | `@saas-ui/chakra-preset`                                    |
 | `@saas-ui/react` as the whole component library              | Unstyled primitives package (formerly @saas-ui/core)        |
 
-Bumping `@saas-ui/react` from `next` to `rc` is not the styled-UI migration.
-The `rc` package is the former @saas-ui/core primitives. Styled UI is
+Bumping `@saas-ui/react` from `next` to v3 is not the styled-UI migration.
+The v3 package is the former @saas-ui/core primitives. Styled UI is
 installed into your repo with `@saas-ui/cli`. The version bump itself is
 still required in every workspace and the lockfile, with a root override so
 leftover packages cannot nest `@saas-ui/react@next`.
@@ -40,22 +40,22 @@ Do not have the agent rewrite imports by hand unless the report marks them
 
 ```text title="Agent prompt"
 Migrate this project from @saas-ui/react@next (the old Chakra re-export
-bundle) to the Saas UI rc model: @chakra-ui/react, @saas-ui/chakra-preset,
+bundle) to the Saas UI v3 model: @chakra-ui/react, @saas-ui/chakra-preset,
 and source templates installed by @saas-ui/cli.
 
 Read and follow:
 https://saas-ui.dev/docs/getting-started/migrating-from-next
 
 Rules
-- Do not treat `npm i @saas-ui/react@rc` as the styled-UI migration.
-  The rc package is unstyled primitives (formerly @saas-ui/core).
+- Do not treat `npm i @saas-ui/react` as the styled-UI migration.
+  The v3 package is unstyled primitives (formerly @saas-ui/core).
   Styled UI is installed as source by the CLI. The package version
   bump itself is required: every workspace manifest and the lockfile
-  must resolve @saas-ui/react to the newest published rc. Add a root
+  must resolve @saas-ui/react to the latest 3.x release. Add a root
   override so leftover @saas-ui/core / @saas-ui/hooks / old Pro /
   forms cannot nest @saas-ui/react@next. Grep the lockfile for
   @saas-ui/react@next and fail the migration if any remain.
-- Pin @saas-ui/chakra-preset to the newest published rc. A leftover
+- Pin @saas-ui/chakra-preset to the latest 3.x release. A leftover
   next.* pin makes typegen fail. Bump @chakra-ui/react until
   `chakra typegen` passes; override @ark-ui/react if the pair
   requires it. Do not leave a next.* preset pin. The preset needs
@@ -73,7 +73,7 @@ Rules
   the dry-run plan by hand. Record the write failure; do not loop.
 - Fail closed. Do not invent replacements for unmapped exports,
   missing registry items, or unknown call-site APIs. Confirm public
-  names with `npx @saas-ui/cli@rc list` before add. Do not add
+  names with `npx @saas-ui/cli list` before add. Do not add
   toolbar or resizer unless list shows them (they 500). Use
   ButtonGroup instead of Toolbar. Drop drag-to-resize or ask; do
   not invent a Resizer. getDataGridFilter('date') has no table-
@@ -93,7 +93,7 @@ Rules
   App source must not import Chakra primitives from
   `@saas-ui/react`. Public app imports stay on the UI package
   alias.
-- NavGroup and SidebarSection are not rc exports and not leftover
+- NavGroup and SidebarSection are not v3 exports and not leftover
   Pro. Map them to Sidebar.Group + Sidebar.NavItem on the
   installed sidebar. Stories need Sidebar.Provider + Root + Body.
   The page section item is a different composition.
@@ -120,7 +120,7 @@ Procedure
    components.json is missing, initialize non-interactively in the
    chosen directory. Detect color-mode usage (next-themes,
    ColorModeProvider, useColorMode) and pass it explicitly:
-   npx @saas-ui/cli@rc init --yes --defaults --cwd <actual-dir> --components-alias '<alias>' --ui-alias '<alias>' --color-mode on
+   npx @saas-ui/cli init --yes --defaults --cwd <actual-dir> --components-alias '<alias>' --ui-alias '<alias>' --color-mode on
    or `--color-mode off`. Single-package default alias is
    `#components` (ui: `#components/ui`). Monorepo UI alias is the
    package name, so imports become `@workspace/ui/sidebar` not
@@ -132,9 +132,9 @@ Procedure
    `@saas-ui/chakra-preset` before `--write`. Chakra typegen will
    fail if the theme still loads retired `@saas-ui/react` paths.
 5. Pin versions, then typegen:
-   - Bump @saas-ui/react and @saas-ui/chakra-preset to the newest
-     published rc in every workspace that depends on them.
-   - Add a root override: "@saas-ui/react": "<newest-rc>".
+   - Bump @saas-ui/react and @saas-ui/chakra-preset to the latest
+     3.x release in every workspace that depends on them.
+   - Add a root override: "@saas-ui/react": "^3.0.0".
    - Bump @chakra-ui/react until typegen passes. Override
      @ark-ui/react if needed.
    - Run chakra typegen after the bump. Do not leave a next.*
@@ -144,14 +144,14 @@ Procedure
    TypeScript `baseUrl` on the UI package can break after
    install; drop it if typegen/tsc then fail.
 6. Preview:
-   npx @saas-ui/cli@rc migrate react-to-registry --cwd <actual-dir> --dry-run
+   npx @saas-ui/cli migrate react-to-registry --cwd <actual-dir> --dry-run
    Summarize the plan and every `manual` diagnostic. Hand-fix
    `manual` cases first (deep `@saas-ui/react/...` imports,
    compound Card/Persona, useSnackbar → toast, LoadingSpinner →
    LoadingOverlay.Spinner). If anything else is `manual`, fix or
    ask before writing.
 7. Apply a clean plan:
-   npx @saas-ui/cli@rc migrate react-to-registry --cwd <actual-dir> --write
+   npx @saas-ui/cli migrate react-to-registry --cwd <actual-dir> --write
    Use `--overwrite` only after reviewing unmanaged files that
    predate the registry lock. If --write fails, apply the dry-run
    plan by hand. Then update other workspace packages to import
@@ -163,7 +163,7 @@ Procedure
    - Provider → init output; wrap it if the app needs `system` or
      `linkComponent`, do not rebuild SuiProvider
    - Theme → `@saas-ui/chakra-preset`, not legacy `baseTheme`
-   - `@saas-ui/modals` → `npx @saas-ui/cli@rc list --search modal`
+   - `@saas-ui/modals` → `npx @saas-ui/cli list --search modal`
      then `add modals`. Delete leftover re-export shims. Remap
      confirmProps → slotProps.confirm. Remove the @saas-ui/modals
      package and any @saas-ui/forms override that existed only
@@ -187,7 +187,7 @@ Procedure
    Drop or ask about props that are gone. Do not invent
    replacements.
 10. Public registry replacements. Confirm with
-    `npx @saas-ui/cli@rc list` before add:
+    `npx @saas-ui/cli list` before add:
     - DataGrid → add data-table (TanStack Table v9). App:
       useDataTable, createDataTableColumnHelper
     - Filters → add filters. App: createFilters + FilterBar
@@ -202,7 +202,7 @@ Procedure
     500s for a name that list does not show, keep the existing
     import, record it, and ask. Do not invent file: Pro links
     unless the user asks.
-    npx @saas-ui/cli@rc add data-table filters modals aside split-page page --cwd <actual-dir>
+    npx @saas-ui/cli add data-table filters modals aside split-page page --cwd <actual-dir>
 11. Theme tokens that assumed old overlay vars: dialogs using
     layerStyle: overlay may call --overlay-translucency with no
     fallback and render transparent after the preset switch.
@@ -293,7 +293,7 @@ Detect the real UI package path first. Do not assume `packages/ui`. Pass
 app-only aliases alone.
 
 ```bash
-npx @saas-ui/cli@rc init --yes --defaults --cwd <actual-dir> --components-alias '<alias>' --ui-alias '<alias>'
+npx @saas-ui/cli init --yes --defaults --cwd <actual-dir> --components-alias '<alias>' --ui-alias '<alias>'
 ```
 
 `init` installs compatible versions of `@chakra-ui/react`, `@emotion/react`,
@@ -304,32 +304,32 @@ color-mode provider.
 ### Preview the migration
 
 ```bash
-npx @saas-ui/cli@rc migrate react-to-registry --dry-run
+npx @saas-ui/cli migrate react-to-registry --dry-run
 ```
 
 Write a machine-readable report if you want to review the plan in a PR:
 
 ```bash
-npx @saas-ui/cli@rc migrate react-to-registry --dry-run --json > saas-ui-migration.json
+npx @saas-ui/cli migrate react-to-registry --dry-run --json > saas-ui-migration.json
 ```
 
 Limit the scan while a team migrates in batches:
 
 ```bash
-npx @saas-ui/cli@rc migrate react-to-registry src/app src/features --dry-run
+npx @saas-ui/cli migrate react-to-registry src/app src/features --dry-run
 ```
 
 ### Apply the reviewed plan
 
 ```bash
-npx @saas-ui/cli@rc migrate react-to-registry --write
+npx @saas-ui/cli migrate react-to-registry --write
 ```
 
 If the report identifies unmanaged component files that predate the registry
 lock, review their diffs first and opt in to replacing them:
 
 ```bash
-npx @saas-ui/cli@rc migrate react-to-registry --write --overwrite
+npx @saas-ui/cli migrate react-to-registry --write --overwrite
 ```
 
 `--write` rewrites supported imports, installs required registry items, and
@@ -349,11 +349,11 @@ refuse a clean write. Do not loop on `--write`.
 The styled-UI migration is the CLI plus registry, but the package versions
 still have to move.
 
-1. Bump `@saas-ui/react` to the newest published `rc` in every workspace
+1. Bump `@saas-ui/react` to the latest `3.x` release in every workspace
    manifest and the lockfile.
 2. Add a root override so leftover `@saas-ui/core`, `@saas-ui/hooks`, old
    Pro, or forms cannot nest `@saas-ui/react@next`.
-3. Pin `@saas-ui/chakra-preset` to the newest published `rc`. A leftover
+3. Pin `@saas-ui/chakra-preset` to the latest `3.x` release. A leftover
    `next.*` pin makes typegen fail.
 4. Bump `@chakra-ui/react` to 3.38 or later (the preset's peer range) and
    check that `chakra typegen` passes. Chakra 3.38 needs `@ark-ui/react`
@@ -398,7 +398,7 @@ Unstyled primitives such as `useSidebar` may still come from the current
 application code should import the styled template, not reconstruct it from
 the primitive. Public app imports stay on the UI package alias.
 
-`NavGroup` and `SidebarSection` are not `@saas-ui/react` rc exports and they
+`NavGroup` and `SidebarSection` are not `@saas-ui/react` v3 exports and they
 are not leftover Pro. The installed sidebar exports `Group`, `NavItem`,
 `Header`, `Body`, and `Footer`. Map sortable nav groups to `Sidebar.Group` +
 `Sidebar.NavItem`. Stories need `Sidebar.Provider` + `Root` + `Body`. The
@@ -494,7 +494,7 @@ files. Registry icon imports may need retargeting to the app's icon path.
 
 ## Public registry replacements
 
-Confirm names with `npx @saas-ui/cli@rc list` before `add`. Several former
+Confirm names with `npx @saas-ui/cli list` before `add`. Several former
 Pro exports are now public, and some names the old package used are not
 registry items.
 
@@ -510,7 +510,7 @@ registry items.
 | `getDataGridFilter('date')` | No equivalent on the installed table feature set. Drop it or ask; do not invent a `filterFn`     |
 
 ```bash
-npx @saas-ui/cli@rc add data-table filters modals aside split-page page --cwd <actual-dir>
+npx @saas-ui/cli add data-table filters modals aside split-page page --cwd <actual-dir>
 ```
 
 Do not add `toolbar` or `resizer` unless `list` shows them.
@@ -523,10 +523,10 @@ renamed from `Command` to `KbdGroup`, and its registry item from `command` to
 `kbd-group`. The migration maps `Command` imports from `@saas-ui/react` to
 `KbdGroup` automatically.
 
-If an earlier rc already installed `ui/command`, switch it over by hand:
+If an earlier v3 release candidate already installed `ui/command`, switch it over by hand:
 
 ```bash
-npx @saas-ui/cli@rc add kbd-group --cwd <actual-dir>
+npx @saas-ui/cli add kbd-group --cwd <actual-dir>
 ```
 
 ```tsx
@@ -557,7 +557,7 @@ collection `refetch()` in loaders before the page suspends.
 
 ## Forms follow-through
 
-The `next` → `rc` migration does not include forms. If you also leave
+The `next` → v3 migration does not include forms. If you also leave
 `@saas-ui/forms` in the same wave:
 
 - Registered fields (`TextField`, and similar) only work under
@@ -616,8 +616,8 @@ These are not unfinished remaps:
 Authenticate before installing items that require a Saas UI Pro account:
 
 ```bash
-npx @saas-ui/cli@rc login
-npx @saas-ui/cli@rc add <pro-block-name>
+npx @saas-ui/cli login
+npx @saas-ui/cli add <pro-block-name>
 ```
 
 Confirm the name with `list` first. Public replacements such as
@@ -635,19 +635,19 @@ After the migration, install additional compositions the same way as a new
 project:
 
 ```bash
-npx @saas-ui/cli@rc add sidebar
-npx @saas-ui/cli@rc add sidebar --dry-run
+npx @saas-ui/cli add sidebar
+npx @saas-ui/cli add sidebar --dry-run
 ```
 
 After the original init / theme / dry-run / write steps, pin versions and
 install the public replacements:
 
 ```bash
-# bump @saas-ui/react, @saas-ui/chakra-preset to newest rc
+# bump @saas-ui/react, @saas-ui/chakra-preset to latest 3.x
 # bump @chakra-ui/react until typegen passes; override @ark-ui/react if needed
-# root override: "@saas-ui/react": "<rc>"
+# root override: "@saas-ui/react": "^3.0.0"
 
-npx @saas-ui/cli@rc add data-table filters modals aside split-page page --cwd <ui-package>
+npx @saas-ui/cli add data-table filters modals aside split-page page --cwd <ui-package>
 # do not add toolbar / resizer unless list shows them
 
 # grep @saas-ui-pro/react and remove the package

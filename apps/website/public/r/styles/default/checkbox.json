@@ -26,10 +26,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "e39a11787f2e33bd0ff940c63305e9333d78ed162ab9b0352f18ef10c43d2581"
+    "contentHash": "6c0cb6cd14ed6ea481dfe6990f7d78414380790cc34d0c81b7efd2b4e2842c81"
   },
   "name": "checkbox",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

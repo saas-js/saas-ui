@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/stylex-preset",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Proof-of-concept StyleX preset generated from the Saas UI Chakra preset",
   "type": "module",
   "private": true,

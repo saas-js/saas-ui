@@ -32,7 +32,7 @@
       ],
       "recipeReferences": []
     },
-    "contentHash": "0ee63f6f9d1a768f61e15414da05e3ca597388499556fd2d44a8a3770cb44b91"
+    "contentHash": "206f8c97a294c4ddd2531252fc6afb6bdf99e0aeae2abc975ab09b8a727da656"
   },
   "name": "drawer",
   "registryDependencies": [
@@ -40,5 +40,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

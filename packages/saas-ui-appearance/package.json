@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/appearance",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Shared OKLCH appearance and palette generators for Saas UI presets",
   "type": "module",
   "exports": {

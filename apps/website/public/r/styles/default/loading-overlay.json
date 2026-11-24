@@ -41,7 +41,7 @@
         "suiLoadingOverlay"
       ]
     },
-    "contentHash": "c4a22ac1ef329071b9e839b2d7052083fa93c5cd2b2cd691c0d75d6282357c61"
+    "contentHash": "77433a4ce0067238926dd1281d4425504e67f6875abecb5b1000a5b96da85d69"
   },
   "name": "loading-overlay",
   "registryDependencies": [
@@ -49,5 +49,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

@@ -50,6 +50,12 @@ async function workspace(presetVersion = SUPPORTED_PRESET_VERSION) {
   return { app, root }
 }
 
+/** A range on the same major that excludes the local workspace version. */
+function nextMinor(version: string) {
+  const [major, minor] = version.split('.').map(Number)
+  return `${major}.${minor! + 1}.0`
+}
+
 describe('supported package compatibility', () => {
   it('publishes explicit init declarations', () => {
     expect(supportedPackageDeclaration('@chakra-ui/react')).toBe(
@@ -62,7 +68,7 @@ describe('supported package compatibility', () => {
       `@saas-ui/chakra-preset@${SUPPORTED_PRESET_VERSION}`,
     )
     expect(supportedPackageDeclaration('@saas-ui/react')).toMatch(
-      /^@saas-ui\/react@3\.0\.0-rc\.\d+$/,
+      /^@saas-ui\/react@3\.\d+\.\d+(?:-rc\.\d+)?$/,
     )
     expect(supportedPackageDeclaration('next-themes')).toBe(
       'next-themes@^0.4.6',
@@ -116,9 +122,11 @@ describe('supported package compatibility', () => {
       ),
     ).toBeNull()
     expect(
-      packageCompatibilityIssue('@saas-ui/chakra-preset', 'workspace:^3.0.0', {
-        cwd: app,
-      }),
+      packageCompatibilityIssue(
+        '@saas-ui/chakra-preset',
+        `workspace:^${nextMinor(SUPPORTED_PRESET_VERSION)}`,
+        { cwd: app },
+      ),
     ).toContain('does not accept local version')
     expect(
       normalizeSupportedPackageDeclaration(

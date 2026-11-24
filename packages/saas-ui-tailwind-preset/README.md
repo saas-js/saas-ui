@@ -352,4 +352,4 @@ MIT
 - [@saas-ui/chakra-preset](../saas-ui-chakra-preset) - Original Chakra UI preset
 - [@saas-ui/panda-preset](../saas-ui-panda-preset) - Panda CSS preset
 - [@saas-ui/cli](../saas-ui-cli) - Installs editable component templates
-- [Migration from `@saas-ui/react`](https://github.com/saas-js/saas-ui/blob/v3/MIGRATION.md)
+- [Migration from `@saas-ui/react`](https://github.com/saas-js/saas-ui/blob/main/MIGRATION.md)

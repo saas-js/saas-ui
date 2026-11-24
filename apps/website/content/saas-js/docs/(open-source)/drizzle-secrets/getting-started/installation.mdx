@@ -1,0 +1,40 @@
+---
+title: Installation
+description: Install drizzle-secrets and generate an encryption key.
+---
+
+## Install the package
+
+```bash
+npm install drizzle-secrets
+```
+
+`drizzle-orm` (`>=1.0.0-rc.3`) is a peer dependency. The package uses
+`node:crypto`, so it runs on Node.js, Bun, and Deno, and on any edge runtime
+with Node.js compatibility enabled.
+
+## Generate a key
+
+Keys are 32 random bytes (256 bits), base64-encoded. Generate one with the
+CLI:
+
+```bash
+npx drizzle-secrets generate-key
+```
+
+Store it like any other secret, for example in `.env`:
+
+```bash
+ENCRYPTION_KEY="q0b3...base64...="
+```
+
+<Callout type="warn">
+  Losing the key means losing the data: there is no way to recover a value
+  without the key that encrypted it. Back keys up in your secret manager, and
+  never commit them.
+</Callout>
+
+## Next steps
+
+- [Basic usage](/packages/drizzle-secrets/docs/getting-started/basic-usage): declare secret columns and read them back.
+- [Key rotation](/packages/drizzle-secrets/docs/guides/key-rotation): set things up so you can change keys later.

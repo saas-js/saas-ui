@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "EyeIcon",
-    "contentHash": "f0e98e49f01996af99637cc2652c1b0c044e6bae408c8ada7488f097a46473b6",
+    "contentHash": "9cef88f8db2d53f43d549ed3642962ab3d12f9835062b631931dc07bc42cbbdb",
     "iconName": "Eye",
     "iconSet": "lucide"
   },
   "name": "eye-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

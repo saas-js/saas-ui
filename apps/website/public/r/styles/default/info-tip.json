@@ -25,7 +25,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "b3094827a877bd026eb997af5da63e1d6ca6fce6300a6f574f242391ea234f1f"
+    "contentHash": "d8ce17a0825370f80d7d91cc53098841cc0c48ee905372750a3cf0d5e0c2c3f4"
   },
   "name": "info-tip",
   "registryDependencies": [
@@ -35,5 +35,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

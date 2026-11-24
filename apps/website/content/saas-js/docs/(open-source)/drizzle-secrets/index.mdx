@@ -1,0 +1,79 @@
+---
+title: Drizzle Secrets
+description: Encrypted columns for Drizzle, with masked reads by default.
+---
+
+Drizzle Secrets adds an encrypted column type to Drizzle ORM. Values are
+encrypted with AES-256-GCM when you write them. When you read them back you
+get a masked string by default, so a stray `console.log(row)` or
+`return Response.json(row)` doesn't leak the plaintext.
+
+## Why
+
+Most SaaS apps end up storing someone else's credentials: OAuth refresh
+tokens, third-party API keys, webhook signing secrets. You want those
+encrypted at rest. You also want them kept out of logs, error reports, and
+API responses. Encrypting them by hand in every service is easy to get
+wrong, and one missed `decrypt` call puts plaintext into a JSON payload.
+
+Drizzle Secrets puts both concerns in the schema:
+
+- 🔐 **Encrypted at rest.** AES-256-GCM, with a fresh IV for every write.
+- 🙈 **Masked by default.** Reads return `••••` plus the last four
+  characters, and short secrets are fully masked. Masking is configurable.
+- 🧯 **Hard to leak.** `SecretValue` stays masked in `JSON.stringify`,
+  `console.log`, and template strings. The plaintext only comes out through
+  `expose()`.
+- 🔁 **Key rotation.** Every ciphertext records the ID of the key that
+  encrypted it, so old keys keep decrypting while new writes use the
+  current one.
+- 🧩 **Incremental adoption.** Existing plaintext rows are still readable,
+  so you can switch a column over without a big-bang migration.
+- 🛠️ **CLI.** Generate keys and encrypt or decrypt values from the terminal.
+
+## Quick start
+
+```bash
+npm install drizzle-secrets
+npx drizzle-secrets generate-key # → put the output in ENCRYPTION_KEY
+```
+
+```ts
+import { createDrizzleSecret, expose } from 'drizzle-secrets/drizzle'
+import { pgTable, text } from 'drizzle-orm/pg-core'
+
+const secret = createDrizzleSecret(process.env.ENCRYPTION_KEY!)
+
+export const integrations = pgTable('integrations', {
+  id: text('id').primaryKey(),
+  // Masked on read: '••••1234'
+  apiKey: secret('api_key'),
+  // Wrapped on read: SecretValue(••••9f2c)
+  refreshToken: secret('refresh_token', { mode: 'decrypt' }),
+})
+
+await db.insert(integrations).values({
+  id: 'github',
+  apiKey: 'sk-live-abcdef1234',
+  refreshToken: 'ghr_...',
+})
+
+const [row] = await db.select().from(integrations)
+
+row.apiKey // '••••1234'
+const token = expose(row.refreshToken) // the actual plaintext
+```
+
+Next, read [Installation](/packages/drizzle-secrets/docs/getting-started/installation)
+and [Basic usage](/packages/drizzle-secrets/docs/getting-started/basic-usage).
+
+## Scope
+
+- Postgres only for now. The column is built on `drizzle-orm/pg-core` and is
+  stored as `text`.
+- It encrypts single values. It isn't a key management service: you supply
+  the keys, usually from environment variables or your platform's secret
+  store.
+- Encrypted columns can't be filtered, sorted, or indexed by their plaintext.
+  Every write uses a random IV, so the same input never produces the same
+  ciphertext twice.

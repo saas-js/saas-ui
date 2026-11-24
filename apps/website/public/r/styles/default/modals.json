@@ -39,7 +39,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "3d6b66ce2ed899df407d0faa600e896a9a0dedc4701b5bdf928663c74f463068"
+    "contentHash": "2b9948e34e61fc8d4d91b59caf10c6b3bdf66caccfb77403c924998750fc421c"
   },
   "name": "modals",
   "registryDependencies": [
@@ -48,5 +48,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

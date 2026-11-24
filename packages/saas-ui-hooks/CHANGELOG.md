@@ -1,5 +1,25 @@
 # @saas-ui/system
 
+## 3.0.0
+
+### Major Changes
+
+- 550e5a6: Upgrade to Chakra v3
+- 121029e: Removed useDisclosure hook
+
+### Minor Changes
+
+- 121029e: Added useOpenState hook
+- 95c8652: Update to Chakra UI 3.2.1
+- 6459de4: Removed src exports and files from packages
+
+### Patch Changes
+
+- 6e53bc7: Updated to Chakra UI v3.20
+- cee2e9c: Removed chakra ui dependency of core package
+- d87c2ac: Added useSearchQuery hook
+- 0f49a18: Removed imports from @chakra-ui/react
+
 ## 3.0.0-next.4
 
 ### Major Changes

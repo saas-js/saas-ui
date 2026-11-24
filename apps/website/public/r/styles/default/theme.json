@@ -30,10 +30,10 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "342f26a420c948a818342535597e74bb504a9094e1f6e4ba66ccbb52858c84ec"
+    "contentHash": "9d6a8578c4a0acc629f3fd468d2f451ec790da8ceeec49be40b0145712a37051"
   },
   "name": "theme",
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

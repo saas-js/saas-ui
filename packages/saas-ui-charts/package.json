@@ -1,6 +1,6 @@
 {
   "name": "@saas-ui/charts",
-  "version": "3.0.0-rc.1",
+  "version": "3.0.0",
   "description": "Chakra UI theming for TanStack Charts",
   "type": "module",
   "exports": {

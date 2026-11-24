@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "CalendarIcon",
-    "contentHash": "e8ed1168147cd7fae4556fbd94cd54de75311e669c6d1e936761cc3fb4dffcbe",
+    "contentHash": "906f3f908ab6bf2b1762d716d1f731fe5e0b0056b2be88c75ea23c8cbafec63e",
     "iconName": "Calendar",
     "iconSet": "lucide"
   },
   "name": "calendar-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

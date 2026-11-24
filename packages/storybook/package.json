@@ -1,7 +1,7 @@
 {
   "name": "saas-ui-storybook",
   "type": "module",
-  "version": "3.0.0-rc.1",
+  "version": "3.0.0",
   "scripts": {
     "generate": "node scripts/generate-stories.mjs",
     "dev": "pnpm generate && storybook dev -p 6006",

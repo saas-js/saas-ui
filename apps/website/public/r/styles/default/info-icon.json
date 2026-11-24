@@ -18,12 +18,12 @@
       "recipeReferences": []
     },
     "componentName": "InfoIcon",
-    "contentHash": "6eb0ca5da226396a81264bf79f3b7a9ddfcf6f8f4035636e029dd4fd6803682f",
+    "contentHash": "a010d1d426537412dea27282982278769302da63dce49a582db62cbbe6f35f83",
     "iconName": "Info",
     "iconSet": "lucide"
   },
   "name": "info-icon",
   "schemaVersion": 1,
   "type": "registry:icon",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

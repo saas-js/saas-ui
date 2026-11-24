@@ -23,7 +23,7 @@
       "presetRecipeBindings": [],
       "recipeReferences": []
     },
-    "contentHash": "f772c48a8961ee14e72837930078da5274c8d531d4a1fa97febef5d394b81f5c"
+    "contentHash": "48ba981ae3c712d11f834b7102f3fc8a072521e5d96145586d37767fb2f385bd"
   },
   "name": "icon-button",
   "registryDependencies": [
@@ -31,5 +31,5 @@
   ],
   "schemaVersion": 1,
   "type": "registry:ui",
-  "version": "3.0.0-rc.1"
+  "version": "3.0.0"
 }

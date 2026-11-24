@@ -18,7 +18,7 @@
     "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy -- --keep-vars",
     "cf:typegen": "wrangler types --env-interface CloudflareEnv --include-runtime false cloudflare-env.d.ts",
     "lint": "next lint",
-    "typecheck": "node scripts/validate-content.mjs && tsc --noEmit",
+    "typecheck": "pnpm generate:example-sources && pnpm generate:prop-types && pnpm generate:llms-tokens && node scripts/validate-content.mjs && tsc --noEmit",
     "test:content": "node scripts/validate-content.mjs",
     "types:ark": "pnpm tsx scripts/types/ark.ts",
     "types:recipe": "pnpm tsx scripts/types/recipe.ts",

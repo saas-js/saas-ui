@@ -1,7 +1,7 @@
 # Migrating from `@saas-ui/react`
 
 Published user guide:
-[Migrating from next to rc](https://saas-ui.dev/docs/getting-started/migrating-from-next).
+[Migrating from next to v3](https://saas-ui.dev/docs/getting-started/migrating-from-next).
 
 Saas UI is moving from a bundled React component package to a preset and
 source-template model:
@@ -40,22 +40,22 @@ The CLI initializes Chakra, the preset, aliases, provider setup, and optional
 color mode support:
 
 ```sh
-npx @saas-ui/cli@rc init
+npx @saas-ui/cli init
 ```
 
 The default color-mode setup uses `next-themes`. Choose the setup explicitly for
 non-interactive or automated initialization:
 
 ```sh
-npx @saas-ui/cli@rc init --yes --defaults --color-mode on
-npx @saas-ui/cli@rc init --yes --defaults --color-mode off
+npx @saas-ui/cli init --yes --defaults --color-mode on
+npx @saas-ui/cli init --yes --defaults --color-mode off
 ```
 
 Add the documented starter set during initialization, or name starter items:
 
 ```sh
-npx @saas-ui/cli@rc init --starter
-npx @saas-ui/cli@rc init sidebar navbar
+npx @saas-ui/cli init --starter
+npx @saas-ui/cli init sidebar navbar
 ```
 
 Initialization installs compatible versions of `@chakra-ui/react`,
@@ -69,34 +69,34 @@ Commit or stash unrelated work before a write migration. First initialize the
 registry boundary if the project does not already have `components.json`:
 
 ```sh
-npx @saas-ui/cli@rc init
+npx @saas-ui/cli init
 ```
 
 Then generate a non-mutating migration report:
 
 ```sh
-npx @saas-ui/cli@rc migrate react-to-registry --dry-run
-npx @saas-ui/cli@rc migrate react-to-registry --dry-run --json > saas-ui-migration.json
+npx @saas-ui/cli migrate react-to-registry --dry-run
+npx @saas-ui/cli migrate react-to-registry --dry-run --json > saas-ui-migration.json
 ```
 
 The default scope is the project. Paths and globs can limit the report while a
 team migrates in batches:
 
 ```sh
-npx @saas-ui/cli@rc migrate react-to-registry src/app src/features --dry-run
+npx @saas-ui/cli migrate react-to-registry src/app src/features --dry-run
 ```
 
 Apply a reviewed plan with `--write`:
 
 ```sh
-npx @saas-ui/cli@rc migrate react-to-registry --write
+npx @saas-ui/cli migrate react-to-registry --write
 ```
 
 If the report identifies unmanaged component files that predate the registry
 lock, review their differences first and opt in to replacing them:
 
 ```sh
-npx @saas-ui/cli@rc migrate react-to-registry --write --overwrite
+npx @saas-ui/cli migrate react-to-registry --write --overwrite
 ```
 
 `--write` rewrites supported imports, installs required registry items, and
@@ -110,7 +110,7 @@ leftover `@saas-ui/react` primitive imports, which may make the CLI refuse a
 clean write.
 
 After init, pin `@saas-ui/react` and `@saas-ui/chakra-preset` to the newest
-published `rc`, add a root override so leftover packages cannot nest
+published v3, add a root override so leftover packages cannot nest
 `@saas-ui/react@next`, and bump `@chakra-ui/react` until typegen passes.
 Former Pro names such as `DataGrid` and `Filters` are public registry items
 (`data-table`, `filters`); `Toolbar` and `Resizer` are not. See the published
@@ -199,23 +199,23 @@ export const system = createSystem(defaultConfig, appConfig)
 Install named items and their complete transitive registry graph:
 
 ```sh
-npx @saas-ui/cli@rc add sidebar
-npx @saas-ui/cli@rc add app-shell page persona
+npx @saas-ui/cli add sidebar
+npx @saas-ui/cli add app-shell page persona
 ```
 
 Preview a plan without changing files or packages:
 
 ```sh
-npx @saas-ui/cli@rc add sidebar --dry-run
-npx @saas-ui/cli@rc add sidebar --diff
-npx @saas-ui/cli@rc add sidebar --diff sidebar.tsx
+npx @saas-ui/cli add sidebar --dry-run
+npx @saas-ui/cli add sidebar --diff
+npx @saas-ui/cli add sidebar --diff sidebar.tsx
 ```
 
 `add --all` installs every public installable item and chooses the declared
 default in mutually exclusive groups:
 
 ```sh
-npx @saas-ui/cli@rc add --all
+npx @saas-ui/cli add --all
 ```
 
 Registry templates may depend on Chakra, the preset, `@saas-ui/react`
@@ -238,16 +238,16 @@ Transitive items and their current files are resolved fresh for each command.
 Inspect local and upstream differences without writing:
 
 ```sh
-npx @saas-ui/cli@rc diff
-npx @saas-ui/cli@rc diff sidebar
+npx @saas-ui/cli diff
+npx @saas-ui/cli diff sidebar
 ```
 
 Review updates before applying them:
 
 ```sh
-npx @saas-ui/cli@rc update sidebar --dry-run
-npx @saas-ui/cli@rc update sidebar
-npx @saas-ui/cli@rc update --all
+npx @saas-ui/cli update sidebar --dry-run
+npx @saas-ui/cli update sidebar
+npx @saas-ui/cli update --all
 ```
 
 `diff` lets you inspect local edits before applying an update. `update`
@@ -259,8 +259,8 @@ delete files that disappeared upstream.
 Authenticate before installing items that require a Saas UI Pro account:
 
 ```sh
-npx @saas-ui/cli@rc login
-npx @saas-ui/cli@rc add <pro-block-name>
+npx @saas-ui/cli login
+npx @saas-ui/cli add <pro-block-name>
 ```
 
 A Pro block is installed as source, just like a public block. Public UI
@@ -369,18 +369,18 @@ that any package was published.
 
 ```sh
 # Initialize provider, aliases, and optional starter items
-npx @saas-ui/cli@rc init
+npx @saas-ui/cli init
 
 # Install templates
-npx @saas-ui/cli@rc add sidebar
+npx @saas-ui/cli add sidebar
 
 # Inspect and update installed templates
-npx @saas-ui/cli@rc diff
-npx @saas-ui/cli@rc update --all --dry-run
+npx @saas-ui/cli diff
+npx @saas-ui/cli update --all --dry-run
 
 # Plan or apply the legacy-package migration
-npx @saas-ui/cli@rc migrate react-to-registry --dry-run
-npx @saas-ui/cli@rc migrate react-to-registry --write
+npx @saas-ui/cli migrate react-to-registry --dry-run
+npx @saas-ui/cli migrate react-to-registry --write
 ```
 
 See the [CLI README](packages/saas-ui-cli/README.md) for flags, transaction

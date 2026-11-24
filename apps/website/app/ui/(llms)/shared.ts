@@ -83,7 +83,7 @@ export const bundles = {
     file: 'llms-v3-migration.txt',
     title: 'Migrating to v3',
     description:
-      'Migrating from Chakra UI v2 / Saas UI v2, and from `@saas-ui/react@next` to rc.',
+      'Migrating from Chakra UI v2 / Saas UI v2, and from `@saas-ui/react@next` to v3.',
     filter: (page) => MIGRATION_URLS.includes(page.url),
   },
 } satisfies Record<string, Bundle>
@@ -148,7 +148,7 @@ export function renderLlmsTxt() {
     details: [
       'Notes for using these docs:',
       '',
-      '- Set up a project with `npx @saas-ui/cli@rc init`. The CLI installs Chakra UI, Emotion and `@saas-ui/chakra-preset`, and adds Saas UI compositions to your project as editable source files.',
+      '- Set up a project with `npx @saas-ui/cli init`. The CLI installs Chakra UI, Emotion and `@saas-ui/chakra-preset`, and adds Saas UI compositions to your project as editable source files.',
       '- Chakra primitives are imported from `@chakra-ui/react`; installed compositions are imported from your project (for example `#components/ui/...`).',
       '- Wrap the app in the generated `Provider` with `defaultSystem` from `@saas-ui/chakra-preset`.',
       '- Charts come from `@saas-ui/charts`.',

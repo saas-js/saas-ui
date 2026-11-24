@@ -13,7 +13,7 @@ compositions, blocks and custom components from the Saas UI registry.
 You can run the CLI directly with `npx`, without adding it to your project:
 
 ```bash
-npx @saas-ui/cli@rc init
+npx @saas-ui/cli init
 ```
 
 Or install it as a dev dependency:
@@ -21,25 +21,25 @@ Or install it as a dev dependency:
 :::code-group
 
 ```bash [npm]
-npm i -D @saas-ui/cli@rc
+npm i -D @saas-ui/cli
 ```
 
 ```bash [yarn]
-yarn add -D @saas-ui/cli@rc
+yarn add -D @saas-ui/cli
 ```
 
 ```bash [pnpm]
-pnpm add -D @saas-ui/cli@rc
+pnpm add -D @saas-ui/cli
 ```
 
 ```bash [bun]
-bun add -d @saas-ui/cli@rc
+bun add -d @saas-ui/cli
 ```
 
 :::
 
 The CLI installs two executables, `saas-ui` and the shorter `sui`. Both run the
-same program. The examples on this page use `npx @saas-ui/cli@rc`, replace it
+same program. The examples on this page use `npx @saas-ui/cli`, replace it
 with `saas-ui` if you installed the CLI globally.
 
 > The minimum node version required is Node 22.x
@@ -74,7 +74,7 @@ Log in with your Saas UI account. This is required to install Pro blocks and
 templates.
 
 ```bash
-npx @saas-ui/cli@rc login
+npx @saas-ui/cli login
 ```
 
 The command starts a temporary local server and opens your browser. After
@@ -88,7 +88,7 @@ Initialize a project. Installs `@chakra-ui/react`, `@emotion/react` and
 local provider setup.
 
 ```bash
-npx @saas-ui/cli@rc init
+npx @saas-ui/cli init
 ```
 
 Any positional arguments are treated as extra starter components to install.
@@ -119,13 +119,13 @@ Setup items such as `provider` and `color-mode` are selected through
 `--color-mode` and cannot be passed as starter items.
 
 ```bash
-npx @saas-ui/cli@rc init --yes --defaults --color-mode on --starter
+npx @saas-ui/cli init --yes --defaults --color-mode on --starter
 ```
 
 :::info
 
 Existing apps on `@saas-ui/react@next` should follow
-[Migrating from next to rc](/docs/getting-started/migrating-from-next) instead
+[Migrating from next to v3](/docs/getting-started/migrating-from-next) instead
 of treating `init` as a greenfield install.
 
 :::
@@ -136,7 +136,7 @@ Install one or more registry items and their complete transitive dependency
 graph.
 
 ```bash
-npx @saas-ui/cli@rc add [components...]
+npx @saas-ui/cli add [components...]
 ```
 
 With no item names, `add` opens an interactive selector.
@@ -161,17 +161,17 @@ existing `components.json`. When configuration is missing, `--yes` skips the
 init confirmation and initializes before adding.
 
 ```bash
-npx @saas-ui/cli@rc add sidebar
-npx @saas-ui/cli@rc add sidebar navbar --yes
-npx @saas-ui/cli@rc add sidebar --dry-run
+npx @saas-ui/cli add sidebar
+npx @saas-ui/cli add sidebar navbar --yes
+npx @saas-ui/cli add sidebar --dry-run
 ```
 
 Use `--diff` to inspect the transformed files before installing. Without a path
 it shows the first five files, an optional path filters the output:
 
 ```bash
-npx @saas-ui/cli@rc add sidebar --diff
-npx @saas-ui/cli@rc add sidebar --diff sidebar.tsx
+npx @saas-ui/cli add sidebar --diff
+npx @saas-ui/cli add sidebar --diff sidebar.tsx
 ```
 
 The output uses local files as the base and registry content as the proposed
@@ -203,7 +203,7 @@ supported:
 Namespaced items work with the normal commands:
 
 ```bash
-npx @saas-ui/cli@rc add @acme/data-table @private/dashboard
+npx @saas-ui/cli add @acme/data-table @private/dashboard
 ```
 
 A bare dependency such as `button` inherits its parent item's namespace, an
@@ -218,7 +218,7 @@ List all components available in the registry, printed as a table with name,
 category and description. Pro items are marked with a `(PRO)` label.
 
 ```bash
-npx @saas-ui/cli@rc list
+npx @saas-ui/cli list
 ```
 
 | Option              | Description                               | Default |
@@ -227,8 +227,8 @@ npx @saas-ui/cli@rc list
 | `--search <term>`   | Search components by name or description. | —       |
 
 ```bash
-npx @saas-ui/cli@rc list --category navigation
-npx @saas-ui/cli@rc list --search table
+npx @saas-ui/cli list --category navigation
+npx @saas-ui/cli list --search table
 ```
 
 ## diff
@@ -237,7 +237,7 @@ Compare installed registry items with your local files and the current registry.
 This command never writes to your project.
 
 ```bash
-npx @saas-ui/cli@rc diff [components...]
+npx @saas-ui/cli diff [components...]
 ```
 
 With no names it compares every installed root and its current dependency graph.
@@ -249,9 +249,9 @@ Otherwise it compares the named installed roots.
 | `--cwd <path>` | The working directory.                                         | Current directory |
 
 ```bash
-npx @saas-ui/cli@rc diff
-npx @saas-ui/cli@rc diff sidebar
-npx @saas-ui/cli@rc diff --check
+npx @saas-ui/cli diff
+npx @saas-ui/cli diff sidebar
+npx @saas-ui/cli diff --check
 ```
 
 Use `--check` in CI to fail a build when local components have drifted from the
@@ -262,7 +262,7 @@ registry.
 Refresh installed registry items with the current registry content.
 
 ```bash
-npx @saas-ui/cli@rc update [components...]
+npx @saas-ui/cli update [components...]
 ```
 
 With no names, every installed root in `components.json` is updated. Pass names
@@ -280,9 +280,9 @@ merge your changes, and it never deletes files that disappeared from a registry
 item or its dependency graph. Run `diff` first if you have local edits.
 
 ```bash
-npx @saas-ui/cli@rc update
-npx @saas-ui/cli@rc update sidebar --dry-run
-npx @saas-ui/cli@rc update --all
+npx @saas-ui/cli update
+npx @saas-ui/cli update sidebar --dry-run
+npx @saas-ui/cli update --all
 ```
 
 ### Installed items
@@ -307,7 +307,7 @@ Migrate legacy Saas UI projects. Currently one migration is available.
 Rewrite `@saas-ui/react` imports to Chakra UI and local registry templates.
 
 ```bash
-npx @saas-ui/cli@rc migrate react-to-registry [paths...]
+npx @saas-ui/cli migrate react-to-registry [paths...]
 ```
 
 The migration scans the whole project by default, or only the supplied files,
@@ -325,9 +325,9 @@ Migration is non-mutating unless `--write` is supplied. `--write` and
 `--dry-run` are mutually exclusive.
 
 ```bash
-npx @saas-ui/cli@rc migrate react-to-registry --dry-run
-npx @saas-ui/cli@rc migrate react-to-registry --dry-run --json > migration.json
-npx @saas-ui/cli@rc migrate react-to-registry src/app --write
+npx @saas-ui/cli migrate react-to-registry --dry-run
+npx @saas-ui/cli migrate react-to-registry --dry-run --json > migration.json
+npx @saas-ui/cli migrate react-to-registry src/app --write
 ```
 
 The report includes source diagnostics, requested templates, required npm
@@ -337,7 +337,7 @@ after verifying that no static project or package references remain.
 
 :::info
 
-Read [Migrating from next to rc](/docs/getting-started/migrating-from-next)
+Read [Migrating from next to v3](/docs/getting-started/migrating-from-next)
 before applying a write migration. It covers provider and color-mode changes,
 component ownership, Pro blocks, manual cases and verification.
 

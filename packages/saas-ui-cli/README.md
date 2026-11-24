@@ -5,7 +5,7 @@ components from the Saas UI registry.
 
 After a global install, the preferred executable is `saas-ui`. The existing
 `sui` executable remains available for compatibility. Without a global install,
-use `npx @saas-ui/cli@rc` in place of `saas-ui` in the examples below.
+use `npx @saas-ui/cli` in place of `saas-ui` in the examples below.
 
 ## Initialize a project
 
@@ -21,14 +21,13 @@ local provider setup. Color mode is enabled by default in non-interactive
 initialization and installs `next-themes`; choose explicitly with
 `--color-mode on` or `--color-mode off`.
 
-Framework package versions come from one CLI compatibility policy. While the v3
-preset is published on the `rc` channel, clean projects receive the exact
-current workspace release (embedded into the CLI at build time) rather than a
-moving dist-tag; compatible stable v3 declarations remain valid for the eventual
-stable channel. In a monorepo, `workspace:` declarations are retained only after
-the CLI resolves the local package version and validates both its release
-channel and any versioned workspace selector. A required package declared in
-multiple package manifest dependency sections is rejected before mutation.
+Framework package versions come from one CLI compatibility policy. Clean
+projects receive the exact preset release the CLI was built against (embedded at
+build time) rather than a moving dist-tag; any compatible v3 declaration remains
+valid. In a monorepo, `workspace:` declarations are retained only after the CLI
+resolves the local package version and validates both its release channel and
+any versioned workspace selector. A required package declared in multiple
+package manifest dependency sections is rejected before mutation.
 
 Use `--starter` to add the documented starter set (currently `sidebar`), or pass
 item names after `init` to choose additional starter items. Setup items such as
@@ -162,7 +161,7 @@ saas-ui update --all
 ## Migrate from `@saas-ui/react`
 
 Read the
-[Migrating from next to rc](https://saas-ui.dev/docs/getting-started/migrating-from-next)
+[Migrating from next to v3](https://saas-ui.dev/docs/getting-started/migrating-from-next)
 guide before applying a write migration. It covers provider and color-mode
 changes, component ownership, Pro blocks, manual cases, and verification. The
 repository
@@ -222,7 +221,7 @@ not fall back to the network when a generated artifact is missing.
 Visit <https://saas-ui.dev/docs/getting-started/cli> for the full documentation.
 
 For the distribution-model transition, see
-[Migrating from next to rc](https://saas-ui.dev/docs/getting-started/migrating-from-next)
+[Migrating from next to v3](https://saas-ui.dev/docs/getting-started/migrating-from-next)
 and the repository
 [`@saas-ui/react` migration guide](https://github.com/saas-js/saas-ui/blob/main/MIGRATION.md).
 

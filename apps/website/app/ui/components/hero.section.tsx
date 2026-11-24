@@ -44,9 +44,9 @@ export const HeroSection = () => {
               <CopyButton
                 variant="outline"
                 size="lg"
-                value="npx @saas-ui/cli@rc init"
+                value="npx @saas-ui/cli init"
               >
-                &gt; npx @saas-ui/cli@rc init
+                &gt; npx @saas-ui/cli init
               </CopyButton>
             </Stack>
           </Stack>

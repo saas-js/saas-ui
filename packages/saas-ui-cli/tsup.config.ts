@@ -10,10 +10,10 @@ import { version as cliVersion } from './package.json'
 const packageRoot = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(({ watch }) => {
-  const authOrigin = process.env.AUTH_ORIGIN ?? 'https://saas-ui.dev'
-  const registryUrl = process.env.REGISTRY_URL ?? 'https://saas-ui.dev/r'
+  const authOrigin = process.env.AUTH_ORIGIN || 'https://saas-ui.dev'
+  const registryUrl = process.env.REGISTRY_URL || 'https://saas-ui.dev/r'
   const schemaUrl =
-    process.env.SCHEMA_URL ?? 'https://saas-ui.dev/r/schema/components.json'
+    process.env.SCHEMA_URL || 'https://saas-ui.dev/r/schema/components.json'
 
   return {
     entry: {
